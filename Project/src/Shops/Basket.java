@@ -1,4 +1,4 @@
-package Shop;
+package Shops;
 
 import java.util.Collection;
 
