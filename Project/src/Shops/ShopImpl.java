@@ -14,7 +14,7 @@ public class ShopImpl implements Shop {
     private int id;
     private String name;
     private State state;
-    private ArrayList<SubscribedUser> owners;
+    private ArrayList<SubscribedUser> owners = new ArrayList<>();
     private SubscribedUser founder;
 
 
