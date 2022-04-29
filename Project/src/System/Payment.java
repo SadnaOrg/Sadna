@@ -1,5 +1,7 @@
 package System;
 
-public class Payment {
+public abstract class Payment {
     int id;
+
+    public abstract boolean pay(int totalPrice);
 }
