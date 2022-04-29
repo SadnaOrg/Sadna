@@ -1,5 +1,8 @@
 package BusinessLayer.System;
 
-public class Payment {
+import BusinessLayer.Shops.Purchase;
+
+public abstract class Payment {
     int id;
+    public abstract Purchase pay(int totalPrice);
 }
