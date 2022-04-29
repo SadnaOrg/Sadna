@@ -1,4 +1,4 @@
-package ServiceLayer;
+package ServiceLayer.interfaces;
 
 public interface UserService {
 }
