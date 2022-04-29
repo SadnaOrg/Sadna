@@ -13,7 +13,7 @@ public abstract class User {
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
         if (!shoppingCart.containsKey(shopid)) {
-            Basket b = new Basket();
+            Basket b = new Basket(shopid);
             shoppingCart.put(shopid, b);
         }
         Basket b = shoppingCart.get(shopid);
@@ -41,7 +41,6 @@ public abstract class User {
         //show options and let him choose
         return true;
     }
-
 
     public boolean removeproduct(int shopid, int productid)
     {
