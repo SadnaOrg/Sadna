@@ -1,4 +1,4 @@
-package System;
+package BusinessLayer.System;
 
 public class ProxyPayment extends Payment{
     private Payment payment = null;
