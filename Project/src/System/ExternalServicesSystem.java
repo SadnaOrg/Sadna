@@ -1,8 +1,14 @@
 package System;
 
 import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ExternalServicesSystem {
-    private ArrayList<Payment> payment;
-    private ArrayList<Supply> supply;
+    private ConcurrentHashMap<Integer, Payment> payment;
+    private ConcurrentHashMap<Integer, Supply> supply;
+
+    public ExternalServicesSystem(){
+        payment = new ConcurrentHashMap<>();
+        supply = new ConcurrentHashMap<>();
+    }
 }
