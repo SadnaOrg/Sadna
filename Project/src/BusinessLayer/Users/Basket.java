@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class Basket {
-
-
-
     private int shopid;
     //the key is the product id in the specific store
     //the value will be the quantity of the product
@@ -22,4 +19,7 @@ public class Basket {
         return false;
     }
 
+    public HashMap<Integer, Integer> getProducts() {
+        return products;
+    }
 }

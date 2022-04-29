@@ -6,7 +6,10 @@ public abstract class User {
 
     //the key is the shopid
     //the value is the basket of the specific shop
-    private HashMap<Integer, Basket> shoppingCart;
+    private HashMap<Integer, Basket> shoppingCart = new HashMap<>();
+
+
+
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity)
     {
@@ -16,6 +19,7 @@ public abstract class User {
             shoppingCart.put(shopid,b);
         }
         Basket b = shoppingCart.get(shopid);
+
         if(!b.saveProducts(productid, quantity))
         {
             //the product is already exist in the basket
@@ -24,4 +28,7 @@ public abstract class User {
         return true;
     }
 
+    public HashMap<Integer, Basket> getShoppingCart() {
+        return shoppingCart;
+    }
 }
