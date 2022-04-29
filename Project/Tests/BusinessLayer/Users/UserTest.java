@@ -21,8 +21,7 @@ public class UserTest {
 
     @Test
     public void testSaveProducts() {
-        u1.saveProducts(100,1,10);
-
+        assertTrue(u1.saveProducts(100,1,10));
         assertEquals(10, (int) u1.getShoppingCart().get(100).getProducts().get(1));
 
     }
