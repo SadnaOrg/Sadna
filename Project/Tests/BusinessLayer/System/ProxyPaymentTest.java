@@ -17,7 +17,7 @@ public class ProxyPaymentTest {
 
     @Test
     public void pay() {
-        Assert.assertNull(p.pay(1000, 4));
-        Assert.assertNull(p.pay(2000, 100));
+        Assert.assertNull(p.pay(1000));
+        Assert.assertNull(p.pay(2000));
     }
 }
