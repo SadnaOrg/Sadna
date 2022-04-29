@@ -1,10 +1,7 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductImpl;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Shops.ShopImpl;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,9 +10,9 @@ import static org.junit.Assert.*;
 public class UserTest {
     Shop s1;
     User u1;
-    Product p1;
+    ProductImpl p1;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         s1 = createShopWithProduct();
         u1 = createUser();
 
@@ -80,7 +77,7 @@ public class UserTest {
     }
 
     private Shop createShop() {
-        return new ShopImpl(100, "shop");
+        return new Shop(100, "shop");
     }
 
     private User createUser()
@@ -88,7 +85,7 @@ public class UserTest {
         return new User() { };
     }
 
-    private Product createProduct() {
+    private ProductImpl createProduct() {
         return new ProductImpl(1, "a", 5, 100);
     }
 }
