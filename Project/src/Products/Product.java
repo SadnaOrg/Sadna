@@ -1,4 +1,4 @@
-package Shops;
+package Products;
 
 interface  Product {
     int getID();
