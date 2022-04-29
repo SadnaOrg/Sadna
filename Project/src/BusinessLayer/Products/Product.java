@@ -1,7 +1,6 @@
+package BusinessLayer.Shops;
 
-package BusinessLayer.Products;
-
-public interface  Product {
+interface  Product {
     int getID();
     String getName();
     double getPrice();
