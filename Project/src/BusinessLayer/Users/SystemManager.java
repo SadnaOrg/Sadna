@@ -1,4 +1,4 @@
-package BusinessLayer.Shops.Users;
+package BusinessLayer.Users;
 
 public class SystemManager extends SubscribedUser {
 }

@@ -1,4 +1,4 @@
-package BusinessLayer.Shops.System;
+package BusinessLayer.System;
 
 public class Payment {
     int id;

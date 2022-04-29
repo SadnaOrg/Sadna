@@ -1,4 +1,4 @@
-package BusinessLayer.Shops.System;
+package BusinessLayer.System;
 
 public class Supply {
     int id;

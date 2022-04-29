@@ -1,4 +1,4 @@
-package BusinessLayer.Shops.System;
+package BusinessLayer.System;
 
 import BusinessLayer.Shops.Shop;
 
