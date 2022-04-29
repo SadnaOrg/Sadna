@@ -1,7 +1,12 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 public class ShopImpl implements Shop {
     public ShopImpl(int id, String name) {
@@ -40,4 +45,9 @@ public class ShopImpl implements Shop {
     public ConcurrentHashMap<Integer, Product> getProducts() {
         return products;
     }
+
+    public Collection<Product> searchProducts(ProductFilters pred){
+        return products.values().stream().filter(pred).collect(Collectors.toList());
+    }
+
 }
