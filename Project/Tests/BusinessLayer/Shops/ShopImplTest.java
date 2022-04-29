@@ -83,10 +83,7 @@ public class ShopImplTest {
         s.addProduct(p1);
         s.addProduct(p2);
         Assert.assertEquals(s.searchProducts(product -> false) , new ArrayList<>());
-
         Assert.assertEquals(s.searchProducts(product -> product.equals(p1)) ,p1l);
-
-
     }
 
 }
