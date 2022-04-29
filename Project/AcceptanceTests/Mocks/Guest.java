@@ -1,6 +1,8 @@
-package test.Mocks;
+package Mocks;
 
-public class Guest extends User{
+import Mocks.User;
+
+public class Guest extends User {
 
     public Guest(int ID){
         this.ID = ID;

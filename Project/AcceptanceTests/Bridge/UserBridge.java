@@ -1,8 +1,9 @@
-package test.Bridge;
+package Bridge;
 
-import test.Mocks.*;
+import Mocks.*;
 
 import java.util.List;
+import java.util.Map;
 
 // This is the interface of the options available for all types of users.
 
@@ -10,7 +11,7 @@ public interface UserBridge {
 
     Guest visit();
 
-    SubscribedUser login(Guest guest,String username,String password);
+    SubscribedUser login(Guest guest,RegistrationInfo info);
 
     SubscribedUser register(Guest guest,RegistrationInfo info);
 
@@ -36,9 +37,9 @@ public interface UserBridge {
 
     Shop openShop(int userID, String name, String category);
 
-    void addProductToShop(int userID, int shopID,Product product,int ID,int quantityInStock,double price);
+    void addProductToShop(int userID, int shopID, Product product, int ID, int quantityInStock, double price);
 
-    ProductInShop searchProductInShop(int productID, Shop shop);
+    ProductInShop searchProductInShop(int productID, int shopID);
 
     boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice);
 
@@ -50,5 +51,9 @@ public interface UserBridge {
 
     boolean closeShop(int shopID, int userID);
 
-    boolean addPermisionToManager(int id, int id1, int id2, String change_policies);
+    boolean addPermission(int shopiID, int giverID, int receiverID, String permission);
+
+    Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID);
+
+    Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID);
 }

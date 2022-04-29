@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class Shop {
         products = new HashMap<>();
     }
 
-    public boolean sells(Product p) {
+    public boolean sells(Mocks.Product p) {
         return this.ID >= 5;
     }
 

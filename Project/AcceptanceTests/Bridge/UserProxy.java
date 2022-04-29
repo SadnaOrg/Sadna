@@ -1,8 +1,12 @@
-package test.Bridge;
+package Bridge;
 
-import test.Mocks.*;
+import Mocks.*;
+import Mocks.Guest;
+import Mocks.SubscribedUser;
+import Mocks.RegistrationInfo;
 
 import java.util.List;
+import java.util.Map;
 
 public class UserProxy implements UserBridge{
     protected UserBridge real = null;
@@ -18,7 +22,7 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public SubscribedUser login(Guest guest,String username,String password) {
+    public SubscribedUser login(Guest guest, RegistrationInfo info) {
         return null;
     }
 
@@ -88,7 +92,7 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public ProductInShop searchProductInShop(int productID, Shop shop) {
+    public ProductInShop searchProductInShop(int productID, int shopID) {
         return null;
     }
 
@@ -118,8 +122,17 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public boolean addPermisionToManager(int id, int id1, int id2, String change_policies) {
+    public boolean addPermission(int shopiID, int giverID, int receiverID, String permission) {
         return false;
     }
 
+    @Override
+    public Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID) {
+        return null;
+    }
+
+    @Override
+    public Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID) {
+        return null;
+    }
 }

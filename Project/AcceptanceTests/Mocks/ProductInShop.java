@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 public class ProductInShop {
     public int ID;

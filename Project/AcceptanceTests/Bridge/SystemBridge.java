@@ -1,4 +1,4 @@
-package test.Bridge;
+package Bridge;
 
 public interface SystemBridge {
 }

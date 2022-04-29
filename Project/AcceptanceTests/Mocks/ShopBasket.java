@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 import java.util.Map;
 
@@ -13,5 +13,9 @@ public class ShopBasket {
 
     public int numOfProducts() {
         return products.size();
+    }
+
+    public int getProductQuantity(int productID) {
+        return products.getOrDefault(productID,null);
     }
 }

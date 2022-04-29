@@ -1,22 +1,19 @@
-package test.Tests;
+package Tests;
 
-import test.Bridge.ShopsBridge;
-import test.Bridge.SystemBridge;
-import test.Bridge.UserBridge;
-import test.Mocks.*;
+import Bridge.UserBridge;
+import Mocks.*;
 
 // This class is used for setting up data for tests
 
 // TODO: TEAR DOWN AFTER TESTS
-// TODO: REFACTOR, Compose tests
-
 // TODO: make verifications in failure cases a call to a get operations to verify that nothing has changed
-// TODO: fix shopping cart
+
+// TODO: add permissions to founders
 
 public abstract class ProjectTests {
-    protected static UserBridge userBridge;
-    protected static ShopsBridge shopsBridge;
-    protected static SystemBridge systemBridge;
+    protected static Bridge.UserBridge userBridge;
+    protected static Bridge.ShopsBridge shopsBridge;
+    protected static Bridge.SystemBridge systemBridge;
 
     protected static final ShopFilter [] shopFilters = setUpShopFilters();
     public static final int RATING_FILTER = 0, NAME_FILTER = 1, CATEGORY_FILTER = 2;
@@ -30,12 +27,12 @@ public abstract class ProjectTests {
     protected static final ProductFilter [] productFailFilters = setUpFailProductFilters();
     public static final int PRODUCT_RATINGF_FILTER = 0, MANUFACTURERF_FILTER = 1;
 
-    protected static final Shop[] shops = {createACE(),createCastro(),createMegaSport()};
+    public static final Shop[] shops = {createACE(),createCastro(),createMegaSport()};
     public static final int ACE_ID = 0, castro_ID = 1, MegaSport_ID = 2;
 
-    protected static SubscribedUser ACEFounder=null;
-    protected static SubscribedUser castroFounder = null;
-    protected static SubscribedUser MegaSportFounder =null;
+    public static SubscribedUser ACEFounder=null;
+    public static SubscribedUser castroFounder = null;
+    public static SubscribedUser MegaSportFounder =null;
 
 
     protected static Product[] ACEProducts;
@@ -45,6 +42,7 @@ public abstract class ProjectTests {
     public static void setUserBridge(UserBridge bridge) {
         userBridge = bridge;
     }
+    public static UserBridge getUserBridge(){return userBridge;}
 
     public static void setUpTests(){
         setUpSystem();
@@ -62,7 +60,7 @@ public abstract class ProjectTests {
         Appointment ace_owner = new Appointment("Owner", ACEFounder.ID);
         Appointment castro_founder = new Appointment("Founder", -1);
         Appointment megasport_founder = new Appointment("Founder", -1);
-        Appointment megasport_manager = new Appointment("Manager", castroFounder.ID);
+        Appointment megasport_manager = new Appointment("Manager", MegaSportFounder.ID);
 
         ACEFounder.addRole(shops[ACE_ID].ID,ace_founder);
         castroFounder.addRole(shops[castro_ID].ID,castro_founder);

@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,15 +19,9 @@ public class ShoppingCart {
         return num;
     }
 
-    public int getShop(int shopNumber) {
-        return shopsList.get(shopNumber);
+    public ShopBasket getShopBasket(int shopID) {
+        return baskets.getOrDefault(shopID,null);
     }
 
-    public int getProduct(int productNumber) {
-        return productList.get(productNumber);
-    }
-
-    public int getQuantity(int quantityNumber) {
-        return quantities.get(quantityNumber);
-    }
+    public int getNumberOfBaskets(){return baskets.size();}
 }

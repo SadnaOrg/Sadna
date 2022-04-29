@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 public class Appointment {
     public String role;

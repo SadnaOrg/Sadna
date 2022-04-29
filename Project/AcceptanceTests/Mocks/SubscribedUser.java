@@ -1,4 +1,4 @@
-package test.Mocks;
+package Mocks;
 
 import java.util.HashMap;
 import java.util.List;

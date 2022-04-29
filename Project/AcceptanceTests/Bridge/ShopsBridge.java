@@ -1,7 +1,7 @@
-package test.Bridge;
+package Bridge;
 
-import test.Mocks.Product;
-import test.Mocks.Shop;
+import Mocks.Product;
+import Mocks.Shop;
 
 
 public interface ShopsBridge {
