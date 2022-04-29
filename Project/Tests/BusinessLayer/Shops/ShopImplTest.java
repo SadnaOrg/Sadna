@@ -1,7 +1,13 @@
 package BusinessLayer.Shops;
 
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Products.ProductImpl;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopImplTest {
     @Test
@@ -67,4 +73,20 @@ public class ShopImplTest {
     private Product getProductFromShop(Shop s1, int id) {
         return s1.getProducts().get(id);
     }
+
+    @Test
+    public void searchProducts() {
+        Shop s = createShop();
+        Product p1 = createProduct(), p2 =createDifferentProduct();
+        List<Product> p1l = new ArrayList<>();
+        p1l.add(p1);
+        s.addProduct(p1);
+        s.addProduct(p2);
+        Assert.assertEquals(s.searchProducts(product -> false) , new ArrayList<>());
+
+        Assert.assertEquals(s.searchProducts(product -> product.equals(p1)) ,p1l);
+
+
+    }
+
 }

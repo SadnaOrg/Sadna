@@ -1,5 +1,7 @@
 package BusinessLayer.Shops;
 
+import BusinessLayer.Products.Product;
+
 import java.util.Collection;
 
 public class Basket {
