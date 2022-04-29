@@ -2,6 +2,7 @@ package Shops;
 
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopImpl {
     public enum State {
@@ -11,7 +12,7 @@ public class ShopImpl {
     private int id;
     private String name;
     private State state;
-    private HashMap<Integer, Product> products;
+    private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
 
     public void addProduct(Product p) {
         products.put(p.getID(), p);
