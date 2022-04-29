@@ -1,7 +1,7 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Shops.Product;
-import BusinessLayer.Shops.ProductImpl;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductImpl;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopImpl;
 import org.junit.Assert;
