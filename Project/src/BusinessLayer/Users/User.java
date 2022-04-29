@@ -1,12 +1,13 @@
 package BusinessLayer.Users;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class User {
 
     //the key is the shopid
     //the value is the basket of the specific shop
-    private HashMap<Integer, Basket> shoppingCart = new HashMap<>();
+    private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
 
 
     //assume that the productid is in the relevant shop handle in facade
@@ -22,6 +23,11 @@ public abstract class User {
             return false;
         }
         return true;
+    }
+
+    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid)
+    {
+        return shoppingCart.get(shopid).getProducts();
     }
 
     public boolean search_in_shopping_cart()
@@ -54,7 +60,8 @@ public abstract class User {
         return false;
     }
 
-    public HashMap<Integer, Basket> getShoppingCart() {
+    public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
     }
+
 }

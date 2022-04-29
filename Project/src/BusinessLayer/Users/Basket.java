@@ -1,13 +1,12 @@
 package BusinessLayer.Users;
 
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Basket {
     private int shopid;
     //the key is the product id in the specific store
     //the value will be the quantity of the product
-    private HashMap<Integer , Integer> products = new HashMap<>();
+    private ConcurrentHashMap<Integer , Integer> products = new ConcurrentHashMap<>();
 
     //secret
     public boolean saveProducts(int productid, int quantity) {
@@ -35,7 +34,7 @@ public class Basket {
         }
         return false;
     }
-    public HashMap<Integer, Integer> getProducts() {
+    public ConcurrentHashMap<Integer, Integer> getProducts() {
         return products;
     }
 
