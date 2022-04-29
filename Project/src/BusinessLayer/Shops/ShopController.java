@@ -10,6 +10,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class ShopController{
+
+
+    static private class ShopControllerHolder {
+        static final ShopController sc = new ShopController();
+    }
+
+    public static ShopController getInstance(){
+        return ShopControllerHolder.sc;
+    }
+
+
     private final Map<String, Shop> shops;
 
     public ShopController() {
