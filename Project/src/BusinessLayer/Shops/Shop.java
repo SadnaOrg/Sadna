@@ -1,13 +1,11 @@
 package BusinessLayer.Shops;
 
+import java.util.concurrent.ConcurrentHashMap;
 
-public class Shop {
-    public enum State {
-        OPEN,
-        CLOSED
-    }
-    private int id;
-    private String name;
-    private State state;
+public interface Shop {
 
+    ConcurrentHashMap<Integer, Product> getProducts();
+    void addProduct(Product p);
+    void changeProduct(Product new_product);
+    void removeProduct(Product p);
 }
