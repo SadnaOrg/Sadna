@@ -1,4 +1,6 @@
-package BusinessLayer.Shops;
+package BusinessLayer.Products;
+
+
 
 public class ProductImpl implements Product {
 

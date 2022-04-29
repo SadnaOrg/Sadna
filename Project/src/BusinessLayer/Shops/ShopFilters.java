@@ -1,2 +1,6 @@
-package BusinessLayer.Shops;public class ShopFilters {
+package BusinessLayer.Shops;
+
+import java.util.function.Predicate;
+
+public interface ShopFilters extends Predicate<Shop> {
 }
