@@ -1,5 +1,7 @@
 package Shops;
 
+import Products.Product;
+
 import java.util.Collection;
 
 public class Basket {
