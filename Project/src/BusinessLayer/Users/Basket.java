@@ -19,7 +19,25 @@ public class Basket {
         return false;
     }
 
+
+    public boolean removeProduct(int productid) {
+        if (products.containsKey(productid)) {
+            products.remove(productid);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean editProductQuantity(int productid, int newquantity) {
+        if (products.containsKey(productid)) {
+            products.put(productid, newquantity);
+            return true;
+        }
+        return false;
+    }
     public HashMap<Integer, Integer> getProducts() {
         return products;
     }
+
+
 }
