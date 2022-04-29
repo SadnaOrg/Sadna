@@ -50,4 +50,7 @@ public class ShopImpl implements Shop {
         return products.values().stream().filter(pred).collect(Collectors.toList());
     }
 
+    public int getId() {
+        return id;
+    }
 }

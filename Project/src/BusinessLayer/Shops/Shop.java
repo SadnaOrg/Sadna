@@ -11,4 +11,5 @@ public interface Shop {
     void removeProduct(Product p);
 
     Collection<Product> searchProducts(ProductFilters productFilters);
-}
+    int getId();
+    }
