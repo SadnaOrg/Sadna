@@ -10,7 +10,7 @@ public class ProxySupplyTest {
     public ProxySupply p = null;
 
     @Before
-    public void before(){
+    public void setUp(){
         p = new ProxySupply();
     }
 
