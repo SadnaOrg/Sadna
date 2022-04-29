@@ -1,12 +1,14 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Shops.Purchase;
+
 public class ProxyPayment extends Payment{
     private Payment payment = null;
 
     @Override
-    public boolean pay(int totalPrice) {
+    public Purchase pay(int totalPrice, int transactionId) {
         if(payment != null)
-            return payment.pay(totalPrice);
-        return false;
+            return payment.pay(totalPrice, transactionId);
+        return null;
     }
 }
