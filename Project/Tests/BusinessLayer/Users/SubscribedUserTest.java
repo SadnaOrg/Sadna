@@ -9,7 +9,7 @@ import javax.naming.NoPermissionException;
 
 import static org.junit.Assert.*;
 
-class SubscribedUserTest {
+public class SubscribedUserTest {
     private SubscribedUser user1;
     private SubscribedUser user2;
     private SubscribedUser toAssign;
@@ -17,7 +17,7 @@ class SubscribedUserTest {
     private Shop shop2;
     ShopManager sm1;
     @Before
-    void setUp() {
+    public void setUp() {
         user1 =new SubscribedUser("user1");
         user2 = new SubscribedUser("user2");
         toAssign=new SubscribedUser("toAssign");
@@ -29,7 +29,7 @@ class SubscribedUserTest {
     }
 
     @Test
-    void addAdministrator() {
+    public void addAdministrator() {
         assertNull(user1.getAdministrator(shop1.getId()));
         user1.addAdministrator(shop1.getId(),sm1);
         assertEquals(user1.getAdministrator(shop1.getId()),sm1);
@@ -39,7 +39,7 @@ class SubscribedUserTest {
     }
 
     @Test
-    void assignShopManager() {
+    public void assignShopManager() {
         user1.addAdministrator(shop1.getId(),sm1);
         try {
             user2.assignShopManager(shop2.getId(),toAssign);
