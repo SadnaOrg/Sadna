@@ -28,7 +28,7 @@ public enum BaseActionType {
             case ASSIGN_SHOP_OWNER -> new AssignShopOwner(shop, user);
             case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop, user);
             case SET_PURCHASE_POLICY -> new SetPurchasePolicy();
-            case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission();
+            case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission(shop, user);
         };
     }
 }
