@@ -52,14 +52,14 @@ public class SubscribedUserTest {
 
         try{
             user1.assignShopManager(shop1.getId(),toAssign);
-            assertNull(toAssign.getAdministrator(shop1.getId()));
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
         } catch (NoPermissionException e) {
             fail("supposed to succeed but got exception :"+e.getMessage());
         }
 
         try {
-            toAssign.assignShopManager(shop1.getId(),toAssign);
-            fail("do the transaction with out a premmission");
+            if(toAssign.assignShopManager(shop1.getId(),toAssign))
+                fail("do the transaction with out a premmission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
         }
@@ -77,16 +77,45 @@ public class SubscribedUserTest {
 
         try{
             user1.assignShopOwner(shop1.getId(),toAssign);
-            assertNull(toAssign.getAdministrator(shop1.getId()));
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
         } catch (NoPermissionException e) {
             fail("supposed to succeed but got exception :"+e.getMessage());
         }
 
         try {
-            toAssign.assignShopOwner(shop1.getId(),toAssign);
-            fail("do the transaction with out a permission");
+            if(toAssign.assignShopOwner(shop1.getId(), toAssign))
+                fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
+        }
+    }
+
+    @Test
+    public void changeManagerPermission() {
+        user1.addAdministrator(shop1.getId(), so1);
+        user2.addAdministrator(shop1.getId(), sm1);
+        BaseActionType[] types = new BaseActionType[]{BaseActionType.ASSIGN_SHOP_MANAGER};
+        try {
+            user1.changeManagerPermission(shop1.getId(), user2, new BaseActionType[]{});
+            user2.assignShopManager(shop1.getId(), toAssign);
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+            assertNull(toAssign.getAdministrator(shop1.getId()));
+        }
+
+        try{
+            user1.changeManagerPermission(shop1.getId(), user2, types);
+            user2.assignShopManager(shop1.getId(), toAssign);
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
+        } catch (NoPermissionException e) {
+            fail("supposed to succeed but got exception :"+e.getMessage());
+        }
+
+        try {
+            user2.changeManagerPermission(shop1.getId(), user1, new BaseActionType[]{});
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+            assertNotEquals(0, user2.getAdministrator(shop1.getId()).action.size());
         }
     }
 }

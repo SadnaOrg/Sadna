@@ -1,10 +1,7 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.AssignShopManager;
-import BusinessLayer.Users.BaseActions.AssignShopOwner;
-import BusinessLayer.Users.BaseActions.BaseAction;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.*;
 
 import javax.naming.NoPermissionException;
 import java.util.Map;
@@ -41,11 +38,21 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
+    public boolean ChangeManagerPermission(SubscribedUser toAssign, BaseActionType[] types) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
+            return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
+        else throw new NoPermissionException();
+    }
+
     public void addAppoint(ShopAdministrator admin) {
         appoints.add(admin);
     }
 
-    protected void AddAction(BaseActionType actionType){
+    public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
+    }
+
+    public void emptyActions(){
+        action = new ConcurrentHashMap<>();
     }
 }
