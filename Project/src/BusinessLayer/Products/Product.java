@@ -6,6 +6,7 @@ public class Product {
 
     private int id;
     private String name;
+    private String description;
     private double price;
     private int quantity;
 
@@ -51,5 +52,9 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

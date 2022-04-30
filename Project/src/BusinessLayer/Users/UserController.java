@@ -3,6 +3,9 @@ package BusinessLayer.Users;
 import javax.naming.NoPermissionException;
 import BusinessLayer.Shops.ShopController;
 
+import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Shops.ShopInfo;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -61,6 +64,12 @@ public class UserController {
     public boolean editProductQuantity(User u, int shopid, int productid, int newquantity)
     {
         return u.editProductQuantity(shopid, productid, newquantity);
+    }
+
+
+    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
+    {
+        return ShopController.getInstance().reciveInformation();
     }
 
 

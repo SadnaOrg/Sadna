@@ -1,11 +1,13 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.ShopInfo;
+
 import BusinessLayer.Shops.ShopController;
 
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
-public abstract class User {
+public abstract class User{
 
     //the key is the shopid
     //the value is the basket of the specific shop
@@ -27,18 +29,15 @@ public abstract class User {
         }
         Basket b = shoppingCart.get(shopid);
 
-        if (!b.saveProducts(productid, quantity)) {
-            //the product is already exist in the basket
-            return false;
-        }
-        return true;
+        //the product is already exist in the basket
+        return b.saveProducts(productid, quantity);
     }
 
     public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid){
         return shoppingCart.get(shopid).getProducts();
     }
 
-    public boolean search_in_shopping_cart() {
+    public boolean search_in_shopping_cart(){
         for (Basket b:shoppingCart.values())
         {
             //print each basket in specific format
@@ -57,7 +56,7 @@ public abstract class User {
     }
 
 
-    public boolean editProductQuantity(int shopid, int productid, int newquantity) {
+    public boolean editProductQuantity(int shopid, int productid, int newquantity){
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -66,6 +65,10 @@ public abstract class User {
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
+    }
+    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
+    {
+        return UserController.getInstance().reciveInformation();
     }
 
     public Basket getBasket(int shopid)
