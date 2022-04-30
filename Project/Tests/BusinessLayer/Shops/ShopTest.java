@@ -1,6 +1,6 @@
 package BusinessLayer.Shops;
 
-import BusinessLayer.Products.ProductImpl;
+import BusinessLayer.Products.Product;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class ShopTest {
     @Test
     public void removeProduct() {
         Shop s1 = createShop();
-        ProductImpl p1 = createProduct();
+        Product p1 = createProduct();
         s1.addProduct(p1);
         s1.removeProduct(p1);
         Assert.assertEquals(0, s1.getProducts().size());
@@ -61,14 +61,14 @@ public class ShopTest {
 
     private void changeProductFail() {
         Shop s1 = createShopWithProduct();
-        ProductImpl p2 = createDifferentProduct();
+        Product p2 = createDifferentProduct();
         s1.changeProduct(p2);
         Assert.assertNotEquals(s1.getProducts().get(p2.getID()), p2);
     }
 
     private void changeProductSuccess() {
         Shop s1 = createShopWithProduct();
-        ProductImpl p2 = createChangedProduct();
+        Product p2 = createChangedProduct();
         s1.changeProduct(p2);
         Assert.assertEquals(getProductFromShop(s1, p2.getID()).getName(), p2.getName());
         Assert.assertEquals(getProductFromShop(s1, p2.getID()).getPrice(), p2.getPrice(), 0.0);
@@ -77,15 +77,15 @@ public class ShopTest {
 
     private Shop createShopWithProduct() {
         Shop s1 = createShop();
-        ProductImpl p1 = createProduct();
+        Product p1 = createProduct();
         s1.addProduct(p1);
         return s1;
     }
 
     private Shop createShopWithTwoProducts() {
         Shop s1 = createShop();
-        ProductImpl p1 = createProduct();
-        ProductImpl p2 = createDifferentProduct();
+        Product p1 = createProduct();
+        Product p2 = createDifferentProduct();
         s1.addProduct(p1);
         s1.addProduct(p2);
         return s1;
@@ -95,19 +95,19 @@ public class ShopTest {
         return new Shop(100, "shop");
     }
 
-    private ProductImpl createProduct() {
-        return new ProductImpl(1, "a", 5, 100);
+    private Product createProduct() {
+        return new Product(1, "a", 5, 100);
     }
 
-    private ProductImpl createChangedProduct() {
-        return new ProductImpl(1, "b", 10, 10);
+    private Product createChangedProduct() {
+        return new Product(1, "b", 10, 10);
     }
 
-    private ProductImpl createDifferentProduct() {
-        return new ProductImpl(2, "c", 15, 500);
+    private Product createDifferentProduct() {
+        return new Product(2, "c", 15, 500);
     }
 
-    private ProductImpl getProductFromShop(Shop s1, int id) {
+    private Product getProductFromShop(Shop s1, int id) {
         return s1.getProducts().get(id);
     }
 
