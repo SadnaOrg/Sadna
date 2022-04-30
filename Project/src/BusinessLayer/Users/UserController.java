@@ -17,10 +17,11 @@ public class UserController {
 
     private final Map<String,User> users;
 
+
     private UserController() {
+
         users = new ConcurrentHashMap<>();
     }
-
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(User u)
     {
@@ -44,4 +45,8 @@ public class UserController {
     }
 
 
+    public User getUser(String user)
+    {
+        return users.get(user);
+    }
 }

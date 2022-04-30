@@ -25,6 +25,22 @@ public abstract class User {
         return true;
     }
 
+    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid)
+    {
+        return shoppingCart.get(shopid).getProducts();
+    }
+
+    public boolean search_in_shopping_cart()
+    {
+        for (Basket b:shoppingCart.values())
+        {
+            //print each basket in specific format
+        }
+        //ask for a specific shopid from the user
+        int shopid= 1;//change to what user want
+        //show options and let him choose
+        return true;
+    }
 
     public boolean removeproduct(int shopid, int productid)
     {
@@ -46,4 +62,5 @@ public abstract class User {
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
     }
+
 }
