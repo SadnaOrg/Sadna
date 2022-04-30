@@ -1,6 +1,7 @@
 package ServiceLayer;
 
 import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 import ServiceLayer.interfaces.UserService;
@@ -22,5 +23,10 @@ public class UserServiceImp implements UserService {
         return true;
     }
 
+
+    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
+    {
+        return UserController.getInstance().reciveInformation();
+    }
 
 }
