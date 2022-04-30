@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import javax.naming.NoPermissionException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -48,5 +49,21 @@ public class UserController {
     public User getUser(String user)
     {
         return users.get(user);
+    }
+
+
+    /**
+     *
+     * @param currUser  the current shopAdministrator
+     * @param userNameToAssign the user to assign to be a shop manager
+     * @param shopID the shop id
+     * @return true if the transaction succeeds , false if not
+     * @throws NoPermissionException  if the shop Administrator has no permission to complete the transaction
+     */
+    public boolean AssignShopManager(SubscribedUser currUser,String userNameToAssign,int shopID) throws NoPermissionException {
+        if(users.containsKey(userNameToAssign)&&getUser(userNameToAssign)instanceof SubscribedUser){
+            return currUser.assignShopManager(shopID,(SubscribedUser) getUser(userNameToAssign));
+        }else
+            throw new IllegalArgumentException("non such user - "+userNameToAssign);
     }
 }

@@ -4,6 +4,8 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.SubscribedUser;
 
+import java.util.Collection;
+
 public enum BaseActionType {
     STOCK_MANAGEMENT(1),
     SET_PURCHASE_POLICY(2),
@@ -24,7 +26,7 @@ public enum BaseActionType {
             case HISTORY_INFO -> new HistoryInfo();
             case STOCK_MANAGEMENT -> new StockManagement();
             case ASSIGN_SHOP_OWNER -> new AssignShopOwner();
-            case ASSIGN_SHOP_MANAGER -> new AssignShopManager();
+            case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop,user);
             case SET_PURCHASE_POLICY -> new SetPurchasePolicy();
             case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission();
         };
