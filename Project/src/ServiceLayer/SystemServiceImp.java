@@ -1,5 +1,7 @@
 package ServiceLayer;
 
-public class SystemServiceImp {
+import ServiceLayer.interfaces.SystemService;
+
+public class SystemServiceImp implements SystemService {
 
 }
