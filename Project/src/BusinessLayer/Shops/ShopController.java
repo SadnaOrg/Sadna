@@ -5,6 +5,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.UserController;
+import BusinessLayer.System.System;
 
 import java.util.Collection;
 import java.util.Map;
@@ -50,7 +51,19 @@ public class ShopController {
         {
             if(paymentSituation.get(shopid))
             {
-                //add to purchase history
+                boolean flagexist= false;
+                for (PurchaseHistory purchaseHistory: System.getInstance().getPurchaseHistoryServices().getDataOnPurchases())
+                {
+                    if(purchaseHistory.getShopid()==shopid && purchaseHistory.getUser().equals(user)) {
+                        purchaseHistory.makePurchase();
+                        flagexist= true;
+                    }
+                }
+                if(!flagexist)
+                {
+                    PurchaseHistory purchaseHistory = System.getInstance().getPurchaseHistoryServices().createPurchaseHistory(shopid, user);
+                    purchaseHistory.makePurchase();
+                }
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
             }
@@ -67,4 +80,7 @@ public class ShopController {
         return shops.get(shopid).addBasket(user,basket);
     }
 
+    public Map<Integer, Shop> getShops() {
+        return shops;
+    }
 }
