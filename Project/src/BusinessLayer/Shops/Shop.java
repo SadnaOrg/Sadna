@@ -3,6 +3,7 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Users.Basket;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,6 +25,8 @@ public class Shop {
     private String name;
     private State state = State.OPEN;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
+
 
     public void addProduct(Product p) {
         products.put(p.getID(), p);
@@ -50,10 +53,10 @@ public class Shop {
         return products.values().stream().filter(pred).collect(Collectors.toList());
     }
 
-    public double purchaseBasket(ConcurrentHashMap<Integer, Integer> basketProducts) {
+    public double purchaseBasket(String user) {
         int totalPrice = 0;
-        for (int productID : basketProducts.keySet()) {
-            int quantity = basketProducts.get(productID);
+        for (int productID : usersBaskets.get(user).getProducts().keySet()) {
+            int quantity = usersBaskets.get(user).getProducts().get(productID);
             if (products.containsKey(productID)) {
                 Product curr_product = products.get(productID);
                 double currentPrice = curr_product.purchaseProduct(quantity);
@@ -69,4 +72,19 @@ public class Shop {
     public int getId() {
         return id;
     }
+
+    public boolean checkIfUserHasBasket(String user) {
+        return usersBaskets.containsKey(user);
+    }
+
+    public ConcurrentHashMap<String, Basket> getUsersBaskets() {
+        return usersBaskets;
+    }
+
+    public boolean addBasket(String user, Basket basket)
+    {
+        usersBaskets.put(user,basket);
+        return true;
+    }
+
 }

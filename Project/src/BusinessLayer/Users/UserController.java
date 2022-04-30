@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.ShopController;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,7 +25,23 @@ public class UserController {
         users = new ConcurrentHashMap<>();
     }
 
-    public ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> getShoppingCart(User u)
+    public boolean saveProducts(User u ,int shopid, int productid, int quantity)
+    {
+        if(u.saveProducts(shopid, productid, quantity))
+        {
+            if(!ShopController.getInstance().checkIfUserHasBasket(shopid,u.getName())) {
+                ShopController.getInstance().AddBasket(shopid,u.getName(), u.getBasket(shopid));
+            }
+        }
+        return true;
+    }
+
+    public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u)
+    {
+        return users.get(u).getShoppingCart();
+    }
+
+    public ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> getShoppingCartClone(User u)
     {
         ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> cartClone = new ConcurrentHashMap<>();
         for (int shopid:u.getShoppingCart().keySet())

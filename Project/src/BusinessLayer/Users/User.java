@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.ShopController;
+
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -62,6 +64,12 @@ public abstract class User {
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
     }
+
+    public Basket getBasket(int shopid)
+    {
+        return shoppingCart.get(shopid);
+    }
+
 
     public String getName() {
         return name;

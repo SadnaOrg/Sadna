@@ -3,20 +3,22 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.UserController;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-public class ShopController{
+public class ShopController {
 
 
     static private class ShopControllerHolder {
         static final ShopController sc = new ShopController();
     }
 
-    public static ShopController getInstance(){
+    public static ShopController getInstance() {
         return ShopControllerHolder.sc;
     }
 
@@ -27,28 +29,42 @@ public class ShopController{
         this.shops = new ConcurrentHashMap<>();
     }
 
-    public Map<Shop,Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred){
-        Map<Shop,Collection<Product>> res = new ConcurrentHashMap<>();
+    public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
+        Map<Shop, Collection<Product>> res = new ConcurrentHashMap<>();
         for (Shop s : shops.values().stream().filter(shopPred).collect(Collectors.toSet())) {
-            res.put(s,s.searchProducts(productPred));
+            res.put(s, s.searchProducts(productPred));
         }
         return res;
     }
 
-    public ConcurrentHashMap<Integer,Double> purchaseBasket(ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> shoppingCart)
-    {
-        ConcurrentHashMap<Integer,Double> finalprices= new ConcurrentHashMap<>();
-        for (int shopid: shoppingCart.keySet()) {
-            if (shops.containsKey(shopid)) {
-                finalprices.put(shopid, shops.get(shopid).purchaseBasket(shoppingCart.get(shopid)));
-            }
+    public ConcurrentHashMap<Integer, Double> purchaseBasket(String user) {
+        ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
+        for (int shopid : shops.keySet()) {
+                finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
         }
         return finalprices;
     }
 
-    public boolean addToPurchaseHistory(ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>>cart, ConcurrentHashMap<Integer,Boolean> paymentSituation)
-    {
+    public boolean addToPurchaseHistory(String user, ConcurrentHashMap<Integer, Boolean> paymentSituation) {
+        for (int shopid:paymentSituation.keySet())
+        {
+            if(paymentSituation.get(shopid))
+            {
+                //add to purchase history
+                shops.get(shopid).getUsersBaskets().remove(user);
+                UserController.getInstance().getShoppingCart(user).remove(shopid);
+            }
+        }
         return true;
+    }
+
+    public boolean checkIfUserHasBasket(int shopid, String user) {
+        return shops.get(shopid).checkIfUserHasBasket(user);
+    }
+
+    public boolean AddBasket(int shopid, String user, Basket basket)
+    {
+        return shops.get(shopid).addBasket(user,basket);
     }
 
 }

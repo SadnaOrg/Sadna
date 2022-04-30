@@ -16,10 +16,9 @@ public class UserServiceImp implements UserService {
     System system = System.getInstance();
 
     public boolean purchaseCartFromShop(User u) {
-        ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> cart= userController.getShoppingCart(u);
-        ConcurrentHashMap<Integer,Double> prices = shopController.purchaseBasket(cart);
+        ConcurrentHashMap<Integer,Double> prices = shopController.purchaseBasket(u.getName());
         ConcurrentHashMap<Integer,Boolean> paymentSituation= system.pay(prices);
-        shopController.addToPurchaseHistory(cart, paymentSituation);
+        shopController.addToPurchaseHistory(u.getName(),paymentSituation);
         return true;
     }
 
