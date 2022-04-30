@@ -38,7 +38,7 @@ public class ShopTest {
     public void removeProduct() {
         Shop s1 = createShop();
         s1.addProduct(p1);
-        s1.removeProduct(p1);
+        s1.removeProduct(p1.getID());
         Assert.assertEquals(0, s1.getProducts().size());
     }
 
