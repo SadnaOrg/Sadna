@@ -93,4 +93,14 @@ public class ShopController {
             return true;
         }
     }
+
+    public ConcurrentHashMap<Integer,ShopInfo> reciveInformation()
+    {
+        ConcurrentHashMap<Integer,ShopInfo> shopsInfo= new ConcurrentHashMap<>();
+        for (Shop s:shops.values())
+        {
+            shopsInfo.put(s.getId(),new ShopInfo(s));
+        }
+        return shopsInfo;
+    }
 }

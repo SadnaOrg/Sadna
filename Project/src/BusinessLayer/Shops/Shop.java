@@ -11,6 +11,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class Shop {
+
+    private int id;
+    private String name;
+    private String description;
+    private State state = State.OPEN;
+    private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
+
     public Shop(int id, String name) {
         this.id = id;
         this.name = name;
@@ -35,11 +43,6 @@ public class Shop {
         FOUNDER
     }
 
-    private int id;
-    private String name;
-    private State state = State.OPEN;
-    private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
 
     private Map<String,ShopAdministratorType> shopAdministrators = new ConcurrentHashMap<>();
 
@@ -105,6 +108,14 @@ public class Shop {
 
     public boolean addAdministrator(String userName,ShopAdministratorType administratorType){
        return shopAdministrators.putIfAbsent(userName,administratorType)!=null;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public ShopAdministratorType getShopAdministrator(String userName) {
