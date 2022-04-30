@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.NoPermissionException;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.junit.Assert.*;
 
@@ -52,14 +53,14 @@ public class SubscribedUserTest {
 
         try{
             user1.assignShopManager(shop1.getId(),toAssign);
-            assertNull(toAssign.getAdministrator(shop1.getId()));
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
         } catch (NoPermissionException e) {
             fail("supposed to succeed but got exception :"+e.getMessage());
         }
 
         try {
-            toAssign.assignShopManager(shop1.getId(),toAssign);
-            fail("do the transaction with out a premmission");
+            if(toAssign.assignShopManager(shop1.getId(),toAssign))
+                fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
         }
@@ -77,16 +78,80 @@ public class SubscribedUserTest {
 
         try{
             user1.assignShopOwner(shop1.getId(),toAssign);
-            assertNull(toAssign.getAdministrator(shop1.getId()));
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
         } catch (NoPermissionException e) {
             fail("supposed to succeed but got exception :"+e.getMessage());
         }
 
         try {
-            toAssign.assignShopOwner(shop1.getId(),toAssign);
-            fail("do the transaction with out a permission");
+            if(toAssign.assignShopOwner(shop1.getId(), toAssign))
+                fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
         }
+    }
+
+    @Test
+    public void changeManagerPermission() {
+        user1.addAdministrator(shop1.getId(), so1);
+        user2.addAdministrator(shop1.getId(), sm1);
+        CopyOnWriteArrayList<BaseActionType> types = new CopyOnWriteArrayList<>();
+        types.add(BaseActionType.ASSIGN_SHOP_MANAGER);
+        try {
+            user1.changeManagerPermission(shop1.getId(), user2, new CopyOnWriteArrayList<>());
+            user2.assignShopManager(shop1.getId(), toAssign);
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+            assertNull(toAssign.getAdministrator(shop1.getId()));
+        }
+
+        try{
+            user1.changeManagerPermission(shop1.getId(), user2, types);
+            user2.assignShopManager(shop1.getId(), toAssign);
+            assertNotNull(toAssign.getAdministrator(shop1.getId()));
+        } catch (NoPermissionException e) {
+            fail("supposed to succeed but got exception :"+e.getMessage());
+        }
+
+        try {
+            user2.changeManagerPermission(shop1.getId(), user1, new CopyOnWriteArrayList<>());
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+            assertNotEquals(0, user2.getAdministrator(shop1.getId()).action.size());
+        }
+    }
+
+    @Test
+    public void getAdministratorInfo() {
+//        user1.addAdministrator(shop1.getId(), so1);
+        try {
+            user2.getAdministratorInfo(shop2.getId());
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+        }
+
+//        try{
+//            Collection<AdministratorInfo> c = user1.getAdministratorInfo(shop1.getId());
+//            Assert.assertTrue("should be exactly only a 1 Administrator",c.size() ==1);
+//            Assert.assertTrue("should contain the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//                                                                                                            && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
+//            user1.assignShopOwner(shop1.getId(), user2);
+//
+//            c = user2.getAdministratorInfo(shop1.getId());
+//            Assert.assertTrue("should be exactly only a 1 Administrator",c.size() ==2);
+//            Assert.assertTrue("should contain the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//                    && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
+//            Assert.assertTrue("should contain all the owners",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.OWNER
+//                    && Objects.equals(a.getUserName(), user2.getUserName())).count() ==1);
+//        } catch (NoPermissionException e) {
+//            fail("supposed to succeed but got exception :"+e.getMessage());
+//        }
+//
+//        try {
+//            user1.assignShopManager(shop1.getId(), toAssign);
+//            toAssign.getAdministratorInfo(shop1.getId());
+//            fail("do the transaction without a permission");
+//        } catch (NoPermissionException ignore) {
+//        }
     }
 }

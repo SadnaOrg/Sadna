@@ -4,6 +4,7 @@ package BusinessLayer.Shops;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.ShopAdministrator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,6 +21,8 @@ public class Shop {
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private Collection<PurchaseHistory> purchaseHistory= new ArrayList<>();
+    private Map<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
+
 
     public Shop(int id, String name) {
         this.id = id;
@@ -34,19 +37,16 @@ public class Shop {
         return false;
     }
 
+
+
     public enum State {
         OPEN,
         CLOSED
     }
 
-    public enum ShopAdministratorType{
-        MANAGER,
-        OWNER,
-        FOUNDER
-    }
 
 
-    private Map<String,ShopAdministratorType> shopAdministrators = new ConcurrentHashMap<>();
+
 
     public void addProduct(Product p) {
         products.put(p.getID(), p);
@@ -108,8 +108,8 @@ public class Shop {
     }
 
 
-    public boolean addAdministrator(String userName,ShopAdministratorType administratorType){
-       return shopAdministrators.putIfAbsent(userName,administratorType)!=null;
+    public boolean addAdministrator(String userName,ShopAdministrator administrator){
+       return shopAdministrators.putIfAbsent(userName,administrator)==null;
     }
 
     public String getName() {
@@ -120,11 +120,20 @@ public class Shop {
         return description;
     }
 
-    public ShopAdministratorType getShopAdministrator(String userName) {
+    public ShopAdministrator getShopAdministrator(String userName) {
         return shopAdministrators.getOrDefault(userName,null);
     }
 
+
     public Collection<PurchaseHistory> getPurchaseHistory() {
         return purchaseHistory;
+    }
+  
+    public Collection<ShopAdministrator> getShopAdministrators() {
+        return shopAdministrators.values();
+    }
+
+    public boolean isOpen(){
+        return state==State.OPEN;
     }
 }

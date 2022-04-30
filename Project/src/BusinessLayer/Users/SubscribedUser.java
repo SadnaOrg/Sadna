@@ -1,8 +1,10 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Users.BaseActions.CloseShop;
 
 import javax.naming.NoPermissionException;
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -42,10 +44,24 @@ public class SubscribedUser extends User {
         }else
             throw new NoPermissionException("you're not the shop Administrator");
     }
-    
+
+    public synchronized boolean changeManagerPermission(int shop, SubscribedUser toAssign, BaseActionType[] types) throws NoPermissionException {
+        if(shopAdministrator.containsKey(shop)){
+            return shopAdministrator.get(shop).ChangeManagerPermission(toAssign, types);
+        }else
+            throw new NoPermissionException("you're not the shop Administrator");
+    }
+
     public boolean closeShop(int shopId) throws NoPermissionException {
-        if(shopAdministrator.getOrDefault(shopId,null)instanceof ShopOwner){
+        if(shopAdministrator.getOrDefault(shopId,null) instanceof ShopOwner){
            return  ((ShopOwner)shopAdministrator.get(shopId)).closeShop();
+        }
+        else throw new NoPermissionException("you're not the shop Administrator");
+    }
+
+    public Collection<AdministratorInfo> getAdministratorInfo(int shopId) throws NoPermissionException {
+        if(shopAdministrator.containsKey(shopId)){
+            return shopAdministrator.get(shopId).getAdministratorInfo();
         }
         else throw new NoPermissionException("you're not the shop Administrator");
     }

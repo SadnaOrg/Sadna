@@ -1,15 +1,14 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.AssignShopManager;
-import BusinessLayer.Users.BaseActions.AssignShopOwner;
-import BusinessLayer.Users.BaseActions.BaseAction;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.*;
 
 import javax.naming.NoPermissionException;
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();
@@ -41,11 +40,35 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
+    public boolean ChangeManagerPermission(SubscribedUser toAssign, CopyOnWriteArrayList<BaseActionType> types) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
+            return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
+        else throw new NoPermissionException();
+    }
+
     public void addAppoint(ShopAdministrator admin) {
         appoints.add(admin);
     }
 
-    protected void AddAction(BaseActionType actionType){
+    public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
+    }
+
+    public Collection<BaseActionType> getActionsTypes() {
+        return action.keySet();
+    }
+    public Collection<AdministratorInfo> getAdministratorInfo() throws NoPermissionException {
+        if(this.action.containsKey(BaseActionType.ROLE_INFO)){
+            return ((RolesInfo)action.get(BaseActionType.ROLE_INFO)).act();
+        }
+        else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void emptyActions(){
+        action = new ConcurrentHashMap<>();
     }
 }
