@@ -16,7 +16,7 @@ public class PurchaseHistory {
 
     public void makePurchase()
     {
-        Purchase purchase = new Purchase(past_purchases.size(),ShopController.getInstance().getShops().get(shopid).getUsersBaskets().get(user));
+        Purchase purchase = new Purchase(shopid, user, past_purchases.size(),ShopController.getInstance().getShops().get(shopid).getUsersBaskets().get(user));
         past_purchases.add(purchase);
     }
 
