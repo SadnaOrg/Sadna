@@ -12,6 +12,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
 
+
+
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
     }
@@ -19,7 +21,6 @@ public class UserController {
     public static UserController getInstance(){
         return UserControllerHolder.uc;
     }
-
 
     private final Map<String,User> users;
 
@@ -111,4 +112,16 @@ public class UserController {
         users.put(systemManager.getName(),systemManager);
         return true;
     }
+
+    public User loginSystem(String name)
+    {
+        User guest= new Guest(name);
+        users.put(guest.getName(),guest);
+        return guest;
+    }
+
+    public User logoutSystem(String name) {
+        return users.remove(name);
+    }
+
 }
