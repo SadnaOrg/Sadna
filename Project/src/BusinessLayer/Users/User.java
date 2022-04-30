@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.ShopController;
+
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -8,6 +10,13 @@ public abstract class User {
     //the key is the shopid
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
+    protected String name;
+
+    public User(String name)
+    {
+        this.name= name;
+        shoppingCart= new ConcurrentHashMap<>();
+    }
 
 
     //assume that the productid is in the relevant shop handle in facade
@@ -25,9 +34,22 @@ public abstract class User {
         return true;
     }
 
+    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid){
+        return shoppingCart.get(shopid).getProducts();
+    }
 
-    public boolean removeproduct(int shopid, int productid)
-    {
+    public boolean search_in_shopping_cart() {
+        for (Basket b:shoppingCart.values())
+        {
+            //print each basket in specific format
+        }
+        //ask for a specific shopid from the user
+        int shopid= 1;//change to what user want
+        //show options and let him choose
+        return true;
+    }
+
+    public boolean removeproduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).removeProduct(productid);
         }
@@ -35,8 +57,7 @@ public abstract class User {
     }
 
 
-    public boolean editProductQuantity(int shopid, int productid, int newquantity)
-    {
+    public boolean editProductQuantity(int shopid, int productid, int newquantity) {
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -46,4 +67,15 @@ public abstract class User {
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
     }
+
+    public Basket getBasket(int shopid)
+    {
+        return shoppingCart.get(shopid);
+    }
+
+
+    public String getName() {
+        return name;
+    }
+    public  String getUserName(){return name;}
 }

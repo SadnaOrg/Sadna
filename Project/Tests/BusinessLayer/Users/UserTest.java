@@ -1,6 +1,6 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.ProductImpl;
+import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class UserTest {
     Shop s1;
     User u1;
-    ProductImpl p1;
+    Product p1;
     @Before
     public void setUp() {
         s1 = createShopWithProduct();
@@ -82,10 +82,10 @@ public class UserTest {
 
     private User createUser()
     {
-        return new User() { };
+        return new Guest("Yuval");
     }
 
-    private ProductImpl createProduct() {
-        return new ProductImpl(1, "a", 5, 100);
+    private Product createProduct() {
+        return new Product(1, "a", 5, 100);
     }
 }

@@ -3,9 +3,10 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.ProductImpl;
+import BusinessLayer.Users.Basket;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -20,30 +21,38 @@ public class Shop {
         CLOSED
     }
 
+    public enum ShopAdministratorType{
+        MANAGER,
+        OWNER,
+        FOUNDER
+    }
 
     private int id;
     private String name;
     private State state = State.OPEN;
-    private ConcurrentHashMap<Integer, ProductImpl> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
 
-    public void addProduct(ProductImpl p) {
+    private Map<String,ShopAdministratorType> shopAdministrators = new ConcurrentHashMap<>();
+
+    public void addProduct(Product p) {
         products.put(p.getID(), p);
     }
 
-    public void changeProduct(ProductImpl new_product) {
+    public void changeProduct(Product new_product) {
         if (products.containsKey(new_product.getID())) {
-            ProductImpl old_product = products.get(new_product.getID());
+            Product old_product = products.get(new_product.getID());
             old_product.setPrice(new_product.getPrice());
             old_product.setQuantity(new_product.getQuantity());
             old_product.setName(new_product.getName());
         }
     }
 
-    public void removeProduct(ProductImpl p) {
+    public void removeProduct(Product p) {
         products.remove(p.getID());
     }
 
-    public ConcurrentHashMap<Integer, ProductImpl> getProducts() {
+    public ConcurrentHashMap<Integer, Product> getProducts() {
         return products;
     }
 
@@ -51,12 +60,12 @@ public class Shop {
         return products.values().stream().filter(pred).collect(Collectors.toList());
     }
 
-    public double purchaseBasket(ConcurrentHashMap<Integer, Integer> basketProducts) {
+    public double purchaseBasket(String user) {
         int totalPrice = 0;
-        for (int productID : basketProducts.keySet()) {
-            int quantity = basketProducts.get(productID);
+        for (int productID : usersBaskets.get(user).getProducts().keySet()) {
+            int quantity = usersBaskets.get(user).getProducts().get(productID);
             if (products.containsKey(productID)) {
-                ProductImpl curr_product = products.get(productID);
+                Product curr_product = products.get(productID);
                 double currentPrice = curr_product.purchaseProduct(quantity);
                 if (currentPrice == 0.0)
                     return currentPrice;
@@ -69,5 +78,24 @@ public class Shop {
 
     public int getId() {
         return id;
+    }
+
+    public boolean checkIfUserHasBasket(String user) {
+        return usersBaskets.containsKey(user);
+    }
+
+    public ConcurrentHashMap<String, Basket> getUsersBaskets() {
+        return usersBaskets;
+    }
+
+    public boolean addBasket(String user, Basket basket)
+    {
+        usersBaskets.put(user,basket);
+        return true;
+    }
+
+
+    public boolean addAdministrator(String userName,ShopAdministratorType administratorType){
+       return shopAdministrators.putIfAbsent(userName,administratorType)!=null;
     }
 }
