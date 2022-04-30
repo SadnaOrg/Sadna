@@ -3,6 +3,7 @@ package ServiceLayer;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.BasketInfo;
+import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 import ServiceLayer.interfaces.UserService;
@@ -36,6 +37,16 @@ public class UserServiceImp implements UserService {
     public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
     {
         return UserController.getInstance().reciveInformation();
+    }
+
+    public User loginSystem(String name)
+    {
+        return UserController.getInstance().loginSystem(name);
+    }
+
+    public User logoutSystem(String name)
+    {
+        return UserController.getInstance().logoutSystem(name);
     }
 
 }
