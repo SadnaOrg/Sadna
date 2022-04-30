@@ -103,4 +103,12 @@ public class UserController {
     public boolean closeShop(SubscribedUser currUser, int shopIdToClose) throws NoPermissionException {
         return currUser.closeShop(shopIdToClose);
     }
+
+
+    public boolean createSystemManager(String username)
+    {
+        User systemManager = new SystemManager(username);
+        users.put(systemManager.getName(),systemManager);
+        return true;
+    }
 }
