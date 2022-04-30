@@ -7,6 +7,7 @@ import javax.naming.NoPermissionException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SubscribedUser extends User {
     private Map<Integer,ShopAdministrator> shopAdministrator;
@@ -45,7 +46,7 @@ public class SubscribedUser extends User {
             throw new NoPermissionException("you're not the shop Administrator");
     }
 
-    public synchronized boolean changeManagerPermission(int shop, SubscribedUser toAssign, BaseActionType[] types) throws NoPermissionException {
+    public synchronized boolean changeManagerPermission(int shop, SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
         if(shopAdministrator.containsKey(shop)){
             return shopAdministrator.get(shop).ChangeManagerPermission(toAssign, types);
         }else

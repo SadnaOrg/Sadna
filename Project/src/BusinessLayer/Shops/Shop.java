@@ -8,6 +8,7 @@ import BusinessLayer.Users.ShopAdministrator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -49,11 +50,12 @@ public class Shop {
 
 
     public void addProduct(Product p) {
-        products.put(p.getID(), p);
+        if (state == State.OPEN)
+            products.put(p.getID(), p);
     }
 
     public void changeProduct(Product new_product) {
-        if (products.containsKey(new_product.getID())) {
+        if (products.containsKey(new_product.getID()) && state == State.OPEN) {
             Product old_product = products.get(new_product.getID());
             old_product.setPrice(new_product.getPrice());
             old_product.setQuantity(new_product.getQuantity());
@@ -62,28 +64,38 @@ public class Shop {
     }
 
     public void removeProduct(Product p) {
-        products.remove(p.getID());
+        if (state == State.OPEN)
+            products.remove(p.getID());
     }
 
     public ConcurrentHashMap<Integer, Product> getProducts() {
-        return products;
+        if (state == State.OPEN)
+            return products;
+        else
+            return new ConcurrentHashMap<>();
     }
 
-    public Collection<Product> searchProducts(ProductFilters pred){
-        return products.values().stream().filter(pred).collect(Collectors.toList());
+    public Collection<Product> searchProducts(ProductFilters pred)
+    {
+        if (state == State.OPEN)
+            return products.values().stream().filter(pred).collect(Collectors.toList());
+        else
+            return new HashSet<>();
     }
 
     public double purchaseBasket(String user) {
         int totalPrice = 0;
-        for (int productID : usersBaskets.get(user).getProducts().keySet()) {
-            int quantity = usersBaskets.get(user).getProducts().get(productID);
-            if (products.containsKey(productID)) {
-                Product curr_product = products.get(productID);
-                double currentPrice = curr_product.purchaseProduct(quantity);
-                if (currentPrice == 0.0)
-                    return currentPrice;
-                else
-                    totalPrice += currentPrice;
+        if (state == State.OPEN) {
+            for (int productID : usersBaskets.get(user).getProducts().keySet()) {
+                int quantity = usersBaskets.get(user).getProducts().get(productID);
+                if (products.containsKey(productID)) {
+                    Product curr_product = products.get(productID);
+                    double currentPrice = curr_product.purchaseProduct(quantity);
+                    if (currentPrice == 0.0)
+                        return currentPrice;
+                    else
+                        totalPrice += currentPrice;
+                }
             }
         }
         return totalPrice;
@@ -94,22 +106,35 @@ public class Shop {
     }
 
     public boolean checkIfUserHasBasket(String user) {
-        return usersBaskets.containsKey(user);
+        if (state == State.OPEN)
+            return usersBaskets.containsKey(user);
+        else
+            return false;
     }
 
     public ConcurrentHashMap<String, Basket> getUsersBaskets() {
-        return usersBaskets;
+        if (state == State.OPEN)
+            return usersBaskets;
+        else
+            return new ConcurrentHashMap<>();
     }
 
     public boolean addBasket(String user, Basket basket)
     {
-        usersBaskets.put(user,basket);
-        return true;
+        if (state == State.OPEN) {
+            usersBaskets.put(user, basket);
+            return true;
+        }
+        else
+            return false;
     }
 
 
-    public boolean addAdministrator(String userName,ShopAdministrator administrator){
-       return shopAdministrators.putIfAbsent(userName,administrator)==null;
+    public boolean addAdministrator(String userName,ShopAdministrator administrator) {
+        if (state == State.OPEN)
+            return shopAdministrators.putIfAbsent(userName,administrator)==null;
+        else
+            return false;
     }
 
     public String getName() {

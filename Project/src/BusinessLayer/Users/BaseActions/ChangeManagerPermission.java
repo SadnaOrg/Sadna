@@ -7,6 +7,7 @@ import BusinessLayer.Users.ShopManager;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 
+import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ChangeManagerPermission extends BaseAction {
@@ -18,7 +19,7 @@ public class ChangeManagerPermission extends BaseAction {
         this.u = u;
     }
 
-    public boolean act(SubscribedUser userToAssign, CopyOnWriteArrayList<BaseActionType> types){
+    public synchronized boolean act(SubscribedUser userToAssign, Collection<BaseActionType> types){
         ShopAdministrator admin = userToAssign.getAdministrator(s.getId());
         if(admin instanceof ShopManager && u.getAdministrator(s.getId()) instanceof ShopOwner){
             admin.emptyActions();
