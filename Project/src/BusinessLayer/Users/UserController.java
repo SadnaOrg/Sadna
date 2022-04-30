@@ -84,4 +84,9 @@ public class UserController {
         }else
             throw new IllegalArgumentException("non such user - "+userNameToAssign);
     }
+
+
+    public boolean closeShop(SubscribedUser currUser, int shopIdToClose) throws NoPermissionException {
+        return currUser.closeShop(shopIdToClose);
+    }
 }
