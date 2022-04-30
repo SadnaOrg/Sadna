@@ -24,12 +24,18 @@ public class System {
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
     }
-    public  ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices)
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices)
     {
         ConcurrentHashMap<Integer,Boolean> paymensituation= new ConcurrentHashMap<>();
         for(int shopid: totalPrices.keySet())
         {
-             paymensituation.put(shopid,externSystem.pay(totalPrices.get(shopid)));
+            if(totalPrices.get(shopid)>0) {
+                paymensituation.put(shopid, externSystem.pay(totalPrices.get(shopid)));
+            }
+            else
+            {
+                paymensituation.put(shopid,false);
+            }
         }
         return paymensituation;
     }

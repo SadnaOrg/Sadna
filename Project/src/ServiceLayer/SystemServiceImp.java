@@ -7,9 +7,5 @@ public class SystemServiceImp implements SystemService {
 
     System system = System.getInstance();
 
-    public boolean pay(double totalprice)
-    {
-        return system.pay(totalprice);
-    }
 
 }

@@ -45,4 +45,10 @@ public class ShopController{
         }
         return finalprices;
     }
+
+    public boolean addToPurchaseHistory(ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>>cart, ConcurrentHashMap<Integer,Boolean> paymentSituation)
+    {
+        return true;
+    }
+
 }
