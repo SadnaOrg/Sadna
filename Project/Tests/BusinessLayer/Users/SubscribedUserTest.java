@@ -2,14 +2,12 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.naming.NoPermissionException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class SubscribedUserTest {
     private SubscribedUser user1;
@@ -18,7 +16,7 @@ class SubscribedUserTest {
     private Shop shop1;
     private Shop shop2;
     ShopManager sm1;
-    @BeforeEach
+    @Before
     void setUp() {
         user1 =new SubscribedUser("user1");
         user2 = new SubscribedUser("user2");

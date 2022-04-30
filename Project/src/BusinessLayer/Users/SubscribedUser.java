@@ -8,8 +8,7 @@ public class SubscribedUser extends User {
     private Map<Integer,ShopAdministrator> shopAdministrator;
 
     public SubscribedUser(String userName) {
-        super();
-       super.name=userName;
+        super(userName);
         shopAdministrator = new ConcurrentHashMap<>();
     }
 
