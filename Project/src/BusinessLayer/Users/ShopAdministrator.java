@@ -18,6 +18,8 @@ public class ShopAdministrator{
 
     public ShopAdministrator(Shop s, SubscribedUser u) {
         super();
+        shop = s;
+        user = u;
     }
 
     /**

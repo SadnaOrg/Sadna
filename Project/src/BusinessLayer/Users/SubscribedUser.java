@@ -2,9 +2,16 @@ package BusinessLayer.Users;
 
 import javax.naming.NoPermissionException;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SubscribedUser extends User {
     private Map<Integer,ShopAdministrator> shopAdministrator;
+
+    public SubscribedUser(String userName) {
+        super();
+       super.name=userName;
+        shopAdministrator = new ConcurrentHashMap<>();
+    }
 
     /**
      *
