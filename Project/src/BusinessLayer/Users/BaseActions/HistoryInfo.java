@@ -19,7 +19,7 @@ public class HistoryInfo extends BaseAction {
 
       public Collection<PurchaseHistory> act()
       {
-          return PurchaseHistoryController.getInstance().getPurchaseInfo(shop.getId());
+          return shop.getPurchaseHistory();
       }
 
 

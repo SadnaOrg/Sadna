@@ -53,7 +53,7 @@ public class ShopController {
             if(paymentSituation.get(shopid))
             {
                 boolean flagexist= false;
-                for (PurchaseHistory purchaseHistory: System.getInstance().getPurchaseHistoryServices().getDataOnPurchases())
+                for (PurchaseHistory purchaseHistory:PurchaseHistoryController.getInstance().getDataOnPurchases())
                 {
                     if(purchaseHistory.getShopid()==shopid && purchaseHistory.getUser().equals(user)) {
                         purchaseHistory.makePurchase();
@@ -62,8 +62,9 @@ public class ShopController {
                 }
                 if(!flagexist)
                 {
-                    PurchaseHistory purchaseHistory = System.getInstance().getPurchaseHistoryServices().createPurchaseHistory(shopid, user);
+                    PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shopid, user);
                     purchaseHistory.makePurchase();
+                    shops.get(shopid).getPurchaseHistory().add(purchaseHistory);
                 }
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);

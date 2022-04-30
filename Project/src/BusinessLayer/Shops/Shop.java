@@ -5,6 +5,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,6 +19,7 @@ public class Shop {
     private State state = State.OPEN;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
+    private Collection<PurchaseHistory> purchaseHistory= new ArrayList<>();
 
     public Shop(int id, String name) {
         this.id = id;
@@ -120,5 +122,9 @@ public class Shop {
 
     public ShopAdministratorType getShopAdministrator(String userName) {
         return shopAdministrators.getOrDefault(userName,null);
+    }
+
+    public Collection<PurchaseHistory> getPurchaseHistory() {
+        return purchaseHistory;
     }
 }

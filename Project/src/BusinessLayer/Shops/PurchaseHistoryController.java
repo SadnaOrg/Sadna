@@ -29,12 +29,12 @@ public class PurchaseHistoryController {
 
     public Collection<PurchaseHistory> getPurchaseInfo()
     {
-        return System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
+        return DataOnPurchases;
 
     }
     public Collection<PurchaseHistory> getPurchaseInfo(String user)
     {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
+        Collection<PurchaseHistory> allinfo= DataOnPurchases;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -47,7 +47,7 @@ public class PurchaseHistoryController {
 
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid)
     {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
+        Collection<PurchaseHistory> allinfo= DataOnPurchases;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -59,7 +59,7 @@ public class PurchaseHistoryController {
     }
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid, String user)
     {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
+        Collection<PurchaseHistory> allinfo= DataOnPurchases;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -72,6 +72,8 @@ public class PurchaseHistoryController {
 
     public PurchaseHistory createPurchaseHistory(int shopid, String user)
     {
-        return new PurchaseHistory(shopid , user);
+        PurchaseHistory purchaseHistory= new PurchaseHistory(shopid , user);
+        DataOnPurchases.add(purchaseHistory);
+        return purchaseHistory;
     }
 }
