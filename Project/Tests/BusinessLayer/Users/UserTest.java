@@ -11,6 +11,8 @@ public class UserTest {
     Shop s1;
     User u1;
     Product p1;
+    private SubscribedUser founder = createFounder();
+
     @Before
     public void setUp() {
         s1 = createShopWithProduct();
@@ -77,7 +79,7 @@ public class UserTest {
     }
 
     private Shop createShop() {
-        return new Shop(100, "shop");
+        return new Shop(100, "shop", founder);
     }
 
     private User createUser()
@@ -87,5 +89,9 @@ public class UserTest {
 
     private Product createProduct() {
         return new Product(1, "a", 5, 100);
+    }
+
+    private SubscribedUser createFounder() {
+        return new SubscribedUser("Founder Guy");
     }
 }

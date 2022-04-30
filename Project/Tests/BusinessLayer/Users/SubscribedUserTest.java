@@ -14,6 +14,7 @@ public class SubscribedUserTest {
     private SubscribedUser user1;
     private SubscribedUser user2;
     private SubscribedUser toAssign;
+    private SubscribedUser founder;
     private Shop shop1;
     private Shop shop2;
     ShopManager sm1;
@@ -23,8 +24,9 @@ public class SubscribedUserTest {
         user1 = new SubscribedUser("user1");
         user2 = new SubscribedUser("user2");
         toAssign = new SubscribedUser("toAssign");
-        shop1 = new Shop(1,"shop1");
-        shop2 = new Shop(2,"shop2");
+        founder = new SubscribedUser("Founder Guy");
+        shop1 = new Shop(1,"shop1", founder);
+        shop2 = new Shop(2,"shop2", founder);
 
         sm1 = new ShopManager(shop1, user1);
         so1 = new ShopOwner(shop1, user1, true);

@@ -4,6 +4,7 @@ package BusinessLayer.Shops;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 import BusinessLayer.System.System;
 
@@ -14,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class ShopController {
+
 
 
     static private class ShopControllerHolder {
@@ -104,6 +106,11 @@ public class ShopController {
             shopsInfo.put(s.getId(),new ShopInfo(s));
         }
         return shopsInfo;
+    }
+
+    public void openShop(SubscribedUser su, String name) {
+        int shopID = shops.size();
+        shops.put(shopID, new Shop(shopID, name, su));
     }
 
 

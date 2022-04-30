@@ -84,6 +84,10 @@ public class UserController {
         return users.get(u.getName()).showCart();
     }
 
+    public void openShop(SubscribedUser su, String name) {
+        ShopController.getInstance().openShop(su, name);
+    }
+
 
     /**
      *
