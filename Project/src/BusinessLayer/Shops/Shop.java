@@ -24,6 +24,14 @@ public class Shop {
         this.name = name;
     }
 
+    public synchronized boolean close() {
+        if(state!=State.CLOSED){
+            state=State.CLOSED;
+            return true;
+        }
+        return false;
+    }
+
     public enum State {
         OPEN,
         CLOSED
@@ -108,5 +116,9 @@ public class Shop {
 
     public String getDescription() {
         return description;
+    }
+
+    public ShopAdministratorType getShopAdministrator(String userName) {
+        return shopAdministrators.getOrDefault(userName,null);
     }
 }
