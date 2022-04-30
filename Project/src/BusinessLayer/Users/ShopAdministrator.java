@@ -39,11 +39,17 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
+    public boolean ChangeManagerPermission(SubscribedUser toAssign, BaseActionType[] types) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
+            return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
+        else throw new NoPermissionException();
+    }
+
     public void addAppoint(ShopAdministrator admin) {
         appoints.add(admin);
     }
 
-    protected void AddAction(BaseActionType actionType){
+    public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
     }
 
@@ -59,5 +65,9 @@ public class ShopAdministrator{
 
     public User getUser() {
         return user;
+    }
+
+    public void emptyActions(){
+        action = new ConcurrentHashMap<>();
     }
 }
