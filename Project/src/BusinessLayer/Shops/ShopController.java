@@ -35,11 +35,14 @@ public class ShopController{
         return res;
     }
 
-    public double purchaseBasket(int shopid, ConcurrentHashMap<Integer, Integer> basketProducts)
+    public ConcurrentHashMap<Integer,Double> purchaseBasket(ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> shoppingCart)
     {
-        if(shops.containsKey(shopid)) {
-            return shops.get(shopid).purchaseBasket(basketProducts);
+        ConcurrentHashMap<Integer,Double> finalprices= new ConcurrentHashMap<>();
+        for (int shopid: shoppingCart.keySet()) {
+            if (shops.containsKey(shopid)) {
+                finalprices.put(shopid, shops.get(shopid).purchaseBasket(shoppingCart.get(shopid)));
+            }
         }
-        return -1;
+        return finalprices;
     }
 }

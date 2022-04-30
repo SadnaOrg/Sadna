@@ -8,7 +8,7 @@ public abstract class User {
     //the key is the shopid
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
-
+    private String name;
 
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
@@ -63,4 +63,7 @@ public abstract class User {
         return shoppingCart;
     }
 
+    public String getName() {
+        return name;
+    }
 }

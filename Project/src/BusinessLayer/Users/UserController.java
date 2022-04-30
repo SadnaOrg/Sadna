@@ -23,13 +23,13 @@ public class UserController {
         users = new ConcurrentHashMap<>();
     }
 
-    public ConcurrentHashMap<Integer, Basket> getShoppingCart(User u)
+    public ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> getShoppingCart(User u)
     {
-        ConcurrentHashMap<Integer, Basket> cartClone = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Integer, ConcurrentHashMap<Integer,Integer>> cartClone = new ConcurrentHashMap<>();
         for (int shopid:u.getShoppingCart().keySet())
         {
             Basket basketclone = new Basket(u.getShoppingCart().get(shopid));
-            cartClone.put(shopid,basketclone);
+            cartClone.put(shopid,basketclone.getProducts());
         }
         return cartClone;
     }
