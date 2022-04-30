@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();
@@ -39,7 +40,7 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
-    public boolean ChangeManagerPermission(SubscribedUser toAssign, BaseActionType[] types) throws NoPermissionException {
+    public boolean ChangeManagerPermission(SubscribedUser toAssign, CopyOnWriteArrayList<BaseActionType> types) throws NoPermissionException {
         if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
             return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
         else throw new NoPermissionException();
