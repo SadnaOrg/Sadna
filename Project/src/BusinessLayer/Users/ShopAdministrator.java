@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.AssignShopManager;
+import BusinessLayer.Users.BaseActions.AssignShopOwner;
 import BusinessLayer.Users.BaseActions.BaseAction;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 
@@ -31,6 +32,12 @@ public class ShopAdministrator{
     public boolean AssignShopManager(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_MANAGER))
             return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
+        else throw new NoPermissionException();
+    }
+
+    public boolean AssignShopOwner(SubscribedUser toAssign) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.ASSIGN_SHOP_OWNER))
+            return ((AssignShopOwner)action.get(BaseActionType.ASSIGN_SHOP_OWNER)).act(toAssign);
         else throw new NoPermissionException();
     }
 
