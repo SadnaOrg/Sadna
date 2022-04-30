@@ -2,14 +2,11 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.NoPermissionException;
-
-import java.util.Collection;
-import java.util.Objects;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.junit.Assert.*;
 
@@ -63,7 +60,7 @@ public class SubscribedUserTest {
 
         try {
             if(toAssign.assignShopManager(shop1.getId(),toAssign))
-                fail("do the transaction with out a premmission");
+                fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
         }
@@ -98,9 +95,10 @@ public class SubscribedUserTest {
     public void changeManagerPermission() {
         user1.addAdministrator(shop1.getId(), so1);
         user2.addAdministrator(shop1.getId(), sm1);
-        BaseActionType[] types = new BaseActionType[]{BaseActionType.ASSIGN_SHOP_MANAGER};
+        CopyOnWriteArrayList<BaseActionType> types = new CopyOnWriteArrayList<>();
+        types.add(BaseActionType.ASSIGN_SHOP_MANAGER);
         try {
-            user1.changeManagerPermission(shop1.getId(), user2, new BaseActionType[]{});
+            user1.changeManagerPermission(shop1.getId(), user2, new CopyOnWriteArrayList<>());
             user2.assignShopManager(shop1.getId(), toAssign);
             fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
@@ -116,7 +114,7 @@ public class SubscribedUserTest {
         }
 
         try {
-            user2.changeManagerPermission(shop1.getId(), user1, new BaseActionType[]{});
+            user2.changeManagerPermission(shop1.getId(), user1, new CopyOnWriteArrayList<>());
             fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNotEquals(0, user2.getAdministrator(shop1.getId()).action.size());
@@ -134,16 +132,16 @@ public class SubscribedUserTest {
 
 //        try{
 //            Collection<AdministratorInfo> c = user1.getAdministratorInfo(shop1.getId());
-//            Assert.assertTrue("sould be exsictly only a 1 Administrator",c.size() ==1);
-//            Assert.assertTrue("sould contains the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//            Assert.assertTrue("should be exactly only a 1 Administrator",c.size() ==1);
+//            Assert.assertTrue("should contain the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
 //                                                                                                            && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
 //            user1.assignShopOwner(shop1.getId(), user2);
 //
 //            c = user2.getAdministratorInfo(shop1.getId());
-//            Assert.assertTrue("sould be exsictly only a 1 Administrator",c.size() ==2);
-//            Assert.assertTrue("sould contains the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//            Assert.assertTrue("should be exactly only a 1 Administrator",c.size() ==2);
+//            Assert.assertTrue("should contain the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
 //                    && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
-//            Assert.assertTrue("sould contains all the owners",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.OWNER
+//            Assert.assertTrue("should contain all the owners",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.OWNER
 //                    && Objects.equals(a.getUserName(), user2.getUserName())).count() ==1);
 //        } catch (NoPermissionException e) {
 //            fail("supposed to succeed but got exception :"+e.getMessage());
@@ -152,7 +150,7 @@ public class SubscribedUserTest {
 //        try {
 //            user1.assignShopManager(shop1.getId(), toAssign);
 //            toAssign.getAdministratorInfo(shop1.getId());
-//            fail("do the transaction with out a permission");
+//            fail("do the transaction without a permission");
 //        } catch (NoPermissionException ignore) {
 //        }
     }
