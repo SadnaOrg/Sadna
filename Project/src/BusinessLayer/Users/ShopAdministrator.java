@@ -22,13 +22,13 @@ public class ShopAdministrator{
 
     /**
      * asingn a new shop manager to the shop, only if the user has been nor manager or Owner of this shop
-     * @param toAssig the uset to assign to the shop manager pool
+     * @param toAssign the uset to assign to the shop manager pool
      * @return if the action complete
      * @throws NoPermissionException if the Administrator don't have a permission to the action
      */
-    public boolean AssignShopManager(SubscribedUser toAssig) throws NoPermissionException {
+    public boolean AssignShopManager(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_MANAGER))
-            return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssig);
+            return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
         else throw new NoPermissionException();
     }
 

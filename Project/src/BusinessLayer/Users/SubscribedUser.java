@@ -1,10 +1,10 @@
 package BusinessLayer.Users;
 
+import javax.naming.NoPermissionException;
 import java.util.Map;
 
 public class SubscribedUser extends User {
     private Map<Integer,ShopAdministrator> shopAdministrator;
-
 
     /**
      *
@@ -15,10 +15,17 @@ public class SubscribedUser extends User {
         return shopAdministrator.getOrDefault(shop,null);
     }
 
-
     public ShopAdministrator addAdministrator(int shop, ShopAdministrator administrator) {
         if (shopAdministrator.putIfAbsent(shop,administrator)==null)
             return administrator;
         return null;
     }
+
+    public synchronized boolean assignShopManager(int shop,SubscribedUser toAssign) throws NoPermissionException {
+        if(shopAdministrator.containsKey(shop)){
+            return shopAdministrator.get(shop).AssignShopManager(toAssign);
+        }else
+            throw new NoPermissionException("you're not the shop Administrator");
+    }
+
 }
