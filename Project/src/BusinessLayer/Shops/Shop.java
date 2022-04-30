@@ -107,7 +107,7 @@ public class Shop {
 
 
     public boolean addAdministrator(String userName,ShopAdministratorType administratorType){
-       return shopAdministrators.putIfAbsent(userName,administratorType)==null;
+       return shopAdministrators.putIfAbsent(userName,administratorType)!=null;
     }
 
     public String getName() {
