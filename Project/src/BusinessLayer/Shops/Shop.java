@@ -46,12 +46,12 @@ public class Shop {
     }
 
 
-
-
-
     public void addProduct(Product p) {
-        if (state == State.OPEN)
-            products.put(p.getID(), p);
+        if (state == State.OPEN) {
+            if(!products.containsKey(p.getID())) {
+                products.put(p.getID(), p);
+            }
+        }
     }
 
     public void changeProduct(Product new_product) {
@@ -63,9 +63,12 @@ public class Shop {
         }
     }
 
-    public void removeProduct(Product p) {
-        if (state == State.OPEN)
-            products.remove(p.getID());
+    public void removeProduct(int productid) {
+        if (state == State.OPEN) {
+            if(products.containsKey(productid)) {
+                products.remove(productid);
+            }
+        }
     }
 
     public ConcurrentHashMap<Integer, Product> getProducts() {
