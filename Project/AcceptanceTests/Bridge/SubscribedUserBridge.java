@@ -1,6 +1,6 @@
 package Bridge;
 
-import Mocks.*;
+import DataObjects.*;
 
 import java.util.List;
 import java.util.Map;

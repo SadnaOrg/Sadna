@@ -1,7 +1,7 @@
 package Threads;
 
 import Bridge.SubscribedUserBridge;
-import Mocks.SubscribedUser;
+import DataObjects.SubscribedUser;
 import Tests.SubscribedUserTests;
 
 public class FounderDeletesProduct extends Thread{

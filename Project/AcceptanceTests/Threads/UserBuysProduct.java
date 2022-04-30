@@ -1,10 +1,10 @@
 package Threads;
 
 import Bridge.SubscribedUserBridge;
-import Mocks.Guest;
-import Mocks.RegistrationInfo;
-import Mocks.SubscribedUser;
-import Mocks.User;
+import DataObjects.Guest;
+import DataObjects.RegistrationInfo;
+import DataObjects.SubscribedUser;
+import DataObjects.User;
 import Tests.SubscribedUserTests;
 
 public class UserBuysProduct extends Thread{

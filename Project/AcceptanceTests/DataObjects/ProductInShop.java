@@ -1,4 +1,4 @@
-package Mocks;
+package DataObjects;
 
 public class ProductInShop {
     public int ID;

@@ -1,9 +1,9 @@
 package Threads;
 
 import Bridge.SubscribedUserBridge;
-import Mocks.Guest;
-import Mocks.RegistrationInfo;
-import Mocks.User;
+import DataObjects.Guest;
+import DataObjects.RegistrationInfo;
+import DataObjects.User;
 import Tests.SubscribedUserTests;
 import Tests.UserTests;
 

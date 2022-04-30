@@ -1,8 +1,8 @@
 package Bridge;
 
-import Mocks.Product;
-import Mocks.Shop;
-import Mocks.User;
+import DataObjects.Product;
+import DataObjects.Shop;
+import DataObjects.User;
 
 
 public interface ShopsBridge {

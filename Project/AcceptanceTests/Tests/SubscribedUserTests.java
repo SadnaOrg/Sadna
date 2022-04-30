@@ -9,7 +9,7 @@ import Threads.UserBuysProduct;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Mocks.*;
+import DataObjects.*;
 
 import java.util.List;
 import java.util.Map;

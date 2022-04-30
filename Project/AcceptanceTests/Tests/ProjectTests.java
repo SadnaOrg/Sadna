@@ -1,7 +1,7 @@
 package Tests;
 
 import Bridge.UserBridge;
-import Mocks.*;
+import DataObjects.*;
 
 // This class is used for setting up data for tests
 public abstract class ProjectTests {

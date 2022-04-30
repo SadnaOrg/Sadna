@@ -1,4 +1,4 @@
-package Mocks;
+package DataObjects;
 
 public class Appointment {
     public String role;

@@ -1,4 +1,4 @@
-package Mocks;
+package DataObjects;
 
 import java.util.Map;
 
