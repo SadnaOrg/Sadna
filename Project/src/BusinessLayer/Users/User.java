@@ -10,7 +10,7 @@ public abstract class User {
     //the key is the shopid
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
-    private String name;
+    protected String name;
 
     public User(String name)
     {
@@ -34,13 +34,11 @@ public abstract class User {
         return true;
     }
 
-    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid)
-    {
+    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid){
         return shoppingCart.get(shopid).getProducts();
     }
 
-    public boolean search_in_shopping_cart()
-    {
+    public boolean search_in_shopping_cart() {
         for (Basket b:shoppingCart.values())
         {
             //print each basket in specific format
@@ -51,8 +49,7 @@ public abstract class User {
         return true;
     }
 
-    public boolean removeproduct(int shopid, int productid)
-    {
+    public boolean removeproduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).removeProduct(productid);
         }
@@ -60,8 +57,7 @@ public abstract class User {
     }
 
 
-    public boolean editProductQuantity(int shopid, int productid, int newquantity)
-    {
+    public boolean editProductQuantity(int shopid, int productid, int newquantity) {
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -81,4 +77,5 @@ public abstract class User {
     public String getName() {
         return name;
     }
+    public  String getUserName(){return name;}
 }
