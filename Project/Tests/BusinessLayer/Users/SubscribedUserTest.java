@@ -16,15 +16,17 @@ public class SubscribedUserTest {
     private Shop shop1;
     private Shop shop2;
     ShopManager sm1;
+    ShopOwner so1;
     @Before
     public void setUp() {
-        user1 =new SubscribedUser("user1");
+        user1 = new SubscribedUser("user1");
         user2 = new SubscribedUser("user2");
-        toAssign=new SubscribedUser("toAssign");
-        shop1=new Shop(1,"shop1");
-        shop2=new Shop(2,"shop2");
+        toAssign = new SubscribedUser("toAssign");
+        shop1 = new Shop(1,"shop1");
+        shop2 = new Shop(2,"shop2");
 
-        sm1 = new ShopManager(shop1,user1);
+        sm1 = new ShopManager(shop1, user1);
+        so1 = new ShopOwner(shop1, user1, true);
         sm1.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER);
     }
 
@@ -43,7 +45,7 @@ public class SubscribedUserTest {
         user1.addAdministrator(shop1.getId(),sm1);
         try {
             user2.assignShopManager(shop2.getId(),toAssign);
-            fail("do the transaction with out a premmission");
+            fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(toAssign.getAdministrator(shop2.getId()));
         }
@@ -58,6 +60,31 @@ public class SubscribedUserTest {
         try {
             toAssign.assignShopManager(shop1.getId(),toAssign);
             fail("do the transaction with out a premmission");
+        } catch (NoPermissionException ignore) {
+            assertNull(user2.getAdministrator(shop1.getId()));
+        }
+    }
+
+    @Test
+    public void assignShopOwner() {
+        user1.addAdministrator(shop1.getId(), so1);
+        try {
+            user2.assignShopOwner(shop2.getId(),toAssign);
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+            assertNull(toAssign.getAdministrator(shop2.getId()));
+        }
+
+        try{
+            user1.assignShopOwner(shop1.getId(),toAssign);
+            assertNull(toAssign.getAdministrator(shop1.getId()));
+        } catch (NoPermissionException e) {
+            fail("supposed to succeed but got exception :"+e.getMessage());
+        }
+
+        try {
+            toAssign.assignShopOwner(shop1.getId(),toAssign);
+            fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
             assertNull(user2.getAdministrator(shop1.getId()));
         }

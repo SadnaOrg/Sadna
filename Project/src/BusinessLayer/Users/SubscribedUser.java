@@ -34,4 +34,10 @@ public class SubscribedUser extends User {
             throw new NoPermissionException("you're not the shop Administrator");
     }
 
+    public synchronized boolean assignShopOwner(int shop, SubscribedUser toAssign) throws NoPermissionException {
+        if(shopAdministrator.containsKey(shop)){
+            return shopAdministrator.get(shop).AssignShopOwner(toAssign);
+        }else
+            throw new NoPermissionException("you're not the shop Administrator");
+    }
 }
