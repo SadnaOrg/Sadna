@@ -3,7 +3,6 @@ package Bridge;
 import Mocks.*;
 
 import java.util.List;
-import java.util.Map;
 
 // This is the interface of the options available for all types of users.
 
@@ -11,49 +10,25 @@ public interface UserBridge {
 
     Guest visit();
 
-    SubscribedUser login(Guest guest,RegistrationInfo info);
+    SubscribedUser register(int guestID, RegistrationInfo info);
 
-    SubscribedUser register(Guest guest,RegistrationInfo info);
-
-    Guest logout(SubscribedUser user);
-
-    boolean exit(User user);
+    boolean exit(int userID);
 
     List<Shop> getShopsInfo(ShopFilter shopFilter);
 
-    List<Product> searchShopProducts(Shop shop);
+    List<ProductInShop> searchShopProducts(int shopID);
 
-    List<Product> searchProducts(ProductFilter productFilter);
+    List<ProductInShop> searchProducts(ProductFilter productFilter);
 
     List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter);
 
-    ShoppingCart addProductToCart(int userID,int shopID,int productID, int quantity);
+    void addProductToCart(int userID,int shopID,int productID, int quantity);
 
     ShoppingCart checkCart(int userID);
 
-    ShoppingCart updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
+    void updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
 
     boolean purchaseCart(int userID);
 
-    Shop openShop(int userID, String name, String category);
-
-    void addProductToShop(int userID, int shopID, Product product, int ID, int quantityInStock, double price);
-
     ProductInShop searchProductInShop(int productID, int shopID);
-
-    boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice);
-
-    boolean deleteProductFromShop(int userID, int shopID, int productID);
-
-    boolean appointOwner(int shopID, int appointerID, int appointeeID);
-
-    boolean appointManager(int shopID, int appointerID, int appointeeID);
-
-    boolean closeShop(int shopID, int userID);
-
-    boolean addPermission(int shopiID, int giverID, int receiverID, String permission);
-
-    Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID);
-
-    Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID);
 }

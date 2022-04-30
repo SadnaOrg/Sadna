@@ -1,7 +1,5 @@
 package Mocks;
 
-import Mocks.User;
-
 public class Guest extends User {
 
     public Guest(int ID){

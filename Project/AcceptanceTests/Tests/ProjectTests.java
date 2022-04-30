@@ -4,13 +4,8 @@ import Bridge.UserBridge;
 import Mocks.*;
 
 // This class is used for setting up data for tests
-
-// TODO: TEAR DOWN AFTER TESTS
-// TODO: make verifications in failure cases a call to a get operations to verify that nothing has changed
-
-// TODO: add permissions to founders
-
 public abstract class ProjectTests {
+
     protected static Bridge.UserBridge userBridge;
     protected static Bridge.ShopsBridge shopsBridge;
     protected static Bridge.SystemBridge systemBridge;
@@ -46,15 +41,17 @@ public abstract class ProjectTests {
 
     public static void setUpTests(){
         setUpSystem();
-        setUpShops();
+        shopsBridge.addShop(shops[ACE_ID],ACEFounder);
+        shopsBridge.addShop(shops[castro_ID],castroFounder);
+        shopsBridge.addShop(shops[MegaSport_ID],MegaSportFounder);
 
         Guest ace_guest =userBridge.visit();
         Guest castro_guest = userBridge.visit();
         Guest megasport_guest = userBridge.visit();
 
-        ACEFounder = userBridge.register(ace_guest,new RegistrationInfo("ACEFounder","ACE_rocks"));
-        castroFounder = userBridge.register(castro_guest, new RegistrationInfo("castroFounder","castro_rocks"));
-        MegaSportFounder = userBridge.register(megasport_guest, new RegistrationInfo("MegaSportFounder","MegaSport_rocks"));
+        ACEFounder = userBridge.register(ace_guest.ID,new RegistrationInfo("ACEFounder","ACE_rocks"));
+        castroFounder = userBridge.register(castro_guest.ID, new RegistrationInfo("castroFounder","castro_rocks"));
+        MegaSportFounder = userBridge.register(megasport_guest.ID, new RegistrationInfo("MegaSportFounder","MegaSport_rocks"));
 
         Appointment ace_founder = new Appointment("Founder", -1);
         Appointment ace_owner = new Appointment("Owner", ACEFounder.ID);
@@ -76,17 +73,6 @@ public abstract class ProjectTests {
         MegaSportProducts = setUpMegaSportProducts();
     }
 
-    protected boolean isSold(Product p){
-        int i = 0;
-        while (i < shops.length){
-            if(shops[i].sells(p)){
-                return true;
-            }
-            i++;
-        }
-        return false;
-    }
-
     private static Shop createACE(){
         return new Shop(ACEFounder,0, "ACE", 3.8, "home renovation");
     }
@@ -103,45 +89,38 @@ public abstract class ProjectTests {
         // use system bridge here : external services , manager, other users
     }
 
-    private static void setUpShops(){
-        for (Shop s:
-             shops) {
-                shopsBridge.addShop(s);
-        }
-    }
-
     private static Product [] setUpACEProducts(){
-        Product p1 = new Product("lamp",3,"china");
-        Product p2 = new Product("office chair",4.2,"china");
-        Product p3 = new Product("desk",2.9,"china");
+        Product p1 = new Product("lamp","israel");
+        Product p2 = new Product("office chair","china");
+        Product p3 = new Product("desk","china");
 
-        shopsBridge.addProductToShop(shops[ACE_ID].ID,p1,0,30,20);
-        shopsBridge.addProductToShop(shops[ACE_ID].ID,p2,1,100,25);
-        shopsBridge.addProductToShop(shops[ACE_ID].ID,p3,2,40,40);
+        shopsBridge.addProductToShop(shops[ACE_ID].ID,p1,0,3,30,20);
+        shopsBridge.addProductToShop(shops[ACE_ID].ID,p2,1,4.2,100,25);
+        shopsBridge.addProductToShop(shops[ACE_ID].ID,p3,2,2.9,40,40);
 
         return new Product[]{p1, p2, p3};
     }
 
     private static Product[] setUpCastroProducts(){
-        Product p1 = new Product("T-shirt",3,"china");
-        Product p2 = new Product("jeans",4.2,"china");
-        Product p3 = new Product("shoes",2.9,"china");
+        Product p1 = new Product("T-shirt","china");
+        Product p2 = new Product("jeans","china");
+        Product p3 = new Product("shoes","china");
 
-        shopsBridge.addProductToShop(shops[castro_ID].ID,p1,2,30,30);
-        shopsBridge.addProductToShop(shops[castro_ID].ID,p2,345,100,35);
-        shopsBridge.addProductToShop(shops[castro_ID].ID,p3,45,40,50);
+        shopsBridge.addProductToShop(shops[castro_ID].ID,p1,2,3,30,30);
+        shopsBridge.addProductToShop(shops[castro_ID].ID,p2,345,4.2,100,35);
+        shopsBridge.addProductToShop(shops[castro_ID].ID,p3,45,2.9,40,50);
 
         return new Product[]{p1, p2, p3};
     }
 
     private static Product[] setUpMegaSportProducts(){
-        Product p1 = new Product("running shoes",3,"china");
-        Product p2 = new Product("dumbbell" ,4.2,"china");
-        Product p3 = new Product("jump rope",2.9,"china");
+        Product p1 = new Product("running shoes","china");
+        Product p2 = new Product("dumbbell" ,"china");
+        Product p3 = new Product("jump rope","china");
 
-        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p1,13,30,40);
-        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p2,31,100,55);
-        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p3,4,40,70);
+        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p1,13,3,30,40);
+        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p2,31,4.2,100,55);
+        shopsBridge.addProductToShop(shops[MegaSport_ID].ID,p3,4,2.9,40,70);
 
         return new Product[]{p1, p2, p3};
     }
@@ -149,7 +128,7 @@ public abstract class ProjectTests {
     private static ShopFilter [] setUpShopFilters(){
         ShopFilter shopFilterRating = (s) -> s.rating >= 3.5;
         ShopFilter shopFilterName = (s) -> s.name.contains("AC");
-        ShopFilter shopFilterCategory = (s) -> s.category.equals("electricity");
+        ShopFilter shopFilterCategory = (s) -> s.category.equals("fashion");
         return new ShopFilter[]{shopFilterRating,shopFilterName,shopFilterCategory};
     }
 
@@ -162,13 +141,13 @@ public abstract class ProjectTests {
 
     private static ProductFilter[] setUpProductFilters() {
         ProductFilter productFailFilterRating = (p) -> p.rating >= 3.5;
-        ProductFilter productFailFilterManufacturer = (p) -> p.manufacturer.equals("sony");
+        ProductFilter productFailFilterManufacturer = (p) -> p.getManufacturer().equals("israel");
         return new ProductFilter[]{productFailFilterRating,productFailFilterManufacturer};
     }
 
     private static ProductFilter[] setUpFailProductFilters() {
         ProductFilter productFilterRating = (p) -> p.rating >= 5.2;
-        ProductFilter productFilterManufacturer = (p) -> p.manufacturer.equals("gali");
+        ProductFilter productFilterManufacturer = (p) -> p.getManufacturer().equals("gali");
         return new ProductFilter[]{productFilterRating,productFilterManufacturer};
     }
 }

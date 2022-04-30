@@ -1,14 +1,15 @@
 package Bridge;
 
 import Mocks.*;
-import Mocks.Guest;
-import Mocks.SubscribedUser;
-import Mocks.RegistrationInfo;
+import Tests.UserTests;
+import org.mockito.Mock;
 
 import java.util.List;
-import java.util.Map;
+
+import static org.mockito.Mockito.when;
 
 public class UserProxy implements UserBridge{
+    @Mock
     protected UserBridge real = null;
     protected ShopsBridge shopsBridge = null;
 
@@ -22,22 +23,12 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public SubscribedUser login(Guest guest, RegistrationInfo info) {
+    public SubscribedUser register(int guestID, RegistrationInfo info) {
         return null;
     }
 
     @Override
-    public SubscribedUser register(Guest guest, RegistrationInfo info) {
-        return null;
-    }
-
-    @Override
-    public Guest logout(SubscribedUser user) {
-        return null;
-    }
-
-    @Override
-    public boolean exit(User user) {
+    public boolean exit(int userID) {
         return false;
     }
 
@@ -47,12 +38,12 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public List<Product> searchShopProducts(Shop shop) {
+    public List<ProductInShop> searchShopProducts(int shopID) {
         return null;
     }
 
     @Override
-    public List<Product> searchProducts(ProductFilter productFilter) {
+    public List<ProductInShop> searchProducts(ProductFilter productFilter) {
         return null;
     }
 
@@ -62,8 +53,8 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public ShoppingCart addProductToCart(int userID,int shopID,int productID, int quantity) {
-        return null;
+    public void addProductToCart(int userID,int shopID,int productID, int quantity) {
+
     }
 
     @Override
@@ -72,8 +63,8 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public ShoppingCart updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities) {
-        return null;
+    public void updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities) {
+
     }
 
     @Override
@@ -82,57 +73,7 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public Shop openShop(int userID, String name, String category) {
-        return null;
-    }
-
-    @Override
-    public void addProductToShop(int userID, int shopID, Product product, int ID, int quantityInStock, double price) {
-
-    }
-
-    @Override
     public ProductInShop searchProductInShop(int productID, int shopID) {
-        return null;
-    }
-
-    @Override
-    public boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteProductFromShop(int userID, int shopID, int productID) {
-        return false;
-    }
-
-    @Override
-    public boolean appointOwner(int shopID, int appointerID, int appointeeID) {
-        return false;
-    }
-
-    @Override
-    public boolean appointManager(int shopID, int appointerID, int appointeeID) {
-        return false;
-    }
-
-    @Override
-    public boolean closeShop(int shopID, int userID) {
-        return false;
-    }
-
-    @Override
-    public boolean addPermission(int shopiID, int giverID, int receiverID, String permission) {
-        return false;
-    }
-
-    @Override
-    public Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID) {
-        return null;
-    }
-
-    @Override
-    public Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID) {
         return null;
     }
 }
