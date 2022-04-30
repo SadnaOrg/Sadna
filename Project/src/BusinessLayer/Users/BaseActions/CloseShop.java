@@ -1,6 +1,7 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 
 import javax.naming.NoPermissionException;
@@ -15,7 +16,7 @@ public class CloseShop extends BaseAction {
     }
 
     public boolean act() throws NoPermissionException {
-        if(shop.getShopAdministrator(user.getUserName())== Shop.ShopAdministratorType.FOUNDER){
+        if(user.getAdministrator(shop.getId()) instanceof ShopOwner &&((ShopOwner) user.getAdministrator(shop.getId())).isFounder()){
             return shop.close();
         }
         else throw new NoPermissionException("only the funder can close the shop");

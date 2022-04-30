@@ -16,8 +16,9 @@ public class AssignShopOwner extends BaseAction {
     }
 
     public boolean act(SubscribedUser userToAssign){
-        if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(), Shop.ShopAdministratorType.MANAGER)){
-            ShopAdministrator admin = userToAssign.addAdministrator(s.getId(), new ShopOwner(s, u, false));
+        ShopOwner o = new ShopOwner(s, u, false);
+        if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(), o)){
+            ShopAdministrator admin = userToAssign.addAdministrator(s.getId(),o);
             u.getAdministrator(s.getId()).addAppoint(admin);
             return true;
         }
