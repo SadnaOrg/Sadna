@@ -82,7 +82,7 @@ public class UserTest {
 
     private User createUser()
     {
-        return new User() { };
+        return new Guest("Yuval");
     }
 
     private Product createProduct() {

@@ -67,4 +67,13 @@ public class ShopController {
         return shops.get(shopid).addBasket(user,basket);
     }
 
+    public boolean addShop(Shop s1) {
+        if (shops.containsKey(s1.getId())) {
+            return false;
+        }
+        else {
+            shops.put(s1.getId(), s1);
+            return true;
+        }
+    }
 }
