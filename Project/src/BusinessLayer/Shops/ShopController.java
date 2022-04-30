@@ -83,4 +83,14 @@ public class ShopController {
     public Map<Integer, Shop> getShops() {
         return shops;
     }
+
+    public boolean addShop(Shop s1) {
+        if (shops.containsKey(s1.getId())) {
+            return false;
+        }
+        else {
+            shops.put(s1.getId(), s1);
+            return true;
+        }
+    }
 }

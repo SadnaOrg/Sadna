@@ -9,6 +9,6 @@ public class ProxyPayment extends Payment{
     public boolean pay(double totalPrice) {
         if(payment != null)
             return payment.pay(totalPrice);
-        return false;
+        return true;
     }
 }
