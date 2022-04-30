@@ -42,6 +42,7 @@ public class SubscribedUser extends User {
         }else
             throw new NoPermissionException("you're not the shop Administrator");
     }
+    
     public boolean closeShop(int shopId) throws NoPermissionException {
         if(shopAdministrator.getOrDefault(shopId,null)instanceof ShopOwner){
            return  ((ShopOwner)shopAdministrator.get(shopId)).closeShop();
