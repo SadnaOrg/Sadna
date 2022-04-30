@@ -77,4 +77,7 @@ public class Shop {
         return id;
     }
 
+    public boolean addAdministrator(String userName,ShopAdministratorType administratorType){
+       return shopAdministrators.putIfAbsent(userName,administratorType)!=null;
+    }
 }
