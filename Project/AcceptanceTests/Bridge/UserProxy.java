@@ -1,15 +1,11 @@
 package Bridge;
 
 import Mocks.*;
-import Tests.UserTests;
-import org.mockito.Mock;
 
 import java.util.List;
 
-import static org.mockito.Mockito.when;
-
 public class UserProxy implements UserBridge{
-    @Mock
+
     protected UserBridge real = null;
     protected ShopsBridge shopsBridge = null;
 
@@ -53,8 +49,8 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public void addProductToCart(int userID,int shopID,int productID, int quantity) {
-
+    public boolean addProductToCart(int userID,int shopID,int productID, int quantity) {
+        return false;
     }
 
     @Override
@@ -63,8 +59,8 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public void updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities) {
-
+    public boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities) {
+        return false;
     }
 
     @Override

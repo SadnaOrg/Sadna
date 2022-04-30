@@ -43,7 +43,12 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public boolean addPermission(int shopiID, int giverID, int receiverID, String permission) {
+    public boolean addManagerPermission(int shopiID, int giverID, int receiverID, String permission) {
+        return false;
+    }
+
+    @Override
+    public boolean addOwnerPermission(int shopiID, int giverID, int receiverID, String permission) {
         return false;
     }
 
@@ -58,8 +63,8 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public void addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price) {
-
+    public boolean addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price) {
+        return false;
     }
     @Override
     public Shop openShop(int userID, String name, String category) {

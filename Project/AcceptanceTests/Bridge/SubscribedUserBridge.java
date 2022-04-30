@@ -21,13 +21,15 @@ public interface SubscribedUserBridge extends UserBridge {
 
     boolean closeShop(int shopID, int userID);
 
-    boolean addPermission(int shopID, int giverID, int receiverID, String permission);
+    boolean addManagerPermission(int shopID, int giverID, int receiverID, String permission);
+
+    boolean addOwnerPermission(int shopID, int giverID, int receiverID, String permission);
 
     Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID);
 
     Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID);
 
-    void addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price);
+    boolean addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price);
 
     Shop openShop(int userID, String name, String category);
 }

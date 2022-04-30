@@ -22,11 +22,11 @@ public interface UserBridge {
 
     List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter);
 
-    void addProductToCart(int userID,int shopID,int productID, int quantity);
+    boolean addProductToCart(int userID,int shopID,int productID, int quantity);
 
     ShoppingCart checkCart(int userID);
 
-    void updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
+    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
 
     boolean purchaseCart(int userID);
 

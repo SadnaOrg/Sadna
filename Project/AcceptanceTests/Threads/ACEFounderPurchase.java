@@ -1,7 +1,6 @@
 package Threads;
 
 import Bridge.SubscribedUserBridge;
-import Bridge.UserBridge;
 import Mocks.Guest;
 import Mocks.RegistrationInfo;
 import Mocks.User;
