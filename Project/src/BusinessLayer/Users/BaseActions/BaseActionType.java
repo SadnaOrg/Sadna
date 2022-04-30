@@ -21,7 +21,7 @@ public enum BaseActionType {
 
     static public BaseAction getAction(SubscribedUser user, Shop shop, BaseActionType actionType) {
         return switch (actionType) {
-            case ROLE_INFO -> new RolesInfo();
+            case ROLE_INFO -> new RolesInfo(shop,user);
             case CLOSE_SHOP -> new CloseShop(shop, user);
             case HISTORY_INFO -> new HistoryInfo();
             case STOCK_MANAGEMENT -> new StockManagement();
