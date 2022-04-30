@@ -5,6 +5,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -19,11 +20,17 @@ public class Shop {
         CLOSED
     }
 
+    public enum ShopAdministratorType{
+        MANAGER,
+        OWNER,
+        FOUNDER
+    }
 
     private int id;
     private String name;
     private State state = State.OPEN;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
+    private Map<String,ShopAdministratorType> shopAdministrators = new ConcurrentHashMap<>();
 
     public void addProduct(Product p) {
         products.put(p.getID(), p);
@@ -69,4 +76,5 @@ public class Shop {
     public int getId() {
         return id;
     }
+
 }
