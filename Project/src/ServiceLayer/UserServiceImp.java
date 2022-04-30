@@ -2,6 +2,7 @@ package ServiceLayer;
 
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
+import BusinessLayer.Users.BasketInfo;
 import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 import ServiceLayer.interfaces.UserService;
@@ -28,6 +29,9 @@ public class UserServiceImp implements UserService {
         return UserController.getInstance().saveProducts(u,shopid,productid,quantity);
     }
 
+    public ConcurrentHashMap<Integer, BasketInfo> showCart(User u){
+        return UserController.getInstance().showCart(u);
+    }
 
     public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
     {

@@ -37,15 +37,13 @@ public abstract class User{
         return shoppingCart.get(shopid).getProducts();
     }
 
-    public boolean search_in_shopping_cart(){
+    public ConcurrentHashMap<Integer,BasketInfo> showCart(){
+        ConcurrentHashMap<Integer,BasketInfo> cartInfo = new ConcurrentHashMap<>();
         for (Basket b:shoppingCart.values())
         {
-            //print each basket in specific format
+            cartInfo.put(b.getShopid(),new BasketInfo(b));
         }
-        //ask for a specific shopid from the user
-        int shopid= 1;//change to what user want
-        //show options and let him choose
-        return true;
+        return cartInfo;
     }
 
     public boolean removeproduct(int shopid, int productid){

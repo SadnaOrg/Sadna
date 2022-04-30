@@ -79,6 +79,11 @@ public class UserController {
     }
 
 
+    public ConcurrentHashMap<Integer,BasketInfo> showCart(User u){
+        return users.get(u.getName()).showCart();
+    }
+
+
     /**
      *
      * @param currUser  the current shopAdministrator
