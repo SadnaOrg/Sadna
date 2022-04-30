@@ -3,8 +3,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Basket {
 
-
-
     private int shopid;
     //the key is the product id in the specific store
     //the value will be the quantity of the product
@@ -55,4 +53,7 @@ public class Basket {
         return products;
     }
 
+    public int getShopid() {
+        return shopid;
+    }
 }
