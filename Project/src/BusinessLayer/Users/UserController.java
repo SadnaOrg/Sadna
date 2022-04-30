@@ -23,27 +23,6 @@ public class UserController {
         users = new ConcurrentHashMap<>();
     }
 
-    public boolean purchaseCart(String user) {
-        User u = new User() {};
-        if (users.containsKey(user)) {
-            u = users.get(user);
-        }
-
-        for(int shopid:u.getShoppingCart().keySet()) {
-            ConcurrentHashMap<Integer,Integer> basket = u.purchaseBasket(shopid);
-//            int price = shopcontroller.purchaseBasket(basket);
-//            if(price>0)
-//            {
-//                pay
-//            }
-//            else
-//            {
-//                //problem
-//            }
-        }
-        return true;
-    }
-
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(User u)
     {
         ConcurrentHashMap<Integer, Basket> cartClone = new ConcurrentHashMap<>();
@@ -63,5 +42,11 @@ public class UserController {
     public boolean editProductQuantity(User u, int shopid, int productid, int newquantity)
     {
         return u.editProductQuantity(shopid, productid, newquantity);
+    }
+
+
+    public User getUser(String user)
+    {
+        return users.get(user);
     }
 }

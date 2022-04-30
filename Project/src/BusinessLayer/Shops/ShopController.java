@@ -21,7 +21,7 @@ public class ShopController{
     }
 
 
-    private final Map<String, Shop> shops;
+    private final Map<Integer, Shop> shops;
 
     public ShopController() {
         this.shops = new ConcurrentHashMap<>();
@@ -35,4 +35,11 @@ public class ShopController{
         return res;
     }
 
+    public double purchaseBasket(int shopid, ConcurrentHashMap<Integer, Integer> basketProducts)
+    {
+        if(shops.containsKey(shopid)) {
+            return shops.get(shopid).purchaseBasket(basketProducts);
+        }
+        return -1;
+    }
 }
