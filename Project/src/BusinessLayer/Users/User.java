@@ -1,5 +1,8 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.ShopController;
+
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class User{
@@ -7,6 +10,13 @@ public abstract class User{
     //the key is the shopid
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
+    protected String name;
+
+    public User(String name)
+    {
+        this.name= name;
+        shoppingCart= new ConcurrentHashMap<>();
+    }
 
 
     //assume that the productid is in the relevant shop handle in facade
@@ -55,4 +65,14 @@ public abstract class User{
         return shoppingCart;
     }
 
+    public Basket getBasket(int shopid)
+    {
+        return shoppingCart.get(shopid);
+    }
+
+
+    public String getName() {
+        return name;
+    }
+    public  String getUserName(){return name;}
 }
