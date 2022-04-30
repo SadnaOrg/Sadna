@@ -23,6 +23,11 @@ public class UserServiceImp implements UserService {
         return true;
     }
 
+    public boolean saveProducts(User u ,int shopid, int productid, int quantity)
+    {
+        return UserController.getInstance().saveProducts(u,shopid,productid,quantity);
+    }
+
 
     public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
     {
