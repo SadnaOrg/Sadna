@@ -17,6 +17,7 @@ public class PurchaseHistoryServices {
         return DataOnPurchases;
     }
 
+
     public PurchaseHistory createPurchaseHistory(int shopid, String user)
     {
         return new PurchaseHistory(shopid , user);
