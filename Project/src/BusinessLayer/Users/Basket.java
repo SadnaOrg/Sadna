@@ -1,7 +1,4 @@
 package BusinessLayer.Users;
-
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Basket {
@@ -28,7 +25,6 @@ public class Basket {
             products.put(pid,bmain.getProducts().get(pid));
         }
     }
-
 
     public boolean saveProducts(int productid, int quantity) {
         if(!products.containsKey(productid))
