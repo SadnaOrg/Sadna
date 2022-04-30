@@ -1,13 +1,21 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.User;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopTest {
+
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
     @Test
     public void addProduct() {
         Shop s1 = createShopWithProduct();
@@ -35,30 +43,31 @@ public class ShopTest {
 
     }
 
-//    @Test
-//    public void purchaseBasket() {
-//        purchaseBasketSuccess();
-//        purchaseBasketFail1();
-//        purchaseBasketFail12();
-//    }
-//
-//    private void purchaseBasketSuccess() {
-//        Shop s1 = createShopWithTwoProducts();
-//        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsSuccess();
-//        Assert.assertNotEquals(0.0, s1.purchaseBasket(basket),0.0);
-//    }
-//
-//    private void purchaseBasketFail1() {
-//        Shop s1 = createShopWithTwoProducts();
-//        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsFail1();
-//        Assert.assertEquals(0.0, s1.purchaseBasket(basket),0.0);
-//    }
-//
-//    private void purchaseBasketFail12() {
-//        Shop s1 = createShopWithTwoProducts();
-//        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsFail2();
-//        Assert.assertEquals(0.0, s1.purchaseBasket(basket),0.0);
-//    }
+    @Test
+    public void purchaseBasket() {
+        purchaseBasketSuccess();
+        purchaseBasketFail1();
+        purchaseBasketFail12();
+    }
+
+    private void purchaseBasketSuccess() {
+        Shop s1 = createShopWithTwoProducts();
+        User u1 =createUserWithItemInBasket(s1.getId(), s);
+        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsSuccess();
+        Assert.assertNotEquals(0.0, s1.purchaseBasket(),0.0);
+    }
+
+    private void purchaseBasketFail1() {
+        Shop s1 = createShopWithTwoProducts();
+        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsFail1();
+        Assert.assertEquals(0.0, s1.purchaseBasket(basket),0.0);
+    }
+
+    private void purchaseBasketFail12() {
+        Shop s1 = createShopWithTwoProducts();
+        ConcurrentHashMap<Integer, Integer> basket = BasketWithTwoProductsFail2();
+        Assert.assertEquals(0.0, s1.purchaseBasket(basket),0.0);
+    }
 
     private void changeProductFail() {
         Shop s1 = createShopWithProduct();
@@ -110,6 +119,14 @@ public class ShopTest {
 
     private Product getProductFromShop(Shop s1, int id) {
         return s1.getProducts().get(id);
+    }
+
+    private User createUserWithItemInBasket(int shopid, int productid)
+    {
+        User u = new Guest("Yuval");
+        int quantity= 10;
+        u.saveProducts(shopid, productid, quantity);
+        return u;
     }
 
     private ConcurrentHashMap<Integer, Integer> BasketWithTwoProductsSuccess() {

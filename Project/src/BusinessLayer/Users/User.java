@@ -12,6 +12,13 @@ public abstract class User {
     private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
     private String name;
 
+    public User(String name)
+    {
+        this.name= name;
+        shoppingCart= new ConcurrentHashMap<>();
+    }
+
+
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
         if (!shoppingCart.containsKey(shopid)) {
