@@ -40,7 +40,7 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
-    public boolean ChangeManagerPermission(SubscribedUser toAssign, CopyOnWriteArrayList<BaseActionType> types) throws NoPermissionException {
+    public boolean ChangeManagerPermission(SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
         if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
             return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
         else throw new NoPermissionException();
