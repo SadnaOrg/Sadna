@@ -23,7 +23,7 @@ public enum BaseActionType {
         return switch (actionType) {
             case ROLE_INFO -> new RolesInfo(shop,user);
             case CLOSE_SHOP -> new CloseShop(shop, user);
-            case HISTORY_INFO -> new HistoryInfo();
+            case HISTORY_INFO -> new HistoryInfo(shop);
             case STOCK_MANAGEMENT -> new StockManagement();
             case ASSIGN_SHOP_OWNER -> new AssignShopOwner(shop, user);
             case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop, user);

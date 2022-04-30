@@ -1,6 +1,7 @@
 package ServiceLayer;
 
 import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Users.SystemManager;
 import ServiceLayer.interfaces.SystemService;
@@ -14,19 +15,19 @@ public class SystemServiceImp implements SystemService {
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        return ShopController.getInstance().getPurchaseInfo();
+        return PurchaseHistoryController.getInstance().getPurchaseInfo();
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
-        return ShopController.getInstance().getPurchaseInfo(shopid);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        return ShopController.getInstance().getPurchaseInfo(userName);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
     {
-        return ShopController.getInstance().getPurchaseInfo(shopid, userName);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid, userName);
     }
 
 }
