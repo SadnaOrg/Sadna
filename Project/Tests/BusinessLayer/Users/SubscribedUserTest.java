@@ -2,10 +2,14 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.naming.NoPermissionException;
+
+import java.util.Collection;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -117,5 +121,39 @@ public class SubscribedUserTest {
         } catch (NoPermissionException ignore) {
             assertNotEquals(0, user2.getAdministrator(shop1.getId()).action.size());
         }
+    }
+
+    @Test
+    public void getAdministratorInfo() {
+//        user1.addAdministrator(shop1.getId(), so1);
+        try {
+            user2.getAdministratorInfo(shop2.getId());
+            fail("do the transaction with out a permission");
+        } catch (NoPermissionException ignore) {
+        }
+
+//        try{
+//            Collection<AdministratorInfo> c = user1.getAdministratorInfo(shop1.getId());
+//            Assert.assertTrue("sould be exsictly only a 1 Administrator",c.size() ==1);
+//            Assert.assertTrue("sould contains the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//                                                                                                            && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
+//            user1.assignShopOwner(shop1.getId(), user2);
+//
+//            c = user2.getAdministratorInfo(shop1.getId());
+//            Assert.assertTrue("sould be exsictly only a 1 Administrator",c.size() ==2);
+//            Assert.assertTrue("sould contains the founder",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.FOUNDER
+//                    && Objects.equals(a.getUserName(), user1.getUserName())).count() ==1);
+//            Assert.assertTrue("sould contains all the owners",c.stream().filter(a->a.getType() == AdministratorInfo.ShopAdministratorType.OWNER
+//                    && Objects.equals(a.getUserName(), user2.getUserName())).count() ==1);
+//        } catch (NoPermissionException e) {
+//            fail("supposed to succeed but got exception :"+e.getMessage());
+//        }
+//
+//        try {
+//            user1.assignShopManager(shop1.getId(), toAssign);
+//            toAssign.getAdministratorInfo(shop1.getId());
+//            fail("do the transaction with out a permission");
+//        } catch (NoPermissionException ignore) {
+//        }
     }
 }
