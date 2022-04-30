@@ -14,8 +14,10 @@ public class ShopOwner extends ShopAdministrator{
         super(s, u);
         this.founder = founder;
         for (BaseActionType b:BaseActionType.values()) {
-            this.AddAction(b);
+            if(b != BaseActionType.CLOSE_SHOP ||founder)
+                this.AddAction(b);
         }
+
     }
 
     public boolean isFounder() {

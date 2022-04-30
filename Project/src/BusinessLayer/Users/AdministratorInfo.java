@@ -13,11 +13,12 @@ public class AdministratorInfo {
         FOUNDER
     }
 
-
+    private final String userName;
     private final ShopAdministratorType type;
     private final Collection<BaseActionType> permission;
 
-    public AdministratorInfo(ShopAdministratorType type, Collection<BaseActionType> permission) {
+    public AdministratorInfo(String userName, ShopAdministratorType type, Collection<BaseActionType> permission) {
+        this.userName = userName;
         this.type = type;
         this.permission = permission;
     }
@@ -30,4 +31,7 @@ public class AdministratorInfo {
         return permission;
     }
 
+    public String getUserName() {
+        return userName;
+    }
 }

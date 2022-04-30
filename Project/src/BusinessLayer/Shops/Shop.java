@@ -124,4 +124,9 @@ public class Shop {
     public Collection<ShopAdministrator> getShopAdministrators() {
         return shopAdministrators.values();
     }
+
+
+    public boolean isOpen(){
+        return state==State.OPEN;
+    }
 }
