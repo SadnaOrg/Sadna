@@ -5,6 +5,8 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,15 +21,17 @@ public class Shop {
     private String name;
     private String description;
     private State state = State.OPEN;
+    private ShopOwner founder;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private Collection<PurchaseHistory> purchaseHistory= new ArrayList<>();
     private Map<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
 
-    public Shop(int id, String name) {
+    public Shop(int id, String name, SubscribedUser founder) {
         this.id = id;
         this.name = name;
+        this.founder = new ShopOwner(this, founder, true);
     }
 
     public synchronized boolean close() {
@@ -144,6 +148,8 @@ public class Shop {
     public String getDescription() {
         return description;
     }
+    
+    public ShopOwner getFounder() { return founder; }
 
     public ShopAdministrator getShopAdministrator(String userName) {
         return shopAdministrators.getOrDefault(userName,null);

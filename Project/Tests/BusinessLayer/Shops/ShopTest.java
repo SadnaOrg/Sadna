@@ -1,10 +1,7 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.Guest;
-import BusinessLayer.Users.User;
-import BusinessLayer.Users.UserController;
+import BusinessLayer.Users.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +10,16 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopTest {
 
+    private final SubscribedUser founder = createFounder();
+    private Shop s1;
+    private Product p1;
+    private Product p2;
 
     @Before
     public void setUp() {
+        s1 = createShop();
+        p1 = createProduct();
+        p2 = createDifferentProduct();
     }
 
     @Test
@@ -33,7 +37,6 @@ public class ShopTest {
     @Test
     public void removeProduct() {
         Shop s1 = createShop();
-        Product p1 = createProduct();
         s1.addProduct(p1);
         s1.removeProduct(p1);
         Assert.assertEquals(0, s1.getProducts().size());
@@ -53,7 +56,6 @@ public class ShopTest {
 
     private double purchaseBasketHelper(int quantity) {
         Shop s1 = createShop();
-        Product p1 = createProduct();
         s1.addProduct(p1);
         User u1 = new Guest("Yuval");
         u1.saveProducts(s1.getId(), p1.getID(), quantity);
@@ -78,23 +80,18 @@ public class ShopTest {
     }
 
     private Shop createShopWithProduct() {
-        Shop s1 = createShop();
-        Product p1 = createProduct();
         s1.addProduct(p1);
         return s1;
     }
 
     private Shop createShopWithTwoProducts() {
-        Shop s1 = createShop();
-        Product p1 = createProduct();
-        Product p2 = createDifferentProduct();
         s1.addProduct(p1);
         s1.addProduct(p2);
         return s1;
     }
 
     private Shop createShop() {
-        return new Shop(100, "shop");
+        return new Shop(100, "shop", founder);
     }
 
     private Product createProduct() {
@@ -118,5 +115,9 @@ public class ShopTest {
         User u = new Guest("Yuval");
         u.saveProducts(shopid, productid, quantity);
         return u;
+    }
+
+    private SubscribedUser createFounder() {
+        return new SubscribedUser("Founder Guy");
     }
 }
