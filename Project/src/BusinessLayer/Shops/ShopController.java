@@ -105,47 +105,5 @@ public class ShopController {
         return shopsInfo;
     }
 
-    public Collection<PurchaseHistory> getPurchaseInfo()
-    {
-        return System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
-
-    }
-    public Collection<PurchaseHistory> getPurchaseInfo(String user)
-    {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
-        Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
-        for(PurchaseHistory purchaseHistory:allinfo)
-        {
-            if(purchaseHistory.getUser().equals(user)) {
-                relevantinfo.add(purchaseHistory);
-            }
-        }
-        return relevantinfo;
-    }
-
-    public Collection<PurchaseHistory> getPurchaseInfo(int shopid)
-    {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
-        Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
-        for(PurchaseHistory purchaseHistory:allinfo)
-        {
-            if(purchaseHistory.getShopid()== shopid) {
-                relevantinfo.add(purchaseHistory);
-            }
-        }
-        return relevantinfo;
-    }
-    public Collection<PurchaseHistory> getPurchaseInfo(int shopid, String user)
-    {
-        Collection<PurchaseHistory> allinfo= System.getInstance().getPurchaseHistoryServices().getDataOnPurchases();
-        Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
-        for(PurchaseHistory purchaseHistory:allinfo)
-        {
-            if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShopid()== shopid) {
-                relevantinfo.add(purchaseHistory);
-            }
-        }
-        return relevantinfo;
-    }
 
 }

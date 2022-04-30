@@ -1,7 +1,6 @@
 package BusinessLayer.System;
 
-import BusinessLayer.Shops.Purchase;
-import BusinessLayer.Shops.PurchaseHistoryServices;
+import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.UserController;
 
@@ -10,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class System {
     private Notifier notifier;
     private ExternalServicesSystem externSystem;
-    private PurchaseHistoryServices purchaseHistoryServices;
+    private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
 
     static private class SystemHolder{
@@ -25,7 +24,7 @@ public class System {
         notifier = new Notifier();
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
-        purchaseHistoryServices= new PurchaseHistoryServices();
+        purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin");
     }
     public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices)
@@ -44,7 +43,7 @@ public class System {
         return paymensituation;
     }
 
-    public PurchaseHistoryServices getPurchaseHistoryServices() {
+    public PurchaseHistoryController getPurchaseHistoryServices() {
         return purchaseHistoryServices;
     }
 }
