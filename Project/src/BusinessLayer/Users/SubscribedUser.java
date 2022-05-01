@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.math.BigInteger;
@@ -21,6 +22,7 @@ import java.security.NoSuchAlgorithmException;
 public class SubscribedUser extends User {
     private String hashedPassword;
     private Map<Integer,ShopAdministrator> shopAdministrator;
+    private boolean is_login = false;
 
     public SubscribedUser(String userName,String password) {
         super(userName);
@@ -28,8 +30,19 @@ public class SubscribedUser extends User {
         hashedPassword = GFG2.Hash(password);
     }
 
+    public boolean login(String userName,String password) {
+        if (is_login) {
+            if (Objects.equals(userName, this.getUserName()) && Objects.equals(GFG2.Hash(password), this.hashedPassword))
+                is_login = true;
+            return is_login;
+        }
+        else throw new IllegalStateException("user is allready logged in");
+    }
 
-
+    @Override
+    public boolean isLoggedIn() {
+        return is_login;
+    }
 
     /**
      *

@@ -11,7 +11,7 @@ public abstract class User{
 
     //the key is the shopid
     //the value is the basket of the specific shop
-    private ConcurrentHashMap<Integer, Basket> shoppingCart = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer, Basket> shoppingCart;
     protected String name;
 
     public User(String name)
@@ -79,4 +79,8 @@ public abstract class User{
         return name;
     }
     public  String getUserName(){return name;}
+
+    public boolean isLoggedIn(){
+        return true;
+    }
 }

@@ -8,6 +8,5 @@ import BusinessLayer.Shops.ShopFilters;
 import java.util.Collection;
 import java.util.Map;
 
-public interface GeneralService {
-    Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
+public interface GeneralService extends UserService {
 }

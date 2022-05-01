@@ -1,24 +1,35 @@
 package ServiceLayer.interfaces;
 
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.BasketInfo;
-import BusinessLayer.Users.User;
+import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public interface UserService {
-    boolean purchaseCartFromShop(User u);
 
-    boolean saveProducts(User u, int shopid, int productid, int quantity);
+    Result purchaseCartFromShop();
 
-    ConcurrentHashMap<Integer, BasketInfo> showCart(User u);
+    Result saveProducts(int shopid, int productid, int quantity);
 
-    ConcurrentHashMap<Integer, ShopInfo> reciveInformation();
+    Response<Map<Integer, BasketInfo>> showCart();
 
-    User loginSystem(String name);
+    Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation();
 
-    User logoutSystem(String name);
+    Result loginSystem();
+
+    Result logoutSystem();
 
     Result registerToSystem(String userName, String password);
+
+    Response<GeneralService> login(String username, String password);
+
+    Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
 }
