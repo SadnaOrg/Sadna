@@ -24,4 +24,6 @@ public class GeneralServiceImp implements GeneralService {
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
         return shopService.searchProducts(shopPred, productPred);
     }
+
+
 }

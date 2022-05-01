@@ -118,6 +118,6 @@ public class ShopTest {
     }
 
     private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy");
+        return new SubscribedUser("Founder Guy","Guy123456");
     }
 }

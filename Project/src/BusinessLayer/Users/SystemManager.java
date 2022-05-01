@@ -10,8 +10,8 @@ public class SystemManager extends SubscribedUser {
 
     private final SystemServiceImp systemServiceImp;
 
-    public SystemManager(String userName) {
-        super(userName);
+    public SystemManager(String userName,String password) {
+        super(userName,password);
         systemServiceImp= new SystemServiceImp();
     }
 
@@ -20,9 +20,9 @@ public class SystemManager extends SubscribedUser {
         return this.systemServiceImp.getShopsAndUsersInfo();
     }
 
-    public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
+    public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopId)
     {
-        return this.systemServiceImp.getShopsAndUsersInfo(shopid);
+        return this.systemServiceImp.getShopsAndUsersInfo(shopId);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
@@ -30,8 +30,8 @@ public class SystemManager extends SubscribedUser {
         return this.systemServiceImp.getShopsAndUsersInfo(userName);
     }
 
-    public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
+    public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopId, String userName)
     {
-        return this.systemServiceImp.getShopsAndUsersInfo(shopid, userName);
+        return this.systemServiceImp.getShopsAndUsersInfo(shopId, userName);
     }
 }

@@ -58,16 +58,16 @@ public class UserTest {
 
     public void testEditProductQuantitySuccess()
     {
-        int newquantity =55;
-        assertTrue(u1.editProductQuantity(s1.getId(),p1.getID(),newquantity));
-        assertEquals(newquantity,(int) u1.getShoppingCart().get(s1.getId()).getProducts().get(p1.getID()));
+        int newQuantity =55;
+        assertTrue(u1.editProductQuantity(s1.getId(),p1.getID(),newQuantity));
+        assertEquals(newQuantity,(int) u1.getShoppingCart().get(s1.getId()).getProducts().get(p1.getID()));
     }
 
     public void testEditProductQuantityFail()
     {
-        int newquantity =55;
-        assertFalse(u1.editProductQuantity(2,p1.getID(),newquantity));
-        assertFalse(u1.editProductQuantity(s1.getId(),3,newquantity));
+        int newQuantity =55;
+        assertFalse(u1.editProductQuantity(2,p1.getID(),newQuantity));
+        assertFalse(u1.editProductQuantity(s1.getId(),3,newQuantity));
     }
 
 
@@ -92,6 +92,6 @@ public class UserTest {
     }
 
     private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy");
+        return new SubscribedUser("Founder Guy","pass12");
     }
 }

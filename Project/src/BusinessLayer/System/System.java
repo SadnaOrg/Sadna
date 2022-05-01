@@ -25,7 +25,7 @@ public class System {
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
-        UserController.getInstance().createSystemManager("Admin");
+        UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeriya");
     }
     public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices)
     {
