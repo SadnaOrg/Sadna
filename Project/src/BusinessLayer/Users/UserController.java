@@ -130,8 +130,8 @@ public class UserController {
             return null;
     }
 
-    public void logout(SubscribedUser u){
-       u.logout();
+    public boolean logout(String username){
+        return subscribers.get(username).logout();
     }
 
     public User loginSystem() {

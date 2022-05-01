@@ -85,6 +85,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public Result logout(String username){
+        return Result.tryMakeResult(()-> userController.logout(username) ,"incorrect user name or password");
+    }
+
+    @Override
     public Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred){
         return ifUserNotNullRes(()->shopController.searchProducts(shopPred,productPred));
     }

@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -155,5 +156,32 @@ public class SubscribedUserTest {
 //            fail("do the transaction without a permission");
 //        } catch (NoPermissionException ignore) {
 //        }
+    }
+
+    @Test
+    public void login() {
+        assertTrue(user1.login("user1", "pass12"));
+        try{
+            assertTrue(user1.login("user1", "pass12"));
+            fail("should not be able to login twice");
+        }
+        catch (IllegalStateException ignored){}
+        assertFalse(user2.login("user2", "1234"));
+    }
+
+    @Test
+    public void logout() {
+        assertTrue(user1.login("user1", "pass12"));
+        assertTrue(user1.logout());
+        try{
+            assertTrue(user1.logout());
+            fail("should not be able to logout twice");
+        }
+        catch (IllegalStateException ignored){}
+        try{
+            assertTrue(user2.logout());
+            fail("should not be able to logout of user who didn't log in");
+        }
+        catch (IllegalStateException ignored){}
     }
 }
