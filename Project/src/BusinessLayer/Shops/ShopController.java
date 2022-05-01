@@ -44,7 +44,14 @@ public class ShopController {
     public ConcurrentHashMap<Integer, Double> purchaseBasket(String user) {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
+            try {
                 finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
+            }
+            catch (IllegalStateException e)
+            {
+                //TODO: add notification when implemented
+                finalprices.put(shopid,0.0);
+            }
         }
         return finalprices;
     }
@@ -57,14 +64,14 @@ public class ShopController {
                 boolean flagexist= false;
                 for (PurchaseHistory purchaseHistory:PurchaseHistoryController.getInstance().getDataOnPurchases())
                 {
-                    if(purchaseHistory.getShopid()==shopid && purchaseHistory.getUser().equals(user)) {
+                    if(purchaseHistory.getShop().getId()==shopid && purchaseHistory.getUser().equals(user)) {
                         purchaseHistory.makePurchase();
                         flagexist= true;
                     }
                 }
                 if(!flagexist)
                 {
-                    PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shopid, user);
+                    PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.get(shopid), user);
                     purchaseHistory.makePurchase();
                     shops.get(shopid).getPurchaseHistory().add(purchaseHistory);
                 }

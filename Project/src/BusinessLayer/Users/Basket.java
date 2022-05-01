@@ -30,16 +30,23 @@ public class Basket {
             products.put(productid,quantity);
             return true;
         }
-        return false;
+        else
+        {
+            throw new IllegalStateException("The product is already in the basket");
+        }
     }
 
 
     public boolean removeProduct(int productid) {
         if (products.containsKey(productid)) {
             products.remove(productid);
+
             return true;
         }
-        return false;
+        else
+        {
+            throw new IllegalStateException("The product is not exist in the basket");
+        }
     }
 
     public boolean editProductQuantity(int productid, int newquantity) {
@@ -47,7 +54,10 @@ public class Basket {
             products.put(productid, newquantity);
             return true;
         }
-        return false;
+        else
+        {
+            throw new IllegalStateException("The product is not exist in the basket");
+        }
     }
     public ConcurrentHashMap<Integer, Integer> getProducts() {
         return products;

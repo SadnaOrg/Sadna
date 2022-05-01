@@ -15,7 +15,7 @@ public class Purchase {
 
     public Purchase(int shopid, String user, int transactionid, Basket info)
     {
-        transectionid++;
+        this.transectionid= transactionid;
         this.infoProducts =new ConcurrentHashMap<>();
         for (int productid: info.getProducts().keySet())
         {
