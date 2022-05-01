@@ -34,8 +34,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Result saveProducts(int shopid, int productid, int quantity){
-        return ifUserNotNull(()-> userController.saveProducts(currUser,shopid,productid,quantity));
+    public Result saveProducts(int shopId, int productId, int quantity){
+        return ifUserNotNull(()-> userController.saveProducts(currUser,shopId,productId,quantity));
     }
 
     @Override
