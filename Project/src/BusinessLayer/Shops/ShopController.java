@@ -7,6 +7,7 @@ import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 import BusinessLayer.System.System;
+import ServiceLayer.Log;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +30,7 @@ public class ShopController {
 
     private final Map<Integer, Shop> shops;
 
-    public ShopController() {
+    private ShopController() {
         this.shops = new ConcurrentHashMap<>();
     }
 
