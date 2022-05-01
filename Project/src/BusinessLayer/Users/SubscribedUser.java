@@ -31,7 +31,7 @@ public class SubscribedUser extends User {
     }
 
     public boolean login(String userName,String password) {
-        if (is_login) {
+        if (!is_login) {
             if (Objects.equals(userName, this.getUserName()) && Objects.equals(GFG2.Hash(password), this.hashedPassword))
                 is_login = true;
             return is_login;
@@ -39,8 +39,12 @@ public class SubscribedUser extends User {
         else throw new IllegalStateException("user is allready logged in");
     }
 
-    public void logout(){
-        is_login = false;
+    public boolean logout(){
+        if (is_login) {
+            is_login = false;
+            return true;
+        }
+        else throw new IllegalStateException("user is already logged out");
     }
     @Override
     public boolean isLoggedIn() {

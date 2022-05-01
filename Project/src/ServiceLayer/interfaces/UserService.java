@@ -23,6 +23,8 @@ public interface UserService {
 
     Response<SubscribedUserService> login(String username, String password);
 
+    Result logout(String username);
+
     Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation();
 
     Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
