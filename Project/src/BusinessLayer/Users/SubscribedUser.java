@@ -39,6 +39,9 @@ public class SubscribedUser extends User {
         else throw new IllegalStateException("user is allready logged in");
     }
 
+    public void logout(){
+        is_login = false;
+    }
     @Override
     public boolean isLoggedIn() {
         return is_login;

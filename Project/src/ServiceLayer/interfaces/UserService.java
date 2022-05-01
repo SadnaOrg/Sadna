@@ -21,9 +21,9 @@ public interface UserService {
 
     Result registerToSystem(String userName, String password);
 
-    Response<GeneralService> login(String username, String password);
+    Response<SubscribedUserService> login(String username, String password);
 
-    Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation();
+    Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation();
 
     Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
 
@@ -31,5 +31,10 @@ public interface UserService {
 
     Response<Map<Integer, BasketInfo>> showCart();
 
+    Result removeProduct(int shopId, int productId);
+
+    Result editProductQuantity(int shopId, int productId, int newQuantity);
+
     Result purchaseCartFromShop();
+
 }
