@@ -19,9 +19,4 @@ public class Shop {
         this.category = category;
         products = new HashMap<>();
     }
-
-    public boolean sells(DataObjects.Product p) {
-        return this.ID >= 5;
-    }
-
 }

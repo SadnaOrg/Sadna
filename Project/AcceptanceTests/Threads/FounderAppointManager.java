@@ -27,5 +27,6 @@ public class FounderAppointManager extends Thread{
         User founder = bridge.login(g.ID,new RegistrationInfo(subscribedUser.username, subscribedUser.password));
 
         bridge.appointManager(shopID,founder.ID,SubscribedUserTests.getU3ID());
+        bridge.exit(subscribedUser.ID);
     }
 }
