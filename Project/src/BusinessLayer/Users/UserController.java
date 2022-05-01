@@ -113,7 +113,8 @@ public class UserController {
     }
 
     public synchronized boolean registerToSystem(String userName, String password){
-        if (subscribers.containsKey(userName)) {
+        if (subscribers.containsKey(userName)){
+            //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
@@ -122,13 +123,17 @@ public class UserController {
         return false;
     }
 
-    public SubscribedUser login(String userName, String password){
-            if(subscribers.containsKey(userName))
+    public SubscribedUser login(String userName, String password,User currUser){
+            if(subscribers.containsKey(userName) &&(currUser==null||currUser instanceof Guest))
                 if(subscribers.get(userName).login(userName,password))
                     return subscribers.get(userName);
                 else
                     return null;
             return null;
+    }
+
+    public void logout(SubscribedUser u){
+       u.logout();
     }
 
     public User loginSystem() {

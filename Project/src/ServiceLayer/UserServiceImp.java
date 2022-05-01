@@ -10,7 +10,6 @@ import BusinessLayer.Users.*;
 import ServiceLayer.interfaces.GeneralService;
 import ServiceLayer.interfaces.UserService;
 import BusinessLayer.System.System;
-import com.sun.security.auth.UnixNumericUserPrincipal;
 
 import java.util.Collection;
 import java.util.Map;
@@ -19,9 +18,9 @@ import java.util.function.Supplier;
 
 public class UserServiceImp implements UserService {
     protected User currUser;
-    UserController userController = UserController.getInstance();
-    ShopController shopController = ShopController.getInstance();
-    System system = System.getInstance();
+    protected UserController userController = UserController.getInstance();
+    protected ShopController shopController = ShopController.getInstance();
+    protected System system = System.getInstance();
 
     @Override
     public Result purchaseCartFromShop() {
@@ -54,19 +53,17 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation(){
+    public Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation(){
         return ifUserNotNullRes(()->userController.reciveInformation());
     }
 
     @Override
-    public Result loginSystem()
-    {
+    public Result loginSystem() {
         return ifUserNull(()->{
             currUser =userController.loginSystem();
             return currUser!=null;
         });
     }
-
 
     @Override
     public Result logoutSystem() {
@@ -84,16 +81,18 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Response<GeneralService> login(String username, String password){
-        return Response.tryMakeResponse(()-> userController.login(username, password) ,"incorrect user name or password").safe(GeneralServiceImp::new);
+        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password").safe(GeneralServiceImp::new);
     }
 
     @Override
     public Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred){
         return ifUserNotNullRes(()->shopController.searchProducts(shopPred,productPred));
     }
+
     private Result ifUserNotNull(Supplier<Boolean> s){
         return Result.tryMakeResult((() -> currUser != null && s.get()) ,"log in to system first");
     }
+
     private Result ifUserNull(Supplier<Boolean> s){
         return Result.tryMakeResult((() -> currUser == null && s.get()) ,"logout from system first");
     }
@@ -101,6 +100,7 @@ public class UserServiceImp implements UserService {
     private <T> Response<T> ifUserNotNullRes(Supplier<T> s){
         return Response.tryMakeResponse((() -> currUser == null ? null:  s.get()),"log in to system first");
     }
+
     private <T> Response<T> ifUserNullRes(Supplier<T> s){
         return Response.tryMakeResponse((() -> currUser != null ? null:  s.get()),"logout from system first");
     }

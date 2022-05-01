@@ -24,7 +24,7 @@ public interface UserService {
 
     Response<GeneralService> login(String username, String password);
 
-    Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation();
+    Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation();
 
     Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
 
