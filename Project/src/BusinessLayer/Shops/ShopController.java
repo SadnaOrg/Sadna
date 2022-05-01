@@ -29,7 +29,7 @@ public class ShopController {
 
     private final Map<Integer, Shop> shops;
 
-    public ShopController() {
+    private ShopController() {
         this.shops = new ConcurrentHashMap<>();
     }
 

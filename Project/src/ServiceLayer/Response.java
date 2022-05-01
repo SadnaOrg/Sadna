@@ -25,8 +25,15 @@ public class Response<T> extends Result {
     }
 
     public static  <T> Response<T> tryMakeResponse(Supplier<T> res, String msg){
-        try { return makeResponse(res.get(),msg);}
-        catch (Exception e){return new Response<>(e.getMessage());}
+        try {
+            Response<T> response = makeResponse(res.get(),msg);
+            Log.getInstance().event(msg);
+            return response;
+        }
+        catch (Exception e) {
+            Log.getInstance().error(e.getMessage());
+            return new Response<>(e.getMessage());
+        }
     }
 
     public <K> Response<K> safe(Function<T,K> f){
