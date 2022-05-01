@@ -146,7 +146,7 @@ public class ShopTest {
         return u;
     }
 
-        private SubscribedUser createFounder() {
+    private SubscribedUser createFounder() {
             return new SubscribedUser("Founder Guy","Guy123456");
         }
 }

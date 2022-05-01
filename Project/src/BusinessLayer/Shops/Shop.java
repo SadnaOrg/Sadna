@@ -7,7 +7,6 @@ import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import ServiceLayer.Log;
 
 import javax.naming.NoPermissionException;
 import java.util.ArrayList;
