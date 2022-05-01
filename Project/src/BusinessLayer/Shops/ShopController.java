@@ -35,7 +35,7 @@ public class ShopController {
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
         Map<Shop, Collection<Product>> res = new ConcurrentHashMap<>();
-        for (Shop s : shops.values().stream().filter(shopPred).collect(Collectors.toSet())) {
+        for (Shop s : shops.values().stream().filter(shopPred.and(Shop::isOpen)).collect(Collectors.toSet())) {
             res.put(s, s.searchProducts(productPred));
         }
         return res;
@@ -79,8 +79,7 @@ public class ShopController {
         return shops.get(shopid).checkIfUserHasBasket(user);
     }
 
-    public boolean AddBasket(int shopid, String user, Basket basket)
-    {
+    public boolean AddBasket(int shopid, String user, Basket basket) {
         return shops.get(shopid).addBasket(user,basket);
     }
 
@@ -98,8 +97,7 @@ public class ShopController {
         }
     }
 
-    public ConcurrentHashMap<Integer,ShopInfo> reciveInformation()
-    {
+    public ConcurrentHashMap<Integer,ShopInfo> reciveInformation() {
         ConcurrentHashMap<Integer,ShopInfo> shopsInfo= new ConcurrentHashMap<>();
         for (Shop s:shops.values())
         {

@@ -4,6 +4,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopFilters;
+import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
 import ServiceLayer.interfaces.GeneralService;
 import ServiceLayer.interfaces.ShopService;
@@ -18,6 +19,10 @@ public class GeneralServiceImp implements GeneralService {
     ShopService shopService;
     UserService userService;
     SystemService systemService;
+
+    public GeneralServiceImp(SubscribedUser currUser) {
+        this.currUser=currUser;
+    }
 
 
     @Override

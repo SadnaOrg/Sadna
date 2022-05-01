@@ -79,4 +79,8 @@ public abstract class User{
         return name;
     }
     public  String getUserName(){return name;}
+
+    public boolean isLoggedIn(){
+        return true;
+    }
 }

@@ -18,9 +18,14 @@ public class UserController {
     }
 
     private final Map<String,User> users;
+    private final Map<String,SubscribedUser> subscribers;
+    private final Map<String,SystemManager> managers;
+
 
     private UserController() {
         users = new ConcurrentHashMap<>();
+        managers = new ConcurrentHashMap<>();
+        subscribers = new ConcurrentHashMap<>();
     }
 
     public boolean saveProducts(User u ,int shopId, int productId, int quantity){
@@ -83,10 +88,14 @@ public class UserController {
      * @throws NoPermissionException  if the shop Administrator has no permission to complete the transaction
      */
     public boolean AssignShopManager(SubscribedUser currUser,String userNameToAssign,int shopId) throws NoPermissionException {
-        if(users.containsKey(userNameToAssign)&&getUser(userNameToAssign)instanceof SubscribedUser){
-            return currUser.assignShopManager(shopId,(SubscribedUser) getUser(userNameToAssign));
+        if(subscribers.containsKey(userNameToAssign)){
+            return currUser.assignShopManager(shopId, getSubUser(userNameToAssign));
         }else
             throw new IllegalArgumentException("non such user - "+userNameToAssign);
+    }
+
+    private SubscribedUser getSubUser(String userName) {
+        return subscribers.getOrDefault(userName,null);
     }
 
 
@@ -96,18 +105,30 @@ public class UserController {
 
 
     public boolean createSystemManager(String username,String password) {
-        User systemManager = new SystemManager(username,password);
+        SystemManager systemManager = new SystemManager(username,password);
         users.put(systemManager.getName(),systemManager);
+        subscribers.put(systemManager.getName(),systemManager);
+        managers.put(systemManager.getName(),systemManager);
         return true;
     }
 
-    public boolean registerToSystem(String userName, String password){
-        if (users.containsKey(userName)) {
+    public synchronized boolean registerToSystem(String userName, String password){
+        if (subscribers.containsKey(userName)) {
             SubscribedUser newUser = new SubscribedUser(userName, password);
             users.put(userName, newUser);
+            subscribers.put(userName, newUser);
             return true;
         }
         return false;
+    }
+
+    public SubscribedUser login(String userName, String password){
+            if(subscribers.containsKey(userName))
+                if(subscribers.get(userName).login(userName,password))
+                    return subscribers.get(userName);
+                else
+                    return null;
+            return null;
     }
 
     public User loginSystem(String name) {

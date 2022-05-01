@@ -2,10 +2,8 @@ package ServiceLayer;
 
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
-import BusinessLayer.Users.BasketInfo;
-import BusinessLayer.Users.Guest;
-import BusinessLayer.Users.User;
-import BusinessLayer.Users.UserController;
+import BusinessLayer.Users.*;
+import ServiceLayer.interfaces.GeneralService;
 import ServiceLayer.interfaces.UserService;
 import BusinessLayer.System.System;
 
@@ -56,6 +54,10 @@ public class UserServiceImp implements UserService {
     @Override
     public Result registerToSystem(String userName, String password){
             return Result.tryMakeResult(()->userController.registerToSystem(userName,password),"error in register");
+    }
+
+    public Response<GeneralService> login(String username,String password){
+        return Response.tryMakeResponse(()-> userController.login(username, password) ,"incorrect user name or password").safe(GeneralServiceImp::new);
     }
 
 }
