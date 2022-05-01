@@ -14,20 +14,11 @@ import ServiceLayer.interfaces.UserService;
 import java.util.Collection;
 import java.util.Map;
 
-public class GeneralServiceImp implements GeneralService {
-    User currUser;
-    ShopService shopService;
-    UserService userService;
-    SystemService systemService;
+public class GeneralServiceImp extends UserServiceImp implements GeneralService {
+    SubscribedUser currUser;
 
     public GeneralServiceImp(SubscribedUser currUser) {
         this.currUser=currUser;
-    }
-
-
-    @Override
-    public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
-        return shopService.searchProducts(shopPred, productPred);
     }
 
 

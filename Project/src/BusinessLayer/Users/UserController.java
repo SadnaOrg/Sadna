@@ -16,7 +16,7 @@ public class UserController {
     public static UserController getInstance(){
         return UserControllerHolder.uc;
     }
-
+    private  int guest_serial=-1;
     private final Map<String,User> users;
     private final Map<String,SubscribedUser> subscribers;
     private final Map<String,SystemManager> managers;
@@ -131,14 +131,14 @@ public class UserController {
             return null;
     }
 
-    public User loginSystem(String name) {
-        User guest= new Guest(name);
+    public User loginSystem() {
+        User guest= new Guest("guest_" + ++guest_serial);
         users.put(guest.getName(),guest);
         return guest;
     }
 
-    public User logoutSystem(String name) {
-        return users.remove(name);
+    public boolean logoutSystem(String name) {
+        return users.remove(name)!=null;
     }
 
 }
