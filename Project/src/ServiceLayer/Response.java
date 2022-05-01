@@ -30,9 +30,9 @@ public class Response<T> extends Result {
     }
 
     public <K> Response<K> safe(Function<T,K> f){
-        return this.isOk() ? new Response<K>(f.apply(this.element)) : new Response<K>(this.getMsg());
+        return this.isOk() ? new Response<>(f.apply(this.element)) : new Response<>(this.getMsg());
     }
     public <K> Response<K> safe(Function<T,K> f,String msg) {
-        return this.isOk() ? tryMakeResponse(() -> f.apply(this.element), msg) : new Response<K>(this.getMsg());
+        return this.isOk() ? tryMakeResponse(() -> f.apply(this.element), msg) : new Response<>(this.getMsg());
     }
 }
