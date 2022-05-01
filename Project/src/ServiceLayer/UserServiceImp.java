@@ -18,6 +18,7 @@ public class UserServiceImp implements UserService {
     ShopController shopController = ShopController.getInstance();
     System system = System.getInstance();
 
+    @Override
     public boolean purchaseCartFromShop(User u) {
         ConcurrentHashMap<Integer,Double> prices = shopController.purchaseBasket(u.getName());
         ConcurrentHashMap<Integer,Boolean> paymentSituation= system.pay(prices);
@@ -25,28 +26,36 @@ public class UserServiceImp implements UserService {
         return true;
     }
 
-    public boolean saveProducts(User u ,int shopid, int productid, int quantity)
-    {
+    @Override
+    public boolean saveProducts(User u, int shopid, int productid, int quantity){
         return UserController.getInstance().saveProducts(u,shopid,productid,quantity);
     }
 
+    @Override
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u){
         return UserController.getInstance().showCart(u);
     }
 
-    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
-    {
+    @Override
+    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation(){
         return UserController.getInstance().reciveInformation();
     }
 
+    @Override
     public User loginSystem(String name)
     {
         return UserController.getInstance().loginSystem(name);
     }
 
+    @Override
     public User logoutSystem(String name)
     {
         return UserController.getInstance().logoutSystem(name);
+    }
+
+    @Override
+    public Result registerToSystem(String userName, String password){
+            return Result.tryMakeResult(()->userController.registerToSystem(userName,password),"error in register");
     }
 
 }
