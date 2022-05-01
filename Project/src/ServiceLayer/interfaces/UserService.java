@@ -15,14 +15,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public interface UserService {
 
-    Result purchaseCartFromShop();
-
-    Result saveProducts(int shopid, int productid, int quantity);
-
-    Response<Map<Integer, BasketInfo>> showCart();
-
-    Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation();
-
     Result loginSystem();
 
     Result logoutSystem();
@@ -31,5 +23,13 @@ public interface UserService {
 
     Response<GeneralService> login(String username, String password);
 
+    Response<ConcurrentHashMap<Integer, ShopInfo>> reciveInformation();
+
     Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
+
+    Result saveProducts(int shopid, int productid, int quantity);
+
+    Response<Map<Integer, BasketInfo>> showCart();
+
+    Result purchaseCartFromShop();
 }
