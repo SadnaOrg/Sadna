@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.*;
 
@@ -8,7 +9,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();
@@ -60,6 +60,15 @@ public class ShopAdministrator{
     public Collection<AdministratorInfo> getAdministratorInfo() throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.ROLE_INFO)){
             return ((RolesInfo)action.get(BaseActionType.ROLE_INFO)).act();
+        }
+        else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
+    }
+
+
+
+    public Collection<PurchaseHistory> getHistoryInfo() throws NoPermissionException {
+        if(this.action.containsKey(BaseActionType.HISTORY_INFO)){
+            return ((HistoryInfo)action.get(BaseActionType.HISTORY_INFO)).act();
         }
         else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }

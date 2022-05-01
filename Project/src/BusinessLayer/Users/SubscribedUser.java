@@ -1,7 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.BaseActions.CloseShop;
 
 import javax.naming.NoPermissionException;
 import java.math.BigInteger;
@@ -12,11 +12,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 public class SubscribedUser extends User {
@@ -100,6 +95,15 @@ public class SubscribedUser extends User {
         }
         else throw new NoPermissionException("you're not the shop Administrator");
     }
+
+    public Collection<PurchaseHistory> getHistoryInfo(int shopId) throws NoPermissionException {
+        if(shopAdministrator.containsKey(shopId)){
+            return shopAdministrator.get(shopId).getHistoryInfo();
+        }
+        else throw new NoPermissionException("you're not the shop Administrator");
+    }
+
+
 
 // Java program to calculate SHA hash value
 

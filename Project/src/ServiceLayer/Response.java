@@ -1,5 +1,6 @@
 package ServiceLayer;
 
+import javax.naming.NoPermissionException;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -24,14 +25,14 @@ public class Response<T> extends Result {
         return res!=null? new Response<>(res) : new Response<>(msg);
     }
 
-    public static  <T> Response<T> tryMakeResponse(Supplier<T> res, String msg){
+    public static  <T> Response<T> tryMakeResponse(MySupplier<T> res, String msg){
         try {
             Response<T> response = makeResponse(res.get(),msg);
-            Log.getInstance().event(msg);
+            if (!response.isOk()) Log.getInstance().error(msg);
             return response;
         }
         catch (Exception e) {
-            Log.getInstance().error(e.getMessage());
+            Log.getInstance().error(e.toString());
             return new Response<>(e.getMessage());
         }
     }
