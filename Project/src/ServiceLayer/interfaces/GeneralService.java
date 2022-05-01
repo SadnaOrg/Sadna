@@ -9,4 +9,5 @@ import java.util.Collection;
 import java.util.Map;
 
 public interface GeneralService extends UserService {
+
 }

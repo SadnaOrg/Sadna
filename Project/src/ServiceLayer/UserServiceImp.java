@@ -10,6 +10,7 @@ import BusinessLayer.Users.*;
 import ServiceLayer.interfaces.GeneralService;
 import ServiceLayer.interfaces.UserService;
 import BusinessLayer.System.System;
+import com.sun.security.auth.UnixNumericUserPrincipal;
 
 import java.util.Collection;
 import java.util.Map;
@@ -34,13 +35,22 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result saveProducts(int shopid, int productid, int quantity){
-
-        return ifUserNotNull(()->UserController.getInstance().saveProducts(currUser,shopid,productid,quantity));
+        return ifUserNotNull(()-> userController.saveProducts(currUser,shopid,productid,quantity));
     }
 
     @Override
     public Response<Map<Integer, BasketInfo>> showCart(){
         return ifUserNotNullRes(()->userController.showCart(currUser));
+    }
+
+    @Override
+    public Result removeProduct(int shopId, int productId) {
+        return ifUserNotNull(()->userController.removeproduct(currUser,shopId,productId));
+    }
+
+    @Override
+    public Result editProductQuantity(int shopId, int productId, int newQuantity) {
+        return ifUserNotNull(()->userController.editProductQuantity(currUser,shopId,productId,newQuantity));
     }
 
     @Override

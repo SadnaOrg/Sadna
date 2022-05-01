@@ -6,6 +6,7 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.BasketInfo;
+import BusinessLayer.Users.User;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -30,6 +31,10 @@ public interface UserService {
     Result saveProducts(int shopid, int productid, int quantity);
 
     Response<Map<Integer, BasketInfo>> showCart();
+
+    Result removeProduct(int shopId, int productId);
+
+    Result editProductQuantity(int shopId, int productId, int newQuantity);
 
     Result purchaseCartFromShop();
 }
