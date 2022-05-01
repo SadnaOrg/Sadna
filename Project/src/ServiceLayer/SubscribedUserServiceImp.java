@@ -1,25 +1,14 @@
 package ServiceLayer;
 
-import BusinessLayer.Products.Product;
-import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Shops.ShopFilters;
-import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.User;
-import ServiceLayer.interfaces.GeneralService;
-import ServiceLayer.interfaces.ShopService;
-import ServiceLayer.interfaces.SystemService;
-import ServiceLayer.interfaces.UserService;
+import ServiceLayer.interfaces.SubscribedUserService;
 
-import java.util.Collection;
-import java.util.Map;
 import java.util.function.Supplier;
 
-public class GeneralServiceImp extends UserServiceImp implements GeneralService {
+public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
     SubscribedUser currUser;
 
-    public GeneralServiceImp(SubscribedUser currUser) {
+    public SubscribedUserServiceImp(SubscribedUser currUser) {
         setCurrUser(currUser);
     }
 
@@ -29,6 +18,16 @@ public class GeneralServiceImp extends UserServiceImp implements GeneralService 
         throw new UnsupportedOperationException("TODO: IMPLEMENT");
     }
 
+    @Override
+    public Response<SubscribedUserService> login(String username, String password) {
+        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password")
+                .safe((u)->{this.setCurrUser(u);return this;});
+    }
+
+    @Override
+    public Result openShop(String name){
+        return ifUserNotNull(()->{shopController.openShop(currUser,name);return true;});
+    }
 
 
 

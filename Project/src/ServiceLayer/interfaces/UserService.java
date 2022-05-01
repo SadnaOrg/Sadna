@@ -6,7 +6,6 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.BasketInfo;
-import BusinessLayer.Users.User;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -22,7 +21,7 @@ public interface UserService {
 
     Result registerToSystem(String userName, String password);
 
-    Response<GeneralService> login(String username, String password);
+    Response<SubscribedUserService> login(String username, String password);
 
     Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation();
 
@@ -37,4 +36,5 @@ public interface UserService {
     Result editProductQuantity(int shopId, int productId, int newQuantity);
 
     Result purchaseCartFromShop();
+
 }

@@ -7,7 +7,7 @@ import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.Users.*;
-import ServiceLayer.interfaces.GeneralService;
+import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 import BusinessLayer.System.System;
 
@@ -80,8 +80,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Response<GeneralService> login(String username, String password){
-        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password").safe(GeneralServiceImp::new);
+    public Response<SubscribedUserService> login(String username, String password){
+        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password").safe(SubscribedUserServiceImp::new);
     }
 
     @Override

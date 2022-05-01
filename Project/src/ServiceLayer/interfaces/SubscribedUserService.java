@@ -9,7 +9,9 @@ import ServiceLayer.Result;
 import java.util.Collection;
 import java.util.Map;
 
-public interface GeneralService extends UserService {
+public interface SubscribedUserService extends UserService {
 
     Result logout();
+
+    Result openShop(String name);
 }
