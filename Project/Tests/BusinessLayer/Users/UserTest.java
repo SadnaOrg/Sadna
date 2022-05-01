@@ -2,8 +2,11 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.naming.NoPermissionException;
 
 import static org.junit.Assert.*;
 
@@ -53,7 +56,15 @@ public class UserTest {
     private void testRemoveproductFail()
     {
         assertFalse(u1.removeproduct(2,p1.getID()));
-        assertFalse(u1.removeproduct(s1.getId(),3));
+        try {
+            assertFalse(u1.removeproduct(s1.getId(), 3));
+            fail("can't remove not exist item");
+        }
+        catch (Exception e)
+        {
+            System.out.println( u1.getBasket(s1.getId()).getProducts().size());
+            Assert.assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
+        }
     }
 
     public void testEditProductQuantitySuccess()
@@ -67,11 +78,19 @@ public class UserTest {
     {
         int newQuantity =55;
         assertFalse(u1.editProductQuantity(2,p1.getID(),newQuantity));
-        assertFalse(u1.editProductQuantity(s1.getId(),3,newQuantity));
+        try{
+            int newnewQuantity =55;
+            assertFalse(u1.editProductQuantity(s1.getId(),3,newnewQuantity));
+            fail("can't edit not exist item");
+        }
+        catch (Exception e)
+        {
+            assertTrue(newQuantity== u1.getBasket(s1.getId()).getProducts().get(p1.getID()));
+        }
     }
 
 
-    private Shop createShopWithProduct() {
+    private Shop createShopWithProduct() throws IllegalStateException {
         Shop s1 = createShop();
         p1 = createProduct();
         s1.addProduct(p1);

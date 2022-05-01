@@ -8,6 +8,7 @@ import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 
+import javax.naming.NoPermissionException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -55,15 +56,33 @@ public class Shop {
             if(!products.containsKey(p.getID())) {
                 products.put(p.getID(), p);
             }
+            else
+            {
+                throw new IllegalStateException("The product is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
         }
     }
 
     public void changeProduct(Product new_product) {
-        if (products.containsKey(new_product.getID()) && state == State.OPEN) {
-            Product old_product = products.get(new_product.getID());
-            old_product.setPrice(new_product.getPrice());
-            old_product.setQuantity(new_product.getQuantity());
-            old_product.setName(new_product.getName());
+        if (state == State.OPEN) {
+            if (products.containsKey(new_product.getID())) {
+                Product old_product = products.get(new_product.getID());
+                old_product.setPrice(new_product.getPrice());
+                old_product.setQuantity(new_product.getQuantity());
+                old_product.setName(new_product.getName());
+            }
+            else
+            {
+                throw new IllegalStateException("The product is not in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
         }
     }
 
@@ -72,6 +91,14 @@ public class Shop {
             if(products.containsKey(productid)) {
                 products.remove(productid);
             }
+            else
+            {
+                throw new IllegalStateException("The product is not in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
         }
     }
 
@@ -79,7 +106,9 @@ public class Shop {
         if (state == State.OPEN)
             return products;
         else
-            return new ConcurrentHashMap<>();
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public Collection<Product> searchProducts(ProductFilters pred)
@@ -87,7 +116,9 @@ public class Shop {
         if (state == State.OPEN)
             return products.values().stream().filter(pred).collect(Collectors.toList());
         else
-            return new HashSet<>();
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public double purchaseBasket(String user) {
@@ -98,12 +129,22 @@ public class Shop {
                 if (products.containsKey(productID)) {
                     Product curr_product = products.get(productID);
                     double currentPrice = curr_product.purchaseProduct(quantity);
-                    if (currentPrice == 0.0)
-                        return currentPrice;
-                    else
+                    if (currentPrice > 0.0)
                         totalPrice += currentPrice;
+                    else
+                    {
+                        throw new IllegalStateException("Try to buy out of stock product from the shop");
+                    }
+                }
+                else
+                {
+                    throw new IllegalStateException("The product is not in the shop");
                 }
             }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
         }
         return totalPrice;
     }
@@ -116,24 +157,36 @@ public class Shop {
         if (state == State.OPEN)
             return usersBaskets.containsKey(user);
         else
-            return false;
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public ConcurrentHashMap<String, Basket> getUsersBaskets() {
         if (state == State.OPEN)
             return usersBaskets;
         else
-            return new ConcurrentHashMap<>();
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public boolean addBasket(String user, Basket basket)
     {
         if (state == State.OPEN) {
-            usersBaskets.put(user, basket);
-            return true;
+            if (!usersBaskets.containsKey(user)) {
+                usersBaskets.put(user, basket);
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The user' basket is already in the shop");
+            }
         }
         else
-            return false;
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
 
@@ -141,7 +194,9 @@ public class Shop {
         if (state == State.OPEN)
             return shopAdministrators.putIfAbsent(userName,administrator)==null;
         else
-            return false;
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public String getName() {

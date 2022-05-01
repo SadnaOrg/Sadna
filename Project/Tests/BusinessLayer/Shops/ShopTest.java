@@ -5,8 +5,12 @@ import BusinessLayer.Users.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
+import javax.naming.NoPermissionException;
 import java.util.concurrent.ConcurrentHashMap;
+
+import static org.junit.Assert.fail;
 
 public class ShopTest {
 
@@ -26,51 +30,75 @@ public class ShopTest {
     public void addProduct() {
         Shop s1 = createShopWithProduct();
         Assert.assertEquals(1, s1.getProducts().size());
+        try {
+            s1.addProduct(p1);
+        }
+        catch (Exception e)
+        {
+            Assert.assertEquals(1, s1.getProducts().size());
+        }
     }
 
-    @Test
-    public void changeProduct() {
-        changeProductSuccess();
-        changeProductFail();
-    }
 
     @Test
-    public void removeProduct() {
-        Shop s1 = createShop();
-        s1.addProduct(p1);
+    public void removeProductSuccess() throws IllegalStateException {
+        Shop s1 = createShopWithProduct();
         s1.removeProduct(p1.getID());
         Assert.assertEquals(0, s1.getProducts().size());
     }
-
+    @Test
+    public void removeWrongProduct() throws IllegalStateException {
+        Shop s1 = createShopWithProduct();
+        try {
+            s1.removeProduct(p2.getID());
+        } catch (Exception e) {
+            Assert.assertEquals(1, s1.getProducts().size());
+        }
+    }
     @Test
     public void searchProducts() {
         Shop s = createShopWithTwoProducts();
-
+        //TODO: Yuval u didnt write test;
     }
 
     @Test
-    public void purchaseBasket() {
+    public void purchaseBasketSuccess() {
         Assert.assertNotEquals(purchaseBasketHelper(10), 0.0, 0.0);
-        Assert.assertEquals(purchaseBasketHelper(1000), 0.0, 0.0);
+    }
+    @Test
+    public void purchaseBasketFail() {
+        try {
+            purchaseBasketHelper(1000);
+            fail("the product is out of stock shouldn't work");
+        }
+        catch (Exception e)
+        {
+            Assert.assertTrue(1000>s1.getProducts().get(p1.getID()).getQuantity());
+        }
     }
 
-    private double purchaseBasketHelper(int quantity) {
-        Shop s1 = createShop();
-        s1.addProduct(p1);
+    private double purchaseBasketHelper(int quantity) throws IllegalStateException {
+        Shop s1 = createShopWithProduct();
         User u1 = new Guest("Yuval");
         u1.saveProducts(s1.getId(), p1.getID(), quantity);
         s1.addBasket(u1.getName(), u1.getBasket(s1.getId()));
         return s1.purchaseBasket(u1.getName());
     }
-
-    private void changeProductFail() {
+    @Test
+    public void changeProductFail() {
         Shop s1 = createShopWithProduct();
         Product p2 = createDifferentProduct();
-        s1.changeProduct(p2);
-        Assert.assertNotEquals(s1.getProducts().get(p2.getID()), p2);
+        try {
+            s1.changeProduct(p2);
+        }
+        catch (Exception e)
+        {
+            Assert.assertNull(s1.getProducts().get(p2.getID()));
+        }
     }
 
-    private void changeProductSuccess() {
+    @Test
+    public void changeProductSuccess() {
         Shop s1 = createShopWithProduct();
         Product p2 = createChangedProduct();
         s1.changeProduct(p2);
@@ -79,12 +107,13 @@ public class ShopTest {
         Assert.assertEquals(getProductFromShop(s1, p2.getID()).getQuantity(), p2.getQuantity());
     }
 
-    private Shop createShopWithProduct() {
+
+    private Shop createShopWithProduct() throws IllegalStateException {
         s1.addProduct(p1);
         return s1;
     }
 
-    private Shop createShopWithTwoProducts() {
+    private Shop createShopWithTwoProducts() throws IllegalStateException {
         s1.addProduct(p1);
         s1.addProduct(p2);
         return s1;

@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class PurchaseHistory {
-    int shopid;
+    Shop shop;
     String user;
     Collection<Purchase> past_purchases;
-    public PurchaseHistory(int shopid, String user)
+    public PurchaseHistory(Shop shop, String user)
     {
-        this.shopid = shopid;
+        this.shop = shop;
         this.user= user;
         this.past_purchases = new ArrayList<>();
     }
 
     public void makePurchase()
     {
-        Purchase purchase = new Purchase(shopid, user, past_purchases.size(),ShopController.getInstance().getShops().get(shopid).getUsersBaskets().get(user));
+        Purchase purchase = new Purchase(shop.getId(), user, past_purchases.size()+1,shop.getUsersBaskets().get(user));
         past_purchases.add(purchase);
     }
 
-    public int getShopid() {
-        return shopid;
+    public Shop getShop() {
+        return shop;
     }
 
     public String getUser() {
@@ -31,4 +31,5 @@ public class PurchaseHistory {
     public Collection<Purchase> getPast_purchases() {
         return past_purchases;
     }
+
 }

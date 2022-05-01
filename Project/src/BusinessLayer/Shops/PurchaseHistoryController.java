@@ -51,7 +51,7 @@ public class PurchaseHistoryController {
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
-            if(purchaseHistory.getShopid()== shopid) {
+            if(purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
             }
         }
@@ -63,16 +63,16 @@ public class PurchaseHistoryController {
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
-            if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShopid()== shopid) {
+            if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
             }
         }
         return relevantinfo;
     }
 
-    public PurchaseHistory createPurchaseHistory(int shopid, String user)
+    public PurchaseHistory createPurchaseHistory(Shop shop, String user)
     {
-        PurchaseHistory purchaseHistory= new PurchaseHistory(shopid , user);
+        PurchaseHistory purchaseHistory= new PurchaseHistory(shop , user);
         DataOnPurchases.add(purchaseHistory);
         return purchaseHistory;
     }
