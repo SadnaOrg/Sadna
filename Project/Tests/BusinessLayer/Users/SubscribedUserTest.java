@@ -21,10 +21,10 @@ public class SubscribedUserTest {
     ShopOwner so1;
     @Before
     public void setUp() {
-        user1 = new SubscribedUser("user1");
-        user2 = new SubscribedUser("user2");
-        toAssign = new SubscribedUser("toAssign");
-        founder = new SubscribedUser("Founder Guy");
+        user1 = new SubscribedUser("user1","pass12");
+        user2 = new SubscribedUser("user2","pass12");
+        toAssign = new SubscribedUser("toAssign","pass12");
+        founder = new SubscribedUser("Founder Guy","pass12");
         shop1 = new Shop(1,"shop1", founder);
         shop2 = new Shop(2,"shop2", founder);
 

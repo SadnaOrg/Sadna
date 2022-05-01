@@ -110,9 +110,9 @@ public class UserController {
     }
 
 
-    public boolean createSystemManager(String username)
+    public boolean createSystemManager(String username,String password)
     {
-        User systemManager = new SystemManager(username);
+        User systemManager = new SystemManager(username,password);
         users.put(systemManager.getName(),systemManager);
         return true;
     }

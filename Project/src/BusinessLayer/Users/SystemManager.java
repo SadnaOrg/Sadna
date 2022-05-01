@@ -10,8 +10,8 @@ public class SystemManager extends SubscribedUser {
 
     private final SystemServiceImp systemServiceImp;
 
-    public SystemManager(String userName) {
-        super(userName);
+    public SystemManager(String userName,String password) {
+        super(userName,password);
         systemServiceImp= new SystemServiceImp();
     }
 
