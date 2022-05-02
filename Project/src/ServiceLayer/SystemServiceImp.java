@@ -9,42 +9,33 @@ import BusinessLayer.System.System;
 
 import java.util.Collection;
 
-public class SystemServiceImp implements SystemService {
+public class SystemServiceImp {
 
     System system = System.getInstance();
-    private SystemManager currManager;
-
-    public SystemServiceImp(SystemManager currManager) {
-        setCurrManager(currManager);
-    }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        Collection<PurchaseHistory> ph = currManager.getShopsAndUsersInfo();
+        Collection<PurchaseHistory> ph = PurchaseHistoryController.getInstance().getPurchaseInfo();
         Log.getInstance().event("get purchase info succeeded");
         return ph;
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
-        Collection<PurchaseHistory> ph = currManager.getShopsAndUsersInfo(shopid);
+        Collection<PurchaseHistory> ph = PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
         Log.getInstance().event("get purchase info succeeded");
         return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        Collection<PurchaseHistory> ph =  currManager.getShopsAndUsersInfo(userName);
+        Collection<PurchaseHistory> ph =  PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
         Log.getInstance().event("get purchase info succeeded");
         return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
     {
-        Collection<PurchaseHistory> ph =  currManager.getShopsAndUsersInfo(shopid, userName);
+        Collection<PurchaseHistory> ph =  PurchaseHistoryController.getInstance().getPurchaseInfo(shopid, userName);
         Log.getInstance().event("get purchase info succeeded");
         return ph;
-    }
-
-    private void setCurrManager(SystemManager currManager) {
-        this.currManager = currManager;
     }
 }
