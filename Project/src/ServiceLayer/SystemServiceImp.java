@@ -19,6 +19,7 @@ public class SystemServiceImp {
         Log.getInstance().event("get purchase info succeeded");
         return ph;
     }
+
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
         Collection<PurchaseHistory> ph = PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
@@ -37,5 +38,4 @@ public class SystemServiceImp {
         Log.getInstance().event("get purchase info succeeded");
         return ph;
     }
-
 }

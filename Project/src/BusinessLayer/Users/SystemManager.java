@@ -1,37 +1,34 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistory;
-import ServiceLayer.SystemServiceImp;
+import BusinessLayer.Shops.PurchaseHistoryController;
 
 import java.util.Collection;
 
 public class SystemManager extends SubscribedUser {
 
-    private final SystemServiceImp systemServiceImp;
 
     public SystemManager(String userName,String password) {
         super(userName,password);
-        systemServiceImp= new SystemServiceImp();
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        return this.systemServiceImp.getShopsAndUsersInfo();
+        return PurchaseHistoryController.getInstance().getPurchaseInfo();
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopId)
     {
-        return this.systemServiceImp.getShopsAndUsersInfo(shopId);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopId);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        return this.systemServiceImp.getShopsAndUsersInfo(userName);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopId, String userName)
     {
-        return this.systemServiceImp.getShopsAndUsersInfo(shopId, userName);
+        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopId, userName);
     }
 }
