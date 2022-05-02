@@ -113,9 +113,10 @@ public class ShopController {
         return shopsInfo;
     }
 
-    public void openShop(SubscribedUser su, String name) {
+    public Shop openShop(SubscribedUser su, String name) {
         int shopID = shops.size();
         shops.put(shopID, new Shop(shopID, name, su));
+        return shops.get(shopID);
     }
 
 

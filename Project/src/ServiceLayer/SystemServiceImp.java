@@ -9,7 +9,7 @@ import BusinessLayer.System.System;
 
 import java.util.Collection;
 
-public class SystemServiceImp implements SystemService {
+public class SystemServiceImp {
 
     System system = System.getInstance();
 
