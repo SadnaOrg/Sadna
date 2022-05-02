@@ -6,6 +6,7 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.Shops.ShopInfo;
+import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.Users.*;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemService;
@@ -27,7 +28,7 @@ public class UserServiceImp implements UserService {
     public Result purchaseCartFromShop() {
         return ifUserNotNull(()-> {
             ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
-            ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices);
+            ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, currUser.getMethod());
             boolean res = shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
             if (res)
                 Log.getInstance().event("purchased cart succeeded");

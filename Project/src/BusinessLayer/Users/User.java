@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.ShopInfo;
 
 import BusinessLayer.Shops.ShopController;
+import BusinessLayer.System.PaymentMethod;
 
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,13 +14,14 @@ public abstract class User{
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart;
     protected String name;
+    protected PaymentMethod method;
 
     public User(String name)
     {
         this.name= name;
+        method = null;
         shoppingCart= new ConcurrentHashMap<>();
     }
-
 
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
@@ -74,11 +76,18 @@ public abstract class User{
         return shoppingCart.get(shopid);
     }
 
+    public void updatePaymentMethod(PaymentMethod method){
+        this.method = method;
+    }
+
+    public PaymentMethod getMethod() {
+        return method;
+    }
 
     public String getName() {
         return name;
     }
-    public  String getUserName(){return name;}
+    public String getUserName(){return name;}
 
     public boolean isLoggedIn(){
         return true;

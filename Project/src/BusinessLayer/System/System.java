@@ -27,13 +27,13 @@ public class System {
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
     }
-    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices)
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
     {
         ConcurrentHashMap<Integer,Boolean> paymensituation= new ConcurrentHashMap<>();
         for(int shopid: totalPrices.keySet())
         {
-            if(totalPrices.get(shopid)>0) {
-                paymensituation.put(shopid, externSystem.pay(totalPrices.get(shopid)));
+            if(totalPrices.get(shopid)>0 && method != null) {
+                paymensituation.put(shopid, externSystem.pay(totalPrices.get(shopid), method));
             }
             else
             {

@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 public class ProxyPaymentTest {
 
     Payment p = null;
+    PaymentMethod method = new PaymentMethod("4580123456789012", 123, "1/29");
 
     @Before
     public void setUp() {
@@ -17,7 +18,7 @@ public class ProxyPaymentTest {
 
     @Test
     public void pay() {
-        Assert.assertTrue(p.pay(1000));
-        Assert.assertTrue(p.pay(2000));
+        Assert.assertTrue(p.pay(1000, method));
+        Assert.assertTrue(p.pay(2000, method));
     }
 }
