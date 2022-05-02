@@ -28,29 +28,59 @@ public class UserServiceImp implements UserService {
         return ifUserNotNull(()-> {
             ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
             ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices);
-            shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
+            boolean res = shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
+            if (res)
+                Log.getInstance().event("purchased cart succeeded");
+            else
+                Log.getInstance().event("purchase cart failed");
             return true;
         });
     }
 
     @Override
     public Result saveProducts(int shopId, int productId, int quantity){
-        return ifUserNotNull(()-> userController.saveProducts(currUser,shopId,productId,quantity));
+        return ifUserNotNull(()-> {
+            boolean res = userController.saveProducts(currUser,shopId,productId,quantity);
+            if (res)
+                Log.getInstance().event("product save succeeded");
+            else
+                Log.getInstance().event("product save failed");
+            return res;
+        });
     }
 
     @Override
-    public Response<Map<Integer, BasketInfo>> showCart(){
-        return ifUserNotNullRes(()->userController.showCart(currUser));
+    public Response<Map<Integer, BasketInfo>> showCart() {
+        return ifUserNotNullRes(()-> {
+            ConcurrentHashMap<Integer, BasketInfo> res = userController.showCart(currUser);
+            Log.getInstance().event("cart showed");
+            return res;
+        });
     }
 
     @Override
     public Result removeProduct(int shopId, int productId) {
-        return ifUserNotNull(()->userController.removeproduct(currUser,shopId,productId));
+        return ifUserNotNull(()-> {
+            boolean res = userController.removeproduct(currUser,shopId,productId);
+            if (res) {
+                Log.getInstance().event("product removed successfully");
+            } else {
+                Log.getInstance().event("product removal failed");
+            }
+            return res;
+        });
     }
 
     @Override
     public Result editProductQuantity(int shopId, int productId, int newQuantity) {
-        return ifUserNotNull(()->userController.editProductQuantity(currUser,shopId,productId,newQuantity));
+        return ifUserNotNull(()-> {
+            boolean res = userController.editProductQuantity(currUser,shopId,productId,newQuantity);
+            if (res)
+                Log.getInstance().event("edit product quantity succeeded");
+            else
+                Log.getInstance().event("edit product quantity failed");
+            return res;
+        });
     }
 
     @Override
@@ -77,22 +107,40 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result registerToSystem(String userName, String password){
-            return Result.tryMakeResult(()->userController.registerToSystem(userName,password),"error in register");
+            return Result.tryMakeResult(()-> {
+                boolean res = userController.registerToSystem(userName,password);
+                if (res)
+                    Log.getInstance().event("register to system succeeded");
+                return res;
+            },"error in register");
     }
 
     @Override
     public Response<SubscribedUserService> login(String username, String password){
-        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password").safe(SubscribedUserServiceImp::new);
+        return Response.tryMakeResponse(()-> {
+            SubscribedUser su = userController.login(username, password,currUser);
+            Log.getInstance().event("login succeeded");
+            return su;
+        } ,"incorrect user name or password").safe(SubscribedUserServiceImp::new);
     }
 
     @Override
-    public Result logout(String username){
-        return Result.tryMakeResult(()-> userController.logout(username) ,"incorrect user name or password");
+    public Result logout(String username) {
+        return Result.tryMakeResult(()-> {
+            boolean res = userController.logout(username);
+            if (res)
+                Log.getInstance().event("logout succeeded");
+            return res;
+        } ,"incorrect user name or password");
     }
 
     @Override
     public Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred){
-        return ifUserNotNullRes(()->shopController.searchProducts(shopPred,productPred));
+        return ifUserNotNullRes(()->{
+            Map<Shop, Collection<Product>> products = shopController.searchProducts(shopPred,productPred);
+            Log.getInstance().event("search products succeeded");
+            return products;
+        });
     }
 
     private Result ifUserNotNull(Supplier<Boolean> s){

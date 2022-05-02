@@ -15,19 +15,27 @@ public class SystemServiceImp {
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo();
+        Collection<PurchaseHistory> ph = PurchaseHistoryController.getInstance().getPurchaseInfo();
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
+        Collection<PurchaseHistory> ph = PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
+        Collection<PurchaseHistory> ph =  PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid, userName);
+        Collection<PurchaseHistory> ph =  PurchaseHistoryController.getInstance().getPurchaseInfo(shopid, userName);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
 
 }

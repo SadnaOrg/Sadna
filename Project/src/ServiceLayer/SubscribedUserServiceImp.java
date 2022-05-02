@@ -32,42 +32,84 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Response<SubscribedUserService> login(String username, String password) {
         return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password")
-                .safe((u)->{this.setCurrUser(u);return this;});
+                .safe((u)->{this.setCurrUser(u);
+                    Log.getInstance().event("login succeeded");
+                    return this;});
     }
 
     @Override
     public Response<ShopInfo> openShop(String name){
-        return ifUserNotNullRes(()->new ShopInfo(shopController.openShop(currUser,name)));
+        return ifUserNotNullRes(()-> {
+            ShopInfo si = new ShopInfo(shopController.openShop(currUser,name));
+            Log.getInstance().event("open shop succeeded");
+            return si;
+        });
     }
 
     @Override
-    public Result assignShopManager(int shop, String userNameToAssign){
-        return ifUserNotNull(()-> userController.assignShopManager(currUser,shop,userNameToAssign));
+    public Result assignShopManager(int shop, String userNameToAssign) {
+        return ifUserNotNull(()-> {
+            boolean res = userController.assignShopManager(currUser,shop,userNameToAssign);
+            if (res)
+                Log.getInstance().event("assign shop manager succeeded");
+            else
+                Log.getInstance().event("assign shop manager failed");
+            return res;
+        });
     }
 
     @Override
     public Result assignShopOwner(int shop, String userNameToAssign){
-        return ifUserNotNull(()-> userController.assignShopOwner(currUser,shop,userNameToAssign));
+        return ifUserNotNull(()-> {
+            boolean res = userController.assignShopOwner(currUser,shop,userNameToAssign);
+            if (res)
+                Log.getInstance().event("assign shop owner succeeded");
+            else
+                Log.getInstance().event("assign shop owner failed");
+            return res;
+        });
     }
 
     @Override
     public Result changeManagerPermission(int shop, String userNameToAssign, Collection<BaseActionType> types){
-        return ifUserNotNull(()-> userController.changeManagerPermission(currUser,shop,userNameToAssign,types));
+        return ifUserNotNull(()-> {
+            boolean res = userController.changeManagerPermission(currUser,shop,userNameToAssign,types);
+            if (res)
+                Log.getInstance().event("change manager permission succeeded");
+            else
+                Log.getInstance().event("change manager permission failed");
+            return res;
+        });
     }
 
     @Override
     public Result closeShop(int shop){
-        return ifUserNotNull(()-> userController.closeShop(currUser,shop));
+        return ifUserNotNull(()-> {
+            boolean res = userController.closeShop(currUser,shop);
+            if (res)
+                Log.getInstance().event("close shop succeeded");
+            else
+                Log.getInstance().event("close shop failed");
+            return res;
+        });
     }
 
     @Override
     public Response<Collection<AdministratorInfo>> getAdministratorInfo(int shop){
-        return ifUserNotNullRes(()-> userController.getAdministratorInfo(currUser,shop));
+        return ifUserNotNullRes(()-> {
+            Collection<AdministratorInfo> ai = userController.getAdministratorInfo(currUser,shop);
+            Log.getInstance().event("assign shop owner succeeded");
+            return ai;
+        });
     }
 
     @Override
     public Response<Collection<PurchaseHistory>> getHistoryInfo(int shop){
-        return ifUserNotNullRes(()-> userController.getHistoryInfo(currUser,shop));
+        return ifUserNotNullRes(()-> {
+            Collection<PurchaseHistory> ph = userController.getHistoryInfo(currUser,shop);
+            Log.getInstance().event("assign shop owner succeeded");
+            return ph;
+        });
     }
 
     protected void setCurrUser(SubscribedUser currUser) {

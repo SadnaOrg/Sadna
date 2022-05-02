@@ -17,22 +17,38 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
 
     @Override
     public Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(int shop, String userName){
-        return ifUserNotNullRes(()->userController.getShopsAndUsersInfo(currUser,shop,userName));
+        return ifUserNotNullRes(()-> {
+            Collection<PurchaseHistory> ph = userController.getShopsAndUsersInfo(currUser,shop,userName);
+            Log.getInstance().event("get shops and users info succeeded");
+            return ph;
+        });
     }
 
     @Override
     public Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(String userName){
-        return ifUserNotNullRes(()->userController.getShopsAndUsersInfo(currUser,userName));
+        return ifUserNotNullRes(()-> {
+            Collection<PurchaseHistory> ph = userController.getShopsAndUsersInfo(currUser,userName);
+            Log.getInstance().event("get shops and users info succeeded");
+            return ph;
+        });
     }
 
     @Override
     public Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(int shop){
-        return ifUserNotNullRes(()->userController.getShopsAndUsersInfo(currUser,shop));
+        return ifUserNotNullRes(()-> {
+            Collection<PurchaseHistory> ph = userController.getShopsAndUsersInfo(currUser,shop);
+            Log.getInstance().event("get shops and users info succeeded");
+            return ph;
+        });
     }
 
     @Override
     public Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(){
-        return ifUserNotNullRes(()->userController.getShopsAndUsersInfo(currUser));
+        return ifUserNotNullRes(()-> {
+            Collection<PurchaseHistory> ph = userController.getShopsAndUsersInfo(currUser);
+            Log.getInstance().event("get shops and users info succeeded");
+            return ph;
+        });
     }
 
     protected void setCurrUser(SystemManager currUser) {
