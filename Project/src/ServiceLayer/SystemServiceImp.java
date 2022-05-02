@@ -20,20 +20,28 @@ public class SystemServiceImp implements SystemService {
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        return currManager.getShopsAndUsersInfo();
+        Collection<PurchaseHistory> ph = currManager.getShopsAndUsersInfo();
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
-        return currManager.getShopsAndUsersInfo(shopid);
+        Collection<PurchaseHistory> ph = currManager.getShopsAndUsersInfo(shopid);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        return currManager.getShopsAndUsersInfo(userName);
+        Collection<PurchaseHistory> ph =  currManager.getShopsAndUsersInfo(userName);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
     {
-        return currManager.getShopsAndUsersInfo(shopid, userName);
+        Collection<PurchaseHistory> ph =  currManager.getShopsAndUsersInfo(shopid, userName);
+        Log.getInstance().event("get purchase info succeeded");
+        return ph;
     }
 
     private void setCurrManager(SystemManager currManager) {

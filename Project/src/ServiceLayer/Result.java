@@ -24,9 +24,17 @@ public class Result {
         return res? new Result() : new Result(msg);
     }
 
-    public static Result tryMakeResult(Supplier<Boolean> res, String msg){
-       try { return res.get()? new Result() : new Result(msg);}
-       catch (Exception e){return new Result(e.getMessage());}
+    public static Result tryMakeResult(MySupplier<Boolean> res, String msg){
+       try {
+           if (res.get())
+               return new Result();
+           Log.getInstance().error(msg);
+           return new Result(msg);
+       }
+       catch (Exception e){
+           Log.getInstance().error(e.toString());
+           return new Result(e.getMessage());
+       }
     }
 
 }
