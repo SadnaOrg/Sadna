@@ -12,22 +12,31 @@ import java.util.Collection;
 public class SystemServiceImp implements SystemService {
 
     System system = System.getInstance();
+    private SystemManager currManager;
+
+    public SystemServiceImp(SystemManager currManager) {
+        setCurrManager(currManager);
+    }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo();
+        return currManager.getShopsAndUsersInfo();
     }
+
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid);
+        return currManager.getShopsAndUsersInfo(shopid);
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(String userName)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(userName);
+        return currManager.getShopsAndUsersInfo(userName);
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(int shopid, String userName)
     {
-        return PurchaseHistoryController.getInstance().getPurchaseInfo(shopid, userName);
+        return currManager.getShopsAndUsersInfo(shopid, userName);
     }
 
+    private void setCurrManager(SystemManager currManager) {
+        this.currManager = currManager;
+    }
 }
