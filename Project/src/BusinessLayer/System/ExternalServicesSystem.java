@@ -12,18 +12,18 @@ public class ExternalServicesSystem {
         payment = new ConcurrentHashMap<>();
         supply = new ConcurrentHashMap<>();
     }
-    public boolean pay(double totalPrice)
+    public boolean pay(double totalPrice, PaymentMethod method)
     {
         boolean flag = false;
         for(Payment p:payment.values())
         {
-            flag=p.pay(totalPrice);
+            flag=p.pay(totalPrice, method);
             if (flag)
             {
                 return true;
             }
         }
-        return false;
+        return flag;
     }
 
 }

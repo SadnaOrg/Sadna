@@ -6,9 +6,9 @@ public class ProxyPayment extends Payment{
     private Payment payment = null;
 
     @Override
-    public boolean pay(double totalPrice) {
-        if(payment != null)
-            return payment.pay(totalPrice);
+    public boolean pay(double totalPrice, PaymentMethod method) {
+        if(payment != null && method != null)
+            return payment.pay(totalPrice, method);
         return true;
     }
 }
