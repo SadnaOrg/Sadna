@@ -1,91 +1,124 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.Shop;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.Assert.*;
+import java.util.concurrent.ConcurrentHashMap;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
+
+@ExtendWith(MockitoExtension.class)
 public class BasketTest {
-
-    private final SubscribedUser founder = createFounder();
-    private Shop s1;
-    private Basket b1;
+    @Mock
     private Product p1;
-    private Product p2;
-    @Before
-    public void setUp() throws Exception {
-        s1 = createShop();
-        b1= new Basket(s1.getId());
-        p1 = new Product(1, "a", 5, 100);
-        p2 =new Product(2, "b", 10, 100);
-        createShopWithTwoProducts();
+
+    private Basket b;
+
+    @BeforeEach
+    public void setUp(){
+        b = new Basket(0);
+    }
+
+    @AfterEach
+    public void tearDown(){
+        ConcurrentHashMap<Integer, Integer> basketProducts = b.getProducts();
+        for (Integer productID:
+             basketProducts.keySet()) {
+            b.removeProduct(productID);
+        }
     }
 
     @Test
-    public void saveProducts() {
-        b1.saveProducts(p1.getID(), p1.getQuantity());
-        Assert.assertEquals(1,b1.getProducts().size());
-        b1.saveProducts(p2.getID(), p2.getQuantity());
-        Assert.assertEquals(2,b1.getProducts().size());
+    public void addProductToBasketSuccess(){
+        when(p1.getID()).thenReturn(0);
+        when(p1.getQuantity()).thenReturn(10);
+        int bought = p1.getQuantity() - 2;
+        boolean saved = b.saveProducts(p1.getID(), bought);
+        assertTrue(saved);
+
+        ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+        int quantity = products.getOrDefault(p1.getID(),-1);
+        assertEquals(bought, quantity);
+    }
+
+    @Test
+    public void removeProductSuccess(){
+        addProductToBasketSuccess();
+        boolean removed = b.removeProduct(0);
+        assertTrue(removed);
+
+        ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+        int productsInBasket = products.size();
+        assertEquals(0, productsInBasket);
+    }
+
+    @Test
+    public void removeProductFailure(){
+        addProductToBasketSuccess();
         try {
-            b1.saveProducts(p1.getID(), p1.getQuantity());
-            fail("the product is already in the basket");
+            b.removeProduct(1);
+            fail("Removed a product that isn't in the basket!");
         }
-        catch (Exception e)
-        {
-            Assert.assertEquals(2,b1.getProducts().size());
+        catch (Exception e){
+            ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+            int productsInBasket = products.size();
+            assertEquals(1, productsInBasket);
         }
-        Assert.assertTrue(p1.getQuantity()==b1.getProducts().get(p1.getID()));
     }
 
     @Test
-    public void removeProduct() {
-        b1.saveProducts(p1.getID(), p1.getQuantity());
-        b1.saveProducts(p2.getID(), p2.getQuantity());
-        b1.removeProduct(p1.getID());
-        Assert.assertEquals(1,b1.getProducts().size());
-        try
-        {
-            b1.removeProduct(p1.getID());
-            fail("cant remove item that do not exist");
-        }
-        catch (Exception e)
-        {
-            Assert.assertEquals(1,b1.getProducts().size());
-        }
+    public void editProductQuantitySuccess(){
+        addProductToBasketSuccess();
+        int newQuantity = 5;
+        boolean edited = b.editProductQuantity(0, newQuantity);
+        assertTrue(edited);
 
+        ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+        int p0Quantity = products.getOrDefault(0, -1);
+        assertEquals(newQuantity, p0Quantity);
     }
 
     @Test
-    public void editProductQuantity() {
-        b1.saveProducts(p1.getID(), p1.getQuantity());
-        int newquantity = 513;
-        b1.editProductQuantity(p1.getID(),newquantity);
-        Assert.assertTrue(newquantity== b1.getProducts().get(p1.getID()));
+    public void editProductQuantityProductNotInCart(){
         try {
-            int newnewquantity = 513;
-            b1.editProductQuantity(p2.getID(),newnewquantity);
-            fail("can't change item who dont exist");
+            b.editProductQuantity(2, 4);
+            fail("Edited the quantity of a product that isn't in the basket!");
         }
-        catch (Exception e)
-        {
-            Assert.assertTrue(newquantity== b1.getProducts().get(p1.getID()));
+        catch (Exception e){
+            ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+            int productInBasket = products.size();
+            assertEquals(0, productInBasket);
         }
     }
 
-    private Shop createShop() {
-        return new Shop(100, "shop", founder);
-    }
-    private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy","Guy123456");
+    @Test
+    public void editProductQuantityNegativeQuantity(){
+        addProductToBasketSuccess();
+        try {
+            b.editProductQuantity(0, -1);
+            fail("Edited quantity of product to a negative quantity!");
+        }
+        catch (Exception e){
+            ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+            int p0Quantity = products.getOrDefault(0, -1);
+            assertEquals(8, p0Quantity);
+        };
     }
 
-    private Shop createShopWithTwoProducts() throws IllegalStateException {
-        s1.addProduct(p1);
-        s1.addProduct(p2);
-        return s1;
+    @Test
+    public void editProductQuantityZeroQuantity(){
+        addProductToBasketSuccess();
+        boolean edited = b.editProductQuantity(0, 0);
+        assertTrue(edited);
+
+        ConcurrentHashMap<Integer, Integer> products = b.getProducts();
+        int productInBasket = products.size();
+        assertEquals(0, productInBasket);
     }
 }
