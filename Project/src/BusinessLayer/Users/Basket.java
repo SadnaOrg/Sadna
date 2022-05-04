@@ -28,6 +28,9 @@ public class Basket {
         if(!products.containsKey(productid))
         {
             products.put(productid,quantity);
+            if (quantity <= 0){
+                throw new IllegalArgumentException("Product quantity has to be larger than 0");
+            }
             return true;
         }
         else
@@ -45,18 +48,26 @@ public class Basket {
         }
         else
         {
-            throw new IllegalStateException("The product is not exist in the basket");
+            throw new IllegalStateException("The product doesn't exist in the basket");
         }
     }
 
     public boolean editProductQuantity(int productid, int newquantity) {
         if (products.containsKey(productid)) {
-            products.put(productid, newquantity);
+            if (newquantity < 0){
+                throw new IllegalArgumentException("Product quantity has to be larger than 0");
+            }
+            else if (newquantity == 0){
+                products.remove(productid);
+            }
+            else {
+                products.put(productid, newquantity);
+            }
             return true;
         }
         else
         {
-            throw new IllegalStateException("The product is not exist in the basket");
+            throw new IllegalStateException("The product doesn't exist in the basket");
         }
     }
     public ConcurrentHashMap<Integer, Integer> getProducts() {
