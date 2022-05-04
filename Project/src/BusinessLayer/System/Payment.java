@@ -2,7 +2,6 @@ package BusinessLayer.System;
 
 import BusinessLayer.Shops.Purchase;
 
-public abstract class Payment {
-    int id;
-    public abstract boolean pay(double totalPrice, PaymentMethod method);
+public interface Payment {
+    boolean pay(double totalPrice, PaymentMethod method);
 }
