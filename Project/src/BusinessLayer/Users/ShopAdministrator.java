@@ -50,6 +50,10 @@ public class ShopAdministrator{
         appoints.add(admin);
     }
 
+    public void AddAction(BaseActionType actionType, BaseAction baseAction){
+        action.put(actionType, baseAction);
+    }
+
     public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
     }
