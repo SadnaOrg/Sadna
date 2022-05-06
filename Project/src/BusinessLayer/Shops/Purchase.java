@@ -2,7 +2,6 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Users.Basket;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -26,4 +25,15 @@ public class Purchase {
         this.shopid= shopid;
     }
 
+    public int getTransectionid() {
+        return transectionid;
+    }
+
+    public int getShopid() {
+        return shopid;
+    }
+
+    public String getUser() {
+        return user;
+    }
 }
