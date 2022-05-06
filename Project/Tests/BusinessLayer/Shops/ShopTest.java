@@ -1,16 +1,14 @@
 package BusinessLayer.Shops;
 
-import BusinessLayer.Products.Product;
-import BusinessLayer.Users.*;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
+import main.java.BusinessLayer.Products.Product;
+import main.java.BusinessLayer.Shops.Shop;
+import main.java.BusinessLayer.Users.Guest;
+import main.java.BusinessLayer.Users.SubscribedUser;
+import main.java.BusinessLayer.Users.User;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import javax.naming.NoPermissionException;
-import java.util.concurrent.ConcurrentHashMap;
-
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ShopTest {
 
@@ -19,7 +17,7 @@ public class ShopTest {
     private Product p1;
     private Product p2;
 
-    @Before
+    @BeforeAll
     public void setUp() {
         s1 = createShop();
         p1 = createProduct();
@@ -29,13 +27,13 @@ public class ShopTest {
     @Test
     public void addProduct() {
         Shop s1 = createShopWithProduct();
-        Assert.assertEquals(1, s1.getProducts().size());
+        assertEquals(1, s1.getProducts().size());
         try {
             s1.addProduct(p1);
         }
         catch (Exception e)
         {
-            Assert.assertEquals(1, s1.getProducts().size());
+            assertEquals(1, s1.getProducts().size());
         }
     }
 
@@ -44,7 +42,7 @@ public class ShopTest {
     public void removeProductSuccess() throws IllegalStateException {
         Shop s1 = createShopWithProduct();
         s1.removeProduct(p1.getID());
-        Assert.assertEquals(0, s1.getProducts().size());
+        assertEquals(0, s1.getProducts().size());
     }
     @Test
     public void removeWrongProduct() throws IllegalStateException {
@@ -52,7 +50,7 @@ public class ShopTest {
         try {
             s1.removeProduct(p2.getID());
         } catch (Exception e) {
-            Assert.assertEquals(1, s1.getProducts().size());
+            assertEquals(1, s1.getProducts().size());
         }
     }
     @Test
@@ -63,7 +61,7 @@ public class ShopTest {
 
     @Test
     public void purchaseBasketSuccess() {
-        Assert.assertNotEquals(purchaseBasketHelper(10), 0.0, 0.0);
+        assertNotEquals(purchaseBasketHelper(10), 0.0, 0.0);
     }
     @Test
     public void purchaseBasketFail() {
@@ -73,7 +71,7 @@ public class ShopTest {
         }
         catch (Exception e)
         {
-            Assert.assertTrue(1000>s1.getProducts().get(p1.getID()).getQuantity());
+            assertTrue(1000>s1.getProducts().get(p1.getID()).getQuantity());
         }
     }
 
@@ -93,7 +91,7 @@ public class ShopTest {
         }
         catch (Exception e)
         {
-            Assert.assertNull(s1.getProducts().get(p2.getID()));
+            assertNull(s1.getProducts().get(p2.getID()));
         }
     }
 
@@ -102,9 +100,9 @@ public class ShopTest {
         Shop s1 = createShopWithProduct();
         Product p2 = createChangedProduct();
         s1.changeProduct(p2);
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getName(), p2.getName());
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getPrice(), p2.getPrice(), 0.0);
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getQuantity(), p2.getQuantity());
+        assertEquals(getProductFromShop(s1, p2.getID()).getName(), p2.getName());
+        assertEquals(getProductFromShop(s1, p2.getID()).getPrice(), p2.getPrice(), 0.0);
+        assertEquals(getProductFromShop(s1, p2.getID()).getQuantity(), p2.getQuantity());
     }
 
 

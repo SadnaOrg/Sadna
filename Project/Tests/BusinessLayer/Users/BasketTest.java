@@ -1,12 +1,13 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.Shop;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import main.java.BusinessLayer.Products.Product;
+import main.java.BusinessLayer.Shops.Shop;
+import main.java.BusinessLayer.Users.Basket;
+import main.java.BusinessLayer.Users.SubscribedUser;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BasketTest {
 
@@ -15,7 +16,7 @@ public class BasketTest {
     private Basket b1;
     private Product p1;
     private Product p2;
-    @Before
+    @BeforeAll
     public void setUp() throws Exception {
         s1 = createShop();
         b1= new Basket(s1.getId());
@@ -27,18 +28,18 @@ public class BasketTest {
     @Test
     public void saveProducts() {
         b1.saveProducts(p1.getID(), p1.getQuantity());
-        Assert.assertEquals(1,b1.getProducts().size());
+        assertEquals(1,b1.getProducts().size());
         b1.saveProducts(p2.getID(), p2.getQuantity());
-        Assert.assertEquals(2,b1.getProducts().size());
+        assertEquals(2,b1.getProducts().size());
         try {
             b1.saveProducts(p1.getID(), p1.getQuantity());
             fail("the product is already in the basket");
         }
         catch (Exception e)
         {
-            Assert.assertEquals(2,b1.getProducts().size());
+            assertEquals(2,b1.getProducts().size());
         }
-        Assert.assertTrue(p1.getQuantity()==b1.getProducts().get(p1.getID()));
+        assertTrue(p1.getQuantity()==b1.getProducts().get(p1.getID()));
     }
 
     @Test
@@ -46,7 +47,7 @@ public class BasketTest {
         b1.saveProducts(p1.getID(), p1.getQuantity());
         b1.saveProducts(p2.getID(), p2.getQuantity());
         b1.removeProduct(p1.getID());
-        Assert.assertEquals(1,b1.getProducts().size());
+        assertEquals(1,b1.getProducts().size());
         try
         {
             b1.removeProduct(p1.getID());
@@ -54,7 +55,7 @@ public class BasketTest {
         }
         catch (Exception e)
         {
-            Assert.assertEquals(1,b1.getProducts().size());
+            assertEquals(1,b1.getProducts().size());
         }
 
     }
@@ -64,7 +65,7 @@ public class BasketTest {
         b1.saveProducts(p1.getID(), p1.getQuantity());
         int newquantity = 513;
         b1.editProductQuantity(p1.getID(),newquantity);
-        Assert.assertTrue(newquantity== b1.getProducts().get(p1.getID()));
+        assertTrue(newquantity== b1.getProducts().get(p1.getID()));
         try {
             int newnewquantity = 513;
             b1.editProductQuantity(p2.getID(),newnewquantity);
@@ -72,7 +73,7 @@ public class BasketTest {
         }
         catch (Exception e)
         {
-            Assert.assertTrue(newquantity== b1.getProducts().get(p1.getID()));
+            assertTrue(newquantity== b1.getProducts().get(p1.getID()));
         }
     }
 

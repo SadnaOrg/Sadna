@@ -1,10 +1,9 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.AssignShopManager;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import main.java.BusinessLayer.Users.BaseActions.*;
+import main.java.BusinessLayer.Users.ShopAdministrator;
+import main.java.BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,98 +11,184 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.naming.NoPermissionException;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
+// the functions that test the actions of the administrator mock the action classes and assume
+// we won't check for all the post conditions of a successful appointment. this is taken care off by the action class.
+// we test for these conditions when integrating.
+// test flow:
+// cases that fail when having permission are tested in the action class
 @ExtendWith(MockitoExtension.class)
 public class ShopAdministratorTest {
-    @Mock
-    Shop s;
-    @Mock
-    SubscribedUser adminUser;
-    @InjectMocks
-    ShopAdministrator sa;
 
-    @Mock
-    SubscribedUser assignee;
     @InjectMocks
-    ShopAdministrator newAdmin;
+    private ShopAdministrator sa;
     @Mock
-    AssignShopManager assignManager;
-
-    @BeforeEach
-    public void setUp(){
-        // give default permissions
-    }
+    private AssignShopManager assignManager;
+    @Mock
+    private AssignShopOwner assignOwner;
+    @Mock
+    private ChangeManagerPermission changePermissions;
+    @Mock
+    private RolesInfo info;
+    @Mock
+    private HistoryInfo historyInfo;
+    @Mock
+    private SubscribedUser assignee;
+    @InjectMocks
+    private ShopAdministrator sa1;
+    @InjectMocks
+    private ShopAdministrator sa2;
+    @InjectMocks
+    private ShopAdministrator sa3;
 
     @AfterEach
     public void tearDown(){
-        // cancel all permissions
+        sa.emptyActions();
     }
 
     @Test
-    public void assignShopManagerSuccess(){
-        // give permission
+    public void assignShopManagerSuccess() throws NoPermissionException {
         sa.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER, assignManager);
-        try {
-            // mock for success
-            when(assignManager.act(assignee)).thenReturn(true);
-            boolean assigned = sa.AssignShopManager(assignee);
-            assertTrue(assigned);
-
-            // we have 2 admins now
-            Collection<ShopAdministrator> admins = new ArrayList<>();
-            admins.add(sa);
-            admins.add(newAdmin);
-
-            when(assignee.getUserName()).thenReturn("Michael");
-            when(s.getShopAdministrators()).thenReturn(admins);
-
-            Collection<ShopAdministrator> shopAdministrators =s.getShopAdministrators();
-            boolean found = false;
-            // search for the new admin
-            for (ShopAdministrator shopAdmin:
-                    shopAdministrators) {
-                User u = shopAdmin.getUser();
-                String name = u.getUserName();
-                if (name.equals(assignee.getUserName())){
-                    found = true;
-                }
-            }
-            assertTrue(found);
-
-            // check that the appointment was correct
-            when(adminUser.getUserName()).thenReturn("Itai");
-            when(s.getShopAdministrator("Itai")).thenReturn(sa);
-            String adminName = adminUser.getUserName();
-            ShopAdministrator actual = s.getShopAdministrator(adminName);
-            // it is a manger of the shop
-            assertNotNull(actual);
-
-        }
-        catch (NoPermissionException e) {
-            e.printStackTrace();
-        }
+        when(assignManager.act(any(SubscribedUser.class))).thenReturn(true);
+        boolean res = sa.AssignShopManager(assignee);
+        assertTrue(res);
     }
 
     @Test
-    public void assignShopManagerNoPermission() throws NoPermissionException {
+    public void assignShopManagerFailure() {
         try {
             sa.AssignShopManager(assignee);
-            fail("assigned manager without permission");
-        } catch (NoPermissionException e) {
-            e.printStackTrace();
+            fail("assigned without permission!");
+        }
+        catch (Exception ignored){
+
         }
     }
 
     @Test
-    public void assignShopManagerFailureAlreadyManager() throws NoPermissionException {
-        assignShopManagerSuccess();
-        //boolean doubleAssign = sa.AssignShopManager(assignee);
-        //assertFalse(doubleAssign);
+    public void assignShopOwnerSuccess() throws NoPermissionException {
+        sa.AddAction(BaseActionType.ASSIGN_SHOP_OWNER, assignOwner);
+        when(assignOwner.act(any(SubscribedUser.class))).thenReturn(true);
+        boolean res = sa.AssignShopOwner(assignee);
+        assertTrue(res);
+    }
+
+    @Test
+    public void assignShopOwnerFailure() {
+        try {
+            sa.AssignShopOwner(assignee);
+            fail("assigned without permission!");
+        }
+        catch (Exception ignored){
+
+        }
+    }
+
+    @Test
+    public void changePermissionsSuccess(){
+        sa.AddAction(BaseActionType.ASSIGN_SHOP_OWNER, changePermissions);
+        List<BaseActionType> permissions = new LinkedList<>();
+        permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
+        when(changePermissions.act(any(SubscribedUser.class),eq(permissions))).thenReturn(true);
+        boolean res = changePermissions.act(assignee, permissions);
+        assertTrue(res);
+    }
+
+    @Test
+    public void changePermissionsFailure(){
+        List<BaseActionType> permissions = new LinkedList<>();
+        permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
+        boolean res = changePermissions.act(assignee, permissions);
+        assertFalse(res);
+    }
+
+    @Test
+    public void getAdminInfoSuccess(){
+        sa.AddAction(BaseActionType.ROLE_INFO, info);
+        try{
+            sa.getAdministratorInfo();
+        }
+        catch (Exception ignored){
+            fail("failed to get info when having permission!");
+        }
+    }
+
+    @Test
+    public void getAdminInfoFailure(){
+        try{
+            sa.getAdministratorInfo();
+            fail("got info without permission!");
+        }
+        catch (Exception ignored){
+
+        }
+    }
+
+    @Test
+    public void getHistoryInfoSuccess(){
+        sa.AddAction(BaseActionType.HISTORY_INFO, historyInfo);
+        try{
+            sa.getHistoryInfo();
+        }
+        catch (Exception ignored){
+            fail("failed to get info when having permission!");
+        }
+    }
+
+    @Test
+    public void getHistoryInfoFailure(){
+        try{
+            sa.getAdministratorInfo();
+            fail("got info without permission!");
+        }
+        catch (Exception ignored){
+
+        }
+    }
+
+    @Test
+    public void checkCyclesFound(){
+        sa1.addAppoint(sa2);
+        sa2.addAppoint(sa3);
+        boolean res = sa3.checkForCycles(sa1);
+
+        assertTrue(res);
+        res = sa2.checkForCycles(sa1);
+        assertTrue(res);
+    }
+
+    @Test
+    public void checkCyclesNotFound(){
+        sa1.addAppoint(sa2);
+        boolean res = sa3.checkForCycles(sa1);
+        assertFalse(res);
+    }
+
+    @Test
+    public void addAppointSuccess(){
+        sa1.addAppoint(sa2);
+        boolean res = sa1.getAppoints().contains(sa2);
+        assertTrue(res);
+    }
+
+    @Test
+    public void addAppointFailure(){
+        sa1.addAppoint(sa2);
+        sa2.addAppoint(sa3);
+        try {
+            sa3.addAppoint(sa1);
+            fail("made a cyclic appointment!");
+        }
+        catch (Exception ignored){
+
+        }
     }
 }
 
