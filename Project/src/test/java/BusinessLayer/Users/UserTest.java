@@ -62,7 +62,7 @@ public class UserTest {
         }
         catch (Exception e)
         {
-            System.out.println( u1.getBasket(s1.getId()).getProducts().size());
+            //System.out.println( u1.getBasket(s1.getId()).getProducts().size());
             Assert.assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
         }
     }

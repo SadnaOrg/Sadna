@@ -21,4 +21,11 @@ public class BasketInfo {
         return this;
     }
 
+    public int getShopid() {
+        return shopid;
+    }
+
+    public ConcurrentHashMap<Integer, Integer> getProducts() {
+        return products;
+    }
 }

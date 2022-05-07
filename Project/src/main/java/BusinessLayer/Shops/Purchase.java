@@ -29,6 +29,14 @@ public class Purchase {
         return transectionid;
     }
 
+    public ConcurrentHashMap<Integer, Integer> getInfoProducts() {
+        return infoProducts;
+    }
+
+    public Date getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
     public int getShopid() {
         return shopid;
     }

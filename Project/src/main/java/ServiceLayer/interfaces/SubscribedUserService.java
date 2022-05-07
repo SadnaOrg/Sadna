@@ -1,8 +1,8 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Users.AdministratorInfo;
 import BusinessLayer.Users.BaseActions.BaseActionType;
+import ServiceLayer.Objects.AdministratorInfo;
+import ServiceLayer.Objects.PurchaseHistoryInfo;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -25,7 +25,7 @@ public interface SubscribedUserService extends UserService {
 
     Result closeShop(int shop);
 
-    Response<Collection<AdministratorInfo>> getAdministratorInfo(int shop);
+    Response<AdministratorInfo> getAdministratorInfo(int shop);
 
-    Response<Collection<PurchaseHistory>> getHistoryInfo(int shop);
+    Response<PurchaseHistoryInfo> getHistoryInfo(int shop);
 }
