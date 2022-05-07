@@ -11,10 +11,15 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import java.util.concurrent.ConcurrentHashMap;
+
+import static org.junit.Assert.*;
+
 import static org.mockito.Mockito.when;
 
 public class PurchaseHistoryTest {
     private PurchaseHistory purchaseHistory;
+
     @Mock
     private Shop s1;
     @Mock
@@ -31,17 +36,15 @@ public class PurchaseHistoryTest {
     @Before
     public void setUp() {
 
-
     }
-
     @Test
     public void makePurchaseTest() {
+
         when(u1.getName()).thenReturn("Guy");
-        when(s1.getUsersBaskets().get(u1.getName())).thenReturn(basket);
+        when(s1.getUsersBaskets().get("Guy")).thenReturn(basket);
         purchaseHistory = new PurchaseHistory(s1,u1.getName());
         purchaseHistory.makePurchase();
         Assert.assertEquals(1, purchaseHistory.getPast_purchases().size());
 
     }
-
 }
