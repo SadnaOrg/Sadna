@@ -24,12 +24,14 @@ public class Result {
         return res? new Result() : new Result(msg);
     }
 
-    public static Result tryMakeResult(MySupplier<Boolean> res, String msg){
+    public static Result tryMakeResult(MySupplier<Boolean> res, String eventName,String errMsg){
        try {
-           if (res.get())
+           if (res.get()) {
+               Log.getInstance().event(eventName + " Successes");
                return new Result();
-           Log.getInstance().error(msg);
-           return new Result(msg);
+           }
+           Log.getInstance().error(eventName + " : " + errMsg);
+           return new Result(errMsg);
        }
        catch (Exception e){
            Log.getInstance().error(e.toString());

@@ -1,17 +1,11 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopFilters;
-import BusinessLayer.Shops.ShopInfo;
-import BusinessLayer.Users.BasketInfo;
+import ServiceLayer.Objects.Cart;
+import ServiceLayer.Objects.ShopsInfo;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public interface UserService {
 
@@ -25,18 +19,18 @@ public interface UserService {
 
     Result logout(String username);
 
-    Response<ConcurrentHashMap<Integer, ShopInfo>> receiveInformation();
+    Response<ShopsInfo> receiveInformation();
 
-    Response<Map<Shop, Collection<Product>>> searchProducts(ShopFilters shopPred, ProductFilters productPred);
+    Response<ShopsInfo> searchProducts(ShopFilters shopPred, ProductFilters productPred);
+
+    Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
 
     Result saveProducts(int shopid, int productid, int quantity);
 
-    Response<Map<Integer, BasketInfo>> showCart();
+    Response<Cart> showCart();
 
     Result removeProduct(int shopId, int productId);
 
     Result editProductQuantity(int shopId, int productId, int newQuantity);
-
-    Result purchaseCartFromShop();
 
 }
