@@ -26,4 +26,23 @@ public class Purchase {
         this.shopid= shopid;
     }
 
+    public int getTransectionid() {
+        return transectionid;
+    }
+
+    public ConcurrentHashMap<Integer, Integer> getInfoProducts() {
+        return infoProducts;
+    }
+
+    public Date getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public int getShopid() {
+        return shopid;
+    }
+
+    public String getUser() {
+        return user;
+    }
 }

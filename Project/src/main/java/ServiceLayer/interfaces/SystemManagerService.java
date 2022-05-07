@@ -1,16 +1,14 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Shops.PurchaseHistory;
+import ServiceLayer.Objects.PurchaseHistoryInfo;
 import ServiceLayer.Response;
 
-import java.util.Collection;
+public interface SystemManagerService extends  SubscribedUserService{
+    Response<PurchaseHistoryInfo> getShopsAndUsersInfo(int shop, String userName);
 
-public interface SystemManagerService {
-    Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(int shop, String userName);
+    Response<PurchaseHistoryInfo> getShopsAndUsersInfo(String userName);
 
-    Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(String userName);
+    Response<PurchaseHistoryInfo> getShopsAndUsersInfo(int shop);
 
-    Response<Collection<PurchaseHistory>> getShopsAndUsersInfo(int shop);
-
-    Response<Collection<PurchaseHistory>> getShopsAndUsersInfo();
+    Response<PurchaseHistoryInfo> getShopsAndUsersInfo();
 }
