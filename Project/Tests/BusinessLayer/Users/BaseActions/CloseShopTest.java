@@ -1,10 +1,10 @@
 package BusinessLayer.Users.BaseActions;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.CloseShop;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.CloseShop;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

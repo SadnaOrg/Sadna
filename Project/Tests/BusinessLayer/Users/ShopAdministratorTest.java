@@ -1,8 +1,8 @@
 package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Users.BaseActions.*;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.BaseActions.*;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

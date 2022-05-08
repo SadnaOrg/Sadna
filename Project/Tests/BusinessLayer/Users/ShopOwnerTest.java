@@ -1,12 +1,10 @@
 package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
-import main.java.BusinessLayer.Users.BaseActions.CloseShop;
-import main.java.BusinessLayer.Users.BaseActions.ReOpenShop;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.BeforeEach;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.CloseShop;
+import BusinessLayer.Users.BaseActions.ReOpenShop;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -31,7 +29,7 @@ public class ShopOwnerTest {
     @Mock
     ReOpenShop reOpenShop;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         founder = new ShopOwner(shop,founderUser,true);
         owner = new ShopOwner(shop,ownerUser,false);

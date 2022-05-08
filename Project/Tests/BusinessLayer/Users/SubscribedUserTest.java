@@ -1,11 +1,11 @@
 package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.ShopManager;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopManager;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

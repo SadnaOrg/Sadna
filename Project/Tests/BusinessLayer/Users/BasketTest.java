@@ -1,9 +1,9 @@
 package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Products.Product;
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.Basket;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

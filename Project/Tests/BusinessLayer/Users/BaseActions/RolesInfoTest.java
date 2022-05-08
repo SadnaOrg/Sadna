@@ -1,12 +1,12 @@
 package BusinessLayer.Users.BaseActions;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.AdministratorInfo;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
-import main.java.BusinessLayer.Users.BaseActions.RolesInfo;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.AdministratorInfo;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.RolesInfo;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
