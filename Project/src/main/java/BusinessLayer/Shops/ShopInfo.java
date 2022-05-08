@@ -31,4 +31,19 @@ public class ShopInfo {
         return this;
     }
 
+    public int getShopid() {
+        return shopid;
+    }
+
+    public String getShopname() {
+        return shopname;
+    }
+
+    public String getShopdescription() {
+        return shopdescription;
+    }
+
+    public ConcurrentHashMap<Integer, ProductInfo> getShopproductsinfo() {
+        return shopproductsinfo;
+    }
 }

@@ -15,6 +15,10 @@ public class PaymentMethod {
         this.expiryYear = expiryYear;
     }
 
+    public PaymentMethod(String creditCardNumber, int cvv, int expiryMonth, int expiryYear) {
+        this(creditCardNumber,new AtomicInteger(cvv),new AtomicInteger(expiryMonth),new AtomicInteger(expiryYear));
+    }
+
     public AtomicInteger getCVV() {
         return CVV;
     }
