@@ -1,4 +1,5 @@
 package BusinessLayer.System;
 
-public class Notification {
+public interface Notification {
+    void notifyUser();
 }
