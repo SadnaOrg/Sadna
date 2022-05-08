@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
 public abstract class BaseAction{
 

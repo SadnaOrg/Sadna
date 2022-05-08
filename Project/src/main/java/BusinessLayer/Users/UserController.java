@@ -1,9 +1,9 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Shops.ShopController;
-import main.java.BusinessLayer.Shops.ShopInfo;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Shops.ShopInfo;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;

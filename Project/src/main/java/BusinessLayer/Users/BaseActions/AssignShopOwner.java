@@ -1,14 +1,14 @@
-package main.java.BusinessLayer.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.BaseAction;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 
 public class AssignShopOwner extends BaseAction {
     private Shop s;
     private SubscribedUser u;
-    private ShopOwner o;
 
     public AssignShopOwner(Shop s, SubscribedUser u) {
         this.s = s;
@@ -16,16 +16,10 @@ public class AssignShopOwner extends BaseAction {
     }
 
     public boolean act(SubscribedUser userToAssign){
-        o = new ShopOwner(s, u, false);
+        ShopOwner o = new ShopOwner(s, u, false);
         if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(), o)){
             ShopAdministrator admin = userToAssign.addAdministrator(s.getId(),o);
-            try {
-                u.getAdministrator(s.getId()).addAppoint(admin);
-            }
-            catch (Exception e){
-                userToAssign.removeAdministrator(s.getId());
-                throw new IllegalStateException("cyclic appointment!");
-            }
+            u.getAdministrator(s.getId()).addAppoint(admin);
             return true;
         }
         return false;

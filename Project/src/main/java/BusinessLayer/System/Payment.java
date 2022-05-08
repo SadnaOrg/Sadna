@@ -1,6 +1,6 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
-import main.java.BusinessLayer.Shops.Purchase;
+import BusinessLayer.Shops.Purchase;
 
 public interface Payment {
     boolean pay(double totalPrice, PaymentMethod method);

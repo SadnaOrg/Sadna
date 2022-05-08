@@ -1,7 +1,7 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
 import java.math.BigInteger;
@@ -61,13 +61,6 @@ public class SubscribedUser extends User {
         return null;
     }
 
-    public void removeAdministrator(int shop){
-        if(shopAdministrator.containsKey(shop))
-            shopAdministrator.remove(shop);
-        else
-            throw new IllegalArgumentException("not an administrator in that shop!");
-    }
-
     public synchronized boolean assignShopManager(int shop,SubscribedUser toAssign) throws NoPermissionException {
         if(shopAdministrator.containsKey(shop)){
             return shopAdministrator.get(shop).AssignShopManager(toAssign);
@@ -109,7 +102,6 @@ public class SubscribedUser extends User {
         }
         else throw new NoPermissionException("you're not the shop Administrator");
     }
-
 
 
 

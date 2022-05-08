@@ -1,7 +1,7 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Shops.PurchaseHistoryController;
+import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Shops.PurchaseHistoryController;
 
 import java.util.Collection;
 

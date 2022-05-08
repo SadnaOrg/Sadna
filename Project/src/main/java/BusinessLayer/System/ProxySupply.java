@@ -1,7 +1,7 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
-import main.java.BusinessLayer.Products.ProductInfo;
-import main.java.BusinessLayer.Users.User;
+import BusinessLayer.Products.ProductInfo;
+import BusinessLayer.Users.User;
 
 public class ProxySupply implements Supply {
     private Supply s = null;

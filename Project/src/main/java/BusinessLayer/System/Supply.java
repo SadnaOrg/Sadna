@@ -1,6 +1,6 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
-import main.java.BusinessLayer.Users.User;
+import BusinessLayer.Users.User;
 
 public interface Supply {
     boolean checkSupply(PackageInfo pack);

@@ -1,8 +1,8 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Users;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.*;
+import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.*;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -22,17 +22,12 @@ public class ShopAdministrator{
         user = u;
     }
 
-    public Map<BaseActionType,BaseAction> getPermissions(){
-        return this.action;
-    }
-
     /**
      * asingn a new shop manager to the shop, only if the user has been nor manager or Owner of this shop
      * @param toAssign the uset to assign to the shop manager pool
      * @return if the action complete
      * @throws NoPermissionException if the Administrator don't have a permission to the action
      */
-
     public boolean AssignShopManager(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_MANAGER))
             return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
@@ -52,18 +47,11 @@ public class ShopAdministrator{
     }
 
     public void addAppoint(ShopAdministrator admin) {
-        if (!checkForCycles(admin))
-            appoints.add(admin);
-        else
-            throw new IllegalArgumentException("a cyclic appointment has occurred");
+        appoints.add(admin);
     }
 
     public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
-    }
-
-    public void AddAction(BaseActionType actionType, BaseAction baseAction){
-        action.put(actionType, baseAction);
     }
 
     public Collection<BaseActionType> getActionsTypes() {
@@ -73,14 +61,16 @@ public class ShopAdministrator{
         if(this.action.containsKey(BaseActionType.ROLE_INFO)){
             return ((RolesInfo)action.get(BaseActionType.ROLE_INFO)).act();
         }
-        else throw new NoPermissionException("don't have a permission to search information about shop administrator");
+        else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
+
+
 
     public Collection<PurchaseHistory> getHistoryInfo() throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.HISTORY_INFO)){
             return ((HistoryInfo)action.get(BaseActionType.HISTORY_INFO)).act();
         }
-        else throw new NoPermissionException("don't have a permission to search information about shop administrator");
+        else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
 
     public User getUser() {
@@ -89,35 +79,5 @@ public class ShopAdministrator{
 
     public void emptyActions(){
         action = new ConcurrentHashMap<>();
-    }
-
-    public ConcurrentLinkedDeque<ShopAdministrator> getAppoints() {
-        return appoints;
-    }
-
-    // check if we can assign the given admin
-    public boolean checkForCycles(ShopAdministrator administrator){
-        ConcurrentLinkedDeque<ShopAdministrator> pool = administrator.getAppoints();
-        int size = pool.size();
-        while (true){
-            if(pool.contains(this)){ // closing a cycle
-                return true;
-            }
-            else {
-                for (ShopAdministrator admin: // search next level of appointments
-                        pool) {
-                    pool.addAll(admin.getAppoints());
-                    if (pool.contains(this)){ // closing a cycle
-                        return true;
-                    }
-                }
-                if (size == pool.size()){ // if size didn't change we are done
-                    return false;
-                }
-                else {
-                    size = pool.size(); // update size
-                }
-            }
-        }
     }
 }

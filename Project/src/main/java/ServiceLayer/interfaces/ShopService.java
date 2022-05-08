@@ -1,9 +1,9 @@
-package main.java.ServiceLayer.interfaces;
+package ServiceLayer.interfaces;
 
-import main.java.BusinessLayer.Products.Product;
-import main.java.BusinessLayer.Products.ProductFilters;
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Shops.ShopFilters;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Shops.ShopFilters;
 
 import java.util.Collection;
 import java.util.Map;

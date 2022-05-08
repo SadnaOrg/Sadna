@@ -1,11 +1,11 @@
-package main.java.ServiceLayer;
+package ServiceLayer;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Shops.PurchaseHistoryController;
-import main.java.BusinessLayer.Shops.ShopController;
-import main.java.BusinessLayer.Users.SystemManager;
-import main.java.ServiceLayer.interfaces.SystemService;
-import main.java.BusinessLayer.System.System;
+import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Shops.PurchaseHistoryController;
+import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Users.SystemManager;
+import ServiceLayer.interfaces.SystemService;
+import BusinessLayer.System.System;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package main.java.ServiceLayer;
+package ServiceLayer;
 
 import javax.naming.NoPermissionException;
 

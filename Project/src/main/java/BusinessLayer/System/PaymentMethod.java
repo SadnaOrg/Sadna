@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -13,6 +13,10 @@ public class PaymentMethod {
         this.CVV = CVV;
         this.expiryMonth = expiryMonth;
         this.expiryYear = expiryYear;
+    }
+
+    public PaymentMethod(String creditCardNumber, int cvv, int expiryMonth, int expiryYear) {
+        this(creditCardNumber,new AtomicInteger(cvv),new AtomicInteger(expiryMonth),new AtomicInteger(expiryYear));
     }
 
     public AtomicInteger getCVV() {

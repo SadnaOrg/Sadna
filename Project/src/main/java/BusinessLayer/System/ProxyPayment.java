@@ -1,6 +1,6 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
-import main.java.BusinessLayer.Shops.Purchase;
+import BusinessLayer.Shops.Purchase;
 
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;

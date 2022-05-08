@@ -1,4 +1,4 @@
-package main.java.ServiceLayer.interfaces;
+package ServiceLayer.interfaces;
 
 public interface SystemService  extends  SubscribedUserService{
 }

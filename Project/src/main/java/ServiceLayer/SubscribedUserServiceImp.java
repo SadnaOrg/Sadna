@@ -1,13 +1,13 @@
-package main.java.ServiceLayer;
+package ServiceLayer;
 
-import main.java.BusinessLayer.Shops.PurchaseHistory;
-import main.java.BusinessLayer.Shops.ShopInfo;
-import main.java.BusinessLayer.Users.AdministratorInfo;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
-import main.java.BusinessLayer.Users.SubscribedUser;
-import main.java.BusinessLayer.Users.SystemManager;
-import main.java.ServiceLayer.interfaces.SubscribedUserService;
-import main.java.ServiceLayer.interfaces.SystemManagerService;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.SystemManager;
+import ServiceLayer.Objects.AdministratorInfo;
+import ServiceLayer.Objects.PurchaseHistoryInfo;
+import ServiceLayer.Objects.Shop;
+import ServiceLayer.interfaces.SubscribedUserService;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.util.Collection;
 
@@ -21,95 +21,54 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
     @Override
     public Response<SystemManagerService> manageSystemAsSystemManager(){
-        return ifUserNotNullRes(()-> (currUser instanceof SystemManager) ? ((SystemManager) currUser) : null).safe(SystemManagerServiceImp::new);
+        return ifUserNotNullRes(()-> (currUser instanceof SystemManager) ? ((SystemManager) currUser) : null,"switch to system manager "+currUser.getUserName()).safe(SystemManagerServiceImp::new);
     }
 
     @Override
-    public Response<Boolean> logout(){///TODO: IMPLEMENT
-        return ifUserNotNullRes(()->userController.logout(currUser.getUserName()));
+    public Result logout(){///TODO: IMPLEMENT
+        return ifUserNotNullRes(()->facade.logout(currUser.getUserName()),"logout");
     }
 
     @Override
     public Response<SubscribedUserService> login(String username, String password) {
-        return Response.tryMakeResponse(()-> userController.login(username, password,currUser) ,"incorrect user name or password")
+        return Response.tryMakeResponse(()-> facade.login(username, password,currUser),"login - user "+username ,"incorrect user name or password")
                 .safe((u)->{this.setCurrUser(u);
-                    Log.getInstance().event("login succeeded");
-                    return this;});
+                    return this;},"login","");
     }
 
     @Override
-    public Response<ShopInfo> openShop(String name){
-        return ifUserNotNullRes(()-> {
-            ShopInfo si = new ShopInfo(shopController.openShop(currUser,name));
-            Log.getInstance().event("open shop succeeded");
-            return si;
-        });
+    public Response<Shop> openShop(String name){
+        return ifUserNotNullRes(()->new Shop(facade.openShop(currUser,name)),"open shop succeeded");
     }
 
     @Override
     public Result assignShopManager(int shop, String userNameToAssign) {
-        return ifUserNotNull(()-> {
-            boolean res = userController.assignShopManager(currUser,shop,userNameToAssign);
-            if (res)
-                Log.getInstance().event("assign shop manager succeeded");
-            else
-                Log.getInstance().event("assign shop manager failed");
-            return res;
-        });
+        return ifUserNotNull(()-> facade.assignShopManager(currUser,shop,userNameToAssign),(currUser.getUserName() + "assign "+userNameToAssign+" to shop manager "));
     }
 
     @Override
     public Result assignShopOwner(int shop, String userNameToAssign){
-        return ifUserNotNull(()-> {
-            boolean res = userController.assignShopOwner(currUser,shop,userNameToAssign);
-            if (res)
-                Log.getInstance().event("assign shop owner succeeded");
-            else
-                Log.getInstance().event("assign shop owner failed");
-            return res;
-        });
+        return ifUserNotNull(()->  facade.assignShopOwner(currUser,shop,userNameToAssign),(currUser.getUserName() + "assign "+userNameToAssign+" to shop owner "));
     }
 
     @Override
     public Result changeManagerPermission(int shop, String userNameToAssign, Collection<BaseActionType> types){
-        return ifUserNotNull(()-> {
-            boolean res = userController.changeManagerPermission(currUser,shop,userNameToAssign,types);
-            if (res)
-                Log.getInstance().event("change manager permission succeeded");
-            else
-                Log.getInstance().event("change manager permission failed");
-            return res;
-        });
+        return ifUserNotNull(()->  facade.changeManagerPermission(currUser,shop,userNameToAssign,types),"change manager permission succeeded");
     }
 
     @Override
     public Result closeShop(int shop){
-        return ifUserNotNull(()-> {
-            boolean res = userController.closeShop(currUser,shop);
-            if (res)
-                Log.getInstance().event("close shop succeeded");
-            else
-                Log.getInstance().event("close shop failed");
-            return res;
-        });
+        return ifUserNotNull(()-> facade.closeShop(currUser,shop),"close shop succeeded");
     }
 
     @Override
-    public Response<Collection<AdministratorInfo>> getAdministratorInfo(int shop){
-        return ifUserNotNullRes(()-> {
-            Collection<AdministratorInfo> ai = userController.getAdministratorInfo(currUser,shop);
-            Log.getInstance().event("assign shop owner succeeded");
-            return ai;
-        });
+    public Response<AdministratorInfo> getAdministratorInfo(int shop){
+        return ifUserNotNullRes(()-> new AdministratorInfo(facade.getAdministratorInfo(currUser,shop)), currUser.getUserName()+"get administrator info ");
     }
 
     @Override
-    public Response<Collection<PurchaseHistory>> getHistoryInfo(int shop){
-        return ifUserNotNullRes(()-> {
-            Collection<PurchaseHistory> ph = userController.getHistoryInfo(currUser,shop);
-            Log.getInstance().event("assign shop owner succeeded");
-            return ph;
-        });
+    public Response<PurchaseHistoryInfo> getHistoryInfo(int shop){
+        return ifUserNotNullRes(()->  new PurchaseHistoryInfo(facade.getHistoryInfo(currUser,shop)), currUser.getUserName()+" get history info");
     }
 
     protected void setCurrUser(SubscribedUser currUser) {
@@ -117,20 +76,20 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         super.currUser = currUser;
     }
 
-    private Result ifUserNotNull(MySupplier<Boolean> s){
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,"log in to the system first as a subscribed user");
+    private Result ifUserNotNull(MySupplier<Boolean> s,String eventName){
+        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
     }
 
-    private Result ifUserNull(MySupplier<Boolean> s){
-        return Result.tryMakeResult((() -> currUser == null && s.get()) ,"logout from system first");
+    private Result ifUserNull(MySupplier<Boolean> s,String eventName){
+        return Result.tryMakeResult((() -> currUser == null && s.get()) ,eventName,"logout from system first");
     }
 
-    private <T> Response<T> ifUserNotNullRes(MySupplier<T> s){
-        return Response.tryMakeResponse((() -> currUser == null|| !currUser.isLoggedIn() ? null:  s.get()),"log in to the system first as a subscribed user");
+    private <T> Response<T> ifUserNotNullRes(MySupplier<T> s,String eventName){
+        return Response.tryMakeResponse((() -> currUser == null|| !currUser.isLoggedIn() ? null:  s.get()),eventName,"log in to the system first as a subscribed user");
     }
 
-    private <T> Response<T> ifUserNullRes(MySupplier<T> s){
-        return Response.tryMakeResponse((() -> currUser != null ? null:  s.get()),"logout from system first");
+    private <T> Response<T> ifUserNullRes(MySupplier<T> s,String eventName){
+        return Response.tryMakeResponse((() -> currUser != null ? null:  s.get()),eventName ,"logout from system first");
     }
 
 
