@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.*;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,45 +11,236 @@ import org.junit.internal.runners.statements.Fail;
 import javax.naming.NoPermissionException;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class ShopTest {
 
-    private final SubscribedUser founder = createFounder();
+    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
     private Shop s1;
     private Product p1;
     private Product p2;
 
     @Before
     public void setUp() {
-        s1 = createShop();
-        p1 = createProduct();
-        p2 = createDifferentProduct();
+        s1 = new Shop(100, "shop", founder);
+        p1 = new Product(1, "a", 5, 100);
+        p2 = new Product(2, "c", 15, 500);
     }
 
     @Test
-    public void addProduct() {
-        Shop s1 = createShopWithProduct();
+    public void closeShopCheckWhenClosedAddProduct() {
+        s1.addProduct(p1);
+        assertTrue(s1.close());
+        try {
+            s1.addProduct(p2);
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+
+        }
+    }
+
+
+    @Test
+    public void closeShopCheckWhenClosedChangeProduct() {
+        s1.addProduct(p1);
+        assertTrue(s1.close());
+        try {
+            p2 = new Product(1, "c", 15, 500);
+            s1.changeProduct(p2);
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(p1.getName(),s1.getProducts().get(p2.getID()).getName());
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedRemoveProduct() {
+        s1.addProduct(p1);
+        assertTrue(s1.close());
+        try {
+            s1.removeProduct(p1.getID());
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedGetProducts() {
+        s1.addProduct(p1);
+        assertTrue(s1.close());
+        try {
+            s1.getProducts();
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+
+        }
+    }
+
+
+    @Test
+    public void closeShopCheckWhenClosedSearchProducts() {
+        s1.addProduct(p1);
+        assertTrue(s1.close());
+        ProductFilters productFilters = null;
+        try {
+            s1.searchProducts(productFilters);
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedPurchaseBasket() {
+        s1.addProduct(p1);
+        User u1 = new Guest("Guy");
+        assertTrue(s1.close());
+        try {
+            s1.purchaseBasket(u1.getName());
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedCheckIfUserHasBasket() {
+        s1.addProduct(p1);
+        User u1 = new Guest("Guy");
+        assertTrue(s1.close());
+        try {
+            s1.checkIfUserHasBasket(u1.getName());
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertFalse(s1.checkIfUserHasBasket(u1.getName()));
+        }
+    }
+    @Test
+    public void closeShopCheckWhenClosedGetUsersBaskets() {
+        s1.addProduct(p1);
+        User u1 = new Guest("Guy");
+        Basket b1 = new Basket(s1.getId());
+        s1.addBasket(u1.getName(),b1);
+        Assert.assertEquals(1, s1.getUsersBaskets().size());
+        assertTrue(s1.close());
+        try {
+            s1.getUsersBaskets();
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getUsersBaskets().size());
+            Assert.assertEquals(b1, s1.getUsersBaskets().get(u1.getName()));
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedAddBasket() {
+        s1.addProduct(p1);
+        User u1 = new Guest("Guy");
+        Basket b1 = new Basket(s1.getId());
+        assertTrue(s1.close());
+        try {
+            s1.addBasket(u1.getName(),b1);
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(0, s1.getUsersBaskets().size());
+        }
+    }
+
+    @Test
+    public void closeShopCheckWhenClosedAddAdministrator() {
+        s1.addProduct(p1);
+        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor");
+        ShopAdministrator sa1 = new ShopAdministrator(s1,subscribedUser);
+        assertTrue(s1.close());
+        try {
+            s1.addAdministrator(sa1.getUser().getUserName(),sa1);
+        }
+        catch (IllegalStateException e)
+        {
+            Assert.assertEquals(e.getMessage(),"The shop is closed");
+            assertTrue(s1.open());
+            Assert.assertEquals(1, s1.getShopAdministrators().size());
+            Assert.assertNull(s1.getShopAdministrator(sa1.getUser().getUserName()));
+        }
+    }
+
+    @Test
+    public void addProductAndOtherProduct() {
+        s1.addProduct(p1);
+        Assert.assertEquals(1, s1.getProducts().size());
+        s1.addProduct(p2);
+        Assert.assertEquals(2, s1.getProducts().size());
+        Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+        Assert.assertNotEquals(p1.getName(), s1.getProducts().get(p2.getID()).getName());
+        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
+    }
+
+
+    @Test
+    public void addProductWhenProductIdAlreadyInTheShop() {
+        s1.addProduct(p1);
+        Product p3 = new Product(1, "fake", 50, 1000);
         Assert.assertEquals(1, s1.getProducts().size());
         try {
-            s1.addProduct(p1);
+            s1.addProduct(p3);
         }
-        catch (Exception e)
+        catch (IllegalStateException e)
         {
+            Assert.assertEquals(e.getMessage(),"The product is already in the shop");
             Assert.assertEquals(1, s1.getProducts().size());
+            Assert.assertEquals(p1.getName(), s1.getProducts().get(p3.getID()).getName());
+            Assert.assertNotEquals(p3.getName(), s1.getProducts().get(p3.getID()).getName());
         }
     }
 
 
     @Test
     public void removeProductSuccess() throws IllegalStateException {
-        Shop s1 = createShopWithProduct();
+        s1.addProduct(p1);
         s1.removeProduct(p1.getID());
         Assert.assertEquals(0, s1.getProducts().size());
     }
     @Test
     public void removeWrongProduct() throws IllegalStateException {
-        Shop s1 = createShopWithProduct();
+        s1.addProduct(p1);
         try {
             s1.removeProduct(p2.getID());
         } catch (Exception e) {
@@ -57,7 +249,8 @@ public class ShopTest {
     }
     @Test
     public void searchProducts() {
-        Shop s = createShopWithTwoProducts();
+        s1.addProduct(p1);
+        s1.addProduct(p2);
         //TODO: Yuval u didnt write test;
     }
 
@@ -78,7 +271,7 @@ public class ShopTest {
     }
 
     private double purchaseBasketHelper(int quantity) throws IllegalStateException {
-        Shop s1 = createShopWithProduct();
+        s1.addProduct(p1);
         User u1 = new Guest("Yuval");
         u1.saveProducts(s1.getId(), p1.getID(), quantity);
         s1.addBasket(u1.getName(), u1.getBasket(s1.getId()));
@@ -86,8 +279,7 @@ public class ShopTest {
     }
     @Test
     public void changeProductFail() {
-        Shop s1 = createShopWithProduct();
-        Product p2 = createDifferentProduct();
+        s1.addProduct(p1);
         try {
             s1.changeProduct(p2);
         }
@@ -99,54 +291,11 @@ public class ShopTest {
 
     @Test
     public void changeProductSuccess() {
-        Shop s1 = createShopWithProduct();
-        Product p2 = createChangedProduct();
+        s1.addProduct(p1);
+        Product p2 =  new Product(1, "b", 10, 10);
         s1.changeProduct(p2);
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getName(), p2.getName());
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getPrice(), p2.getPrice(), 0.0);
-        Assert.assertEquals(getProductFromShop(s1, p2.getID()).getQuantity(), p2.getQuantity());
-    }
-
-
-    private Shop createShopWithProduct() throws IllegalStateException {
-        s1.addProduct(p1);
-        return s1;
-    }
-
-    private Shop createShopWithTwoProducts() throws IllegalStateException {
-        s1.addProduct(p1);
-        s1.addProduct(p2);
-        return s1;
-    }
-
-    private Shop createShop() {
-        return new Shop(100, "shop", founder);
-    }
-
-    private Product createProduct() {
-        return new Product(1, "a", 5, 100);
-    }
-
-    private Product createChangedProduct() {
-        return new Product(1, "b", 10, 10);
-    }
-
-    private Product createDifferentProduct() {
-        return new Product(2, "c", 15, 500);
-    }
-
-    private Product getProductFromShop(Shop s1, int id) {
-        return s1.getProducts().get(id);
-    }
-
-    private User createUserWithItemInBasket(int shopid, int productid, int quantity)
-    {
-        User u = new Guest("Yuval");
-        u.saveProducts(shopid, productid, quantity);
-        return u;
-    }
-
-    private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy","Guy123456");
+        Assert.assertEquals(s1.getProducts().get(p2.getID()).getName(), p2.getName());
+        Assert.assertEquals(s1.getProducts().get(p2.getID()).getPrice(), p2.getPrice(), 0.0);
+        Assert.assertEquals(s1.getProducts().get(p2.getID()).getQuantity(), p2.getQuantity());
     }
 }

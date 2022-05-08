@@ -18,14 +18,14 @@ import java.util.stream.Collectors;
 
 public class Shop {
 
-    private int id;
+    private final int id;
     private String name;
     private String description;
     private State state = State.OPEN;
     private ShopOwner founder;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
-    private Collection<PurchaseHistory> purchaseHistory= new ArrayList<>();
+    private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private Map<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
 
@@ -44,7 +44,13 @@ public class Shop {
         return false;
     }
 
-
+    public synchronized boolean open() {
+        if(state!=State.OPEN){
+            state=State.OPEN;
+            return true;
+        }
+        return false;
+    }
 
     public enum State {
         OPEN,
@@ -74,6 +80,7 @@ public class Shop {
                 Product old_product = products.get(new_product.getID());
                 old_product.setPrice(new_product.getPrice());
                 old_product.setQuantity(new_product.getQuantity());
+                old_product.setDescription(new_product.getDescription());
                 old_product.setName(new_product.getName());
             }
             else
@@ -216,7 +223,7 @@ public class Shop {
 
 
     public Collection<PurchaseHistory> getPurchaseHistory() {
-        return purchaseHistory;
+        return purchaseHistory.values();
     }
   
     public Collection<ShopAdministrator> getShopAdministrators() {
