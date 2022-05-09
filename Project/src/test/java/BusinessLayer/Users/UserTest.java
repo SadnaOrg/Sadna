@@ -2,13 +2,11 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import javax.naming.NoPermissionException;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.*;
 
 public class UserTest {
     Shop s1;
@@ -16,7 +14,7 @@ public class UserTest {
     Product p1;
     private SubscribedUser founder = createFounder();
 
-    @Before
+    @BeforeAll
     public void setUp() {
         s1 = createShopWithProduct();
         u1 = createUser();
@@ -62,8 +60,13 @@ public class UserTest {
         }
         catch (Exception e)
         {
+
             //System.out.println( u1.getBasket(s1.getId()).getProducts().size());
-            Assert.assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
+            assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
+
+            System.out.println( u1.getBasket(s1.getId()).getProducts().size());
+            assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
+
         }
     }
 
