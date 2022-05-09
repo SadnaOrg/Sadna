@@ -44,6 +44,12 @@ public class Shop {
         return false;
     }
 
+    public void open() {
+        if(state == State.OPEN){
+         throw new IllegalStateException("already open!");
+        }
+        state = State.OPEN;
+    }
 
 
     public enum State {

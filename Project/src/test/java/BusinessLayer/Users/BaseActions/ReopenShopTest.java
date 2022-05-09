@@ -26,8 +26,6 @@ public class ReopenShopTest {
 
     @Mock
     ShopOwner founder;
-    @Mock
-    ShopOwner failOwner;
 
     @BeforeEach
     public void setUp(){
@@ -41,12 +39,7 @@ public class ReopenShopTest {
 
     @Test
     public void reOpenShopSuccess() throws Exception {
-        when(founderUser.getUserName()).thenReturn("Bill Gates");
-        when(founder.isFounder()).thenReturn(true);
-
-        when(shop.getShopAdministrator("Bill Gates")).thenReturn(founder);
-        when(shop.isOpen()).thenReturn(false);
-        doNothing().when(shop).open();
+        when(founderUser.getAdministrator(shop.getId())).thenReturn(founder);
 
         boolean res= reOpenShop.act();
         assertTrue(res);
