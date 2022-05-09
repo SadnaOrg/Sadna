@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.*;
@@ -46,13 +47,56 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
+    public void removeProduct(int productid) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).removeProduct(productid);
+        else throw new NoPermissionException();
+    }
+    public Product addProduct(int productid, String name, double price, int quantity) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, price, quantity);
+        else throw new NoPermissionException();
+    }
+
+    public boolean changeProductQuantity(int productid, int newQuantity) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductQuantity(productid, newQuantity);
+        else throw new NoPermissionException();
+    }
+
+    public boolean changeProductPrice(int productid, int newPrice) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductPrice(productid, newPrice);
+        else throw new NoPermissionException();
+    }
+
+    public boolean changeProductDesc(int productid, String newDesc) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductDesc(productid, newDesc);
+        else throw new NoPermissionException();
+    }
+
+    public boolean changeProductName(int productid, String newName) throws NoPermissionException {
+        if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductName(productid, newName);
+        else throw new NoPermissionException();
+    }
+
+
     public void addAppoint(ShopAdministrator admin) {
+        if(checkForCycles(admin))
+            throw new IllegalStateException("cyclic appointment!");
         appoints.add(admin);
     }
 
     public void AddAction(BaseActionType actionType){
         action.put(actionType,BaseActionType.getAction(user,shop,actionType));
     }
+
+    public void AddAction(BaseActionType actionType, BaseAction baseAction){
+        action.put(actionType,baseAction);
+    }
+
 
     public Collection<BaseActionType> getActionsTypes() {
         return action.keySet();
@@ -79,5 +123,29 @@ public class ShopAdministrator{
 
     public void emptyActions(){
         action = new ConcurrentHashMap<>();
+    }
+
+    public Collection<BaseAction> getPermissions() {
+        return this.action.values();
+    }
+
+    public boolean checkForCycles(ShopAdministrator sa1) {
+        ConcurrentLinkedDeque<ShopAdministrator> pool = sa1.getAppoints();
+        int size = pool.size();
+        while (true){
+            for (ShopAdministrator admin:
+                 pool) {
+                if(pool.contains(this))
+                    return true;
+                pool.addAll(admin.getAppoints());
+            }
+            if(size == pool.size())
+                return false;
+            size = pool.size();
+        }
+    }
+
+    public ConcurrentLinkedDeque<ShopAdministrator> getAppoints() {
+        return this.appoints;
     }
 }
