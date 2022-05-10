@@ -1,5 +1,5 @@
 package BusinessLayer.System;
 
 public interface Notification {
-    void notifyUser();
+    boolean notifyUser(String user);
 }
