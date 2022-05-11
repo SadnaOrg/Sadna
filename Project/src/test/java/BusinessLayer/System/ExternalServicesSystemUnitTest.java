@@ -78,28 +78,6 @@ public class ExternalServicesSystemUnitTest {
         Assert.assertFalse(system.checkSupply(new PackageInfo(new AtomicInteger(1), "home", products)));
     }
 
-    @Test
-    public void testMultithreadedAddPayment() throws InterruptedException {
-        Thread t1 = new Thread(()->system.addPayment(failedPayment));
-        Thread t2 = new Thread(()->system.addPayment(payment));
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
-        Assert.assertEquals(2, system.getPaymentSize());
-    }
-
-    @Test
-    public void testMultithreadedAddSupply() throws InterruptedException {
-        Thread t1 = new Thread(()->system.addSupply(supply));
-        Thread t2 = new Thread(()->system.addSupply(otherSupply));
-        t1.start();
-        t2.start();
-        t1.join();
-        t2.join();
-        Assert.assertEquals(2, system.getSupplySize());
-    }
-
     public void setUpPay(){
         system.addPayment(failedPayment);
         system.addPayment(payment);
