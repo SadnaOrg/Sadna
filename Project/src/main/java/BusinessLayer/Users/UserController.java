@@ -120,7 +120,7 @@ public class UserController {
     }
 
     public synchronized boolean registerToSystem(String userName, String password) {
-        if (subscribers.containsKey(userName)) {
+        if (!subscribers.containsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
             users.put(userName, newUser);
