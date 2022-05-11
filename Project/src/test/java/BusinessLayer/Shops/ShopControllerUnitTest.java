@@ -63,10 +63,6 @@ public class ShopControllerUnitTest {
         ph = mock(PurchaseHistory.class);
     }
 
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void addBasket() {
         when(s1.addBasket(userName, basket)).thenReturn(true);
