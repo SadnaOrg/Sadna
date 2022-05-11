@@ -1,16 +1,17 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 import org.junit.*;
 import org.mockito.Mock;
-import org.mockito.internal.junit.JUnitRule;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -22,7 +23,9 @@ import static org.mockito.Mockito.*;
 public class ShopControllerUnitTest {
 
     private ShopController sc = ShopController.getInstance();
-    private UserController uc = UserController.getInstance();
+
+    @Mock
+    private UserController uc;
 
     @Mock
     private Shop s1;
@@ -35,6 +38,11 @@ public class ShopControllerUnitTest {
 
     @Mock
     private SubscribedUser su;
+
+    @Mock
+    private PurchaseHistoryController phc;
+
+    private PurchaseHistory ph;
 
     @Rule public MockitoRule rule = MockitoJUnit.rule();
 
@@ -51,8 +59,8 @@ public class ShopControllerUnitTest {
         userID = rand.nextInt();
         userName = "User" + userID;
         sc.getShops().put(shopID, s1);
-
         when(s1.getId()).thenReturn(shopID);
+        ph = mock(PurchaseHistory.class);
     }
 
     @After
@@ -77,7 +85,35 @@ public class ShopControllerUnitTest {
     public void addToPurchaseHistory() {
         purchaseBasket();
         ConcurrentHashMap<Integer, Boolean> paymentSituation = createPayments();
-        Assert.assertTrue(sc.addToPurchaseHistory(userName, paymentSituation));
+
+        try(MockedStatic<PurchaseHistoryController> mockedStatic1 = mockStatic(PurchaseHistoryController.class)) {
+            mockedStatic1.when(PurchaseHistoryController::getInstance).thenReturn(phc);
+            when(phc.createPurchaseHistory(s1, userName)).thenReturn(ph);
+            doNothing().when(ph).makePurchase();
+
+            ConcurrentHashMap<String, Basket> userBasket = createUserBasket();
+            when(s1.getUsersBaskets()).thenReturn(userBasket);
+
+            try (MockedStatic<UserController> mockedStatic2 = mockStatic(UserController.class)) {
+                mockedStatic2.when(UserController::getInstance).thenReturn(uc);
+                when(UserController.getInstance()).thenReturn(uc);
+                ConcurrentHashMap<Integer, Basket> shoppingCart = createShoppingCart();
+                when(uc.getShoppingCart(userName)).thenReturn(shoppingCart);
+                Assert.assertTrue(sc.addToPurchaseHistory(userName, paymentSituation));
+            }
+        }
+    }
+
+    private ConcurrentHashMap<Integer, Basket> createShoppingCart() {
+        ConcurrentHashMap<Integer, Basket> res = new ConcurrentHashMap<>();
+        res.put(s1.getId(), new Basket(s1.getId()));
+        return res;
+    }
+
+    private ConcurrentHashMap<String, Basket> createUserBasket() {
+        ConcurrentHashMap<String, Basket> res = new ConcurrentHashMap<>();
+        res.put(userName, new Basket(s1.getId()));
+        return res;
     }
 
     @Test
