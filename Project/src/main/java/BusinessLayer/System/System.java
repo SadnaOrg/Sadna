@@ -34,7 +34,7 @@ public class System {
         for(int shopId: totalPrices.keySet())
         {
             if(totalPrices.get(shopId)>0 && method != null) {
-                paymentSituation.put(shopId, externSystem.pay(totalPrices.get(shopId), method));
+                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method));
             }
             else
             {
@@ -44,16 +44,36 @@ public class System {
         return paymentSituation;
     }
 
-    public ConcurrentHashMap<AtomicInteger, Boolean> checkSupply(ConcurrentHashMap<AtomicInteger,PackageInfo> packages){
-        ConcurrentHashMap<AtomicInteger, Boolean> supplySituation= new ConcurrentHashMap<>();
-        for(AtomicInteger idx : packages.keySet())
+    public ConcurrentHashMap<Integer, Boolean> checkSupply(ConcurrentHashMap<Integer,PackageInfo> packages){
+        ConcurrentHashMap<Integer, Boolean> supplySituation= new ConcurrentHashMap<>();
+        for(Integer idx : packages.keySet())
         {
-            supplySituation.put(idx, externSystem.checkSupply(packages.get(idx)));
+            supplySituation.put(idx, getExternSystem().checkSupply(packages.get(idx)));
         }
         return supplySituation;
     }
 
     public PurchaseHistoryController getPurchaseHistoryServices() {
         return purchaseHistoryServices;
+    }
+
+    public ExternalServicesSystem getExternSystem() {
+        return externSystem;
+    }
+
+    public synchronized void addPayment(Payment p){
+        externSystem.addPayment(p);
+    }
+
+    public synchronized void addSupply(Supply s){
+        externSystem.addSupply(s);
+    }
+
+    public int getPaymentSize(){//for tests only
+        return externSystem.getPaymentSize();
+    }
+
+    public int getSupplySize(){//for tests only
+        return externSystem.getSupplySize();
     }
 }

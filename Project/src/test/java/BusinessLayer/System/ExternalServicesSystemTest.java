@@ -28,31 +28,33 @@ public class ExternalServicesSystemTest {
         otherSupply = new ProxySupply();
         payment = new ProxyPayment();
         failedPayment = new ProxyPayment();
-        method = new PaymentMethod("4580123456789012", new AtomicInteger(266), new AtomicInteger(4), new AtomicInteger(2032));
+        method = new PaymentMethod("4580123456789012", 266, 4, 2032);
         successProd = new ProductInfo(new Product(1, "bud light", 15, 10));
         anotherSuccessProd = new ProductInfo(new Product(2, "bud dark", 20, 30));
         failProd = new ProductInfo(new Product(3, "bud new", 25, 0));
-        setUpPay();
-        setUpSupply();
     }
 
     @Test
     public void testCheckPaymentSuccess() {
+        setUpPay();
         Assert.assertTrue(system.pay(100, method));
     }
 
     @Test
     public void testPayFailAmountZero() {
+        setUpPay();
         Assert.assertFalse(system.pay(0, method));
     }
 
     @Test
     public void testPayFailAmountNegative() {
+        setUpPay();
         Assert.assertFalse(system.pay(-100, method));
     }
 
     @Test
     public void testCheckSupplySuccess(){
+        setUpSupply();
         Collection<ProductInfo> products = new ArrayList<>();
         products.add(successProd);
         products.add(anotherSuccessProd);
@@ -61,6 +63,7 @@ public class ExternalServicesSystemTest {
 
     @Test
     public void testCheckSupplyMultipleSuppliersSuccess() {
+        setUpSupply();
         Collection<ProductInfo> products = new ArrayList<>();
         products.add(successProd);
         products.add(anotherSuccessProd);
@@ -69,11 +72,34 @@ public class ExternalServicesSystemTest {
 
     @Test
     public void testCheckSupplyMultipleSuppliersFail() {
+        setUpSupply();
         Collection<ProductInfo> products = new ArrayList<>();
         products.add(successProd);
         products.add(anotherSuccessProd);
         products.add(failProd);
         Assert.assertFalse(system.checkSupply(new PackageInfo(new AtomicInteger(1), "home", products)));
+    }
+
+    @Test
+    public void testMultithreadedAddPayment() throws InterruptedException {
+        Thread t1 = new Thread(()->system.addPayment(failedPayment));
+        Thread t2 = new Thread(()->system.addPayment(payment));
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        Assert.assertEquals(2, system.getPaymentSize());
+    }
+
+    @Test
+    public void testMultithreadedAddSupply() throws InterruptedException {
+        Thread t1 = new Thread(()->system.addSupply(supply));
+        Thread t2 = new Thread(()->system.addSupply(otherSupply));
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        Assert.assertEquals(2, system.getSupplySize());
     }
 
     public void setUpPay(){
