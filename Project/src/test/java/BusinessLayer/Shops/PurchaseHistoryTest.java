@@ -39,7 +39,6 @@ public class PurchaseHistoryTest {
     }
     @Test
     public void makePurchaseTest() {
-
         when(u1.getName()).thenReturn("Guy");
         when(s1.getUsersBaskets().get("Guy")).thenReturn(basket);
         purchaseHistory = new PurchaseHistory(s1,u1.getName());

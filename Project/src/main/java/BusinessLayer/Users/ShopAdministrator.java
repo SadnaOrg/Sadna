@@ -73,11 +73,17 @@ public class ShopAdministrator{
         else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
 
+
+
     public User getUser() {
         return user;
     }
 
     public void emptyActions(){
         action = new ConcurrentHashMap<>();
+    }
+    public String getUserName()
+    {
+        return user.getUserName();
     }
 }

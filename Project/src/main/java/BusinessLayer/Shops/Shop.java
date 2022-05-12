@@ -133,8 +133,8 @@ public class Shop {
         int totalPrice = 0;
         if (state == State.OPEN) {
             for (int productID : usersBaskets.get(user).getProducts().keySet()) {
-                int quantity = usersBaskets.get(user).getProducts().get(productID);
                 if (products.containsKey(productID)) {
+                    int quantity = usersBaskets.get(user).getProducts().get(productID);
                     Product curr_product = products.get(productID);
                     double currentPrice = curr_product.purchaseProduct(quantity);
                     if (currentPrice > 0.0)
