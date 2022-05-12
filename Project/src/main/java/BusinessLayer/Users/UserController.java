@@ -57,7 +57,7 @@ public class UserController {
     }
 
     public boolean removeproduct(User u, int shopId, int productId) {
-        return u.removeproduct(shopId, productId);
+        return u.removeProduct(shopId, productId);
     }
 
     public boolean editProductQuantity(User u, int shopId, int productId, int newQuantity) {
