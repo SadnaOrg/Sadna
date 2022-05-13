@@ -4,11 +4,10 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PurchaseHistoryTest {
 
@@ -35,7 +34,7 @@ public class PurchaseHistoryTest {
     @Test
     public void makePurchaseTest() {
         purchaseHistory.makePurchase();
-        Assert.assertEquals(1, purchaseHistory.getPast_purchases().size());
+        assertEquals(1, purchaseHistory.getPast_purchases().size());
     }
     private Shop createShop() {
         return new Shop(100, "shop", founder);

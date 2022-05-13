@@ -2,7 +2,6 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +9,7 @@ import javax.naming.NoPermissionException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.junit.Assert.*;
+
 
 public class SubscribedUserTest {
     private SubscribedUser user1;
@@ -120,7 +120,7 @@ public class SubscribedUserTest {
             user2.changeManagerPermission(shop1.getId(), user1, new CopyOnWriteArrayList<>());
             fail("do the transaction with out a permission");
         } catch (NoPermissionException ignore) {
-            assertNotEquals(0, user2.getAdministrator(shop1.getId()).action.size());
+            assertNotEquals(0, user2.getAdministrator(shop1.getId()).getPermissions().size());
         }
     }
 

@@ -15,7 +15,7 @@ public enum BaseActionType {
     CLOSE_SHOP(9),
     REOPEN_SHOP(10),
     ROLE_INFO(11),
-    HISTORY_INFO(13);
+    HISTORY_INFO(13), REOPEN_SHOP(10);
 
     BaseActionType(int i) {
     }

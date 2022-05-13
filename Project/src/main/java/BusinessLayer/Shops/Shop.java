@@ -1,12 +1,12 @@
-package main.java.BusinessLayer.Shops;
+package BusinessLayer.Shops;
 
 
-import main.java.BusinessLayer.Products.Product;
-import main.java.BusinessLayer.Products.ProductFilters;
-import main.java.BusinessLayer.Users.Basket;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.ShopOwner;
-import main.java.BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 
 import javax.naming.NoPermissionException;
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ public class Shop {
     }
 
     public void open() {
-        if (state == State.OPEN){
-            throw new IllegalStateException("already open!");
+        if(state == State.OPEN){
+         throw new IllegalStateException("already open!");
         }
         state = State.OPEN;
     }

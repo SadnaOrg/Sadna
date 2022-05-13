@@ -41,4 +41,9 @@ public class ShopOwner extends ShopAdministrator{
     }
 
 
+    public void reOpenShop() throws NoPermissionException {
+        if(isFounder())
+            shop.open();
+        else throw new NoPermissionException("only founder can reopen the shop!");
+    }
 }

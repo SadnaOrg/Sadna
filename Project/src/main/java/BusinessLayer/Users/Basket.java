@@ -50,8 +50,16 @@ public class Basket {
     }
 
     public boolean editProductQuantity(int productid, int newquantity) {
+        if(newquantity < 0){
+            throw new IllegalStateException("a product can't appear in a basket with a negative quantity!");
+        }
         if (products.containsKey(productid)) {
-            products.put(productid, newquantity);
+            if(newquantity == 0){
+                removeProduct(productid);
+            }
+            else{
+                products.put(productid, newquantity);
+            }
             return true;
         }
         else
