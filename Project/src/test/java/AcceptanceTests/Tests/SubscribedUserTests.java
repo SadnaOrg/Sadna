@@ -9,7 +9,7 @@ import AcceptanceTests.Threads.UserBuysProduct;
 
 import AcceptanceTests.DataObjects.*;
 import org.junit.Before;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
