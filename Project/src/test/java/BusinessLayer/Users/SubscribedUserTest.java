@@ -2,17 +2,14 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopManager;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.naming.NoPermissionException;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+
 
 public class SubscribedUserTest {
     private SubscribedUser user1;
@@ -23,7 +20,7 @@ public class SubscribedUserTest {
     private Shop shop2;
     ShopManager sm1;
     ShopOwner so1;
-    @BeforeAll
+    @Before
     public void setUp() {
         user1 = new SubscribedUser("user1","pass12");
         user2 = new SubscribedUser("user2","pass12");

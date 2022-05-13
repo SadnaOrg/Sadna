@@ -3,36 +3,29 @@ package BusinessLayer.Users.BaseActions;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.mockito.Mockito.doNothing;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-@ExtendWith(MockitoExtension.class)
 public class ReopenShopTest {
-    @Mock
-    private Shop shop;
-    @Mock
-    private SubscribedUser founderUser;
-    @InjectMocks
-    private ReOpenShop reOpenShop;
+    private Shop shop = mock(Shop.class);
+    private SubscribedUser founderUser = mock(SubscribedUser.class);
+    private ReOpenShop reOpenShop = new ReOpenShop(shop, founderUser);
 
-    @Mock
-    ShopOwner founder;
+    ShopOwner founder = mock(ShopOwner.class);
 
-    @BeforeEach
+    @Before
     public void setUp(){
         reOpenShop = new ReOpenShop(shop, founderUser);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         reOpenShop = null;
     }

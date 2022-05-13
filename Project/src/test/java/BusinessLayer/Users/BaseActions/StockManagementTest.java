@@ -2,29 +2,34 @@ package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class StockManagementTest {
-    @Mock
-    private Shop shop;
-    @InjectMocks
+    private Shop shop = mock(Shop.class);
     private StockManagement management;
     private ConcurrentHashMap<Integer, Product> products;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         Product testProduct = new Product(0, "fork", 12.5, 20);
         products = new ConcurrentHashMap<>();
         products.put(0, testProduct);
+        management = new StockManagement(shop);
+    }
+
+    @After
+    public void tearDown(){
+        management = null;
+        shop = null;
     }
 
     @Test

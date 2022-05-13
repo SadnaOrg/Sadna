@@ -1,31 +1,28 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
 public class BasketTest {
-    @Mock
-    private Product p1;
+
+    private Product p1 = mock(Product.class);
 
     private Basket b;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         b = new Basket(0);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         ConcurrentHashMap<Integer, Integer> basketProducts = b.getProducts();
         for (Integer productID:

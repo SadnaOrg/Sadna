@@ -1,22 +1,20 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.*;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.naming.NoPermissionException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 // the functions that test the actions of the administrator mock the action classes and assume
@@ -24,31 +22,33 @@ import static org.mockito.Mockito.when;
 // we test for these conditions when integrating.
 // test flow:
 // cases that fail when having permission are tested in the action class
-@ExtendWith(MockitoExtension.class)
 public class ShopAdministratorTest {
 
-    @InjectMocks
     private ShopAdministrator sa;
-    @Mock
-    private AssignShopManager assignManager;
-    @Mock
-    private AssignShopOwner assignOwner;
-    @Mock
-    private ChangeManagerPermission changePermissions;
-    @Mock
-    private RolesInfo info;
-    @Mock
-    private HistoryInfo historyInfo;
-    @Mock
-    private SubscribedUser assignee;
-    @InjectMocks
+    private Shop shop = mock(Shop.class);
+    private AssignShopManager assignManager = mock(AssignShopManager.class);
+    private AssignShopOwner assignOwner =  mock(AssignShopOwner.class);;
+    private ChangeManagerPermission changePermissions = mock(ChangeManagerPermission.class);
+    private RolesInfo info = mock(RolesInfo.class);
+    private HistoryInfo historyInfo = mock(HistoryInfo.class);
+    private SubscribedUser assignee = mock(SubscribedUser.class);
     private ShopAdministrator sa1;
-    @InjectMocks
     private ShopAdministrator sa2;
-    @InjectMocks
     private ShopAdministrator sa3;
+    private SubscribedUser su1 = mock(SubscribedUser.class);
+    private SubscribedUser su2 = mock(SubscribedUser.class);
+    private SubscribedUser su3 = mock(SubscribedUser.class);
+    private SubscribedUser sua = mock(SubscribedUser.class);
 
-    @AfterEach
+    @Before
+    public void setUp(){
+        sa = new ShopAdministrator(shop, sua);
+        sa1 = new ShopAdministrator(shop, su1);
+        sa2 = new ShopAdministrator(shop, su2);
+        sa3 = new ShopAdministrator(shop, su3);
+    }
+
+    @After
     public void tearDown(){
         sa.emptyActions();
     }
@@ -92,7 +92,7 @@ public class ShopAdministratorTest {
     }
 
     @Test
-    public void changePermissionsSuccess(){
+    public void changePermissionsSuccess() throws NoPermissionException {
         sa.AddAction(BaseActionType.ASSIGN_SHOP_OWNER, changePermissions);
         List<BaseActionType> permissions = new LinkedList<>();
         permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
@@ -102,7 +102,7 @@ public class ShopAdministratorTest {
     }
 
     @Test
-    public void changePermissionsFailure(){
+    public void changePermissionsFailure() throws NoPermissionException {
         List<BaseActionType> permissions = new LinkedList<>();
         permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
         boolean res = changePermissions.act(assignee, permissions);

@@ -5,29 +5,22 @@ import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Users.BaseActions.CloseShop;
 import BusinessLayer.Users.BaseActions.ReOpenShop;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
-@ExtendWith(MockitoExtension.class)
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+
 public class ShopOwnerTest {
-    @Mock
-    SubscribedUser founderUser;
-    @Mock
-    Shop shop;
+    SubscribedUser founderUser = mock(SubscribedUser.class);
+    Shop shop = mock(Shop.class);
 
     private ShopOwner founder;
-    @Mock
-    SubscribedUser ownerUser;
+    SubscribedUser ownerUser = mock(SubscribedUser.class);
 
     private ShopOwner owner;
 
-    @Mock
-    CloseShop closeShop;
-    @Mock
-    ReOpenShop reOpenShop;
+    CloseShop closeShop = mock(CloseShop.class);
+    ReOpenShop reOpenShop = mock(ReOpenShop.class);
 
     @Before
     public void setUp(){

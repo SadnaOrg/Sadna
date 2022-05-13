@@ -1,46 +1,36 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.AssignShopOwner;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class AssignOwnerTest {
-    @Mock
-    private Shop shop;
-    @Mock
-    private SubscribedUser user;
-    @InjectMocks
-    private AssignShopOwner assignment;
+    private Shop shop = mock(Shop.class);
+    private SubscribedUser user = mock(SubscribedUser.class);
 
-    @Mock
-    private SubscribedUser assignee;
-    @Mock
-    private ShopOwner newOwner;
+    private AssignShopOwner assignment = new AssignShopOwner(shop, user);
 
-    @Mock
-    private ShopAdministrator m; // admin (mock) of user (field) in shop
+    private SubscribedUser assignee = mock(SubscribedUser.class);
+    private ShopOwner newOwner = mock(ShopOwner.class);
+    private ShopAdministrator m = mock(ShopAdministrator.class); // admin (mock) of user (field) in shop
 
-    @BeforeEach
+    @Before
     public void setUp(){
         assignment = new AssignShopOwner(shop, user);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         assignment = null;
     }
@@ -86,8 +76,8 @@ public class AssignOwnerTest {
     public void assignFailureCyclicAppointment(){
         when(shop.addAdministrator(eq(assignee.getUserName()),any(ShopAdministrator.class))).thenReturn(true); // added owner
 
-        when(user.getAdministrator(shop.getId())).thenReturn(m); // get admin object of user
-        doThrow(new IllegalStateException("cyclic appointment!")).when(m).addAppoint(newOwner);
+        //when(user.getAdministrator(shop.getId())).thenReturn(m); // get admin object of user
+        //doThrow(new IllegalStateException("cyclic appointment!")).when(m).addAppoint(newOwner);
 
         try {
             assignment.act(assignee);

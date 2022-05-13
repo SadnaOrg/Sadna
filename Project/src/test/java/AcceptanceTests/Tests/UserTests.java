@@ -1,17 +1,19 @@
 package AcceptanceTests.Tests;
 
 import AcceptanceTests.Bridge.UserProxy;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 
 import AcceptanceTests.DataObjects.*;
 import AcceptanceTests.Threads.ACEFounderPurchase;
 import AcceptanceTests.Threads.MegaSportFounderPurchase;
-import org.testng.annotations.BeforeClass;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+
 
 public abstract class UserTests extends ProjectTests {
 
