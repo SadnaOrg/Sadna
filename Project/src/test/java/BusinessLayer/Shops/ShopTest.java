@@ -1,14 +1,14 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+
 
 public class ShopTest {
 
@@ -17,7 +17,7 @@ public class ShopTest {
     private Product p1;
     private Product p2;
 
-    @BeforeAll
+    @Before
     public void setUp() {
         s1 = createShop();
         p1 = createProduct();

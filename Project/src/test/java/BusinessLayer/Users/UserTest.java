@@ -2,10 +2,10 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 
 public class UserTest {
@@ -14,7 +14,7 @@ public class UserTest {
     Product p1;
     private SubscribedUser founder = createFounder();
 
-    @BeforeAll
+    @Before
     public void setUp() {
         s1 = createShopWithProduct();
         u1 = createUser();

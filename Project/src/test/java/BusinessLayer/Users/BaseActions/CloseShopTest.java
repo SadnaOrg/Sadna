@@ -1,43 +1,33 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.CloseShop;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.ShopAdministrator;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import javax.naming.NoPermissionException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-@ExtendWith(MockitoExtension.class)
 public class CloseShopTest {
-    @Mock
-    private Shop shop;
-    @Mock
-    private SubscribedUser user;
-    @InjectMocks
-    private CloseShop close;
+    private Shop shop = mock(Shop.class);
+    private SubscribedUser user = mock(SubscribedUser.class);
+    private CloseShop close = new CloseShop(shop, user);
 
-    @Mock
-    private ShopOwner ownerMock;
-    @Mock
-    private ShopAdministrator failAdmin;
+    private ShopOwner ownerMock = mock(ShopOwner.class);
+    private ShopAdministrator failAdmin = mock(ShopAdministrator.class);
 
-    @BeforeEach
+    @Before
     public void setUp(){
         close = new CloseShop(shop, user);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         close = null;
     }

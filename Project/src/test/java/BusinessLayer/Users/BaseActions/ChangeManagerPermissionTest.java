@@ -1,68 +1,62 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.BaseActions.ChangeManagerPermission;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopManager;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.naming.NoPermissionException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.*;
+
 // we don't test that the new permissions are actually associated with the owner.
 // that is the responsibility of the owner object.
 // that behavior will be tested in integration tests.
-@ExtendWith(MockitoExtension.class)
 public class ChangeManagerPermissionTest {
-    @Mock
-    private Shop shop;
-    @Mock
-    private SubscribedUser user;
-    @InjectMocks
-    private ChangeManagerPermission permissionChange;
+    private Shop shop = mock(Shop.class);
+    private SubscribedUser user = mock(SubscribedUser.class);
+    private ChangeManagerPermission permissionChange = new ChangeManagerPermission(shop, user);
 
-    @Mock
-    private SubscribedUser manager;
-    @Mock
-    private ShopManager managerAdminMock;
-    @Mock
-    private ShopOwner userOwnerMock;
+    private SubscribedUser manager = mock(SubscribedUser.class);
+    private ShopManager managerAdminMock = mock(ShopManager.class);
+    private ShopOwner userOwnerMock = mock(ShopOwner.class);
 
     private ConcurrentLinkedDeque<ShopAdministrator> goodQ;
 
-    @BeforeEach
+    @Before
     public void setUp(){
         permissionChange = new ChangeManagerPermission(shop, user);
         goodQ = new ConcurrentLinkedDeque<>();
         goodQ.add(managerAdminMock);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         permissionChange = null;
         goodQ = null;
     }
 
     @Test
-    public void changePermissionSuccess(){
+    public void changePermissionSuccess() throws NoPermissionException {
+        ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
+        appoints.add(managerAdminMock);
+
         when(shop.getId()).thenReturn(0); // shop ID
 
         when(manager.getAdministrator(shop.getId())).thenReturn(managerAdminMock); // manager
         when(user.getAdministrator(shop.getId())).thenReturn(userOwnerMock); // owner
-        when(userOwnerMock.getAppoints()).thenReturn(goodQ);
+        when(userOwnerMock.getAppoints()).thenReturn(appoints);
 
         List<BaseActionType> permissions = new LinkedList<>();
         permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
@@ -79,7 +73,7 @@ public class ChangeManagerPermissionTest {
         when(shop.getId()).thenReturn(0); // shop ID
 
         when(manager.getAdministrator(shop.getId())).thenReturn(managerAdminMock); // manager
-        when(user.getAdministrator(shop.getId())).thenReturn(null); // owner
+        //when(user.getAdministrator(shop.getId())).thenReturn(null);
 
         List<BaseActionType> permissions = new LinkedList<>();
         permissions.add(BaseActionType.CLOSE_SHOP); // some new permissions
@@ -113,6 +107,7 @@ public class ChangeManagerPermissionTest {
 
     @Test
     public void changeManagerPermissionFailureNotAppointer(){
+        when(manager.getAdministrator(shop.getId())).thenReturn(managerAdminMock); // manager
         when(user.getAdministrator(shop.getId())).thenReturn(userOwnerMock); // owner
         when(userOwnerMock.getAppoints()).thenReturn(new ConcurrentLinkedDeque<>());
 

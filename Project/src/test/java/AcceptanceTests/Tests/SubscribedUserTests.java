@@ -6,14 +6,16 @@ import AcceptanceTests.Threads.FounderAppointManager;
 import AcceptanceTests.Threads.FounderDeletesProduct;
 import AcceptanceTests.Threads.OwnerAppointManager;
 import AcceptanceTests.Threads.UserBuysProduct;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import AcceptanceTests.DataObjects.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.Assert.*;
+
 public class SubscribedUserTests extends UserTests {
     private static final SubscribedUserBridge subscribedUserBridge = new SubscribedUserProxy();
 
@@ -52,7 +54,7 @@ public class SubscribedUserTests extends UserTests {
 
     public static SubscribedUserBridge getUserBridge(){return subscribedUserBridge;}
 
-    @BeforeEach
+    @Before
     public void setUpUsers(){
         Guest setUpU1 = subscribedUserBridge.visit();
         Guest setUpU2 = subscribedUserBridge.visit();

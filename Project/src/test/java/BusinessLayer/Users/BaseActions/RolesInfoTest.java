@@ -1,47 +1,34 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.AdministratorInfo;
-import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.BaseActions.RolesInfo;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.ShopAdministrator;
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import javax.naming.NoPermissionException;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
 public class RolesInfoTest {
-    @Mock
-    private Shop shop;
-    @Mock
-    private SubscribedUser user;
-    @InjectMocks
-    private RolesInfo rolesInfo;
+    private Shop shop = mock(Shop.class);
+    private SubscribedUser user = mock(SubscribedUser.class);
+    private RolesInfo rolesInfo = new RolesInfo(shop, user);
 
-    @Mock
-    private ShopOwner userOwnerMock;
-    @Mock
-    private ShopAdministrator failUser;
+    private ShopOwner userOwnerMock = mock(ShopOwner.class);
+    private ShopAdministrator failUser = mock(ShopAdministrator.class);
 
-    @BeforeEach
+    @Before
     public void setUp(){
         rolesInfo = new RolesInfo(shop, user);
     }
 
-    @AfterEach
+    @After
     public void tearDown(){
         rolesInfo = null;
     }

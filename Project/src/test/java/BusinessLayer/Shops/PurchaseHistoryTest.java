@@ -1,15 +1,13 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Guest;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class PurchaseHistoryTest {
 
@@ -21,7 +19,7 @@ public class PurchaseHistoryTest {
     private User u1;
 
 
-    @BeforeAll
+    @Before
     public void setUp() {
         s1 = createShop();
         p1 = new Product(1, "a", 5, 100);
