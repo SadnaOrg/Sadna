@@ -2,11 +2,9 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
-import org.junit.Assert;
+import BusinessLayer.System.PaymentMethod;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.naming.NoPermissionException;
 
 import static org.junit.Assert.*;
 
@@ -20,75 +18,89 @@ public class UserTest {
     public void setUp() {
         s1 = createShopWithProduct();
         u1 = createUser();
-
+        assertSame("Yuval", u1.getUserName());
+        u1.saveProducts(s1.getId(), p1.getID(), quantity);
+        assertSame(u1.getProducts(s1.getId()).get(p1.getID()), quantity);
     }
 
     @Test
-    public void testSaveProducts() {
-        assertTrue(u1.saveProducts(s1.getId(), p1.getID(), 10));
-        assertEquals(10, (int) u1.getShoppingCart().get(s1.getId()).getProducts().get(p1.getID()));
-
+    public void testSaveProductsSuccess() {
+        assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));
     }
 
     @Test
-    public void testRemoveproduct()
-    {
-        u1.saveProducts(s1.getId(), p1.getID(),10);
-        testRemoveproductSuccess();
-        u1.saveProducts(s1.getId(), p1.getID(),10);
-        testRemoveproductFail();
-    }
-
-    @Test
-    public void testEditProductQuantity()
-    {
-        u1.saveProducts(s1.getId(), p1.getID(),10);
-        testEditProductQuantitySuccess();
-        testEditProductQuantityFail();
-    }
-
-    private void testRemoveproductSuccess()
-    {
-        assertTrue(u1.removeproduct(s1.getId(),p1.getID()));
-        assertFalse(u1.getShoppingCart().get(s1.getId()).getProducts().containsKey(p1.getID()));
-    }
-
-    private void testRemoveproductFail()
-    {
-        assertFalse(u1.removeproduct(2,p1.getID()));
+    public void testSaveProductsFail() {
+        //saving a second time
         try {
-            assertFalse(u1.removeproduct(s1.getId(), 3));
+            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity));
+        }
+        catch(Exception ignored) {
+            assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));
+        }
+    }
+
+    @Test
+    public void testRemoveProductSuccess() {
+        assertTrue(u1.removeProduct(s1.getId(),p1.getID()));
+        assertFalse(u1.getProducts(s1.getId()).containsKey(p1.getID()));
+    }
+
+    @Test
+    public void testRemoveProductFailNonExistentItem() {
+        try {
+            assertFalse(u1.removeProduct(s1.getId(), 3));
             fail("can't remove not exist item");
         }
         catch (Exception e)
         {
-            //System.out.println( u1.getBasket(s1.getId()).getProducts().size());
-            Assert.assertTrue(1== u1.getBasket(s1.getId()).getProducts().size());
+            //checks the product was not removed
+            assertEquals(1, u1.getBasket(s1.getId()).getProducts().size());
         }
     }
 
-    public void testEditProductQuantitySuccess()
-    {
-        int newQuantity =55;
-        assertTrue(u1.editProductQuantity(s1.getId(),p1.getID(),newQuantity));
-        assertEquals(newQuantity,(int) u1.getShoppingCart().get(s1.getId()).getProducts().get(p1.getID()));
+    @Test
+    public void testRemoveProductFailNonExistentShop() {
+        assertFalse(u1.removeProduct(2, p1.getID()));
+        assertEquals(1, u1.getBasket(s1.getId()).getProducts().size());
     }
 
-    public void testEditProductQuantityFail()
-    {
-        int newQuantity =55;
-        assertFalse(u1.editProductQuantity(2,p1.getID(),newQuantity));
+    @Test
+    public void testEditProductQuantitySuccess() {
+        assertTrue(u1.editProductQuantity(s1.getId(), p1.getID(), newQuantity));
+        assertEquals(newQuantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));
+    }
+
+    @Test
+    public void testEditProductQuantityFail() {
         try{
-            int newnewQuantity =55;
-            assertFalse(u1.editProductQuantity(s1.getId(),3,newnewQuantity));
+            assertFalse(u1.editProductQuantity(s1.getId(),3,newQuantity));
             fail("can't edit not exist item");
         }
-        catch (Exception e)
+        catch (Exception ignored)
         {
-            assertTrue(newQuantity== u1.getBasket(s1.getId()).getProducts().get(p1.getID()));
+            //checks the quantity was not changed from var "quality" to "newQuality"
+            assertNotEquals(newQuantity, (int) u1.getBasket(s1.getId()).getProducts().get(p1.getID()));
         }
     }
 
+    @Test
+    public void testEditProductQuantityFailNonExistentShop() {
+        assertFalse(u1.editProductQuantity(2,p1.getID(),newQuantity));
+        //checks the quantity was not changed from var "quality" to "newQuality"
+        assertNotEquals(newQuantity, (int) u1.getBasket(s1.getId()).getProducts().get(p1.getID()));
+    }
+
+    @Test
+    public void testUpdatePaymentMethod() {
+        assertNull(u1.getMethod());
+        PaymentMethod method = new PaymentMethod("4580123456789012", 123, 2, 2036);
+        u1.updatePaymentMethod(method);
+        assertEquals(method, u1.getMethod());
+    }
+
+    private final int newQuantity = 55;
+
+    private final int quantity = 100;
 
     private Shop createShopWithProduct() throws IllegalStateException {
         Shop s1 = createShop();
@@ -101,13 +113,12 @@ public class UserTest {
         return new Shop(100, "shop", founder);
     }
 
-    private User createUser()
-    {
+    private User createUser() {
         return new Guest("Yuval");
     }
 
     private Product createProduct() {
-        return new Product(1, "a", 5, 100);
+        return new Product(1, "a", 5, quantity);
     }
 
     private SubscribedUser createFounder() {
