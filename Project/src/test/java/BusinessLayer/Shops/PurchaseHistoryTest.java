@@ -1,9 +1,9 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Users.Guest;
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.User;
+import BusinessLayer.Products.Users.Guest;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.User;
 import org.junit.Before;
 import org.junit.Test;
 

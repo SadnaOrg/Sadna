@@ -8,27 +8,29 @@ import java.util.List;
 
 public interface UserBridge {
 
-    Guest visit();
+    Guest visit(); // login system
 
-    SubscribedUser register(int guestID, RegistrationInfo info);
+    SubscribedUser login(int guestID, RegistrationInfo info); // use getUserName in the adapter
 
-    boolean exit(int userID);
+    SubscribedUser register(int guestID, RegistrationInfo info); // registerToSystem
 
-    List<Shop> getShopsInfo(ShopFilter shopFilter);
+    boolean exit(int userID); // logout system
 
-    List<ProductInShop> searchShopProducts(int shopID);
+    List<Shop> getShopsInfo(ShopFilter shopFilter); // searchProducts
 
-    List<ProductInShop> searchProducts(ProductFilter productFilter);
+    List<ProductInShop> searchShopProducts(int shopID); // searchProducts
 
-    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter);
+    List<ProductInShop> searchProducts(ProductFilter productFilter); // searchProducts
 
-    boolean addProductToCart(int userID,int shopID,int productID, int quantity);
+    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter); // searchProducts
 
-    ShoppingCart checkCart(int userID);
+    boolean addProductToCart(int userID,int shopID,int productID, int quantity); // saveProducts
 
-    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
+    ShoppingCart checkCart(int userID); // showCart
 
-    boolean purchaseCart(int userID);
+    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities); // removeProduct, editProductQuantity
 
-    ProductInShop searchProductInShop(int productID, int shopID);
+    boolean purchaseCart(int userID); //purchaseCartFromShop
+
+    ProductInShop searchProductInShop(int productID, int shopID); // searchProducts
 }

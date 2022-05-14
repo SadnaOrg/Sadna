@@ -19,6 +19,9 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
+    public SubscribedUser login(int guestID, RegistrationInfo info){return null;} // getUserName
+
+    @Override
     public SubscribedUser register(int guestID, RegistrationInfo info) {
         return null;
     }

@@ -1,13 +1,12 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.BaseActions.StockManagement;
 import BusinessLayer.Shops.Shop;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.*;

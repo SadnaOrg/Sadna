@@ -4,7 +4,14 @@ import AcceptanceTests.Bridge.ShopsBridge;
 import AcceptanceTests.Bridge.SystemBridge;
 import AcceptanceTests.Bridge.UserBridge;
 import AcceptanceTests.DataObjects.*;
-
+// TODO: fix response - change interfaces signatures, add data classes to service layer
+// TODO: adapter
+// TODO: supply/payment failures
+// TODO: id to string
+// TODO: compose tests
+// TODO: fix data set ups for composable tests
+// TODO: instead of saving permissions in su object , check them with a search
+// use only facade ?
 // This class is used for setting up data for tests
 public abstract class ProjectTests {
 

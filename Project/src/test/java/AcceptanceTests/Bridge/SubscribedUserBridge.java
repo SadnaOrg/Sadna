@@ -7,9 +7,7 @@ import java.util.Map;
 
 public interface SubscribedUserBridge extends UserBridge {
 
-    SubscribedUser login(int guestID, RegistrationInfo info);
-
-    Guest logout(int userID);
+    Guest logout(int userID); //logout
 
     boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice);
 
