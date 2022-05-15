@@ -1,11 +1,9 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopController;
-import BusinessLayer.System.System;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,20 +17,19 @@ import static org.junit.Assert.*;
 
 public class UserControllerTest {
 
-    private UserController uc = UserController.getInstance();
-    private ShopController sc = ShopController.getInstance();
-    private PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
+    private final UserController uc = UserController.getInstance();
+    private final ShopController sc = ShopController.getInstance();
+    private final PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
 
     private Shop s1;
     private Product p1;
-    private SubscribedUser founder = new SubscribedUser("User1", "Pass1");
-    private SubscribedUser su;
+    private final SubscribedUser founder = new SubscribedUser("User1", "Pass1");
+    private SubscribedUser loggedUser;
     private User user;
 
-    private Random rand = new Random();
+    private final Random rand = new Random();
     private int shopID;
     private int productID;
-    private int userID;
     private String userName;
     private String passWord;
     private String userLog;
@@ -42,7 +39,7 @@ public class UserControllerTest {
     public void setUp() {
         shopID = rand.nextInt();
         productID = rand.nextInt();
-        userID = rand.nextInt();
+        int userID = rand.nextInt();
 
         p1 = createProduct();
         s1 = createShop();
@@ -55,7 +52,7 @@ public class UserControllerTest {
         userLog = "User_" + userID;
         passLog = "Pass_" + userID;
         uc.registerToSystem(userName, passWord);
-        su = uc.login(userName, passWord, null);
+        loggedUser = uc.login(userName, passWord, null);
     }
 
 
@@ -105,7 +102,7 @@ public class UserControllerTest {
 
     @Test
     public void assignShopManager() throws NoPermissionException {
-        Assert.assertTrue(uc.assignShopManager(founder, s1.getId(), su.getName()));
+        Assert.assertTrue(uc.assignShopManager(founder, s1.getId(), loggedUser.getName()));
         Assert.assertTrue(s1.getShopAdministrators().size() > 1);
     }
 
@@ -158,7 +155,7 @@ public class UserControllerTest {
 
     @Test
     public void assignShopOwner() throws NoPermissionException {
-        Assert.assertTrue(uc.assignShopOwner(founder, s1.getId(), su.getName()));
+        Assert.assertTrue(uc.assignShopOwner(founder, s1.getId(), loggedUser.getName()));
         Assert.assertTrue(s1.getShopAdministrators().size() > 1);
     }
 
@@ -170,13 +167,13 @@ public class UserControllerTest {
     @Test
     public void getAdministratorInfo() throws NoPermissionException {
         assignShopOwner();
-        Assert.assertNotNull(uc.getAdministratorInfo(su, s1.getId()));
+        Assert.assertNotNull(uc.getAdministratorInfo(loggedUser, s1.getId()));
     }
 
     @Test
     public void getHistoryInfo() throws NoPermissionException {
         assignShopOwner();
-        Assert.assertEquals(uc.getHistoryInfo(su, s1.getId()).size(), 0);
+        Assert.assertEquals(uc.getHistoryInfo(loggedUser, s1.getId()).size(), 0);
     }
 
     @Test
