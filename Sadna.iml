@@ -4,13 +4,8 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
-<<<<<<< Updated upstream
-      <sourceFolder url="file://$MODULE_DIR$/Project/Tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/Project/src" isTestSource="false" />
-=======
       <sourceFolder url="file://$MODULE_DIR$/Project/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Project/src/test/java" isTestSource="true" />
->>>>>>> Stashed changes
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
@@ -54,10 +49,9 @@
         <SOURCES />
       </library>
     </orderEntry>
-<<<<<<< Updated upstream
-    <orderEntry type="library" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
-=======
-    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-all:1.10.19" level="project" />
->>>>>>> Stashed changes
+    <orderEntry type="library" scope="TEST" name="Maven: org.mockito:mockito-core:4.5.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy:1.12.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: net.bytebuddy:byte-buddy-agent:1.12.9" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.objenesis:objenesis:3.2" level="project" />
   </component>
 </module>

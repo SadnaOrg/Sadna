@@ -108,7 +108,8 @@ public class ShopController {
         ConcurrentHashMap<Integer,ShopInfo> shopsInfo= new ConcurrentHashMap<>();
         for (Shop s:shops.values())
         {
-            shopsInfo.put(s.getId(),new ShopInfo(s));
+            if (s.isOpen())
+                shopsInfo.put(s.getId(),new ShopInfo(s));
         }
         return shopsInfo;
     }
