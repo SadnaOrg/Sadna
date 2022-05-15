@@ -86,4 +86,8 @@ public class PurchaseHistoryController {
     public void emptyDataOnPurchases(){
         DataOnPurchases = new ArrayList<>();
     }
+
+    public void clearForTestsOnly() {
+        DataOnPurchases.clear();
+    }
 }

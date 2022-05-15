@@ -7,17 +7,10 @@ import BusinessLayer.Users.UserController;
 import org.junit.*;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class ShopControllerUnitTest {
