@@ -24,6 +24,8 @@ public abstract class User{
 
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
+        if(quantity<=0)
+            throw new IllegalArgumentException("quantity mast be positive amount");
         if (!shoppingCart.containsKey(shopid)) {
             Basket b = new Basket(shopid);
             shoppingCart.put(shopid, b);
@@ -56,6 +58,8 @@ public abstract class User{
 
 
     public boolean editProductQuantity(int shopid, int productid, int newquantity){
+        if(newquantity<=0)
+            throw new IllegalArgumentException("quantity mast be positive amount");
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -72,7 +76,7 @@ public abstract class User{
 
     public Basket getBasket(int shopid)
     {
-        return shoppingCart.get(shopid);
+        return shoppingCart.getOrDefault(shopid,null);
     }
 
     public synchronized void updatePaymentMethod(PaymentMethod method){
