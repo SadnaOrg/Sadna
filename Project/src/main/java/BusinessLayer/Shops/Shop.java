@@ -34,6 +34,7 @@ public class Shop {
         this.name = name;
         this.founder = new ShopOwner(this, founder, true);
         shopAdministrators.put(founder.getName(),this.founder);
+        founder.addAdministrator(id, this.founder);
     }
 
     public synchronized boolean close() {

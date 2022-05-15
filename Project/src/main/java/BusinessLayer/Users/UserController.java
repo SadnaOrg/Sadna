@@ -44,7 +44,8 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u) {
-        return users.get(u).getShoppingCart();
+        User u1 = users.get(u);
+        return u1.getShoppingCart();
     }
 
     public ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, Integer>> getShoppingCartClone(User u) {
@@ -75,7 +76,8 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        return users.get(u.getName()).showCart();
+        User user = users.get(u.getName());
+        return user.showCart();
     }
 
 
@@ -93,13 +95,13 @@ public class UserController {
             throw new IllegalArgumentException("non such user - " + userNameToAssign);
     }
 
-    private SubscribedUser getSubUser(String userName) {
+    public SubscribedUser getSubUser(String userName) {
         if (!subscribers.containsKey(userName))
             throw new IllegalArgumentException("user " + userName + " doesn't exist");
         return subscribers.getOrDefault(userName, null);
     }
 
-    private SystemManager getSysUser(String userName) {
+    public SystemManager getSysUser(String userName) {
         if (!managers.containsKey(userName))
             throw new IllegalArgumentException("user " + userName + " doesn't exist or dont have system manager permission");
         return managers.getOrDefault(userName, null);
@@ -188,5 +190,9 @@ public class UserController {
         return currUser.getShopsAndUsersInfo();
     }
 
-
+    public void clearForTestsOnly() {
+        users.clear();
+        subscribers.clear();
+        managers.clear();
+    }
 }

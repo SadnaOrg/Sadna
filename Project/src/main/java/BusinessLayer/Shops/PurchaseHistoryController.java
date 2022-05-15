@@ -76,4 +76,8 @@ public class PurchaseHistoryController {
         DataOnPurchases.add(purchaseHistory);
         return purchaseHistory;
     }
+
+    public void clearForTestsOnly() {
+        DataOnPurchases.clear();
+    }
 }
