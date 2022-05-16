@@ -1,37 +1,70 @@
 package BusinessLayer.Shops;
-
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.*;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
+import org.junit.*;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-
-import javax.naming.NoPermissionException;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.*;
+public class ShopUnitTest {
 
-public class ShopTest {
-
-    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
     private Shop s1;
+
+    @Mock
+    private SubscribedUser founder;
+    @Mock
     private Product p1;
+    @Mock
     private Product p2;
+    @Mock
+    private Product p3;
+    @Mock
+    private Product p4;
+    @Mock
+    private Product p5;
+    @Mock
+    private  User u1;
+    @Mock
+    private  User u2;
+    @Mock
+    private Basket b1;
+    @Mock
+    private Basket b2;
+    @Mock
+    private ProductFilters productFilters;
+    @Mock
+    private SubscribedUser subscribedUser;
+    @Mock
+    private ShopAdministrator sa1;
+
+    @Rule public MockitoRule rule = MockitoJUnit.rule();
+
 
     @Before
     public void setUp() {
+        when(founder.getName()).thenReturn("Meir");
         s1 = new Shop(100, "shop", founder);
-        p1 = new Product(1, "a", 5, 100);
-        p2 = new Product(2, "c", 15, 500);
+        when(p1.getID()).thenReturn(1);
+        when(p1.getName()).thenReturn("a");
+        when(p1.getPrice()).thenReturn(5.0);
+        when(p1.getQuantity()).thenReturn(100);
+        when(p2.getID()).thenReturn(2);
+        when(p2.getName()).thenReturn("c");
+        when(p2.getPrice()).thenReturn(15.0);
+        when(p2.getQuantity()).thenReturn(500);
+        when(u1.getName()).thenReturn("Guy");
+        when(u2.getName()).thenReturn("Maor");
+        when(b1.getShopid()).thenReturn(s1.getId());
+        when(subscribedUser.getUserName()).thenReturn("MeirMaor");
+        when(sa1.getUser()).thenReturn(subscribedUser);
+        when(sa1.getUserName()).thenReturn("MeirMaor");
     }
 
     @Test
@@ -107,7 +140,6 @@ public class ShopTest {
     public void closeShopCheckWhenClosedSearchProducts() {
         s1.addProduct(p1);
         assertTrue(s1.close());
-        ProductFilters productFilters = null;
         try {
             s1.searchProducts(productFilters);
         }
@@ -123,7 +155,7 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedPurchaseBasket() {
         s1.addProduct(p1);
-        User u1 = new Guest("Guy");
+        when(u1.getName()).thenReturn("Guy");
         assertTrue(s1.close());
         try {
             s1.purchaseBasket(u1.getName());
@@ -140,7 +172,7 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedCheckIfUserHasBasket() {
         s1.addProduct(p1);
-        User u1 = new Guest("Guy");
+
         assertTrue(s1.close());
         try {
             s1.checkIfUserHasBasket(u1.getName());
@@ -156,8 +188,6 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedGetUsersBaskets() {
         s1.addProduct(p1);
-        User u1 = new Guest("Guy");
-        Basket b1 = new Basket(s1.getId());
         s1.addBasket(u1.getName(),b1);
         Assert.assertEquals(1, s1.getUsersBaskets().size());
         assertTrue(s1.close());
@@ -176,8 +206,6 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedAddBasket() {
         s1.addProduct(p1);
-        User u1 = new Guest("Guy");
-        Basket b1 = new Basket(s1.getId());
         assertTrue(s1.close());
         try {
             s1.addBasket(u1.getName(),b1);
@@ -193,8 +221,6 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedAddAdministrator() {
         s1.addProduct(p1);
-        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor");
-        ShopAdministrator sa1 = new ShopAdministrator(s1,subscribedUser);
         assertTrue(s1.close());
         try {
             s1.addAdministrator(sa1.getUser().getUserName(),sa1);
@@ -223,7 +249,10 @@ public class ShopTest {
     @Test
     public void addProductWhenProductIdAlreadyInTheShop() {
         s1.addProduct(p1);
-        Product p3 = new Product(1, "fake", 50, 1000);
+        when(p3.getID()).thenReturn(1);
+        when(p3.getName()).thenReturn("fake");
+        when(p3.getPrice()).thenReturn(50.0);
+        when(p3.getQuantity()).thenReturn(1000);
         Assert.assertEquals(1, s1.getProducts().size());
         try {
             s1.addProduct(p3);
@@ -236,39 +265,54 @@ public class ShopTest {
             Assert.assertNotEquals(p3.getName(), s1.getProducts().get(p3.getID()).getName());
         }
     }
-
-    @Test
-    public void changeProductAndChangeItAgainAndAnotherOne() {
-        s1.addProduct(p1);
-        Assert.assertEquals(1, s1.getProducts().size());
-        s1.addProduct(p2);
-        Assert.assertEquals(2, s1.getProducts().size());
-        Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
-        Assert.assertNotEquals(p1.getName(), s1.getProducts().get(p2.getID()).getName());
-        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
-
-        Product new_product= new Product(1 , "Meir", 222,2223);
-        s1.changeProduct(new_product);
-        Assert.assertEquals(2, s1.getProducts().size());
-        Assert.assertEquals(new_product.getName(), s1.getProducts().get(p1.getID()).getName());
-        Assert.assertEquals(p1.getName(), s1.getProducts().get(new_product.getID()).getName());
-        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
-
-        Product new_product2= new Product(1 , "maouer", 4222,22523);
-        s1.changeProduct(new_product2);
-        Assert.assertEquals(2, s1.getProducts().size());
-        Assert.assertEquals(new_product2.getName(), s1.getProducts().get(new_product.getID()).getName());
-        Assert.assertNotEquals(new_product.getName(), s1.getProducts().get(new_product2.getID()).getName());
-        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
-
-        Product new_product3= new Product(2 , "wello", 32,32);
-        s1.changeProduct(new_product3);
-        Assert.assertEquals(2, s1.getProducts().size());
-        Assert.assertEquals(new_product2.getName(), s1.getProducts().get(new_product.getID()).getName());
-        Assert.assertNotEquals(new_product3.getName(), s1.getProducts().get(new_product2.getID()).getName());
-        Assert.assertEquals(new_product3.getName(), s1.getProducts().get(p2.getID()).getName());
-
-    }
+//
+//    @Test
+//    public void changeProductAndChangeItAgainAndAnotherOne() {
+//        s1.addProduct(p1);
+//        Assert.assertEquals(1, s1.getProducts().size());
+//        s1.addProduct(p2);
+//        Assert.assertEquals(2, s1.getProducts().size());
+//        Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
+//        Assert.assertNotEquals(p1.getName(), s1.getProducts().get(p2.getID()).getName());
+//        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
+//
+//        when(p3.getID()).thenReturn(1);
+//        when(p3.getName()).thenReturn("Meir");
+//        when(p3.getPrice()).thenReturn(222.0);
+//        when(p3.getQuantity()).thenReturn(2223);
+//
+//        s1.changeProduct(p3);
+//        Assert.assertEquals(2, s1.getProducts().size());
+//        Assert.assertEquals(p3.getName(), s1.getProducts().get(p1.getID()).getName());
+//        Assert.assertEquals(p1.getName(), s1.getProducts().get(p3.getID()).getName());
+//        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
+//
+//        when(p4.getID()).thenReturn(1);
+//        when(p4.getName()).thenReturn("Maouer");
+//        when(p4.getPrice()).thenReturn(4222.0);
+//        when(p4.getQuantity()).thenReturn(22523);
+//
+//
+//        s1.changeProduct(p4);
+//        Assert.assertEquals(2, s1.getProducts().size());
+//        Assert.assertEquals(p4.getName(), s1.getProducts().get(p3.getID()).getName());
+//        Assert.assertNotEquals(p3.getName(), s1.getProducts().get(p4.getID()).getName());
+//        Assert.assertEquals(p2.getName(), s1.getProducts().get(p2.getID()).getName());
+//
+//        Product p5= new Product(2 , "wello", 32,32);
+//        when(p5.getID()).thenReturn(2);
+//        when(p5.getName()).thenReturn("wello");
+//        when(p5.getPrice()).thenReturn(32.0);
+//        when(p5.getQuantity()).thenReturn(32);
+//
+//
+//        s1.changeProduct(p5);
+//        Assert.assertEquals(2, s1.getProducts().size());
+//        Assert.assertEquals(p4.getName(), s1.getProducts().get(p3.getID()).getName());
+//        Assert.assertNotEquals(p5.getName(), s1.getProducts().get(p4.getID()).getName());
+//        Assert.assertEquals(p5.getName(), s1.getProducts().get(p2.getID()).getName());
+//
+//    }
 
     @Test
     public void ChangeProductWhenProductIdNotInTheShop() {
@@ -285,12 +329,6 @@ public class ShopTest {
             Assert.assertEquals(p1.getName(), s1.getProducts().get(p1.getID()).getName());
             Assert.assertFalse(s1.getProducts().containsKey(p3.getID()));
         }
-
-        Product new_product= new Product(1 , "Meir", 222,2223);
-        s1.changeProduct(new_product);
-        Assert.assertEquals(1, s1.getProducts().size());
-        Assert.assertEquals(new_product.getName(), s1.getProducts().get(p1.getID()).getName());
-        Assert.assertEquals(p1.getName(), s1.getProducts().get(new_product.getID()).getName());
     }
 
 
@@ -319,7 +357,6 @@ public class ShopTest {
     public void removeProductNotExist() throws IllegalStateException {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        Product p3 = new Product(32, "fake", 50, 1000);
         Assert.assertEquals(2, s1.getProducts().size());
         try {
             s1.removeProduct(p3.getID());
@@ -338,11 +375,13 @@ public class ShopTest {
     public void purchaseBasketProductsExistAndInStock() {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        User u1 = new Guest("Yuval");
-        Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10);
-        b.saveProducts(p2.getID(),50);
-        s1.addBasket(u1.getName(), b);
+        s1.addBasket(u1.getName(), b1);
+        ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
+        map.put(p1.getID(),10);
+        map.put(p2.getID(),50);
+        when(b1.getProducts()).thenReturn(map);
+        when(p1.purchaseProduct(10)).thenReturn(5.0*10);
+        when(p2.purchaseProduct(50)).thenReturn(15.0*50);
         double price =s1.purchaseBasket(u1.getName());
         Assert.assertEquals(price, 5.0*10+15.0*50, 0.0);
     }
@@ -352,22 +391,25 @@ public class ShopTest {
     public void purchaseBasketOneOfTheProductsNotInShop() {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        Product p3 = new Product(32, "fake", 50, 1000);
-        User u1 = new Guest("Yuval");
-        Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10);
-        b.saveProducts(p2.getID(),50);
-        b.saveProducts(p3.getID(),51);
-        s1.addBasket(u1.getName(), b);
+        when(p3.getID()).thenReturn(32);
+        when(p3.getName()).thenReturn("fake");
+        when(p3.getPrice()).thenReturn(50.0);
+        when(p3.getQuantity()).thenReturn(1000);
+        ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
+        map.put(p1.getID(),10);
+        map.put(p2.getID(),50);
+        map.put(p3.getID(),51);
+        when(b1.getProducts()).thenReturn(map);
+        s1.addBasket(u1.getName(), b1);
         try {
             double price = s1.purchaseBasket(u1.getName());
             fail("shouldn't end here p3 not in s1");
         }
         catch (IllegalStateException e) {
             Assert.assertEquals(e.getMessage(), "The product is not in the shop");
-            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()), b);
-            Assert.assertEquals(3,b.getProducts().size());
-            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()).getProducts().size(),b.getProducts().size());
+            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()), b1);
+            Assert.assertEquals(3,b1.getProducts().size());
+            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()).getProducts().size(),b1.getProducts().size());
 
         }
     }
@@ -376,23 +418,26 @@ public class ShopTest {
     public void purchaseBasketOneOfTheProductsOutOfStock() {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        Product p3 = new Product(32, "fake", 50, 10);
+        when(p3.getID()).thenReturn(32);
+        when(p3.getName()).thenReturn("fake");
+        when(p3.getPrice()).thenReturn(50.0);
+        when(p3.getQuantity()).thenReturn(10);
         s1.addProduct(p3);
-        User u1 = new Guest("Yuval");
-        Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10);
-        b.saveProducts(p2.getID(),50);
-        b.saveProducts(p3.getID(),51);
-        s1.addBasket(u1.getName(), b);
+        ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
+        map.put(p1.getID(),10);
+        map.put(p2.getID(),50);
+        map.put(p3.getID(),51);
+        when(b1.getProducts()).thenReturn(map);
+        s1.addBasket(u1.getName(), b1);
         try {
             double price = s1.purchaseBasket(u1.getName());
             fail("shouldn't end here p3 not in s1");
         }
         catch (IllegalStateException e) {
             Assert.assertEquals(e.getMessage(), "Try to buy out of stock product from the shop");
-            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()), b);
-            Assert.assertEquals(3,b.getProducts().size());
-            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()).getProducts().size(),b.getProducts().size());
+            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()), b1);
+            Assert.assertEquals(3,b1.getProducts().size());
+            Assert.assertEquals(s1.getUsersBaskets().get(u1.getName()).getProducts().size(),b1.getProducts().size());
 
         }
     }
@@ -401,12 +446,11 @@ public class ShopTest {
     public void checkIfUserHasBasketTrueAndFalseCases() {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        User u1 = new Guest("Yuval");
-        User u2 = new Guest("Meir");
-        Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10);
-        b.saveProducts(p2.getID(),50);
-        s1.addBasket(u1.getName(), b);
+        ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
+        map.put(p1.getID(),10);
+        map.put(p2.getID(),50);
+        when(b1.getProducts()).thenReturn(map);
+        s1.addBasket(u1.getName(), b1);
         Assert.assertTrue(s1.checkIfUserHasBasket(u1.getName()));
         Assert.assertFalse(s1.checkIfUserHasBasket(u2.getName()));
     }
@@ -415,14 +459,17 @@ public class ShopTest {
     public void addBasketTrueAndFalseCases() {
         s1.addProduct(p1);
         s1.addProduct(p2);
-        User u1 = new Guest("Yuval");
-        User u2 = new Guest("Meir");
-        Basket b1 = new Basket(s1.getId());
-        Basket b2 = new Basket(s1.getId());
+        when(b2.getShopid()).thenReturn(s1.getId());
         b1.saveProducts(p1.getID(),10);
         b1.saveProducts(p2.getID(),50);
+        ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
+        map.put(p1.getID(),10);
+        map.put(p2.getID(),50);
+        when(b1.getProducts()).thenReturn(map);
         s1.addBasket(u1.getName(), b1);
-        b2.saveProducts(p1.getID(),10);
+        ConcurrentHashMap<Integer,Integer> map2= new ConcurrentHashMap<>();
+        map2.put(p1.getID(),10);
+        when(b1.getProducts()).thenReturn(map2);
         Assert.assertTrue(s1.checkIfUserHasBasket(u1.getName()));
         Assert.assertFalse(s1.checkIfUserHasBasket(u2.getName()));
         try
@@ -440,13 +487,10 @@ public class ShopTest {
     @Test
 
     public void addAdministratorNewOne() {
-        SubscribedUser u1 = new SubscribedUser("Meir","Maor");
-        ShopAdministrator sa1 = new ShopAdministrator(s1,u1);
         Assert.assertEquals(1, s1.getShopAdministrators().size());
         Assert.assertTrue(s1.addAdministrator(sa1.getUserName(),sa1));
         Assert.assertEquals(2, s1.getShopAdministrators().size());
         Assert.assertFalse(s1.addAdministrator(sa1.getUserName(),sa1));
         Assert.assertEquals(2, s1.getShopAdministrators().size());
     }
-
 }
