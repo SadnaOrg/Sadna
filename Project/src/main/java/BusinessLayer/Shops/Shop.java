@@ -226,6 +226,10 @@ public class Shop {
     public Collection<PurchaseHistory> getPurchaseHistory() {
         return purchaseHistory.values();
     }
+
+    public void addPurchaseHistory(String username, PurchaseHistory ph){
+        purchaseHistory.put(username, ph);
+    }
   
     public Collection<ShopAdministrator> getShopAdministrators() {
         return shopAdministrators.values();

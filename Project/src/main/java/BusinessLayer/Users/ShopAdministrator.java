@@ -121,6 +121,8 @@ public class ShopAdministrator{
         return user;
     }
 
+    public String getUserName() {return user.getUserName(); }
+
     public void emptyActions(){
         action = new ConcurrentHashMap<>();
     }

@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
