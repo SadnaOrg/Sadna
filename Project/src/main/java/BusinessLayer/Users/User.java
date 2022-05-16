@@ -16,8 +16,7 @@ public abstract class User{
     protected String name;
     protected PaymentMethod method;
 
-    public User(String name)
-    {
+    public User(String name) {
         this.name= name;
         method = null;
         shoppingCart= new ConcurrentHashMap<>();
@@ -25,6 +24,8 @@ public abstract class User{
 
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity) {
+        if(quantity<=0)
+            throw new IllegalArgumentException("quantity mast be positive amount");
         if (!shoppingCart.containsKey(shopid)) {
             Basket b = new Basket(shopid);
             shoppingCart.put(shopid, b);
@@ -35,7 +36,7 @@ public abstract class User{
         return b.saveProducts(productid, quantity);
     }
 
-    public ConcurrentHashMap<Integer,Integer> purchaseBasket(int shopid){
+    public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
         return shoppingCart.get(shopid).getProducts();
     }
 
@@ -48,7 +49,7 @@ public abstract class User{
         return cartInfo;
     }
 
-    public boolean removeproduct(int shopid, int productid){
+    public boolean removeProduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).removeProduct(productid);
         }
@@ -57,6 +58,8 @@ public abstract class User{
 
 
     public boolean editProductQuantity(int shopid, int productid, int newquantity){
+        if(newquantity<=0)
+            throw new IllegalArgumentException("quantity mast be positive amount");
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -66,17 +69,17 @@ public abstract class User{
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
     }
-    public ConcurrentHashMap<Integer, ShopInfo> reciveInformation()
+    public ConcurrentHashMap<Integer, ShopInfo> receiveInformation()
     {
         return UserController.getInstance().reciveInformation();
     }
 
     public Basket getBasket(int shopid)
     {
-        return shoppingCart.get(shopid);
+        return shoppingCart.getOrDefault(shopid,null);
     }
 
-    public void updatePaymentMethod(PaymentMethod method){
+    public synchronized void updatePaymentMethod(PaymentMethod method){
         this.method = method;
     }
 

@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 public class SubscribedUserTest {
     private SubscribedUser user1;
+    private String user1pass;
     private SubscribedUser user2;
     private SubscribedUser toAssign;
     private SubscribedUser founder;
@@ -22,7 +23,8 @@ public class SubscribedUserTest {
     ShopOwner so1;
     @Before
     public void setUp() {
-        user1 = new SubscribedUser("user1","pass12");
+        user1pass = "pass12";
+        user1 = new SubscribedUser("user1",user1pass);
         user2 = new SubscribedUser("user2","pass12");
         toAssign = new SubscribedUser("toAssign","pass12");
         founder = new SubscribedUser("Founder Guy","pass12");
@@ -33,6 +35,52 @@ public class SubscribedUserTest {
         so1 = new ShopOwner(shop1, user1, true);
         sm1.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER);
     }
+
+    public void testLogin(SubscribedUser u,String pass) {
+        assertFalse("logged in with wrong password",u.login(u.getUserName(),pass+"wrong_pass"));
+        Assert.assertFalse(u.isLoggedIn());
+        assertFalse("logged in with wrong user name ",u.login(u.getUserName()+"wrong_name",pass));
+        Assert.assertFalse(u.isLoggedIn());
+
+        assertTrue(u.login(u.getUserName(),pass));
+        Assert.assertTrue(u.isLoggedIn());
+
+        try{
+            if(u.login(u.getUserName(),pass))
+                fail("cannot log in second time");
+        }catch (Exception ignored){}
+        Assert.assertTrue(u.isLoggedIn());
+    }
+
+    @Test
+    public void testLogin() {
+        testLogin(user1,user1pass);
+    }
+
+
+    @Test
+    public void testLogout(){
+        if(!user1.isLoggedIn())
+            testLogin(user1,user1pass);
+        assertTrue(user1.logout());
+        assertFalse(user1.isLoggedIn());
+        try {
+            assertFalse(user1.logout());
+            fail("user cannot logout twice");
+        }catch (Exception ignored){}
+        assertFalse(user1.isLoggedIn());
+    }
+
+
+
+//
+//    @Test
+//    public void testAssignShopOwner() {
+//    }
+
+//    @Test
+//    public void testChangeManagerPermission() {
+//    }
 
     @Test
     public void addAdministrator() {
@@ -184,4 +232,6 @@ public class SubscribedUserTest {
         }
         catch (IllegalStateException ignored){}
     }
+
+
 }

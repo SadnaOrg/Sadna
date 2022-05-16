@@ -5,6 +5,7 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class System {
     private Notifier notifier;
@@ -29,21 +30,50 @@ public class System {
     }
     public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
     {
-        ConcurrentHashMap<Integer,Boolean> paymensituation= new ConcurrentHashMap<>();
-        for(int shopid: totalPrices.keySet())
+        ConcurrentHashMap<Integer,Boolean> paymentSituation= new ConcurrentHashMap<>();
+        for(int shopId: totalPrices.keySet())
         {
-            if(totalPrices.get(shopid)>0 && method != null) {
-                paymensituation.put(shopid, externSystem.pay(totalPrices.get(shopid), method));
+            if(totalPrices.get(shopId)>0 && method != null) {
+                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method));
             }
             else
             {
-                paymensituation.put(shopid,false);
+                paymentSituation.put(shopId,false);
             }
         }
-        return paymensituation;
+        return paymentSituation;
+    }
+
+    public ConcurrentHashMap<Integer, Boolean> checkSupply(ConcurrentHashMap<Integer,PackageInfo> packages){
+        ConcurrentHashMap<Integer, Boolean> supplySituation= new ConcurrentHashMap<>();
+        for(Integer idx : packages.keySet())
+        {
+            supplySituation.put(idx, getExternSystem().checkSupply(packages.get(idx)));
+        }
+        return supplySituation;
     }
 
     public PurchaseHistoryController getPurchaseHistoryServices() {
         return purchaseHistoryServices;
+    }
+
+    public ExternalServicesSystem getExternSystem() {
+        return externSystem;
+    }
+
+    public synchronized void addPayment(Payment p){
+        externSystem.addPayment(p);
+    }
+
+    public synchronized void addSupply(Supply s){
+        externSystem.addSupply(s);
+    }
+
+    public int getPaymentSize(){//for tests only
+        return externSystem.getPaymentSize();
+    }
+
+    public int getSupplySize(){//for tests only
+        return externSystem.getSupplySize();
     }
 }
