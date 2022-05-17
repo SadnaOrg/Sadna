@@ -30,19 +30,19 @@ public class ShopAdministrator{
      */
     public boolean AssignShopManager(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_MANAGER))
-            return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
+            return ((AssignShopManager)getAction(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
         else throw new NoPermissionException();
     }
 
     public boolean AssignShopOwner(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_OWNER))
-            return ((AssignShopOwner)action.get(BaseActionType.ASSIGN_SHOP_OWNER)).act(toAssign);
+            return ((AssignShopOwner)getAction(BaseActionType.ASSIGN_SHOP_OWNER)).act(toAssign);
         else throw new NoPermissionException();
     }
 
     public boolean ChangeManagerPermission(SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
         if(action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
-            return ((ChangeManagerPermission)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
+            return ((ChangeManagerPermission)getAction(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
         else throw new NoPermissionException();
     }
 
@@ -59,7 +59,7 @@ public class ShopAdministrator{
     }
     public Collection<AdministratorInfo> getAdministratorInfo() throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.ROLE_INFO)){
-            return ((RolesInfo)action.get(BaseActionType.ROLE_INFO)).act();
+            return ((RolesInfo)getAction(BaseActionType.ROLE_INFO)).act();
         }
         else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
@@ -68,11 +68,14 @@ public class ShopAdministrator{
 
     public Collection<PurchaseHistory> getHistoryInfo() throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.HISTORY_INFO)){
-            return ((HistoryInfo)action.get(BaseActionType.HISTORY_INFO)).act();
+            return ((HistoryInfo)getAction(BaseActionType.HISTORY_INFO)).act();
         }
         else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
 
+    private BaseAction getAction(BaseActionType actionType) {
+        return action.get(actionType);
+    }
 
 
     public User getUser() {
