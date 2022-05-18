@@ -5,7 +5,7 @@ public class ProductInShop {
     public int shopID;
     public int quantity;
     public double price;
-    public double rating;
+    public String desc;
     public Product product;
 
     public ProductInShop(int ID,int shopID,int quantity,double price,double rating, Product product){
@@ -13,11 +13,15 @@ public class ProductInShop {
         this.shopID = shopID;
         this.quantity = quantity;
         this.price = price;
-        this.rating = rating;
+        this.desc = product.desc;
         this.product = product;
     }
 
-    public String getManufacturer() {
+    public String getDescription() {
+        return this.product.desc;
+    }
+
+    public String getManufacturer(){
         return this.product.manufacturer;
     }
 }

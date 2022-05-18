@@ -1,7 +1,7 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
 import java.math.BigInteger;

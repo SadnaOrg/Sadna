@@ -1,11 +1,8 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
 import BusinessLayer.Shops.ShopInfo;
-
-import BusinessLayer.Shops.ShopController;
 import BusinessLayer.System.PaymentMethod;
 
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class User{

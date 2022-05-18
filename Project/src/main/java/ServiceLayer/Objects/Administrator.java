@@ -1,7 +1,7 @@
 package ServiceLayer.Objects;
 
-import BusinessLayer.Users.AdministratorInfo;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Products.Users.AdministratorInfo;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 
 import java.util.Collection;
 

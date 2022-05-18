@@ -1,9 +1,9 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.*;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -52,9 +52,9 @@ public class ShopAdministrator{
             ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).removeProduct(productid);
         else throw new NoPermissionException();
     }
-    public Product addProduct(int productid, String name, double price, int quantity) throws NoPermissionException {
+    public Product addProduct(int productid, String name, String desc,String manufacturer, double price, int quantity) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, price, quantity);
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, desc, manufacturer, price, quantity);
         else throw new NoPermissionException();
     }
 
@@ -64,7 +64,7 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
-    public boolean changeProductPrice(int productid, int newPrice) throws NoPermissionException {
+    public boolean changeProductPrice(int productid, double newPrice) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
             return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductPrice(productid, newPrice);
         else throw new NoPermissionException();

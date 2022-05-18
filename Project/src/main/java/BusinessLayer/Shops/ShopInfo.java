@@ -1,8 +1,8 @@
-package main.java.BusinessLayer.Shops;
+package BusinessLayer.Shops;
 
 
-import main.java.BusinessLayer.Products.Product;
-import main.java.BusinessLayer.Products.ProductInfo;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductInfo;
 
 import java.util.concurrent.ConcurrentHashMap;
 

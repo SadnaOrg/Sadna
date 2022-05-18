@@ -1,14 +1,12 @@
-package main.java.BusinessLayer.Shops;
+package BusinessLayer.Shops;
 
 
-import main.java.BusinessLayer.Products.Product;
-import main.java.BusinessLayer.Products.ProductFilters;
-import main.java.BusinessLayer.Users.Basket;
-import main.java.BusinessLayer.Users.SubscribedUser;
-import main.java.BusinessLayer.Users.UserController;
-import main.java.BusinessLayer.System.System;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.UserController;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -113,9 +111,9 @@ public class ShopController {
         return shopsInfo;
     }
 
-    public Shop openShop(SubscribedUser su, String name) {
+    public Shop openShop(SubscribedUser su, String name, String description) {
         int shopID = shops.size();
-        shops.put(shopID, new Shop(shopID, name, su));
+        shops.put(shopID, new Shop(shopID, name, description, su));
         return shops.get(shopID);
     }
 

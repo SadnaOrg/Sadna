@@ -1,8 +1,8 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
-import main.java.BusinessLayer.Shops.PurchaseHistoryController;
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.UserController;
+import BusinessLayer.Shops.PurchaseHistoryController;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Products.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
 

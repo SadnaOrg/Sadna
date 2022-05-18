@@ -1,10 +1,7 @@
-package main.java.BusinessLayer.Users.BaseActions;
+package BusinessLayer.Products.Users.BaseActions;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.ShopAdministrator;
-import main.java.BusinessLayer.Users.SubscribedUser;
-
-import java.util.Collection;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Products.Users.SubscribedUser;
 
 public enum BaseActionType {
     STOCK_MANAGEMENT(1),
@@ -15,7 +12,7 @@ public enum BaseActionType {
     CLOSE_SHOP(9),
     REOPEN_SHOP(10),
     ROLE_INFO(11),
-    HISTORY_INFO(13), REOPEN_SHOP(10);
+    HISTORY_INFO(13),;
 
     BaseActionType(int i) {
     }

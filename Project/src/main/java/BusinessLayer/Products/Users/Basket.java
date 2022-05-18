@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Basket {

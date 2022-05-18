@@ -23,6 +23,6 @@ public class FounderDeletesProduct extends Thread{
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
 
-        status = bridge.deleteProductFromShop(subscribedUser.ID,shopID,productID);
+        status = bridge.deleteProductFromShop(subscribedUser.name,shopID,productID);
     }
 }

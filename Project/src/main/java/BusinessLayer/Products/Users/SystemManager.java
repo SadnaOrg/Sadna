@@ -1,4 +1,4 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.PurchaseHistoryController;

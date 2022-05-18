@@ -1,7 +1,6 @@
 package BusinessLayer.System;
 
 import BusinessLayer.Products.ProductInfo;
-import BusinessLayer.Users.User;
 
 public class ProxySupply implements Supply {
     private Supply s = null;

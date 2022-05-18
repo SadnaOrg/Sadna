@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.Products;
+package BusinessLayer.Products;
 
 public class ProductInfo {
 

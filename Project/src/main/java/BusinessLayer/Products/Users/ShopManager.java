@@ -1,7 +1,7 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Shops.Shop;
 
 public class ShopManager extends ShopAdministrator{
 

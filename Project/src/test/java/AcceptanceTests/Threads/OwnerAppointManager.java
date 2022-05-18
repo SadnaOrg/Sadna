@@ -24,8 +24,8 @@ public class OwnerAppointManager extends Thread{
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         Guest g = bridge.visit();
-        User owner = bridge.login(g.ID,new RegistrationInfo(subscribedUser.username, subscribedUser.password));
+        User owner = bridge.login(g.name,new RegistrationInfo(subscribedUser.name, subscribedUser.password));
 
-        status = bridge.appointManager(shopID,owner.ID,SubscribedUserTests.getU3ID());
+        status = bridge.appointManager(shopID,owner.name,SubscribedUserTests.getU3Name());
     }
 }

@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.Shops;
+package BusinessLayer.Shops;
 
 public abstract class PurchasePolicy {
 

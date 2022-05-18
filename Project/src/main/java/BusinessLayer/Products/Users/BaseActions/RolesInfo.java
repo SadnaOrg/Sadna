@@ -1,7 +1,7 @@
-package main.java.BusinessLayer.Users.BaseActions;
+package BusinessLayer.Products.Users.BaseActions;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.*;
+import BusinessLayer.Products.Users.*;
+import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;

@@ -1,9 +1,10 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import ServiceLayer.Result;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -11,8 +12,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
-
-
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
@@ -110,7 +109,6 @@ public class UserController {
         return currUser.closeShop(shopIdToClose);
     }
 
-
     public boolean createSystemManager(String username, String password) {
         SystemManager systemManager = new SystemManager(username, password);
         users.put(systemManager.getName(), systemManager);
@@ -120,7 +118,7 @@ public class UserController {
     }
 
     public synchronized boolean registerToSystem(String userName, String password) {
-        if (subscribers.containsKey(userName)) {
+        if (!subscribers.containsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
             users.put(userName, newUser);
@@ -132,26 +130,34 @@ public class UserController {
 
     public SubscribedUser login(String userName, String password, User currUser) {
         if (subscribers.containsKey(userName) && (currUser == null || currUser instanceof Guest))
-            if (subscribers.get(userName).login(userName, password))
+            if (subscribers.get(userName).login(userName, password)) {
+                if (currUser != null){
+                    users.remove(currUser.getUserName());
+                }
                 return subscribers.get(userName);
+            }
             else
                 return null;
         return null;
     }
 
-    public boolean logout(String username) {
-        return subscribers.get(username).logout();
-    }
+    public Guest logout(String username) {
+        if (subscribers.containsKey(username)){
+            subscribers.get(username).logout();
+            return loginSystem();
+        }
+        return null;
+    } // be a guest now
 
-    public User loginSystem() {
-        User guest = new Guest("guest_" + ++guest_serial);
+    public Guest loginSystem() {
+        Guest guest = new Guest("guest_" + ++guest_serial);
         users.put(guest.getName(), guest);
         return guest;
     }
 
     public boolean logoutSystem(String name) {
         return users.remove(name) != null;
-    }
+    } // exit everything
 
     public boolean assignShopManager(SubscribedUser user, int shop, String userNameToAssign) throws NoPermissionException {
         return user.assignShopManager(shop, getSubUser(userNameToAssign));
@@ -182,6 +188,70 @@ public class UserController {
     }
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop) {
         return currUser.getShopsAndUsersInfo(shop);
+    }
+
+    public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
+       ShopAdministrator admin = getAdmin(username, shopID);
+       if(admin != null)
+           return admin.changeProductQuantity(productID,newQuantity);
+       throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean updateProductPrice(String username,int shopID, int productID, double newPrice) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if(admin != null)
+            return admin.changeProductPrice(productID,newPrice);
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean updateProductDescription(String username,int shopID, int productID, String Desc) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if(admin != null)
+            return admin.changeProductDesc(productID,Desc);
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean updateProductName(String username,int shopID, int productID, String newName) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if(admin != null)
+            return admin.changeProductName(productID,newName);
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean deleteProductFromShop(String username,int shopID, int productID) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if(admin != null){
+            admin.removeProduct(productID);
+            return true;
+        }
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean addProductToShop(String username, int shopID, String name, String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if(admin != null){
+            admin.addProduct(productID,name,desc,manufacturer,price,quantity);
+            return true;
+        }
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(userName,shopID);
+        if(admin instanceof ShopOwner){
+            ((ShopOwner) admin).reOpenShop();
+            return true;
+        }
+        throw new NoPermissionException("you aren't the founder of that shop!");
+    }
+
+    private ShopAdministrator getAdmin(String username, int shopID){
+        if (subscribers.containsKey(username)){
+            SubscribedUser u = subscribers.get(username);
+            ShopAdministrator admin = u.getAdministrator(shopID);
+            return admin;
+        }
+        return null;
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser) {

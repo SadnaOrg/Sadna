@@ -2,27 +2,37 @@ package AcceptanceTests.Tests;
 
 import AcceptanceTests.Bridge.SubscribedUserBridge;
 import AcceptanceTests.Bridge.SubscribedUserProxy;
+import AcceptanceTests.Bridge.UserProxy;
 import AcceptanceTests.Threads.FounderAppointManager;
 import AcceptanceTests.Threads.FounderDeletesProduct;
 import AcceptanceTests.Threads.OwnerAppointManager;
 import AcceptanceTests.Threads.UserBuysProduct;
 
 import AcceptanceTests.DataObjects.*;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
+// TODO: add tear down after tests - look at tests and cancel side effects (permissions, shop opening, appointments, new products)
+// TODO: refactor login of users
+// TODO: fix concurrent tests - buy & delete , double appointment
 
+// u1 is owner of castro!
+// u2 is owner of castro!
+// owner appointments need flags!
+// close supersal after openShop!
+// look at double owner appointment!
+// look at owner / manager appointment for teardown!
 public class SubscribedUserTests extends UserTests {
-    private static final SubscribedUserBridge subscribedUserBridge = new SubscribedUserProxy();
+    private static final SubscribedUserBridge subscribedUserBridge = new SubscribedUserProxy((UserProxy) UserTests.getUserBridge());
 
     private static Shop supersal;
 
-    private final static String[] userNames = new String[]{"testUser3","buyer100","michael"};
-    private final static String[] passwords = new String[]{"42","secret","leahcim"};
+    private final static String[] userNames = new String[]{"testUser3","buyer100","michael","superfounder"};
+    private final static String[] passwords = new String[]{"42","secret","leahcim","superpassword"};
 
     private final static String[] defaultFounderPermissions = new String[]{"inventory management","change policies","set consistency constraints",
     "appoint owner","remove owner","appoint manager","remove manager","change managers' permissions","close shop","reopen shop",
@@ -34,51 +44,59 @@ public class SubscribedUserTests extends UserTests {
 
     private final static String[] defaultManagerPermissions = new String[]{"view information"};
 
-    private int counter = 0;
     private static SubscribedUser u1;
     private static SubscribedUser u2;
     private static SubscribedUser u3;
-    private SubscribedUser supersalFounder;
+    private static SubscribedUser supersalFounder;
 
-    public static int getU1ID(){
-        return u1.ID;
+    public static String getU1Name(){
+        return u1.name;
     }
 
-    public static int getU2ID(){
-        return u2.ID;
+    public static String getU2Name(){
+        return u2.name;
     }
 
-    public static int getU3ID(){
-        return u3.ID;
+    public static String getU3Name(){
+        return u3.name;
     }
 
     public static SubscribedUserBridge getUserBridge(){return subscribedUserBridge;}
 
-    @Before
-    public void setUpUsers(){
+    @BeforeClass
+    public static void setUpUsers(){
+        UserTests.setUpTests();
         Guest setUpU1 = subscribedUserBridge.visit();
         Guest setUpU2 = subscribedUserBridge.visit();
         Guest setUpU3 = subscribedUserBridge.visit();
+        Guest setUpSupersal = subscribedUserBridge.visit();
 
-        String name1 = userNames[0].concat(String.valueOf(counter));
-        String pass1 = passwords[0].concat(String.valueOf(counter));
-        String name2 = userNames[1].concat(String.valueOf(counter));
-        String pass2 = passwords[1].concat(String.valueOf(counter));
-        String name3 = userNames[2].concat(String.valueOf(counter));
-        String pass3 = passwords[2].concat(String.valueOf(counter));
+        RegistrationInfo u1Reg = new RegistrationInfo(userNames[0], passwords[0]);
+        RegistrationInfo u2Reg = new RegistrationInfo(userNames[1],passwords[1]);
+        RegistrationInfo u3Reg = new RegistrationInfo(userNames[2],passwords[2]);
+        RegistrationInfo supersalReg= new RegistrationInfo(userNames[3], passwords[3]);
+        subscribedUserBridge.register(u1Reg);
+        subscribedUserBridge.register(u2Reg);
+        subscribedUserBridge.register(u3Reg);
+        subscribedUserBridge.register(supersalReg);
 
-        u1 = subscribedUserBridge.register(setUpU1.ID,new RegistrationInfo(name1,pass1));
-        u2 = subscribedUserBridge.register(setUpU2.ID,new RegistrationInfo(name2,pass2));
-        u3 = subscribedUserBridge.register(setUpU3.ID,new RegistrationInfo(name3,pass3));
+        u1 = subscribedUserBridge.login(setUpU1.getName(),u1Reg);
+        u2 = subscribedUserBridge.login(setUpU2.getName(), u2Reg);
+        u3 = subscribedUserBridge.login(setUpU3.getName(), u3Reg);
+        supersalFounder = subscribedUserBridge.login(setUpSupersal.name, supersalReg);
 
-        counter += 1;
+        subscribedUserBridge.exit(u1.name);
+        subscribedUserBridge.exit(u2.name);
+        subscribedUserBridge.exit(u3.name);
+        subscribedUserBridge.exit(supersalFounder.name);
     }
 
     @Test
     public void testExitOldUser() {
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(u1.username, u1.password));
-        boolean res = subscribedUserBridge.exit(u.ID);
+        u1 = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(u1.name, passwords[0]));
+        assertEquals("testUser3",u1.name);
+        boolean res = subscribedUserBridge.exit(u1.name);
         assertTrue(res);
     }
 
@@ -88,14 +106,15 @@ public class SubscribedUserTests extends UserTests {
         String testPassword = "testExit";
 
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.register(newGuest.ID,new RegistrationInfo(testUserName, testPassword));
-        boolean added = subscribedUserBridge.addProductToCart(u.ID,shops[castro_ID].ID,2,10);
+        userBridge.register(new RegistrationInfo(testUserName, testPassword));
+        SubscribedUser u = userBridge.login(newGuest.name, new RegistrationInfo(testUserName, testPassword));
+        boolean added = subscribedUserBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
         assertTrue(added);
 
-        Guest newG = subscribedUserBridge.logout(u.ID);
+        Guest newG = subscribedUserBridge.logout(u.name);
 
-        u = subscribedUserBridge.login(newG.ID,new RegistrationInfo(testUserName, testPassword));
-        ShoppingCart userCart = subscribedUserBridge.checkCart(u.ID);
+        u = subscribedUserBridge.login(newG.name,new RegistrationInfo(testUserName, testPassword));
+        ShoppingCart userCart = subscribedUserBridge.checkCart(u.name);
         assertNotNull(userCart);
         assertEquals(10,userCart.numOfProductsInCart());
         assertEquals(1,userCart.getNumberOfBaskets());
@@ -107,9 +126,9 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(10,quantity);
 
         //cancel side-effects
-        subscribedUserBridge.updateCart(u.ID,new int[]{2},new int[]{shops[castro_ID].ID},new int[]{0});
+        subscribedUserBridge.updateCart(u.name,new int[]{2},new int[]{shops[castro_ID].ID},new int[]{0});
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(u.name);
         assertTrue(exitResult);
 
     }
@@ -117,67 +136,69 @@ public class SubscribedUserTests extends UserTests {
     @Test
     public void testEnterNewUserSuccess() {
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.register(newGuest.ID,new RegistrationInfo("newName","newPassword"));
-
+        boolean res = subscribedUserBridge.register(new RegistrationInfo("newName","newPassword"));
+        assertTrue(res);
+        SubscribedUser u = subscribedUserBridge.login(newGuest.name, new RegistrationInfo("newName","newPassword"));
         assertNotNull(u);
-        assertEquals("newName",u.password);
-        assertEquals("newPassword",u.username);
+        assertEquals("newName",u.name);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(u.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testEnterNewUserFailure() {
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.register(newGuest.ID,new RegistrationInfo(u1.username, u1.password));
-        assertNull(u);
+        boolean res = subscribedUserBridge.register(new RegistrationInfo(u1.name, passwords[0]));
+        assertFalse(res);
+        res = subscribedUserBridge.exit(newGuest.name);
+        assertTrue(res);
     }
 
     @Test
     public void testOpenShopSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        supersalFounder = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(u1.username, u1.password));
-        supersal = subscribedUserBridge.openShop(supersalFounder.ID,"supersal","food");
+        supersalFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(supersalFounder.name,  passwords[3]));
+        supersal = subscribedUserBridge.openShop(supersalFounder.name,"supersal","food");
 
         assertNotNull(supersal);
         assertEquals("supersal",supersal.name);
-        assertEquals("food",supersal.category);
+        assertEquals("food",supersal.desc);
 
         Appointment appointment = supersalFounder.getRole(supersal.ID);
         assertEquals("Founder",appointment.role);
+        // check for appointer
 
-        //the shop is closed as a part of another test.
-
-        boolean exitResult = subscribedUserBridge.exit(supersalFounder.ID);
+        boolean exitResult = subscribedUserBridge.exit(supersalFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testOpenShopFailure(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(userNames[0], passwords[0]));
-        Shop s = subscribedUserBridge.openShop(u.ID,"castro","fashion");
+        u1 = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(userNames[0], passwords[0]));
+        Shop s = subscribedUserBridge.openShop(u1.name,"castro","fashion");
 
         assertNull(s);
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = u1.getRole(shops[castro_ID].ID);
         assertNull(appointment);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToShopByFounderSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
         assertEquals("Founder",appointment.role);
-        Product newproduct = new Product("belt","china");
+        Product newproduct = new Product("belt","brown","china");
 
-        subscribedUserBridge.addProductToShop(u.ID,shops[castro_ID].ID,newproduct,222,4.2,12,67.5);
+        boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,222,12,67.5);
+        assertTrue(added);
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
 
         assertNotNull(pis);
@@ -185,300 +206,356 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(12,pis.quantity);
         assertEquals(67.5, pis.price, 0.0);
 
-        //cancel side-effects
-        subscribedUserBridge.deleteProductFromShop(u.ID,shops[castro_ID].ID,222);
-
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToShopByFounderFailureBadQuantity(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
         assertEquals("Founder",appointment.role);
-        Product newproduct = new Product("belt","china");
+        Product newproduct = new Product("belt","brown","china");
 
-        boolean added = subscribedUserBridge.addProductToShop(u.ID,shops[castro_ID].ID,newproduct,222,4.2,-12,67.5);
+        boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,-12,67.5);
         assertFalse(added);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(221,shops[castro_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToShopByFounderFailureBadPrice(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
         assertEquals("Founder",appointment.role);
-        Product newproduct = new Product("belt","china");
+        Product newproduct = new Product("belt","brown","china");
 
-        boolean added = subscribedUserBridge.addProductToShop(u.ID,shops[castro_ID].ID,newproduct,222,4.2,12,-12);
+        boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,12,-12);
         assertFalse(added);
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToShopByFounderFailureBadPriceBadQuantity(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
         assertEquals("Founder",appointment.role);
-        Product newproduct = new Product("belt","china");
+        Product newproduct = new Product("belt","brown","china");
 
-        boolean added = subscribedUserBridge.addProductToShop(u.ID,shops[castro_ID].ID,newproduct,222,4.2,-12,-12);
+        boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,-12,-12);
         assertFalse(added);
+
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(221,shops[castro_ID].ID);
+        assertNull(pis);
+
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+    }
+    // TODO: ADD FLAG FOR TEARDOWN!!!!!
+    @Test
+    public void testDeleteProductFromShopByOwnerSuccess(){
+        testAddProductToShopByFounderSuccess();
+
+        Guest newGuest = subscribedUserBridge.visit();
+        ACEFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(ACEFounder.name,"ACE_rocks"));
+
+        Appointment appointment = ACEFounder.getRole(shops[castro_ID].ID);
+        assertEquals("Owner",appointment.role);
+
+        boolean deleted = subscribedUserBridge.deleteProductFromShop(ACEFounder.name,shops[castro_ID].ID,222);
+        assertTrue(deleted);
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(ACEFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
-    public void testDeleteProductFromShopByManagerSuccess(){
+    public void testDeleteProductFromShopByOwnerFailureBadID(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        ACEFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(ACEFounder.name,"ACE_rocks"));
 
-        Appointment appointment = u.getRole(shops[MegaSport_ID].ID);
-        assertEquals("Manager",appointment.role);
+        Appointment appointment = ACEFounder.getRole(shops[castro_ID].ID);
+        assertEquals("Owner",appointment.role);
 
-        boolean deleted = subscribedUserBridge.deleteProductFromShop(u.ID,shops[MegaSport_ID].ID,13);
-        assertTrue(deleted);
-
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(13,shops[MegaSport_ID].ID);
-        assertNull(pis);
-
-        //cancel side-effects
-        Product p1 = new Product("running shoes","china");
-        subscribedUserBridge.addProductToShop(u.ID,shops[MegaSport_ID].ID,p1,13,3,30,40);
-
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
-        assertTrue(exitResult);
-    }
-
-    @Test
-    public void testDeleteProductFromShopByManagerFailureBadID(){
-        Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
-
-        Appointment appointment = u.getRole(shops[MegaSport_ID].ID);
-        assertEquals("Manager",appointment.role);
-
-        boolean deleted = subscribedUserBridge.deleteProductFromShop(u.ID,shops[MegaSport_ID].ID,5);
+        boolean deleted = subscribedUserBridge.deleteProductFromShop(ACEFounder.name,shops[castro_ID].ID,5);
         assertFalse(deleted);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(5,shops[MegaSport_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(5,shops[castro_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(ACEFounder.name);
         assertTrue(exitResult);
+
     }
 
     @Test
-    public void testUpdateProductByFounderSuccess(){
+    public void testUpdateProductIncreasePriceByFounderSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        Appointment appointment = u.getRole(shops[castro_ID].ID);
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
         assertEquals("Founder",appointment.role);
 
-        boolean updated = subscribedUserBridge.updateProduct(u.ID,shops[castro_ID].ID,45,45,310,55.5);
-        assertFalse(updated);
+        boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,120);
+        assertTrue(updated);
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
         assertNotNull(pis);
         assertEquals(45,pis.ID);
-        assertEquals(310,pis.quantity);
-        assertEquals(55.5,pis.price,0);
+        assertEquals(40,pis.quantity);
+        assertEquals(120,pis.price,0);
 
-        //cancel side-effects
-        subscribedUserBridge.updateProduct(u.ID,shops[castro_ID].ID,45,45,40,50);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        testUpdateKeepProductPriceByFounderSuccess();
+    }
+
+    @Test
+    public void testUpdateProductDecreasePriceByFounderSuccess(){
+        Guest newGuest = subscribedUserBridge.visit();
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
+
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
+        assertEquals("Founder",appointment.role);
+
+        boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,12.5);
+        assertTrue(updated);
+
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        assertNotNull(pis);
+        assertEquals(45,pis.ID);
+        assertEquals(40,pis.quantity);
+        assertEquals(12.5,pis.price,0);
+
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+
+        testUpdateKeepProductPriceByFounderSuccess();
+    }
+
+    @Test
+    public void testUpdateKeepProductPriceByFounderSuccess(){
+        Guest newGuest = subscribedUserBridge.visit();
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
+
+        Appointment appointment = castroFounder.getRole(shops[castro_ID].ID);
+        assertEquals("Founder",appointment.role);
+
+        boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,50);
+        assertTrue(updated);
+
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        assertNotNull(pis);
+        assertEquals(45,pis.ID);
+        assertEquals(40,pis.quantity);
+        assertEquals(50,pis.price,0);
+
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
-    public void testUpdateProductByManagerFailureBadID(){
+    public void testUpdateProductByOwnerFailureBadID(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        MegaSportFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(MegaSportFounder.name,"MegaSport_rocks"));
 
-        Appointment appointment = u.getRole(shops[MegaSport_ID].ID);
-        assertEquals("Manager",appointment.role);
+        Appointment appointment = MegaSportFounder.getRole(shops[ACE_ID].ID);
+        assertEquals("Owner",appointment.role);
 
-        boolean updated = subscribedUserBridge.updateProduct(u.ID,shops[MegaSport_ID].ID,2,4,50,77.99);
+        boolean updated = subscribedUserBridge.updateProductName(MegaSportFounder.name,shops[ACE_ID].ID,3,"fail");
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(2,shops[MegaSport_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(3,shops[ACE_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(MegaSportFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
-    public void testUpdateProductByManagerFailureBadPrice(){
+    public void testUpdateProductByOwnerFailureBadPrice(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        MegaSportFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(MegaSportFounder.name,"MegaSport_rocks"));
 
-        Appointment appointment = u.getRole(shops[MegaSport_ID].ID);
-        assertEquals("Manager",appointment.role);
+        Appointment appointment = MegaSportFounder.getRole(shops[ACE_ID].ID);
+        assertEquals("Owner",appointment.role);
 
-        boolean updated = subscribedUserBridge.updateProduct(u.ID,shops[MegaSport_ID].ID,45,45,50,-3);
+        boolean updated =subscribedUserBridge.updateProductPrice(MegaSportFounder.name,shops[ACE_ID].ID,1,-50);
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(2,shops[MegaSport_ID].ID);
-        assertNull(pis);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[MegaSport_ID].ID);
+        assertNotNull(pis);
+        assertEquals(pis.ID,1);
+        assertEquals(pis.price,40);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(MegaSportFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
-    public void testUpdateProductByManagerFailureBadPriceBadID(){
+    public void testUpdateProductByOwnerFailureBadPriceBadID(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        MegaSportFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(MegaSportFounder.name,"MegaSport_rocks"));
 
-        Appointment appointment = u.getRole(shops[MegaSport_ID].ID);
-        assertEquals("Manager",appointment.role);
+        Appointment appointment = MegaSportFounder.getRole(shops[ACE_ID].ID);
+        assertEquals("Owner",appointment.role);
 
-        boolean updated = subscribedUserBridge.updateProduct(u.ID,shops[MegaSport_ID].ID,2,45,50,-3);
+        boolean updated =subscribedUserBridge.updateProductPrice(MegaSportFounder.name,shops[ACE_ID].ID,11,-50);
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(2,shops[MegaSport_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(11,shops[ACE_ID].ID);
         assertNull(pis);
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        boolean exitResult = subscribedUserBridge.exit(MegaSportFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAppointShopOwnerSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.name,u1.name);
         assertTrue(result);
+
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
 
         Appointment role = u1.getRole(castro_ID);
         assertNotNull(role);
         assertEquals("Owner",role.getRole());
-        assertEquals(castroFounder.ID,role.getAppointer());
+        // assertEquals(castroFounder.name,role.getAppointer());
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAppointShopOwnerByOwnerSuccess(){
+        testAppointShopOwnerSuccess();
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(MegaSportFounder.username,MegaSportFounder.password));
+        u1 = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(userNames[0], passwords[0]));
 
-        boolean result = subscribedUserBridge.appointOwner(shops[ACE_ID].ID,MegaSportFounder.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,u1.name,u2.name);
         assertTrue(result);
 
-        Appointment role = u1.getRole(ACE_ID);
+        boolean exitResult = subscribedUserBridge.exit(u1.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u2 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[1], passwords[1]));
+        Appointment role = u2.getRole(castro_ID);
         assertNotNull(role);
         assertEquals("Owner",role.getRole());
-        assertEquals(MegaSportFounder.ID,role.getAppointer());
+        //assertEquals(u1.name,role.getAppointer());
 
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
+        exitResult = subscribedUserBridge.exit(u2.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAppointShopOwnerFailureDoubleAppointment(){
-        Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        try{
+            testAppointShopOwnerSuccess();
+            testAppointShopOwnerSuccess();
+            fail("double appointment!");
+        }
+        catch (Exception ignored){
 
-        subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.ID,u2.ID);
-        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.ID,u2.ID);
-        assertFalse(result);
-
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
-        assertTrue(exitResult);
-    }
-
-    @Test
-    public void testAppointShopOwnerFailureCircularAppointment(){
-        Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(MegaSportFounder.username,MegaSportFounder.password));
-
-        boolean appointment1 = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u.ID,u1.ID);
-        assertTrue(appointment1);
-
-        boolean appointment2 = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u1.ID,u2.ID);
-        assertTrue(appointment2);
-
-        boolean appointment3 = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u2.ID,u3.ID);
-        assertTrue(appointment3);
-
-        boolean result = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u3.ID,u1.ID);
-        assertFalse(result);
-
-        boolean exitResult = subscribedUserBridge.exit(u.ID);
-        assertTrue(exitResult);
+        }
     }
 
     @Test
     public void testAppointShopOwnerFailureAppointmentByGuest(){
         Guest newGuest = subscribedUserBridge.visit();
 
-        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,newGuest.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,newGuest.name,u1.name);
         assertFalse(result);
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        boolean exitResult = subscribedUserBridge.exit(newGuest.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(passwords[0],userNames[0]));
+
+        Appointment role = u1.getRole(castro_ID);
+        assertNull(role);
+
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAppointShopOwnerFailureAppointmentByManagerNotOwner(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        MegaSportFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(MegaSportFounder.name,"MegaSport_rocks"));
 
-        boolean result = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,MegaSportFounder.name,u1.name);
         assertFalse(result);
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        boolean exitResult = subscribedUserBridge.exit(MegaSportFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
+
+        Appointment role = u1.getRole(castro_ID);
+        assertNull(role);
+
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAppointShopManagerSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        boolean result = subscribedUserBridge.appointManager(shops[castro_ID].ID,u.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointManager(shops[castro_ID].ID,castroFounder.name,u1.name);
         assertTrue(result);
+
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
 
         Appointment role = u1.getRole(castro_ID);
         assertNotNull(role);
         assertEquals("Manager",role.getRole());
-        assertEquals(castroFounder.ID,role.getAppointer());
-
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        // assertEquals(castroFounder.name,role.getAppointer());
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
+
     }
 
     @Test
     public void testConcurrentManagerAppointment() throws InterruptedException {
+        testAppointShopManagerSuccess(); // u1 is manager at castro
         Guest g = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(g.ID,new RegistrationInfo(u1.username, u1.password));
+        u1 = subscribedUserBridge.login(g.ID,new RegistrationInfo(u1.username, u1.password));
 
         Shop s = subscribedUserBridge.openShop(u.ID,"new Shop","gaming");
         boolean appointed = subscribedUserBridge.appointOwner(s.ID,u.ID,u2.ID);
@@ -524,43 +601,45 @@ public class SubscribedUserTests extends UserTests {
 
     @Test
     public void testAppointShopManagerFailureAlreadyManager(){
-        Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        try{
+            testAppointShopManagerSuccess();
+            testAppointShopManagerSuccess();
+            fail("double manager appointment");
+        } catch (Exception ignored) {
 
-        boolean result = subscribedUserBridge.appointManager(shops[castro_ID].ID,u.ID,u1.ID);
-        assertTrue(result);
-
-        Appointment role = u1.getRole(castro_ID);
-        assertNotNull(role);
-        assertEquals("Manager",role.getRole());
-        assertEquals(castroFounder.ID,role.getAppointer());
-
-        result = subscribedUserBridge.appointManager(shops[castro_ID].ID,u.ID,u1.ID);
-        assertFalse(result);
-
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
-        assertTrue(exitResult);
+        }
     }
 
     @Test
     public void testAppointShopManagerFailureNotOwner(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(castroFounder.username,castroFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        boolean result = subscribedUserBridge.appointManager(shops[MegaSport_ID].ID,u.ID,u1.ID);
+        boolean result = subscribedUserBridge.appointManager(shops[MegaSport_ID].ID,castroFounder.name,u1.name);
         assertFalse(result);
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0],passwords[0]));
+
+        Appointment role = u1.getRole(castro_ID);
+        assertNull(role);
+
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testCloseShopSuccess(){
+        testOpenShopSuccess(); // open supersal
+
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(supersalFounder.username, supersalFounder.password));
+        supersalFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(supersalFounder.name, passwords[3]));
         ShopFilter shopFilterName = (s) -> s.name.equals("supersal");
 
-        boolean result = subscribedUserBridge.closeShop(supersal.ID,u.ID);
+        boolean result = subscribedUserBridge.closeShop(supersal.ID,supersalFounder.name);
         assertTrue(result);
 
         List<Shop> searchResult = subscribedUserBridge.getShopsInfo(shopFilterName);
@@ -569,96 +648,102 @@ public class SubscribedUserTests extends UserTests {
         List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersal.ID);
         assertNull(productInShops);
 
-        List<String> supersalFounderNotifications = u2.notifications;
-        assertEquals(1,supersalFounderNotifications.size());
-        assertEquals("supersal closed",supersalFounderNotifications.get(0));
+        //List<String> supersalFounderNotifications = u2.notifications;
+        //assertEquals(1,supersalFounderNotifications.size());
+        //assertEquals("supersal closed",supersalFounderNotifications.get(0));
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        boolean exitResult = subscribedUserBridge.exit(supersalFounder.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddManagerPermissionsSuccess(){
+        testAppointShopManagerSuccess(); // u1 - manager at castro
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(MegaSportFounder.username,MegaSportFounder.password));
+        castroFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(castroFounder.name,"castro_rocks"));
 
-        boolean result = subscribedUserBridge.addManagerPermission(shops[MegaSport_ID].ID,u.ID,castroFounder.ID,"change policies");
+        boolean result = subscribedUserBridge.addManagerPermission(shops[castro_ID].ID,castroFounder.name,u1.name,"change policies");
         assertTrue(result);
 
-        List<String> permissions = castroFounder.getPermissions(shops[MegaSport_ID].ID);
+        boolean exitResult = subscribedUserBridge.exit(castroFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
+
+        List<String> permissions = u1.getPermissions(shops[castro_ID].ID);
         assertTrue(permissions.contains("change policies"));
         assertTrue(permissions.contains("view information"));
         assertEquals(2,permissions.size());
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddManagerPermissionsFailureNotAppointer(){
+        testAppointShopManagerSuccess(); // u1 - manager at castro
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(ACEFounder.username,ACEFounder.password));
+        ACEFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(ACEFounder.name,"ACE_rocks"));
 
-        boolean result = subscribedUserBridge.appointManager(shops[ACE_ID].ID,u.ID,u1.ID);
-        assertTrue(result);
-
-        result = subscribedUserBridge.addManagerPermission(shops[ACE_ID].ID,u1.ID,MegaSportFounder.ID,"change policies");
+        boolean result = subscribedUserBridge.addManagerPermission(shops[castro_ID].ID,ACEFounder.name,u1.name,"change policies");
         assertFalse(result);
 
-        List<String> permissions = MegaSportFounder.getPermissions(shops[ACE_ID].ID);
-        for (String permission:
-             defaultOwnerPermissions) {
-            assertTrue(MegaSportFounder.getPermissions(shops[ACE_ID].ID).contains(permission));
-        }
+        boolean exitResult = subscribedUserBridge.exit(ACEFounder.name);
+        assertTrue(exitResult);
 
-        assertEquals(defaultOwnerPermissions.length,permissions.size());
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
+        List<String> permission = u1.getPermissions(castro_ID);
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        assertFalse(permission.contains("change policies"));
+
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
     @Test
     public void testAddOwnerPermissionsSuccess(){
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(ACEFounder.username,ACEFounder.password));
+        ACEFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(ACEFounder.name,"ACE_rocks"));
 
-        boolean result = subscribedUserBridge.addOwnerPermission(shops[ACE_ID].ID,u.ID,MegaSportFounder.ID,"change policies");
+        boolean result = subscribedUserBridge.addOwnerPermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name,"close shop");
         assertTrue(result);
 
-        List<String> permissions = MegaSportFounder.getPermissions(shops[MegaSport_ID].ID);
-        assertTrue(permissions.contains("change policies"));
-        assertTrue(permissions.contains("view information"));
-        assertEquals(2, permissions.size());
-
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        boolean exitResult = subscribedUserBridge.exit(ACEFounder.name);
         assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        MegaSportFounder = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(MegaSportFounder.name, "MegaSport_rocks"));
+
+        List<String> permissions = MegaSportFounder.getPermissions(shops[MegaSport_ID].ID);
+        assertTrue(permissions.contains("close shop"));
+        assertEquals(defaultFounderPermissions.length, permissions.size());
     }
 
     @Test
     public void testAddOwnerPermissionsFailureNotAppointer(){
+        testAppointShopOwnerSuccess(); // u1 - owner at castro
         Guest newGuest = subscribedUserBridge.visit();
-        SubscribedUser u = subscribedUserBridge.login(newGuest.ID,new RegistrationInfo(MegaSportFounder.username,MegaSportFounder.password));
+        ACEFounder = subscribedUserBridge.login(newGuest.name,new RegistrationInfo(ACEFounder.name,"ACE_rocks"));
 
-        boolean result = subscribedUserBridge.appointOwner(shops[MegaSport_ID].ID,u.ID,u1.ID);
-        assertTrue(result);
-
-        List<String> ownerPermissions = u1.getPermissions(shops[MegaSport_ID].ID);
-
-        for (String permission:
-                defaultManagerPermissions) {
-            assertTrue(ownerPermissions.contains(permission));
-        }
-
-        result = subscribedUserBridge.addManagerPermission(shops[ACE_ID].ID,u1.ID,castroFounder.ID,"change policies");
+        boolean result = subscribedUserBridge.addOwnerPermission(shops[castro_ID].ID,ACEFounder.name,u1.name,"close shop");
         assertFalse(result);
 
-        List<String> permissions = castroFounder.getPermissions(shops[ACE_ID].ID);
+        boolean exitResult = subscribedUserBridge.exit(ACEFounder.name);
+        assertTrue(exitResult);
+
+        newGuest = subscribedUserBridge.visit();
+        u1 = subscribedUserBridge.login(newGuest.name, new RegistrationInfo(userNames[0], passwords[0]));
+
+        List<String> permissions = u1.getPermissions(shops[castro_ID].ID);
         for (String permission:
-             defaultManagerPermissions) {
+             defaultOwnerPermissions) {
             assertTrue(permissions.contains(permission));
         }
+        assertEquals(defaultOwnerPermissions.length, permissions.size());
 
-        boolean exitResult = subscribedUserBridge.exit(newGuest.ID);
+        exitResult = subscribedUserBridge.exit(u1.name);
         assertTrue(exitResult);
     }
 
@@ -909,8 +994,8 @@ public class SubscribedUserTests extends UserTests {
         Guest g = subscribedUserBridge.visit();
         SubscribedUser u = subscribedUserBridge.login(g.ID,new RegistrationInfo(u1.username, u1.password));
 
-        Shop s = subscribedUserBridge.openShop(u.ID,"new Shop","gaming");
-        subscribedUserBridge.addProductToShop(u.ID,s.ID,new Product("x-box","microsoft"),4,4.3,10,2000);
+        Shop s = subscribedUserBridge.openShop(u.name,"new Shop","gaming");
+        subscribedUserBridge.addProductToShop(u.name,s.ID,new Product("x-box","microsoft"),4,4.3,10,2000);
 
         FounderDeletesProduct founderDeletesProduct = new FounderDeletesProduct(s.ID,4,u);
         UserBuysProduct userBuysProduct = new UserBuysProduct(s.ID,4,u2);
@@ -927,7 +1012,7 @@ public class SubscribedUserTests extends UserTests {
         assertTrue(purchaseStatus || productRemovalStatus);
 
         ProductInShop pis = subscribedUserBridge.searchProductInShop(4,s.ID);
-        ShoppingCart cart = subscribedUserBridge.checkCart(u2.ID);
+        ShoppingCart cart = subscribedUserBridge.checkCart(u2.name);
         assertNotNull(cart);
 
         ShopBasket basket = cart.getShopBasket(s.ID);
@@ -944,15 +1029,15 @@ public class SubscribedUserTests extends UserTests {
             assertEquals(1,basket.numOfProducts());
         }
 
-        boolean exit = subscribedUserBridge.exit(u.ID);
+        boolean exit = subscribedUserBridge.exit(u.name);
         assertTrue(exit);
 
-        exit = subscribedUserBridge.exit(u2.ID);
+        exit = subscribedUserBridge.exit(u2.name);
         assertTrue(exit);
     }
 
     public User enter() {
         Guest g = subscribedUserBridge.visit();
-        return subscribedUserBridge.login(g.ID,new RegistrationInfo( userNames[0].concat("0"),passwords[0].concat("0")));
+        return subscribedUserBridge.login(g.name,new RegistrationInfo( userNames[0].concat("0"),passwords[0].concat("0")));
     }
 }

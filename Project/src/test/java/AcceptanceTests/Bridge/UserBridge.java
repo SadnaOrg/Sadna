@@ -10,11 +10,11 @@ public interface UserBridge {
 
     Guest visit(); // login system
 
-    SubscribedUser login(int guestID, RegistrationInfo info); // use getUserName in the adapter
+    SubscribedUser login(String guestName,RegistrationInfo info); // do a login, then getUserInfo
 
-    SubscribedUser register(int guestID, RegistrationInfo info); // registerToSystem
+    boolean register(RegistrationInfo info); // registerToSystem
 
-    boolean exit(int userID); // logout system
+    boolean exit(String username); // logout system
 
     List<Shop> getShopsInfo(ShopFilter shopFilter); // searchProducts
 
@@ -24,13 +24,14 @@ public interface UserBridge {
 
     List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter); // searchProducts
 
-    boolean addProductToCart(int userID,int shopID,int productID, int quantity); // saveProducts
+    boolean addProductToCart(String username,int shopID,int productID, int quantity); // saveProducts
 
-    ShoppingCart checkCart(int userID); // showCart
+    ShoppingCart checkCart(String username); // showCart
 
-    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities); // removeProduct, editProductQuantity
+    boolean updateCart(String username,int[] productsIDS, int[] shopsIDS,int[] quantities); // removeProduct, editProductQuantity
 
-    boolean purchaseCart(int userID); //purchaseCartFromShop
+    boolean purchaseCart(String username); //purchaseCartFromShop
 
     ProductInShop searchProductInShop(int productID, int shopID); // searchProducts
+
 }

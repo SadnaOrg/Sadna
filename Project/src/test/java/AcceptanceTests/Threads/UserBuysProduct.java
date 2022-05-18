@@ -26,9 +26,9 @@ public class UserBuysProduct extends Thread{
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         Guest g = bridge.visit();
-        User user = bridge.login(g.ID,new RegistrationInfo(subscribedUser.username, subscribedUser.password));
+        User user = bridge.login(g.name,new RegistrationInfo(subscribedUser.name, subscribedUser.password));
 
-        status = bridge.addProductToCart(user.ID,shopID,productID,1);
+        status = bridge.addProductToCart(user.name,shopID,productID,1);
 
     }
 }

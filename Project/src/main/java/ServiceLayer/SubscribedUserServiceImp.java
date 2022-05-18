@@ -1,13 +1,15 @@
 package ServiceLayer;
 
-import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.SystemManager;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.SystemManager;
 import ServiceLayer.Objects.AdministratorInfo;
+import ServiceLayer.Objects.User;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
+import ServiceLayer.interfaces.UserService;
 
 import java.util.Collection;
 
@@ -15,6 +17,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     SubscribedUser currUser;
 
     public SubscribedUserServiceImp(SubscribedUser currUser) {
+        super(currUser);
         setCurrUser(currUser);
     }
 
@@ -25,8 +28,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Result logout(){///TODO: IMPLEMENT
-        return ifUserNotNullRes(()->facade.logout(currUser.getUserName()),"logout");
+    public Response<UserService> logout() {
+        if (currUser != null)
+            return Response.tryMakeResponse(()-> facade.logout(currUser.getUserName()),"logout " ,"incorrect user name or password").safe(UserServiceImp::new);
+        return Response.makeResponse(null, "not logged in");
     }
 
     @Override
@@ -37,8 +42,8 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Shop> openShop(String name){
-        return ifUserNotNullRes(()->new Shop(facade.openShop(currUser,name)),"open shop succeeded");
+    public Response<Shop> openShop(String name, String desc){
+        return ifUserNotNullRes(()->new Shop(facade.openShop(currUser,name, desc)),"open shop succeeded");
     }
 
     @Override
@@ -71,13 +76,63 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNullRes(()->  new PurchaseHistoryInfo(facade.getHistoryInfo(currUser,shop)), currUser.getUserName()+" get history info");
     }
 
+    @Override
+    public Result updateProductQuantity(int shopID, int productID, int newQuantity){
+        return ifUserNotNullStockManagement(() -> facade.updateProductQuantity(currUser.getUserName(),shopID,productID,newQuantity), "update product quantity");
+    }
+
+    @Override
+    public Result updateProductPrice(int shopID, int productID, double newPrice) {
+        return ifUserNotNullStockManagement(() -> facade.updateProductPrice(currUser.getUserName(),shopID,productID,newPrice), "update product price");
+    }
+
+    @Override
+    public Result updateProductDescription(int shopID, int productID, String Desc) {
+        return ifUserNotNullStockManagement(() -> facade.updateProductDescription(currUser.getUserName(),shopID,productID,Desc), "update product description");
+    }
+
+    @Override
+    public Result updateProductName(int shopID, int productID, String newName) {
+        return ifUserNotNullStockManagement(() -> facade.updateProductName(currUser.getUserName(),shopID,productID,newName), "update product name");
+    }
+
+
+    @Override
+    public Result deleteProductFromShop(int shopID, int productID) {
+        return ifUserNotNullStockManagement(() -> facade.removeProduct(shopID,productID,currUser), "remove product from shop");
+    }
+
+    @Override
+    public Result addProductToShop(int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price){
+        return ifUserNotNullStockManagement(() -> facade.addProductToShop(currUser.getUserName(), shopID,name,manufacturer,desc,productID,quantity,price),
+                "adding product to shop");
+    }
+
+    @Override
+    public Result reopenShop(int shopID) {
+        return ifUserNotNull(() -> facade.reopenShop(currUser.getUserName(),shopID),"reopen shop", "you aren't a founder!");
+    }
+
+    public Response<User> getUserInfo(){
+        return ifUserNotNullRes(() -> new ServiceLayer.Objects.SubscribedUser(currUser), "getting user info");
+    }
+
     protected void setCurrUser(SubscribedUser currUser) {
         this.currUser = currUser;
         super.currUser = currUser;
     }
 
+    private Result ifUserNotNull(MySupplier<Boolean> s,String eventName, String errMsg){
+        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,errMsg);
+    }
+
     private Result ifUserNotNull(MySupplier<Boolean> s,String eventName){
         return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
+    }
+
+    private Result ifUserNotNullStockManagement(MySupplier<Boolean> s,String eventName){
+        String msg = "Failed to " + eventName;
+        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,msg);
     }
 
     private Result ifUserNull(MySupplier<Boolean> s,String eventName){

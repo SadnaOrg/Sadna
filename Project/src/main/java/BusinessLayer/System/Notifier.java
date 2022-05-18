@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.System;
+package BusinessLayer.System;
 
 import java.util.concurrent.ConcurrentHashMap;
 

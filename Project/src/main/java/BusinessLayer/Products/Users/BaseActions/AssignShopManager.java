@@ -1,9 +1,9 @@
-package BusinessLayer.Users.BaseActions;
+package BusinessLayer.Products.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopManager;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Users.ShopAdministrator;
+import BusinessLayer.Products.Users.ShopManager;
+import BusinessLayer.Products.Users.SubscribedUser;
 
 public class AssignShopManager extends BaseAction {
     private Shop s;

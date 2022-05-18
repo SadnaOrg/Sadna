@@ -1,4 +1,4 @@
-package main.java.BusinessLayer.Shops;
+package BusinessLayer.Shops;
 
 import java.util.ArrayList;
 import java.util.Collection;

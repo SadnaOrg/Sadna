@@ -12,8 +12,8 @@ public class ACEFounderPurchase extends Thread{
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         int castroID = UserTests.shops[UserTests.castro_ID].ID;
         Guest g = bridge.visit();
-        User ACEFounder = bridge.login(g.ID,new RegistrationInfo("ACEFounder","ACE_rocks"));
+        User ACEFounder = bridge.login(g.name,new RegistrationInfo("ACEFounder","ACE_rocks"));
 
-        bridge.addProductToCart(ACEFounder.ID,castroID,2,21);
+        bridge.addProductToCart(ACEFounder.name,castroID,2,21);
     }
 }

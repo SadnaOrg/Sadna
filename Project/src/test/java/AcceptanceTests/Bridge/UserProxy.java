@@ -5,29 +5,23 @@ import AcceptanceTests.DataObjects.*;
 import java.util.List;
 
 public class UserProxy implements UserBridge{
-
-    protected UserBridge real = null;
-    protected ShopsBridge shopsBridge = null;
-
-    public void setRealBridge(UserBridge real) {
-        this.real = real;
-    }
-
     @Override
     public Guest visit() {
         return null;
     }
 
     @Override
-    public SubscribedUser login(int guestID, RegistrationInfo info){return null;} // getUserName
-
-    @Override
-    public SubscribedUser register(int guestID, RegistrationInfo info) {
+    public SubscribedUser login(String guestName,RegistrationInfo info) {
         return null;
     }
 
     @Override
-    public boolean exit(int userID) {
+    public boolean register(RegistrationInfo info) {
+        return false;
+    }
+
+    @Override
+    public boolean exit(String username) {
         return false;
     }
 
@@ -52,22 +46,22 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public boolean addProductToCart(int userID,int shopID,int productID, int quantity) {
+    public boolean addProductToCart(String username, int shopID, int productID, int quantity) {
         return false;
     }
 
     @Override
-    public ShoppingCart checkCart(int userID) {
+    public ShoppingCart checkCart(String username) {
         return null;
     }
 
     @Override
-    public boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities) {
+    public boolean updateCart(String username, int[] productsIDS, int[] shopsIDS, int[] quantities) {
         return false;
     }
 
     @Override
-    public boolean purchaseCart(int userID) {
+    public boolean purchaseCart(String username) {
         return false;
     }
 

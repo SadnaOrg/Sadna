@@ -12,8 +12,8 @@ public class MegaSportFounderPurchase extends Thread{
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         int castroID = UserTests.shops[UserTests.castro_ID].ID;
         Guest g = bridge.visit();
-        User MegaSportFounder = bridge.login(g.ID,new RegistrationInfo("castroFounder","castro_rocks"));
+        User MegaSportFounder = bridge.login(g.name,new RegistrationInfo("castroFounder","castro_rocks"));
 
-        bridge.addProductToCart(MegaSportFounder.ID,castroID,2,10);
+        bridge.addProductToCart(MegaSportFounder.name,castroID,2,10);
     }
 }

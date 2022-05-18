@@ -1,6 +1,4 @@
-package main.java.BusinessLayer.System;
-
-import main.java.BusinessLayer.Shops.Purchase;
+package BusinessLayer.System;
 
 import java.util.concurrent.ConcurrentHashMap;
 

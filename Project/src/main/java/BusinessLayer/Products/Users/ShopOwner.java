@@ -1,13 +1,11 @@
-package main.java.BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
-import main.java.BusinessLayer.Shops.Shop;
-import main.java.BusinessLayer.Users.BaseActions.BaseActionType;
-import main.java.BusinessLayer.Users.BaseActions.CloseShop;
-import main.java.BusinessLayer.Users.BaseActions.ReOpenShop;
-import main.java.BusinessLayer.Users.BaseActions.RolesInfo;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Products.Users.BaseActions.CloseShop;
+
 
 import javax.naming.NoPermissionException;
-import java.util.Collection;
 
 public class ShopOwner extends ShopAdministrator{
     private boolean founder;
@@ -33,13 +31,6 @@ public class ShopOwner extends ShopAdministrator{
         }
         else throw new NoPermissionException("only the founder can close the shop");
     }
-
-    public boolean reOpenShop() throws Exception {
-        if(founder)
-            return ((ReOpenShop)action.get(BaseActionType.REOPEN_SHOP)).act();
-        else throw new NoPermissionException();
-    }
-
 
     public void reOpenShop() throws NoPermissionException {
         if(isFounder())

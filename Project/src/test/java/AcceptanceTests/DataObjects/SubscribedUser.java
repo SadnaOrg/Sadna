@@ -5,15 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 public class SubscribedUser extends User{
-    public String username;
-    public String password;
     public Map<Integer,Appointment> appointments;
     public Map<Integer,List<String>> shopPermissions;
 
-    public SubscribedUser(int ID,String username,String password){
-        this.ID = ID;
-        this.username = username;
-        this.password = password;
+    public SubscribedUser(String username){
+        this.name = username;
         this.appointments = new HashMap<>();
         this.shopPermissions = new HashMap<>();
     }
