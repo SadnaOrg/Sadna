@@ -62,48 +62,53 @@ public class SubscribedUser extends User {
     }
 
     public synchronized boolean assignShopManager(int shop,SubscribedUser toAssign) throws NoPermissionException {
-        if(shopAdministrator.containsKey(shop)){
-            return shopAdministrator.get(shop).AssignShopManager(toAssign);
-        }else
-            throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shop);
+
+        return shopAdministrator.get(shop).AssignShopManager(toAssign);
+
     }
 
     public synchronized boolean assignShopOwner(int shop, SubscribedUser toAssign) throws NoPermissionException {
-        if(shopAdministrator.containsKey(shop)){
-            return shopAdministrator.get(shop).AssignShopOwner(toAssign);
-        }else
-            throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shop);
+
+        return shopAdministrator.get(shop).AssignShopOwner(toAssign);
+
     }
 
     public synchronized boolean changeManagerPermission(int shop, SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
-        if(shopAdministrator.containsKey(shop)){
-            return shopAdministrator.get(shop).ChangeManagerPermission(toAssign, types);
-        }else
-            throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shop);
+
+        return shopAdministrator.get(shop).ChangeManagerPermission(toAssign, types);
+
     }
 
     public boolean closeShop(int shopId) throws NoPermissionException {
-        if(shopAdministrator.getOrDefault(shopId,null) instanceof ShopOwner){
-           return  ((ShopOwner)shopAdministrator.get(shopId)).closeShop();
-        }
-        else throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shopId);
+
+        return  ((ShopOwner)shopAdministrator.get(shopId)).closeShop();
+
     }
 
     public Collection<AdministratorInfo> getAdministratorInfo(int shopId) throws NoPermissionException {
-        if(shopAdministrator.containsKey(shopId)){
-            return shopAdministrator.get(shopId).getAdministratorInfo();
-        }
-        else throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).getAdministratorInfo();
+
     }
 
     public Collection<PurchaseHistory> getHistoryInfo(int shopId) throws NoPermissionException {
-        if(shopAdministrator.containsKey(shopId)){
-            return shopAdministrator.get(shopId).getHistoryInfo();
-        }
-        else throw new NoPermissionException("you're not the shop Administrator");
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getHistoryInfo();
+
     }
 
+    private void validatePermission(int shopId) throws NoPermissionException {
+        if(!is_login)
+            throw new NoPermissionException("user mast be logged in ");
 
+        if(!shopAdministrator.containsKey(shopId))
+         throw new NoPermissionException("you're not the shop Administrator");
+    }
 
 // Java program to calculate SHA hash value
 
@@ -144,8 +149,4 @@ public class SubscribedUser extends User {
             return toHexString(getSHA(s));
         }
     }
-
-
-
-
 }

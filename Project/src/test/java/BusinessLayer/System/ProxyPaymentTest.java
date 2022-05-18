@@ -4,12 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class ProxyPaymentTest {
 
     Payment p = null;
-    PaymentMethod method = new PaymentMethod("4580123456789012", new AtomicInteger(123), new AtomicInteger(11), new AtomicInteger(2026));
+    PaymentMethod method = new PaymentMethod("4580123456789012", 123, 11, 2026);
 
     @Before
     public void setUp() {
@@ -35,31 +33,31 @@ public class ProxyPaymentTest {
 
     @Test
     public void testPayFailureCardInvalid(){
-        PaymentMethod method = new PaymentMethod("1246", new AtomicInteger(123), new AtomicInteger(4), new AtomicInteger(2032));
+        PaymentMethod method = new PaymentMethod("1246", 123, 4, 2032);
         Assert.assertFalse(p.pay(100, method));
     }
 
     @Test
     public void testPayFailureCVVInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", new AtomicInteger(10), new AtomicInteger(4), new AtomicInteger(2032));
+        PaymentMethod method = new PaymentMethod("4580123456789012", 10, 4, 2032);
         Assert.assertFalse(p.pay(100, method));
     }
 
     @Test
     public void testPayFailureExpiryMonthInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", new AtomicInteger(123), new AtomicInteger(16), new AtomicInteger(1999));
+        PaymentMethod method = new PaymentMethod("4580123456789012", 123, 16, 1999);
         Assert.assertFalse(p.pay(100, method));
     }
 
     @Test
     public void testPayFailureExpiryYearInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", new AtomicInteger(123), new AtomicInteger(4), new AtomicInteger(1999));
+        PaymentMethod method = new PaymentMethod("4580123456789012", 123, 4, 1999);
         Assert.assertFalse(p.pay(100, method));
     }
 
     @Test
     public void testPayFailureExpiryYearValidButMonthInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", new AtomicInteger(123), new AtomicInteger(1), new AtomicInteger(2022));
+        PaymentMethod method = new PaymentMethod("4580123456789012", 123, 1, 2022);
         Assert.assertFalse(p.pay(100, method));
     }
 }

@@ -71,7 +71,7 @@ public class ShopController {
                 {
                     PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.get(shopid), user);
                     purchaseHistory.makePurchase();
-                    shops.get(shopid).getPurchaseHistory().add(purchaseHistory);
+                    shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
@@ -106,7 +106,8 @@ public class ShopController {
         ConcurrentHashMap<Integer,ShopInfo> shopsInfo= new ConcurrentHashMap<>();
         for (Shop s:shops.values())
         {
-            shopsInfo.put(s.getId(),new ShopInfo(s));
+            if (s.isOpen())
+                shopsInfo.put(s.getId(),new ShopInfo(s));
         }
         return shopsInfo;
     }

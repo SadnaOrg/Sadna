@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
-import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Users.Basket;
+
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 

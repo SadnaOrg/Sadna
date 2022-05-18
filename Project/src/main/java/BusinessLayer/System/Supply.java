@@ -1,5 +1,7 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Products.ProductInfo;
+
 public interface Supply {
-    boolean checkSupply(PackageInfo pack);
+    boolean checkSupply(ProductInfo pack);
 }

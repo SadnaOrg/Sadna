@@ -68,10 +68,24 @@ public class PurchaseHistoryController {
         return relevantinfo;
     }
 
-    public PurchaseHistory createPurchaseHistory(Shop shop, String user)
-    {
-        PurchaseHistory purchaseHistory= new PurchaseHistory(shop , user);
-        DataOnPurchases.add(purchaseHistory);
+    public PurchaseHistory createPurchaseHistory(Shop shop, String user){
+        PurchaseHistory purchaseHistory;
+        if(getPurchaseInfo(shop.getId(), user).size() == 0) {
+            purchaseHistory = new PurchaseHistory(shop, user);
+            DataOnPurchases.add(purchaseHistory);
+        }
+        else{
+            purchaseHistory = DataOnPurchases.stream().toList().get(0);
+        }
         return purchaseHistory;
+    }
+
+    //for tests only
+    public void emptyDataOnPurchases(){
+        DataOnPurchases = new ArrayList<>();
+    }
+
+    public void clearForTestsOnly() {
+        DataOnPurchases.clear();
     }
 }

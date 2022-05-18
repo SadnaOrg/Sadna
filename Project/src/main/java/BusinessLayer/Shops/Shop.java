@@ -16,15 +16,15 @@ import java.util.stream.Collectors;
 
 public class Shop {
 
-    private int id;
+    private final int id;
     private String name;
     private String description;
     private State state = State.OPEN;
     private ShopOwner founder;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
-    private Collection<PurchaseHistory> purchaseHistory= new ArrayList<>();
-    private Map<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
@@ -33,6 +33,7 @@ public class Shop {
         this.description = description;
         this.founder = new ShopOwner(this, founder, true);
         shopAdministrators.put(founder.getName(),this.founder);
+        founder.addAdministrator(id, this.founder);
     }
 
     public synchronized boolean close() {
@@ -43,13 +44,13 @@ public class Shop {
         return false;
     }
 
-    public void open() {
-        if(state == State.OPEN){
-         throw new IllegalStateException("already open!");
+    public synchronized boolean open() {
+        if(state!=State.OPEN){
+            state=State.OPEN;
+            return true;
         }
-        state = State.OPEN;
+        return false;
     }
-
 
     public enum State {
         OPEN,
@@ -79,6 +80,7 @@ public class Shop {
                 Product old_product = products.get(new_product.getID());
                 old_product.setPrice(new_product.getPrice());
                 old_product.setQuantity(new_product.getQuantity());
+                old_product.setDescription(new_product.getDescription());
                 old_product.setName(new_product.getName());
             }
             else
@@ -131,8 +133,8 @@ public class Shop {
         int totalPrice = 0;
         if (state == State.OPEN) {
             for (int productID : usersBaskets.get(user).getProducts().keySet()) {
-                int quantity = usersBaskets.get(user).getProducts().get(productID);
                 if (products.containsKey(productID)) {
+                    int quantity = usersBaskets.get(user).getProducts().get(productID);
                     Product curr_product = products.get(productID);
                     double currentPrice = curr_product.purchaseProduct(quantity);
                     if (currentPrice > 0.0)
@@ -221,7 +223,11 @@ public class Shop {
 
 
     public Collection<PurchaseHistory> getPurchaseHistory() {
-        return purchaseHistory;
+        return purchaseHistory.values();
+    }
+
+    public void addPurchaseHistory(String username, PurchaseHistory ph){
+        purchaseHistory.put(username, ph);
     }
   
     public Collection<ShopAdministrator> getShopAdministrators() {
