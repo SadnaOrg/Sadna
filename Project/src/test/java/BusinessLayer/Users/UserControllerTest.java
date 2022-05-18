@@ -23,7 +23,7 @@ public class UserControllerTest {
 
     private Shop s1;
     private Product p1;
-    private final SubscribedUser founder = new SubscribedUser("User1", "Pass1");
+    private SubscribedUser founder;
     private SubscribedUser loggedUser;
     private User user;
 
@@ -41,6 +41,7 @@ public class UserControllerTest {
         productID = rand.nextInt();
         int userID = rand.nextInt();
 
+        createFounder();
         p1 = createProduct();
         s1 = createShop();
 
@@ -202,6 +203,13 @@ public class UserControllerTest {
 
     private User createUser() {
         return uc.loginSystem();
+    }
+
+    private void createFounder() {
+        String username = "FounderName" + shopID;
+        String password = "FounderPass" + shopID;
+        uc.registerToSystem(username, password);
+        founder = uc.login(username, password, null);
     }
 
     public Shop createShop() {
