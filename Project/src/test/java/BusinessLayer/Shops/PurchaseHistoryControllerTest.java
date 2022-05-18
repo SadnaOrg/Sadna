@@ -4,14 +4,12 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PurchaseHistoryControllerTest {
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();

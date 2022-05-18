@@ -14,7 +14,7 @@ public enum BaseActionType {
     CHANGE_MANAGER_PERMISSION(7),
     CLOSE_SHOP(9),
     ROLE_INFO(11),
-    HISTORY_INFO(13);
+    HISTORY_INFO(13), REOPEN_SHOP(10);
 
     BaseActionType(int i) {
     }
@@ -29,6 +29,7 @@ public enum BaseActionType {
             case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop, user);
             case SET_PURCHASE_POLICY -> new SetPurchasePolicy();
             case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission(shop, user);
+            case REOPEN_SHOP -> new ReOpenShop(shop, user);
         };
     }
 }

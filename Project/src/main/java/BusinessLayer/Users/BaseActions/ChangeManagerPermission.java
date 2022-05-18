@@ -7,7 +7,9 @@ import BusinessLayer.Users.ShopManager;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 
+import javax.naming.NoPermissionException;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ChangeManagerPermission extends BaseAction {
@@ -19,14 +21,22 @@ public class ChangeManagerPermission extends BaseAction {
         this.u = u;
     }
 
-    public synchronized boolean act(SubscribedUser userToAssign, Collection<BaseActionType> types){
+    public synchronized boolean act(SubscribedUser userToAssign, Collection<BaseActionType> types) throws NoPermissionException {
         ShopAdministrator admin = userToAssign.getAdministrator(s.getId());
-        if(admin instanceof ShopManager && u.getAdministrator(s.getId()) instanceof ShopOwner){
-            admin.emptyActions();
-            for(BaseActionType type : types)
-                admin.AddAction(type);
-            return true;
+        if (!(admin instanceof ShopManager)){
+            throw new IllegalStateException("can only change permissions of a manager");
         }
-        return false;
+        ShopAdministrator owner= u.getAdministrator(s.getId());
+        if (!(owner instanceof ShopOwner))
+            throw new IllegalStateException("only owners can change managers permissions!");
+
+        ConcurrentLinkedDeque<ShopAdministrator> appoints = owner.getAppoints();
+        if (!appoints.contains(admin))
+            throw new NoPermissionException("can't change permissions of someone you did appoint!");
+
+        admin.emptyActions();
+        for(BaseActionType type : types)
+            admin.AddAction(type);
+        return true;
     }
 }
