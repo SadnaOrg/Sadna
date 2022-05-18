@@ -14,6 +14,10 @@ public class SubscribedUser extends User{
         this.shopPermissions = new HashMap<>();
     }
 
+    public SubscribedUser(ServiceLayer.Objects.SubscribedUser user){
+
+    }
+
 
     public List<String> getPermissions(int shopID) {
         return shopPermissions.getOrDefault(shopID,null);

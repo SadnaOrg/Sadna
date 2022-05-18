@@ -17,4 +17,8 @@ public class Shop {
         this.desc = desc;
         products = new HashMap<>();
     }
+
+    public Shop(ServiceLayer.Objects.Shop shop){
+
+    }
 }

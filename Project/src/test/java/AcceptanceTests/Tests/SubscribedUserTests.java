@@ -3,12 +3,11 @@ package AcceptanceTests.Tests;
 import AcceptanceTests.Bridge.SubscribedUserBridge;
 import AcceptanceTests.Bridge.SubscribedUserProxy;
 import AcceptanceTests.Bridge.UserProxy;
+import AcceptanceTests.DataObjects.*;
 import AcceptanceTests.Threads.FounderAppointManager;
 import AcceptanceTests.Threads.FounderDeletesProduct;
 import AcceptanceTests.Threads.OwnerAppointManager;
 import AcceptanceTests.Threads.UserBuysProduct;
-
-import AcceptanceTests.DataObjects.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -26,6 +25,7 @@ import static org.junit.Assert.*;
 // close supersal after openShop!
 // look at double owner appointment!
 // look at owner / manager appointment for teardown!
+
 public class SubscribedUserTests extends UserTests {
     private static final SubscribedUserBridge subscribedUserBridge = new SubscribedUserProxy((UserProxy) UserTests.getUserBridge());
 
@@ -75,10 +75,10 @@ public class SubscribedUserTests extends UserTests {
         RegistrationInfo u2Reg = new RegistrationInfo(userNames[1],passwords[1]);
         RegistrationInfo u3Reg = new RegistrationInfo(userNames[2],passwords[2]);
         RegistrationInfo supersalReg= new RegistrationInfo(userNames[3], passwords[3]);
-        subscribedUserBridge.register(u1Reg);
-        subscribedUserBridge.register(u2Reg);
-        subscribedUserBridge.register(u3Reg);
-        subscribedUserBridge.register(supersalReg);
+        subscribedUserBridge.register(setUpU1.name,u1Reg);
+        subscribedUserBridge.register(setUpU2.name,u2Reg);
+        subscribedUserBridge.register(setUpU3.name,u3Reg);
+        subscribedUserBridge.register(setUpSupersal.name,supersalReg);
 
         u1 = subscribedUserBridge.login(setUpU1.getName(),u1Reg);
         u2 = subscribedUserBridge.login(setUpU2.getName(), u2Reg);
@@ -106,7 +106,7 @@ public class SubscribedUserTests extends UserTests {
         String testPassword = "testExit";
 
         Guest newGuest = subscribedUserBridge.visit();
-        userBridge.register(new RegistrationInfo(testUserName, testPassword));
+        userBridge.register(newGuest.name,new RegistrationInfo(testUserName, testPassword));
         SubscribedUser u = userBridge.login(newGuest.name, new RegistrationInfo(testUserName, testPassword));
         boolean added = subscribedUserBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
         assertTrue(added);
@@ -126,7 +126,7 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(10,quantity);
 
         //cancel side-effects
-        subscribedUserBridge.updateCart(u.name,new int[]{2},new int[]{shops[castro_ID].ID},new int[]{0});
+        subscribedUserBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
 
         boolean exitResult = subscribedUserBridge.exit(u.name);
         assertTrue(exitResult);
@@ -136,7 +136,7 @@ public class SubscribedUserTests extends UserTests {
     @Test
     public void testEnterNewUserSuccess() {
         Guest newGuest = subscribedUserBridge.visit();
-        boolean res = subscribedUserBridge.register(new RegistrationInfo("newName","newPassword"));
+        boolean res = subscribedUserBridge.register(newGuest.name,new RegistrationInfo("newName","newPassword"));
         assertTrue(res);
         SubscribedUser u = subscribedUserBridge.login(newGuest.name, new RegistrationInfo("newName","newPassword"));
         assertNotNull(u);
@@ -149,7 +149,7 @@ public class SubscribedUserTests extends UserTests {
     @Test
     public void testEnterNewUserFailure() {
         Guest newGuest = subscribedUserBridge.visit();
-        boolean res = subscribedUserBridge.register(new RegistrationInfo(u1.name, passwords[0]));
+        boolean res = subscribedUserBridge.register(newGuest.name,new RegistrationInfo(u1.name, passwords[0]));
         assertFalse(res);
         res = subscribedUserBridge.exit(newGuest.name);
         assertTrue(res);

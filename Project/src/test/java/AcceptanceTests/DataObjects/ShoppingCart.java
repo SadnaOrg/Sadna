@@ -10,6 +10,10 @@ public class ShoppingCart {
         this.baskets = new HashMap<>();
     }
 
+    public ShoppingCart(ServiceLayer.Objects.Cart cart){
+
+    }
+
     public int numOfProductsInCart() {
         int num = 0;
         for (ShopBasket b:

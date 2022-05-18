@@ -2,16 +2,20 @@ package AcceptanceTests.Tests;
 
 import AcceptanceTests.Bridge.*;
 import AcceptanceTests.DataObjects.*;
-// TODO: adapter - data classes in service layer and AT objects
+// TODO: ADAPTER - DATA CLASSES IN SERVICE AND AT OBJECTS
+// TODO: ADD SHOP, ADMIN AND OWNER REMOVAL
+// TODO: REPRESENTATION OF FILTERS
+// TODO: ENUMS FOR PERMISSIONS
+// TODO: NOTIFICATION TEST
+
 // TODO: payment failures
 // TODO: purchase with payment details
 // TODO: fix enter - subscribed user tests
-// TODO: ADD SHOP, ADMIN AND OWNER REMOVAL
+
 // This class is used for setting up data for tests
 public abstract class ProjectTests {
 
     protected static UserBridge userBridge;
-    protected static ShopsBridge shopsBridge;
     protected static SystemBridge systemBridge;
 
     protected static final ShopFilter [] shopFilters = setUpShopFilters();
@@ -54,9 +58,9 @@ public abstract class ProjectTests {
         RegistrationInfo castro = new RegistrationInfo("castroFounder","castro_rocks");
         RegistrationInfo megaSport = new RegistrationInfo("MegaSportFounder","MegaSport_rocks");
 
-        userBridge.register(ace);
-        userBridge.register(castro);
-        userBridge.register(megaSport);
+        userBridge.register(ace_guest.name,ace);
+        userBridge.register(castro_guest.name,castro);
+        userBridge.register(megasport_guest.name, megaSport);
 
         ACEFounder = userBridge.login(ace_guest.getName(),ace);
         castroFounder = userBridge.login(castro_guest.getName(), castro);

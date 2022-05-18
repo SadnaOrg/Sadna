@@ -12,7 +12,7 @@ public interface UserBridge {
 
     SubscribedUser login(String guestName,RegistrationInfo info); // do a login, then getUserInfo
 
-    boolean register(RegistrationInfo info); // registerToSystem
+    boolean register(String guestname,RegistrationInfo info); // registerToSystem
 
     boolean exit(String username); // logout system
 
@@ -28,9 +28,9 @@ public interface UserBridge {
 
     ShoppingCart checkCart(String username); // showCart
 
-    boolean updateCart(String username,int[] productsIDS, int[] shopsIDS,int[] quantities); // removeProduct, editProductQuantity
+    boolean updateCart(String username,int productsID, int shopsID,int quantity); // removeProduct, editProductQuantity
 
-    boolean purchaseCart(String username); //purchaseCartFromShop
+    boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay); //purchaseCartFromShop
 
     ProductInShop searchProductInShop(int productID, int shopID); // searchProducts
 
