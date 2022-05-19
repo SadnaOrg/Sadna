@@ -1,18 +1,18 @@
-package BusinessLayer.System;
+package BusinessLayer.Notifications;
 
+import BusinessLayer.Notifications.Notification;
+import BusinessLayer.Notifications.ProxyNotification;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 
 import static org.mockito.Mockito.*;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class ProxyNotificationUnitTest {
     Notification notif;
     User user;
@@ -42,5 +42,20 @@ public class ProxyNotificationUnitTest {
             when(user.isLoggedIn()).thenReturn(true);
             Assert.assertTrue(notif.notifyUser("u1"));
         }
+    }
+
+    @Test
+    public void testAddUserSuccess(){
+        Assert.assertTrue(notif.add("u1"));
+    }
+
+    @Test
+    public void testRemoveUserSuccess(){
+        Assert.assertTrue(notif.remove("u1"));
+    }
+
+    @Test
+    public void testContainsUserSuccess(){
+        Assert.assertTrue(notif.contains("u1"));
     }
 }

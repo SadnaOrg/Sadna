@@ -1,11 +1,11 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Notifications.Notifier;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class System {
     private Notifier notifier;
@@ -51,6 +51,10 @@ public class System {
             supplySituation.put(idx, getExternSystem().checkSupply(packages.get(idx)));
         }
         return supplySituation;
+    }
+
+    public void notifyUser(String username){
+        notifier.notifyUser(username);
     }
 
     public PurchaseHistoryController getPurchaseHistoryServices() {
