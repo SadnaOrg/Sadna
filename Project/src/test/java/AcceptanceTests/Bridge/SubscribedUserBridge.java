@@ -25,15 +25,19 @@ public interface SubscribedUserBridge extends UserBridge {
 
     boolean closeShop(int shopID, String  userName); // closeShop
 
-    boolean addManagerPermission(int shopID, String giverName, String receiverName, String permission); // changeManagerPermission
+    boolean addManagerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission); // changeManagerPermission
 
-    boolean addOwnerPermission(int shopID, String giverName, String receiverName, String permission); //changeManagerPermission
+    boolean addOwnerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission); //changeManagerPermission
 
-    Map<Integer, Appointment> getShopAppointments(String requestingUsername, int shopID); // getAdministratorInfo
+    Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID); // getAdministratorInfo
 
-    Map<Integer, List<String>> getShopPermissions(String requestingUsername, int shopID); // getAdministratorInfo
+    Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID); // getAdministratorInfo
 
     boolean addProductToShop(String username,int shopID, Product product,int productID, int quantity, double price); // addProduct
 
     Shop openShop(String username, String name, String desc); // openShop
+
+    boolean removeAdmin(int shopID, String requesting, String toRemove); // removeAdmin
+
+    boolean removePermission(int shopID, String removing, String removeTo, SubscribedUser.Permission permission);
 }

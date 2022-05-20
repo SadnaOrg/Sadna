@@ -9,8 +9,8 @@ import javax.naming.NoPermissionException;
 
 public class ShopOwner extends ShopAdministrator{
     private boolean founder;
-    public ShopOwner(Shop s, SubscribedUser u, boolean founder) {
-        super(s, u);
+    public ShopOwner(Shop s, SubscribedUser u, String appointer,boolean founder) {
+        super(s, u, appointer);
         this.founder = founder;
         for (BaseActionType b:BaseActionType.values()) {
             if((b == BaseActionType.CLOSE_SHOP || b == BaseActionType.REOPEN_SHOP) && founder)
@@ -36,5 +36,14 @@ public class ShopOwner extends ShopAdministrator{
         if(isFounder())
             shop.open();
         else throw new NoPermissionException("only founder can reopen the shop!");
+    }
+
+    public AdministratorInfo getMyInfo() {
+        AdministratorInfo.ShopAdministratorType type;
+        if(isFounder())
+            type = AdministratorInfo.ShopAdministratorType.FOUNDER;
+        else
+            type = AdministratorInfo.ShopAdministratorType.OWNER;
+            return new AdministratorInfo(getUser().getUserName(),type,getActionsTypes(),shop.getId(),getAppointer());
     }
 }

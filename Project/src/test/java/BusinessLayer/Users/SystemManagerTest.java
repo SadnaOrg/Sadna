@@ -2,6 +2,10 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.SystemManager;
+import BusinessLayer.Products.Users.UserController;
 import BusinessLayer.Shops.*;
 import org.junit.After;
 import org.junit.Assert;
@@ -32,8 +36,8 @@ public class SystemManagerTest {
             uc.registerToSystem(founder.getUserName(), "I am not Guy Kishon");
             uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
-            basket.saveProducts(p1.getID(), 23);
-            s1 = new Shop(shopId, "name of shop", founder);
+            basket.saveProducts(p1.getID(), 23,p1.getPrice());
+            s1 = new Shop(shopId, "name of shop","testing shop", founder);
             s1.addBasket(buyer.getUserName(), basket);
             sc.addShop(s1);
             sc.addToPurchaseHistory(buyer.getUserName(), createPayments());

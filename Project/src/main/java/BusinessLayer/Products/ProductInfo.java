@@ -7,6 +7,7 @@ public class ProductInfo {
     private String productdescription;
     private double productprice;
     private int productquantity;
+    private String manufacturer;
 
 
     public ProductInfo(Product p)
@@ -16,6 +17,7 @@ public class ProductInfo {
         this.productdescription = p.getDescription();
         this.productprice = p.getPrice();
         this.productquantity = p.getQuantity();
+        this.manufacturer = p.getManufacturer();
     }
 
     public ProductInfo getProductInfo()
@@ -43,4 +45,6 @@ public class ProductInfo {
     public int getProductquantity() {
         return productquantity;
     }
+
+    public String getManufacturer(){return this.manufacturer;}
 }

@@ -3,8 +3,8 @@ package ServiceLayer;
 import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Products.Users.SubscribedUser;
 import BusinessLayer.Products.Users.SystemManager;
+import ServiceLayer.Objects.Administrator;
 import ServiceLayer.Objects.AdministratorInfo;
-import ServiceLayer.Objects.User;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.interfaces.SubscribedUserService;
@@ -57,7 +57,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Result changeManagerPermission(int shop, String userNameToAssign, Collection<BaseActionType> types){
+    public Result changeManagerPermission(int shop, String userNameToAssign, Collection<Integer> types){
         return ifUserNotNull(()->  facade.changeManagerPermission(currUser,shop,userNameToAssign,types),"change manager permission succeeded");
     }
 
@@ -113,8 +113,18 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNull(() -> facade.reopenShop(currUser.getUserName(),shopID),"reopen shop", "you aren't a founder!");
     }
 
-    public Response<User> getUserInfo(){
+    public Response<ServiceLayer.Objects.SubscribedUser> getSubscribedUserInfo(){
         return ifUserNotNullRes(() -> new ServiceLayer.Objects.SubscribedUser(currUser), "getting user info");
+    }
+
+    @Override
+    public Response<Administrator> getMyInfo(int shopID) {
+        return ifUserNotNullRes(() -> new Administrator(facade.getMyInfo(currUser.getUserName(),shopID)),"permission check");
+    }
+
+    @Override
+    public Result removeAdmin(int shopID, String toRemove) {
+        return ifUserNotNull(() -> facade.removeAdmin(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
 
     protected void setCurrUser(SubscribedUser currUser) {

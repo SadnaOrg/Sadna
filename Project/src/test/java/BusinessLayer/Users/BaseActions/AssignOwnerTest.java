@@ -46,15 +46,16 @@ public class AssignOwnerTest {
 
         when(user.getAdministrator(shop.getId())).thenReturn(m); // get admin object of user
         doNothing().when(m).addAppoint(newOwner); // add an appointment
+        when(user.getUserName()).thenReturn("appointer");
 
-        boolean res = assignment.act(assignee);
+        boolean res = assignment.act(assignee,user.getUserName());
         assertTrue(res);
     }
 
     @Test
     public void assignFailureAlreadyOwner(){
         when(assignee.getAdministrator(shop.getId())).thenReturn(newOwner);
-        boolean res = assignment.act(assignee);
+        boolean res = assignment.act(assignee,user.getUserName());
         assertFalse(res);
     }
 
@@ -63,7 +64,7 @@ public class AssignOwnerTest {
         when(shop.addAdministrator(eq(assignee.getUserName()),any(ShopAdministrator.class))).
                 thenThrow(new IllegalStateException("The shop is closed"));
         try{
-            assignment.act(assignee);
+            assignment.act(assignee,user.getUserName());
             fail("tried to assign an owner to a closed shop!");
         }
         catch (Exception ignored){
@@ -79,7 +80,7 @@ public class AssignOwnerTest {
         //doThrow(new IllegalStateException("cyclic appointment!")).when(m).addAppoint(newOwner);
 
         try {
-            assignment.act(assignee);
+            assignment.act(assignee,user.getUserName());
             fail("allowed cyclic appointment!");
         }
         catch (Exception ignored){

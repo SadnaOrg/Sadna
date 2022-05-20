@@ -3,11 +3,11 @@ package BusinessLayer;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Products.Users.*;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
-import ServiceLayer.Result;
+import ServiceLayer.Objects.Administrator;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -49,7 +49,7 @@ public class Facade{
         return userController.assignShopOwner(currUser,shop,userNameToAssign);
     }
 
-    public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<BaseActionType> types) throws NoPermissionException {
+    public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
         return userController.changeManagerPermission(currUser,shop,userNameToAssign,types);
     }
 
@@ -153,6 +153,14 @@ public class Facade{
 
     public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
         return userController.reopenShop(userName,shopID);
+    }
+
+    public AdministratorInfo getMyInfo(String userName, int shopID) {
+        return userController.getMyInfo(userName,shopID);
+    }
+
+    public Boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        return userController.removeAdmin(shopID,requesting,toRemove);
     }
 
     private static class FacadeHolder{

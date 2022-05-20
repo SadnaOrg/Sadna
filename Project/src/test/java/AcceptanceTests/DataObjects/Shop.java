@@ -19,6 +19,14 @@ public class Shop {
     }
 
     public Shop(ServiceLayer.Objects.Shop shop){
-
+        this.name = shop.shopName();
+        this.desc = shop.shopDescription();
+        this.ID = shop.shopId();
+        this.products = new HashMap<>();
+        for (ServiceLayer.Objects.Product product:
+             shop.shopProducts()) {
+            ProductInShop p = new ProductInShop(product);
+            products.put(p.ID,p);
+        }
     }
 }

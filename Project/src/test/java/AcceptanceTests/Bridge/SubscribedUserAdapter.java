@@ -1,15 +1,16 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
+import ServiceLayer.BaseActionType;
+import ServiceLayer.Objects.Administrator;
+import ServiceLayer.Objects.AdministratorInfo;
 import ServiceLayer.Objects.User;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
 
@@ -115,32 +116,59 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public boolean addManagerPermission(int shopID, String giverName, String receiverName, String permission) {
-        if(subscribedUsers.containsKey(giverName)){
-            SubscribedUserService service = subscribedUsers.get(giverName);
-            Result added = service.changeManagerPermission(shopID,receiverName,null);
-            return added.isOk();
+    public boolean addManagerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
+        return addAdminPermission(shopID,giverName,receiverName,permission);
+    }
+
+    @Override
+    public boolean addOwnerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
+        return addAdminPermission(shopID,giverName,receiverName,permission);
+    }
+
+    @Override
+    public Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID) {
+       if(subscribedUsers.containsKey(requestingUsername)){
+           SubscribedUserService service = subscribedUsers.get(requestingUsername);
+           Response<AdministratorInfo> infoResponse = service.getAdministratorInfo(shopID);
+           if(infoResponse.isOk()){
+               AdministratorInfo info = infoResponse.getElement();
+               List<Administrator> administrators = info.administrators();
+               Map<String,Appointment> appointments= new HashMap<>();
+               for (Administrator admin:
+                    administrators) {
+                   Appointment appointment = new Appointment(admin);
+                   appointments.put(admin.getUsername(),appointment);
+               }
+               return appointments;
+           }
+           return null;
+       }
+       return null;
+    }
+
+    @Override
+    public Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID) {
+        if(subscribedUsers.containsKey(requestingUsername)){
+            SubscribedUserService service = subscribedUsers.get(requestingUsername);
+            Response<AdministratorInfo> infoResponse = service.getAdministratorInfo(shopID);
+            if(infoResponse.isOk()){
+                AdministratorInfo info = infoResponse.getElement();
+                List<Administrator> admins = info.administrators();
+                Map<String,List<SubscribedUser.Permission>> permissionsMap = new HashMap<>();
+                for (Administrator admin:
+                     admins) {
+                    List<SubscribedUser.Permission> permissionList = new LinkedList<>();
+                    Collection<BaseActionType> actions = admin.getPermissions();
+                    for (BaseActionType action:
+                         actions) {
+                        permissionList.add(SubscribedUser.Permission.lookup(action.getCode()));
+                    }
+                    permissionsMap.put(admin.getUsername(),permissionList);
+                }
+                return permissionsMap;
+            }
+            return null;
         }
-        return false;
-    }
-
-    @Override
-    public boolean addOwnerPermission(int shopID, String giverName, String receiverName, String permission) {
-        if(subscribedUsers.containsKey(giverName)){
-            SubscribedUserService service = subscribedUsers.get(giverName);
-            Result added = service.changeManagerPermission(shopID,receiverName,null);
-            return added.isOk();
-        }
-        return false;
-    }
-
-    @Override
-    public Map<Integer, Appointment> getShopAppointments(String requestingUsername, int shopID) {
-        return null;
-    }
-
-    @Override
-    public Map<Integer, List<String>> getShopPermissions(String requestingUsername, int shopID) {
         return null;
     }
 
@@ -167,4 +195,60 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         }
         return null;
     }
+
+    @Override
+    public boolean removeAdmin(int shopID, String requesting, String toRemove) {
+        if(subscribedUsers.containsKey(requesting)){
+            SubscribedUserService service = subscribedUsers.get(requesting);
+            Result removed = service.removeAdmin(shopID,toRemove);
+            return removed.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removePermission(int shopID, String removing, String removeTo, SubscribedUser.Permission permission) {
+        return removeAdminPermission(shopID,removeTo,removeTo,permission);
+    }
+
+    private boolean addAdminPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission){
+        if(subscribedUsers.containsKey(giverName)){
+            SubscribedUserService service = subscribedUsers.get(giverName);
+            Response<Administrator> info = service.getMyInfo(shopID);
+            if(info.isOk()){
+                Collection<ServiceLayer.BaseActionType> permissions = info.getElement().getPermissions();
+                Collection<Integer> actions = new LinkedList<>();
+                for (ServiceLayer.BaseActionType action:
+                        permissions) {
+                    actions.add(action.getCode());
+                }
+                actions.add(permission.getCode());
+                Result added = service.changeManagerPermission(shopID,receiverName, actions);
+                return added.isOk();
+            }
+            return false;
+        }
+        return false;
+    }
+
+    private boolean removeAdminPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission){
+        if(subscribedUsers.containsKey(giverName)){
+            SubscribedUserService service = subscribedUsers.get(giverName);
+            Response<Administrator> info = service.getMyInfo(shopID);
+            if(info.isOk()){
+                Collection<ServiceLayer.BaseActionType> permissions = info.getElement().getPermissions();
+                Collection<Integer> actions = new LinkedList<>();
+                for (ServiceLayer.BaseActionType action:
+                        permissions) {
+                    actions.add(action.getCode());
+                }
+                actions.remove(permission.getCode());
+                Result added = service.changeManagerPermission(shopID,receiverName, actions);
+                return added.isOk();
+            }
+            return false;
+        }
+        return false;
+    }
+
 }

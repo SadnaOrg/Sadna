@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.SystemManager;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.PurchaseHistoryControllerUnitTest;

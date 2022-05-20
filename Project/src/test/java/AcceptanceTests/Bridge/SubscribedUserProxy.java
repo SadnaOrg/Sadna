@@ -57,22 +57,22 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public boolean addManagerPermission(int shopID, String giverName, String receiverName, String permission) {
+    public boolean addManagerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
         return adapter.addManagerPermission(shopID,giverName,receiverName,permission);
     }
 
     @Override
-    public boolean addOwnerPermission(int shopID, String giverName, String receiverName, String permission) {
+    public boolean addOwnerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
         return adapter.addOwnerPermission(shopID,giverName,receiverName,permission);
     }
 
     @Override
-    public Map<Integer, Appointment> getShopAppointments(String requestingUsername, int shopID) {
+    public Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID) {
         return adapter.getShopAppointments(requestingUsername,shopID);
     }
 
     @Override
-    public Map<Integer, List<String>> getShopPermissions(String requestingUsername, int shopID) {
+    public Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID) {
         return adapter.getShopPermissions(requestingUsername,shopID);
     }
 
@@ -84,5 +84,15 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public Shop openShop(String username, String name, String desc) {
         return adapter.openShop(username,name,desc);
+    }
+
+    @Override
+    public boolean removeAdmin(int shopID, String requesting, String toRemove) {
+        return adapter.removeAdmin(shopID,requesting,toRemove);
+    }
+
+    @Override
+    public boolean removePermission(int shopID, String removing, String removeTo, SubscribedUser.Permission permission) {
+        return adapter.removePermission(shopID,removing,removeTo,permission);
     }
 }

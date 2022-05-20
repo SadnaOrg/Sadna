@@ -1,15 +1,12 @@
 package BusinessLayer.System;
 
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.User;
-import BusinessLayer.Users.UserController;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.User;
+import BusinessLayer.Products.Users.UserController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 
 import static org.mockito.Mockito.*;
 

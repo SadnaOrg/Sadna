@@ -6,6 +6,15 @@ import java.util.Collection;
 
 public class AdministratorInfo {
 
+
+    public int getshopID() {
+        return this.shopID;
+    }
+
+    public String getAppointer(){
+        return this.appointer;
+    }
+
     public enum ShopAdministratorType{
         MANAGER,
         OWNER,
@@ -13,10 +22,14 @@ public class AdministratorInfo {
     }
 
     private final String userName;
+    private final int shopID;
+    private final String appointer;
     private final ShopAdministratorType type;
     private final Collection<BaseActionType> permission;
 
-    public AdministratorInfo(String userName, ShopAdministratorType type, Collection<BaseActionType> permission) {
+    public AdministratorInfo(String userName, ShopAdministratorType type, Collection<BaseActionType> permission, int shopID, String appointer) {
+        this.shopID = shopID;
+        this.appointer = appointer;
         this.userName = userName;
         this.type = type;
         this.permission = permission;

@@ -1,10 +1,7 @@
 package ServiceLayer.interfaces;
 
 import BusinessLayer.Products.Users.BaseActions.BaseActionType;
-import ServiceLayer.Objects.AdministratorInfo;
-import ServiceLayer.Objects.PurchaseHistoryInfo;
-import ServiceLayer.Objects.Shop;
-import ServiceLayer.Objects.User;
+import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -22,7 +19,7 @@ public interface SubscribedUserService extends UserService {
 
     Result assignShopOwner(int shop, String userNameToAssign);
 
-    Result changeManagerPermission(int shop, String userNameToAssign, Collection<BaseActionType> types);
+    Result changeManagerPermission(int shop, String userNameToAssign, Collection<Integer> types);
 
     Result closeShop(int shop);
 
@@ -44,5 +41,9 @@ public interface SubscribedUserService extends UserService {
 
     Result reopenShop(int shopID);
 
-    Response<User> getUserInfo();
+    Response<SubscribedUser> getSubscribedUserInfo();
+
+    Response<Administrator> getMyInfo(int shopID);
+
+    Result removeAdmin(int shopID, String toRemove);
 }

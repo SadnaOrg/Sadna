@@ -15,6 +15,16 @@ import java.util.stream.Collectors;
 public class ShopController {
 
 
+    public double getProductPrice(int shopId, int productId) {
+        Shop s = shops.getOrDefault(shopId,null);
+        if(s != null){
+            Product product = s.getProducts().getOrDefault(productId,null);
+            if (product != null)
+                return product.getPrice();
+            return -1;
+        }
+        return -1;
+    }
 
     static private class ShopControllerHolder {
         static final ShopController sc = new ShopController();

@@ -1,6 +1,6 @@
 package BusinessLayer.System;
 
-import BusinessLayer.Users.UserController;
+import BusinessLayer.Products.Users.UserController;
 
 public class ProxyNotification implements Notification{
     private Notification notification = null;

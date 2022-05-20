@@ -8,13 +8,22 @@ public class ProductInShop {
     public String desc;
     public Product product;
 
-    public ProductInShop(int ID,int shopID,int quantity,double price,double rating, Product product){
+    public ProductInShop(int ID,int shopID,int quantity,double price, Product product){
         this.ID = ID;
         this.shopID = shopID;
         this.quantity = quantity;
         this.price = price;
         this.desc = product.desc;
         this.product = product;
+    }
+
+    public ProductInShop(ServiceLayer.Objects.Product product){
+        this.ID = product.productID();
+        this.shopID = product.shopId();
+        this.quantity = product.quantity();
+        this.price = product.price();
+        this.desc = product.description();
+        this.product = new Product(product.name(),product.description(),product.manufacturer());
     }
 
     public String getDescription() {

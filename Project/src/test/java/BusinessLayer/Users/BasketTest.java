@@ -37,7 +37,7 @@ public class BasketTest {
         when(p1.getID()).thenReturn(0);
         when(p1.getQuantity()).thenReturn(10);
         int bought = p1.getQuantity() - 2;
-        boolean saved = b.saveProducts(p1.getID(), bought);
+        boolean saved = b.saveProducts(p1.getID(), bought, p1.getPrice());
         assertTrue(saved);
 
         ConcurrentHashMap<Integer, Integer> products = b.getProducts();

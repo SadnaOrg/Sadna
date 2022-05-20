@@ -2,15 +2,8 @@ package AcceptanceTests.Tests;
 
 import AcceptanceTests.Bridge.*;
 import AcceptanceTests.DataObjects.*;
-// TODO: ADAPTER - DATA CLASSES IN SERVICE AND AT OBJECTS
-// TODO: ADD SHOP, ADMIN AND OWNER REMOVAL
-// TODO: REPRESENTATION OF FILTERS
-// TODO: ENUMS FOR PERMISSIONS
-// TODO: NOTIFICATION TEST
 
-// TODO: payment failures
-// TODO: purchase with payment details
-// TODO: fix enter - subscribed user tests
+// TODO: NOTIFICATION TEST
 
 // This class is used for setting up data for tests
 public abstract class ProjectTests {
@@ -18,16 +11,16 @@ public abstract class ProjectTests {
     protected static UserBridge userBridge;
     protected static SystemBridge systemBridge;
 
-    protected static final ShopFilter [] shopFilters = setUpShopFilters();
+    protected static ShopFilter [] shopFilters = null;
     public static final int NAME_FILTER = 0, DESC_FILTER = 1;
 
-    protected static final ShopFilter [] shopFailFilters = setUpFailShopFilters();
+    protected static ShopFilter [] shopFailFilters = null;
     public static final int NAMEF_FILTER = 0, DESCF_FILTER = 1;
 
-    protected static final ProductFilter [] productFilters = setUpProductFilters();
+    protected static ProductFilter [] productFilters = null;
     public static final int MANUFACTURER_FILTER = 0,PRODUCT_DESC_FILTER = 1;
 
-    protected static final ProductFilter [] productFailFilters = setUpFailProductFilters();
+    protected static ProductFilter [] productFailFilters = null;
     public static final int MANUFACTURERF_FILTER = 0,PRODUCT_DESCF_FILTER = 1;
 
     public static final Shop[] shops = {null,null,null};
@@ -85,6 +78,12 @@ public abstract class ProjectTests {
         userBridge.exit(ACEFounder.name);
         userBridge.exit(castroFounder.name);
         userBridge.exit(MegaSportFounder.name);
+
+        shopFilters = setUpShopFilters();
+        shopFailFilters = setUpFailShopFilters();
+        productFilters = setUpProductFilters();
+        productFailFilters = setUpFailProductFilters();
+
     }
 
     private static void setUpSystem(){
@@ -144,7 +143,7 @@ public abstract class ProjectTests {
 
     private static ProductFilter[] setUpProductFilters() {
         // ProductFilter productFailFilterRating = (p) -> p.rating >= 3.5;
-        ProductFilter productFilterManufacturer = (p) -> p.getManufacturer().equals("israe");
+        ProductFilter productFilterManufacturer = (p) -> p.getManufacturer().equals("israel");
         ProductFilter productFilterDesc = (p) -> p.desc.equals("bad");
         return new ProductFilter[]{productFilterManufacturer,productFilterDesc};
     }

@@ -31,7 +31,7 @@ public class Shop {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.founder = new ShopOwner(this, founder, true);
+        this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
     }
@@ -50,6 +50,10 @@ public class Shop {
             return true;
         }
         return false;
+    }
+
+    public void removeAdmin(String userName) {
+        shopAdministrators.remove(userName);
     }
 
     public enum State {

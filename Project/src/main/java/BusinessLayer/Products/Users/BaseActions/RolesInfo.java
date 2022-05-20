@@ -22,7 +22,7 @@ public class RolesInfo extends BaseAction {
             throw new NoPermissionException("cant search info in a closed shop");
 
         return shop.getShopAdministrators().stream().map(shopAdministrator ->
-               new AdministratorInfo(shopAdministrator.getUser().getUserName(),getAdministratorType(shopAdministrator),shopAdministrator.getActionsTypes())).collect(Collectors.toList());
+               new AdministratorInfo(shopAdministrator.getUser().getUserName(),getAdministratorType(shopAdministrator),shopAdministrator.getActionsTypes(),shop.getId(),shopAdministrator.getAppointer())).collect(Collectors.toList());
     }
 
     private AdministratorInfo.ShopAdministratorType getAdministratorType(ShopAdministrator shopAdministrator) {

@@ -8,10 +8,32 @@ import ServiceLayer.Result;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
+
+    public AdministratorInfo getMyInfo(String userName, int shopID) {
+        if(subscribers.containsKey(userName)){
+            SubscribedUser u = subscribers.get(userName);
+            ShopAdministrator admin = u.getAdministrator(shopID);
+            if(admin != null){
+                return admin.getMyInfo();
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        if(subscribers.containsKey(requesting)){
+            SubscribedUser u = subscribers.get(requesting);
+            return u.removeAdmin(shopID,subscribers.get(toRemove));
+        }
+        throw new IllegalArgumentException("you aren't a subscribed user!");
+    }
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
@@ -34,12 +56,16 @@ public class UserController {
     }
 
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
-        if (u.saveProducts(shopId, productId, quantity)) {
-            if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
-                ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+        double price = ShopController.getInstance().getProductPrice(shopId,productId);
+        if(price != -1) {
+            if (u.saveProducts(shopId, productId, quantity,price)) {
+                if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
+                    ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+                }
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u) {
@@ -169,8 +195,17 @@ public class UserController {
         return user.assignShopOwner(shop, getSubUser(userNameToAssign));
     }
 
-    public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<BaseActionType> types) throws NoPermissionException {
-        return user.changeManagerPermission(shop, getSubUser(userNameToAssign), types);
+    public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
+        return user.changeManagerPermission(shop, getSubUser(userNameToAssign), convertToAction(types));
+    }
+
+    private Collection<BaseActionType> convertToAction(Collection<Integer> types) {
+        List<BaseActionType> actionTypes = new LinkedList<>();
+        for (Integer code:
+             types) {
+            actionTypes.add(BaseActionType.lookup(code));
+        }
+        return actionTypes;
     }
 
     public Collection<AdministratorInfo> getAdministratorInfo(SubscribedUser currUser, int shop) throws NoPermissionException {

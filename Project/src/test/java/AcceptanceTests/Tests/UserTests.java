@@ -1,13 +1,12 @@
 package AcceptanceTests.Tests;
 
+import AcceptanceTests.Bridge.SubscribedUserBridge;
+import AcceptanceTests.Bridge.SubscribedUserProxy;
 import AcceptanceTests.Bridge.UserProxy;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-
 import AcceptanceTests.DataObjects.*;
 import AcceptanceTests.Threads.ACEFounderPurchase;
 import AcceptanceTests.Threads.MegaSportFounderPurchase;
+import org.junit.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,11 +15,33 @@ import static org.junit.Assert.*;
 
 
 public abstract class UserTests extends ProjectTests {
-
+    private User u;
     @BeforeClass
     public static void setUp(){
         setUserBridge(new UserProxy());
-        setUpTests();
+        ProjectTests.setUpTests();
+    }
+
+    @AfterClass
+    public static void restore(){
+        SubscribedUserBridge b = new SubscribedUserProxy((UserProxy) getUserBridge());
+        Guest g = b.visit();
+        castroFounder = b.login(g.name,new RegistrationInfo("castroFounder","castro_rocks"));
+        b.updateProductQuantity(castroFounder.name,shops[castro_ID].ID,2,30);
+        b.updateProductQuantity(castroFounder.name,shops[castro_ID].ID,45,40);
+        b.exit(castroFounder.name);
+    }
+
+    @Before
+    public void setUpTest(){
+        u = enter();
+    }
+
+    @After
+    public void tearDown(){
+        userBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
+        userBridge.updateCart(u.name,0,shops[ACE_ID].ID,0);
+        userBridge.exit(u.name);
     }
 
     @Test
@@ -33,6 +54,9 @@ public abstract class UserTests extends ProjectTests {
         assertNotNull(cart);
         assertEquals(0,cart.numOfProductsInCart());
         assertEquals(0,cart.getNumberOfBaskets());
+
+        boolean exit = userBridge.exit(newGuest.name);
+        assertTrue(exit);
     }
 
     @Test
@@ -42,7 +66,7 @@ public abstract class UserTests extends ProjectTests {
         assertNotNull(guest1Name);
 
         Guest guest2 = userBridge.visit();
-        String guest2Name = guest1.getName();
+        String guest2Name = guest2.getName();
         assertNotNull(guest2Name);
 
         assertNotSame(guest1Name, guest2Name);
@@ -60,19 +84,19 @@ public abstract class UserTests extends ProjectTests {
     @Test
     public void testGetShopsInfoByNameSuccess() {
         List<Integer> expected = new LinkedList<>();
-        expected.add(0);
+        expected.add(shops[ACE_ID].ID);
         filterSearchShopSuccess(shopFilters[NAME_FILTER],expected);
     }
 
     @Test
     public void testGetShopsInfoByNameFailure() {
-        filterSearchShopFailure(shopFilters[NAMEF_FILTER]);
+        filterSearchShopFailure(shopFailFilters[NAMEF_FILTER]);
     }
 
     @Test
     public void testGetShopsInfoByDescriptionSuccess() {
         List<Integer> expected = new LinkedList<>();
-        expected.add(2);
+        expected.add(shops[castro_ID].ID);
         filterSearchShopSuccess(shopFilters[DESC_FILTER],expected);
     }
 
@@ -98,7 +122,7 @@ public abstract class UserTests extends ProjectTests {
     @Test
     public void testGetProductsInfoByManufacturerSuccess() {
         List<ProductInShop> expected = new LinkedList<>();
-        expected.add(new ProductInShop(0,0,30,20,3,new Product("lamp","good","israel")));
+        expected.add(new ProductInShop(0,shops[ACE_ID].ID,30,20,new Product("lamp","good","israel")));
         filterSearchProductSuccess(productFilters[MANUFACTURER_FILTER],expected);
     }
 
@@ -124,7 +148,10 @@ public abstract class UserTests extends ProjectTests {
     public void testSearchShopProductsSuccess() {
         List<ProductInShop> products = userBridge.searchShopProducts(shops[ACE_ID].ID);
         assertNotNull(products);
-        assertSame(products, shops[ACE_ID].products);
+        List<Integer> ids = products.stream().map(productInShop -> productInShop.ID).toList();
+        List<Integer> realIDs = shops[ACE_ID].products.keySet().stream().toList();
+        assertEquals(shops[ACE_ID].products.size(), products.size());
+        assertTrue(ids.containsAll(realIDs));
     }
 
     @Test
@@ -145,14 +172,13 @@ public abstract class UserTests extends ProjectTests {
 
     @Test
     public void testAddProductToCartSuccess() {
-        User u = enter();
-         boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
-         assertTrue(added);
+        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
+        assertTrue(added);
 
         ShoppingCart addResult = userBridge.checkCart(u.name);
         assertNotNull(addResult);
 
-        ShopBasket basket = addResult.getShopBasket(castro_ID);
+        ShopBasket basket = addResult.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket);
 
         int product_quantity = basket.getProductQuantity(2);
@@ -160,17 +186,10 @@ public abstract class UserTests extends ProjectTests {
         assertEquals(10,product_quantity);
         assertEquals(10,addResult.numOfProductsInCart());
         assertEquals(1,addResult.getNumberOfBaskets());
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToCartFailureTooLargeQuantity() {
-        User u = enter();
         boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,100);
         assertFalse(added);
 
@@ -179,13 +198,10 @@ public abstract class UserTests extends ProjectTests {
 
         assertEquals(0,addResult.numOfProductsInCart());
         assertEquals(0,addResult.getNumberOfBaskets());
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToCartFailureNegativeQuantity() {
-        User u = enter();
         boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,-1);
         assertFalse(added);
 
@@ -193,13 +209,10 @@ public abstract class UserTests extends ProjectTests {
         assertNotNull(addResult);
         assertEquals(0,addResult.numOfProductsInCart());
         assertEquals(0,addResult.getNumberOfBaskets());
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testAddProductToCartFailureProductNotInShop() {
-        User u = enter();
         boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,13,10);
         assertFalse(added);
 
@@ -207,32 +220,24 @@ public abstract class UserTests extends ProjectTests {
         assertNotNull(addResult);
         assertEquals(0,addResult.numOfProductsInCart());
         assertEquals(0,addResult.getNumberOfBaskets());
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testCheckCartEmpty() {
-        User u = enter();
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);
         assertEquals(0,userCart.numOfProductsInCart());
         assertEquals(0,userCart.getNumberOfBaskets());
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testCheckCartNotEmpty() {
-        User u = enter();
         boolean added1 = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
         boolean added2 = userBridge.addProductToCart(u.name,shops[ACE_ID].ID,0,10);
         assertTrue(added1 && added2);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);
-        assertEquals(20,userCart.numOfProductsInCart());
 
         ShopBasket basket1 = userCart.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket1);
@@ -251,21 +256,13 @@ public abstract class UserTests extends ProjectTests {
         int product2Quantity = basket1.getProductQuantity(0);
 
         assertEquals(10,product2Quantity);
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
-        userBridge.updateCart(u.name,0,shops[ACE_ID].ID,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testUpdateCartSuccessIncreaseQuantity() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        boolean updated = userBridge.updateCart(u.name,345,2,92);
-        assertTrue(added && updated);
+        testAddProductToCartSuccess();
+        boolean updated = userBridge.updateCart(u.name,2,shops[castro_ID].ID,20);
+        assertTrue(updated);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);
@@ -273,26 +270,18 @@ public abstract class UserTests extends ProjectTests {
         ShopBasket basket = userCart.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket);
 
-        int productQuantity = basket.getProductQuantity(345);
+        int productQuantity = basket.getProductQuantity(2);
 
-        assertEquals(92,productQuantity);
-        assertEquals(92,userCart.numOfProductsInCart());
+        assertEquals(20,productQuantity);
+        assertEquals(20,userCart.numOfProductsInCart());
         assertEquals(1,userCart.getNumberOfBaskets());
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,345,shops[castro_ID].ID,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testUpdateCartSuccessDecreaseQuantity() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        assertTrue(added);
+        testAddProductToCartSuccess();
 
-        boolean decreased = userBridge.updateCart(u.name,345,2,2);
+        boolean decreased = userBridge.updateCart(u.name,2,shops[castro_ID].ID,2);
         assertTrue(decreased);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
@@ -303,24 +292,15 @@ public abstract class UserTests extends ProjectTests {
         ShopBasket basket = userCart.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket);
 
-        int quantity = basket.getProductQuantity(345);
+        int quantity = basket.getProductQuantity(2);
 
         assertEquals(2,quantity);
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,345,shops[castro_ID].ID,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testUpdateCartSuccessRemoveProduct() {
-        User u = enter();
-        boolean added =userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        assertTrue(added);
-
-        boolean removed = userBridge.updateCart(u.name,345,2,0);
+        testAddProductToCartSuccess();
+        boolean removed = userBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
         assertTrue(removed);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
@@ -335,11 +315,9 @@ public abstract class UserTests extends ProjectTests {
 
     @Test
     public void testUpdateCartFailureIncreaseQuantity() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        assertTrue(added);
+        testAddProductToCartSuccess();
 
-        boolean updated = userBridge.updateCart(u.name,345,2,102);
+        boolean updated = userBridge.updateCart(u.name,2,shops[castro_ID].ID,100);
         assertFalse(updated);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
@@ -349,24 +327,16 @@ public abstract class UserTests extends ProjectTests {
 
         ShopBasket basket = userCart.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket);
-        int quantity = basket.getProductQuantity(345);
+        int quantity = basket.getProductQuantity(2);
 
         assertEquals(10,quantity);
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,345,2,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testUpdateCartFailureDecreaseQuantity() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        assertTrue(added);
+        testAddProductToCartSuccess();
 
-        boolean updated = userBridge.updateCart(u.name,345,2,-2);
+        boolean updated = userBridge.updateCart(u.name,2,shops[castro_ID].ID,-2);
         assertFalse(updated);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
@@ -376,146 +346,67 @@ public abstract class UserTests extends ProjectTests {
 
         ShopBasket basket = userCart.getShopBasket(shops[castro_ID].ID);
         assertNotNull(basket);
-        int quantity = basket.getProductQuantity(345);
+        int quantity = basket.getProductQuantity(2);
 
         assertEquals(10,quantity);
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,345,2,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
     }
 
     @Test
     public void testUpdateCartFailureProductNotInCart() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,345,10);
-        assertTrue(added);
-
-        boolean updated = userBridge.updateCart(u.name,1,0,50);
+        boolean updated = userBridge.updateCart(u.name,1,shops[ACE_ID].ID,50);
         assertFalse(updated);
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);
-        assertEquals(1,userCart.getNumberOfBaskets());
-        assertEquals(10,userCart.numOfProductsInCart());
-
-        ShopBasket basket = userCart.getShopBasket(shops[castro_ID].ID);
-        assertNotNull(basket);
-        int quantity = basket.getProductQuantity(345);
-
-        assertEquals(10,quantity);
-
-        //cancel side-effects
-        userBridge.updateCart(u.name,345,2,0);
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
-    }
-
-    @Test
-    public void testUpdateCartFailureConcurrentPurchase() throws InterruptedException {
-        Thread MegaSportFounderPurchase = new MegaSportFounderPurchase();
-        Thread ACEFounderPurchase = new ACEFounderPurchase();
-
-        MegaSportFounderPurchase.start();
-        ACEFounderPurchase.start();
-        MegaSportFounderPurchase.join();
-        ACEFounderPurchase.join();
-
-        ShoppingCart MegaSportFounderCart = userBridge.checkCart(MegaSportFounder.name);
-        ShoppingCart ACEFounderCart = userBridge.checkCart(ACEFounder.name);
-        assertNotNull(MegaSportFounderCart);
-        assertNotNull(ACEFounderCart);
-
-        int numOfBasketsMegaSportFounder = MegaSportFounderCart.getNumberOfBaskets();
-        int numOfBasketsACEFounder = ACEFounderCart.getNumberOfBaskets();
-        boolean basketsCheck = numOfBasketsACEFounder == 1 && numOfBasketsMegaSportFounder == 0;
-        basketsCheck = basketsCheck || ( numOfBasketsACEFounder == 0 && numOfBasketsMegaSportFounder == 1);
-        assertTrue(basketsCheck);
-        if(numOfBasketsACEFounder == 1){
-            ShopBasket basket = ACEFounderCart.getShopBasket(shops[castro_ID].ID);
-            assertNotNull(basket);
-
-            int numOfProducts = basket.numOfProducts();
-            int quantity = basket.getProductQuantity(2);
-            assertEquals(1,numOfProducts);
-            assertEquals(21,quantity);
-            assertEquals(21,ACEFounderCart.numOfProductsInCart());
-            assertEquals(1,ACEFounderCart.getNumberOfBaskets());
-
-            ShopBasket MegaSportFounderBasket = MegaSportFounderCart.getShopBasket(shops[castro_ID].ID);
-            assertNull(MegaSportFounderBasket);
-            assertEquals(0,MegaSportFounderCart.getNumberOfBaskets());
-
-            ProductInShop pis = userBridge.searchProductInShop(2, shops[castro_ID].ID);
-            assertNotNull(pis);
-            assertEquals(9,pis.quantity);
-
-            //cancel side-effects
-            userBridge.updateCart(ACEFounder.name,2,shops[castro_ID].ID,0);
-
-        }
-        else {
-            ShopBasket basket = MegaSportFounderCart.getShopBasket(shops[castro_ID].ID);
-            assertNotNull(basket);
-
-            int numOfProducts = basket.numOfProducts();
-            int quantity = basket.getProductQuantity(2);
-            assertEquals(1,numOfProducts);
-            assertEquals(10,quantity);
-            assertEquals(10,ACEFounderCart.numOfProductsInCart());
-            assertEquals(1,ACEFounderCart.getNumberOfBaskets());
-
-            ShopBasket ACEFounderBasket = ACEFounderCart.getShopBasket(shops[castro_ID].ID);
-            assertNull(ACEFounderBasket);
-            assertEquals(0,ACEFounderCart.getNumberOfBaskets());
-
-            ProductInShop pis = userBridge.searchProductInShop(2, shops[castro_ID].ID);
-            assertNotNull(pis);
-            assertEquals(20,pis.quantity);
-
-            //cancel side-effects
-            userBridge.updateCart(MegaSportFounder.name,2,shops[castro_ID].ID,0);
-        }
-
-        boolean exitACE = userBridge.exit(ACEFounder.name);
-        boolean exitMegaSport = userBridge.exit(MegaSportFounder.name);
-        assertTrue(exitACE);
-        assertTrue(exitMegaSport);
+        assertEquals(0,userCart.getNumberOfBaskets());
+        assertEquals(0,userCart.numOfProductsInCart());
     }
 
     @Test
     public void testPurchaseEmptyCart() {
-        User u = enter();
         boolean purchaseResult = userBridge.purchaseCart(u.name,"4580476511112222", 694, 9, 22);
         assertFalse(purchaseResult);
-        assertEquals(0,u.numOfNotifications());
-
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
+        //assertEquals(0,u.numOfNotifications());
     }
 
     @Test
     public void testPurchaseNotEmptyCart() {
-        User u = enter();
-        boolean added = userBridge.addProductToCart(u.name,shops[ACE_ID].ID,0,10);
-        assertTrue(added);
+        testAddProductToCartSuccess();
 
         boolean purchaseResult = userBridge.purchaseCart(u.name, "480470023456848", 674, 7, 11);
         assertTrue(purchaseResult);
-        assertEquals(1,u.numOfNotifications());
-        assertEquals("Purchase",u.notifications.get(0));
+        //assertEquals(1,u.numOfNotifications());
+        //assertEquals("Purchase",u.notifications.get(0));
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);
 
         int numOfProducts = userCart.numOfProductsInCart();
         assertEquals(0,numOfProducts);
+    }
 
-        boolean exitResult = userBridge.exit(u.name);
-        assertTrue(exitResult);
+    @Test
+    public void testPurchaseCartFailurePaymentFailedBadCreditCard(){
+        testAddProductToCartSuccess();
+
+        boolean purchased = userBridge.purchaseCart(u.name,"11110000av",965,12,3);
+        assertFalse(purchased);
+    }
+
+    @Test
+    public void testPurchaseCartFailurePaymentFailedBadCVV(){
+        testAddProductToCartSuccess();
+
+        boolean purchased = userBridge.purchaseCart(u.name,"480470023456848",15,12,3);
+        assertFalse(purchased);
+    }
+
+    @Test
+    public void testPurchaseCartFailurePaymentFailedBadExpirationDate(){
+        testAddProductToCartSuccess();
+
+        boolean purchased = userBridge.purchaseCart(u.name,"480470023456848",15,13,3);
+        assertFalse(purchased);
     }
 
     private void assertShops(List<Shop> shops, ShopFilter filter,List<Integer> expected){
@@ -523,7 +414,7 @@ public abstract class UserTests extends ProjectTests {
              shops) {
             assertTrue(filter.filter(s));
         }
-        List<Integer> shopsIDs = shops.stream().map(productInShop -> productInShop.ID).toList();
+        List<Integer> shopsIDs = shops.stream().map(shop -> shop.ID).toList();
         for (int ID:
                 expected) {
             assertTrue(shopsIDs.contains(ID));
