@@ -67,9 +67,12 @@ public class UserAdapter implements UserBridge{
         }
         else if(subscribedUsers.containsKey(username)){
             SubscribedUserService userService = subscribedUsers.get(username);
-            loggedOut = userService.logoutSystem().isOk();
-            if(loggedOut)
+            Response<UserService> serviceResponse = userService.logout();
+            if(serviceResponse.isOk()){
+                UserService service = serviceResponse.getElement();
                 subscribedUsers.remove(username);
+                return service.logoutSystem().isOk();
+            }
         }
         return loggedOut;
     }
@@ -145,10 +148,10 @@ public class UserAdapter implements UserBridge{
     }
 
     @Override
-    public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay) {
+    public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear) {
         if(users.containsKey(username)){
             UserService userService = users.get(username);
-            Result purchased = userService.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationDay);
+            Result purchased = userService.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
             return purchased.isOk();
         }
         return false;

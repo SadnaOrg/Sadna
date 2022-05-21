@@ -8,7 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UserProxy implements UserBridge{
-    UserBridge adapter = new UserAdapter();
+    UserBridge adapter;
+
+    public UserProxy(){
+        this.adapter = new UserAdapter();
+    }
     @Override
     public Guest visit() {
         return adapter.visit();
