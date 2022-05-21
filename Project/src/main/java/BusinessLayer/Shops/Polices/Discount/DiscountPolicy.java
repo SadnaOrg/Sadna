@@ -2,16 +2,18 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public abstract class DiscountPolicy {
+public abstract class DiscountPolicy implements DiscountPolicyInterface{
 
-    protected DiscountPolicy discountPolicy;
+    protected DiscountPolicyInterface discountPolicy;
 
-    public DiscountPolicy()
+    public DiscountPolicy(DiscountPolicyInterface discountPolicy)
     {
-        this.discountPolicy = this;
+        this.discountPolicy = discountPolicy;
     }
 
-    abstract double calculateDiscount(Basket basket);
+    public double calculateDiscount(Basket basket){
+        return discountPolicy.calculateDiscount(basket);
+    }
 
 
 }

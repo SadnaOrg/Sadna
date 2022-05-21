@@ -7,9 +7,9 @@ public class ShopDiscount extends DiscountPolicy {
     int basketQuantity;
     double discount;
 
-    public ShopDiscount(int basketQuantity,double discount)
+    public ShopDiscount(DiscountPolicyInterface discountPolicy, int basketQuantity,double discount)
     {
-        super();
+        super(discountPolicy);
         this.basketQuantity= basketQuantity;
         this.discount = discount;
     }

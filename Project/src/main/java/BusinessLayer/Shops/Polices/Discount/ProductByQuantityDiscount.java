@@ -7,9 +7,9 @@ public class ProductByQuantityDiscount extends DiscountPolicy{
     int productQuantity;
     double discount;
 
-    public ProductByQuantityDiscount(int productId, int productQuantity, double discount)
+    public ProductByQuantityDiscount(DiscountPolicyInterface discountPolicy, int productId, int productQuantity, double discount)
     {
-        super();
+        super(discountPolicy);
         this.productId= productId;
         this.productQuantity= productQuantity;
         this.discount= discount;
@@ -20,7 +20,7 @@ public class ProductByQuantityDiscount extends DiscountPolicy{
     {
         if(basket.getProducts().containsKey(productId) && basket.getProducts().get(productId)>productQuantity)
                 return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId)
-                        +this.discountPolicy.calculateDiscount(basket);
+                        +super.calculateDiscount(basket);
         else
             return this.discountPolicy.calculateDiscount(basket);
     }

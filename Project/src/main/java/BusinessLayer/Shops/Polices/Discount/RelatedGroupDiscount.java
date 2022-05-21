@@ -9,9 +9,9 @@ public class RelatedGroupDiscount extends DiscountPolicy{
     Collection<Integer> relatedProducts;
     double discount;
 
-    public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
+    public RelatedGroupDiscount(DiscountPolicyInterface discountPolicy, Collection<Integer> relatedProducts, double discount)
     {
-        super();
+        super(discountPolicy);
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(relatedProducts);
         this.discount =discount;
@@ -19,7 +19,7 @@ public class RelatedGroupDiscount extends DiscountPolicy{
 
 
     @Override
-    double calculateDiscount(Basket basket) {
+    public double calculateDiscount(Basket basket) {
         double currentDiscountPrice=0;
         for (int pid:basket.getProducts().keySet()) {
             if(relatedProducts.contains(pid))

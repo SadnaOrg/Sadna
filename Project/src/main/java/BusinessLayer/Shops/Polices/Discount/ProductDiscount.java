@@ -6,9 +6,9 @@ public class ProductDiscount extends DiscountPolicy {
     int productId;
     double discount;
 
-    public ProductDiscount(int productId, double discount)
+    public ProductDiscount(DiscountPolicyInterface discountPolicy, int productId, double discount)
     {
-        super();
+        super(discountPolicy);
         this.productId= productId;
         this.discount= discount;
     }
