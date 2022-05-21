@@ -1,0 +1,380 @@
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign MegaSportFounder to shop manager  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign ACEFounder to shop owner  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: ACEFounderassign MegaSportFounder to shop owner  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: purchased cart Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: purchased cart Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: purchased cart Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes

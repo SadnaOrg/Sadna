@@ -10,4 +10,8 @@ public record Product(int shopId, int productID,String name,String description,d
     public Product(int shopID, BusinessLayer.Products.Product p) {
         this(shopID,p.getID(),p.getName(),p.getDescription(),p.getPrice(),p.getQuantity(),p.getManufacturer());
     }
+
+    public Product(BusinessLayer.Products.Product p) {
+        this(-1,p.getID(),p.getName(),p.getDescription(),p.getPrice(),p.getQuantity(),p.getManufacturer());
+    }
 }
