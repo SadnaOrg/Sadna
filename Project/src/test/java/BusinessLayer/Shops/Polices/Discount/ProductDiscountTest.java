@@ -10,9 +10,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ProductByQuantityDiscountTest {
+public class ProductDiscountTest {
 
-    private ProductByQuantityDiscount productByQuantityDiscount;
+    private ProductDiscount productDiscount;
 
     private Basket basket;
     private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
@@ -28,35 +28,29 @@ public class ProductByQuantityDiscountTest {
         s1.addProduct(p1);
         s1.addProduct(p2);
         basket = new Basket(1);
+
     }
 
     @Test
     public void calculateDiscountOneProductDiscount() {
         basket.saveProducts(1,10,5);
         basket.saveProducts(2,100,15);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1);
-        Assert.assertEquals(0.1*10*5,productByQuantityDiscount.calculateDiscount(basket),0.1);
+        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        Assert.assertEquals(0.1*10*5,productDiscount.calculateDiscount(basket),0.1);
     }
 
     @Test
     public void calculateDiscountDifferentProductDiscount() {
         basket.saveProducts(2,100,15);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1);
-        Assert.assertEquals(0,productByQuantityDiscount.calculateDiscount(basket),0.1);
+        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        Assert.assertEquals(0,productDiscount.calculateDiscount(basket),0.1);
     }
 
-    @Test
-    public void calculateDiscountOneProductDiscountAndIgnoreOther() {
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1),2,200,0.2);
-        Assert.assertEquals(0.1*10*5,productByQuantityDiscount.calculateDiscount(basket),0.1);
-    }
     @Test
     public void calculateDiscountMultipleProducts() {
         basket.saveProducts(1,10,5);
         basket.saveProducts(2,100,15);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1),2,50,0.2);
-        Assert.assertEquals(0.1*10*5+0.2*15*100,productByQuantityDiscount.calculateDiscount(basket),0.1);
+        productDiscount= new ProductDiscount(new ProductDiscount(new DefaultDiscount(),1,0.1),2,0.2);
+        Assert.assertEquals(0.1*10*5+0.2*15*100,productDiscount.calculateDiscount(basket),0.1);
     }
 }

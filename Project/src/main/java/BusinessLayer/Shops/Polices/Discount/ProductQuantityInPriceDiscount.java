@@ -17,10 +17,11 @@ public class ProductQuantityInPriceDiscount extends DiscountPolicy{
 
     @Override
     public double calculateDiscount(Basket basket) {
-        int quantityOfPid = basket.getProducts().get(productID);
-        if(basket.getProducts().containsKey(productID))
-            return quantityOfPid*basket.getPrices().get(productID)-((quantityOfPid/quantity)*priceForQuantity+(quantityOfPid%quantity)*basket.getPrices().get(productID))
-                    +this.discountPolicy.calculateDiscount(basket);
+        if(basket.getProducts().containsKey(productID)) {
+            int quantityOfPid = basket.getProducts().get(productID);
+            return quantityOfPid * basket.getPrices().get(productID) - ((quantityOfPid / quantity) * priceForQuantity + (quantityOfPid % quantity) * basket.getPrices().get(productID))
+                    + this.discountPolicy.calculateDiscount(basket);
+        }
         else
             return this.discountPolicy.calculateDiscount(basket);    }
 }

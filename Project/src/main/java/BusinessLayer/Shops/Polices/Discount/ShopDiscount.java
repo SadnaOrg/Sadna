@@ -23,7 +23,7 @@ public class ShopDiscount extends DiscountPolicy {
             currentQuantity+= basket.getProducts().get(productId);
             currentPrice+= basket.getPrices().get(productId)*basket.getProducts().get(productId);
         }
-        if(currentQuantity>basketQuantity)
+        if(currentQuantity>=basketQuantity)
             return discount*currentPrice+this.discountPolicy.calculateDiscount(basket);
         else
             return this.discountPolicy.calculateDiscount(basket);
