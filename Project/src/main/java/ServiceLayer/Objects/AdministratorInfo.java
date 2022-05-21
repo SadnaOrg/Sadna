@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public record AdministratorInfo(List<Administrator> administrators) {
-    public AdministratorInfo(Collection<BusinessLayer.Products.Users.AdministratorInfo> administratorInfo) {
+    public AdministratorInfo(Collection<BusinessLayer.Users.AdministratorInfo> administratorInfo) {
         this(administratorInfo.stream().map(Administrator::new).collect(Collectors.toList()));
     }
 

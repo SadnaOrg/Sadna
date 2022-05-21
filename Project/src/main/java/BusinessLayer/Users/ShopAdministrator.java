@@ -1,7 +1,7 @@
-package BusinessLayer.Products.Users;
+package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.Users.BaseActions.*;
+import BusinessLayer.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 
@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.stream.Collectors;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();

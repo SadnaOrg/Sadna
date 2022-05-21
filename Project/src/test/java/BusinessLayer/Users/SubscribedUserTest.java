@@ -1,7 +1,6 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Users.*;
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import org.junit.Assert;

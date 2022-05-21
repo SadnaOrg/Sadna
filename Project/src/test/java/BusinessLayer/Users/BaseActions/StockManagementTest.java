@@ -1,7 +1,6 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.Users.BaseActions.StockManagement;
 import BusinessLayer.Shops.Shop;
 import org.junit.After;
 import org.junit.Before;

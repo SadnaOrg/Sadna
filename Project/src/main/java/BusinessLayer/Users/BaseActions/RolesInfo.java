@@ -1,6 +1,6 @@
-package BusinessLayer.Products.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Products.Users.*;
+import BusinessLayer.Users.*;
 import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;

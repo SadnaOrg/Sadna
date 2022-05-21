@@ -2,12 +2,10 @@ package BusinessLayer;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.*;
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
-import ServiceLayer.Objects.Administrator;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;

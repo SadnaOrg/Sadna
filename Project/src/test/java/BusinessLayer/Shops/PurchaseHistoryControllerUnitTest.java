@@ -1,6 +1,6 @@
 package BusinessLayer.Shops;
 
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.Before;
 import org.junit.Test;
 

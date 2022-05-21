@@ -1,4 +1,4 @@
-package BusinessLayer.Products.Users;
+package BusinessLayer.Users;
 
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.System.PaymentMethod;

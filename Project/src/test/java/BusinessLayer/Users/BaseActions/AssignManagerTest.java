@@ -1,10 +1,9 @@
 package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Products.Users.BaseActions.AssignShopManager;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Products.Users.ShopAdministrator;
-import BusinessLayer.Products.Users.ShopManager;
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopManager;
+import BusinessLayer.Users.SubscribedUser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

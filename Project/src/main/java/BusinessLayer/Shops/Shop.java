@@ -3,14 +3,12 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.Basket;
-import BusinessLayer.Products.Users.ShopAdministrator;
-import BusinessLayer.Products.Users.ShopOwner;
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 

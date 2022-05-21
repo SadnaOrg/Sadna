@@ -3,7 +3,7 @@ package BusinessLayer.System;
 import BusinessLayer.Notifications.Notifier;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Products.Users.UserController;
+import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
 

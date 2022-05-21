@@ -1,4 +1,4 @@
-package BusinessLayer.Products.Users;
+package BusinessLayer.Users;
 
 import java.util.concurrent.ConcurrentHashMap;
 

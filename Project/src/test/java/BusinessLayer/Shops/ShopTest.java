@@ -2,7 +2,7 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.*;
+import BusinessLayer.Users.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

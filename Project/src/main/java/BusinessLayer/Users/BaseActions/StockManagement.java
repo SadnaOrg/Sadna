@@ -1,4 +1,4 @@
-package BusinessLayer.Products.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
