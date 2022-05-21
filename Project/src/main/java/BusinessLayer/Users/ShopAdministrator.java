@@ -51,36 +51,36 @@ public class ShopAdministrator{
 
     public void removeProduct(int productid) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).removeProduct(productid);
+            ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).removeProduct(productid);
         else throw new NoPermissionException();
     }
     public Product addProduct(int productid, String name, String desc,String manufacturer, double price, int quantity) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, desc, manufacturer, price, quantity);
+            return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).addProduct(productid, name, desc, manufacturer, price, quantity);
         else throw new NoPermissionException();
     }
 
     public boolean changeProductQuantity(int productid, int newQuantity) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductQuantity(productid, newQuantity);
+            return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductQuantity(productid, newQuantity);
         else throw new NoPermissionException();
     }
 
     public boolean changeProductPrice(int productid, double newPrice) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductPrice(productid, newPrice);
+            return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductPrice(productid, newPrice);
         else throw new NoPermissionException();
     }
 
     public boolean changeProductDesc(int productid, String newDesc) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductDesc(productid, newDesc);
+            return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductDesc(productid, newDesc);
         else throw new NoPermissionException();
     }
 
     public boolean changeProductName(int productid, String newName) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductName(productid, newName);
+            return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductName(productid, newName);
         else throw new NoPermissionException();
     }
 

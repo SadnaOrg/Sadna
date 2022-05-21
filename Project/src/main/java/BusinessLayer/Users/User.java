@@ -55,8 +55,10 @@ public abstract class User{
 
 
     public boolean editProductQuantity(int shopid, int productid, int newquantity){
-        if(newquantity<=0)
-            throw new IllegalArgumentException("quantity mast be positive amount");
+        if(newquantity==0)
+            return removeProduct(shopid,productid);
+        if(newquantity < 0)
+            throw new IllegalArgumentException("can't have a product with a negative quantity");
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }

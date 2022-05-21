@@ -53,14 +53,17 @@ public class ShopController {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
+                if(checkIfUserHasBasket(shopid,user))
+                    finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
             }
             catch (IllegalStateException e)
             {
                 //TODO: add notification when implemented
-                finalprices.put(shopid,0.0);
+                //finalprices.put(shopid,0.0);
             }
         }
+        if(finalprices.size() == 0)
+            throw new IllegalStateException("can't purchase an empty cart!");
         return finalprices;
     }
 

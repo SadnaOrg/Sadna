@@ -368,7 +368,7 @@ public abstract class UserTests extends ProjectTests {
     @Test
     public void testPurchaseEmptyCart() {
         boolean purchaseResult = userBridge.purchaseCart(u.name,"4580476511112222", 694, 9, 22);
-        assertTrue(purchaseResult);
+        assertFalse(purchaseResult);
         //assertEquals(0,u.numOfNotifications());
     }
 
@@ -400,7 +400,7 @@ public abstract class UserTests extends ProjectTests {
     public void testPurchaseCartFailurePaymentFailedBadCVV(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"480470023456848",15,12,2025);
+        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",15,12,2025);
         assertFalse(purchased);
     }
 
@@ -408,7 +408,7 @@ public abstract class UserTests extends ProjectTests {
     public void testPurchaseCartFailurePaymentFailedBadExpirationDate(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"480470023456848",15,13,3);
+        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",15,13,3);
         assertFalse(purchased);
     }
 

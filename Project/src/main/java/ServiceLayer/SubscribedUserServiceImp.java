@@ -132,16 +132,16 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     private Result ifUserNotNull(MySupplier<Boolean> s,String eventName, String errMsg){
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,errMsg);
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,errMsg);
     }
 
     private Result ifUserNotNull(MySupplier<Boolean> s,String eventName){
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
     }
 
     private Result ifUserNotNullStockManagement(MySupplier<Boolean> s,String eventName){
         String msg = "Failed to " + eventName;
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,msg);
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,msg);
     }
 
     private Result ifUserNull(MySupplier<Boolean> s,String eventName){
