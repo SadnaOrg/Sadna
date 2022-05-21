@@ -102,11 +102,13 @@ public class Facade{
     public boolean editProductQuantity(User currUser, int shopId, int productId, int newQuantity) {
         return  userController.editProductQuantity(currUser,shopId,productId,newQuantity);
     }
-
+// TODO: fix
     public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
         ConcurrentHashMap<Integer, Boolean> paymentSituation = System.getInstance().pay(prices, method);
-        return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);               //todo: make it return payment
+        if(paymentSituation.containsValue(false))
+            return false;
+        return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {

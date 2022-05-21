@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.System.PaymentMethod;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class User{
@@ -93,5 +94,15 @@ public abstract class User{
 
     public boolean isLoggedIn(){
         return true;
+    }
+
+    public void removeBaskets(List<Integer> IDs) {
+        for (Integer id:
+             IDs) {
+            Basket b = getBasket(id);
+            if(b == null)
+                throw new IllegalArgumentException("you don't have a basket in that shop!");
+            shoppingCart.remove(id);
+        }
     }
 }

@@ -266,7 +266,7 @@ public class UserController {
     public boolean addProductToShop(String username, int shopID, String name, String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
         if(admin != null){
-            admin.addProduct(productID,name,desc,manufacturer,price,quantity);
+            admin.addProduct(productID,name,manufacturer,desc,price,quantity);
             return true;
         }
         throw new NoPermissionException("you aren't an admin of that shop!");

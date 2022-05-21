@@ -8,6 +8,7 @@ import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -24,6 +25,16 @@ public class ShopController {
             return -1;
         }
         return -1;
+    }
+
+    public void removeBaskets(List<Integer> IDs, String userName) {
+        for (int shopID:
+             IDs) {
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+            s.removeBasket(userName);
+        }
     }
 
     static private class ShopControllerHolder {
