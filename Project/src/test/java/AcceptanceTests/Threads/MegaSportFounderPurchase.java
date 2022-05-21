@@ -6,14 +6,13 @@ import AcceptanceTests.DataObjects.RegistrationInfo;
 import AcceptanceTests.DataObjects.User;
 import AcceptanceTests.Tests.SubscribedUserTests;
 import AcceptanceTests.Tests.UserTests;
-
+// USING MEGASPORT FOUNDER
 public class MegaSportFounderPurchase extends Thread{
+    private boolean bought;
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         int castroID = UserTests.shops[UserTests.castro_ID].ID;
-        Guest g = bridge.visit();
-        User MegaSportFounder = bridge.login(g.ID,new RegistrationInfo("castroFounder","castro_rocks"));
-
-        bridge.addProductToCart(MegaSportFounder.ID,castroID,2,10);
+        bridge.addProductToCart("MegaSportFounder",castroID,45,10);
+        bought = bridge.purchaseCart("MegaSportFounder","4580470047368888",564,9,13);
     }
 }

@@ -2,11 +2,12 @@ package BusinessLayer;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Products.Users.*;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
-import BusinessLayer.Users.*;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import ServiceLayer.Objects.Administrator;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -32,12 +33,12 @@ public class Facade{
         return userController.reciveInformation();
     }
 
-    public boolean logout(User currUser) {
+    public Guest logout(User currUser) {
         return userController.logout(currUser.getUserName());
     }
 
-    public Shop openShop(SubscribedUser currUser,String name) {
-        return shopController.openShop(currUser,name);
+    public Shop openShop(SubscribedUser currUser,String name, String desc) {
+        return shopController.openShop(currUser,name,desc);
     }
 
     public boolean assignShopManager(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
@@ -48,7 +49,7 @@ public class Facade{
         return userController.assignShopOwner(currUser,shop,userNameToAssign);
     }
 
-    public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<BaseActionType> types) throws NoPermissionException {
+    public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
         return userController.changeManagerPermission(currUser,shop,userNameToAssign,types);
     }
 
@@ -64,8 +65,8 @@ public class Facade{
         return  userController.getHistoryInfo(currUser,shop);
     }
 
-    public boolean loginSystem(){
-        return userController.loginSystem()!=null;
+    public Guest loginSystem(){
+        return userController.loginSystem();
     }
 
     public boolean logoutSystem(User currUser) {
@@ -80,7 +81,7 @@ public class Facade{
         return userController.login(username,password,currUser);
     }
 
-    public boolean logout(String username) {
+    public Guest logout(String username) {
         return userController.logout(username);
     }
 
@@ -124,6 +125,42 @@ public class Facade{
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser) {
         return  userController.getShopsAndUsersInfo(currUser);
+    }
+
+    public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
+        return userController.updateProductQuantity(username,shopID,productID,newQuantity);
+    }
+
+    public boolean updateProductPrice(String username,int shopID, int productID, double newPrice) throws NoPermissionException {
+        return userController.updateProductPrice(username,shopID,productID,newPrice);
+    }
+
+    public boolean updateProductDescription(String username,int shopID, int productID, String Desc) throws NoPermissionException {
+        return userController.updateProductDescription(username,shopID,productID,Desc);
+    }
+
+    public boolean updateProductName(String username,int shopID, int productID, String newName) throws NoPermissionException {
+        return userController.updateProductName(username,shopID,productID,newName);
+    }
+
+    public boolean deleteProductFromShop(String username,int shopID, int productID) throws NoPermissionException {
+        return userController.deleteProductFromShop(username,shopID,productID);
+    }
+
+    public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
+        return userController.addProductToShop(username,shopID,name,manufacturer,desc,productID,quantity,price);
+    }
+
+    public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
+        return userController.reopenShop(userName,shopID);
+    }
+
+    public AdministratorInfo getMyInfo(String userName, int shopID) {
+        return userController.getMyInfo(userName,shopID);
+    }
+
+    public Boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        return userController.removeAdmin(shopID,requesting,toRemove);
     }
 
     private static class FacadeHolder{

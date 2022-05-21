@@ -1,10 +1,9 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Products.Users.*;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.AssignShopManager;
-import BusinessLayer.Users.BaseActions.BaseAction;
-import BusinessLayer.Users.BaseActions.BaseActionType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +11,7 @@ import org.mockito.Mock;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
-import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedDeque;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;

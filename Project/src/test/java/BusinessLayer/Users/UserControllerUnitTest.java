@@ -1,6 +1,7 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.*;
 import BusinessLayer.Shops.*;
 import org.junit.*;
 import org.mockito.Mock;
@@ -90,7 +91,7 @@ public class UserControllerUnitTest {
 
     @Test
     public void saveProducts() {
-        when(user.saveProducts(s1.getId(), p1.getID(), 100)).thenReturn(true);
+        when(user.saveProducts(s1.getId(), p1.getID(), 100, p1.getPrice())).thenReturn(true);
         try(MockedStatic<ShopController> mockedStatic1 = mockStatic(ShopController.class)) {
             mockedStatic1.when(ShopController::getInstance).thenReturn(sc);
             when(sc.checkIfUserHasBasket(s1.getId(), user.getName())).thenReturn(true);

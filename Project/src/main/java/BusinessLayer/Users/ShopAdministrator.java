@@ -1,24 +1,27 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.*;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.stream.Collectors;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();
     protected Shop shop;
     protected SubscribedUser user;
     protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
+    private String appointer;
 
-    public ShopAdministrator(Shop s, SubscribedUser u) {
+    public ShopAdministrator(Shop s, SubscribedUser u, String appointer) {
         super();
+        this.appointer = appointer;
         shop = s;
         user = u;
     }
@@ -31,13 +34,13 @@ public class ShopAdministrator{
      */
     public boolean AssignShopManager(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_MANAGER))
-            return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign);
+            return ((AssignShopManager)action.get(BaseActionType.ASSIGN_SHOP_MANAGER)).act(toAssign,user.getUserName());
         else throw new NoPermissionException();
     }
 
     public boolean AssignShopOwner(SubscribedUser toAssign) throws NoPermissionException {
         if(action.containsKey(BaseActionType.ASSIGN_SHOP_OWNER))
-            return ((AssignShopOwner)action.get(BaseActionType.ASSIGN_SHOP_OWNER)).act(toAssign);
+            return ((AssignShopOwner)action.get(BaseActionType.ASSIGN_SHOP_OWNER)).act(toAssign,user.getUserName());
         else throw new NoPermissionException();
     }
 
@@ -52,9 +55,9 @@ public class ShopAdministrator{
             ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).removeProduct(productid);
         else throw new NoPermissionException();
     }
-    public Product addProduct(int productid, String name, double price, int quantity) throws NoPermissionException {
+    public Product addProduct(int productid, String name, String desc,String manufacturer, double price, int quantity) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
-            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, price, quantity);
+            return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).addProduct(productid, name, desc, manufacturer, price, quantity);
         else throw new NoPermissionException();
     }
 
@@ -64,7 +67,7 @@ public class ShopAdministrator{
         else throw new NoPermissionException();
     }
 
-    public boolean changeProductPrice(int productid, int newPrice) throws NoPermissionException {
+    public boolean changeProductPrice(int productid, double newPrice) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
             return ((StockManagement)action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).changeProductPrice(productid, newPrice);
         else throw new NoPermissionException();
@@ -150,4 +153,21 @@ public class ShopAdministrator{
     public ConcurrentLinkedDeque<ShopAdministrator> getAppoints() {
         return this.appoints;
     }
+
+    public String getAppointer() {
+        return this.appointer;
+    }
+
+    public AdministratorInfo getMyInfo() {
+        return new AdministratorInfo(getUser().getUserName(),AdministratorInfo.ShopAdministratorType.MANAGER,getActionsTypes(),shop.getId(),getAppointer());
+    }
+
+    public boolean removeAdmin(SubscribedUser toRemove) throws NoPermissionException {
+        if(this.action.containsKey(BaseActionType.REMOVE_ADMIN)){
+            return ((RemoveAdmin)action.get(BaseActionType.REMOVE_ADMIN)).act(toRemove);
+        }
+        else throw new NoPermissionException("don't have permission to remove appointments!");
+    }
+
+    public SubscribedUser getSubscribed(){return this.user;}
 }

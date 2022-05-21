@@ -1,14 +1,17 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Products.Users.ShopOwner;
+import BusinessLayer.Products.Users.SubscribedUser;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseActionType;
-import BusinessLayer.Users.BaseActions.CloseShop;
-import BusinessLayer.Users.BaseActions.ReOpenShop;
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
+import BusinessLayer.Products.Users.BaseActions.CloseShop;
+import BusinessLayer.Products.Users.BaseActions.ReOpenShop;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ShopOwnerTest {
     SubscribedUser founderUser = mock(SubscribedUser.class);
@@ -24,19 +27,20 @@ public class ShopOwnerTest {
 
     @Before
     public void setUp(){
-        founder = new ShopOwner(shop,founderUser,true);
-        owner = new ShopOwner(shop,ownerUser,false);
+        founder = new ShopOwner(shop,founderUser, "Founder", true);
+        owner = new ShopOwner(shop,ownerUser,founder.getUserName(),false);
         founder.AddAction(BaseActionType.REOPEN_SHOP, reOpenShop);
         founder.AddAction(BaseActionType.CLOSE_SHOP, closeShop);
     }
 
     @Test
     public void closeShopSuccess(){
+        when(founder.getUserName()).thenReturn("Founder");
         try {
             founder.closeShop();
         }
         catch (Exception ignored){
-
+            fail("FAILED");
         }
     }
 
@@ -58,7 +62,7 @@ public class ShopOwnerTest {
             founder.reOpenShop();
         }
         catch (Exception ignored){
-
+            fail("failed");
         }
     }
 

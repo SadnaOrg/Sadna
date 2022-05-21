@@ -1,7 +1,8 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Users.BaseActions.BaseActionType;
+import ServiceLayer.Objects.Administrator;
 
 import javax.naming.NoPermissionException;
 import java.math.BigInteger;
@@ -108,6 +109,16 @@ public class SubscribedUser extends User {
 
         if(!shopAdministrator.containsKey(shopId))
          throw new NoPermissionException("you're not the shop Administrator");
+    }
+
+    public boolean removeAdmin(int shopID, SubscribedUser toRemove) throws NoPermissionException {
+        validatePermission(shopID);
+        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
+        return admin.removeAdmin(toRemove);
+    }
+
+    public void removeMyRole(int id) {
+        shopAdministrator.remove(id);
     }
 
 // Java program to calculate SHA hash value

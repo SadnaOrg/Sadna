@@ -1,10 +1,11 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.Basket;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.*;
@@ -36,7 +37,7 @@ public class BasketTest {
         when(p1.getID()).thenReturn(0);
         when(p1.getQuantity()).thenReturn(10);
         int bought = p1.getQuantity() - 2;
-        boolean saved = b.saveProducts(p1.getID(), bought);
+        boolean saved = b.saveProducts(p1.getID(), bought, p1.getPrice());
         assertTrue(saved);
 
         ConcurrentHashMap<Integer, Integer> products = b.getProducts();

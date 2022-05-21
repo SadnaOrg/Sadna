@@ -1,13 +1,12 @@
 package BusinessLayer.Users.BaseActions;
 
+import BusinessLayer.Products.Users.BaseActions.ReOpenShop;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Users.ShopOwner;
+import BusinessLayer.Products.Users.SubscribedUser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;

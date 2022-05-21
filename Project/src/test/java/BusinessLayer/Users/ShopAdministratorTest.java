@@ -1,7 +1,9 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Products.Users.BaseActions.*;
+import BusinessLayer.Products.Users.ShopAdministrator;
+import BusinessLayer.Products.Users.SubscribedUser;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,8 +14,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,10 +43,10 @@ public class ShopAdministratorTest {
 
     @Before
     public void setUp(){
-        sa = new ShopAdministrator(shop, sua);
-        sa1 = new ShopAdministrator(shop, su1);
-        sa2 = new ShopAdministrator(shop, su2);
-        sa3 = new ShopAdministrator(shop, su3);
+        sa = new ShopAdministrator(shop, sua,"ShopFounder");
+        sa1 = new ShopAdministrator(shop, su1,"random");
+        sa2 = new ShopAdministrator(shop, su2,"test");
+        sa3 = new ShopAdministrator(shop, su3,"name");
     }
 
     @After
@@ -56,7 +57,8 @@ public class ShopAdministratorTest {
     @Test
     public void assignShopManagerSuccess() throws NoPermissionException {
         sa.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER, assignManager);
-        when(assignManager.act(any(SubscribedUser.class))).thenReturn(true);
+        when(sua.getUserName()).thenReturn("Name");
+        when(assignManager.act(any(SubscribedUser.class),any(String.class))).thenReturn(true);
         boolean res = sa.AssignShopManager(assignee);
         assertTrue(res);
     }
@@ -74,8 +76,9 @@ public class ShopAdministratorTest {
 
     @Test
     public void assignShopOwnerSuccess() throws NoPermissionException {
+        when(assignOwner.act(any(SubscribedUser.class),anyString())).thenReturn(true);
+        when(sua.getUserName()).thenReturn("Name");
         sa.AddAction(BaseActionType.ASSIGN_SHOP_OWNER, assignOwner);
-        when(assignOwner.act(any(SubscribedUser.class))).thenReturn(true);
         boolean res = sa.AssignShopOwner(assignee);
         assertTrue(res);
     }

@@ -1,6 +1,9 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.User;
+import BusinessLayer.Products.Users.UserController;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopController;
@@ -139,7 +142,7 @@ public class UserControllerTest {
     public void logout() {
         registerToSystem();
         SubscribedUser login_res = uc.login(userLog, passLog, null);
-        Assert.assertTrue(uc.logout(userLog));
+        Assert.assertNotNull(uc.logout(userLog));
         Assert.assertFalse(login_res.isLoggedIn());
     }
 
@@ -213,7 +216,7 @@ public class UserControllerTest {
     }
 
     public Shop createShop() {
-        Shop s2 = new Shop(shopID, "ShopName", founder);
+        Shop s2 = new Shop(shopID, "ShopName","testing shop", founder);
         s2.addProduct(p1);
         return s2;
     }

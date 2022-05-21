@@ -3,15 +3,13 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Products.Users.ShopAdministrator;
+import BusinessLayer.Products.Users.ShopOwner;
+import BusinessLayer.Products.Users.SubscribedUser;
 
-import javax.naming.NoPermissionException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -29,10 +27,11 @@ public class Shop {
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
 
-    public Shop(int id, String name, SubscribedUser founder) {
+    public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
         this.name = name;
-        this.founder = new ShopOwner(this, founder, true);
+        this.description = description;
+        this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
     }
@@ -51,6 +50,10 @@ public class Shop {
             return true;
         }
         return false;
+    }
+
+    public void removeAdmin(String userName) {
+        shopAdministrators.remove(userName);
     }
 
     public enum State {

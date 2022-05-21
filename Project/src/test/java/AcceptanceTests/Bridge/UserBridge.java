@@ -8,27 +8,30 @@ import java.util.List;
 
 public interface UserBridge {
 
-    Guest visit();
+    Guest visit(); // login system
 
-    SubscribedUser register(int guestID, RegistrationInfo info);
+    SubscribedUser login(String guestName,RegistrationInfo info); // do a login, then getUserInfo
 
-    boolean exit(int userID);
+    boolean register(String guestname,RegistrationInfo info); // registerToSystem
 
-    List<Shop> getShopsInfo(ShopFilter shopFilter);
+    boolean exit(String username); // logout system
 
-    List<ProductInShop> searchShopProducts(int shopID);
+    List<Shop> getShopsInfo(ShopFilter shopFilter); // searchProducts
 
-    List<ProductInShop> searchProducts(ProductFilter productFilter);
+    List<ProductInShop> searchShopProducts(int shopID); // searchProducts
 
-    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter);
+    List<ProductInShop> searchProducts(ProductFilter productFilter); // searchProducts
 
-    boolean addProductToCart(int userID,int shopID,int productID, int quantity);
+    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter); // searchProducts
 
-    ShoppingCart checkCart(int userID);
+    boolean addProductToCart(String username,int shopID,int productID, int quantity); // saveProducts
 
-    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
+    ShoppingCart checkCart(String username); // showCart
 
-    boolean purchaseCart(int userID);
+    boolean updateCart(String username,int productsID, int shopsID,int quantity); // removeProduct, editProductQuantity
 
-    ProductInShop searchProductInShop(int productID, int shopID);
+    boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay); //purchaseCartFromShop
+
+    ProductInShop searchProductInShop(int productID, int shopID); // searchProducts
+
 }

@@ -1,16 +1,21 @@
 package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.UserController;
-import org.junit.*;
+import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.UserController;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+
 import static org.mockito.Mockito.*;
 
 public class ShopControllerUnitTest {

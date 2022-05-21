@@ -1,10 +1,11 @@
-package BusinessLayer.Users.BaseActions;
+package BusinessLayer.Products.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Products.Users.SubscribedUser;
 
-import java.util.Collection;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public enum BaseActionType {
     STOCK_MANAGEMENT(1),
@@ -13,10 +14,15 @@ public enum BaseActionType {
     ASSIGN_SHOP_MANAGER(6),
     CHANGE_MANAGER_PERMISSION(7),
     CLOSE_SHOP(9),
+    REOPEN_SHOP(10),
     ROLE_INFO(11),
-    HISTORY_INFO(13), REOPEN_SHOP(10);
+    HISTORY_INFO(13),
+    REMOVE_ADMIN(5),;
+
+    private final int code;
 
     BaseActionType(int i) {
+        this.code = i;
     }
 
     static public BaseAction getAction(SubscribedUser user, Shop shop, BaseActionType actionType) {
@@ -30,6 +36,23 @@ public enum BaseActionType {
             case SET_PURCHASE_POLICY -> new SetPurchasePolicy();
             case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission(shop, user);
             case REOPEN_SHOP -> new ReOpenShop(shop, user);
+            case REMOVE_ADMIN -> new RemoveAdmin(user,shop);
         };
+    }
+
+    private static final Map<Integer,BaseActionType> lookup
+            = new HashMap<Integer,BaseActionType>();
+
+    static {
+        for(BaseActionType s : EnumSet.allOf(BaseActionType.class))
+            lookup.put(s.getCode(), s);
+    }
+
+    public int getCode() {
+        return this.code;
+    }
+
+    public static BaseActionType lookup(int code){
+        return lookup.get(code);
     }
 }

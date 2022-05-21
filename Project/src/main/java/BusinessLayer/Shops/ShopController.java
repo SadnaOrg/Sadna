@@ -3,12 +3,10 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.UserController;
-import BusinessLayer.System.System;
+import BusinessLayer.Products.Users.Basket;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.UserController;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,6 +15,16 @@ import java.util.stream.Collectors;
 public class ShopController {
 
 
+    public double getProductPrice(int shopId, int productId) {
+        Shop s = shops.getOrDefault(shopId,null);
+        if(s != null){
+            Product product = s.getProducts().getOrDefault(productId,null);
+            if (product != null)
+                return product.getPrice();
+            return -1;
+        }
+        return -1;
+    }
 
     static private class ShopControllerHolder {
         static final ShopController sc = new ShopController();
@@ -114,9 +122,9 @@ public class ShopController {
         return shopsInfo;
     }
 
-    public Shop openShop(SubscribedUser su, String name) {
+    public Shop openShop(SubscribedUser su, String name, String description) {
         int shopID = shops.size();
-        shops.put(shopID, new Shop(shopID, name, su));
+        shops.put(shopID, new Shop(shopID, name, description, su));
         return shops.get(shopID);
     }
 

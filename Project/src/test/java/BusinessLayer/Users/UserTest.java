@@ -1,6 +1,9 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
+import BusinessLayer.Products.Users.Guest;
+import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Products.Users.User;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.System.PaymentMethod;
 import org.junit.Before;
@@ -19,7 +22,7 @@ public class UserTest {
         s1 = createShopWithProduct();
         u1 = createUser();
         assertSame("Yuval", u1.getUserName());
-        u1.saveProducts(s1.getId(), p1.getID(), quantity);
+        u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice());
         assertSame(u1.getProducts(s1.getId()).get(p1.getID()), quantity);
     }
 
@@ -32,7 +35,7 @@ public class UserTest {
     public void testSaveProductsFail() {
         //saving a second time
         try {
-            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity));
+            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice()));
         }
         catch(Exception ignored) {
             assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));
@@ -110,7 +113,7 @@ public class UserTest {
     }
 
     private Shop createShop() {
-        return new Shop(100, "shop", founder);
+        return new Shop(100, "shop", "testing shop",founder);
     }
 
     private User createUser() {

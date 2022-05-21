@@ -1,7 +1,5 @@
 package BusinessLayer.Shops;
 
-import BusinessLayer.System.System;
-import BusinessLayer.Users.UserController;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +10,7 @@ public class PurchaseHistoryController {
     private Collection<PurchaseHistory> DataOnPurchases;
 
     static private class PurchaseHistoryControllerHolder {
-        static final BusinessLayer.Shops.PurchaseHistoryController ph = new BusinessLayer.Shops.PurchaseHistoryController();
+        static final PurchaseHistoryController ph = new PurchaseHistoryController();
     }
     private PurchaseHistoryController()
     {

@@ -2,8 +2,7 @@ package ServiceLayer.interfaces;
 
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
-import ServiceLayer.Objects.Cart;
-import ServiceLayer.Objects.ShopsInfo;
+import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -16,8 +15,6 @@ public interface UserService {
     Result registerToSystem(String userName, String password);
 
     Response<SubscribedUserService> login(String username, String password);
-
-    Result logout(String username);
 
     Response<ShopsInfo> receiveInformation();
 
@@ -32,5 +29,7 @@ public interface UserService {
     Result removeProduct(int shopId, int productId);
 
     Result editProductQuantity(int shopId, int productId, int newQuantity);
+
+    Response<User> getUserInfo();
 
 }

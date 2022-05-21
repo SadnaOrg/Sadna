@@ -1,7 +1,5 @@
 package BusinessLayer.System;
 
-import BusinessLayer.Shops.Purchase;
-
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 

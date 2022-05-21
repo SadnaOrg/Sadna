@@ -1,8 +1,7 @@
-package BusinessLayer.Users.BaseActions;
+package BusinessLayer.Products.Users.BaseActions;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseAction;
 
 public class StockManagement extends BaseAction {
 
@@ -12,9 +11,11 @@ public class StockManagement extends BaseAction {
         this.shop= shop;
     }
 
-    public Product addProduct(int productid, String name, double price, int quantity)
+    public Product addProduct(int productid, String name, String desc, String manufacturer, double price, int quantity)
     {
         Product product = new Product(productid,name,price,quantity);
+        product.setDescription(desc);
+        product.setManufacturer(manufacturer);
         shop.addProduct(product);
         return product;
     }
@@ -34,7 +35,7 @@ public class StockManagement extends BaseAction {
         return false;
     }
 
-    public boolean changeProductPrice(int productid, int newPrice)
+    public boolean changeProductPrice(int productid, double newPrice)
     {
         if(shop.getProducts().containsKey(productid)) {
             Product product = shop.getProducts().get(productid);

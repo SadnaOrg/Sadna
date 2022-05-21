@@ -6,14 +6,13 @@ import AcceptanceTests.DataObjects.RegistrationInfo;
 import AcceptanceTests.DataObjects.User;
 import AcceptanceTests.Tests.SubscribedUserTests;
 import AcceptanceTests.Tests.UserTests;
-
+// USING ACE_FOUNDER
 public class ACEFounderPurchase extends Thread{
+    private boolean bought;
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
         int castroID = UserTests.shops[UserTests.castro_ID].ID;
-        Guest g = bridge.visit();
-        User ACEFounder = bridge.login(g.ID,new RegistrationInfo("ACEFounder","ACE_rocks"));
-
-        bridge.addProductToCart(ACEFounder.ID,castroID,2,21);
+        bridge.addProductToCart("ACEFounder",castroID,45,31);
+        bought = bridge.purchaseCart("ACEFounder","4580470048676846",654,12,12);
     }
 }

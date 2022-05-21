@@ -1,12 +1,12 @@
-package BusinessLayer.Users;
+package BusinessLayer.Products.Users;
 
+import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseActionType;
 
 public class ShopManager extends ShopAdministrator{
 
-    public ShopManager(Shop s,SubscribedUser u) {
-        super(s,u);
+    public ShopManager(Shop s,SubscribedUser u, String appointer) {
+        super(s,u, appointer);
         this.AddAction(BaseActionType.HISTORY_INFO);
     }
 }

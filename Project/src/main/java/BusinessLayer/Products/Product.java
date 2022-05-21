@@ -7,6 +7,7 @@ public class Product {
     private int id;
     private String name;
     private String description;
+    private String manufacturer;
     private double price;
     private int quantity;
 
@@ -60,5 +61,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String  getManufacturer() {
+        return this.manufacturer;
     }
 }

@@ -7,29 +7,37 @@ import java.util.Map;
 
 public interface SubscribedUserBridge extends UserBridge {
 
-    SubscribedUser login(int guestID, RegistrationInfo info);
+    Guest logout(String  userName); //logout
 
-    Guest logout(int userID);
+    boolean updateProductQuantity(String username, int shopID, int productID ,int newQuantity); //updateProductQuantity
 
-    boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice);
+    boolean updateProductPrice(String username, int shopID, int productID, double newPrice); //updateProductPrice
 
-    boolean deleteProductFromShop(int userID, int shopID, int productID);
+    boolean updateProductDescription(String username, int shopID, int productID, String Desc); //updateProductDescription
 
-    boolean appointOwner(int shopID, int appointerID, int appointeeID);
+    boolean updateProductName(String username, int shopID, int productID, String newName); //updateProductName
 
-    boolean appointManager(int shopID, int appointerID, int appointeeID);
+    boolean deleteProductFromShop(String username, int shopID, int productID); //  deleteProduct
 
-    boolean closeShop(int shopID, int userID);
+    boolean appointOwner(int shopID, String appointerName, String appointeeName); // assignShopOwner
 
-    boolean addManagerPermission(int shopID, int giverID, int receiverID, String permission);
+    boolean appointManager(int shopID, String appointerName, String appointeeName); // assignShopManager
 
-    boolean addOwnerPermission(int shopID, int giverID, int receiverID, String permission);
+    boolean closeShop(int shopID, String  userName); // closeShop
 
-    Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID);
+    boolean addManagerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission); // changeManagerPermission
 
-    Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID);
+    boolean addOwnerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission); //changeManagerPermission
 
-    boolean addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price);
+    Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID); // getAdministratorInfo
 
-    Shop openShop(int userID, String name, String category);
+    Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID); // getAdministratorInfo
+
+    boolean addProductToShop(String username,int shopID, Product product,int productID, int quantity, double price); // addProduct
+
+    Shop openShop(String username, String name, String desc); // openShop
+
+    boolean removeAdmin(int shopID, String requesting, String toRemove); // removeAdmin
+
+    boolean removePermission(int shopID, String removing, String removeTo, SubscribedUser.Permission permission);
 }

@@ -1,4 +1,8 @@
 package ServiceLayer.Objects;
 
-public record User() {
+public class User {
+    public String username;
+    public User(BusinessLayer.Products.Users.User user){
+        this.username = user.getUserName();
+    }
 }
