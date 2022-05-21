@@ -16,13 +16,13 @@ public interface UserBridge {
 
     boolean exit(String username); // logout system
 
-    List<Shop> getShopsInfo(ShopFilter shopFilter); // searchProducts
+    List<Shop> getShopsInfo(String username,ShopFilter shopFilter); // searchProducts
 
-    List<ProductInShop> searchShopProducts(int shopID); // searchProducts
+    List<ProductInShop> searchShopProducts(String username,int shopID); // searchProducts
 
-    List<ProductInShop> searchProducts(ProductFilter productFilter); // searchProducts
+    List<ProductInShop> searchProducts(String username,ProductFilter productFilter); // searchProducts
 
-    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter); // searchProducts
+    List<ProductInShop> filterShopProducts(String username,int shopID,ProductFilter productFilter); // searchProducts
 
     boolean addProductToCart(String username,int shopID,int productID, int quantity); // saveProducts
 
@@ -32,6 +32,6 @@ public interface UserBridge {
 
     boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear); //purchaseCartFromShop
 
-    ProductInShop searchProductInShop(int productID, int shopID); // searchProducts
+    ProductInShop searchProductInShop(String username,int productID, int shopID); // searchProducts
 
 }

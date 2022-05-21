@@ -2,13 +2,16 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Objects.Cart;
+import ServiceLayer.Objects.ShopsInfo;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 import ServiceLayer.UserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UserAdapter implements UserBridge{
@@ -78,23 +81,65 @@ public class UserAdapter implements UserBridge{
     }
 
     @Override
-    public List<AcceptanceTests.DataObjects.Shop> getShopsInfo(ShopFilter shopFilter) {
+    public List<AcceptanceTests.DataObjects.Shop> getShopsInfo(String username,ShopFilter shopFilter) {
+        UserService service = getService(username);
+        if(service == null)
+            return null;
+        Response<ShopsInfo> infoResponse = service.searchProducts((shop) -> shopFilter.filter(new Shop(shop)), (product -> true));
+        if(infoResponse.isOk()){
+            ShopsInfo info = infoResponse.getElement();
+            if(info.shops().size() == 0)
+                return null;
+            List<Shop> shops = new LinkedList<>();
+            for (ServiceLayer.Objects.Shop shopInfo:
+                    info.shops()) {
+                shops.add(new Shop(shopInfo));
+            }
+            return shops;
+        }
         return null;
     }
 
     @Override
-    public List<ProductInShop> searchShopProducts(int shopID) {
+    public List<ProductInShop> searchShopProducts(String username,int shopID) {
+        UserService service = getService(username);
+        if(service == null){
+            return null;
+        }
+        Response<ShopsInfo> infoResponse = service.searchProducts(shop -> shop.shopId() == shopID,product -> true);
+        if(infoResponse.isOk()){
+            return getProducts(infoResponse);
+        }
         return null;
     }
 
     @Override
-    public List<ProductInShop> searchProducts(ProductFilter productFilter) {
-        return null;
+    public List<ProductInShop> searchProducts(String username,ProductFilter productFilter) {
+        UserService service = getService(username);
+        if(service == null)
+            return null;
+        Response<ShopsInfo> infoResponse = service.searchProducts(shop -> true,product -> productFilter.filter(new ProductInShop(product)));
+        if(infoResponse.isOk()){
+            List<ProductInShop> products = getProducts(infoResponse);
+            if(products == null)
+                return null;
+            if(products.size() == 0)
+                return null;
+            return products;
+        }
+        else return null;
     }
 
     @Override
-    public List<ProductInShop> filterShopProducts(int shopID, ProductFilter productFilter) {
-        return null;
+    public List<ProductInShop> filterShopProducts(String username,int shopID, ProductFilter productFilter) {
+        UserService service = getService(username);
+        if(service == null)
+            return null;
+        Response<ShopsInfo> infoResponse = service.searchProducts(shop -> shop.shopId() == shopID, product -> productFilter.filter(new ProductInShop(product)));
+        if(infoResponse.isOk()){
+            return getProducts(infoResponse);
+        }
+        else return null;
     }
 
     @Override
@@ -146,20 +191,31 @@ public class UserAdapter implements UserBridge{
         }
         return false;
     }
-
+// ADD SUBSCRIBED USER PURCHASE
     @Override
     public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear) {
-        if(users.containsKey(username)){
-            UserService userService = users.get(username);
-            Result purchased = userService.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
-            return purchased.isOk();
-        }
-        return false;
+        UserService service = getService(username);
+        if(service == null)
+            return false;
+        Result purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
+        return purchased.isOk();
     }
 
     @Override
-    public ProductInShop searchProductInShop(int productID, int shopID) {
-        return null;
+    public ProductInShop searchProductInShop(String username,int productID, int shopID) {
+        UserService service = getService(username);
+        if(service == null)
+            return null;
+        Response<ShopsInfo> infoResponse = service.searchProducts(shop -> shop.shopId() == shopID, product -> product.productID() == productID);
+        if(infoResponse.isOk()){
+            List<ProductInShop> productInShops = getProducts(infoResponse);
+            if(productInShops == null)
+                return null;
+            if(productInShops.size() != 1)
+                return null;
+            else return productInShops.get(0);
+        }
+        else return null;
     }
 
     public HashMap<String, UserService> getGuests() {
@@ -168,5 +224,34 @@ public class UserAdapter implements UserBridge{
 
     public HashMap<String, SubscribedUserService> getSubscribed() {
         return subscribedUsers;
+    }
+
+    private UserService getService(String username){
+        UserService service;
+        if(users.containsKey(username)) {
+            service = users.get(username);
+        }
+        else if(subscribedUsers.containsKey(username)){
+            service = subscribedUsers.get(username);
+        }
+        else {
+            return null;
+        }
+        return service;
+    }
+
+    private List<ProductInShop> getProducts(Response<ShopsInfo> infoResponse){
+        List<ProductInShop> productInShops = new LinkedList<>();
+        ShopsInfo info = infoResponse.getElement();
+        Collection<ServiceLayer.Objects.Shop> shops = info.shops();
+        if(shops.size() == 0)
+            return null;
+        for (ServiceLayer.Objects.Shop s:
+                info.shops()) {
+            Collection<ServiceLayer.Objects.Product> products = s.shopProducts();
+            List<ProductInShop> shopsProducts = products.stream().map(ProductInShop::new).toList();
+            productInShops.addAll(shopsProducts);
+        }
+        return productInShops;
     }
 }

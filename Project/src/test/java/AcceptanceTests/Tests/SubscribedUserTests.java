@@ -17,7 +17,7 @@ import java.util.Objects;
 import static org.junit.Assert.*;
 
 public class SubscribedUserTests extends UserTests {
-    private static final SubscribedUserBridge subscribedUserBridge = new SubscribedUserProxy((UserProxy) UserTests.getUserBridge());
+    private static SubscribedUserBridge subscribedUserBridge = null;
 
     private static Shop supersal;
     private boolean closeSupersal = false;
@@ -55,8 +55,9 @@ public class SubscribedUserTests extends UserTests {
     public static SubscribedUserBridge getUserBridge(){return subscribedUserBridge;}
 
     @BeforeClass
-    public static void setUpUsers(){
-        UserTests.setUpTests();
+    public static void setUp(){
+        UserTests.setUp();
+        subscribedUserBridge = new SubscribedUserProxy((UserProxy) UserTests.getUserBridge());
         Guest setUpU1 = subscribedUserBridge.visit();
         Guest setUpU2 = subscribedUserBridge.visit();
         Guest setUpU3 = subscribedUserBridge.visit();
@@ -87,8 +88,10 @@ public class SubscribedUserTests extends UserTests {
         subscribedUserBridge.exit(setUpEnter.name);
     }
 
+    @Override
     @Before
-    public void loginUsers(){
+    public void setUpTest(){
+        //super.setUpTest();
         Guest ace_guest =userBridge.visit();
         Guest castro_guest = userBridge.visit();
         Guest megasport_guest = userBridge.visit();
@@ -114,8 +117,10 @@ public class SubscribedUserTests extends UserTests {
         MegaSportFounder = userBridge.login(megasport_guest.getName(), megaSport);
     }
 
+    @Override
     @After
-    public void exitUsers(){
+    public void tearDown(){
+        //super.tearDown();
         if(closeSupersal) {
             subscribedUserBridge.closeShop(supersal.ID, supersalFounder.name);
             closeSupersal = false;
@@ -241,7 +246,7 @@ public class SubscribedUserTests extends UserTests {
 
         boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,222,12,67.5);
         assertTrue(added);
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name ,222,shops[castro_ID].ID);
 
         assertNotNull(pis);
         assertEquals(222,pis.ID);
@@ -257,7 +262,7 @@ public class SubscribedUserTests extends UserTests {
         boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,-12,67.5);
         assertFalse(added);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(221,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 221,shops[castro_ID].ID);
         assertNull(pis);
     }
 
@@ -268,7 +273,7 @@ public class SubscribedUserTests extends UserTests {
         boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,12,-12);
         assertFalse(added);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 222,shops[castro_ID].ID);
         assertNull(pis);
     }
 
@@ -279,7 +284,7 @@ public class SubscribedUserTests extends UserTests {
         boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,-12,-12);
         assertFalse(added);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(221,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 221,shops[castro_ID].ID);
         assertNull(pis);
     }
 
@@ -290,7 +295,7 @@ public class SubscribedUserTests extends UserTests {
         boolean deleted = subscribedUserBridge.deleteProductFromShop(ACEFounder.name,shops[castro_ID].ID,222);
         assertTrue(deleted);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(222,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(ACEFounder.name, 222,shops[castro_ID].ID);
         assertNull(pis);
         deleteCastro222 = false;
     }
@@ -300,7 +305,7 @@ public class SubscribedUserTests extends UserTests {
         boolean deleted = subscribedUserBridge.deleteProductFromShop(ACEFounder.name,shops[castro_ID].ID,5);
         assertFalse(deleted);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(5,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(ACEFounder.name, 5,shops[castro_ID].ID);
         assertNull(pis);
     }
 
@@ -309,7 +314,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,120);
         assertTrue(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertNotNull(pis);
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
@@ -322,7 +327,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,12.5);
         assertTrue(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertNotNull(pis);
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
@@ -335,7 +340,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,50);
         assertTrue(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertNotNull(pis);
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
@@ -347,7 +352,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated = subscribedUserBridge.updateProductName(MegaSportFounder.name,shops[ACE_ID].ID,3,"fail");
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(3,shops[ACE_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 3,shops[ACE_ID].ID);
         assertNull(pis);
     }
 
@@ -356,7 +361,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(MegaSportFounder.name,shops[ACE_ID].ID,1,-50);
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(45,shops[MegaSport_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 45,shops[MegaSport_ID].ID);
         assertNotNull(pis);
         assertEquals(pis.ID,1);
         assertEquals(pis.price,40,0);
@@ -367,7 +372,7 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(MegaSportFounder.name,shops[ACE_ID].ID,11,-50);
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(11,shops[ACE_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 11,shops[ACE_ID].ID);
         assertNull(pis);
     }
 
@@ -520,10 +525,10 @@ public class SubscribedUserTests extends UserTests {
         boolean result = subscribedUserBridge.closeShop(supersal.ID,supersalFounder.name);
         assertTrue(result);
 
-        List<Shop> searchResult = subscribedUserBridge.getShopsInfo(shopFilterName);
+        List<Shop> searchResult = subscribedUserBridge.getShopsInfo(supersalFounder.name, shopFilterName);
         assertEquals(0,searchResult.size());
 
-        List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersal.ID);
+        List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersalFounder.name, supersal.ID);
         assertNull(productInShops);
 
         //List<String> supersalFounderNotifications = u2.notifications;
@@ -704,7 +709,7 @@ public class SubscribedUserTests extends UserTests {
 
         assertTrue(productRemovalStatus);
 
-        ProductInShop pis = subscribedUserBridge.searchProductInShop(45,shops[castro_ID].ID);
+        ProductInShop pis = subscribedUserBridge.searchProductInShop(u1.name,45,shops[castro_ID].ID);
         ShoppingCart cart = subscribedUserBridge.checkCart(u1.name);
         assertNotNull(cart);
 
@@ -738,7 +743,7 @@ public class SubscribedUserTests extends UserTests {
         MegaSportFounderPurchase.join();
         ACEFounderPurchase.join();
 
-        ProductInShop product = userBridge.searchProductInShop(2,shops[castro_ID].ID);
+        ProductInShop product = userBridge.searchProductInShop(MegaSportFounder.name, 2,shops[castro_ID].ID);
         assertNotNull(product);
         assertTrue(product.quantity == 30 || product.quantity == 9);
 

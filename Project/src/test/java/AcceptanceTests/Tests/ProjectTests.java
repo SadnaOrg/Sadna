@@ -3,6 +3,8 @@ package AcceptanceTests.Tests;
 import AcceptanceTests.Bridge.*;
 import AcceptanceTests.DataObjects.*;
 
+import java.util.List;
+
 // TODO: NOTIFICATION TEST
 
 // This class is used for setting up data for tests
@@ -74,6 +76,10 @@ public abstract class ProjectTests {
         proxy.appointManager(castroShop.ID, castroFounder.name,MegaSportFounder.name);
         proxy.appointOwner(castroShop.ID, castroFounder.name,ACEFounder.name);
         proxy.appointOwner(aceShop.ID, ACEFounder.name,MegaSportFounder.name);
+
+        shops[castro_ID] = shopSearch(shops[castro_ID].ID);
+        shops[MegaSport_ID] = shopSearch(shops[MegaSport_ID].ID);
+        shops[ACE_ID] = shopSearch(shops[ACE_ID].ID);
 
         userBridge.exit(ACEFounder.name);
         userBridge.exit(castroFounder.name);
@@ -153,5 +159,15 @@ public abstract class ProjectTests {
         ProductFilter productFailFilterManufacturer = (p) -> p.getManufacturer().equals("turkey");
         ProductFilter productFailFilterDesc = (p) -> p.desc.equals("very bad");
         return new ProductFilter[]{productFailFilterManufacturer, productFailFilterDesc};
+    }
+
+    private static Shop shopSearch(int id){
+        List<Shop> shopsSearch = userBridge.getShopsInfo(castroFounder.name, new ShopFilter() {
+            @Override
+            public boolean filter(Shop shop) {
+                return shop.ID == id;
+            }
+        });
+        return shopsSearch.get(0);
     }
 }
