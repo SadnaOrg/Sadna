@@ -1,7 +1,6 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.Users.*;
 import BusinessLayer.Shops.*;
 import org.junit.*;
 import org.mockito.Mock;
@@ -12,9 +11,6 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import static org.mockito.Mockito.*;
 
-import javax.naming.NoPermissionException;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class UserControllerUnitTest {

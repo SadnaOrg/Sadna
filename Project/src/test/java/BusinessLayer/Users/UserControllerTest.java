@@ -1,9 +1,6 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.Users.SubscribedUser;
-import BusinessLayer.Products.Users.User;
-import BusinessLayer.Products.Users.UserController;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopController;

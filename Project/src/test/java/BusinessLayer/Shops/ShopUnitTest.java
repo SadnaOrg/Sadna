@@ -2,10 +2,10 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.Basket;
-import BusinessLayer.Products.Users.ShopAdministrator;
-import BusinessLayer.Products.Users.SubscribedUser;
-import BusinessLayer.Products.Users.User;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

@@ -1,7 +1,7 @@
 package ServiceLayer.Objects;
 
 public class SubscribedUser extends User{
-    public SubscribedUser(BusinessLayer.Products.Users.SubscribedUser subscribedUser) {
+    public SubscribedUser(BusinessLayer.Users.SubscribedUser subscribedUser) {
         super(subscribedUser);
     }
 }

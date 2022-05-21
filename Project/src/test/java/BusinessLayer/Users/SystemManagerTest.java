@@ -1,18 +1,10 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.Basket;
-import BusinessLayer.Products.Users.SubscribedUser;
-import BusinessLayer.Products.Users.SystemManager;
-import BusinessLayer.Products.Users.UserController;
 import BusinessLayer.Shops.*;
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.*;

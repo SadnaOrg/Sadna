@@ -1,9 +1,11 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Notifications.ProxyNotificationUnitTest;
 import org.junit.Test;
 import org.junit.experimental.ParallelComputer;
 import org.junit.runner.JUnitCore;
 
+@SuppressWarnings("rawtypes")
 public class SystemParallelTest {
     @Test
     public void testParallelUnitTests(){

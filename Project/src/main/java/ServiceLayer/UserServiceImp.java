@@ -2,7 +2,7 @@ package ServiceLayer;
 
 import BusinessLayer.Facade;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.User;
+import BusinessLayer.Users.User;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.System.PaymentMethod;
 import ServiceLayer.Objects.*;;
@@ -15,7 +15,7 @@ public class UserServiceImp implements UserService {
     protected User currUser;
     protected Facade facade = Facade.getInstance();
 
-    protected UserServiceImp(BusinessLayer.Products.Users.User logged){
+    protected UserServiceImp(BusinessLayer.Users.User logged){
         currUser = logged;
     }
 

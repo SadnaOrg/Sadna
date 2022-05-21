@@ -1,8 +1,7 @@
 package ServiceLayer;
 
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
-import BusinessLayer.Products.Users.SubscribedUser;
-import BusinessLayer.Products.Users.SystemManager;
+import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.Administrator;
 import ServiceLayer.Objects.AdministratorInfo;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
