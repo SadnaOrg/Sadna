@@ -1,7 +1,6 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Products.Product;
-import BusinessLayer.Products.Users.Basket;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

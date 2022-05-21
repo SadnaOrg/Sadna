@@ -1,6 +1,5 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;

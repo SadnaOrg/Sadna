@@ -1,9 +1,9 @@
-package BusinessLayer.Products.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Products.Users.ShopAdministrator;
-import BusinessLayer.Products.Users.ShopManager;
-import BusinessLayer.Products.Users.ShopOwner;
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopManager;
+import BusinessLayer.Users.ShopOwner;
+import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Shops.Shop;
 
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package ServiceLayer.Objects;
 
-import BusinessLayer.Products.Users.BasketInfo;
+import BusinessLayer.Users.BasketInfo;
 
 import java.util.Collection;
 import java.util.LinkedList;

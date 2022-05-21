@@ -1,7 +1,7 @@
-package BusinessLayer.Products.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.SubscribedUser;
 
 import java.util.EnumSet;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package BusinessLayer.Products.Users.BaseActions;
+package BusinessLayer.Users.BaseActions;
 
 public class SetPurchasePolicy extends BaseAction {
 }

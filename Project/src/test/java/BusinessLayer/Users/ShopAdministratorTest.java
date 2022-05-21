@@ -1,8 +1,6 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Users.BaseActions.*;
-import BusinessLayer.Products.Users.ShopAdministrator;
-import BusinessLayer.Products.Users.SubscribedUser;
+import BusinessLayer.Users.BaseActions.*;
 import BusinessLayer.Shops.Shop;
 import org.junit.After;
 import org.junit.Before;

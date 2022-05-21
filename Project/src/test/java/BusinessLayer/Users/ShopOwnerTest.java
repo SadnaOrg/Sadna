@@ -1,11 +1,9 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Products.Users.ShopOwner;
-import BusinessLayer.Products.Users.SubscribedUser;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
-import BusinessLayer.Products.Users.BaseActions.CloseShop;
-import BusinessLayer.Products.Users.BaseActions.ReOpenShop;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.CloseShop;
+import BusinessLayer.Users.BaseActions.ReOpenShop;
 import org.junit.Before;
 import org.junit.Test;
 

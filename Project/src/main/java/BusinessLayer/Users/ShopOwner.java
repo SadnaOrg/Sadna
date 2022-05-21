@@ -1,8 +1,8 @@
-package BusinessLayer.Products.Users;
+package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Products.Users.BaseActions.BaseActionType;
-import BusinessLayer.Products.Users.BaseActions.CloseShop;
+import BusinessLayer.Users.BaseActions.BaseActionType;
+import BusinessLayer.Users.BaseActions.CloseShop;
 
 
 import javax.naming.NoPermissionException;

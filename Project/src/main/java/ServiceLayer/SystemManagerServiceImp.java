@@ -1,6 +1,6 @@
 package ServiceLayer;
 
-import BusinessLayer.Products.Users.SystemManager;
+import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
 import ServiceLayer.interfaces.SystemManagerService;
 

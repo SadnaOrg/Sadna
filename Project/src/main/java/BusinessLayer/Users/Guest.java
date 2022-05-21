@@ -1,4 +1,4 @@
-package BusinessLayer.Products.Users;
+package BusinessLayer.Users;
 
 public class Guest extends User {
     public Guest(String name) {

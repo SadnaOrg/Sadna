@@ -2,9 +2,9 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Products.Users.Basket;
-import BusinessLayer.Products.Users.SubscribedUser;
-import BusinessLayer.Products.Users.UserController;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.UserController;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

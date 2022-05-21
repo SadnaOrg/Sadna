@@ -1,7 +1,7 @@
 package UnitTest.BusinessLayer.Users;
 
 
-import BusinessLayer.Products.Users.User;
+import BusinessLayer.Users.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
