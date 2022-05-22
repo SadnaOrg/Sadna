@@ -140,7 +140,7 @@ public class SystemTest {
         t2.start();
         t1.join();
         t2.join();
-        Assert.assertEquals(3, system.getPaymentSize());
+        Assert.assertEquals(4, system.getPaymentSize());
     }
 
     @Test

@@ -120,7 +120,9 @@ public class ShopController {
     }
 
     public boolean checkIfUserHasBasket(int shopid, String user) {
-        return shops.get(shopid).checkIfUserHasBasket(user);
+        if(shops.containsKey(shopid))
+            return shops.get(shopid).checkIfUserHasBasket(user);
+        return false;
     }
 
     public boolean AddBasket(int shopid, String user, Basket basket) {

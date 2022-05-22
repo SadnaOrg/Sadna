@@ -35,7 +35,9 @@ public abstract class User{
     }
 
     public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
-        return shoppingCart.get(shopid).getProducts();
+        if(shoppingCart.containsKey(shopid))
+            return shoppingCart.get(shopid).getProducts();
+        return null;
     }
 
     public ConcurrentHashMap<Integer,BasketInfo> showCart(){
@@ -50,9 +52,9 @@ public abstract class User{
     public boolean removeProduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
             shoppingCart.get(shopid).removeProduct(productid);
-            if(shoppingCart.get(shopid).getProducts().size() == 0){
+            Basket b = getBasket(shopid);
+            if(b.getProducts().size() == 0)
                 shoppingCart.remove(shopid);
-            }
             return true;
         }
         return false;

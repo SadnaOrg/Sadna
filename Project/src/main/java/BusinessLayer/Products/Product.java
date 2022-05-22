@@ -44,7 +44,7 @@ public class Product {
             quantity -= buyQuantity;
             return buyQuantity * price;
         }
-        throw new IllegalStateException("buying too much!");
+        throw new IllegalStateException("Try to buy out of stock product from the shop");
     }
 
     public void setPrice(double price) {
