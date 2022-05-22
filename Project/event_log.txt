@@ -1,0 +1,74 @@
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
