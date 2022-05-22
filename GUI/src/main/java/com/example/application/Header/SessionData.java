@@ -6,7 +6,7 @@ import com.vaadin.flow.server.VaadinService;
 //@PreserveOnRefresh
 public class SessionData {
 
-    public static Object show(String sessionName) {
+    public static Object Load(String sessionName) {
         return VaadinService.getCurrentRequest().getWrappedSession()
                 .getAttribute(sessionName);
     }

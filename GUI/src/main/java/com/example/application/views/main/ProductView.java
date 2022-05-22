@@ -1,18 +1,15 @@
 package com.example.application.views.main;
 
 import ServiceLayer.Objects.Product;
-import ServiceLayer.UserServiceImp;
+import ServiceLayer.Result;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -22,25 +19,23 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
-import java.util.Arrays;
-
-import static com.example.application.Header.SessionData.show;
+import static com.example.application.Header.SessionData.Load;
+import static com.example.application.Utility.*;
 
 @Route("Products")
 public class ProductView extends Header {
 
+    private final UserService service;
     private Grid<Product> productGrid;
-
     private final IntegerField amount = new IntegerField("Quantity");
-    private final Button addToCartButton = new Button("Add To Cart", e -> addToCart());
-
+    private Button addToCartButton;
     private final TextField textField = new TextField("Name");
     private final H5 filterByLabel = new H5("filter by:");
     private final Select<String> filterBy = new Select<>();
 
 
     public ProductView() {
-        service = (UserService)show("service");
+        service = (UserService)Load("service");
         content.add(createFilterBy());
         productGrid = new Grid<>();
         productGrid.addColumn(Product::name).setHeader("Name").setSortable(true);
@@ -79,6 +74,7 @@ public class ProductView extends Header {
         HorizontalLayout row4 = new HorizontalLayout();
         row4.setJustifyContentMode(JustifyContentMode.CENTER);
         row4.setAlignItems(Alignment.BASELINE);
+        addToCartButton = new Button("Add To Cart", e -> addToCart(p, amount.getValue()));
         addToCartButton.setWidthFull();
         setAmountField(p);
         row4.add(amount, addToCartButton);
@@ -98,12 +94,13 @@ public class ProductView extends Header {
         amount.setHasControls(true);
     }
 
-    private void addToCart() {
+    private void addToCart(Product p, int quantity) {
         if (amount.isInvalid()) {
-            Notification invalid = new Notification("Invalid Quantity!");
-            invalid.addThemeVariants(NotificationVariant.LUMO_ERROR);
-            invalid.setPosition(Notification.Position.BOTTOM_CENTER);
-            invalid.setOpened(true);
+            notifyError("Invalid Quantity!");
+        }
+        else {
+            Result res = service.saveProducts(p.shopId(), p.productID(), quantity);
+            notifyIsOk(res, "Adding to cart succeeded!");
         }
     }
 

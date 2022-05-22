@@ -20,11 +20,17 @@ import static com.example.application.Header.SessionData.save;
 @Route(value = "")
 public class MainView extends Header {
 
+    private final UserService service = new UserServiceImp();
     private final HorizontalLayout buttonLayout;
     private final HorizontalLayout guestLayout;
-    private Button registerButton;
-    private Button loginButton;
-    private Button guestButton;
+    private final Button registerButton = new Button("Register", e -> UI.getCurrent().navigate(RegisterView.class));
+    private final Button loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
+    private final Button guestButton = new Button("Continue As Guest", e -> {
+        Result res = service.loginSystem();
+        if (res.isOk()) {
+            UI.getCurrent().navigate(ProductView.class);
+        }
+    });
 
     public MainView() {
         save("service", service);
@@ -40,17 +46,11 @@ public class MainView extends Header {
     }
 
     private void createButtons() {
-        registerButton = new Button("Register", e -> UI.getCurrent().navigate(LoginView.class));
         registerButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         registerButton.setSizeFull();
-        loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         loginButton.setSizeFull();
         buttonLayout.add(registerButton, loginButton);
-        guestButton = new Button("Continue As Guest", e -> {
-            if (service.loginSystem().isOk())
-                UI.getCurrent().navigate(ProductView.class);
-        });
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         guestButton.setSizeFull();
         guestLayout.add(guestButton);

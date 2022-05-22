@@ -1,4 +1,2 @@
-May 22, 2022 10:12:19 PM ServiceLayer.Log error
-SEVERE: login : incorrect user name or password
-May 22, 2022 10:12:22 PM ServiceLayer.Log error
-SEVERE: login : incorrect user name or password
+May 22, 2022 11:43:27 PM ServiceLayer.Log error
+SEVERE: product save : log in to system first
