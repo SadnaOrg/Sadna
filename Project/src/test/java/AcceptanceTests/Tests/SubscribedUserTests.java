@@ -33,7 +33,7 @@ public class SubscribedUserTests extends UserTests {
             SubscribedUser.Permission.STOCK_MANAGEMENT, SubscribedUser.Permission.SET_PURCHASE_POLICY, SubscribedUser.Permission.ASSIGN_SHOP_OWNER,
             SubscribedUser.Permission.ASSIGN_SHOP_MANAGER, SubscribedUser.Permission.CHANGE_MANAGER_PERMISSION,
             SubscribedUser.Permission.CLOSE_SHOP, SubscribedUser.Permission.REOPEN_SHOP, SubscribedUser.Permission.ROLE_INFO,
-            SubscribedUser.Permission.HISTORY_INFO
+            SubscribedUser.Permission.HISTORY_INFO, SubscribedUser.Permission.REMOVE_ADMIN
     };
 
     private final static SubscribedUser.Permission[] defaultOwnerPermissions = new SubscribedUser.Permission[]{
@@ -228,16 +228,6 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(appointment.appointer,supersalFounder.name);
         assertEquals(appointment.getRole(), Appointment.Role.FOUNDER);
         closeSupersal = true; // for correct teardown
-    }
-
-    @Test
-    public void testOpenShopFailure(){
-        Shop s = subscribedUserBridge.openShop(u1.name,"castro","fashion");
-
-        assertNull(s);
-
-        Map<String,Appointment> appointment = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
-        assertNull(appointment.getOrDefault(u1.name,null));
     }
 
     @Test
@@ -471,7 +461,7 @@ public class SubscribedUserTests extends UserTests {
 
         Map<String ,Appointment> appointments = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
         assertNotNull(appointments);
-        assertEquals(3,appointments.size());
+        assertEquals(5,appointments.size());
 
         Appointment founderAppointment = appointments.getOrDefault(castroFounder.name,null);
         Appointment ownerAppointment = appointments.getOrDefault(u1.name,null);
@@ -499,8 +489,8 @@ public class SubscribedUserTests extends UserTests {
         try{
             testAppointShopManagerSuccess();
             testAppointShopManagerSuccess();
-            fail("double manager appointment");
-        } catch (Exception ignored) {
+            fail();
+        } catch (AssertionError ignored) {
 
         }
     }
@@ -526,7 +516,7 @@ public class SubscribedUserTests extends UserTests {
         assertTrue(result);
 
         List<Shop> searchResult = subscribedUserBridge.getShopsInfo(supersalFounder.name, shopFilterName);
-        assertEquals(0,searchResult.size());
+        assertNull(searchResult);
 
         List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersalFounder.name, supersal.ID);
         assertNull(productInShops);
@@ -580,7 +570,7 @@ public class SubscribedUserTests extends UserTests {
         assertNotNull(permissions);
         List<SubscribedUser.Permission> ownerPermissions = permissions.getOrDefault(MegaSportFounder.name,null);
         assertNotNull(ownerPermissions);
-        assertEquals(defaultFounderPermissions.length, permissions.size());
+        assertEquals(defaultFounderPermissions.length, ownerPermissions.size());
         assertTrue(ownerPermissions.containsAll(List.of(defaultFounderPermissions)));
         // cancel side-effects
         subscribedUserBridge.removePermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, SubscribedUser.Permission.CLOSE_SHOP);
@@ -605,11 +595,11 @@ public class SubscribedUserTests extends UserTests {
     }
 
     @Test
-    public void testGetRoleInformationByFounderSuccessNoAppointments(){
+    public void testGetRoleInformationByFounderSuccessNoAppointmentsButSetUp(){
         Map<String,Appointment> appointmentMap = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
 
         assertNotNull(appointmentMap);
-        assertEquals(1,appointmentMap.size());
+        assertEquals(3,appointmentMap.size());
 
         Appointment appointment = appointmentMap.getOrDefault(castroFounder.name,null);
 
@@ -624,7 +614,7 @@ public class SubscribedUserTests extends UserTests {
         Map<String,Appointment> appointmentMap = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
 
         assertNotNull(appointmentMap);
-        assertEquals(2,appointmentMap.size());
+        assertEquals(4,appointmentMap.size());
 
         Appointment founder = appointmentMap.getOrDefault(castroFounder.name,null);
         Appointment owner = appointmentMap.getOrDefault(u1.name,null);
@@ -662,7 +652,7 @@ public class SubscribedUserTests extends UserTests {
         Map<String,Appointment>  appointmentMap = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
 
         assertNotNull(appointmentMap);
-        assertEquals(2,appointmentMap.size());
+        assertEquals(4,appointmentMap.size());
 
         Appointment founder = appointmentMap.getOrDefault(castroFounder.name,null);
         Appointment owner = appointmentMap.getOrDefault(u1.name,null);

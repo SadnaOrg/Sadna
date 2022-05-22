@@ -86,7 +86,7 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
 
     @Override
     public boolean appointOwner(int shopID, String appointerName, String appointeeName) {
-        if(subscribedUsers.containsKey(appointeeName)){
+        if(subscribedUsers.containsKey(appointerName)){
             SubscribedUserService service = subscribedUsers.get(appointerName);
             Result appointed = service.assignShopOwner(shopID,appointeeName);
             return appointed.isOk();
@@ -189,8 +189,10 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         if(subscribedUsers.containsKey(username)){
             SubscribedUserService service = subscribedUsers.get(username);
             Response<ServiceLayer.Objects.Shop> newShop = service.openShop(name,desc);
-            if(newShop.isOk())
-                return new Shop(newShop.getElement());
+            if(newShop.isOk()) {
+               Shop s = new Shop(newShop.getElement());
+               return s;
+            }
         }
         return null;
     }

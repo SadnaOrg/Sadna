@@ -80,7 +80,7 @@ public class Shop {
         }
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed4");
         }
     }
 
@@ -100,7 +100,7 @@ public class Shop {
         }
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed3");
         }
     }
 
@@ -116,7 +116,7 @@ public class Shop {
         }
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed2");
         }
     }
 
@@ -125,7 +125,7 @@ public class Shop {
             return products;
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed1");
         }
     }
 
@@ -135,7 +135,7 @@ public class Shop {
             return products.values().stream().filter(pred).collect(Collectors.toList());
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed!!");
         }
     }
 
@@ -162,7 +162,7 @@ public class Shop {
         }
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed5");
         }
         return totalPrice;
     }
@@ -176,7 +176,7 @@ public class Shop {
             return usersBaskets.containsKey(user);
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed6");
         }
     }
 
@@ -185,7 +185,7 @@ public class Shop {
             return usersBaskets;
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed7");
         }
     }
 
@@ -203,7 +203,7 @@ public class Shop {
         }
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed8");
         }
     }
 
@@ -213,7 +213,7 @@ public class Shop {
             return shopAdministrators.putIfAbsent(userName,administrator)==null;
         else
         {
-            throw new IllegalStateException("The shop is closed");
+            throw new IllegalStateException("The shop is closed9");
         }
     }
 

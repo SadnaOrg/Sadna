@@ -8,6 +8,7 @@ import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,6 +35,20 @@ public class ShopController {
             if(s == null)
                 throw new IllegalStateException("no such shop!");
             s.removeBasket(userName);
+        }
+    }
+
+    public void tryRemove(int shopID,String username,int newQuantity){
+        if(newQuantity != 0)
+            return;
+        if(checkIfUserHasBasket(shopID,username)){
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+
+            Basket b = s.getUsersBaskets().get(username);
+            if(b.getProducts().size() == 0)
+                s.removeBasket(username);
         }
     }
 
@@ -137,6 +152,9 @@ public class ShopController {
     }
 
     public Shop openShop(SubscribedUser su, String name, String description) {
+//        List<String> names = shops.values().stream().map(Shop::getName).toList();
+//        if(names.contains(name))
+//            throw new IllegalStateException("there is a shop with that name!!!");
         int shopID = shops.size();
         shops.put(shopID, new Shop(shopID, name, description, su));
         return shops.get(shopID);

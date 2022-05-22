@@ -263,6 +263,11 @@ public abstract class UserTests extends ProjectTests {
         int product2Quantity = basket2.getProductQuantity(0);
 
         assertEquals(10,product2Quantity);
+
+        userBridge.updateCart(u.name,2,shops[castro_ID].ID,0);
+        userBridge.updateCart(u.name,0,shops[ACE_ID].ID,0);
+        userCart = userBridge.checkCart(u.name);
+        assertEquals(0,userCart.getNumberOfBaskets());
     }
 
     @Test

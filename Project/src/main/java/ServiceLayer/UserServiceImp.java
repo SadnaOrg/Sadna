@@ -79,7 +79,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Response<ShopsInfo> searchProducts(Predicate<Shop> shopPred, Predicate<Product> productPred){
-        return ifUserNotNullRes(()->new ShopsInfo(facade.searchProducts((s)->shopPred.test(new Shop(s)),(p)->productPred.test(new Product(p)))),"search products succeeded");
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchProducts((s)-> s.isOpen() && shopPred.test(new Shop(s)),(p)->productPred.test(new Product(p)))),"search products succeeded");
     }
 
     @Override

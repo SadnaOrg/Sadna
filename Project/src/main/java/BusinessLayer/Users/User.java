@@ -49,7 +49,11 @@ public abstract class User{
 
     public boolean removeProduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
-            return shoppingCart.get(shopid).removeProduct(productid);
+            shoppingCart.get(shopid).removeProduct(productid);
+            if(shoppingCart.get(shopid).getProducts().size() == 0){
+                shoppingCart.remove(shopid);
+            }
+            return true;
         }
         return false;
     }

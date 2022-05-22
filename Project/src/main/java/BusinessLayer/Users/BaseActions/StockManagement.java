@@ -13,6 +13,10 @@ public class StockManagement extends BaseAction {
 
     public Product addProduct(int productid, String name, String desc, String manufacturer, double price, int quantity)
     {
+        if(quantity <= 0)
+            throw new IllegalStateException("quantity in stock must be positive when adding a product!");
+        if(price <= 0)
+            throw new IllegalStateException("the price of a product has to be positive!");
         Product product = new Product(productid,name,price,quantity);
         product.setDescription(desc);
         product.setManufacturer(manufacturer);
