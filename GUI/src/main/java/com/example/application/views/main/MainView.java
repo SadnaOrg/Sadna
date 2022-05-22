@@ -14,43 +14,43 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import static com.example.application.Header.SessionData.save;
+
 @PageTitle("Main")
 @Route(value = "")
 public class MainView extends Header {
 
-    private HorizontalLayout buttonLayout;
-    private HorizontalLayout guestLayout;
-
-    private Button registerButton;
-    private Button loginButton;
-    private Button guestButton;
-
-    private UserService service = new UserServiceImp();
+    private final UserService service = new UserServiceImp();
+    private final HorizontalLayout buttonLayout;
+    private final HorizontalLayout guestLayout;
+    private final Button registerButton = new Button("Register", e -> UI.getCurrent().navigate(RegisterView.class));
+    private final Button loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
+    private final Button guestButton = new Button("Continue As Guest", e -> {
+        Result res = service.loginSystem();
+        if (res.isOk()) {
+            UI.getCurrent().navigate(ProductView.class);
+        }
+    });
 
     public MainView() {
-        setSizeFull();
+        save("service", service);
+        content.setSizeFull();
         buttonLayout = new HorizontalLayout();
         guestLayout = new HorizontalLayout();
         createButtons();
-        setFlexGrow(4, buttonLayout);
-        setFlexGrow(1, guestLayout);
+        content.setFlexGrow(4, buttonLayout);
+        content.setFlexGrow(1, guestLayout);
         buttonLayout.setWidthFull();
         guestLayout.setWidthFull();
-        add(buttonLayout, guestLayout);
+        content.add(buttonLayout, guestLayout);
     }
 
     private void createButtons() {
-        registerButton = new Button("Register", e -> UI.getCurrent().navigate(LoginView.class));
         registerButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         registerButton.setSizeFull();
-        loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         loginButton.setSizeFull();
         buttonLayout.add(registerButton, loginButton);
-        guestButton = new Button("Continue As Guest", e -> {
-            if (service.loginSystem().isOk())
-                UI.getCurrent().navigate(ShopView.class);
-        });
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         guestButton.setSizeFull();
         guestLayout.add(guestButton);
