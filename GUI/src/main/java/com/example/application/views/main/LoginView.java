@@ -2,6 +2,7 @@ package com.example.application.views.main;
 
 import ServiceLayer.UserServiceImp;
 import ServiceLayer.interfaces.UserService;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H1;
@@ -11,23 +12,30 @@ import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.VaadinService;
 
 
+import static com.example.application.Header.SessionData.save;
+import static com.example.application.Header.SessionData.show;
 import static com.example.application.Names.projectDescription;
 import static com.example.application.Names.projectName;
 
 @Route("Login")
 public class LoginView extends LoginOverlay {
+
+    private final UserService service;
     public LoginView() {
+        service = (UserService)show("service");
         setTitle(projectName);
         setDescription(projectDescription);
         setOpened(true);
         addLoginListener(e -> {
             Notification notification = new Notification();
             UserService service = new UserServiceImp();
-                if ("abc".equals(e.getUsername()) && "abc".equals(e.getPassword())) {
+                if (service.login(e.getUsername(), e.getPassword()).isOk()) {
                     notification.setText("Login Succeeded");
                     notification.addThemeVariants(NotificationVariant.LUMO_SUCCESS);
+                    UI.getCurrent().navigate(ProductView.class);
                 }
                 else {
                     notification.setText("Login Failed");
@@ -35,7 +43,6 @@ public class LoginView extends LoginOverlay {
                 }
             e.getSource().setEnabled(true);
             notification.setPosition(Notification.Position.BOTTOM_CENTER);
-                notification.setDuration(5);
             notification.setOpened(true);
         });
         addForgotPasswordListener(e -> {

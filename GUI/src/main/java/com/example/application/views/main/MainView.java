@@ -14,29 +14,29 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import static com.example.application.Header.SessionData.save;
+
 @PageTitle("Main")
 @Route(value = "")
 public class MainView extends Header {
 
-    private HorizontalLayout buttonLayout;
-    private HorizontalLayout guestLayout;
-
+    private final HorizontalLayout buttonLayout;
+    private final HorizontalLayout guestLayout;
     private Button registerButton;
     private Button loginButton;
     private Button guestButton;
 
-    private UserService service = new UserServiceImp();
-
     public MainView() {
-        setSizeFull();
+        save("service", service);
+        content.setSizeFull();
         buttonLayout = new HorizontalLayout();
         guestLayout = new HorizontalLayout();
         createButtons();
-        setFlexGrow(4, buttonLayout);
-        setFlexGrow(1, guestLayout);
+        content.setFlexGrow(4, buttonLayout);
+        content.setFlexGrow(1, guestLayout);
         buttonLayout.setWidthFull();
         guestLayout.setWidthFull();
-        add(buttonLayout, guestLayout);
+        content.add(buttonLayout, guestLayout);
     }
 
     private void createButtons() {
@@ -49,7 +49,7 @@ public class MainView extends Header {
         buttonLayout.add(registerButton, loginButton);
         guestButton = new Button("Continue As Guest", e -> {
             if (service.loginSystem().isOk())
-                UI.getCurrent().navigate(ShopView.class);
+                UI.getCurrent().navigate(ProductView.class);
         });
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         guestButton.setSizeFull();
