@@ -4,8 +4,6 @@ import AcceptanceTests.Bridge.SubscribedUserBridge;
 import AcceptanceTests.Bridge.SubscribedUserProxy;
 import AcceptanceTests.Bridge.UserProxy;
 import AcceptanceTests.DataObjects.*;
-import AcceptanceTests.Threads.ACEFounderPurchase;
-import AcceptanceTests.Threads.MegaSportFounderPurchase;
 import org.junit.*;
 
 import java.util.LinkedList;
@@ -15,7 +13,7 @@ import static org.junit.Assert.*;
 
 
 public abstract class UserTests extends ProjectTests {
-    private User u;
+    protected User u;
 
     @BeforeClass
     public static void setUp(){

@@ -14,9 +14,8 @@ import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
 
-    public void setUsers(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
-        users = guests;
-        subscribedUsers = subscribed;
+    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
+        super(guests, subscribed);
     }
     @Override
     public Guest logout(String userName) {

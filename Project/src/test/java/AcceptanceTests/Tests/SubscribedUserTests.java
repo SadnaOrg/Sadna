@@ -91,10 +91,10 @@ public class SubscribedUserTests extends UserTests {
     @Override
     @Before
     public void setUpTest(){
-        //super.setUpTest();
-        Guest ace_guest =userBridge.visit();
-        Guest castro_guest = userBridge.visit();
-        Guest megasport_guest = userBridge.visit();
+        super.setUpTest();
+        Guest ace_guest =subscribedUserBridge.visit();
+        Guest castro_guest = subscribedUserBridge.visit();
+        Guest megasport_guest = subscribedUserBridge.visit();
         Guest setUpU1 = subscribedUserBridge.visit();
         Guest setUpU2 = subscribedUserBridge.visit();
         Guest setUpU3 = subscribedUserBridge.visit();
@@ -112,15 +112,15 @@ public class SubscribedUserTests extends UserTests {
         u2 = subscribedUserBridge.login(setUpU2.getName(), u2Reg);
         u3 = subscribedUserBridge.login(setUpU3.getName(), u3Reg);
         supersalFounder = subscribedUserBridge.login(setUpSupersal.name, supersalReg);
-        ACEFounder = userBridge.login(ace_guest.getName(),ace);
-        castroFounder = userBridge.login(castro_guest.getName(), castro);
-        MegaSportFounder = userBridge.login(megasport_guest.getName(), megaSport);
+        ACEFounder = subscribedUserBridge.login(ace_guest.getName(),ace);
+        castroFounder = subscribedUserBridge.login(castro_guest.getName(), castro);
+        MegaSportFounder = subscribedUserBridge.login(megasport_guest.getName(), megaSport);
     }
 
     @Override
     @After
     public void tearDown(){
-        //super.tearDown();
+        super.tearDown();
         if(closeSupersal) {
             subscribedUserBridge.closeShop(supersal.ID, supersalFounder.name);
             closeSupersal = false;

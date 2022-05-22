@@ -15,8 +15,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UserAdapter implements UserBridge{
-    protected HashMap<String, UserService> users = new HashMap<>();
-    protected HashMap<String, SubscribedUserService> subscribedUsers= new HashMap<>();
+    protected HashMap<String, UserService> users;
+    protected HashMap<String, SubscribedUserService> subscribedUsers;
+
+    public UserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
+        this.users = guests;
+        this.subscribedUsers = subscribed;
+    }
     @Override
     public AcceptanceTests.DataObjects.Guest visit() {
         UserService userService = new UserServiceImp();
