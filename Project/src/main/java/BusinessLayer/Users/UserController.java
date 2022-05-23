@@ -294,6 +294,12 @@ public class UserController {
         return currUser.getShopsAndUsersInfo();
     }
 
+    public boolean removeSubscribedUserFromSystem(String userName){
+        if(!getSubUser(userName).removeFromSystem())
+            throw new IllegalArgumentException("user "+userName+" cant be removed");
+        return true;
+    }
+
     public void clearForTestsOnly() {
         users.clear();
         subscribers.clear();
