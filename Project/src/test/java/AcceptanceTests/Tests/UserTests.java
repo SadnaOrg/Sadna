@@ -178,6 +178,24 @@ public abstract class UserTests extends ProjectTests {
     }
 
     @Test
+    public void testSearchProductByDescriptionSuccess(){
+        ProductFilter filter = productFilters[PRODUCT_DESC_FILTER];
+        List<ProductInShop> expected = new LinkedList<>();
+        Product p = new Product("desk","newest edition","china");
+        ProductInShop productInShop = new ProductInShop(2,shops[ACE_ID].ID,30,20,p);
+        expected.add(productInShop);
+        List<ProductInShop> products = userBridge.searchProducts(u.name,filter);
+        assertProducts(products,filter,expected);
+    }
+
+    @Test
+    public void testSearchProductByDescriptionFailure(){
+        ProductFilter filter = productFailFilters[PRODUCT_DESCF_FILTER];
+        List<ProductInShop> products = userBridge.searchProducts(u.name,filter);
+        assertNull(products);
+    }
+
+    @Test
     public void testAddProductToCartSuccess() {
         boolean added = userBridge.addProductToCart(u.name,shops[castro_ID].ID,2,10);
         assertTrue(added);

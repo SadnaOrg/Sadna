@@ -98,11 +98,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
     @Override
     public Result deleteProductFromShop(int shopID, int productID) {
-        return ifUserNotNullStockManagement(() -> facade.removeProduct(shopID,productID,currUser), "remove product from shop");
+        return ifUserNotNullStockManagement(() -> facade.deleteProductFromShop(currUser.getUserName(), shopID,productID), "remove product from shop");
     }
 
     @Override
-    public Result addProductToShop(int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price){
+    public Result addProductToShop(int shopID, String name,String desc, String manufacturer, int productID, int quantity, double price){
         return ifUserNotNullStockManagement(() -> facade.addProductToShop(currUser.getUserName(), shopID,name,manufacturer,desc,productID,quantity,price),
                 "adding product to shop");
     }

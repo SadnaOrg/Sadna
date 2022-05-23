@@ -5,14 +5,9 @@ import AcceptanceTests.Bridge.SubscribedUserProxy;
 import AcceptanceTests.Bridge.UserProxy;
 import AcceptanceTests.DataObjects.*;
 import AcceptanceTests.Threads.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -39,8 +34,8 @@ public class SubscribedUserTests extends UserTests {
     private final static SubscribedUser.Permission[] defaultOwnerPermissions = new SubscribedUser.Permission[]{
             SubscribedUser.Permission.STOCK_MANAGEMENT, SubscribedUser.Permission.SET_PURCHASE_POLICY, SubscribedUser.Permission.ASSIGN_SHOP_OWNER,
             SubscribedUser.Permission.ASSIGN_SHOP_MANAGER, SubscribedUser.Permission.CHANGE_MANAGER_PERMISSION,
-            SubscribedUser.Permission.REOPEN_SHOP, SubscribedUser.Permission.ROLE_INFO,
-            SubscribedUser.Permission.HISTORY_INFO
+            SubscribedUser.Permission.ROLE_INFO,
+            SubscribedUser.Permission.HISTORY_INFO, SubscribedUser.Permission.REMOVE_ADMIN
     };
 
     private static SubscribedUser u1;
@@ -263,7 +258,7 @@ public class SubscribedUserTests extends UserTests {
         boolean added = subscribedUserBridge.addProductToShop(castroFounder.name,shops[castro_ID].ID,newproduct,221,12,-12);
         assertFalse(added);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 222,shops[castro_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(castroFounder.name, 221,shops[castro_ID].ID);
         assertNull(pis);
     }
 
@@ -351,10 +346,10 @@ public class SubscribedUserTests extends UserTests {
         boolean updated =subscribedUserBridge.updateProductPrice(MegaSportFounder.name,shops[ACE_ID].ID,1,-50);
         assertFalse(updated);
 
-        ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 45,shops[MegaSport_ID].ID);
+        ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 1,shops[ACE_ID].ID);
         assertNotNull(pis);
         assertEquals(pis.ID,1);
-        assertEquals(pis.price,40,0);
+        assertEquals(pis.price,25,0);
     }
 
     @Test
@@ -364,6 +359,103 @@ public class SubscribedUserTests extends UserTests {
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 11,shops[ACE_ID].ID);
         assertNull(pis);
+    }
+
+    @Test
+    public void testUpdateProductDescriptionSuccess(){
+        boolean updated = subscribedUserBridge.updateProductDescription(ACEFounder.name, shops[ACE_ID].ID,0,"new desc!");
+        assertTrue(updated);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(ACEFounder.name, 0,shops[ACE_ID].ID);
+        assertEquals(p.shopID, shops[ACE_ID].ID);
+        assertEquals(p.desc,"new desc!");
+        assertEquals(p.ID,0);
+        testUpdateProductDescriptionSuccessKeepSame();
+    }
+
+    @Test
+    public void testUpdateProductDescriptionSuccessKeepSame(){
+        boolean updated = subscribedUserBridge.updateProductDescription(ACEFounder.name, shops[ACE_ID].ID,0,"recommended");
+        assertTrue(updated);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(ACEFounder.name, 0,shops[ACE_ID].ID);
+        assertEquals(p.shopID, shops[ACE_ID].ID);
+        assertEquals(p.desc,"recommended");
+        assertEquals(p.ID,0);
+    }
+
+    @Test
+    public void testUpdateProductDescriptionFailureNoPermissionsToManager(){
+        boolean updated = subscribedUserBridge.updateProductDescription(MegaSportFounder.name, shops[castro_ID].ID,2,"new desc!");
+        assertFalse(updated);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 2,shops[castro_ID].ID);
+        assertEquals("recommended",p.desc);
+        assertEquals(shops[castro_ID].ID,p.shopID);
+        assertEquals(2,p.ID);
+    }
+
+    @Test
+    public void testUpdateProductNameSuccess(){
+        boolean update = subscribedUserBridge.updateProductName(castroFounder.name, shops[castro_ID].ID,45,"new name!");
+        assertTrue(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
+        assertEquals("new name!",p.product.name);
+        testUpdateProductNameKeepSame();
+
+    }
+
+    @Test
+    public void testUpdateProductNameKeepSame(){
+        boolean update = subscribedUserBridge.updateProductName(castroFounder.name, shops[castro_ID].ID,45,"recommended");
+        assertTrue(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
+        assertEquals("recommended",p.product.name);
+    }
+
+    @Test
+    public void testUpdateProductNameFailureNoPermissions(){
+        boolean update = subscribedUserBridge.updateProductName(MegaSportFounder.name, shops[castro_ID].ID,45,"failed");
+        assertFalse(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
+        assertEquals("shoes",p.product.name);
+    }
+
+    @Test
+    public void testUpdateProductQuantitySuccess(){
+        boolean update = subscribedUserBridge.updateProductQuantity(MegaSportFounder.name,shops[MegaSport_ID].ID,13,100);
+        assertTrue(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 13,shops[MegaSport_ID].ID);
+        assertEquals(100,p.quantity);
+        assertEquals(shops[MegaSport_ID].ID,p.shopID);
+        assertEquals(13,p.ID);
+        testUpdateProductQuantityKeepSame();
+    }
+
+    @Test
+    public void testUpdateProductQuantityKeepSame(){
+        boolean update = subscribedUserBridge.updateProductQuantity(MegaSportFounder.name,shops[MegaSport_ID].ID,13,30);
+        assertTrue(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 13,shops[MegaSport_ID].ID);
+        assertEquals(30,p.quantity);
+        assertEquals(shops[MegaSport_ID].ID,p.shopID);
+        assertEquals(13,p.ID);
+    }
+
+    @Test
+    public void testUpdateProductQuantityFailureBadQuantity(){
+        boolean update = subscribedUserBridge.updateProductQuantity(MegaSportFounder.name,shops[MegaSport_ID].ID,13,-30);
+        assertFalse(update);
+
+        ProductInShop p = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 13,shops[MegaSport_ID].ID);
+        assertEquals(30,p.quantity);
+        assertEquals(shops[MegaSport_ID].ID,p.shopID);
+        assertEquals(13,p.ID);
     }
 
     @Test
@@ -400,9 +492,9 @@ public class SubscribedUserTests extends UserTests {
         try{
             testAppointShopOwnerSuccess();
             testAppointShopOwnerSuccess();
-            fail("double appointment!");
+            throw new IllegalStateException("double appointment!");
         }
-        catch (Exception ignored){
+        catch (AssertionError ignored){
 
         }
     }
@@ -529,11 +621,11 @@ public class SubscribedUserTests extends UserTests {
     @Test
     public void testAddManagerPermissionsSuccess(){
         testAppointShopManagerSuccess(); // u1 - manager at castro
-
-        boolean result = subscribedUserBridge.addManagerPermission(shops[castro_ID].ID,castroFounder.name,u1.name, SubscribedUser.Permission.SET_PURCHASE_POLICY);
-        assertTrue(result);
-
-        result = subscribedUserBridge.addManagerPermission(shops[castro_ID].ID,castroFounder.name,u1.name, SubscribedUser.Permission.ROLE_INFO);
+        List<SubscribedUser.Permission> newPermissions = new LinkedList<>();
+        newPermissions.add(SubscribedUser.Permission.ROLE_INFO);
+        newPermissions.add(SubscribedUser.Permission.SET_PURCHASE_POLICY);
+        newPermissions.add(SubscribedUser.Permission.HISTORY_INFO);
+        boolean result = subscribedUserBridge.changeAdminPermission(shops[castro_ID].ID,castroFounder.name,u1.name, newPermissions);
         assertTrue(result);
 
         Map<String,List<SubscribedUser.Permission>> permissions =  subscribedUserBridge.getShopPermissions(u1.name,shops[castro_ID].ID);
@@ -549,8 +641,10 @@ public class SubscribedUserTests extends UserTests {
     @Test
     public void testAddManagerPermissionsFailureNotAppointer(){
         testAppointShopManagerSuccess(); // u1 - manager at castro
-
-        boolean result = subscribedUserBridge.addManagerPermission(shops[castro_ID].ID,ACEFounder.name,u1.name, SubscribedUser.Permission.SET_PURCHASE_POLICY);
+        List<SubscribedUser.Permission> newPermissions = new LinkedList<>();
+        newPermissions.add(SubscribedUser.Permission.ROLE_INFO);
+        newPermissions.add(SubscribedUser.Permission.SET_PURCHASE_POLICY);
+        boolean result = subscribedUserBridge.changeAdminPermission(shops[castro_ID].ID,ACEFounder.name,u1.name,newPermissions);
         assertFalse(result);
 
         Map<String,List<SubscribedUser.Permission>> permissions = subscribedUserBridge.getShopPermissions(ACEFounder.name,shops[castro_ID].ID);
@@ -563,7 +657,8 @@ public class SubscribedUserTests extends UserTests {
 
     @Test
     public void testAddOwnerPermissionsSuccess(){
-        boolean result = subscribedUserBridge.addOwnerPermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, SubscribedUser.Permission.CLOSE_SHOP);
+
+        boolean result = subscribedUserBridge.changeAdminPermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, Arrays.stream(defaultFounderPermissions).toList());
         assertTrue(result);
 
         Map<String,List<SubscribedUser.Permission>> permissions = subscribedUserBridge.getShopPermissions(MegaSportFounder.name,shops[ACE_ID].ID);
@@ -573,14 +668,14 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(defaultFounderPermissions.length, ownerPermissions.size());
         assertTrue(ownerPermissions.containsAll(List.of(defaultFounderPermissions)));
         // cancel side-effects
-        subscribedUserBridge.removePermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, SubscribedUser.Permission.CLOSE_SHOP);
+        subscribedUserBridge.changeAdminPermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, Arrays.stream(defaultOwnerPermissions).toList());
     }
 
     @Test
     public void testAddOwnerPermissionsFailureNotAppointer(){
         testAppointShopOwnerSuccess(); // u1 - owner at castro
 
-        boolean result = subscribedUserBridge.addOwnerPermission(shops[castro_ID].ID,ACEFounder.name,u1.name,SubscribedUser.Permission.CLOSE_SHOP);
+        boolean result = subscribedUserBridge.changeAdminPermission(shops[castro_ID].ID,ACEFounder.name,u1.name, Arrays.stream(defaultFounderPermissions).toList());
         assertFalse(result);
 
         Map<String,List<SubscribedUser.Permission>> permissions = subscribedUserBridge.getShopPermissions(ACEFounder.name,shops[castro_ID].ID);
@@ -632,7 +727,7 @@ public class SubscribedUserTests extends UserTests {
 
         Map<String,Appointment> appointmentMap = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
         assertNotNull(appointmentMap);
-        assertEquals(2,appointmentMap.size());
+        assertEquals(4,appointmentMap.size());
 
         Appointment founder =  appointmentMap.getOrDefault(castroFounder.name,null);
         Appointment manager = appointmentMap.getOrDefault(u1.name,null);
@@ -746,6 +841,18 @@ public class SubscribedUserTests extends UserTests {
         // cancel side-effects
         Product p1 = new Product("T-shirt","recommended","china");
         subscribedUserBridge.addProductToShop(castroFounder.name, shops[castro_ID].ID, p1, 2, 30, 30);
+    }
+
+    @Test
+    public void testReopenShop(){
+        testCloseShopSuccess();
+        boolean reopened = subscribedUserBridge.reOpenShop(supersalFounder.name,supersal.ID);
+        assertTrue(reopened);
+        List<Shop> shops = subscribedUserBridge.getShopsInfo(supersalFounder.name, shop -> shop.name.equals("supersal"));
+        assertEquals(1, shops.size());
+        assertEquals("supersal", shops.get(0).name);
+        assertEquals(supersal.ID,shops.get(0).ID);
+        closeSupersal = true;
     }
 
     public User enter() {

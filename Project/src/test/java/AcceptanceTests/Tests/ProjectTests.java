@@ -41,6 +41,7 @@ public abstract class ProjectTests {
         userBridge = bridge;
     }
     public static UserBridge getUserBridge(){return userBridge;}
+    private static boolean init = true;
 
     public static void setUpTests(){
         // setUpSystem();
@@ -61,25 +62,29 @@ public abstract class ProjectTests {
         castroFounder = userBridge.login(castro_guest.getName(), castro);
         MegaSportFounder = userBridge.login(megasport_guest.getName(), megaSport);
 
-        SubscribedUserProxy proxy = new SubscribedUserProxy((UserProxy) userBridge);
-        Shop aceShop =proxy.openShop(ACEFounder.name,"ACE", "home renovation");
-        Shop castroShop = proxy.openShop(castroFounder.name, "castro", "fashion");
-        Shop megaSportShop = proxy.openShop(MegaSportFounder.name, "MegaSport", "sports");
-        shops[ACE_ID] = aceShop;
-        shops[castro_ID] = castroShop;
-        shops[MegaSport_ID] = megaSportShop;
+        // not initialized by one of the test classes
+        if(init){
+            SubscribedUserProxy proxy = new SubscribedUserProxy((UserProxy) userBridge);
+            Shop aceShop =proxy.openShop(ACEFounder.name,"ACE", "home renovation");
+            Shop castroShop = proxy.openShop(castroFounder.name, "castro", "fashion");
+            Shop megaSportShop = proxy.openShop(MegaSportFounder.name, "MegaSport", "sports");
+            shops[ACE_ID] = aceShop;
+            shops[castro_ID] = castroShop;
+            shops[MegaSport_ID] = megaSportShop;
 
-        ACEProducts = setUpACEProducts(proxy);
-        castroProducts = setUpCastroProducts(proxy);
-        MegaSportProducts = setUpMegaSportProducts(proxy);
+            ACEProducts = setUpACEProducts(proxy);
+            castroProducts = setUpCastroProducts(proxy);
+            MegaSportProducts = setUpMegaSportProducts(proxy);
 
-        proxy.appointManager(castroShop.ID, castroFounder.name,MegaSportFounder.name);
-        proxy.appointOwner(castroShop.ID, castroFounder.name,ACEFounder.name);
-        proxy.appointOwner(aceShop.ID, ACEFounder.name,MegaSportFounder.name);
+            proxy.appointManager(castroShop.ID, castroFounder.name,MegaSportFounder.name);
+            proxy.appointOwner(castroShop.ID, castroFounder.name,ACEFounder.name);
+            proxy.appointOwner(aceShop.ID, ACEFounder.name,MegaSportFounder.name);
 
-        shops[castro_ID] = shopSearch(shops[castro_ID].ID);
-        shops[MegaSport_ID] = shopSearch(shops[MegaSport_ID].ID);
-        shops[ACE_ID] = shopSearch(shops[ACE_ID].ID);
+            shops[castro_ID] = shopSearch(shops[castro_ID].ID);
+            shops[MegaSport_ID] = shopSearch(shops[MegaSport_ID].ID);
+            shops[ACE_ID] = shopSearch(shops[ACE_ID].ID);
+            init = false;
+        }
 
         userBridge.exit(ACEFounder.name);
         userBridge.exit(castroFounder.name);
@@ -150,7 +155,7 @@ public abstract class ProjectTests {
     private static ProductFilter[] setUpProductFilters() {
         // ProductFilter productFailFilterRating = (p) -> p.rating >= 3.5;
         ProductFilter productFilterManufacturer = (p) -> p.getManufacturer().equals("israel");
-        ProductFilter productFilterDesc = (p) -> p.desc.equals("bad");
+        ProductFilter productFilterDesc = (p) -> p.desc.equals("newest edition");
         return new ProductFilter[]{productFilterManufacturer,productFilterDesc};
     }
 

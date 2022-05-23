@@ -36,7 +36,7 @@ public interface SubscribedUserService extends UserService {
 
     Result deleteProductFromShop(int shopID, int productID);
 
-    Result addProductToShop(int shopID, String desc, String name,String manufacturer,int productID, int quantity, double price);
+    Result addProductToShop(int shopID, String name, String desc,String manufacturer,int productID, int quantity, double price);
 
     Result reopenShop(int shopID);
 

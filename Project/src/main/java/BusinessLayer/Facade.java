@@ -23,10 +23,6 @@ public class Facade{
         return FacadeHolder.facade;
     }
 
-    public boolean removeproduct(User currUser, int shopId, int productId) {
-        return userController.removeproduct(currUser,shopId,productId);
-    }
-
     public ConcurrentHashMap<Integer, ShopInfo> reciveInformation() {
         return userController.reciveInformation();
     }

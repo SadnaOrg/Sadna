@@ -42,7 +42,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result removeProduct(int shopId, int productId) {
-        return ifUserNotNull(()-> facade.removeproduct(currUser,shopId,productId),"product removed ");
+        return ifUserNotNull(()-> facade.removeProduct(shopId,productId,currUser),"product removed ");
     }
 
     @Override

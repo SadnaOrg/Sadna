@@ -48,10 +48,14 @@ public class Product {
     }
 
     public void setPrice(double price) {
+        if(price < 0)
+            throw new IllegalArgumentException("a product can't have a negative price!");
         this.price = price;
     }
 
     public void setQuantity(int quantity) {
+        if(quantity < 0)
+            throw new IllegalArgumentException("product can't have a negative quantity!");
         this.quantity = quantity;
     }
 
