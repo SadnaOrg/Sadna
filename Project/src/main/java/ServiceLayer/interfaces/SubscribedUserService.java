@@ -5,6 +5,7 @@ import ServiceLayer.Response;
 import ServiceLayer.Result;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface SubscribedUserService extends UserService {
 
