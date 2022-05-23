@@ -12,9 +12,11 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class SubscribedUser extends User {
+    private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
     private String hashedPassword;
     private Map<Integer,ShopAdministrator> shopAdministrator;
     private boolean is_login = false;
@@ -26,6 +28,8 @@ public class SubscribedUser extends User {
     }
 
     public boolean login(String userName,String password) {
+        if(isRemoved())
+            throw new IllegalStateException("user is removed");
         if (!is_login) {
             if (Objects.equals(userName, this.getUserName()) && Objects.equals(GFG2.Hash(password), this.hashedPassword))
                 is_login = true;
@@ -43,7 +47,7 @@ public class SubscribedUser extends User {
     }
     @Override
     public boolean isLoggedIn() {
-        return is_login;
+        return isNotRemoved.get() && is_login;
     }
 
     /**
@@ -103,7 +107,9 @@ public class SubscribedUser extends User {
     }
 
     private void validatePermission(int shopId) throws NoPermissionException {
-        if(!is_login)
+        if(isRemoved())
+            throw new NoPermissionException("user is removed");
+        if(!isLoggedIn())
             throw new NoPermissionException("user mast be logged in ");
 
         if(!shopAdministrator.containsKey(shopId))
@@ -119,6 +125,15 @@ public class SubscribedUser extends User {
     public void removeMyRole(int id) {
         shopAdministrator.remove(id);
     }
+
+    public synchronized boolean removeFromSystem(){
+        if(isNotRemoved.get()){
+            return isNotRemoved.compareAndSet(shopAdministrator.isEmpty(),false);
+        }
+        else throw new IllegalArgumentException("user all ready removed");
+    }
+
+    public boolean isRemoved(){return !isNotRemoved.get();}
 
 // Java program to calculate SHA hash value
 

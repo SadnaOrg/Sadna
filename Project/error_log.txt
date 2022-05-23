@@ -1,98 +1,52 @@
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: quantity mast be positive amount
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: product save : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-מאי 21, 2022 7:58:33 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: castroFounderassign MegaSportFounder to shop manager  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: castroFounderassign ACEFounder to shop owner  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: ACEFounderassign MegaSportFounder to shop owner  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in

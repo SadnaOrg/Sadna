@@ -158,6 +158,12 @@ public class Facade{
     public Boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         return userController.removeAdmin(shopID,requesting,toRemove);
     }
+    public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
+        return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
+    }
+    public Map<UserController.UserState, SubscribedUser> getSubscribedUserInfo(String userName){
+        return userController.getSubscribedUserInfo(userName);
+    }
 
     private static class FacadeHolder{
         private static Facade facade= new Facade();

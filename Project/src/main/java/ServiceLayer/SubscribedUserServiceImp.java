@@ -2,10 +2,7 @@ package ServiceLayer;
 
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.SystemManager;
-import ServiceLayer.Objects.Administrator;
-import ServiceLayer.Objects.AdministratorInfo;
-import ServiceLayer.Objects.PurchaseHistoryInfo;
-import ServiceLayer.Objects.Shop;
+import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;

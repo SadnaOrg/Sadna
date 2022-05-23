@@ -1,4 +1,6 @@
-May 21, 2022 10:22:45 PM ServiceLayer.Log event
+May 22, 2022 11:40:19 PM ServiceLayer.Log event
 INFO: login to system Successes
-May 21, 2022 10:22:48 PM ServiceLayer.Log event
-INFO: login to system Successes
+May 22, 2022 11:43:44 PM ServiceLayer.Log event
+INFO: register to system succeeded Successes
+May 22, 2022 11:43:49 PM ServiceLayer.Log event
+INFO: login  Successes

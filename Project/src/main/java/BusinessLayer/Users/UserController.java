@@ -232,6 +232,10 @@ public class UserController {
         return currUser.getShopsAndUsersInfo(shop);
     }
 
+    public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
+        return currUser.removeSubscribedUser(userToRemoved);
+    }
+
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
        ShopAdministrator admin = getAdmin(username, shopID);
        if(admin != null)
@@ -298,6 +302,33 @@ public class UserController {
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser) {
         return currUser.getShopsAndUsersInfo();
+    }
+
+    protected boolean removeSubscribedUserFromSystem(String userName){
+        if(!getSubUser(userName).removeFromSystem())
+            throw new IllegalArgumentException("user "+userName+" cant be removed");
+        return true;
+    }
+    public enum UserState{
+        REMOVED,LOGGED_IN,LOGGED_OUT;
+
+        static UserState get(SubscribedUser u){
+            return u.isRemoved()? REMOVED : u.isLoggedIn()? LOGGED_IN:LOGGED_OUT;
+        }
+        public static int getVal(UserState state){
+            return switch (state){
+                case REMOVED -> -1;
+                case LOGGED_IN -> 1;
+                case LOGGED_OUT -> 0;
+            };
+        }
+    }
+    public Map<UserState,SubscribedUser> getSubscribedUserInfo(String user){
+        if(!getSysUser(user).isLoggedIn())
+            throw new IllegalStateException("Mast be logged in for getting userInfo");
+        Map<UserState,SubscribedUser> m = new ConcurrentHashMap<>();
+        this.subscribers.values().forEach((u)->{m.put(UserState.get(u),u);});
+        return m;
     }
 
     public void clearForTestsOnly() {
