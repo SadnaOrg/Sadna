@@ -47,10 +47,7 @@ public class MainView extends Header {
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         loginButton.setSizeFull();
         buttonLayout.add(registerButton, loginButton);
-        guestButton = new Button("Continue As Guest", e -> {
-            if (service.loginSystem().isOk())
-                UI.getCurrent().navigate(ProductView.class);
-        });
+        guestButton = new Button("Continue As Guest", e -> UI.getCurrent().navigate(GuestActionView.class));
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         guestButton.setSizeFull();
         guestLayout.add(guestButton);

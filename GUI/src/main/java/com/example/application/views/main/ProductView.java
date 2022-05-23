@@ -47,7 +47,8 @@ public class ProductView extends Header {
         productGrid.addColumn(Product::description).setHeader("Description").setSortable(true);
         productGrid.addColumn(Product::price).setHeader("Price").setSortable(true).setTextAlign(ColumnTextAlign.END);
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
-        Product[] productList = new Product[]{new Product(1, 1, "P1", "", 5.0, 10), new Product(2, 2, "P2", "", 5.0, 10)};
+        Product[] productList = new Product[]{new Product(1, 1, "P1", "", 5.0, 10, "manu"),
+                new Product(2, 2, "P2", "", 5.0, 10, "facturer")};
         productGrid.setItems(productList);
         content.add(productGrid);
     }
