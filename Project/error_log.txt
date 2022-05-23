@@ -1,0 +1,52 @@
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: adding product to shop : Failed to adding product to shop
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: castroFounderassign MegaSportFounder to shop manager  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: castroFounderassign ACEFounder to shop owner  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: ACEFounderassign MegaSportFounder to shop owner  : log in to the system first as a subscribed user
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:31 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 22, 2022 2:16:32 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in

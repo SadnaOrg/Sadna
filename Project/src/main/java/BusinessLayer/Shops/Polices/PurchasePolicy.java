@@ -1,4 +1,4 @@
-package BusinessLayer.Shops;
+package BusinessLayer.Shops.Polices;
 
 public abstract class PurchasePolicy {
 

@@ -160,10 +160,10 @@ public class UserControllerTest {
         Assert.assertTrue(s1.getShopAdministrators().size() > 1);
     }
 
-    @Test
-    public void changeManagerPermission() {
-        //Assert.assertTrue(uc.changeManagerPermission());
-    }
+//    @Test
+//    public void changeManagerPermission() {
+//        //Assert.assertTrue(uc.changeManagerPermission());
+//    }
 
     @Test
     public void getAdministratorInfo() throws NoPermissionException {
