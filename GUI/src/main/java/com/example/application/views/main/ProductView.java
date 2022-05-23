@@ -1,13 +1,18 @@
 package com.example.application.views.main;
 
+import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Shops.ShopFilters;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Result;
+import ServiceLayer.SystemServiceImp;
+import ServiceLayer.interfaces.ShopService;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
@@ -19,6 +24,10 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Utility.*;
 
@@ -26,25 +35,41 @@ import static com.example.application.Utility.*;
 public class ProductView extends Header {
 
     private final UserService service;
+    private final ShopService shopService;
     private Grid<Product> productGrid;
     private final IntegerField amount = new IntegerField("Quantity");
     private Button addToCartButton;
     private final TextField textField = new TextField("Name");
     private final H5 filterByLabel = new H5("filter by:");
     private final Select<String> filterBy = new Select<>();
+    private Dialog emptyProductSection;
 
 
     public ProductView() {
         service = (UserService)Load("service");
+        shopService = (ShopService) Load("shop-service");
         content.add(createFilterBy());
         productGrid = new Grid<>();
         productGrid.addColumn(Product::name).setHeader("Name").setSortable(true);
         productGrid.addColumn(Product::description).setHeader("Description").setSortable(true);
         productGrid.addColumn(Product::price).setHeader("Price").setSortable(true).setTextAlign(ColumnTextAlign.END);
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
-        Product[] productList = new Product[]{new Product(1, 1, "P1", "", 5.0, 10), new Product(2, 2, "P2", "", 5.0, 10)};
-        productGrid.setItems(productList);
+        createEmptyProductSectionDialog();
+        createProductList();
         content.add(productGrid);
+    }
+
+    private void createProductList() {
+        ShopFilters shopPredicate = shop -> true;
+        ProductFilters prodPredicate = product -> true;
+        shopService.searchProducts(shopPredicate, prodPredicate).values().stream().flatMap(Collection::stream).collect(Collectors.toList());
+        //productGrid.setItems(productList);
+    }
+
+    private void createEmptyProductSectionDialog() {
+        emptyProductSection.add(new H1("There are currently no products available!"));
+        emptyProductSection.setDraggable(true);
+        emptyProductSection.open();
     }
 
     private HorizontalLayout createFilterBy() {

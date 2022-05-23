@@ -1,16 +1,17 @@
 package com.example.application.views.main;
 
 import ServiceLayer.Result;
+import ServiceLayer.ShopServiceImp;
+import ServiceLayer.SystemServiceImp;
 import ServiceLayer.UserServiceImp;
+import ServiceLayer.interfaces.ShopService;
+import ServiceLayer.interfaces.SystemService;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -21,6 +22,7 @@ import static com.example.application.Header.SessionData.save;
 public class MainView extends Header {
 
     private final UserService service = new UserServiceImp();
+    private final ShopService shopService = new ShopServiceImp();
     private final HorizontalLayout buttonLayout;
     private final HorizontalLayout guestLayout;
     private final Button registerButton = new Button("Register", e -> UI.getCurrent().navigate(RegisterView.class));
@@ -34,6 +36,7 @@ public class MainView extends Header {
 
     public MainView() {
         save("service", service);
+        save("shop-service", shopService);
         content.setSizeFull();
         buttonLayout = new HorizontalLayout();
         guestLayout = new HorizontalLayout();

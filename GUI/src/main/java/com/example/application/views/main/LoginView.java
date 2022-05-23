@@ -7,13 +7,11 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.login.LoginOverlay;
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 
-import static com.example.application.Header.SessionData.Load;
+import static com.example.application.Header.SessionData.*;
 import static com.example.application.Utility.*;
 
 @Route("Login")
@@ -29,7 +27,8 @@ public class LoginView extends LoginOverlay {
             Result res = service.login(e.getUsername(), e.getPassword());
                 if (res.isOk()) {
                     notifySuccess("Login Succeeded!");
-                    UI.getCurrent().navigate(ProductView.class);
+                    save("user-name", e.getUsername());
+                    UI.getCurrent().navigate(SubscribedUserView.class);
                 }
                 else {
                     notifyError(res.getMsg());
