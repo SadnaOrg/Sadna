@@ -42,7 +42,7 @@ public class UserTest {
     @Test
     public void testRemoveProductSuccess() {
         assertTrue(u1.removeProduct(s1.getId(),p1.getID()));
-        assertFalse(u1.getProducts(s1.getId()).containsKey(p1.getID()));
+        assertNull(u1.getProducts(s1.getId()));
     }
 
     @Test

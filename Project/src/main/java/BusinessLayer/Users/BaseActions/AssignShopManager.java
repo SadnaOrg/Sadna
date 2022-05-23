@@ -15,7 +15,7 @@ public class AssignShopManager extends BaseAction {
     }
 
     public boolean act(SubscribedUser userToAssign, String appointer){
-        ShopManager m = new ShopManager(s,u,appointer);
+        ShopManager m = new ShopManager(s,userToAssign,appointer);
         if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(),m)){
             ShopAdministrator admin = userToAssign.addAdministrator(s.getId(), m);
             u.getAdministrator(s.getId()).addAppoint(admin);

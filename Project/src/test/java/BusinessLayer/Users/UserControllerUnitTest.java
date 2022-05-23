@@ -102,6 +102,9 @@ public class UserControllerUnitTest {
     public void removeproduct() {
         uc.saveProducts(user, s1.getId(), p1.getID(), 100);
         when(user.removeProduct(s1.getId(), p1.getID())).thenReturn(true);
+        when(s1.checkIfUserHasBasket(userName)).thenReturn(true);
+        when(sc.checkIfUserHasBasket(shopID, userName)).thenReturn(true);
+        doNothing().when(sc).tryRemove(shopID,userName,0);
         uc.removeproduct(user, s1.getId(), p1.getID());
         when(basket.getProducts()).thenReturn(new ConcurrentHashMap<>());
         Assert.assertEquals(user.getShoppingCart().get(s1.getId()).getProducts().size(), 0);

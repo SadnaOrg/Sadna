@@ -9,6 +9,7 @@ import ServiceLayer.Objects.*;;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class UserServiceImp implements UserService {
@@ -41,7 +42,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result removeProduct(int shopId, int productId) {
-        return ifUserNotNull(()-> facade.removeproduct(currUser,shopId,productId),"product removed ");
+        return ifUserNotNull(()-> facade.removeProduct(shopId,productId,currUser),"product removed ");
     }
 
     @Override
@@ -77,9 +78,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Response<ShopsInfo> searchProducts(ShopFilters shopPred, ProductFilters productPred){
-        return ifUserNotNullRes(()->
-                new ShopsInfo(facade.searchProducts(shopPred,productPred)),"search products succeeded");
+    public Response<ShopsInfo> searchProducts(Predicate<Shop> shopPred, Predicate<Product> productPred){
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchProducts((s)-> s.isOpen() && shopPred.test(new Shop(s)),(p)->productPred.test(new Product(p)))),"search products succeeded");
     }
 
     @Override

@@ -8,7 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class UserProxy implements UserBridge{
-    UserBridge adapter = new UserAdapter();
+    protected UserBridge adapter;
+
+    public UserProxy(){
+        this.adapter = new UserAdapter(new HashMap<>(), new HashMap<>());
+    }
+
+    public UserProxy(SubscribedUserBridge subscribedUserBridge){
+        this.adapter = subscribedUserBridge;
+    }
+
     @Override
     public Guest visit() {
         return adapter.visit();
@@ -30,23 +39,23 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public List<Shop> getShopsInfo(ShopFilter shopFilter) {
-        return adapter.getShopsInfo(shopFilter);
+    public List<Shop> getShopsInfo(String username,ShopFilter shopFilter) {
+        return adapter.getShopsInfo(username,shopFilter);
     }
 
     @Override
-    public List<ProductInShop> searchShopProducts(int shopID) {
-        return adapter.searchShopProducts(shopID);
+    public List<ProductInShop> searchShopProducts(String username,int shopID) {
+        return adapter.searchShopProducts(username, shopID);
     }
 
     @Override
-    public List<ProductInShop> searchProducts(ProductFilter productFilter) {
-        return adapter.searchProducts(productFilter);
+    public List<ProductInShop> searchProducts(String username,ProductFilter productFilter) {
+        return adapter.searchProducts(username,productFilter);
     }
 
     @Override
-    public List<ProductInShop> filterShopProducts(int shopID, ProductFilter productFilter) {
-        return adapter.filterShopProducts(shopID,productFilter);
+    public List<ProductInShop> filterShopProducts(String username,int shopID, ProductFilter productFilter) {
+        return adapter.filterShopProducts(username,shopID,productFilter);
     }
 
     @Override
@@ -70,8 +79,8 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public ProductInShop searchProductInShop(int productID, int shopID) {
-        return adapter.searchProductInShop(productID,shopID);
+    public ProductInShop searchProductInShop(String username,int productID, int shopID) {
+        return adapter.searchProductInShop(username,productID,shopID);
     }
 
     protected HashMap<String, UserService> getGuests() {

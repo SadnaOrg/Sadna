@@ -82,11 +82,17 @@ public class UserController {
     }
 
     public boolean removeproduct(User u, int shopId, int productId) {
-        return u.removeProduct(shopId, productId);
+        boolean removed = u.removeProduct(shopId, productId);
+        if(removed)
+            ShopController.getInstance().tryRemove(shopId,u.getUserName(),0);
+        return removed;
     }
 
     public boolean editProductQuantity(User u, int shopId, int productId, int newQuantity) {
-        return u.editProductQuantity(shopId, productId, newQuantity);
+        boolean edited = u.editProductQuantity(shopId, productId, newQuantity);
+        if(edited)
+            ShopController.getInstance().tryRemove(shopId,u.getUserName(),newQuantity);
+        return edited;
     }
 
 

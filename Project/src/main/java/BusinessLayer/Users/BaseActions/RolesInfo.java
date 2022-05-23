@@ -18,7 +18,7 @@ public class RolesInfo extends BaseAction {
     }
 
     public Collection<AdministratorInfo> act() throws NoPermissionException {
-        if(!shop.isOpen() || !(user.getAdministrator(shop.getId()) instanceof ShopOwner))
+        if(!shop.isOpen() || !(user.getAdministrator(shop.getId()).getActionsTypes().contains(BaseActionType.ROLE_INFO)))
             throw new NoPermissionException("cant search info in a closed shop");
 
         return shop.getShopAdministrators().stream().map(shopAdministrator ->
