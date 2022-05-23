@@ -1,8 +1,13 @@
 package ServiceLayer;
 
 import BusinessLayer.Users.SystemManager;
+import BusinessLayer.Users.UserController;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
+import ServiceLayer.Objects.SubscribedUserInfo;
 import ServiceLayer.interfaces.SystemManagerService;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class SystemManagerServiceImp extends SubscribedUserServiceImp implements SystemManagerService {
 
@@ -32,6 +37,10 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     @Override
     public Response<PurchaseHistoryInfo> getShopsAndUsersInfo() {
         return ifUserNotNullRes(() ->  new PurchaseHistoryInfo(facade.getShopsAndUsersInfo(currUser)), "get shops and users info succeeded");
+    }
+    @Override
+    public Response<List<SubscribedUserInfo>> getAllSubscribedUserInfo(){
+        return ifUserNotNullRes(()-> UserController.getInstance().getSubscribedUserInfo(currUser.getUserName()).entrySet().stream().map(SubscribedUserInfo::new).collect(Collectors.toList()),"get subscribed user info");
     }
 
     protected void setCurrUser(SystemManager currUser) {
