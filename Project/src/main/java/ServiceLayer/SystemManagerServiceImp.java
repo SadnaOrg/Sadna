@@ -38,6 +38,10 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
         super.setCurrUser(currUser);
         this.currUser = currUser;
     }
+    @Override
+    public Result removeSubscribedUserFromSystem(String userToRemove){
+        return ifUserNotNull(()->currUser.removeSubscribedUser(userToRemove),"removed "+ userToRemove +" from system");
+    }
 
 
     private Result ifUserNotNull(MySupplier<Boolean> s, String eventName) {
@@ -55,4 +59,5 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     private <T> Response<T> ifUserNullRes(MySupplier<T> s, String eventName) {
         return Response.tryMakeResponse((() -> currUser != null ? null : s.get()), eventName, "logout from system first");
     }
+
 }

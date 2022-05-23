@@ -226,6 +226,10 @@ public class UserController {
         return currUser.getShopsAndUsersInfo(shop);
     }
 
+    public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
+        return currUser.removeSubscribedUser(userToRemoved);
+    }
+
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
        ShopAdministrator admin = getAdmin(username, shopID);
        if(admin != null)
@@ -294,7 +298,7 @@ public class UserController {
         return currUser.getShopsAndUsersInfo();
     }
 
-    public boolean removeSubscribedUserFromSystem(String userName){
+    protected boolean removeSubscribedUserFromSystem(String userName){
         if(!getSubUser(userName).removeFromSystem())
             throw new IllegalArgumentException("user "+userName+" cant be removed");
         return true;
