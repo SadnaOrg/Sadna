@@ -1,27 +1,40 @@
 package BusinessLayer.Shops.Polices.Discount;
 
-import BusinessLayer.Products.Product;
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.SubscribedUser;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
-import static org.junit.Assert.*;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class ShopDiscountTest {
+import static org.mockito.Mockito.when;
+
+public class ShopDiscountUnitTest {
+
 
     private ShopDiscount shopDiscount;
 
+    @Mock
     private Basket basket;
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+
 
     @Before
     public void setUp() throws Exception {
 
-        basket = new Basket(1);
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
+        ConcurrentHashMap<Integer,Integer> pidquan = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Integer,Double> pidprice = new ConcurrentHashMap<>();
+        pidquan.put(1,10);
+        pidquan.put(2,100);
+        pidprice.put(1,5.0);
+        pidprice.put(2,15.0);
+        when(basket.getProducts()).thenReturn(pidquan);
+        when(basket.getPrices()).thenReturn(pidprice);
     }
 
 
@@ -41,5 +54,4 @@ public class ShopDiscountTest {
         shopDiscount= new ShopDiscount(new DefaultDiscount(),50,0.2);
         Assert.assertEquals(0.2*10*5+0.2*15*100,shopDiscount.calculateDiscount(basket),0.1);
     }
-
 }

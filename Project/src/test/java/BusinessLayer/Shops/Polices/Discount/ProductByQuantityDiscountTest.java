@@ -15,18 +15,10 @@ public class ProductByQuantityDiscountTest {
     private ProductByQuantityDiscount productByQuantityDiscount;
 
     private Basket basket;
-    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
-    private Shop s1;
-    private Product p1;
-    private Product p2;
+
 
     @Before
     public void setUp() throws Exception {
-        s1 = new Shop(100, "shop","testing shop", founder);
-        p1 = new Product(1, "a", 5, 100);
-        p2 = new Product(2, "c", 15, 500);
-        s1.addProduct(p1);
-        s1.addProduct(p2);
         basket = new Basket(1);
     }
 
