@@ -167,6 +167,35 @@ public class Shop {
         return totalPrice;
     }
 
+    //we can assume that this function is only called when all good;
+    public double checkIfcanBuy(String user) {
+        int totalPrice = 0;
+        if (state == State.OPEN) {
+            for (int productID : usersBaskets.get(user).getProducts().keySet()) {
+                if (products.containsKey(productID)) {
+                    int quantity = usersBaskets.get(user).getProducts().get(productID);
+                    Product curr_product = products.get(productID);
+                    double currentPrice = curr_product.checkIfCanBuy(quantity);
+                    if (currentPrice > 0.0)
+                        totalPrice += currentPrice;
+                    else
+                    {
+                        throw new IllegalStateException("Try to buy out of stock product from the shop");
+                    }
+                }
+                else
+                {
+                    throw new IllegalStateException("The product is not in the shop");
+                }
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return totalPrice;
+    }
+
     public int getId() {
         return id;
     }

@@ -4,7 +4,8 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
-import org.junit.Before;
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,20 +24,26 @@ public class PurchaseHistoryControllerTest {
     private static Basket basket = new Basket(shopId);
     private static UserController uc = UserController.getInstance();
     private static boolean flag = false;
-    @Before
-    public void setUp(){
+    @BeforeClass
+    public static void setUp(){
         if(!flag) {
             uc.registerToSystem(founder.getUserName(), "I am not Guy Kishon");
             uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
-            basket.saveProducts(p1.getID(), 23,p1.getPrice());
             s1 = new Shop(shopId, "name of shop","testing shop", founder);
+            s1.addProduct(p1);
+            basket.saveProducts(p1.getID(), 23,p1.getPrice());
             s1.addBasket(buyer.getUserName(), basket);
             sc.addShop(s1);
             sc.addToPurchaseHistory(buyer.getUserName(), createPayments());
         }
         phc.emptyDataOnPurchases();
         flag = true;
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        phc.emptyDataOnPurchases();
     }
 
     @Test
@@ -94,7 +101,7 @@ public class PurchaseHistoryControllerTest {
         assertEquals(purchaseHistory, phc.createPurchaseHistory(s1, founder.getUserName()));
     }
 
-    public ConcurrentHashMap<Integer, Boolean> createPayments() {
+    public static ConcurrentHashMap<Integer, Boolean> createPayments() {
         ConcurrentHashMap<Integer, Boolean> payments = new ConcurrentHashMap<>();
         payments.put(shopId, true);
         return payments;
