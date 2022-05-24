@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="Created Vaadin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
@@ -54,9 +53,9 @@
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project/out/artifacts/Market/Project.jar",
+    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/GUI",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "vcs.Subversion",
@@ -115,6 +114,7 @@
       <workItem from="1653157362458" duration="938000" />
       <workItem from="1653158322490" duration="297000" />
       <workItem from="1653158641914" duration="2189000" />
+      <workItem from="1653307026131" duration="7199000" />
     </task>
     <servers />
   </component>
@@ -147,8 +147,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>126</line>
+          <line>131</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

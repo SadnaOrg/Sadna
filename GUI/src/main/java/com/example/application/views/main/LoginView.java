@@ -28,7 +28,7 @@ public class LoginView extends LoginOverlay {
                 if (res.isOk()) {
                     notifySuccess("Login Succeeded!");
                     save("user-name", e.getUsername());
-                    UI.getCurrent().navigate(SubscribedUserView.class);
+                    UI.getCurrent().navigate(ProductView.class);
                 }
                 else {
                     notifyError(res.getMsg());

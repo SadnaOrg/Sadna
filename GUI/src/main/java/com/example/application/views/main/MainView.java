@@ -36,7 +36,6 @@ public class MainView extends Header {
 
     public MainView() {
         save("service", service);
-        save("shop-service", shopService);
         content.setSizeFull();
         buttonLayout = new HorizontalLayout();
         guestLayout = new HorizontalLayout();

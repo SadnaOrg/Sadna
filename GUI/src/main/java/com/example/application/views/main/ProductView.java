@@ -3,6 +3,7 @@ package com.example.application.views.main;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
 import ServiceLayer.Objects.Product;
+import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.SystemServiceImp;
 import ServiceLayer.interfaces.ShopService;
@@ -24,6 +25,8 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,7 +38,6 @@ import static com.example.application.Utility.*;
 public class ProductView extends Header {
 
     private final UserService service;
-    private final ShopService shopService;
     private Grid<Product> productGrid;
     private final IntegerField amount = new IntegerField("Quantity");
     private Button addToCartButton;
@@ -47,7 +49,6 @@ public class ProductView extends Header {
 
     public ProductView() {
         service = (UserService)Load("service");
-        shopService = (ShopService) Load("shop-service");
         content.add(createFilterBy());
         productGrid = new Grid<>();
         productGrid.addColumn(Product::name).setHeader("Name").setSortable(true);
@@ -55,6 +56,8 @@ public class ProductView extends Header {
         productGrid.addColumn(Product::price).setHeader("Price").setSortable(true).setTextAlign(ColumnTextAlign.END);
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
         createEmptyProductSectionDialog();
+        productGrid.setItems(new Product[]{new Product(1, 1, "P1", "Desc1", 5.0, 10),
+                new Product(2, 2, "P2", "Desc2", 4.0, 100)});
         createProductList();
         content.add(productGrid);
     }
@@ -62,11 +65,13 @@ public class ProductView extends Header {
     private void createProductList() {
         ShopFilters shopPredicate = shop -> true;
         ProductFilters prodPredicate = product -> true;
-        shopService.searchProducts(shopPredicate, prodPredicate).values().stream().flatMap(Collection::stream).collect(Collectors.toList());
-        //productGrid.setItems(productList);
+        Collection<Shop> shops = service.searchProducts(shopPredicate, prodPredicate).getElement().shops();
+        Collection<Product> productList = shops.stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
+        productGrid.setItems(productList);
     }
 
     private void createEmptyProductSectionDialog() {
+        emptyProductSection = new Dialog();
         emptyProductSection.add(new H1("There are currently no products available!"));
         emptyProductSection.setDraggable(true);
         emptyProductSection.open();
