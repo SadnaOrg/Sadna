@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.ShopInfo;
 import BusinessLayer.System.PaymentMethod;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class User{
@@ -34,7 +35,9 @@ public abstract class User{
     }
 
     public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
-        return shoppingCart.get(shopid).getProducts();
+        if(shoppingCart.containsKey(shopid))
+            return shoppingCart.get(shopid).getProducts();
+        return null;
     }
 
     public ConcurrentHashMap<Integer,BasketInfo> showCart(){
@@ -48,15 +51,21 @@ public abstract class User{
 
     public boolean removeProduct(int shopid, int productid){
         if(shoppingCart.containsKey(shopid)) {
-            return shoppingCart.get(shopid).removeProduct(productid);
+            shoppingCart.get(shopid).removeProduct(productid);
+            Basket b = getBasket(shopid);
+            if(b.getProducts().size() == 0)
+                shoppingCart.remove(shopid);
+            return true;
         }
         return false;
     }
 
 
     public boolean editProductQuantity(int shopid, int productid, int newquantity){
-        if(newquantity<=0)
-            throw new IllegalArgumentException("quantity mast be positive amount");
+        if(newquantity==0)
+            return removeProduct(shopid,productid);
+        if(newquantity < 0)
+            throw new IllegalArgumentException("can't have a product with a negative quantity");
         if(shoppingCart.containsKey(shopid)) {
             return shoppingCart.get(shopid).editProductQuantity(productid, newquantity);
         }
@@ -91,5 +100,15 @@ public abstract class User{
 
     public boolean isLoggedIn(){
         return true;
+    }
+
+    public void removeBaskets(List<Integer> IDs) {
+        for (Integer id:
+             IDs) {
+            Basket b = getBasket(id);
+            if(b == null)
+                throw new IllegalArgumentException("you don't have a basket in that shop!");
+            shoppingCart.remove(id);
+        }
     }
 }

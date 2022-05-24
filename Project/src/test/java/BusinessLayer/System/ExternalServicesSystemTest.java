@@ -88,7 +88,7 @@ public class ExternalServicesSystemTest {
         t2.start();
         t1.join();
         t2.join();
-        Assert.assertEquals(2, system.getPaymentSize());
+        Assert.assertEquals(3, system.getPaymentSize());
     }
 
     @Test

@@ -8,8 +8,8 @@ import BusinessLayer.Users.UserController;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class System {
-    private Notifier notifier;
-    private ExternalServicesSystem externSystem;
+    private Notifier notifier = new Notifier();
+    private ExternalServicesSystem externSystem = new ExternalServicesSystem();
     private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
 

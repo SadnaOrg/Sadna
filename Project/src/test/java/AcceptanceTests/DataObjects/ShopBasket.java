@@ -27,7 +27,12 @@ public class ShopBasket {
     }
 
     public int numOfProducts() {
-        return products.size();
+        int size = 0;
+        for (Integer id:
+             products.keySet()) {
+            size += products.get(id);
+        }
+        return size;
     }
 
     public int getProductQuantity(int productID) {

@@ -43,6 +43,7 @@ public class RemoveAdmin extends BaseAction{
             if(admin instanceof ShopOwner){
                 if(((ShopOwner) admin).isFounder())
                     throw new IllegalStateException("cant remove the founder!");
+                removeAdminAppointment(toRemove);
                 removeOwnerAppointments((ShopOwner)admin);
                 return true;
             }

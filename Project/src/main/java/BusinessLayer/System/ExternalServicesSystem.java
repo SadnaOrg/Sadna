@@ -14,6 +14,7 @@ public class ExternalServicesSystem {
 
     public ExternalServicesSystem(){
         payment = new ArrayList<>();
+        payment.add(new ProxyPayment());
         supply = new ArrayList<>();
     }
 

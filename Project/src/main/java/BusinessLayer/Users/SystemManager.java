@@ -31,4 +31,10 @@ public class SystemManager extends SubscribedUser {
     {
         return PurchaseHistoryController.getInstance().getPurchaseInfo(shopId, userName);
     }
+
+    public boolean removeSubscribedUser(String userName){
+        return UserController.getInstance().removeSubscribedUserFromSystem(userName);
+    }
+
+
 }
