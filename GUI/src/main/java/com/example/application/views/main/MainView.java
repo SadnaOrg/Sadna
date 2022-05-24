@@ -22,7 +22,6 @@ import static com.example.application.Header.SessionData.save;
 public class MainView extends Header {
 
     private final UserService service = new UserServiceImp();
-    private final ShopService shopService = new ShopServiceImp();
     private final HorizontalLayout buttonLayout;
     private final HorizontalLayout guestLayout;
     private final Button registerButton = new Button("Register", e -> UI.getCurrent().navigate(RegisterView.class));

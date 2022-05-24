@@ -21,7 +21,7 @@ public class SubscribedUserView extends Header {
         service = (UserService)Load("service");
         logoutButton = new Button("Logout", e -> {
             String username = (String)Load("user-name");
-            service.logout(username);
+            service.logoutSystem();
             UI.getCurrent().navigate(MainView.class);
         });
         browseProducts = new Button("Products", e -> UI.getCurrent().navigate(ProductView.class));

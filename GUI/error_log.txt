@@ -1,2 +1,0 @@
-May 24, 2022 9:19:37 PM ServiceLayer.Log error
-SEVERE: search products succeeded: log in to system first

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static com.example.application.Header.SessionData.Load;
@@ -55,19 +56,18 @@ public class ProductView extends Header {
         productGrid.addColumn(Product::description).setHeader("Description").setSortable(true);
         productGrid.addColumn(Product::price).setHeader("Price").setSortable(true).setTextAlign(ColumnTextAlign.END);
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
-        createEmptyProductSectionDialog();
-        productGrid.setItems(new Product[]{new Product(1, 1, "P1", "Desc1", 5.0, 10),
-                new Product(2, 2, "P2", "Desc2", 4.0, 100)});
         createProductList();
         content.add(productGrid);
     }
 
     private void createProductList() {
-        ShopFilters shopPredicate = shop -> true;
-        ProductFilters prodPredicate = product -> true;
+        Predicate<Shop> shopPredicate = shop -> true;
+        Predicate<Product> prodPredicate = product -> true;
         Collection<Shop> shops = service.searchProducts(shopPredicate, prodPredicate).getElement().shops();
         Collection<Product> productList = shops.stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
         productGrid.setItems(productList);
+        if (productList.size() == 0)
+            createEmptyProductSectionDialog();
     }
 
     private void createEmptyProductSectionDialog() {
