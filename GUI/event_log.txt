@@ -1,6 +1,12 @@
-May 22, 2022 11:40:19 PM ServiceLayer.Log event
+מאי 23, 2022 4:27:55 אחה״צ ServiceLayer.Log event
 INFO: login to system Successes
-May 22, 2022 11:43:44 PM ServiceLayer.Log event
+מאי 23, 2022 4:27:58 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 23, 2022 4:33:09 אחה״צ ServiceLayer.Log event
 INFO: register to system succeeded Successes
-May 22, 2022 11:43:49 PM ServiceLayer.Log event
+מאי 23, 2022 4:33:17 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+מאי 23, 2022 4:34:34 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 23, 2022 4:34:55 אחה״צ ServiceLayer.Log event
 INFO: login  Successes
