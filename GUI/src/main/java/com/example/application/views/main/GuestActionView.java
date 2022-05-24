@@ -4,6 +4,7 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
 import ServiceLayer.Objects.*;
 import ServiceLayer.UserServiceImp;
+import com.example.application.Header.Header;
 import com.helger.commons.annotation.Nonempty;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -36,35 +37,35 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
 @Route("Guest")
-public class GuestActionView extends AppLayout {
+public class GuestActionView extends Header {
     Tabs tabs;
     UserServiceImp user;
 
     public GuestActionView() {
         user = new UserServiceImp();
         user.loginSystem();
-        DrawerToggle toggle = new DrawerToggle();
-        H1 title = new H1("Guest Menu");
-        title.getStyle()
-                .set("font-size", "var(--lumo-font-size-l)")
-                .set("margin", "0");
         tabs = getTabs();
         addToDrawer(tabs);
-        addToNavbar(toggle, title);
+        Button registerButton = new Button("Register", event -> UI.getCurrent().navigate(RegisterView.class));
+        registerButton.getStyle().set("margin-left", "auto");
+        Button loginButton = new Button("Login", event -> UI.getCurrent().navigate(LoginView.class));
+        addToNavbar(registerButton, loginButton);
     }
 
     private Tabs getTabs() {
         tabs = new Tabs();
-        addTabWithClickEvent("Login", event -> UI.getCurrent().navigate(LoginView.class));
-        /*addTabWithClickEvent("Save Product", event -> {});*/
+//        addTabWithClickEvent("Login", event -> UI.getCurrent().navigate(LoginView.class));
+//        addTabWithClickEvent("Register", event -> UI.getCurrent().navigate(RegisterView.class));
         addTabWithClickEvent("Check Cart", this::checkCartEvent);
         addTabWithClickEvent("Search Products", this::searchProductsEvent);
         addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+        addTabWithClickEvent("Products", this::productEvent);
         //addTab("Info on Shops and Products");
         addTabWithClickEvent("Exit", event -> {
             if(user.logoutSystem().isOk())
@@ -75,15 +76,20 @@ public class GuestActionView extends AppLayout {
         return tabs;
     }
 
+    private void productEvent(DomEvent domEvent) {
+        ProductView productView = new ProductView();
+        setContent(productView);
+    }
+
     private void buyCartEvent(DomEvent event) {
-        PaymentForm layout = new PaymentForm();
+        PaymentForm layout = new PaymentForm(user);
         setContent(layout);
     }
 
     private void searchProductsEvent(DomEvent event) {
         HorizontalLayout layout = new HorizontalLayout();
-        ShopFilters shopFilter = shop -> true;
-        ProductFilters productFilter = product -> true;
+        Predicate<Shop> shopFilter = shop -> true;
+        Predicate<Product> productFilter = product -> true;
 
         ShopsInfo shop = user.searchProducts(shopFilter, productFilter).getElement();
         if (shop != null) {

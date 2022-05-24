@@ -1,7 +1,10 @@
 package com.example.application.views.main;
 
+import ServiceLayer.Objects.User;
+import ServiceLayer.UserServiceImp;
 import com.helger.commons.annotation.Nonempty;
 import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.select.Select;
@@ -15,6 +18,7 @@ import java.util.Calendar;
 import java.util.stream.IntStream;
 
 public class PaymentForm extends FormLayout {
+    UserServiceImp user;
     @NotNull
     @Nonempty
     @NotBlank
@@ -27,7 +31,8 @@ public class PaymentForm extends FormLayout {
 
     Binder<PaymentMethod> binder = new BeanValidationBinder<>(PaymentMethod.class);
 
-    public PaymentForm(){
+    public PaymentForm(UserServiceImp user){
+        this.user = user;
         payButton.setEnabled(false);
         binder.forField(creditCardNumber).withValidator(cardNum -> cardNum.length() == 16 &&
                 cardNum.chars().allMatch(Character::isDigit), "Credit Card must be a 16 digit number")
@@ -47,8 +52,9 @@ public class PaymentForm extends FormLayout {
     }
 
     private void validateAndPay() {
-        if(binder.isValid())
-            fireEvent(new PayEvent(this, binder.getBean()));
+        if(binder.isValid()) {
+            fireEvent(new PayEvent(this, binder.getBean(), user));
+        }
     }
 
     private TextField createNumericTextField(int length, String label, String errorMessage) {
@@ -75,22 +81,25 @@ public class PaymentForm extends FormLayout {
         int yearNum = Calendar.getInstance().get(Calendar.YEAR);
         year.setItems(IntStream.range(yearNum, yearNum+10).boxed().toList());
         year.setRequiredIndicatorVisible(true);
-        year.setLabel("Month");
+        year.setLabel("Year");
         return year;
     }
 
 
     public static abstract class PaymentFormEvent extends ComponentEvent<PaymentForm> {
         private PaymentMethod method;
-        public PaymentFormEvent(PaymentForm source, PaymentMethod method) {
+        private UserServiceImp user;
+        public PaymentFormEvent(PaymentForm source, PaymentMethod method, UserServiceImp user) {
             super(source, false);
             this.method = method;
+            this.user = user;
         }
     }
 
     public static class PayEvent extends PaymentFormEvent{
-        public PayEvent(PaymentForm source, PaymentMethod method) {
-            super(source, method);
+        public PayEvent(PaymentForm source, PaymentMethod method, UserServiceImp user) {
+            super(source, method, user);
+            user.purchaseCartFromShop(method.getCreditCardNumber(), method.getIntCvv(), method.getMonth(), method.getYear());
         }
     }
 }

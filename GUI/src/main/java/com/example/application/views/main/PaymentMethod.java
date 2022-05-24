@@ -18,6 +18,10 @@ public class PaymentMethod {
         return String.valueOf(cvv);
     }
 
+    public int getIntCvv(){
+        return cvv;
+    }
+
     public void setCvv(String cvv) {
         this.cvv = Integer.parseInt(cvv);
     }

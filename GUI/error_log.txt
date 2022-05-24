@@ -1,2 +1,0 @@
-May 22, 2022 11:43:27 PM ServiceLayer.Log error
-SEVERE: product save : log in to system first
