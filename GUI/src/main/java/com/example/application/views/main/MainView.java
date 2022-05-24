@@ -1,11 +1,9 @@
 package com.example.application.views.main;
 
 import ServiceLayer.Result;
-import ServiceLayer.ShopServiceImp;
-import ServiceLayer.SystemServiceImp;
+import ServiceLayer.SubscribedUserServiceImp;
 import ServiceLayer.UserServiceImp;
-import ServiceLayer.interfaces.ShopService;
-import ServiceLayer.interfaces.SystemService;
+import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.UI;
@@ -22,7 +20,6 @@ import static com.example.application.Header.SessionData.save;
 public class MainView extends Header {
 
     private final UserService service = new UserServiceImp();
-    private final HorizontalLayout buttonLayout;
     private final HorizontalLayout guestLayout;
     private final Button registerButton = new Button("Register", e -> UI.getCurrent().navigate(RegisterView.class));
     private final Button loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
@@ -36,22 +33,14 @@ public class MainView extends Header {
     public MainView() {
         save("service", service);
         content.setSizeFull();
-        buttonLayout = new HorizontalLayout();
         guestLayout = new HorizontalLayout();
         createButtons();
-        content.setFlexGrow(4, buttonLayout);
         content.setFlexGrow(1, guestLayout);
-        buttonLayout.setWidthFull();
         guestLayout.setWidthFull();
-        content.add(buttonLayout, guestLayout);
+        content.add(guestLayout);
     }
 
     private void createButtons() {
-        registerButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
-        registerButton.setSizeFull();
-        loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
-        loginButton.setSizeFull();
-        buttonLayout.add(registerButton, loginButton);
         loginButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
         guestButton.setSizeFull();
         guestLayout.add(guestButton);

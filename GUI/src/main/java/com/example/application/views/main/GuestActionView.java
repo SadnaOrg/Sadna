@@ -4,6 +4,7 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
 import ServiceLayer.Objects.*;
 import ServiceLayer.UserServiceImp;
+import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.helger.commons.annotation.Nonempty;
 import com.vaadin.flow.component.UI;
@@ -41,21 +42,38 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static com.example.application.Header.SessionData.Load;
+import static com.example.application.Header.SessionData.save;
+
 
 @Route("Guest")
 public class GuestActionView extends Header {
     Tabs tabs;
-    UserServiceImp user;
+    UserService service;
+
+    String currUser;
 
     public GuestActionView() {
-        user = new UserServiceImp();
-        user.loginSystem();
+        currUser = (String)Load("user-name");
+        service = (UserService)Load("service");
+        service.loginSystem();
         tabs = getTabs();
         addToDrawer(tabs);
-        Button registerButton = new Button("Register", event -> UI.getCurrent().navigate(RegisterView.class));
-        registerButton.getStyle().set("margin-left", "auto");
-        Button loginButton = new Button("Login", event -> UI.getCurrent().navigate(LoginView.class));
-        addToNavbar(registerButton, loginButton);
+        if (currUser == null) {
+            Button registerButton = new Button("Register", event -> UI.getCurrent().navigate(RegisterView.class));
+            registerButton.getStyle().set("margin-left", "auto");
+            Button loginButton = new Button("Login", event -> UI.getCurrent().navigate(LoginView.class));
+            addToNavbar(registerButton, loginButton);
+        }
+        else {
+            Button logoutButton = new Button("Logout", e -> {
+                service.logoutSystem();
+                save("user-name", null);
+                UI.getCurrent().navigate(MainView.class);
+            });
+            logoutButton.getStyle().set("margin-left", "auto");
+            addToNavbar(logoutButton);
+        }
     }
 
     private Tabs getTabs() {
@@ -64,12 +82,17 @@ public class GuestActionView extends Header {
 //        addTabWithClickEvent("Register", event -> UI.getCurrent().navigate(RegisterView.class));
         addTabWithClickEvent("Check Cart", this::checkCartEvent);
         addTabWithClickEvent("Search Products", this::searchProductsEvent);
-        addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+        Collection<ProductInfo> basketProductsIDs = service.showCart().getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
+        if (basketProductsIDs.size() > 0) {
+            addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+        }
         addTabWithClickEvent("Products", this::productEvent);
         //addTab("Info on Shops and Products");
         addTabWithClickEvent("Exit", event -> {
-            if(user.logoutSystem().isOk())
+            if(service.logoutSystem().isOk()) {
+                save("user-name", null);
                 UI.getCurrent().navigate(MainView.class);
+            }
         });
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
@@ -82,7 +105,7 @@ public class GuestActionView extends Header {
     }
 
     private void buyCartEvent(DomEvent event) {
-        PaymentForm layout = new PaymentForm(user);
+        PaymentForm layout = new PaymentForm();
         setContent(layout);
     }
 
@@ -91,7 +114,7 @@ public class GuestActionView extends Header {
         Predicate<Shop> shopFilter = shop -> true;
         Predicate<Product> productFilter = product -> true;
 
-        ShopsInfo shop = user.searchProducts(shopFilter, productFilter).getElement();
+        ShopsInfo shop = service.searchProducts(shopFilter, productFilter).getElement();
         if (shop != null) {
             Grid<Shop> grid = createShopGrid();
             Grid<ProductInfo> prodGrid = createProductInfoGrid();
@@ -120,7 +143,7 @@ public class GuestActionView extends Header {
 
     private void checkCartEvent(DomEvent event) {
         HorizontalLayout layout = new HorizontalLayout();
-        Cart cart = user.showCart().getElement();
+        Cart cart = service.showCart().getElement();
         if (cart != null) {
             Collection<Basket> basket = cart.baskets();
             Grid<Basket> grid = new Grid<>(Basket.class, false);

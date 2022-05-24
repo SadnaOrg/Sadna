@@ -1,6 +1,9 @@
 package com.example.application.views.main;
 
+import BusinessLayer.Users.SubscribedUser;
 import ServiceLayer.Result;
+import ServiceLayer.SubscribedUserServiceImp;
+import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -18,21 +21,25 @@ import static com.example.application.Utility.*;
 public class LoginView extends LoginOverlay {
 
     private final UserService service;
+    private SubscribedUserService subscribedUserService;
     public LoginView() {
         service = (UserService)Load("service");
         setTitle(projectName);
         setDescription(projectDescription);
         setOpened(true);
         addLoginListener(e -> {
-            Result res = service.login(e.getUsername(), e.getPassword());
-                if (res.isOk()) {
-                    notifySuccess("Login Succeeded!");
-                    save("user-name", e.getUsername());
-                    UI.getCurrent().navigate(ProductView.class);
-                }
-                else {
-                    notifyError(res.getMsg());
-                }
+            subscribedUserService = new SubscribedUserServiceImp(null);
+            Result res = subscribedUserService.login(e.getUsername(), e.getPassword());
+            if (res.isOk()) {
+                save("user-name", e.getUsername());
+                save("subscribed-user-service", subscribedUserService);
+                notifySuccess("Login Succeeded!");
+                UI.getCurrent().navigate(SubscribedUserView.class);
+            }
+            else {
+                notifyError(res.getMsg());
+                e.getSource().setEnabled(true);
+            }
         });
         addForgotPasswordListener(e -> {
             Dialog dialog = new Dialog();

@@ -2,6 +2,7 @@ package com.example.application.views.main;
 
 import ServiceLayer.Objects.User;
 import ServiceLayer.UserServiceImp;
+import ServiceLayer.interfaces.UserService;
 import com.helger.commons.annotation.Nonempty;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.UI;
@@ -17,8 +18,10 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.stream.IntStream;
 
+import static com.example.application.Header.SessionData.Load;
+
 public class PaymentForm extends FormLayout {
-    UserServiceImp user;
+    UserService service;
     @NotNull
     @Nonempty
     @NotBlank
@@ -31,8 +34,8 @@ public class PaymentForm extends FormLayout {
 
     Binder<PaymentMethod> binder = new BeanValidationBinder<>(PaymentMethod.class);
 
-    public PaymentForm(UserServiceImp user){
-        this.user = user;
+    public PaymentForm(){
+        this.service = (UserService)Load("service");
         payButton.setEnabled(false);
         binder.forField(creditCardNumber).withValidator(cardNum -> cardNum.length() == 16 &&
                 cardNum.chars().allMatch(Character::isDigit), "Credit Card must be a 16 digit number")
@@ -53,7 +56,7 @@ public class PaymentForm extends FormLayout {
 
     private void validateAndPay() {
         if(binder.isValid()) {
-            fireEvent(new PayEvent(this, binder.getBean(), user));
+            fireEvent(new PayEvent(this, binder.getBean()));
         }
     }
 
@@ -88,18 +91,17 @@ public class PaymentForm extends FormLayout {
 
     public static abstract class PaymentFormEvent extends ComponentEvent<PaymentForm> {
         private PaymentMethod method;
-        private UserServiceImp user;
-        public PaymentFormEvent(PaymentForm source, PaymentMethod method, UserServiceImp user) {
+        public PaymentFormEvent(PaymentForm source, PaymentMethod method) {
             super(source, false);
             this.method = method;
-            this.user = user;
         }
     }
 
     public static class PayEvent extends PaymentFormEvent{
-        public PayEvent(PaymentForm source, PaymentMethod method, UserServiceImp user) {
-            super(source, method, user);
-            user.purchaseCartFromShop(method.getCreditCardNumber(), method.getIntCvv(), method.getMonth(), method.getYear());
+        public PayEvent(PaymentForm source, PaymentMethod method) {
+            super(source, method);
+            UserService service = (UserService)Load("service");
+            service.purchaseCartFromShop(method.getCreditCardNumber(), method.getIntCvv(), method.getMonth(), method.getYear());
         }
     }
 }
