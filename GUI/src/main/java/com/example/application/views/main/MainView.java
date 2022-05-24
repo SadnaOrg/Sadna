@@ -29,7 +29,7 @@ public class MainView extends Header {
     private final Button guestButton = new Button("Continue As Guest", e -> {
         Result res = service.loginSystem();
         if (res.isOk()) {
-            UI.getCurrent().navigate(ProductView.class);
+            UI.getCurrent().navigate(GuestActionView.class);
         }
     });
 

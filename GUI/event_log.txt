@@ -1,4 +1,4 @@
-May 24, 2022 9:46:44 PM ServiceLayer.Log event
+May 24, 2022 9:44:55 PM ServiceLayer.Log event
 INFO: login to system Successes
-May 24, 2022 9:46:44 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
+May 24, 2022 9:44:55 PM ServiceLayer.Log event
+INFO: login to system Successes
