@@ -21,9 +21,9 @@ public class ChangeManagerPermission extends BaseAction {
 
     public synchronized boolean act(SubscribedUser userToAssign, Collection<BaseActionType> types) throws NoPermissionException {
         ShopAdministrator admin = userToAssign.getAdministrator(s.getId());
-        if (!(admin instanceof ShopManager)){
-            throw new IllegalStateException("can only change permissions of a manager");
-        }
+        //if (!(admin instanceof ShopManager)){
+            //throw new IllegalStateException("can only change permissions of a manager");
+        //}
         ShopAdministrator owner= u.getAdministrator(s.getId());
         if (!(owner instanceof ShopOwner))
             throw new IllegalStateException("only owners can change managers permissions!");

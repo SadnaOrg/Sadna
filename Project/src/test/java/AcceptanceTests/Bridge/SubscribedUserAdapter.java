@@ -14,10 +14,10 @@ import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
 
-    public void setUsers(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
-        users = guests;
-        subscribedUsers = subscribed;
+    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
+        super(guests, subscribed);
     }
+
     @Override
     public Guest logout(String userName) {
         if(subscribedUsers.containsKey(userName)){
@@ -87,7 +87,7 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
 
     @Override
     public boolean appointOwner(int shopID, String appointerName, String appointeeName) {
-        if(subscribedUsers.containsKey(appointeeName)){
+        if(subscribedUsers.containsKey(appointerName)){
             SubscribedUserService service = subscribedUsers.get(appointerName);
             Result appointed = service.assignShopOwner(shopID,appointeeName);
             return appointed.isOk();
@@ -116,13 +116,18 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public boolean addManagerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
-        return addAdminPermission(shopID,giverName,receiverName,permission);
-    }
-
-    @Override
-    public boolean addOwnerPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission) {
-        return addAdminPermission(shopID,giverName,receiverName,permission);
+    public boolean changeAdminPermission(int shopID, String giverName, String receiverName, List<SubscribedUser.Permission> permission) {
+        if(subscribedUsers.containsKey(giverName)){
+            SubscribedUserService service = subscribedUsers.get(giverName);
+            List<Integer> types = new LinkedList<>();
+            for (SubscribedUser.Permission p:
+                 permission) {
+                types.add(p.getCode());
+            }
+            Result changed = service.changeManagerPermission(shopID,receiverName,types);
+            return changed.isOk();
+        }
+        return false;
     }
 
     @Override
@@ -179,7 +184,7 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
             String desc = product.desc;
             String name = product.name;
             String manufacturer = product.manufacturer;
-            Result added = service.addProductToShop(shopID,desc,name,manufacturer,productID,quantity,price);
+            Result added = service.addProductToShop(shopID,name,desc,manufacturer,productID,quantity,price);
             return added.isOk();
         }
         return false;
@@ -190,8 +195,10 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         if(subscribedUsers.containsKey(username)){
             SubscribedUserService service = subscribedUsers.get(username);
             Response<ServiceLayer.Objects.Shop> newShop = service.openShop(name,desc);
-            if(newShop.isOk())
-                return new Shop(newShop.getElement());
+            if(newShop.isOk()) {
+               Shop s = new Shop(newShop.getElement());
+               return s;
+            }
         }
         return null;
     }
@@ -207,48 +214,12 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public boolean removePermission(int shopID, String removing, String removeTo, SubscribedUser.Permission permission) {
-        return removeAdminPermission(shopID,removeTo,removeTo,permission);
-    }
-
-    private boolean addAdminPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission){
-        if(subscribedUsers.containsKey(giverName)){
-            SubscribedUserService service = subscribedUsers.get(giverName);
-            Response<Administrator> info = service.getMyInfo(shopID);
-            if(info.isOk()){
-                Collection<ServiceLayer.BaseActionType> permissions = info.getElement().getPermissions();
-                Collection<Integer> actions = new LinkedList<>();
-                for (ServiceLayer.BaseActionType action:
-                        permissions) {
-                    actions.add(action.getCode());
-                }
-                actions.add(permission.getCode());
-                Result added = service.changeManagerPermission(shopID,receiverName, actions);
-                return added.isOk();
-            }
-            return false;
+    public boolean reOpenShop(String username, int shopID){
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Result reopened = service.reopenShop(shopID);
+            return reopened.isOk();
         }
         return false;
     }
-
-    private boolean removeAdminPermission(int shopID, String giverName, String receiverName, SubscribedUser.Permission permission){
-        if(subscribedUsers.containsKey(giverName)){
-            SubscribedUserService service = subscribedUsers.get(giverName);
-            Response<Administrator> info = service.getMyInfo(shopID);
-            if(info.isOk()){
-                Collection<ServiceLayer.BaseActionType> permissions = info.getElement().getPermissions();
-                Collection<Integer> actions = new LinkedList<>();
-                for (ServiceLayer.BaseActionType action:
-                        permissions) {
-                    actions.add(action.getCode());
-                }
-                actions.remove(permission.getCode());
-                Result added = service.changeManagerPermission(shopID,receiverName, actions);
-                return added.isOk();
-            }
-            return false;
-        }
-        return false;
-    }
-
 }

@@ -80,7 +80,7 @@ public class UserControllerTest {
     public void removeproduct() {
         uc.saveProducts(user, s1.getId(), p1.getID(), 100);
         uc.removeproduct(user, s1.getId(), p1.getID());
-        Assert.assertEquals(user.getShoppingCart().get(s1.getId()).getProducts().size(), 0);
+        Assert.assertNull(user.getShoppingCart().get(s1.getId()));
     }
 
     @Test
@@ -160,10 +160,10 @@ public class UserControllerTest {
         Assert.assertTrue(s1.getShopAdministrators().size() > 1);
     }
 
-    @Test
-    public void changeManagerPermission() {
-        //Assert.assertTrue(uc.changeManagerPermission());
-    }
+//    @Test
+//    public void changeManagerPermission() {
+//        //Assert.assertTrue(uc.changeManagerPermission());
+//    }
 
     @Test
     public void getAdministratorInfo() throws NoPermissionException {

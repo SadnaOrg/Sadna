@@ -2,10 +2,7 @@ package ServiceLayer;
 
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.SystemManager;
-import ServiceLayer.Objects.Administrator;
-import ServiceLayer.Objects.AdministratorInfo;
-import ServiceLayer.Objects.PurchaseHistoryInfo;
-import ServiceLayer.Objects.Shop;
+import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
@@ -98,11 +95,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
     @Override
     public Result deleteProductFromShop(int shopID, int productID) {
-        return ifUserNotNullStockManagement(() -> facade.removeProduct(shopID,productID,currUser), "remove product from shop");
+        return ifUserNotNullStockManagement(() -> facade.deleteProductFromShop(currUser.getUserName(), shopID,productID), "remove product from shop");
     }
 
     @Override
-    public Result addProductToShop(int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price){
+    public Result addProductToShop(int shopID, String name,String desc, String manufacturer, int productID, int quantity, double price){
         return ifUserNotNullStockManagement(() -> facade.addProductToShop(currUser.getUserName(), shopID,name,manufacturer,desc,productID,quantity,price),
                 "adding product to shop");
     }
@@ -132,16 +129,16 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     private Result ifUserNotNull(MySupplier<Boolean> s,String eventName, String errMsg){
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,errMsg);
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,errMsg);
     }
 
     private Result ifUserNotNull(MySupplier<Boolean> s,String eventName){
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,"log in to the system first as a subscribed user");
     }
 
     private Result ifUserNotNullStockManagement(MySupplier<Boolean> s,String eventName){
         String msg = "Failed to " + eventName;
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn()&& s.get()) ,eventName,msg);
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn()&& s.get()) ,eventName,msg);
     }
 
     private Result ifUserNull(MySupplier<Boolean> s,String eventName){

@@ -8,6 +8,8 @@ import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -24,6 +26,30 @@ public class ShopController {
             return -1;
         }
         return -1;
+    }
+
+    public void removeBaskets(List<Integer> IDs, String userName) {
+        for (int shopID:
+             IDs) {
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+            s.removeBasket(userName);
+        }
+    }
+
+    public void tryRemove(int shopID,String username,int newQuantity){
+        if(newQuantity != 0)
+            return;
+        if(checkIfUserHasBasket(shopID,username)){
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+
+            Basket b = s.getUsersBaskets().get(username);
+            if(b.getProducts().size() == 0)
+                s.removeBasket(username);
+        }
     }
 
     static private class ShopControllerHolder {
@@ -53,14 +79,17 @@ public class ShopController {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
+                if(checkIfUserHasBasket(shopid,user))
+                    finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
             }
             catch (IllegalStateException e)
             {
                 //TODO: add notification when implemented
-                finalprices.put(shopid,0.0);
+                //finalprices.put(shopid,0.0);
             }
         }
+        if(finalprices.size() == 0)
+            throw new IllegalStateException("can't purchase an empty cart!");
         return finalprices;
     }
 
@@ -91,7 +120,9 @@ public class ShopController {
     }
 
     public boolean checkIfUserHasBasket(int shopid, String user) {
-        return shops.get(shopid).checkIfUserHasBasket(user);
+        if(shops.containsKey(shopid))
+            return shops.get(shopid).checkIfUserHasBasket(user);
+        return false;
     }
 
     public boolean AddBasket(int shopid, String user, Basket basket) {
@@ -123,6 +154,9 @@ public class ShopController {
     }
 
     public Shop openShop(SubscribedUser su, String name, String description) {
+//        List<String> names = shops.values().stream().map(Shop::getName).toList();
+//        if(names.contains(name))
+//            throw new IllegalStateException("there is a shop with that name!!!");
         int shopID = shops.size();
         shops.put(shopID, new Shop(shopID, name, description, su));
         return shops.get(shopID);

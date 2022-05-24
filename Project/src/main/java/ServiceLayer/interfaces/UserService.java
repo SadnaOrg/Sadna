@@ -6,6 +6,8 @@ import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import java.util.function.Predicate;
+
 public interface UserService {
 
     Result loginSystem();
@@ -18,8 +20,6 @@ public interface UserService {
 
     Response<ShopsInfo> receiveInformation();
 
-    Response<ShopsInfo> searchProducts(ShopFilters shopPred, ProductFilters productPred);
-
     Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
 
     Result saveProducts(int shopid, int productid, int quantity);
@@ -29,6 +29,8 @@ public interface UserService {
     Result removeProduct(int shopId, int productId);
 
     Result editProductQuantity(int shopId, int productId, int newQuantity);
+
+    Response<ShopsInfo> searchProducts(Predicate<Shop> shopPred, Predicate<Product> productPred);
 
     Response<User> getUserInfo();
 

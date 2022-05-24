@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public record ShopsInfo(Collection<Shop> shops) {
 
     public ShopsInfo(ConcurrentHashMap<Integer, ShopInfo> shops) {
-        this(shops.values().stream().map(s->new Shop(s)) .collect(Collectors.toList()));
+        this(shops.values().stream().map(Shop::new) .collect(Collectors.toList()));
     }
 
     public ShopsInfo(Map<BusinessLayer.Shops.Shop, Collection<Product>> products) {

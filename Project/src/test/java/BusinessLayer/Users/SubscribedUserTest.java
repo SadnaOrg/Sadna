@@ -10,6 +10,7 @@ import org.mockito.Mock;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 import static org.junit.Assert.*;
@@ -32,6 +33,26 @@ public class SubscribedUserTest {
     @Mock
     Collection<BaseActionType> types;
 
+    @Before
+    public void setUp() {
+        user1pass = "pass12";
+        user1 = new SubscribedUser("user1",user1pass);
+        user2 = new SubscribedUser("user2","pass12");
+        toAssign = new SubscribedUser("toAssign","pass12");
+        founder = new SubscribedUser("Founder Guy","pass12");
+
+        shop1 = mock(Shop.class);// new Shop(1,"shop1", founder);
+        when(shop1.getId()).thenReturn(1);
+        shop2 = mock(Shop.class);// new Shop(2,"shop2", founder);
+        when(shop2.getId()).thenReturn(2);
+
+        sm1 = mock(ShopManager.class);
+        so1 = mock(ShopOwner.class);
+        sa = mock(ShopAdministrator.class);
+
+        //sm1.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER);
+    }
+
     public void testLogin(SubscribedUser u,String pass) {
         assertFalse("logged in with wrong password",u.login(u.getUserName(),pass+"wrong_pass"));
         Assert.assertFalse(u.isLoggedIn());
@@ -53,7 +74,6 @@ public class SubscribedUserTest {
         testLogin(user1,user1pass);
     }
 
-
     @Test
     public void testLogout(){
         if(!user1.isLoggedIn())
@@ -66,29 +86,11 @@ public class SubscribedUserTest {
         }catch (Exception ignored){}
         assertFalse(user1.isLoggedIn());
     }
+
     @Mock
     Collection<AdministratorInfo> a_info;
     private ShopAdministrator sa;
 
-    @Before
-    public void setUp() {
-        user1pass = "pass12";
-        user1 = new SubscribedUser("user1",user1pass);
-        user2 = new SubscribedUser("user2","pass12");
-        toAssign = new SubscribedUser("toAssign","pass12");
-        founder = new SubscribedUser("Founder Guy","pass12");
-
-        shop1 = mock(Shop.class);// new Shop(1,"shop1", founder);
-        when(shop1.getId()).thenReturn(1);
-        shop2 = mock(Shop.class);// new Shop(2,"shop2", founder);
-        when(shop2.getId()).thenReturn(2);
-
-        sm1 = mock(ShopManager.class);
-        so1 = mock(ShopOwner.class);
-        sa = mock(ShopAdministrator.class);
-
-        //sm1.AddAction(BaseActionType.ASSIGN_SHOP_MANAGER);
-    }
 
     @Test
     public void addAdministrator_new_shop() {
@@ -332,5 +334,31 @@ public class SubscribedUserTest {
         catch (IllegalStateException ignored){}
     }
 
+
+    @Test
+    public void removeFromSystem_sucsess() {
+        assertTrue(user2.removeFromSystem());
+        assertTrue(user2.isRemoved());
+    }
+
+    @Test
+    public void removeFromSystem_fail_has_shop_manager() {
+        user1.addAdministrator(shop1.getId(),sm1);
+        assertFalse(user1.removeFromSystem());
+        assertFalse(user1.isRemoved());
+    }
+
+    @Test
+    public void removeFromSystem_fail_has_shop_owner() {
+        user1.addAdministrator(shop1.getId(),so1);
+        assertFalse(user1.removeFromSystem());
+        assertFalse(user1.isRemoved());
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void removeFromSystem_fail_has_all_ready_removed() {
+       try{ assertTrue(user1.removeFromSystem());}catch (Exception e){fail(e.getMessage());}
+        user1.removeFromSystem();
+    }
 
 }

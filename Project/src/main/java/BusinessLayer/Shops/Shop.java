@@ -54,6 +54,14 @@ public class Shop {
         shopAdministrators.remove(userName);
     }
 
+    public void removeBasket(String userName) {
+        Basket b = usersBaskets.getOrDefault(userName,null);
+        if(b == null){
+            throw new IllegalStateException("the user doesn't have a basket!");
+        }
+        usersBaskets.remove(userName);
+    }
+
     public enum State {
         OPEN,
         CLOSED

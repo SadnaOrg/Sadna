@@ -23,10 +23,6 @@ public class Facade{
         return FacadeHolder.facade;
     }
 
-    public boolean removeproduct(User currUser, int shopId, int productId) {
-        return userController.removeproduct(currUser,shopId,productId);
-    }
-
     public ConcurrentHashMap<Integer, ShopInfo> reciveInformation() {
         return userController.reciveInformation();
     }
@@ -102,11 +98,13 @@ public class Facade{
     public boolean editProductQuantity(User currUser, int shopId, int productId, int newQuantity) {
         return  userController.editProductQuantity(currUser,shopId,productId,newQuantity);
     }
-
+// TODO: fix
     public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
         ConcurrentHashMap<Integer, Boolean> paymentSituation = System.getInstance().pay(prices, method);
-        return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);               //todo: make it return payment
+        if(paymentSituation.containsValue(false))
+            return false;
+        return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {
@@ -159,6 +157,12 @@ public class Facade{
 
     public Boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         return userController.removeAdmin(shopID,requesting,toRemove);
+    }
+    public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
+        return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
+    }
+    public Map<UserController.UserState, SubscribedUser> getSubscribedUserInfo(String userName){
+        return userController.getSubscribedUserInfo(userName);
     }
 
     private static class FacadeHolder{
