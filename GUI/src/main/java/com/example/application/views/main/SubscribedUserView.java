@@ -32,10 +32,13 @@ public class SubscribedUserView extends Header {
 
 
     public SubscribedUserView() {
-        subscribedUserService = (SubscribedUserService)Load("subscribed-user-service");
+        subscribedUserService = (SubscribedUserService)Load("service");
         logoutButton = new Button("Logout", e -> {
-            if (subscribedUserService.logoutSystem().isOk()) {
+            var service = subscribedUserService.logout();
+
+            if (service.isOk()) {
                 save("user-name", null);
+                save("service",service.getElement());
                 UI.getCurrent().navigate(MainView.class);
             }
         });
