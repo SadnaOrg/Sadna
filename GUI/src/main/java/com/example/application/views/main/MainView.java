@@ -25,7 +25,7 @@ public class MainView extends Header {
     private final Button loginButton = new Button("Login", e -> UI.getCurrent().navigate(LoginView.class));
     private final Button guestButton = new Button("Continue As Guest", e -> {
         Result res = service.loginSystem();
-        if (res.isOk()) {
+        if (res.isOk() || (service.logoutSystem().isOk()&&service.loginSystem().isOk())) {
             UI.getCurrent().navigate(GuestActionView.class);
         }
     });

@@ -21,8 +21,8 @@ import static com.example.application.Utility.*;
 
 @Route("Register")
 public class RegisterView extends Header {
-
-    private SubscribedUserService subscribedUserService;
+    private UserService service;
+   // private SubscribedUserService subscribedUserService;
     private final H1 registerLabel = new H1("Register");
     private final TextField userName = new TextField("Username: ");
     private final PasswordField password = new PasswordField("Password: ");
@@ -30,9 +30,7 @@ public class RegisterView extends Header {
 
     private final Button registerButton = new Button("Register", e -> {
         if (password.getValue().equals(confirmPassword.getValue())) {
-            SubscribedUser subscribedUser = new SubscribedUser(userName.getValue(), password.getValue());
-            subscribedUserService = new SubscribedUserServiceImp(subscribedUser);
-            Result res = subscribedUserService.registerToSystem(userName.getValue(), password.getValue());
+            var res = service.registerToSystem(userName.getValue(), password.getValue());
             if (res.isOk()) {
                 notifySuccess("Registration Succeeded!");
                 UI.getCurrent().navigate(GuestActionView.class);
@@ -46,6 +44,7 @@ public class RegisterView extends Header {
     private VerticalLayout layout = new VerticalLayout();
 
     public RegisterView() {
+        service = (UserService)Load("service");
         createButtons();
         setLayout();
         layout.setSizeFull();
