@@ -10,9 +10,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 public class Header extends AppLayout {
     protected VerticalLayout content = new VerticalLayout();
 
+    protected Button title;
     public Header() {
         DrawerToggle toggle = new DrawerToggle();
-        Button title = new Button("Superli", e -> UI.getCurrent().navigate(MainView.class));
+        title = new Button("Superli");
         title.getStyle()
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");
