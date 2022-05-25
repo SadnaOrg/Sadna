@@ -1,6 +1,54 @@
-May 22, 2022 11:40:19 PM ServiceLayer.Log event
+May 25, 2022 12:57:27 AM ServiceLayer.Log event
 INFO: login to system Successes
-May 22, 2022 11:43:44 PM ServiceLayer.Log event
+May 25, 2022 12:57:27 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:57:28 AM ServiceLayer.Log event
+INFO: logout from system Successes
+May 25, 2022 12:57:28 AM ServiceLayer.Log event
+INFO: login to system Successes
+May 25, 2022 12:57:28 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:57:32 AM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-May 22, 2022 11:43:49 PM ServiceLayer.Log event
-INFO: login  Successes
+May 25, 2022 12:57:32 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:57:35 AM ServiceLayer.Log event
+INFO: login - user a Successes
+May 25, 2022 12:57:35 AM ServiceLayer.Log event
+INFO: login Successes
+May 25, 2022 12:57:35 AM ServiceLayer.Log event
+INFO: receive information Successes
+May 25, 2022 12:57:42 AM ServiceLayer.Log event
+INFO: open shop succeeded Successes
+May 25, 2022 12:57:42 AM ServiceLayer.Log event
+INFO: receive information Successes
+May 25, 2022 12:57:49 AM ServiceLayer.Log event
+INFO: open shop succeeded Successes
+May 25, 2022 12:57:49 AM ServiceLayer.Log event
+INFO: receive information Successes
+May 25, 2022 12:57:58 AM ServiceLayer.Log event
+INFO: login to system Successes
+May 25, 2022 12:57:58 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:58:00 AM ServiceLayer.Log event
+INFO: logout from system Successes
+May 25, 2022 12:58:00 AM ServiceLayer.Log event
+INFO: login to system Successes
+May 25, 2022 12:58:00 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:58:18 AM ServiceLayer.Log event
+INFO: register to system succeeded Successes
+May 25, 2022 12:58:18 AM ServiceLayer.Log event
+INFO: cart showed Successes
+May 25, 2022 12:58:21 AM ServiceLayer.Log event
+INFO: login - user b Successes
+May 25, 2022 12:58:21 AM ServiceLayer.Log event
+INFO: login Successes
+May 25, 2022 12:58:21 AM ServiceLayer.Log event
+INFO: receive information Successes
+May 25, 2022 12:58:35 AM ServiceLayer.Log event
+INFO: open shop succeeded Successes
+May 25, 2022 12:58:35 AM ServiceLayer.Log event
+INFO: receive information Successes
+May 25, 2022 12:58:38 AM ServiceLayer.Log event
+INFO: receive information Successes

@@ -1,2 +1,14 @@
-May 22, 2022 11:43:27 PM ServiceLayer.Log error
-SEVERE: product save : log in to system first
+May 25, 2022 12:57:27 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+May 25, 2022 12:57:28 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+May 25, 2022 12:57:32 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+May 25, 2022 12:57:58 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+May 25, 2022 12:58:00 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+May 25, 2022 12:58:07 AM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+May 25, 2022 12:58:18 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
