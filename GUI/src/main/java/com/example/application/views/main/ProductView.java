@@ -15,6 +15,7 @@ import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H5;
+import com.vaadin.flow.component.html.Pre;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
@@ -63,8 +64,7 @@ public class ProductView extends Header {
     private void createProductList() {
         Predicate<Shop> shopPredicate = shop -> true;
         Predicate<Product> prodPredicate = product -> true;
-        Collection<Shop> shops = service.searchProducts(shopPredicate, prodPredicate).getElement().shops();
-        Collection<Product> productList = shops.stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
+        Collection<Product> productList = getProducts(service.searchProducts(shopPredicate, prodPredicate).getElement());
         productGrid.setItems(productList);
         if (productList.size() == 0)
             createEmptyProductSectionDialog();
@@ -84,12 +84,26 @@ public class ProductView extends Header {
         filterBy.setItems("Name", "Description");
         filterBy.addValueChangeListener(e -> {
             if (e.getValue().equals("Name"))
-                Notification.show("Name");
+                filterByName(textField.getValue());
             else
-                Notification.show("Description");
+                filterByDescription(textField.getValue());
         });
         layout.add(textField, filterByLabel, filterBy);
         return layout;
+    }
+
+    private void filterByDescription(String desc) {
+        Predicate<Shop> shopPredicate = shop -> shop.shopDescription().contains(desc);
+        Predicate<Product> productPredicate = product -> true;
+        Collection<Product> products = service.searchProducts(shopPredicate, productPredicate).getElement().shops().stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
+        productGrid.setItems(products);
+    }
+
+    private void filterByName(String name) {
+        Predicate<Shop> shopPredicate = shop -> shop.shopName().contains(name);
+        Predicate<Product> productPredicate = product -> true;
+        Collection<Product> products = service.searchProducts(shopPredicate, productPredicate).getElement().shops().stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
+        productGrid.setItems(products);
     }
 
     private void addProductDetails(Product p) {

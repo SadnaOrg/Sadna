@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="Created Vaadin">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="created Open Shop, changed service in classes to use session">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/RegisterView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/error_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/event_log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,19 +49,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
   <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
@@ -142,7 +139,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Vaadin" />
@@ -154,7 +150,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java</url>
-          <line>80</line>
+          <line>142</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
