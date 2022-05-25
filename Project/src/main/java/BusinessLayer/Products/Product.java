@@ -47,6 +47,13 @@ public class Product {
         throw new IllegalStateException("Try to buy out of stock product from the shop");
     }
 
+    public double checkIfCanBuy(int buyQuantity) {
+        if (quantity - buyQuantity >= 0) {
+            return buyQuantity * price;
+        }
+        throw new IllegalStateException("Try to buy out of stock product from the shop");
+    }
+
     public void setPrice(double price) {
         if(price < 0)
             throw new IllegalArgumentException("a product can't have a negative price!");

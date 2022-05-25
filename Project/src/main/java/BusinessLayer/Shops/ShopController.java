@@ -80,7 +80,7 @@ public class ShopController {
         for (int shopid : shops.keySet()) {
             try {
                 if(checkIfUserHasBasket(shopid,user))
-                    finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
+                    finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
             }
             catch (IllegalStateException e)
             {
@@ -112,6 +112,7 @@ public class ShopController {
                     purchaseHistory.makePurchase();
                     shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
+                shops.get(shopid).purchaseBasket(user);
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
             }
