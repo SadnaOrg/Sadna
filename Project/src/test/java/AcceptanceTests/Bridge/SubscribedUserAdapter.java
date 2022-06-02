@@ -8,12 +8,13 @@ import ServiceLayer.Objects.User;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
+import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
 import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
-
+    private Map<String, SystemManagerService> managers;
     public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
         super(guests, subscribed);
     }
@@ -221,5 +222,18 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
             return reopened.isOk();
         }
         return false;
+    }
+
+    SubscribedUser manageSystemAsSystemManager(String username){
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<SystemManagerService> manage = service.manageSystemAsSystemManager();
+            if(manage.isOk()){
+                managers.put(username,manage.getElement());
+                return new SubscribedUser(manage.getElement().getSubscribedUserInfo().getElement());
+            }
+            else return null;
+        }
+        return null;
     }
 }
