@@ -47,6 +47,8 @@ public class SubscribedUserView extends Header {
     private Grid.Column<Product> priceColumn;
     private Grid.Column<Product> closeColumn;
 
+    private int itemsSize;
+
 
     public SubscribedUserView() {
         subscribedUserService = (SubscribedUserService)Load("service");
@@ -124,7 +126,7 @@ public class SubscribedUserView extends Header {
         NumberField quantity = new NumberField("Quantity");
         NumberField price = new NumberField("Price");
         Button add = new Button("Add", e -> {
-            Result res = subscribedUserService.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), shopProducts.getPageSize(), quantity.getValue().intValue(), price.getValue());
+            Result res = subscribedUserService.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
             if (res.isOk()) {
                 updateProductGrid(item.shopId());
                 notifySuccess("Product Successfully Added!");
@@ -174,6 +176,7 @@ public class SubscribedUserView extends Header {
         Predicate<Shop> shopPredicate = shop -> shop.shopId() == shopID;
         Predicate<Product> productPredicate = product -> true;
         Collection<Product> products = getProducts(subscribedUserService.searchProducts(shopPredicate, productPredicate).getElement());
+        itemsSize = products.size();
         shopProducts.setItems(products);
     }
 
