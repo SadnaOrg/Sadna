@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="created Open Shop, changed service in classes to use session">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added add product">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/event_log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +55,10 @@
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
+    "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "1e3042b2e2a5550b412b37edd1c36b34"
   }
 }]]></component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -123,7 +125,16 @@
       <workItem from="1653158641914" duration="2189000" />
       <workItem from="1653414449583" duration="2112000" />
       <workItem from="1653442571804" duration="2598000" />
+      <workItem from="1654174187129" duration="9601000" />
     </task>
+    <task id="LOCAL-00001" summary="added add product">
+      <created>1653502215084</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653502215084</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,15 +154,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Vaadin" />
     <MESSAGE value="added a few features to ProductView, fixed LoginView" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a few features to ProductView, fixed LoginView" />
+    <MESSAGE value="added add product" />
+    <option name="LAST_COMMIT_MESSAGE" value="added add product" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="18" />
+          <line>153</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

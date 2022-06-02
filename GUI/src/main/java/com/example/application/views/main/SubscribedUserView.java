@@ -1,25 +1,25 @@
 package com.example.application.views.main;
 
-import BusinessLayer.Shops.ShopInfo;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
-import ServiceLayer.Objects.ShopsInfo;
 import ServiceLayer.Result;
-import ServiceLayer.SubscribedUserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
-import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.editor.Editor;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 
 import java.util.Collection;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 import static com.example.application.Header.SessionData.Load;
@@ -36,6 +36,16 @@ public class SubscribedUserView extends Header {
     private Grid<Shop> shops;
 
     private Grid<Product> shopProducts;
+    private Editor<Product> editor;
+
+    private Grid.Column<Product> shopIDColumn;
+    private Grid.Column<Product> productIDColumn;
+    private Grid.Column<Product> nameColumn;
+    private Grid.Column<Product> manufacturerColumn;
+    private Grid.Column<Product> descriptionColumn;
+    private Grid.Column<Product> quantityColumn;
+    private Grid.Column<Product> priceColumn;
+    private Grid.Column<Product> closeColumn;
 
 
     public SubscribedUserView() {
@@ -59,6 +69,49 @@ public class SubscribedUserView extends Header {
         createProductGrid();
         shops.addItemClickListener(e -> itemClicked(e.getItem()));
         content.add(openShopLayout, shops);
+    }
+
+    private void setEditorComponent() {
+        AtomicInteger ID = new AtomicInteger();
+        Binder<Product> binder = new Binder<>(Product.class);
+        editor.setBinder(binder);
+        editor.setBuffered(true);
+
+        TextField nameField = new TextField("Name");
+        nameField.setWidthFull();
+        binder.forField(nameField)
+                .bind(Product::name, (product, name) -> {
+                    subscribedUserService.updateProductName(product.shopId(), product.productID(), name);
+                    ID.set(product.shopId());
+                });
+        nameColumn.setEditorComponent(nameField);
+
+        TextField descriptionField = new TextField("Description");
+        descriptionField.setWidthFull();
+        binder.forField(descriptionField)
+                .bind(Product::description, (product, description) -> subscribedUserService.updateProductDescription(product.shopId(), product.productID(), description));
+        descriptionColumn.setEditorComponent(descriptionField);
+
+        NumberField quantityField = new NumberField("Quantity");
+        quantityField.setMin(0);
+        quantityField.setWidthFull();
+        binder.forField(quantityField)
+                .bind((product) -> (double) product.quantity(), (product, quantity) -> subscribedUserService.updateProductQuantity(product.shopId(), product.productID(), quantity.intValue()));
+        quantityColumn.setEditorComponent(quantityField);
+
+        NumberField priceField = new NumberField("Price");
+        priceField.setMin(0);
+        priceField.setWidthFull();
+        binder.forField(priceField)
+                .bind(Product::price, (product, price) -> subscribedUserService.updateProductPrice(product.shopId(), product.productID(), price));
+        priceColumn.setEditorComponent(priceField);
+
+        Button saveButton = new Button(VaadinIcon.CHECK.create(), e -> {
+            editor.save();
+            updateProductGrid(ID.get());
+        });
+        HorizontalLayout actions = new HorizontalLayout(saveButton);
+        closeColumn.setEditorComponent(actions);
     }
 
     private void itemClicked(Shop item) {
@@ -89,22 +142,32 @@ public class SubscribedUserView extends Header {
 
     private void createProductGrid() {
         shopProducts = new Grid<>();
-        shopProducts.addColumn(Product::shopId).setHeader("Shop ID").setSortable(true);
-        shopProducts.addColumn(Product::productID).setHeader("Product ID").setSortable(true);
-        shopProducts.addColumn(Product::name).setHeader("Name").setSortable(true);
-        shopProducts.addColumn(Product::manufacturer).setHeader("Manufacturer").setSortable(true);
-        shopProducts.addColumn(Product::description).setHeader("Description").setSortable(true);
-        shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
-        shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
-        shopProducts.addColumn(item -> new Button("Delete", e -> {
-            Result res = subscribedUserService.removeProduct(item.shopId(), item.productID());
-            if (res.isOk()) {
-                updateProductGrid(item.shopId());
-                notifySuccess("Product Removed Successfully!");
-            }
-            else
-                notifyError(res.getMsg());
-        }));
+        shopIDColumn = shopProducts.addColumn(Product::shopId).setHeader("Shop ID").setSortable(true);
+        productIDColumn = shopProducts.addColumn(Product::productID).setHeader("Product ID").setSortable(true);
+        nameColumn = shopProducts.addColumn(Product::name).setHeader("Name").setSortable(true);
+        manufacturerColumn = shopProducts.addColumn(Product::manufacturer).setHeader("Manufacturer").setSortable(true);
+        descriptionColumn = shopProducts.addColumn(Product::description).setHeader("Description").setSortable(true);
+        quantityColumn = shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
+        priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
+        closeColumn = shopProducts.addComponentColumn(item -> {
+            Button delete = new Button(VaadinIcon.CLOSE.create(), e -> {
+                Result res = subscribedUserService.deleteProductFromShop(item.shopId(), item.productID());
+                if (res.isOk()) {
+                    updateProductGrid(item.shopId());
+                    notifySuccess("Product Removed Successfully!");
+                }
+                else
+                    notifyError(res.getMsg());
+                });
+            return delete;
+        });
+        editor = shopProducts.getEditor();
+        setEditorComponent();
+        shopProducts.addItemClickListener(item -> {
+            if (editor.isOpen())
+                editor.cancel();
+            shopProducts.getEditor().editItem(item.getItem());
+        });
     }
 
     private void updateProductGrid(int shopID) {

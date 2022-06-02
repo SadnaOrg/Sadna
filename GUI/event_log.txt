@@ -1,28 +1,54 @@
-May 25, 2022 9:07:19 PM ServiceLayer.Log event
+Jun 02, 2022 6:45:52 PM ServiceLayer.Log event
 INFO: login to system Successes
-May 25, 2022 9:07:19 PM ServiceLayer.Log event
+Jun 02, 2022 6:45:52 PM ServiceLayer.Log event
 INFO: cart showed Successes
-May 25, 2022 9:07:21 PM ServiceLayer.Log event
+Jun 02, 2022 6:45:56 PM ServiceLayer.Log event
 INFO: logout from system Successes
-May 25, 2022 9:07:22 PM ServiceLayer.Log event
+Jun 02, 2022 6:45:57 PM ServiceLayer.Log event
 INFO: login to system Successes
-May 25, 2022 9:07:22 PM ServiceLayer.Log event
+Jun 02, 2022 6:45:57 PM ServiceLayer.Log event
 INFO: cart showed Successes
-May 25, 2022 9:07:25 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:02 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-May 25, 2022 9:07:25 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:02 PM ServiceLayer.Log event
 INFO: cart showed Successes
-May 25, 2022 9:07:28 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:05 PM ServiceLayer.Log event
 INFO: login  Successes
-May 25, 2022 9:07:28 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:05 PM ServiceLayer.Log event
 INFO: receive information Successes
-May 25, 2022 9:07:32 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:16 PM ServiceLayer.Log event
 INFO: open shop succeeded Successes
-May 25, 2022 9:07:32 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:16 PM ServiceLayer.Log event
 INFO: receive information Successes
-May 25, 2022 9:07:34 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:36 PM ServiceLayer.Log event
 INFO: search products succeeded Successes
-May 25, 2022 9:07:44 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:48 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-May 25, 2022 9:07:44 PM ServiceLayer.Log event
+Jun 02, 2022 6:46:48 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:47:35 PM ServiceLayer.Log event
+INFO: remove product from shop Successes
+Jun 02, 2022 6:47:35 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:47:39 PM ServiceLayer.Log event
+INFO: adding product to shop Successes
+Jun 02, 2022 6:47:39 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:48:16 PM ServiceLayer.Log event
+INFO: update product name Successes
+Jun 02, 2022 6:48:16 PM ServiceLayer.Log event
+INFO: update product description Successes
+Jun 02, 2022 6:48:16 PM ServiceLayer.Log event
+INFO: update product quantity Successes
+Jun 02, 2022 6:48:16 PM ServiceLayer.Log event
+INFO: update product price Successes
+Jun 02, 2022 6:48:16 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:48:40 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:49:00 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 02, 2022 6:49:02 PM ServiceLayer.Log event
+INFO: remove product from shop Successes
+Jun 02, 2022 6:49:02 PM ServiceLayer.Log event
 INFO: search products succeeded Successes
