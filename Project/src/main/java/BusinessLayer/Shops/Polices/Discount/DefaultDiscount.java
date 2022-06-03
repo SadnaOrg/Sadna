@@ -13,7 +13,19 @@ public class DefaultDiscount implements DiscountPolicyInterface{
         return 0;
     }
 
+    @Override
     public DiscountPolicyInterface getDiscountPolicy() {
         return this;
     }
+    @Override
+    public DiscountPolicyInterface removeDiscountById(int id)
+    {
+        return this;
+    }
+    @Override
+    public boolean removeDiscountByIdReq(int id)
+    {
+        return false;
+    }
+
 }

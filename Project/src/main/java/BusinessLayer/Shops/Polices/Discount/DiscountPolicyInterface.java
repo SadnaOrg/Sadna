@@ -7,5 +7,7 @@ public interface DiscountPolicyInterface {
     double calculateDiscount(Basket basket);
     int getDiscountId();
     DiscountPolicyInterface getDiscountPolicy();
+    boolean removeDiscountByIdReq(int id);
+    DiscountPolicyInterface removeDiscountById(int id);
 
 }
