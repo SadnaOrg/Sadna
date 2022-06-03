@@ -17,5 +17,6 @@ public class SubscribedUser {
             orphanRemoval = true
     )
     private PaymentMethod paymentMethod;
-    private List<ShopAdministrator> administratorMap;
+    @OneToMany(mappedBy = "user")
+    private List<ShopAdministrator> administrators;
 }

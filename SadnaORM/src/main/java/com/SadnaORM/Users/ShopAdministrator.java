@@ -6,8 +6,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@MappedSuperclass
+@Entity
 @IdClass(ShopAdministrator.ShopAdministratorPK.class)
+@Table(name = "Admins")
 public abstract class ShopAdministrator {
     @ElementCollection
     @CollectionTable(
@@ -17,13 +18,14 @@ public abstract class ShopAdministrator {
     private List<Action> action;
     @Id
     @ManyToOne
-    @JoinColumn(name = "id")
     private Shop shop;
     @Id
     @ManyToOne
-    @JoinColumn(name = "username")
     private SubscribedUser user;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "appointer")
     private List<ShopAdministrator> appoints;
+    @ManyToOne
+    @JoinColumn(name = "username")
     private String appointer;
 
     public class ShopAdministratorPK implements Serializable {
