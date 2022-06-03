@@ -1,6 +1,7 @@
 package com.SadnaORM.Users;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "SubscribedUser")
@@ -16,5 +17,5 @@ public class SubscribedUser {
             orphanRemoval = true
     )
     private PaymentMethod paymentMethod;
-    // private Map<Integer,ShopAdministrator> administratorMap;
+    private List<ShopAdministrator> administratorMap;
 }

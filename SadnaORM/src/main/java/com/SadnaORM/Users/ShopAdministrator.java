@@ -1,16 +1,35 @@
 package com.SadnaORM.Users;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.MappedSuperclass;
+import com.SadnaORM.Shops.Shop;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @MappedSuperclass
+@IdClass(ShopAdministrator.ShopAdministratorPK.class)
 public abstract class ShopAdministrator {
-    // private Map<BaseActionType,BaseAction> action;
-    // private Shop shop;
-    // private SubscribedUser user;
+    @ElementCollection
+    @CollectionTable(
+            name = "Administrator Permissions",
+            joinColumns = @JoinColumn(name = "username")
+    )
+    private List<Action> action;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Shop shop;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "username")
+    private SubscribedUser user;
     private List<ShopAdministrator> appoints;
     private String appointer;
-    @EmbeddedId
-    private ShopAdministratorPK shopAdministratorPK;
+
+    public class ShopAdministratorPK implements Serializable {
+        private Shop shop;
+        private SubscribedUser user;
+
+    }
 }
+
