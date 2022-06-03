@@ -9,5 +9,5 @@ public interface DiscountPolicyInterface {
     DiscountPolicyInterface getDiscountPolicy();
     boolean removeDiscountByIdReq(int id);
     DiscountPolicyInterface removeDiscountById(int id);
-
+    DiscountPolicyInterface getDiscountById(int id);
 }

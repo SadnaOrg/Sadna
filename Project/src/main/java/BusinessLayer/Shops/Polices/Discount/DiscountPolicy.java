@@ -25,6 +25,19 @@ public abstract class DiscountPolicy implements DiscountPolicyInterface{
         return discountPolicy;
     }
 
+    public DiscountPolicyInterface getDiscountById(int id)
+    {
+        if(this.discountId==id)
+        {
+            return this.getDiscountPolicy();
+        }
+        else
+        {
+            return this.discountPolicy.getDiscountById(id);
+        }
+    }
+
+
     /***
      *
      * @param id of the removed discount

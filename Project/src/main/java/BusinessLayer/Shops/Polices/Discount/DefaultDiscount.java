@@ -27,5 +27,6 @@ public class DefaultDiscount implements DiscountPolicyInterface{
     {
         return false;
     }
-
+    @Override
+    public DiscountPolicyInterface getDiscountById(int id){ return this; }
 }
