@@ -31,14 +31,12 @@ public abstract class ShopAdministrator implements Serializable{
             @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
     })
     private List<ShopAdministrator> appoints;
-    // private String appointer;
 
     public ShopAdministrator(List<Action> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
         this.action = action;
         this.user = user;
         this.shop = shop;
         this.appoints = appoints;
-        // this.appointer = appointer;
     }
 
     public ShopAdministrator(){
