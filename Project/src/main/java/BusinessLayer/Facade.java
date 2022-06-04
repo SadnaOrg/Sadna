@@ -9,6 +9,7 @@ import BusinessLayer.System.System;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -162,7 +163,7 @@ public class Facade{
     public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
         return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
     }
-    public Map<UserController.UserState, SubscribedUser> getSubscribedUserInfo(String userName){
+    public Map<UserController.UserState, List<SubscribedUser>> getSubscribedUserInfo(String userName){
         return userController.getSubscribedUserInfo(userName);
     }
 
