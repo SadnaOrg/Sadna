@@ -12,10 +12,10 @@ import java.util.List;
 public abstract class ShopAdministrator implements Serializable{
     @ElementCollection
     @CollectionTable(
-            name = "Administrator Permissions",
+            name = "AdministratorPermissions",
             joinColumns = {
-                    @JoinColumn(name="a", referencedColumnName="user_username"),
-                    @JoinColumn(name="b", referencedColumnName="shop_id")
+                    @JoinColumn(name="ADMIN_NAME", referencedColumnName="user_username"),
+                    @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
             }
     )
     private List<Action> action;
