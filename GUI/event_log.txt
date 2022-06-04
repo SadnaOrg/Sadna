@@ -1,54 +1,12 @@
-Jun 04, 2022 11:18:25 PM ServiceLayer.Log event
+מאי 23, 2022 4:27:55 אחה״צ ServiceLayer.Log event
 INFO: login to system Successes
-Jun 04, 2022 11:18:25 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 04, 2022 11:18:32 PM ServiceLayer.Log event
+מאי 23, 2022 4:27:58 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+מאי 23, 2022 4:33:09 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 23, 2022 4:33:17 אחה״צ ServiceLayer.Log event
 INFO: login  Successes
-Jun 04, 2022 11:18:32 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 04, 2022 11:18:32 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 04, 2022 11:18:33 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:36 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:38 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:40 PM ServiceLayer.Log event
-INFO: removed buyer from system Successes
-Jun 04, 2022 11:18:40 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:40 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:41 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:44 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:46 PM ServiceLayer.Log event
-INFO: get shops and users info succeeded Successes
-Jun 04, 2022 11:18:46 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 04, 2022 11:18:56 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:18:57 PM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 04, 2022 11:18:57 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 04, 2022 11:18:57 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 04, 2022 11:19:06 PM ServiceLayer.Log event
-INFO: open shop succeeded Successes
-Jun 04, 2022 11:19:06 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 04, 2022 11:19:10 PM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 04, 2022 11:19:10 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 04, 2022 11:19:12 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:19:12 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:19:30 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
-Jun 04, 2022 11:19:32 PM ServiceLayer.Log event
-INFO: get subscribed user info Successes
+מאי 23, 2022 4:34:34 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+מאי 23, 2022 4:34:55 אחה״צ ServiceLayer.Log event
+INFO: login  Successes

@@ -1,2 +1,6 @@
-Jun 04, 2022 11:18:25 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
+מאי 23, 2022 4:33:47 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+מאי 23, 2022 4:34:15 אחה״צ ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+מאי 23, 2022 4:35:28 אחה״צ ServiceLayer.Log error
+SEVERE: product save : log in to system first
