@@ -1,4 +1,2 @@
-Jun 02, 2022 7:06:38 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 02, 2022 7:06:50 PM ServiceLayer.Log error
+Jun 04, 2022 11:18:25 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

@@ -1,9 +1,12 @@
 package com.example.application.views.main;
 
+import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Result;
 import ServiceLayer.SubscribedUserServiceImp;
+import ServiceLayer.SystemManagerServiceImp;
 import ServiceLayer.UserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
+import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.UI;
@@ -26,6 +29,10 @@ public class MainView extends Header {
         if (res.isOk() || (service.logoutSystem().isOk()&&service.loginSystem().isOk())) {
             UI.getCurrent().navigate(GuestActionView.class);
         }
+    });
+
+    private final Button systemManagerButton = new Button("Continue as System Manager", e-> {
+        SystemManagerService service = new SystemManagerServiceImp(new SystemManager("admin", "admin"));
     });
 
     public MainView() {

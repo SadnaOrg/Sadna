@@ -13,6 +13,8 @@ import com.vaadin.flow.component.grid.editor.Editor;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
@@ -47,30 +49,50 @@ public class SubscribedUserView extends Header {
     private Grid.Column<Product> priceColumn;
     private Grid.Column<Product> closeColumn;
 
-    private int itemsSize;
+    private int itemsSize = 0;
 
 
     public SubscribedUserView() {
-        subscribedUserService = (SubscribedUserService)Load("service");
+        subscribedUserService = (SubscribedUserService)Load("subscribed-user-service");
         logoutButton = new Button("Logout", e -> {
             var service = subscribedUserService.logout();
 
             if (service.isOk()) {
                 save("user-name", null);
-                save("service",service.getElement());
+                save("subscribed-user-service",service.getElement());
                 UI.getCurrent().navigate(MainView.class);
             }
         });
         logoutButton.getStyle().set("margin-left", "auto");
         addToNavbar(logoutButton);
+        createTabs();
         createDialogLayout();
-        Button openShopMenu = new Button("Open Shop", e -> dialog.open());
-        openShopMenu.setWidthFull();
-        openShopLayout.add(openShopMenu);
+        createOpenShopButton();
         createShopGrid();
         createProductGrid();
         shops.addItemClickListener(e -> itemClicked(e.getItem()));
         content.add(openShopLayout, shops);
+    }
+
+    private void createTabs() {
+        tabs = new Tabs();
+        var res = subscribedUserService.manageSystemAsSystemManager();
+        if(res.isOk()) {
+            addTabWithClickEvent("System Manager Menu", e -> {
+                save("user-name", subscribedUserService.getUserInfo().getElement().username);
+                save("subscribed-user-service", subscribedUserService);
+                UI.getCurrent().navigate(SystemManagerView.class);
+            });
+        }
+        tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
+        tabs.setOrientation(Tabs.Orientation.VERTICAL);
+        addToDrawer(tabs);
+    }
+
+    private void createOpenShopButton() {
+        Button openShopMenu = new Button("Open Shop", e -> dialog.open());
+        openShopMenu.setWidthFull();
+        openShopLayout.add(openShopMenu);
     }
 
     private void setEditorComponent() {
@@ -127,6 +149,7 @@ public class SubscribedUserView extends Header {
         NumberField price = new NumberField("Price");
         Button add = new Button("Add", e -> {
             Result res = subscribedUserService.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
+            itemsSize += 1;
             if (res.isOk()) {
                 updateProductGrid(item.shopId());
                 notifySuccess("Product Successfully Added!");
@@ -176,7 +199,6 @@ public class SubscribedUserView extends Header {
         Predicate<Shop> shopPredicate = shop -> shop.shopId() == shopID;
         Predicate<Product> productPredicate = product -> true;
         Collection<Product> products = getProducts(subscribedUserService.searchProducts(shopPredicate, productPredicate).getElement());
-        itemsSize = products.size();
         shopProducts.setItems(products);
     }
 

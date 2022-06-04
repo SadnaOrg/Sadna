@@ -4,6 +4,7 @@ import BusinessLayer.Users.SubscribedUser;
 import ServiceLayer.Result;
 import ServiceLayer.SubscribedUserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
+import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -30,12 +31,21 @@ public class LoginView extends LoginOverlay {
         addLoginListener(e -> {
             var res = service.login(e.getUsername(), e.getPassword());
             if (res.isOk()) {
-                subscribedUserService = res.getElement();
-                save("service",subscribedUserService);
-                save("user-name", e.getUsername());
-                save("subscribed-user-service", subscribedUserService);
                 notifySuccess("Login Succeeded!");
-                UI.getCurrent().navigate(SubscribedUserView.class);
+                subscribedUserService = res.getElement();
+                var resManager = subscribedUserService.manageSystemAsSystemManager();
+                if(resManager.isOk()){
+                    SystemManagerService managerService = resManager.getElement();
+                    save("system-manager-service", managerService);
+                    save("user-name", e.getUsername());
+                    save("subscribed-user-service",subscribedUserService);
+                    UI.getCurrent().navigate(SystemManagerView.class);
+                }
+                else {
+                    save("user-name", e.getUsername());
+                    save("subscribed-user-service", subscribedUserService);
+                    UI.getCurrent().navigate(SubscribedUserView.class);
+                }
             }
             else {
                 notifyError(res.getMsg());
