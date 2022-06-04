@@ -6,7 +6,6 @@ import com.SadnaORM.Users.SubscribedUser;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
 @Table(name = "shop")

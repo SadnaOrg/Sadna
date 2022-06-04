@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="Made hashmap threadsafe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Product.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Purchase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Shop.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/Basket.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/User.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
