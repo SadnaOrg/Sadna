@@ -1,5 +1,7 @@
 package com.SadnaORM.Users;
 
+import com.SadnaORM.Shops.Shop;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.List;
@@ -11,7 +13,7 @@ public class ShopManager extends ShopAdministrator{
         super();
     }
 
-    public ShopManager(List<Action> action, SubscribedUser user, List<ShopAdministrator> appoints, String appointer) {
-        super(action, user, appoints, appointer);
+    public ShopManager(List<Action> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints) {
+        super(action, user, shop, appoints);
     }
 }

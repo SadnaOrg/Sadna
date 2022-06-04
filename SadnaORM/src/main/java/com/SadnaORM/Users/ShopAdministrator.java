@@ -1,5 +1,7 @@
 package com.SadnaORM.Users;
 
+import com.SadnaORM.Shops.Shop;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -11,24 +13,32 @@ public abstract class ShopAdministrator implements Serializable{
     @ElementCollection
     @CollectionTable(
             name = "Administrator Permissions",
-            joinColumns = @JoinColumn(name = "username")
+            joinColumns = {
+                    @JoinColumn(name="a", referencedColumnName="user_username"),
+                    @JoinColumn(name="b", referencedColumnName="shop_id")
+            }
     )
     private List<Action> action;
-//    @Id
-//    @ManyToOne
-//    private Shop shop;
+    @Id
+    @ManyToOne
+    private Shop shop;
     @Id
     @ManyToOne
     private SubscribedUser user;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumns({
+            @JoinColumn(name="MyAppointer", referencedColumnName="user_username"),
+            @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
+    })
     private List<ShopAdministrator> appoints;
-    private String appointer;
+    // private String appointer;
 
-    public ShopAdministrator(List<Action> action, SubscribedUser user, List<ShopAdministrator> appoints, String appointer) {
+    public ShopAdministrator(List<Action> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
         this.action = action;
         this.user = user;
+        this.shop = shop;
         this.appoints = appoints;
-        this.appointer = appointer;
+        // this.appointer = appointer;
     }
 
     public ShopAdministrator(){
@@ -36,11 +46,12 @@ public abstract class ShopAdministrator implements Serializable{
     }
 
     public class ShopAdministratorPK implements Serializable {
-        // private Shop shop;
+        private Shop shop;
         private SubscribedUser user;
 
-        public ShopAdministratorPK(SubscribedUser user) {
+        public ShopAdministratorPK(SubscribedUser user, Shop shop) {
             this.user = user;
+            this.shop = shop;
         }
 
         public ShopAdministratorPK(){
