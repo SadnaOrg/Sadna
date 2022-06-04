@@ -14,7 +14,6 @@ public class Basket {
     @ManyToOne
     @JoinColumn(name = "shopID")
     private Shop shop;
-
     @Id
     private int id;
 
@@ -27,6 +26,7 @@ public class Basket {
             }
     )
     private Collection<ProductInBasket> products;
+
 
     public class BasketPKID implements Serializable {
         private Shop shop;

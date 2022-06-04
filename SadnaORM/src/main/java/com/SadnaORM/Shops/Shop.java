@@ -1,9 +1,11 @@
 package com.SadnaORM.Shops;
 
 import com.SadnaORM.Users.Basket;
+import com.SadnaORM.Users.SubscribedUser;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
@@ -19,11 +21,20 @@ public class Shop {
     private State state = State.OPEN;
 
     @OneToMany(
-            mappedBy = "shop",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private Collection<Product> products;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "userBaskets",
+            joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")},
+            inverseJoinColumns = {
+            @JoinColumn(name = "basketShopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "basketID", referencedColumnName = "id")
+    })
+    @MapKeyJoinColumn(name = "username")
+    private Map<SubscribedUser, Basket> usersBaskets;
 
     public Shop(int id, String name, String description) {
         this.id = id;
