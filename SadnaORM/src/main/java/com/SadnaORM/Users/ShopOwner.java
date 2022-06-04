@@ -6,4 +6,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ShopOwner")
 public class ShopOwner extends ShopAdministrator{
+    boolean isFounder;
 }
