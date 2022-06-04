@@ -1,12 +1,10 @@
 package com.SadnaORM.Users;
 
-import com.SadnaORM.Shops.Product;
 import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
 @Table(name = "basket")
@@ -18,19 +16,20 @@ public class Basket {
     private Shop shop;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "userID")
-    private User user;
+    private int id;
 
-    @Id
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "productID")
-    private Product product;
-    private int quantity;
+    @ElementCollection
+    @CollectionTable(
+            name = "ProductsInBaskets",
+            joinColumns = {
+                    @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "username", referencedColumnName = "id")
+            }
+    )
+    private Collection<ProductInBasket> products;
 
     public class BasketPKID implements Serializable {
         private Shop shop;
-        private User user;
-        private Product product;
+        private int id;
     }
 }

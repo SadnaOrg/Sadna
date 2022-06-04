@@ -4,6 +4,7 @@ import com.SadnaORM.Users.Basket;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
 @Table(name = "shop")
@@ -23,13 +24,6 @@ public class Shop {
             orphanRemoval = true
     )
     private Collection<Product> products;
-
-    @OneToMany(
-            mappedBy = "shop",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private Collection<Basket> baskets;
 
     public Shop(int id, String name, String description) {
         this.id = id;
