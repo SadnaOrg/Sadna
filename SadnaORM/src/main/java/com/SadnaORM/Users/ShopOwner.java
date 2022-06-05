@@ -1,11 +1,12 @@
 package com.SadnaORM.Users;
 
 import com.SadnaORM.Shops.Shop;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "ShopOwner")
 public class ShopOwner extends ShopAdministrator{

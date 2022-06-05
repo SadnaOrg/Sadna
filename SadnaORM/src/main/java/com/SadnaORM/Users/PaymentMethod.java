@@ -1,7 +1,9 @@
 package com.SadnaORM.Users;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+@Data
 @Entity
 @Table(name = "PaymentMethod")
 public class PaymentMethod {

@@ -1,11 +1,13 @@
 package com.SadnaORM.Users;
 
 import com.SadnaORM.Shops.Shop;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+@Data
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @IdClass(ShopAdministrator.ShopAdministratorPK.class)
