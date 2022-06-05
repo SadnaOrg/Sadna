@@ -1,7 +1,6 @@
 package com.SadnaORM.Shops;
 
 import com.SadnaORM.Users.SubscribedUser;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;

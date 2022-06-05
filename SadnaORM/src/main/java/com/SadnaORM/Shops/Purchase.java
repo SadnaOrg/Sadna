@@ -17,7 +17,7 @@ public class Purchase {
             orphanRemoval = true
     )
     private Collection<ProductInfo> productInfos;
-    private Date dateOfPurchase;
+    private String dateOfPurchase;
     @ManyToOne
     @JoinColumn(name = "shopID")
     private Shop shop;

@@ -1,12 +1,10 @@
 package com.SadnaORM.Users;
 
 import com.SadnaORM.Shops.Shop;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-@Data
 @Entity
 @Table(name = "basket")
 @IdClass(Basket.BasketPKID.class)
