@@ -3,6 +3,8 @@ package com.SadnaORM.Users;
 import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,9 +15,9 @@ public class SubscribedUser extends User{
     protected String password;
     protected boolean is_login;
     protected boolean isNotRemoved;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     protected List<ShopAdministrator> administrators;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "userBaskets",
             joinColumns = @JoinColumn(name = "username"),
             inverseJoinColumns = {
@@ -31,6 +33,8 @@ public class SubscribedUser extends User{
         this.password = password;
         this.is_login = is_login;
         this.isNotRemoved = isNotRemoved;
+        this.administrators = new LinkedList<>();
+        this.userBaskets = new HashMap<>();
     }
 
     public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
@@ -39,6 +43,16 @@ public class SubscribedUser extends User{
         this.is_login = is_login;
         this.isNotRemoved = isNotRemoved;
         this.administrators = administrators;
+        this.userBaskets = new HashMap<>();
+    }
+
+    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators, Map<Shop, Basket> userBaskets) {
+        super(username, paymentMethod);
+        this.password = password;
+        this.is_login = is_login;
+        this.isNotRemoved = isNotRemoved;
+        this.administrators = administrators;
+        this.userBaskets = userBaskets;
     }
 
     public SubscribedUser(){
@@ -63,5 +77,9 @@ public class SubscribedUser extends User{
 
     public Map<Shop, Basket> getUserBaskets() {
         return userBaskets;
+    }
+
+    public void addAdministrator(ShopAdministrator administrator) {
+        administrators.add(administrator);
     }
 }

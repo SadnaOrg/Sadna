@@ -11,7 +11,7 @@ import java.util.List;
 public class ShopOwner extends ShopAdministrator{
     boolean isFounder;
 
-    public ShopOwner(List<Action> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints, boolean isFounder) {
+    public ShopOwner(List<BaseActionType> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints, boolean isFounder) {
         super(action, user, shop, appoints);
         this.isFounder = isFounder;
     }

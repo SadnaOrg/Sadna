@@ -18,7 +18,7 @@ public abstract class ShopAdministrator implements Serializable{
                     @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
             }
     )
-    private List<Action> action;
+    private List<BaseActionType> action;
     @Id
     @ManyToOne
     private Shop shop;
@@ -32,7 +32,7 @@ public abstract class ShopAdministrator implements Serializable{
     })
     private List<ShopAdministrator> appoints;
 
-    public ShopAdministrator(List<Action> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
+    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
         this.action = action;
         this.user = user;
         this.shop = shop;
@@ -43,7 +43,39 @@ public abstract class ShopAdministrator implements Serializable{
 
     }
 
-    public class ShopAdministratorPK implements Serializable {
+    public List<BaseActionType> getAction() {
+        return action;
+    }
+
+    public void setAction(List<BaseActionType> action) {
+        this.action = action;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public SubscribedUser getUser() {
+        return user;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
+    }
+
+    public List<ShopAdministrator> getAppoints() {
+        return appoints;
+    }
+
+    public void setAppoints(List<ShopAdministrator> appoints) {
+        this.appoints = appoints;
+    }
+
+    public static class ShopAdministratorPK implements Serializable {
         private Shop shop;
         private SubscribedUser user;
 
@@ -54,6 +86,26 @@ public abstract class ShopAdministrator implements Serializable{
 
         public ShopAdministratorPK(){
 
+        }
+    }
+
+    public enum BaseActionType {
+        STOCK_MANAGEMENT(1),
+        SET_PURCHASE_POLICY(2),
+        ASSIGN_SHOP_OWNER(4),
+        ASSIGN_SHOP_MANAGER(6),
+        CHANGE_MANAGER_PERMISSION(7),
+        CLOSE_SHOP(9),
+        REOPEN_SHOP(10),
+        ROLE_INFO(11),
+        HISTORY_INFO(13),
+        REMOVE_ADMIN(5),
+        ;
+
+        private final int code;
+
+        BaseActionType(int i) {
+            this.code = i;
         }
     }
 }
