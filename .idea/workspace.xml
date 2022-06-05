@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="Made hashmap threadsafe">
+      <change afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/ShopsRepositories/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/Guest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/SystemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SadnaORM/src/test/java/com/SadnaORM/SadnaORM/UserTests/SubscribedUserTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Purchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Shops/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/ShopOwnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/ShopOwnerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/SubscribedUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/SubscribedUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/PaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/SubscribedUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
