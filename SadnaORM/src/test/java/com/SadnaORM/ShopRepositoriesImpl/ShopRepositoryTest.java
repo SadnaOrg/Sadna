@@ -77,7 +77,10 @@ public class ShopRepositoryTest {
         Map<SubscribedUser, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
         for (int i = 0; i < 3; i++) {
             SubscribedUser user = createRandomUser();
-            List<ShopAdministrator> administrators = List.of(new ShopAdministrator[]{createRandomShopManager(s1), createRandomShopOwner(s1), createRandomShopManager(s1)});
+            List<ShopAdministrator> administrators = new ArrayList<>();
+            administrators.add(createRandomShopManager(s1));
+            administrators.add(createRandomShopOwner(s1));
+            administrators.add(createRandomShopManager(s1));
             ShopAdministrator shopAdministrator = new ShopManager(new ArrayList<>(), user, s1, administrators);
             shopAdministrators.put(user, shopAdministrator);
         }
