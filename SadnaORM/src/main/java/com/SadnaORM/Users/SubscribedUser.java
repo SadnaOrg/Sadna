@@ -1,36 +1,40 @@
 package com.SadnaORM.Users;
 
-import lombok.Data;
+import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Map;
 
-@Data
 @Entity
 @Table(name = "SubscribedUser")
-public class SubscribedUser {
-    public SubscribedUser(String username, String password) {
-        this.username = username;
-        this.password = password;
-        this.is_login = false;
-        this.isNotRemoved = false;
-    }
-
-    @Id
-    private String username;
-    private String password;
-    private boolean is_login;
-    private boolean isNotRemoved;
-    @OneToOne(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private PaymentMethod paymentMethod;
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class SubscribedUser extends User{
+    protected String password;
+    protected boolean is_login;
+    protected boolean isNotRemoved;
     @OneToMany(mappedBy = "user")
-    private List<ShopAdministrator> administrators;
+    protected List<ShopAdministrator> administrators;
+    protected Map<Shop,Basket> userBaskets;
 
-    public SubscribedUser() {
+    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod) {
+        super(username,paymentMethod);
+        this.password = password;
+        this.is_login = is_login;
+        this.isNotRemoved = isNotRemoved;
+    }
+
+    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
+        super(username, paymentMethod);
+        this.password = password;
+        this.is_login = is_login;
+        this.isNotRemoved = isNotRemoved;
+        this.administrators = administrators;
+    }
+
+    public SubscribedUser(){
 
     }
+
+    public String getUsername(){return this.username;}
 }

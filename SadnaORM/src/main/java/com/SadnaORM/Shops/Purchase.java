@@ -4,8 +4,6 @@ import com.SadnaORM.Users.SubscribedUser;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Date;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
 @Table(name = "purchase")
