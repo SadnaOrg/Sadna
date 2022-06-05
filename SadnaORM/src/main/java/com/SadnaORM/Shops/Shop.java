@@ -4,7 +4,6 @@ import com.SadnaORM.Users.Basket;
 import com.SadnaORM.Users.ShopAdministrator;
 import com.SadnaORM.Users.SubscribedUser;
 
-import javax.management.ConstructorParameters;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;

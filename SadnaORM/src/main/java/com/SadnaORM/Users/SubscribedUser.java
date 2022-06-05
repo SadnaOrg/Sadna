@@ -82,4 +82,8 @@ public class SubscribedUser extends User{
     public void addAdministrator(ShopAdministrator administrator) {
         administrators.add(administrator);
     }
+
+    public void addBasket(Basket userBasket) {
+        userBaskets.put(userBasket.getShop(),userBasket);
+    }
 }
