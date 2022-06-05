@@ -3,9 +3,6 @@ package com.SadnaORM.Shops;
 import com.SadnaORM.Users.Basket;
 import com.SadnaORM.Users.ShopAdministrator;
 import com.SadnaORM.Users.SubscribedUser;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
