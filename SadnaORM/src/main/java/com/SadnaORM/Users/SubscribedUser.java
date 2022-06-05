@@ -15,6 +15,15 @@ public class SubscribedUser extends User{
     protected boolean isNotRemoved;
     @OneToMany(mappedBy = "user")
     protected List<ShopAdministrator> administrators;
+    @OneToMany
+    @JoinTable(name = "userBaskets",
+            joinColumns = @JoinColumn(name = "username"),
+            inverseJoinColumns = {
+                    @JoinColumn(name = "basketShopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "basketID", referencedColumnName = "id")
+            }
+    )
+    @MapKeyJoinColumn(name = "shop_id")
     protected Map<Shop,Basket> userBaskets;
 
     public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod) {
