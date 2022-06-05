@@ -4,19 +4,19 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Shops.ShopController;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import javax.naming.NoPermissionException;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.Assert.*;
 
 public class UserControllerTest {
 
+    private String admin ;
     private final UserController uc = UserController.getInstance();
     private final ShopController sc = ShopController.getInstance();
     private final PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
@@ -34,12 +34,18 @@ public class UserControllerTest {
     private String passWord;
     private String userLog;
     private String passLog;
+    int count = 0;
+
+    @BeforeClass
+    public static void beforeClass() throws Exception {
+        var uc = UserController.getInstance();
+    }
 
     @Before
     public void setUp() {
-        shopID = rand.nextInt();
-        productID = rand.nextInt();
-        int userID = rand.nextInt();
+        shopID = count;
+        productID = count;
+        int userID = count++;
 
         createFounder();
         p1 = createProduct();
@@ -48,13 +54,18 @@ public class UserControllerTest {
         sc.addShop(s1);
 
         user = createUser();
-        userName = "SU" + userID;
-        passWord = "PW" + userID;
-        userLog = "User_" + userID;
-        passLog = "Pass_" + userID;
+        userName = "_SU" + userID;
+        passWord = "_PW" + userID;
+        userLog = "_User_" + userID;
+        passLog = "_Pass_" + userID;
         uc.registerToSystem(userName, passWord);
+
         loggedUser = uc.login(userName, passWord, null);
+        admin = "admin_userController_Test"+count;
+        uc.createSystemManager(admin,admin);
+
     }
+
 
 
     @After
@@ -62,6 +73,53 @@ public class UserControllerTest {
         sc.getShops().clear();
         uc.clearForTestsOnly();
         phc.clearForTestsOnly();
+    }
+
+    static AtomicInteger count_ref = new AtomicInteger(0);
+    @Test
+    public void removeUser_Success(){
+
+        var u = "user______"+(count_ref.incrementAndGet()); //for the cuncarency
+        var sm =(SystemManager)uc.login(admin,admin,null);
+        uc.registerToSystem(u,u);
+        loggedUser=uc.login(u,u,null);
+        assertTrue("user does not exist",uc.getSubscribedUserInfo(admin).get(UserController.UserState.LOGGED_IN).contains(loggedUser));
+        assertTrue("dont removed user",uc.removeSubscribedUserFromSystem(sm,loggedUser.getName()));
+        assertFalse("dont removed user",uc.getSubscribedUserInfo(admin).get(UserController.UserState.LOGGED_IN).contains(loggedUser));
+    }
+
+    @Test
+    public void removeUser_Success_concurency(){
+
+        var u = "user___con___"+(count_ref.incrementAndGet()); //for the cuncarency
+        var flag = new AtomicBoolean(false);
+        AtomicBoolean suc = new AtomicBoolean(true);
+        uc.registerToSystem(u,u);
+        loggedUser=uc.login(u,u,null);
+        int num = 20;
+        Thread[] thread = new Thread[num];
+        boolean[] ans = new boolean[num];
+        for (int i = 0; i < num; i++) {
+            thread[i] = new Thread(()->{
+                var admin = this.admin+"_con_"+(count_ref.incrementAndGet());
+                uc.createSystemManager(admin,admin);
+                var sm =(SystemManager)uc.login(admin,admin,null);
+                try {
+                    if (uc.removeSubscribedUserFromSystem(sm, loggedUser.getName()))
+                        if (!flag.compareAndSet(false, true))
+                            fail("more then one removed the user");
+                }catch (Exception ignored){}
+
+            });
+            thread[i].start();
+        }
+        for (Thread t :thread) {
+            try {
+                t.join();
+            } catch (Exception ignored) {
+            }
+        }
+        assertTrue("no one can remove the user", flag.get());
     }
 
     @Test
