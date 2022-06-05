@@ -20,7 +20,7 @@ public class SubscribedUser extends User{
             joinColumns = @JoinColumn(name = "username"),
             inverseJoinColumns = {
                     @JoinColumn(name = "basketShopID", referencedColumnName = "shopID"),
-                    @JoinColumn(name = "basketID", referencedColumnName = "id")
+                    @JoinColumn(name = "basketOwner", referencedColumnName = "username")
             }
     )
     @MapKeyJoinColumn(name = "shop_id")

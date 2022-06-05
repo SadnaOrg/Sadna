@@ -15,14 +15,16 @@ public class Basket {
     @JoinColumn(name = "shopID")
     private Shop shop;
     @Id
-    private int id;
+    @ManyToOne
+    @JoinColumn(name = "username")
+    private SubscribedUser user;
 
     @ElementCollection
     @CollectionTable(
             name = "ProductsInBaskets",
             joinColumns = {
                     @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
-                    @JoinColumn(name = "username", referencedColumnName = "id")
+                    @JoinColumn(name = "username", referencedColumnName = "username")
             }
     )
     private Collection<ProductInBasket> products;
@@ -30,6 +32,6 @@ public class Basket {
 
     public class BasketPKID implements Serializable {
         private Shop shop;
-        private int id;
+        private SubscribedUser user;
     }
 }
