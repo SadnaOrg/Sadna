@@ -8,7 +8,7 @@ import com.SadnaORM.Users.ShopAdministrator;
 import com.SadnaORM.Users.ShopManager;
 import com.SadnaORM.Users.SubscribedUser;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -23,31 +23,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class SubscribedUserIntegration {
+public class SubscribedUserIntegrationTests {
+    private boolean deleteUser = false;
+
     @Autowired
     SubscribedUserRepository subscribedUserRepository;
 
     @Autowired
     ShopRepository shopRepository;
 
-    @BeforeEach
-    public void setUp(){
-        SubscribedUser user = new SubscribedUser("Michael1","123321password",true,true,null);
-        PaymentMethod method = new PaymentMethod("4580111122223333", 655, 2025, 13, user);
-        user.setPaymentMethod(method);
-        subscribedUserRepository.save(user);
+    @AfterEach
+    public void tearDown(){
+        if(deleteUser){
+            subscribedUserRepository.deleteById("Michael1");
+        }
     }
 
     @Test
     public void testUserWithAdmin(){
+        makeUser();
         ShopAdministrator.BaseActionType action = ShopAdministrator.BaseActionType.HISTORY_INFO;
         List<ShopAdministrator.BaseActionType> actions = new LinkedList<>();
         actions.add(action);
-        Shop s = new Shop(0, "Adidas", "Sports");
-        shopRepository.save(s);
         Optional<SubscribedUser> userFound = subscribedUserRepository.findById("Michael1");
         assertTrue(userFound.isPresent());
         SubscribedUser user = userFound.get();
+        makeShop();
+        Optional<Shop> shopFound = shopRepository.findById(0);
+        assertTrue(shopFound.isPresent());
+        Shop s = shopFound.get();
         ShopAdministrator administrator = new ShopManager(actions, user, s, new LinkedList<>());
         user.addAdministrator(administrator);
         subscribedUserRepository.save(user);
@@ -72,6 +76,19 @@ public class SubscribedUserIntegration {
     @Test
     public void testAddAdminIncorrectUser(){
         testUserWithAdmin();
+    }
+
+    private void makeUser(){
+        SubscribedUser user = new SubscribedUser("Michael1","123321password",true,true,null);
+        PaymentMethod method = new PaymentMethod("4580111122223333", 655, 2025, 13, user);
+        user.setPaymentMethod(method);
+        subscribedUserRepository.save(user);
+        deleteUser = true;
+    }
+
+    private void makeShop(){
+        Shop s = new Shop(0, "Adidas", "Sports");
+        shopRepository.save(s);
     }
 
 }
