@@ -4,6 +4,7 @@ import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 @Entity
 @Table(name = "basket")
@@ -13,11 +14,11 @@ public class Basket {
     @ManyToOne
     @JoinColumn(name = "shopID")
     private Shop shop;
+
     @Id
     @ManyToOne
     @JoinColumn(name = "username")
     private SubscribedUser user;
-
     @ElementCollection
     @CollectionTable(
             name = "ProductsInBaskets",
@@ -28,8 +29,18 @@ public class Basket {
     )
     private Collection<ProductInBasket> products;
 
+    public Basket(Shop shop, SubscribedUser user) {
+        this.shop = shop;
+        this.user = user;
+        this.products = new ArrayList<>();
+    }
 
-    public class BasketPKID implements Serializable {
+    public Basket() {
+
+    }
+
+
+    public static class BasketPKID implements Serializable {
         private Shop shop;
         private SubscribedUser user;
     }
