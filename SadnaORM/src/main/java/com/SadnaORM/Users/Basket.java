@@ -5,7 +5,6 @@ import com.SadnaORM.Shops.Shop;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-
 @Entity
 @Table(name = "basket")
 @IdClass(Basket.BasketPKID.class)

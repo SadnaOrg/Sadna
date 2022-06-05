@@ -1,5 +1,6 @@
 package com.SadnaORM.Users;
 
+
 import javax.persistence.Embeddable;
 
 @Embeddable

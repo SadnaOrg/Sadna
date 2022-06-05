@@ -5,7 +5,6 @@ import com.SadnaORM.Shops.Shop;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.List;
-
 @Entity
 @Table(name = "ShopOwner")
 public class ShopOwner extends ShopAdministrator{
@@ -17,6 +16,6 @@ public class ShopOwner extends ShopAdministrator{
     }
 
     public ShopOwner() {
-
+        super();
     }
 }

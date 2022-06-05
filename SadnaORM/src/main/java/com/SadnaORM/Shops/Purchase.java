@@ -18,7 +18,6 @@ public class Purchase {
     )
     private Collection<ProductInfo> productInfos;
     private String dateOfPurchase;
-
     @ManyToOne
     @JoinColumn(name = "shopID")
     private Shop shop;
