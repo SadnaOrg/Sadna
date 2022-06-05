@@ -16,6 +16,6 @@ public class ShopOwner extends ShopAdministrator{
     }
 
     public ShopOwner() {
-
+        super();
     }
 }

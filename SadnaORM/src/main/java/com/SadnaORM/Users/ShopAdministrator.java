@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @IdClass(ShopAdministrator.ShopAdministratorPK.class)
-public abstract class ShopAdministrator implements Serializable{
+public abstract class ShopAdministrator{
     @ElementCollection
     @CollectionTable(
             name = "AdministratorPermissions",
@@ -43,18 +43,9 @@ public abstract class ShopAdministrator implements Serializable{
 
     }
 
-    public class ShopAdministratorPK implements Serializable {
+    public static class ShopAdministratorPK implements Serializable {
         private Shop shop;
         private SubscribedUser user;
-
-        public ShopAdministratorPK(SubscribedUser user, Shop shop) {
-            this.user = user;
-            this.shop = shop;
-        }
-
-        public ShopAdministratorPK(){
-
-        }
     }
 }
 

@@ -3,6 +3,9 @@ package com.SadnaORM.ShopRepositoriesImpl;
 import com.SadnaORM.ShopRepositories.ShopRepository;
 import com.SadnaORM.Shops.Product;
 import com.SadnaORM.Shops.Shop;
+import com.SadnaORM.UserRepositories.ShopManagerRepository;
+import com.SadnaORM.UserRepositories.ShopOwnerRepository;
+import com.SadnaORM.UserRepositories.SubscribedUserRepository;
 import com.SadnaORM.Users.ShopAdministrator;
 import com.SadnaORM.Users.ShopManager;
 import com.SadnaORM.Users.ShopOwner;
@@ -14,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
@@ -24,6 +28,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ShopRepositoryTest {
     @Autowired
     private ShopRepository shopRepository;
+
+    @Autowired
+    private SubscribedUserRepository subscribedUserRepository;
+
+    @Autowired
+    private ShopOwnerRepository shopOwnerRepository;
+
+    @Autowired
+    private ShopManagerRepository shopManagerRepository;
+
     private int productCounter;
     private Random rand = new Random();
 
@@ -58,11 +72,49 @@ public class ShopRepositoryTest {
         Assert.assertEquals(shopRepository.findById(shop.getId()).get().getShopAdministrators().size(), 3);
     }
 
+    @Test(expected = InvalidDataAccessApiUsageException.class)
+    public void saveShopWithShopAdministratorsNotExisting() {
+        Shop shop = createRandomShopWithShopAdministratorsNotExisting();
+        shopRepository.save(shop);
+    }
+
+    private Shop createRandomShopWithShopAdministratorsNotExisting() {
+        Shop s1 = createRandomEmptyShop();
+        Map<SubscribedUser, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
+        for (int i = 0; i < 3; i++) {
+            SubscribedUser user = createRandomUser();
+            List<ShopAdministrator> administrators = new ArrayList<>();
+            administrators.add(createRandomShopManagerWithoutSave(s1));
+            administrators.add(createRandomShopOwnerWithoutSave(s1));
+            administrators.add(createRandomShopManagerWithoutSave(s1));
+            ShopAdministrator shopAdministrator = createRandomShopManagerWithoutSave(s1);
+            shopAdministrators.put(user, shopAdministrator);
+        }
+        s1.setShopAdministrators(shopAdministrators);
+        return s1;
+    }
+
+    private ShopAdministrator createRandomShopOwnerWithoutSave(Shop s1) {
+        SubscribedUser user = createRandomUser();
+        ShopManager manager = new ShopManager(new ArrayList<>(), user, s1, new ArrayList<>());
+        subscribedUserRepository.delete(user);
+        return manager;
+    }
+
+    private ShopAdministrator createRandomShopManagerWithoutSave(Shop s1) {
+        SubscribedUser user = createRandomUser();
+        ShopOwner manager = new ShopOwner(new ArrayList<>(), user, s1, new ArrayList<>(), false);
+        subscribedUserRepository.delete(user);
+        return manager;
+    }
+
     private Shop createRandomEmptyShop() {
-        int id = rand.nextInt();
+        int id = rand.nextInt(0, Integer.MAX_VALUE);
         String name = "name" + rand.nextInt();
         String description = "desc" + rand.nextInt();
-        return new Shop(id, name, description);
+        Shop s1 = new Shop(id, name, description);
+        shopRepository.save(s1);
+        return s1;
     }
 
     private Shop createRandomNonEmptyShop() {
@@ -81,7 +133,7 @@ public class ShopRepositoryTest {
             administrators.add(createRandomShopManager(s1));
             administrators.add(createRandomShopOwner(s1));
             administrators.add(createRandomShopManager(s1));
-            ShopAdministrator shopAdministrator = new ShopManager(new ArrayList<>(), user, s1, administrators);
+            ShopAdministrator shopAdministrator = createRandomShopManager(s1);
             shopAdministrators.put(user, shopAdministrator);
         }
         s1.setShopAdministrators(shopAdministrators);
@@ -89,15 +141,19 @@ public class ShopRepositoryTest {
     }
 
     private ShopAdministrator createRandomShopManager(Shop s1) {
-        return new ShopManager(new ArrayList<>(), createRandomUser(), s1, new ArrayList<>());
+        ShopManager manager = new ShopManager(new ArrayList<>(), createRandomUser(), s1, new ArrayList<>());
+        return manager;
     }
 
     private ShopAdministrator createRandomShopOwner(Shop s1) {
-        return new ShopOwner(new ArrayList<>(), createRandomUser(), s1, new ArrayList<>(), false);
+        ShopOwner owner = new ShopOwner(new ArrayList<>(), createRandomUser(), s1, new ArrayList<>(), false);
+        return owner;
     }
 
     private SubscribedUser createRandomUser() {
-        return new SubscribedUser("user" + rand.nextInt(), "pass" + rand.nextInt());
+        SubscribedUser user = new SubscribedUser("user" + rand.nextInt(0, Integer.MAX_VALUE), "pass" + rand.nextInt(), true, false, null, new ArrayList<>());
+        subscribedUserRepository.save(user);
+        return user;
     }
 
     private Product createRandomProduct() {
