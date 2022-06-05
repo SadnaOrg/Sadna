@@ -32,10 +32,9 @@ public class Shop {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "userBaskets",
-            joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")},
             inverseJoinColumns = {
             @JoinColumn(name = "basketShopID", referencedColumnName = "shopID"),
-                    @JoinColumn(name = "basketID", referencedColumnName = "id")
+                    @JoinColumn(name = "basketOwner", referencedColumnName = "username")
     })
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, Basket> usersBaskets;
