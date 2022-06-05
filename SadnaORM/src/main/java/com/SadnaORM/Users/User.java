@@ -1,11 +1,9 @@
 package com.SadnaORM.Users;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class User {
     @Id
     protected String username;
@@ -23,5 +21,17 @@ public abstract class User {
 
     public User(){
 
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 }

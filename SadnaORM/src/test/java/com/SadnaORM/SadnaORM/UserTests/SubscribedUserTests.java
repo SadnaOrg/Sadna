@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -21,12 +21,26 @@ public class SubscribedUserTests {
     SubscribedUserRepository subscribedUserRepository;
 
     @Test
-    public void testSimpleUser(){
+    public void testSaveUserNotAdministrator(){
         PaymentMethod method = new PaymentMethod();
         SubscribedUser user = new SubscribedUser("Michael1","123321password",true,true,method);
         subscribedUserRepository.save(user);
         Optional<SubscribedUser> userFound = subscribedUserRepository.findById("Michael1");
         assertTrue(userFound.isPresent());
-        assertTrue(userFound.get().getUsername().equals("Michael1"));
+        user = userFound.get();
+        assertEquals("Michael1", user.getUsername());
+        assertEquals("123321password", user.getPassword());
+    }
+
+    @Test
+    public void testRemoveUser(){
+        testSaveUserNotAdministrator();
+        subscribedUserRepository.deleteById("Michael1");
+        Optional<SubscribedUser> userNotFound = subscribedUserRepository.findById("Michael1");
+        assertFalse(userNotFound.isPresent());
+    }
+    @Test
+    public void testUserWithAdmin(){
+
     }
 }

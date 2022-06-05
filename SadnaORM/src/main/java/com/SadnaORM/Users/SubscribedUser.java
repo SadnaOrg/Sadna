@@ -45,5 +45,23 @@ public class SubscribedUser extends User{
 
     }
 
-    public String getUsername(){return this.username;}
+    public String getPassword() {
+        return password;
+    }
+
+    public boolean isIs_login() {
+        return is_login;
+    }
+
+    public boolean isNotRemoved() {
+        return isNotRemoved;
+    }
+
+    public List<ShopAdministrator> getAdministrators() {
+        return administrators;
+    }
+
+    public Map<Shop, Basket> getUserBaskets() {
+        return userBaskets;
+    }
 }

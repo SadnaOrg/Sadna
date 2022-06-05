@@ -13,4 +13,9 @@ public class Guest extends User{
     public Guest(String username, PaymentMethod method){
         super(username,method);
     }
+
+    public Guest(String username){
+        this.username = username;
+        this.paymentMethod = null;
+    }
 }
