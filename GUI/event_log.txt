@@ -1,12 +1,82 @@
-מאי 23, 2022 4:27:55 אחה״צ ServiceLayer.Log event
+Jun 06, 2022 9:56:33 PM ServiceLayer.Log event
 INFO: login to system Successes
-מאי 23, 2022 4:27:58 אחה״צ ServiceLayer.Log event
+Jun 06, 2022 9:56:33 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:56:37 PM ServiceLayer.Log event
+INFO: register to system succeeded Successes
+Jun 06, 2022 9:56:37 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:56:40 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 06, 2022 9:56:40 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:56:40 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:56:42 PM ServiceLayer.Log event
+INFO: logout  Successes
+Jun 06, 2022 9:56:43 PM ServiceLayer.Log event
 INFO: login to system Successes
-מאי 23, 2022 4:33:09 אחה״צ ServiceLayer.Log event
-INFO: register to system succeeded Successes
-מאי 23, 2022 4:33:17 אחה״צ ServiceLayer.Log event
-INFO: login  Successes
-מאי 23, 2022 4:34:34 אחה״צ ServiceLayer.Log event
-INFO: register to system succeeded Successes
-מאי 23, 2022 4:34:55 אחה״צ ServiceLayer.Log event
-INFO: login  Successes
+Jun 06, 2022 9:56:43 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:56:47 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 06, 2022 9:56:47 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:56:47 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:56:53 PM ServiceLayer.Log event
+INFO: logout  Successes
+Jun 06, 2022 9:56:54 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 06, 2022 9:56:54 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:56:57 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 06, 2022 9:56:57 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:56:57 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:57:13 PM ServiceLayer.Log event
+INFO: logout  Successes
+Jun 06, 2022 9:57:14 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 06, 2022 9:57:14 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:57:17 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 06, 2022 9:57:17 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:57:17 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:57:18 PM ServiceLayer.Log event
+INFO: logout  Successes
+Jun 06, 2022 9:57:19 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 06, 2022 9:57:19 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:57:36 PM ServiceLayer.Log event
+INFO: login - user Admin Successes
+Jun 06, 2022 9:57:36 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:57:36 PM ServiceLayer.Log event
+INFO: switch to system manager Admin Successes
+Jun 06, 2022 9:57:36 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:57:36 PM ServiceLayer.Log event
+INFO: switch to system manager Admin Successes
+Jun 06, 2022 9:57:40 PM ServiceLayer.Log event
+INFO: logout  Successes
+Jun 06, 2022 9:57:41 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 06, 2022 9:57:41 PM ServiceLayer.Log event
+INFO: cart showed Successes
+Jun 06, 2022 9:57:45 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 06, 2022 9:57:45 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 06, 2022 9:57:45 PM ServiceLayer.Log event
+INFO: receive information Successes
+Jun 06, 2022 9:57:57 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 06, 2022 9:57:57 PM ServiceLayer.Log event
+INFO: cart showed Successes

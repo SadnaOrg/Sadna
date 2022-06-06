@@ -30,8 +30,9 @@ import static com.example.application.Utility.*;
 
 @Route("SubscribedUser")
 public class SubscribedUserView extends Header {
+    protected String currUser;
+    protected final SubscribedUserService subscribedUserService;
 
-    private final SubscribedUserService subscribedUserService;
     private VerticalLayout openShopLayout = new VerticalLayout();
     private final Dialog dialog = new Dialog();
     private Button logoutButton;
@@ -40,7 +41,6 @@ public class SubscribedUserView extends Header {
     private Grid<Product> shopProducts;
     private Editor<Product> editor;
 
-    private Grid.Column<Product> shopIDColumn;
     private Grid.Column<Product> productIDColumn;
     private Grid.Column<Product> nameColumn;
     private Grid.Column<Product> manufacturerColumn;
@@ -65,28 +65,13 @@ public class SubscribedUserView extends Header {
         });
         logoutButton.getStyle().set("margin-left", "auto");
         addToNavbar(logoutButton);
-        createTabs();
         createDialogLayout();
         createOpenShopButton();
         createShopGrid();
         createProductGrid();
+        createTabs();
         shops.addItemClickListener(e -> itemClicked(e.getItem()));
         content.add(openShopLayout, shops);
-    }
-
-    private void createTabs() {
-        tabs = new Tabs();
-        var res = subscribedUserService.manageSystemAsSystemManager();
-        if(res.isOk()) {
-            addTabWithClickEvent("System Manager Menu", e -> {
-                save("user-name", subscribedUserService.getUserInfo().getElement().username);
-                save("subscribed-user-service", subscribedUserService);
-                UI.getCurrent().navigate(SystemManagerView.class);
-            });
-        }
-        tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
-        tabs.setOrientation(Tabs.Orientation.VERTICAL);
-        addToDrawer(tabs);
     }
 
     private void createOpenShopButton() {
@@ -167,7 +152,7 @@ public class SubscribedUserView extends Header {
 
     private void createProductGrid() {
         shopProducts = new Grid<>();
-        shopIDColumn = shopProducts.addColumn(Product::shopId).setHeader("Shop ID").setSortable(true);
+        Grid.Column<Product> shopIDColumn = shopProducts.addColumn(Product::shopId).setHeader("Shop ID").setSortable(true);
         productIDColumn = shopProducts.addColumn(Product::productID).setHeader("Product ID").setSortable(true);
         nameColumn = shopProducts.addColumn(Product::name).setHeader("Name").setSortable(true);
         manufacturerColumn = shopProducts.addColumn(Product::manufacturer).setHeader("Manufacturer").setSortable(true);
@@ -175,7 +160,7 @@ public class SubscribedUserView extends Header {
         quantityColumn = shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
         priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
         closeColumn = shopProducts.addComponentColumn(item -> {
-            Button delete = new Button(VaadinIcon.CLOSE.create(), e -> {
+            return new Button(VaadinIcon.CLOSE.create(), e -> {
                 Result res = subscribedUserService.deleteProductFromShop(item.shopId(), item.productID());
                 if (res.isOk()) {
                     updateProductGrid(item.shopId());
@@ -184,7 +169,6 @@ public class SubscribedUserView extends Header {
                 else
                     notifyError(res.getMsg());
                 });
-            return delete;
         });
         editor = shopProducts.getEditor();
         setEditorComponent();
@@ -238,4 +222,7 @@ public class SubscribedUserView extends Header {
         dialog.add(dialogLayout);
     }
 
+    private void createTabs(){
+        addTabWithClickEvent("Open Shop", e -> getContent());
+    }
 }

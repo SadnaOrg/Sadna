@@ -1,6 +1,28 @@
-מאי 23, 2022 4:33:47 אחה״צ ServiceLayer.Log error
+Jun 06, 2022 9:56:33 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:56:37 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:56:40 PM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 06, 2022 9:56:43 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:56:47 PM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 06, 2022 9:56:54 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:56:57 PM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 06, 2022 9:57:14 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:57:17 PM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 06, 2022 9:57:19 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:57:41 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:57:45 PM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 06, 2022 9:57:57 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 06, 2022 9:58:01 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: user is allready logged in
-מאי 23, 2022 4:34:15 אחה״צ ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-מאי 23, 2022 4:35:28 אחה״צ ServiceLayer.Log error
-SEVERE: product save : log in to system first

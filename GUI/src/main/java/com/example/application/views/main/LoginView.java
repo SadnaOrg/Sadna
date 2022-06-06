@@ -25,11 +25,12 @@ public class LoginView extends LoginOverlay {
     private SubscribedUserService subscribedUserService;
     public LoginView() {
         service = (UserService)Load("service");
+        subscribedUserService = new SubscribedUserServiceImp(null);
         setTitle(projectName);
         setDescription(projectDescription);
         setOpened(true);
         addLoginListener(e -> {
-            var res = service.login(e.getUsername(), e.getPassword());
+            var res = subscribedUserService.login(e.getUsername(), e.getPassword());
             if (res.isOk()) {
                 notifySuccess("Login Succeeded!");
                 subscribedUserService = res.getElement();

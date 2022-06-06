@@ -17,6 +17,7 @@ public class Header extends AppLayout {
     protected Button title;
     public Header() {
         DrawerToggle toggle = new DrawerToggle();
+        tabs = new Tabs();
         title = new Button("Superli");
         title.getStyle()
                 .set("font-size", "var(--lumo-font-size-l)")
