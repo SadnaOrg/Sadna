@@ -40,6 +40,11 @@ public class Basket {
         this.products = products;
     }
 
+    public Basket(Shop shop, SubscribedUser user){
+        this.shop = shop;
+        this.user = user;
+    }
+
     public Shop getShop() {
         return shop;
     }
