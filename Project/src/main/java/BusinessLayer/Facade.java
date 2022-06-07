@@ -126,6 +126,12 @@ public class Facade{
         return  userController.getShopsAndUsersInfo(currUser);
     }
 
+    public void RegisterToNotifier(){
+
+    }
+
+
+
     private static class FacadeHolder{
         private static Facade facade= new Facade();
     }

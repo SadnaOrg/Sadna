@@ -44,4 +44,14 @@ public abstract class ConcreteNotification implements Notification {
     public boolean isEmpty(){
         return usernames.isEmpty();
     }
+
+    @Override
+    public Collection<String> getUserNames() {
+        return usernames;
+    }
+
+    @Override
+    public String getContent() {
+        return content;
+    }
 }

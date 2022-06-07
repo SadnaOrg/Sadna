@@ -25,7 +25,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Result logout(){///TODO: IMPLEMENT
+    public Result logout(){
         return ifUserNotNullRes(()->facade.logout(currUser.getUserName()),"logout");
     }
 

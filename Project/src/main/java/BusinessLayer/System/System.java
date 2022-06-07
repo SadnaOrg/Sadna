@@ -1,35 +1,41 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Notifications.Notifier;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class System {
-    private Notifier notifier;
+    private final Notifier notifier;
     private ExternalServicesSystem externSystem;
     private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
 
+    public System() {
+        notifier = new Notifier();;
+    }
+
     static private class SystemHolder{
         static final System s = new System();
     }
+
     public static System getInstance()
     {
         return SystemHolder.s;
     }
 
     public void initialize(){
-        notifier = new Notifier();
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
     }
-    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
-    {
+
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method){
         ConcurrentHashMap<Integer,Boolean> paymentSituation= new ConcurrentHashMap<>();
         for(int shopId: totalPrices.keySet())
         {
@@ -51,10 +57,6 @@ public class System {
             supplySituation.put(idx, getExternSystem().checkSupply(packages.get(idx)));
         }
         return supplySituation;
-    }
-
-    public void notifyUser(String username){
-        notifier.notifyUser(username);
     }
 
     public PurchaseHistoryController getPurchaseHistoryServices() {
@@ -80,4 +82,10 @@ public class System {
     public int getSupplySize(){//for tests only
         return externSystem.getSupplySize();
     }
+
+    public Notifier getNotifier(){
+        return notifier;
+    }
+
+
 }
