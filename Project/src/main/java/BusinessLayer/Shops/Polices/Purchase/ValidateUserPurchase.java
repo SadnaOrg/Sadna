@@ -3,7 +3,7 @@ package BusinessLayer.Shops.Polices.Purchase;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
-public class ValidateUserPurchase implements PurchasePolicy{
+public class ValidateUserPurchase implements ValidatePurchasePolicy{
 
     @Override
     public boolean isValid(User u, Basket basket) {

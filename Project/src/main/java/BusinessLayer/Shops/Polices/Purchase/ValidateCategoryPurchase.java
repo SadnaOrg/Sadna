@@ -5,7 +5,7 @@ import BusinessLayer.Users.User;
 
 import java.util.Collection;
 
-public class ValidateCategoryPurchase implements PurchasePolicy{
+public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
 
     //category
     Collection<Integer> relatedProducts;

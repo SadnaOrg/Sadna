@@ -3,7 +3,7 @@ package BusinessLayer.Shops.Polices.Purchase;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
-public class ValidateProductPurchase implements PurchasePolicy{
+public class ValidateProductPurchase implements ValidatePurchasePolicy{
 
     int productId;
     int productQuantity;

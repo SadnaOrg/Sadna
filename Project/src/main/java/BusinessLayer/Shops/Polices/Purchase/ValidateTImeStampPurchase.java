@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
-public class ValidateTImeStampPurchase implements PurchasePolicy{
+public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
 
     private LocalTime localTime =null;
