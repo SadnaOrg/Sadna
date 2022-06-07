@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Facade{
     private final UserController userController = UserController.getInstance();
     private final ShopController shopController= ShopController.getInstance();
+    private final System system = System.getInstance();
 
     private Facade() {
     }
@@ -102,7 +103,7 @@ public class Facade{
 // TODO: fix
     public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
-        ConcurrentHashMap<Integer, Boolean> paymentSituation = System.getInstance().pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
             return false;
         return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
