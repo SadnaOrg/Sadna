@@ -1,8 +1,16 @@
 package BusinessLayer.Mappers;
 
 import BusinessLayer.Shops.Shop;
+import com.SadnaORM.ShopRepositoriesImpl.ShopRepositoryImpl;
 
 public class ShopMapper implements MapperInterface<com.SadnaORM.Shops.Shop, Shop,Integer> {
+    private ShopRepositoryImpl shopRepository = new ShopRepositoryImpl();
+    private ShopMapper mapper = new ShopMapper();
+
+    public ShopMapper getInstance(){
+        return this.mapper;
+    }
+
     @Override
     public void save(Shop entity) {
 

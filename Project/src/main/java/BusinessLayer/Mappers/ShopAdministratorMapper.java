@@ -1,9 +1,11 @@
 package BusinessLayer.Mappers;
 
+import com.SadnaORM.RepositoriesImpl.UserRepositoriesImpl.ShopAdministratorRepositoryImpl;
 import com.SadnaORM.Users.ShopAdministrator;
 
 
-public class ShopAdministratorMapper implements MapperInterface<com.SadnaORM.Users.ShopAdministrator, ShopAdministrator,com.SadnaORM.Users.ShopAdministrator.ShopAdministratorPK> {
+public  class ShopAdministratorMapper implements MapperInterface<com.SadnaORM.Users.ShopAdministrator, ShopAdministrator,com.SadnaORM.Users.ShopAdministrator.ShopAdministratorPK> {
+    private ShopAdministratorRepositoryImpl shopAdministratorRepository;
     @Override
     public void save(ShopAdministrator entity) {
 
