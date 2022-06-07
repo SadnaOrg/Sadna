@@ -1,5 +1,6 @@
-package com.SadnaORM.ShopRepositoriesImpl;
+package com.SadnaORM.RepositoriesImpl.ShopRepositoriesImpl;
 
+import com.SadnaORM.RepositoriesImpl.RepositoryImpl;
 import com.SadnaORM.ShopRepositories.ProductRepository;
 import com.SadnaORM.Shops.Product;
 import org.springframework.beans.factory.annotation.Autowired;

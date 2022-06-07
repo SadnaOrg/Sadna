@@ -1,12 +1,10 @@
-package com.SadnaORM.ShopRepositoriesImpl;
+package com.SadnaORM.RepositoriesImpl.ShopRepositoriesImpl;
 
+import com.SadnaORM.RepositoriesImpl.RepositoryImpl;
 import com.SadnaORM.ShopRepositories.ShopRepository;
-import com.SadnaORM.Shops.Shop;
 import com.SadnaORM.Shops.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 @Profile({"sa", "a"})
 public class ShopRepositoryImpl implements RepositoryImpl<Shop, Integer> {

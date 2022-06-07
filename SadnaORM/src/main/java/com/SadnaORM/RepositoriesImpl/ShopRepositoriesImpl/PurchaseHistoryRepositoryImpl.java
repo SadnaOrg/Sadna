@@ -1,5 +1,6 @@
-package com.SadnaORM.ShopRepositoriesImpl;
+package com.SadnaORM.RepositoriesImpl.ShopRepositoriesImpl;
 
+import com.SadnaORM.RepositoriesImpl.RepositoryImpl;
 import com.SadnaORM.ShopRepositories.PurchaseHistoryRepository;
 import com.SadnaORM.Shops.PurchaseHistory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.SadnaORM.ShopRepositoriesImpl;
+package com.SadnaORM.RepositoriesImpl;
 
 public interface RepositoryImpl <T, K> {
     public void save(T entity);
