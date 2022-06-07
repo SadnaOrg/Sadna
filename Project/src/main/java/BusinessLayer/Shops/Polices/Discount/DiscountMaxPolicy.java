@@ -2,6 +2,7 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -10,17 +11,34 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
     Collection<DiscountRules> discountPolicies;
 
     public DiscountMaxPolicy(Collection<DiscountRules> discountPolicies) {
-        this.discountPolicies = discountPolicies;
+        this.discountPolicies= new ArrayList<>();
+        this.discountPolicies.addAll(discountPolicies);
+    }
+
+    public DiscountMaxPolicy(DiscountRules discountPolicy) {
+        this.discountPolicies= new ArrayList<>();
+        this.discountPolicies.add(discountPolicy);
+
     }
 
     @Override
     public double calculateDiscount(Basket basket) {
         Iterator<DiscountRules> i = discountPolicies.iterator();
-        double maxprice =i.next().calculateDiscount(basket);
-        while (i.hasNext())
-        {
-            maxprice= Math.max(maxprice,i.next().calculateDiscount(basket));
+        double maxprice = i.next().calculateDiscount(basket);
+        while (i.hasNext()) {
+            maxprice = Math.max(maxprice, i.next().calculateDiscount(basket));
         }
         return maxprice;
+    }
+
+
+    @Override
+    public void add(DiscountRules discountRules) {
+        discountPolicies.add(discountRules);
+    }
+
+    @Override
+    public boolean remove(DiscountRules discountRules) {
+        return discountPolicies.remove(discountRules);
     }
 }

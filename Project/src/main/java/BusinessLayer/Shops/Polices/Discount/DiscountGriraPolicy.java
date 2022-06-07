@@ -2,10 +2,15 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public class DiscountGriraPolicy implements NumericDiscountRules{
+public class DiscountGriraPolicy implements DiscountRules{
 
     private DiscountPred discountPred;
     private DiscountPolicy discountPolicy;
+
+    public DiscountGriraPolicy(DiscountPred discountPred, DiscountPolicy discountPolicy) {
+        this.discountPred = discountPred;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public double calculateDiscount(Basket basket) {

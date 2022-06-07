@@ -4,12 +4,18 @@ import BusinessLayer.Users.Basket;
 
 import java.util.Collection;
 
-public class DiscountXorPolicy implements NumericDiscountRules{
+public class DiscountXorPolicy implements DiscountRules{
 
     private DiscountRules discountRules1;
     private DiscountRules discountRules2;
     //if true discountRules1 else discountRules2;
     private DiscountPred tiebreaker;
+
+    public DiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tiebreaker) {
+        this.discountRules1 = discountRules1;
+        this.discountRules2 = discountRules2;
+        this.tiebreaker = tiebreaker;
+    }
 
     @Override
     public double calculateDiscount(Basket basket){

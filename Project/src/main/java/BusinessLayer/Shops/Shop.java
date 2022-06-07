@@ -20,7 +20,6 @@ public class Shop {
     private String description;
     private State state = State.OPEN;
     private ShopOwner founder;
-    private DiscountPolicyInterface discountPolicyInterface = new DefaultDiscount();
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
