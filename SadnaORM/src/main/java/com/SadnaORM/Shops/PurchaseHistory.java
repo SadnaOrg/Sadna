@@ -10,6 +10,11 @@ import java.util.Collection;
 @Table(name = "purchaseHistory")
 @IdClass(PurchaseHistory.PurchaseHistoryPKID.class)
 public class PurchaseHistory {
+    public PurchaseHistory(Shop shop, SubscribedUser user) {
+        this.shop = shop;
+        this.user = user;
+    }
+
     @Id
     @ManyToOne
     @JoinColumn(name = "shopID")
@@ -26,7 +31,19 @@ public class PurchaseHistory {
     )
     private Collection<Purchase> past_purchases;
 
-    public class PurchaseHistoryPKID implements Serializable {
+    public PurchaseHistory() {
+
+    }
+
+    public Collection<Purchase> getPast_purchases() {
+        return past_purchases;
+    }
+
+    public void setPast_purchases(Collection<Purchase> past_purchases) {
+        this.past_purchases = past_purchases;
+    }
+
+    public static class PurchaseHistoryPKID implements Serializable {
         private Shop shop;
         private SubscribedUser user;
     }

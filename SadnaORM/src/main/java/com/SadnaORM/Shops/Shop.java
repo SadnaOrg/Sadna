@@ -20,9 +20,9 @@ public class Shop {
     private String name;
 
     private String description;
+
     @Enumerated(EnumType.STRING)
     private State state = State.OPEN;
-
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
@@ -68,6 +68,8 @@ public class Shop {
         OPEN,
         CLOSED;
 
+
+
     }
     public int getId() {
         return id;
@@ -75,11 +77,9 @@ public class Shop {
     public String getName() {
         return name;
     }
-
     public String getDescription() {
         return description;
     }
-
     public State getState() {
         return state;
     }
@@ -87,16 +87,36 @@ public class Shop {
     public Collection<Product> getProducts() {
         return products;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public void setProducts(Collection<Product> products) {
         this.products = products;
     }
-
     public Map<SubscribedUser, PurchaseHistory> getPurchaseHistory() {
         return purchaseHistory;
     }
 
     public void setPurchaseHistory(Map<SubscribedUser, PurchaseHistory> purchaseHistory) {
         this.purchaseHistory = purchaseHistory;
+    }
+
+    public Map<SubscribedUser, Basket> getUsersBaskets() {
+        return usersBaskets;
+    }
+
+    public void setUsersBaskets(Map<SubscribedUser, Basket> usersBaskets) {
+        this.usersBaskets = usersBaskets;
     }
 
     public Map<SubscribedUser, ShopAdministrator> getShopAdministrators() {
