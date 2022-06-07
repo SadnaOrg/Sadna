@@ -76,8 +76,6 @@ public class GuestActionView extends Header {
 
     private Tabs getTabs() {
         tabs = new Tabs();
-//        addTabWithClickEvent("Login", event -> UI.getCurrent().navigate(LoginView.class));
-//        addTabWithClickEvent("Register", event -> UI.getCurrent().navigate(RegisterView.class));
         addTabWithClickEvent("Check Cart", this::checkCartEvent);
         addTabWithClickEvent("Search Products", this::searchProductsEvent);
         Collection<ProductInfo> basketProductsIDs = service.showCart().getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
@@ -85,13 +83,6 @@ public class GuestActionView extends Header {
             addTabWithClickEvent("Buy Cart", this::buyCartEvent);
         }
         addTabWithClickEvent("Products", this::productEvent);
-        //addTab("Info on Shops and Products");
-        addTabWithClickEvent("Exit", event -> {
-            if(service.logoutSystem().isOk()) {
-                save("user-name", null);
-                UI.getCurrent().navigate(MainView.class);
-            }
-        });
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;

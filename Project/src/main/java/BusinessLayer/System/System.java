@@ -35,7 +35,7 @@ public class System {
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
-        //setUp();
+        setUp();
     }
 
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();

@@ -29,12 +29,11 @@ import static com.example.application.Header.SessionData.save;
 import static com.example.application.Utility.*;
 
 @Route("SubscribedUser")
-public class SubscribedUserView extends Header {
+public class SubscribedUserView extends GuestActionView {
     protected String currUser;
     protected SubscribedUserService service;
 
     private final Dialog dialog = new Dialog();
-    private Button logoutButton;
     private Grid<Shop> shops;
 
     private Grid<Product> shopProducts;
@@ -62,17 +61,6 @@ public class SubscribedUserView extends Header {
             UI.getCurrent().getPage().getHistory().go(-1);
             return;
         }
-        logoutButton = new Button("Logout", e -> {
-            var service = this.service.logout();
-
-            if (service.isOk()) {
-                save("user-name", null);
-                save("service",service.getElement());
-                UI.getCurrent().navigate(MainView.class);
-            }
-        });
-        logoutButton.getStyle().set("margin-left", "auto");
-        addToNavbar(logoutButton);
         createOpenShop();
         createTabs();
     }
