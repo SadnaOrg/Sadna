@@ -6,12 +6,14 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
     int productId;
     int productQuantity;
     double discount;
+    private int discountId;
 
     public ProductByQuantityDiscount(int productId, int productQuantity, double discount)
     {
         this.productId= productId;
         this.productQuantity= productQuantity;
         this.discount= discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
     @Override

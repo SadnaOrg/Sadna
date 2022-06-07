@@ -6,11 +6,13 @@ import BusinessLayer.Users.Basket;
 public class ShopDiscount implements DiscountPolicy {
     int basketQuantity;
     double discount;
+    private int discountId;
 
     public ShopDiscount( int basketQuantity,double discount)
     {
         this.basketQuantity= basketQuantity;
         this.discount = discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
     @Override

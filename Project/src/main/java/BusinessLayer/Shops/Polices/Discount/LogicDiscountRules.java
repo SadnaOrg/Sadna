@@ -2,9 +2,10 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public interface LogicDiscountRules extends DiscountPred {
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public boolean validateDiscount(Basket basket);
-    public void add(DiscountPred discountPred);
-    public boolean remove(DiscountPred discountPred);
+public interface LogicDiscountRules extends DiscountRules {
+
+    public double calculateDiscount(Basket basket);
+
 }

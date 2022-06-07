@@ -8,12 +8,14 @@ import java.util.Collection;
 public class RelatedGroupDiscount implements DiscountPolicy{
     Collection<Integer> relatedProducts;
     double discount;
+    private int discountId;
 
     public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
     {
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(relatedProducts);
         this.discount =discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
 

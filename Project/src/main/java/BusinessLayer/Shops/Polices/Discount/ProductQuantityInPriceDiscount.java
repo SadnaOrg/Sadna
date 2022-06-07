@@ -3,6 +3,7 @@ package BusinessLayer.Shops.Polices.Discount;
 import BusinessLayer.Users.Basket;
 
 public class ProductQuantityInPriceDiscount implements DiscountPolicy{
+    private int discountId;
 
     int productID;
     int quantity;
@@ -12,6 +13,7 @@ public class ProductQuantityInPriceDiscount implements DiscountPolicy{
         this.productID = productID;
         this.quantity = quantity;
         this.priceForQuantity = priceForQuantity;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
     @Override

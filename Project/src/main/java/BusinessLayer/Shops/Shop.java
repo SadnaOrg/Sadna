@@ -26,8 +26,8 @@ public class Shop {
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
-    private Collection<DiscountRules> discounts = new ArrayList<>();
-    private Collection<PurchasePolicy> purchasePolicies= new ArrayList<>();
+    private DiscountRules discounts;
+    private PurchasePolicy purchasePolicies;
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;

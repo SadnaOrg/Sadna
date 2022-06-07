@@ -4,7 +4,8 @@ import BusinessLayer.Users.Basket;
 
 import java.util.Collection;
 
-public class DiscountXorPolicy implements DiscountRules{
+public class DiscountXorPolicy implements LogicDiscountRules{
+    private int connectId;
 
     private DiscountRules discountRules1;
     private DiscountRules discountRules2;
@@ -15,6 +16,7 @@ public class DiscountXorPolicy implements DiscountRules{
         this.discountRules1 = discountRules1;
         this.discountRules2 = discountRules2;
         this.tiebreaker = tiebreaker;
+        this.connectId = atomicconnectId.incrementAndGet();
     }
 
     @Override
@@ -38,4 +40,5 @@ public class DiscountXorPolicy implements DiscountRules{
 
         return 0;
     }
+
 }

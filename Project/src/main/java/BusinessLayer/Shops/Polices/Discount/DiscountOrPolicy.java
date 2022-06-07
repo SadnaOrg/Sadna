@@ -6,36 +6,40 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class DiscountOrPolicy implements LogicDiscountRules{
-
+    private int connectId;
+    private DiscountPolicy discountPolicy;
+    private int ruleId;
     private Collection<DiscountPred> discountPreds;
 
-    public DiscountOrPolicy(Collection<DiscountPred> discountPreds) {
+    public DiscountOrPolicy(Collection<DiscountPred> discountPreds,DiscountPolicy discountPolicy) {
         this.discountPreds = new ArrayList<>();
         this.discountPreds.addAll(discountPreds);
+        this.connectId = atomicconnectId.incrementAndGet();
+        this.discountPolicy = discountPolicy;
     }
 
-    public DiscountOrPolicy(DiscountPred discountPred) {
+    public DiscountOrPolicy(DiscountPred discountPred,DiscountPolicy discountPolicy) {
         this.discountPreds = new ArrayList<>();
         this.discountPreds.add(discountPred);
+        this.connectId = atomicconnectId.incrementAndGet();
+        this.discountPolicy = discountPolicy;
     }
 
     @Override
-    public boolean validateDiscount(Basket basket){
+    public double calculateDiscount(Basket basket){
         for(DiscountPred discountPred: discountPreds)
         {
             if(discountPred.validateDiscount(basket))
-                return true;
+                return discountPolicy.calculateDiscount(basket);
         }
-        return false;
+        return 0;
     }
 
 
-    @Override
     public void add(DiscountPred discountPred) {
         discountPreds.add(discountPred);
     }
 
-    @Override
     public boolean remove(DiscountPred discountPred) {
         return discountPreds.remove(discountPred);
     }

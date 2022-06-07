@@ -3,6 +3,7 @@ package BusinessLayer.Shops.Polices.Discount;
 import BusinessLayer.Users.Basket;
 
 public class ValidateProductQuantityDiscount implements  DiscountPred{
+    private int ruleId;
 
     private int productId;
     private int productQuantity;
@@ -14,6 +15,7 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
         this.productId = productId;
         this.productQuantity = productQuantity;
         this.cantbemore = cantbemore;
+        this.ruleId = atomicRuleID.incrementAndGet();
     }
 
     @Override

@@ -5,11 +5,13 @@ import BusinessLayer.Users.Basket;
 import java.util.Collection;
 
 public class ValidateBasketQuantityDiscount implements DiscountPred{
+    private int ruleId;
 
     private int basketquantity;
 
     public ValidateBasketQuantityDiscount(int basketquantity) {
         this.basketquantity = basketquantity;
+        this.ruleId = atomicRuleID.incrementAndGet();
     }
 
     @Override

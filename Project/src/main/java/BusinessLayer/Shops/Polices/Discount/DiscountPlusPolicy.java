@@ -7,17 +7,19 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class DiscountPlusPolicy implements NumericDiscountRules{
-
+    private int connectId;
     Collection<DiscountRules> discountPolicies;
 
     public DiscountPlusPolicy(Collection<DiscountRules> discountPolicies) {
         this.discountPolicies = new ArrayList<>();
         this.discountPolicies.addAll(discountPolicies);
+        this.connectId = atomicconnectId.incrementAndGet();
     }
 
     public DiscountPlusPolicy(DiscountRules discountPolicy) {
         this.discountPolicies = new ArrayList<>();
         this.discountPolicies.add(discountPolicy);
+        this.connectId = atomicconnectId.incrementAndGet();
     }
 
     @Override
