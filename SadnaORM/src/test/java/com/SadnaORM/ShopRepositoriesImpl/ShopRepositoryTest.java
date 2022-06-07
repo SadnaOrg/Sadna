@@ -6,12 +6,9 @@ import com.SadnaORM.ShopRepositories.ShopRepository;
 import com.SadnaORM.Shops.Product;
 import com.SadnaORM.Shops.PurchaseHistory;
 import com.SadnaORM.Shops.Shop;
-import com.SadnaORM.UserRepositories.*;
+import com.SadnaORM.UserRepositories.BasketRepository;
+import com.SadnaORM.UserRepositories.SubscribedUserRepository;
 import com.SadnaORM.Users.*;
-import org.hibernate.HibernateError;
-import org.hibernate.HibernateException;
-import org.hibernate.JDBCException;
-import org.hibernate.TransientPropertyValueException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,12 +16,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.TransactionSystemException;
 
-import javax.persistence.PersistenceException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -43,7 +37,7 @@ public class ShopRepositoryTest {
     private PurchaseHistoryRepository purchaseHistoryRepository;
 
     @Autowired
-    private BasketRepositroy basketRepository;
+    private BasketRepository basketRepository;
 
     private int productCounter;
     private Random rand = new Random();

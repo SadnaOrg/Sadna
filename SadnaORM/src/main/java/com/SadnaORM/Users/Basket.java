@@ -1,9 +1,11 @@
 package com.SadnaORM.Users;
 
 import com.SadnaORM.Shops.Shop;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 @Entity
@@ -11,11 +13,13 @@ import java.util.Map;
 @IdClass(Basket.BasketPKID.class)
 public class Basket {
     @Id
-    @ManyToOne
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shopID")
     private Shop shop;
     @Id
-    @ManyToOne
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "username")
     private SubscribedUser user;
 
@@ -43,6 +47,11 @@ public class Basket {
     public Basket(Shop shop, SubscribedUser user){
         this.shop = shop;
         this.user = user;
+        this.products = new HashMap<>();
+    }
+
+    public void setProducts(Map<Integer, Integer> products) {
+        this.products = products;
     }
 
     public Shop getShop() {
