@@ -48,9 +48,7 @@ import static com.example.application.Header.SessionData.save;
 
 @Route("Guest")
 public class GuestActionView extends Header {
-    Tabs tabs;
     UserService service;
-
     String currUser;
 
     public GuestActionView() {
@@ -183,11 +181,5 @@ public class GuestActionView extends Header {
         Grid<Shop> grid = new Grid<>(Shop.class, false);
         grid.addColumn(Shop::shopName).setHeader("Shop Name");
         return grid;
-    }
-
-    private void addTabWithClickEvent(String name, DomEventListener listener) {
-        Tab tab = new Tab(name);
-        tab.getElement().addEventListener("click", listener);
-        tabs.add(tab);
     }
 }
