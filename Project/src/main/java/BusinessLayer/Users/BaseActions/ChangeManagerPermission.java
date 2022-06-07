@@ -28,7 +28,7 @@ public class ChangeManagerPermission extends BaseAction {
         if (!(owner instanceof ShopOwner))
             throw new IllegalStateException("only owners can change managers permissions!");
 
-        ConcurrentLinkedDeque<ShopAdministrator> appoints = owner.getAppoints();
+        Collection<ShopAdministrator> appoints = owner.getAppoints();
         if (!appoints.contains(admin))
             throw new NoPermissionException("can't change permissions of someone you did appoint!");
 
