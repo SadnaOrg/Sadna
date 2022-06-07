@@ -6,6 +6,7 @@ import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Shops.Shop;
 
+import java.util.Collection;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
@@ -44,7 +45,7 @@ public class RemoveAdmin extends BaseAction{
                 if(((ShopOwner) admin).isFounder())
                     throw new IllegalStateException("cant remove the founder!");
                 removeAdminAppointment(toRemove);
-                removeOwnerAppointments((ShopOwner)admin);
+                removeOwnerAppointments(admin);
                 return true;
             }
             else throw new IllegalStateException("have to remove manager or owner!");
@@ -56,17 +57,11 @@ public class RemoveAdmin extends BaseAction{
         toRemove.removeMyRole(shop.getId()); // remove from user
     }
 
-    private void removeOwnerAppointments(ShopOwner owner) {
-        ConcurrentLinkedDeque<ShopAdministrator>appoints = owner.getAppoints();
-        for (ShopAdministrator admin:
-             appoints) {
-            if(admin instanceof ShopManager){
-                removeAdminAppointment(admin.getSubscribed()); // simply remove
-            }
-            else if(admin instanceof ShopOwner owner1){
-                removeAdminAppointment(owner1.getSubscribed()); // remove the owner itself
-                removeOwnerAppointments(owner1); // remove everyone he has appointed
-            }
+    private void removeOwnerAppointments(ShopAdministrator owner) {
+        Collection<ShopAdministrator> appoints = owner.getAppoints();
+        for (ShopAdministrator admin: appoints) {
+            removeAdminAppointment(admin.getSubscribed()); // simply remove
+            removeOwnerAppointments(admin); // remove everyone he has appointed
         }
     }
 
