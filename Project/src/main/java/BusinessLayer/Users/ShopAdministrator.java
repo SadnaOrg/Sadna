@@ -134,7 +134,7 @@ public class ShopAdministrator{
     }
 
     public boolean checkForCycles(ShopAdministrator sa1) {
-        ConcurrentLinkedDeque<ShopAdministrator> pool = sa1.getAppoints();
+        Collection<ShopAdministrator> pool = sa1.getAppoints();
         int size = pool.size();
         while (true){
             for (ShopAdministrator admin:
@@ -149,7 +149,7 @@ public class ShopAdministrator{
         }
     }
 
-    public ConcurrentLinkedDeque<ShopAdministrator> getAppoints() {
+    public Collection<ShopAdministrator> getAppoints() {
         return this.appoints;
     }
 
