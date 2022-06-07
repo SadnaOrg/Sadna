@@ -57,10 +57,15 @@ public class SubscribedUserView extends GuestActionView {
             if(service == null)
                 throw new IllegalStateException();
         }
-        catch(Exception e){
+        catch(Exception e) {
             UI.getCurrent().getPage().getHistory().go(-1);
             return;
         }
+        logoutButton.addClickListener(e -> {
+            service.logout();
+            save("user-name", null);
+            UI.getCurrent().navigate(MainView.class);
+        });
         createOpenShop();
         createTabs();
     }
