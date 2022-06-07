@@ -6,22 +6,15 @@ import BusinessLayer.Users.UserController;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class ConcreteNotification implements Notification {
+public class ConcreteNotification implements Notification {
     private Collection<String> usernames;
     private String content;
-    public ConcreteNotification(String content){
-        usernames = new ArrayList<>();
+    public ConcreteNotification( Collection<String> usernames, String content){
+        this.usernames = usernames;
         this.content = content;
     }
 
-    @Override
-    public boolean notifyUser(String username) {
-        if(UserController.getInstance().getUser(username).isLoggedIn()){
-            //TODO: notify user
-            usernames.remove(username);
-        }
-        return false;
-    }
+
 
     @Override
     public boolean contains(String username) {

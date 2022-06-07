@@ -39,7 +39,7 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     }
     @Override
     public Response<List<SubscribedUserInfo>> getAllSubscribedUserInfo(){
-        return ifUserNotNullRes(()-> UserController.getInstance().getSubscribedUserInfo(currUser.getUserName()).entrySet().stream().map(SubscribedUserInfo::new).collect(Collectors.toList()),"get subscribed user info");
+        return ifUserNotNullRes(()-> facade.getSubscribedUserInfo(currUser.getUserName()).entrySet().stream().map(SubscribedUserInfo::new).collect(Collectors.toList()),"get subscribed user info");
     }
 
     protected void setCurrUser(SystemManager currUser) {
@@ -49,7 +49,7 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
 
     @Override
     public Result removeSubscribedUserFromSystem(String userToRemove){
-        return ifUserNotNull(()->currUser.removeSubscribedUser(userToRemove),"removed "+ userToRemove +" from system");
+        return ifUserNotNull(()->facade.removeSubscribedUserFromSystem(currUser,userToRemove),"removed "+ userToRemove +" from system");
     }
 
 

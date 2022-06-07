@@ -1,5 +1,7 @@
 package BusinessLayer;
 
+import BusinessLayer.Notifications.ConcreteNotification;
+import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.*;
@@ -12,6 +14,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class Facade{
     private final UserController userController = UserController.getInstance();
@@ -125,8 +128,14 @@ public class Facade{
         return  userController.getShopsAndUsersInfo(currUser);
     }
 
-    public void RegisterToNotifier(){
-
+    public void RegisterToNotifier(String userName, Function<Notification, Boolean> con){
+        system.getNotifier().register(con,userName);
+    }
+    public void sendNotification(Collection<String> users, String Content){
+        system.getNotifier().addNotification(new ConcreteNotification(users,Content));
+    }
+    public void sendNotification(Notification not){
+        system.getNotifier().addNotification(not);
     }
 
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {

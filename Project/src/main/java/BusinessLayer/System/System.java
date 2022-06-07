@@ -45,7 +45,8 @@ public class System {
     }
 
 
-    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method){
+
+
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
     private static ShopController sc = ShopController.getInstance();
     private static Shop s1;
