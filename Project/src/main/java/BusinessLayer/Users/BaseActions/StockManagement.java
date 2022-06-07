@@ -22,8 +22,6 @@ public class StockManagement extends BaseAction {
         product.setDescription(desc);
         product.setManufacturer(manufacturer);
         shop.addProduct(product);
-        ProductMapper TEMP = new ProductMapper();
-        TEMP.save(product);
         return product;
     }
 
