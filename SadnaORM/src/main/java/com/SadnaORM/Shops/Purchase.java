@@ -22,10 +22,50 @@ public class Purchase {
     @JoinColumn(name = "shopID")
     private Shop shop;
 
+    public Purchase(int transactionid, Collection<ProductInfo> productInfos, String dateOfPurchase, Shop shop, SubscribedUser user) {
+        this.transactionid = transactionid;
+        this.productInfos = productInfos;
+        this.dateOfPurchase = dateOfPurchase;
+        this.shop = shop;
+        this.user = user;
+    }
+
     @ManyToOne
     @JoinColumn(name = "username")
     private SubscribedUser user;
 
     public Purchase() {
+    }
+
+    public Collection<ProductInfo> getProductInfos() {
+        return productInfos;
+    }
+
+    public void setProductInfos(Collection<ProductInfo> productInfos) {
+        this.productInfos = productInfos;
+    }
+
+    public String getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public void setDateOfPurchase(String dateOfPurchase) {
+        this.dateOfPurchase = dateOfPurchase;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public SubscribedUser getUser() {
+        return user;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
     }
 }

@@ -1,5 +1,6 @@
 package BusinessLayer.Users.BaseActions;
 
+import BusinessLayer.Mappers.ProductMapper;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Shop;
 
