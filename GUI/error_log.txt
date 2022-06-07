@@ -1,4 +1,16 @@
-Jun 02, 2022 7:06:38 PM ServiceLayer.Log error
+Jun 07, 2022 10:39:41 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 02, 2022 7:06:50 PM ServiceLayer.Log error
+Jun 07, 2022 10:39:54 PM ServiceLayer.Log error
+SEVERE: login : incorrect user name or password
+Jun 07, 2022 10:39:56 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
+Jun 07, 2022 10:40:01 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 07, 2022 10:40:17 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the shop
+Jun 07, 2022 10:40:17 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the shop
+Jun 07, 2022 10:40:17 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the shop
+Jun 07, 2022 10:40:54 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the shop
