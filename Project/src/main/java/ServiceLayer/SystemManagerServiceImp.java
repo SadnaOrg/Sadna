@@ -21,7 +21,6 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     @Override
     public Response<PurchaseHistoryInfo> getShopsAndUsersInfo(int shop, String userName) {
         return ifUserNotNullRes(() -> new PurchaseHistoryInfo(facade.getShopsAndUsersInfo(currUser, shop, userName)), "get shops and users info succeeded");
-
     }
 
     @Override
@@ -47,6 +46,7 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
         super.setCurrUser(currUser);
         this.currUser = currUser;
     }
+
     @Override
     public Result removeSubscribedUserFromSystem(String userToRemove){
         return ifUserNotNull(()->currUser.removeSubscribedUser(userToRemove),"removed "+ userToRemove +" from system");
@@ -54,7 +54,7 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
 
 
     private Result ifUserNotNull(MySupplier<Boolean> s, String eventName) {
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn() && s.get()), eventName, "log in to the system first as a subscribed user");
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn() && s.get()), eventName, "log in to the system first as a subscribed user");
     }
 
     private Result ifUserNull(MySupplier<Boolean> s, String eventName) {
