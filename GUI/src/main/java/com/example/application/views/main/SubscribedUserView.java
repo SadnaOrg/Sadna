@@ -31,9 +31,8 @@ import static com.example.application.Utility.*;
 @Route("SubscribedUser")
 public class SubscribedUserView extends Header {
     protected String currUser;
-    protected final SubscribedUserService subscribedUserService;
+    protected SubscribedUserService service;
 
-    private VerticalLayout openShopLayout = new VerticalLayout();
     private final Dialog dialog = new Dialog();
     private Button logoutButton;
     private Grid<Shop> shops;
@@ -53,31 +52,46 @@ public class SubscribedUserView extends Header {
 
 
     public SubscribedUserView() {
-        subscribedUserService = (SubscribedUserService)Load("subscribed-user-service");
+        service = null;
+        try {
+            service = (SubscribedUserService) Load("service");
+            if(service == null)
+                throw new IllegalStateException();
+        }
+        catch(Exception e){
+            UI.getCurrent().getPage().getHistory().go(-1);
+            return;
+        }
         logoutButton = new Button("Logout", e -> {
-            var service = subscribedUserService.logout();
+            var service = this.service.logout();
 
             if (service.isOk()) {
                 save("user-name", null);
-                save("subscribed-user-service",service.getElement());
+                save("service",service.getElement());
                 UI.getCurrent().navigate(MainView.class);
             }
         });
         logoutButton.getStyle().set("margin-left", "auto");
         addToNavbar(logoutButton);
+        createOpenShop();
+        createTabs();
+    }
+
+    private void createOpenShop() {
+        content.removeAll();
         createDialogLayout();
         createOpenShopButton();
         createShopGrid();
         createProductGrid();
-        createTabs();
         shops.addItemClickListener(e -> itemClicked(e.getItem()));
-        content.add(openShopLayout, shops);
+        content.add(shops);
+        setContent(content);
     }
 
     private void createOpenShopButton() {
         Button openShopMenu = new Button("Open Shop", e -> dialog.open());
         openShopMenu.setWidthFull();
-        openShopLayout.add(openShopMenu);
+        content.add(openShopMenu);
     }
 
     private void setEditorComponent() {
@@ -90,7 +104,7 @@ public class SubscribedUserView extends Header {
         nameField.setWidthFull();
         binder.forField(nameField)
                 .bind(Product::name, (product, name) -> {
-                    subscribedUserService.updateProductName(product.shopId(), product.productID(), name);
+                    service.updateProductName(product.shopId(), product.productID(), name);
                     ID.set(product.shopId());
                 });
         nameColumn.setEditorComponent(nameField);
@@ -98,21 +112,21 @@ public class SubscribedUserView extends Header {
         TextField descriptionField = new TextField("Description");
         descriptionField.setWidthFull();
         binder.forField(descriptionField)
-                .bind(Product::description, (product, description) -> subscribedUserService.updateProductDescription(product.shopId(), product.productID(), description));
+                .bind(Product::description, (product, description) -> service.updateProductDescription(product.shopId(), product.productID(), description));
         descriptionColumn.setEditorComponent(descriptionField);
 
         NumberField quantityField = new NumberField("Quantity");
         quantityField.setMin(0);
         quantityField.setWidthFull();
         binder.forField(quantityField)
-                .bind((product) -> (double) product.quantity(), (product, quantity) -> subscribedUserService.updateProductQuantity(product.shopId(), product.productID(), quantity.intValue()));
+                .bind((product) -> (double) product.quantity(), (product, quantity) -> service.updateProductQuantity(product.shopId(), product.productID(), quantity.intValue()));
         quantityColumn.setEditorComponent(quantityField);
 
         NumberField priceField = new NumberField("Price");
         priceField.setMin(0);
         priceField.setWidthFull();
         binder.forField(priceField)
-                .bind(Product::price, (product, price) -> subscribedUserService.updateProductPrice(product.shopId(), product.productID(), price));
+                .bind(Product::price, (product, price) -> service.updateProductPrice(product.shopId(), product.productID(), price));
         priceColumn.setEditorComponent(priceField);
 
         Button saveButton = new Button(VaadinIcon.CHECK.create(), e -> {
@@ -133,7 +147,7 @@ public class SubscribedUserView extends Header {
         NumberField quantity = new NumberField("Quantity");
         NumberField price = new NumberField("Price");
         Button add = new Button("Add", e -> {
-            Result res = subscribedUserService.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
+            Result res = service.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
             itemsSize += 1;
             if (res.isOk()) {
                 updateProductGrid(item.shopId());
@@ -161,7 +175,7 @@ public class SubscribedUserView extends Header {
         priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
         closeColumn = shopProducts.addComponentColumn(item -> {
             return new Button(VaadinIcon.CLOSE.create(), e -> {
-                Result res = subscribedUserService.deleteProductFromShop(item.shopId(), item.productID());
+                Result res = service.deleteProductFromShop(item.shopId(), item.productID());
                 if (res.isOk()) {
                     updateProductGrid(item.shopId());
                     notifySuccess("Product Removed Successfully!");
@@ -182,7 +196,7 @@ public class SubscribedUserView extends Header {
     private void updateProductGrid(int shopID) {
         Predicate<Shop> shopPredicate = shop -> shop.shopId() == shopID;
         Predicate<Product> productPredicate = product -> true;
-        Collection<Product> products = getProducts(subscribedUserService.searchProducts(shopPredicate, productPredicate).getElement());
+        Collection<Product> products = getProducts(service.searchProducts(shopPredicate, productPredicate).getElement());
         shopProducts.setItems(products);
     }
 
@@ -195,11 +209,12 @@ public class SubscribedUserView extends Header {
     }
 
     private void updateGrid() {
-        Collection<Shop> shopItems = subscribedUserService.receiveInformation().getElement().shops();
+        Collection<Shop> shopItems = service.receiveInformation().getElement().shops();
         shops.setItems(shopItems);
     }
 
     private void createDialogLayout() {
+        dialog.removeAll();
         dialog.setCloseOnEsc(true);
         dialog.setDraggable(true);
         dialog.setSizeFull();
@@ -212,7 +227,7 @@ public class SubscribedUserView extends Header {
         dialogLayout.setFlexGrow(4, shopDescription);
         Button openShopButton = new Button("Open Shop", e -> {
             if (!shopName.isInvalid() && !shopDescription.isInvalid()) {
-                if (subscribedUserService.openShop(shopName.getValue(), shopDescription.getValue()).isOk())
+                if (service.openShop(shopName.getValue(), shopDescription.getValue()).isOk())
                     updateGrid();
                 dialog.close();
             }
@@ -223,6 +238,9 @@ public class SubscribedUserView extends Header {
     }
 
     private void createTabs(){
-        addTabWithClickEvent("Open Shop", e -> getContent());
+        addTabWithClickEvent("Open Shop", e -> createOpenShop());
+        tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
+        tabs.setOrientation(Tabs.Orientation.VERTICAL);
+        addToDrawer(tabs);
     }
 }

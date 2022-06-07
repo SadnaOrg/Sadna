@@ -31,10 +31,6 @@ public class MainView extends Header {
         }
     });
 
-    private final Button systemManagerButton = new Button("Continue as System Manager", e-> {
-        SystemManagerService service = new SystemManagerServiceImp(new SystemManager("admin", "admin"));
-    });
-
     public MainView() {
         //initialize server!!!
         save("service", service);

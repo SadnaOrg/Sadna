@@ -1,7 +1,6 @@
 package com.example.application.views.main;
 
 import ServiceLayer.Objects.*;
-import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -10,28 +9,30 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.tabs.TabsVariant;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.router.Route;
 
 import java.util.List;
 
-import static com.example.application.Header.SessionData.Load;
-import static com.example.application.Header.SessionData.save;
 import static com.example.application.Utility.notifyError;
 import static com.example.application.Utility.notifySuccess;
 
 @Route("SystemManager")
 public class SystemManagerView extends SubscribedUserView {
     SystemManagerService systemManagerService;
-
     public SystemManagerView() {
         super();
-        var manager = subscribedUserService.manageSystemAsSystemManager();
-        if(!manager.isOk()){
-            UI.getCurrent().navigate(SubscribedUserView.class);
+        try {
+            var manager = service.manageSystemAsSystemManager();
+            if (!manager.isOk()) {
+                throw new IllegalStateException();
+            }
+            systemManagerService = manager.getElement();
         }
-        systemManagerService = manager.getElement();
+        catch (Exception e){
+            UI.getCurrent().getPage().getHistory().go(-1);
+            return;
+        }
         createTabs();
     }
 
@@ -39,9 +40,6 @@ public class SystemManagerView extends SubscribedUserView {
         addTabWithClickEvent("Shop Info", this::shopInfoEvent);
         addTabWithClickEvent("Manage Subscribed Users", this::subscribedUsersEvent);
         addTabWithClickEvent("View All Users Info", this::userInfoEvent);
-        tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
-        tabs.setOrientation(Tabs.Orientation.VERTICAL);
-        addToDrawer(tabs);
     }
 
     private void userInfoEvent(DomEvent domEvent) {
@@ -86,7 +84,7 @@ public class SystemManagerView extends SubscribedUserView {
     }
 
     private void shopInfoEvent(DomEvent domEvent) {
-        PurchaseHistoryForm form = new PurchaseHistoryForm();
+        PurchaseHistoryForm form = new PurchaseHistoryForm(systemManagerService);
         setContent(form);
     }
 }

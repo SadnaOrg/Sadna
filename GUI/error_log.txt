@@ -1,28 +1,16 @@
-Jun 06, 2022 9:56:33 PM ServiceLayer.Log error
+Jun 07, 2022 6:26:07 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 06, 2022 9:56:37 PM ServiceLayer.Log error
+Jun 07, 2022 6:26:09 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 06, 2022 9:56:40 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 06, 2022 9:56:43 PM ServiceLayer.Log error
+Jun 07, 2022 6:26:29 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 06, 2022 9:56:47 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 06, 2022 9:56:54 PM ServiceLayer.Log error
+Jun 07, 2022 6:26:31 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 06, 2022 9:56:57 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 06, 2022 9:57:14 PM ServiceLayer.Log error
+Jun 07, 2022 6:26:36 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 06, 2022 9:57:17 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 06, 2022 9:57:19 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 06, 2022 9:57:41 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 06, 2022 9:57:45 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 06, 2022 9:57:57 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 06, 2022 9:58:01 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: user is allready logged in
+Jun 07, 2022 6:26:44 PM ServiceLayer.Log error
+SEVERE: switch to system manager name: log in to the system first as a subscribed user
+Jun 07, 2022 6:26:47 PM ServiceLayer.Log error
+SEVERE: switch to system manager name: log in to the system first as a subscribed user
+Jun 07, 2022 6:26:59 PM ServiceLayer.Log error
+SEVERE: switch to system manager name: log in to the system first as a subscribed user

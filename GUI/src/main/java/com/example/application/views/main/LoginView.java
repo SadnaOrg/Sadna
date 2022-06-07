@@ -35,16 +35,13 @@ public class LoginView extends LoginOverlay {
                 notifySuccess("Login Succeeded!");
                 subscribedUserService = res.getElement();
                 var resManager = subscribedUserService.manageSystemAsSystemManager();
+                save("user-name", e.getUsername());
                 if(resManager.isOk()){
-                    SystemManagerService managerService = resManager.getElement();
-                    save("system-manager-service", managerService);
-                    save("user-name", e.getUsername());
-                    save("subscribed-user-service",subscribedUserService);
+                    save("service", resManager.getElement());
                     UI.getCurrent().navigate(SystemManagerView.class);
                 }
                 else {
-                    save("user-name", e.getUsername());
-                    save("subscribed-user-service", subscribedUserService);
+                    save("service", subscribedUserService);
                     UI.getCurrent().navigate(SubscribedUserView.class);
                 }
             }

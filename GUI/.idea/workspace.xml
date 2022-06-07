@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="Created Vaadin">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added add product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Header/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Header/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/frontend/versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/frontend/versions.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="160-buy-cart-page" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -42,8 +44,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/ServiceLayer/Objects/Shop.class" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/ServiceLayer/Objects/Shop.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/ServiceLayer/Objects/Shop.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,6 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in GUI" />
+        <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="Application.com.example.application.Application" />
@@ -171,7 +175,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

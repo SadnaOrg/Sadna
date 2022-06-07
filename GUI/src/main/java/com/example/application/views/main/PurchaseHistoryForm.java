@@ -3,6 +3,7 @@ package com.example.application.views.main;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.interfaces.SystemManagerService;
+import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.accordion.Accordion;
@@ -27,8 +28,8 @@ public class PurchaseHistoryForm extends Header {
     Button searchButton = new Button("Search Products");
     Accordion purchaseHistory = new Accordion();
 
-    public PurchaseHistoryForm() {
-        this.service = (SystemManagerService) Load("system-manager-service");
+    public PurchaseHistoryForm(SystemManagerService service) {
+        this.service = service;
         this.username = (String) Load("user-name");
         searchButton.setEnabled(true);
         searchButton.addClickListener(click -> searchPurchaseHistory());
