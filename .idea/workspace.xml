@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="Made hashmap threadsafe">
-      <change afterPath="$PROJECT_DIR$/SadnaORM/src/test/java/com/SadnaORM/SadnaORM/UserTests/BasketTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SadnaORM/src/test/java/com/SadnaORM/ShopRepositoriesImpl/DefaultDiscountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/SubscribedUserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/BasketRepositroy.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/UserRepositories/BasketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/Users/Basket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/test/java/com/SadnaORM/ShopRepositoriesImpl/ShopRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SadnaORM/src/test/java/com/SadnaORM/ShopRepositoriesImpl/ShopRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sadna.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sadna.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SadnaORM/out/artifacts/SadnaORM_jar/SadnaORM.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
