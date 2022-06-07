@@ -4,7 +4,6 @@ import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Map;
 
 @Entity
