@@ -2,72 +2,93 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge {
-
+public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge{
+    SubscribedUserAdapter subscribedUserAdapter;
+    public SubscribedUserProxy(UserProxy proxy){
+        super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed()));
+        subscribedUserAdapter = (SubscribedUserAdapter) super.adapter;
+    }
     @Override
-    public SubscribedUser login(int guestID, RegistrationInfo info) {
-        return null;
+    public Guest logout(String userName) {
+        return subscribedUserAdapter.logout(userName);
     }
 
     @Override
-    public Guest logout(int userID) {
-        return null;
+    public boolean updateProductQuantity(String username, int shopID, int productID, int newQuantity) {
+        return subscribedUserAdapter.updateProductQuantity(username,shopID,productID,newQuantity);
     }
 
     @Override
-    public boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice) {
-        return false;
+    public boolean updateProductPrice(String username, int shopID, int productID, double newPrice) {
+        return subscribedUserAdapter.updateProductPrice(username,shopID,productID,newPrice);
     }
 
     @Override
-    public boolean deleteProductFromShop(int userID, int shopID, int productID) {
-        return false;
+    public boolean updateProductDescription(String username, int shopID, int productID, String Desc) {
+        return subscribedUserAdapter.updateProductDescription(username,shopID,productID,Desc);
     }
 
     @Override
-    public boolean appointOwner(int shopID, int appointerID, int appointeeID) {
-        return false;
+    public boolean updateProductName(String username, int shopID, int productID, String newName) {
+        return subscribedUserAdapter.updateProductName(username,shopID,productID,newName);
     }
 
     @Override
-    public boolean appointManager(int shopID, int appointerID, int appointeeID) {
-        return false;
+    public boolean deleteProductFromShop(String username, int shopID, int productID) {
+        return subscribedUserAdapter.deleteProductFromShop(username,shopID,productID);
     }
 
     @Override
-    public boolean closeShop(int shopID, int userID) {
-        return false;
+    public boolean appointOwner(int shopID, String appointerName, String appointeeName) {
+        return subscribedUserAdapter.appointOwner(shopID,appointerName,appointeeName);
     }
 
     @Override
-    public boolean addManagerPermission(int shopiID, int giverID, int receiverID, String permission) {
-        return false;
+    public boolean appointManager(int shopID, String appointerName, String appointeeName) {
+        return subscribedUserAdapter.appointManager(shopID,appointerName,appointeeName);
     }
 
     @Override
-    public boolean addOwnerPermission(int shopiID, int giverID, int receiverID, String permission) {
-        return false;
+    public boolean closeShop(int shopID, String userName) {
+        return subscribedUserAdapter.closeShop(shopID,userName);
     }
 
     @Override
-    public Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID) {
-        return null;
+    public boolean changeAdminPermission(int shopID, String giverName, String receiverName, List<SubscribedUser.Permission> permission) {
+        return subscribedUserAdapter.changeAdminPermission(shopID,giverName,receiverName,permission);
     }
 
     @Override
-    public Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID) {
-        return null;
+    public Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID) {
+        return subscribedUserAdapter.getShopAppointments(requestingUsername,shopID);
     }
 
     @Override
-    public boolean addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price) {
-        return false;
+    public Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID) {
+        return subscribedUserAdapter.getShopPermissions(requestingUsername,shopID);
     }
+
     @Override
-    public Shop openShop(int userID, String name, String category) {
-        return null;
+    public boolean addProductToShop(String username, int shopID, Product product, int productID, int quantity, double price) {
+        return subscribedUserAdapter.addProductToShop(username,shopID,product,productID,quantity,price);
+    }
+
+    @Override
+    public Shop openShop(String username, String name, String desc) {
+        return subscribedUserAdapter.openShop(username,name,desc);
+    }
+
+    @Override
+    public boolean removeAdmin(int shopID, String requesting, String toRemove) {
+        return subscribedUserAdapter.removeAdmin(shopID,requesting,toRemove);
+    }
+
+    @Override
+    public boolean reOpenShop(String username, int shopID){
+        return subscribedUserAdapter.reOpenShop(username,shopID);
     }
 }

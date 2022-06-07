@@ -1,11 +1,7 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
-import BusinessLayer.Shops.ShopController;
-import BusinessLayer.System.System;
-import BusinessLayer.Users.BaseActions.BaseAction;
 
 import java.util.Collection;
 

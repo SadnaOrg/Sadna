@@ -2,16 +2,21 @@ package BusinessLayer.System;
 
 import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Notifications.Notifier;
+import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistoryController;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 public class System {
+
     private final Notifier notifier;
-    private ExternalServicesSystem externSystem;
+    private ExternalServicesSystem externSystem = new ExternalServicesSystem();
     private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
 
@@ -21,6 +26,9 @@ public class System {
 
     static private class SystemHolder{
         static final System s = new System();
+        static {
+            s.initialize();
+        }
     }
 
     public static System getInstance()
@@ -33,9 +41,44 @@ public class System {
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
+        //setUp();
     }
 
+
     public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method){
+    private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
+    private static ShopController sc = ShopController.getInstance();
+    private static Shop s1;
+    private static SubscribedUser buyer = new SubscribedUser("buyer", "I am also not Guy Kishon");
+    private static final int shopId = 1200;
+    private static final int otherShopId = 12930;
+    private static Product p1 = new Product(12090, "pord", 156.2, 45);
+    private static Basket basket = new Basket(shopId);
+    private static UserController uc = UserController.getInstance();
+    private static boolean flag = false;
+    public static void setUp(){
+        if(!flag) {
+            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
+            uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
+            s1 = new Shop(shopId, "name of shop","testing shop", buyer);
+            s1.addProduct(p1);
+            basket.saveProducts(p1.getID(), 23, p1.getPrice());
+            s1.addBasket(buyer.getUserName(), basket);
+            sc.addShop(s1);
+            sc.addToPurchaseHistory(buyer.getUserName(), createPayments());
+            phc.createPurchaseHistory(s1, buyer.getUserName());
+        }
+        flag = true;
+    }
+
+    public static ConcurrentHashMap<Integer, Boolean> createPayments() {
+        ConcurrentHashMap<Integer, Boolean> payments = new ConcurrentHashMap<>();
+        payments.put(shopId, true);
+        return payments;
+    }
+
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
+    {
         ConcurrentHashMap<Integer,Boolean> paymentSituation= new ConcurrentHashMap<>();
         for(int shopId: totalPrices.keySet())
         {

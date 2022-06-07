@@ -4,13 +4,18 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+
 import static org.mockito.Mockito.*;
 
 public class ShopControllerUnitTest {
@@ -65,7 +70,8 @@ public class ShopControllerUnitTest {
     @Test
     public void purchaseBasket() {
         when(s1.addBasket(userName, basket)).thenReturn(true);
-        when(s1.purchaseBasket(userName)).thenReturn(50.0);
+        when(s1.checkIfcanBuy(userName)).thenReturn(50.0);
+        when(s1.checkIfUserHasBasket(userName)).thenReturn(true);
         sc.AddBasket(shopID, userName, basket);
         Assert.assertEquals(50.0, sc.purchaseBasket(userName).get(shopID), 0.0);
     }

@@ -1,18 +1,24 @@
 package BusinessLayer.Shops;
+
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Users.*;
-import org.junit.*;
+import BusinessLayer.Users.Basket;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.User;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
-import java.util.Random;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 public class ShopUnitTest {
 
     private Shop s1;
@@ -30,7 +36,7 @@ public class ShopUnitTest {
     @Mock
     private Product p5;
     @Mock
-    private  User u1;
+    private User u1;
     @Mock
     private  User u2;
     @Mock
@@ -50,7 +56,7 @@ public class ShopUnitTest {
     @Before
     public void setUp() {
         when(founder.getName()).thenReturn("Meir");
-        s1 = new Shop(100, "shop", founder);
+        s1 = new Shop(100, "shop","testing", founder);
         when(p1.getID()).thenReturn(1);
         when(p1.getName()).thenReturn("a");
         when(p1.getPrice()).thenReturn(5.0);
@@ -460,8 +466,8 @@ public class ShopUnitTest {
         s1.addProduct(p1);
         s1.addProduct(p2);
         when(b2.getShopid()).thenReturn(s1.getId());
-        b1.saveProducts(p1.getID(),10);
-        b1.saveProducts(p2.getID(),50);
+        b1.saveProducts(p1.getID(),10, p1.getPrice());
+        b1.saveProducts(p2.getID(),50,p1.getPrice());
         ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
         map.put(p1.getID(),10);
         map.put(p2.getID(),50);

@@ -10,25 +10,28 @@ public interface UserBridge {
 
     Guest visit();
 
-    SubscribedUser register(int guestID, RegistrationInfo info);
+    SubscribedUser login(String guestName,RegistrationInfo info);
 
-    boolean exit(int userID);
+    boolean register(String guestname,RegistrationInfo info);
 
-    List<Shop> getShopsInfo(ShopFilter shopFilter);
+    boolean exit(String username);
 
-    List<ProductInShop> searchShopProducts(int shopID);
+    List<Shop> getShopsInfo(String username,ShopFilter shopFilter);
 
-    List<ProductInShop> searchProducts(ProductFilter productFilter);
+    List<ProductInShop> searchShopProducts(String username,int shopID);
 
-    List<ProductInShop> filterShopProducts(int shopID,ProductFilter productFilter);
+    List<ProductInShop> searchProducts(String username,ProductFilter productFilter);
 
-    boolean addProductToCart(int userID,int shopID,int productID, int quantity);
+    List<ProductInShop> filterShopProducts(String username,int shopID,ProductFilter productFilter);
 
-    ShoppingCart checkCart(int userID);
+    boolean addProductToCart(String username,int shopID,int productID, int quantity);
 
-    boolean updateCart(int userID,int[] productsIDS, int[] shopsIDS,int[] quantities);
+    ShoppingCart checkCart(String username);
 
-    boolean purchaseCart(int userID);
+    boolean updateCart(String username,int productsID, int shopsID,int quantity);
 
-    ProductInShop searchProductInShop(int productID, int shopID);
+    boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear);
+
+    ProductInShop searchProductInShop(String username,int productID, int shopID);
+
 }

@@ -2,19 +2,27 @@ package ServiceLayer;
 
 import BusinessLayer.Facade;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Users.User;
 import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.System.PaymentMethod;
-import BusinessLayer.Users.*;
-import ServiceLayer.Objects.Cart;
-import ServiceLayer.Objects.ShopsInfo;
+import ServiceLayer.Objects.*;;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class UserServiceImp implements UserService {
     protected User currUser;
     protected Facade facade = Facade.getInstance();
+
+    protected UserServiceImp(BusinessLayer.Users.User logged){
+        currUser = logged;
+    }
+
+    public UserServiceImp(){
+        currUser = null;
+    }
 
     @Override
     public Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear) {
@@ -34,7 +42,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result removeProduct(int shopId, int productId) {
-        return ifUserNotNull(()-> facade.removeproduct(currUser,shopId,productId),"product removed ");
+        return ifUserNotNull(()-> facade.removeProduct(shopId,productId,currUser),"product removed ");
     }
 
     @Override
@@ -49,7 +57,7 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result loginSystem() {
-        return ifUserNull(()->facade.loginSystem(),"login to system");
+        return ifUserNull(()->setUser(),"login to system");
     }
 
     @Override
@@ -59,7 +67,9 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Result registerToSystem(String userName, String password){
-            return Result.tryMakeResult(()-> facade.registerToSystem(userName,password),"register to system succeeded","error in register");
+            if (currUser != null)
+                return Response.tryMakeResult(()-> facade.registerToSystem(userName,password),"register to system succeeded","error in register");
+            return Result.makeResult(false, "have to use the system to register!");
     }
 
     @Override
@@ -68,15 +78,14 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Result logout(String username) {
-        return Result.tryMakeResult(()-> facade.logout(username),"logout " ,"incorrect user name or password");
+    public Response<ShopsInfo> searchProducts(Predicate<Shop> shopPred, Predicate<Product> productPred){
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchProducts((s)-> s.isOpen() && shopPred.test(new Shop(s)),(p)->productPred.test(new Product(p)))),"search products succeeded");
     }
 
     @Override
-    public Response<ShopsInfo> searchProducts(ShopFilters shopPred, ProductFilters productPred){
-        return ifUserNotNullRes(()->new ShopsInfo(facade.searchProducts(shopPred,productPred)),"search products succeeded");
+    public Response<ServiceLayer.Objects.User> getUserInfo(){
+        return ifUserNotNullRes(()-> new ServiceLayer.Objects.User(currUser),"user details lookup");
     }
-
 
     private Result ifUserNotNull(Supplier<Boolean> s, String eventName){
         return Result.tryMakeResult((() -> currUser != null && s.get()) ,eventName,"log in to system first");
@@ -94,5 +103,9 @@ public class UserServiceImp implements UserService {
         return Response.tryMakeResponse((() -> currUser != null ? null:  s.get()),  eventName,"logout from system first");
     }
 
+    private boolean setUser(){
+        currUser = facade.loginSystem();
+        return true;
+    }
 
 }

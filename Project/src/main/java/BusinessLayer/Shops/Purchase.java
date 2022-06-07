@@ -2,12 +2,14 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Users.Basket;
 
+
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Purchase {
     int transectionid;
     ConcurrentHashMap<Integer , Integer> infoProducts;
+    ConcurrentHashMap<Integer,Double> productPrices;
     Date dateOfPurchase;
     int shopid;
     String user;
@@ -16,9 +18,11 @@ public class Purchase {
     {
         this.transectionid= transactionid;
         this.infoProducts =new ConcurrentHashMap<>();
+        this.productPrices = new ConcurrentHashMap<>();
         for (int productid: info.getProducts().keySet())
         {
             this.infoProducts.put(productid,info.getProducts().get(productid));
+            this.productPrices.put(productid,info.getPrices().get(productid));
         }
         this.dateOfPurchase= new Date();
         this.user= user;
@@ -44,4 +48,6 @@ public class Purchase {
     public String getUser() {
         return user;
     }
+
+    public ConcurrentHashMap<Integer, Double> getProductPrices(){return this.productPrices;}
 }

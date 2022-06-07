@@ -19,7 +19,7 @@ public class UserTest {
         s1 = createShopWithProduct();
         u1 = createUser();
         assertSame("Yuval", u1.getUserName());
-        u1.saveProducts(s1.getId(), p1.getID(), quantity);
+        u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice());
         assertSame(u1.getProducts(s1.getId()).get(p1.getID()), quantity);
     }
 
@@ -32,7 +32,7 @@ public class UserTest {
     public void testSaveProductsFail() {
         //saving a second time
         try {
-            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity));
+            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice()));
         }
         catch(Exception ignored) {
             assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));
@@ -42,7 +42,7 @@ public class UserTest {
     @Test
     public void testRemoveProductSuccess() {
         assertTrue(u1.removeProduct(s1.getId(),p1.getID()));
-        assertFalse(u1.getProducts(s1.getId()).containsKey(p1.getID()));
+        assertNull(u1.getProducts(s1.getId()));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class UserTest {
     }
 
     private Shop createShop() {
-        return new Shop(100, "shop", founder);
+        return new Shop(100, "shop", "testing shop",founder);
     }
 
     private User createUser() {

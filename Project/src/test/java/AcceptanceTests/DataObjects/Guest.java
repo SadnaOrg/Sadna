@@ -1,12 +1,15 @@
 package AcceptanceTests.DataObjects;
 
+import java.util.LinkedList;
+
 public class Guest extends User {
 
-    public Guest(int ID){
-        this.ID = ID;
+    public Guest(String name){
+        this.name = name;
+        this.notifications = new LinkedList<>();
     }
 
-    public int getID() {
-        return ID;
+    public String getName() {
+        return this.name;
     }
 }

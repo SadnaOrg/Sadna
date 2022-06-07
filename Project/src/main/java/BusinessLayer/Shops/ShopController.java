@@ -6,10 +6,10 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
-import BusinessLayer.System.System;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -17,6 +17,40 @@ import java.util.stream.Collectors;
 public class ShopController {
 
 
+    public double getProductPrice(int shopId, int productId) {
+        Shop s = shops.getOrDefault(shopId,null);
+        if(s != null){
+            Product product = s.getProducts().getOrDefault(productId,null);
+            if (product != null)
+                return product.getPrice();
+            return -1;
+        }
+        return -1;
+    }
+
+    public void removeBaskets(List<Integer> IDs, String userName) {
+        for (int shopID:
+             IDs) {
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+            s.removeBasket(userName);
+        }
+    }
+
+    public void tryRemove(int shopID,String username,int newQuantity){
+        if(newQuantity != 0)
+            return;
+        if(checkIfUserHasBasket(shopID,username)){
+            Shop s = shops.getOrDefault(shopID,null);
+            if(s == null)
+                throw new IllegalStateException("no such shop!");
+
+            Basket b = s.getUsersBaskets().get(username);
+            if(b.getProducts().size() == 0)
+                s.removeBasket(username);
+        }
+    }
 
     static private class ShopControllerHolder {
         static final ShopController sc = new ShopController();
@@ -45,14 +79,17 @@ public class ShopController {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                finalprices.put(shopid, shops.get(shopid).purchaseBasket(user));
+                if(checkIfUserHasBasket(shopid,user))
+                    finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
             }
             catch (IllegalStateException e)
             {
                 //TODO: add notification when implemented
-                finalprices.put(shopid,0.0);
+                //finalprices.put(shopid,0.0);
             }
         }
+        if(finalprices.size() == 0)
+            throw new IllegalStateException("can't purchase an empty cart!");
         return finalprices;
     }
 
@@ -75,6 +112,7 @@ public class ShopController {
                     purchaseHistory.makePurchase();
                     shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
+                shops.get(shopid).purchaseBasket(user);
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
             }
@@ -83,7 +121,9 @@ public class ShopController {
     }
 
     public boolean checkIfUserHasBasket(int shopid, String user) {
-        return shops.get(shopid).checkIfUserHasBasket(user);
+        if(shops.containsKey(shopid))
+            return shops.get(shopid).checkIfUserHasBasket(user);
+        return false;
     }
 
     public boolean AddBasket(int shopid, String user, Basket basket) {
@@ -114,9 +154,12 @@ public class ShopController {
         return shopsInfo;
     }
 
-    public Shop openShop(SubscribedUser su, String name) {
+    public Shop openShop(SubscribedUser su, String name, String description) {
+//        List<String> names = shops.values().stream().map(Shop::getName).toList();
+//        if(names.contains(name))
+//            throw new IllegalStateException("there is a shop with that name!!!");
         int shopID = shops.size();
-        shops.put(shopID, new Shop(shopID, name, su));
+        shops.put(shopID, new Shop(shopID, name, description, su));
         return shops.get(shopID);
     }
 

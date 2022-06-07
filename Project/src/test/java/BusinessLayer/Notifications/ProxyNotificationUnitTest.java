@@ -1,7 +1,5 @@
 package BusinessLayer.Notifications;
 
-import BusinessLayer.Notifications.Notification;
-import BusinessLayer.Notifications.ProxyNotification;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;

@@ -7,6 +7,7 @@ public class Product {
     private int id;
     private String name;
     private String description;
+    private String manufacturer;
     private double price;
     private int quantity;
 
@@ -43,14 +44,25 @@ public class Product {
             quantity -= buyQuantity;
             return buyQuantity * price;
         }
-        return 0.0;
+        throw new IllegalStateException("Try to buy out of stock product from the shop");
+    }
+
+    public double checkIfCanBuy(int buyQuantity) {
+        if (quantity - buyQuantity >= 0) {
+            return buyQuantity * price;
+        }
+        throw new IllegalStateException("Try to buy out of stock product from the shop");
     }
 
     public void setPrice(double price) {
+        if(price < 0)
+            throw new IllegalArgumentException("a product can't have a negative price!");
         this.price = price;
     }
 
     public void setQuantity(int quantity) {
+        if(quantity < 0)
+            throw new IllegalArgumentException("product can't have a negative quantity!");
         this.quantity = quantity;
     }
 
@@ -60,5 +72,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String  getManufacturer() {
+        return this.manufacturer;
     }
 }

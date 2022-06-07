@@ -1,33 +1,50 @@
 package AcceptanceTests.DataObjects;
 
+import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SubscribedUser extends User{
-    public String username;
-    public String password;
-    public Map<Integer,Appointment> appointments;
-    public Map<Integer,List<String>> shopPermissions;
 
-    public SubscribedUser(int ID,String username,String password){
-        this.ID = ID;
-        this.username = username;
-        this.password = password;
-        this.appointments = new HashMap<>();
-        this.shopPermissions = new HashMap<>();
+    public SubscribedUser(String username){
+        this.name = username;
     }
 
-
-    public List<String> getPermissions(int shopID) {
-        return shopPermissions.getOrDefault(shopID,null);
+    public SubscribedUser(ServiceLayer.Objects.SubscribedUser user){
+        this.name = user.username;
     }
 
-    public Appointment getRole(int shopID) {
-        return appointments.getOrDefault(shopID,null);
-    }
+    public enum Permission{
+        STOCK_MANAGEMENT(1),
+        SET_PURCHASE_POLICY(2),
+        ASSIGN_SHOP_OWNER(4),
+        ASSIGN_SHOP_MANAGER(6),
+        CHANGE_MANAGER_PERMISSION(7),
+        CLOSE_SHOP(9),
+        REOPEN_SHOP(10),
+        ROLE_INFO(11),
+        HISTORY_INFO(13),
+        REMOVE_ADMIN(5),;
 
-    public void addRole(int shopID, Appointment appointment){
-        appointments.put(shopID, appointment);
+        private int code;
+
+        Permission(int code){
+            this.code = code;
+        }
+
+        public static Map<Integer,Permission> lookup = new HashMap<>();
+
+        static {
+            for(Permission p : EnumSet.allOf(Permission.class))
+                lookup.put(p.getCode(), p);
+        }
+
+        public int getCode(){
+            return this.code;
+        }
+
+        public static Permission lookup(int code){
+            return lookup.get(code);
+        }
     }
 }

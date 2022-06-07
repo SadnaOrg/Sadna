@@ -1,7 +1,7 @@
 package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.*;
+import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
@@ -18,11 +18,11 @@ public class RolesInfo extends BaseAction {
     }
 
     public Collection<AdministratorInfo> act() throws NoPermissionException {
-        if(!shop.isOpen() || !(user.getAdministrator(shop.getId()) instanceof ShopOwner))
-            throw new NoPermissionException("cant search info in unopen shop");
+        if(!shop.isOpen() || !(user.getAdministrator(shop.getId()).getActionsTypes().contains(BaseActionType.ROLE_INFO)))
+            throw new NoPermissionException("cant search info in a closed shop");
 
         return shop.getShopAdministrators().stream().map(shopAdministrator ->
-               new AdministratorInfo(shopAdministrator.getUser().getUserName(),getAdministratorType(shopAdministrator),shopAdministrator.getActionsTypes())).collect(Collectors.toList());
+               new AdministratorInfo(shopAdministrator.getUser().getUserName(),getAdministratorType(shopAdministrator),shopAdministrator.getActionsTypes(),shop.getId(),shopAdministrator.getAppointer())).collect(Collectors.toList());
     }
 
     private AdministratorInfo.ShopAdministratorType getAdministratorType(ShopAdministrator shopAdministrator) {

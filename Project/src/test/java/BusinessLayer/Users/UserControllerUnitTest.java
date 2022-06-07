@@ -11,9 +11,6 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import static org.mockito.Mockito.*;
 
-import javax.naming.NoPermissionException;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class UserControllerUnitTest {
@@ -90,7 +87,7 @@ public class UserControllerUnitTest {
 
     @Test
     public void saveProducts() {
-        when(user.saveProducts(s1.getId(), p1.getID(), 100)).thenReturn(true);
+        when(user.saveProducts(s1.getId(), p1.getID(), 100, p1.getPrice())).thenReturn(true);
         try(MockedStatic<ShopController> mockedStatic1 = mockStatic(ShopController.class)) {
             mockedStatic1.when(ShopController::getInstance).thenReturn(sc);
             when(sc.checkIfUserHasBasket(s1.getId(), user.getName())).thenReturn(true);
@@ -105,6 +102,9 @@ public class UserControllerUnitTest {
     public void removeproduct() {
         uc.saveProducts(user, s1.getId(), p1.getID(), 100);
         when(user.removeProduct(s1.getId(), p1.getID())).thenReturn(true);
+        when(s1.checkIfUserHasBasket(userName)).thenReturn(true);
+        when(sc.checkIfUserHasBasket(shopID, userName)).thenReturn(true);
+        doNothing().when(sc).tryRemove(shopID,userName,0);
         uc.removeproduct(user, s1.getId(), p1.getID());
         when(basket.getProducts()).thenReturn(new ConcurrentHashMap<>());
         Assert.assertEquals(user.getShoppingCart().get(s1.getId()).getProducts().size(), 0);

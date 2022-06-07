@@ -7,29 +7,35 @@ import java.util.Map;
 
 public interface SubscribedUserBridge extends UserBridge {
 
-    SubscribedUser login(int guestID, RegistrationInfo info);
+    Guest logout(String  userName);
 
-    Guest logout(int userID);
+    boolean updateProductQuantity(String username, int shopID, int productID ,int newQuantity);
 
-    boolean updateProduct(int userID, int shopID, int productID, int newID, int newQuantity, double newPrice);
+    boolean updateProductPrice(String username, int shopID, int productID, double newPrice);
 
-    boolean deleteProductFromShop(int userID, int shopID, int productID);
+    boolean updateProductDescription(String username, int shopID, int productID, String Desc);
 
-    boolean appointOwner(int shopID, int appointerID, int appointeeID);
+    boolean updateProductName(String username, int shopID, int productID, String newName);
 
-    boolean appointManager(int shopID, int appointerID, int appointeeID);
+    boolean deleteProductFromShop(String username, int shopID, int productID);
 
-    boolean closeShop(int shopID, int userID);
+    boolean appointOwner(int shopID, String appointerName, String appointeeName);
 
-    boolean addManagerPermission(int shopID, int giverID, int receiverID, String permission);
+    boolean appointManager(int shopID, String appointerName, String appointeeName);
 
-    boolean addOwnerPermission(int shopID, int giverID, int receiverID, String permission);
+    boolean closeShop(int shopID, String  userName);
 
-    Map<Integer, Appointment> getShopAppointments(int requestingUserID, int shopID);
+    boolean changeAdminPermission(int shopID, String giverName, String receiverName, List<SubscribedUser.Permission> permission);
 
-    Map<Integer, List<String>> getShopPermissions(int requestingUserID, int shopID);
+    Map<String, Appointment> getShopAppointments(String requestingUsername, int shopID);
 
-    boolean addProductToShop(int userID,int shopID, Product product,int productID, double rating, int quantity, double price);
+    Map<String, List<SubscribedUser.Permission>> getShopPermissions(String requestingUsername, int shopID);
 
-    Shop openShop(int userID, String name, String category);
+    boolean addProductToShop(String username,int shopID, Product product,int productID, int quantity, double price);
+
+    Shop openShop(String username, String name, String desc);
+
+    boolean removeAdmin(int shopID, String requesting, String toRemove);
+
+    boolean reOpenShop(String username, int shopID);
 }

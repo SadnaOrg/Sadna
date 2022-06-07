@@ -20,13 +20,9 @@ public class FounderAppointManager extends Thread{
     public boolean getStatus(){
         return status;
     }
-
+// USING CASTRO FOUNDER
     public void run(){
         SubscribedUserBridge bridge = SubscribedUserTests.getUserBridge();
-        Guest g = bridge.visit();
-        User founder = bridge.login(g.ID,new RegistrationInfo(subscribedUser.username, subscribedUser.password));
-
-        bridge.appointManager(shopID,founder.ID,SubscribedUserTests.getU3ID());
-        bridge.exit(subscribedUser.ID);
+        bridge.appointManager(shopID,subscribedUser.name,SubscribedUserTests.getU3Name());
     }
 }

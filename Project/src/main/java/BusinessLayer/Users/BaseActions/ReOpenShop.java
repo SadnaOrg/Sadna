@@ -1,9 +1,9 @@
 package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.ShopAdministrator;
 
 import javax.naming.NoPermissionException;
 

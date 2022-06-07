@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -29,10 +30,10 @@ public class UserUnitTest {
         u1 = createUser();
         when(u1.getUserName()).thenReturn("Yuval");
         assertSame("Yuval", u1.getUserName());
-        when(u1.saveProducts(anyInt(), anyInt(), anyInt())).thenReturn(true);
+        when(u1.saveProducts(anyInt(), anyInt(), anyInt(),anyDouble())).thenReturn(true);
         when(s1.getId()).thenReturn(1);
         when(p1.getID()).thenReturn(1);
-        u1.saveProducts(s1.getId(), p1.getID(), quantity);
+        u1.saveProducts(s1.getId(), p1.getID(), quantity,p1.getPrice());
         when(u1.getProducts(s1.getId())).thenReturn(prods);
         when(prods.get(p1.getID())).thenReturn(quantity);
         assertSame(u1.getProducts(s1.getId()).get(p1.getID()), quantity);
@@ -45,10 +46,10 @@ public class UserUnitTest {
 
     @Test
     public void testSaveProductsFail() {
-        when(u1.saveProducts(s1.getId(), p1.getID(), quantity)).thenReturn(false);
+        when(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice())).thenReturn(false);
         //saving a second time
         try {
-            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity));
+            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice()));
         }
         catch(Exception ignored) {
             assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));

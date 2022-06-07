@@ -1,10 +1,9 @@
 package BusinessLayer.Users.BaseActions;
 
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseAction;
-import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.ShopAdministrator;
 
 public class AssignShopOwner extends BaseAction {
     private Shop s;
@@ -15,8 +14,8 @@ public class AssignShopOwner extends BaseAction {
         this.u = u;
     }
 
-    public boolean act(SubscribedUser userToAssign){
-        ShopOwner o = new ShopOwner(s, u, false);
+    public boolean act(SubscribedUser userToAssign, String appointer){
+        ShopOwner o = new ShopOwner(s, userToAssign,appointer, false);
         if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(), o)){
             ShopAdministrator admin = userToAssign.addAdministrator(s.getId(),o);
             u.getAdministrator(s.getId()).addAppoint(admin);

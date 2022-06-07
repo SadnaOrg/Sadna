@@ -2,9 +2,6 @@ package ServiceLayer;
 
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.PurchaseHistoryController;
-import BusinessLayer.Shops.ShopController;
-import BusinessLayer.Users.SystemManager;
-import ServiceLayer.interfaces.SystemService;
 import BusinessLayer.System.System;
 
 import java.util.Collection;

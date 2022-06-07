@@ -8,8 +8,6 @@ import BusinessLayer.Users.SubscribedUser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 
 import javax.naming.NoPermissionException;
 import java.util.LinkedList;

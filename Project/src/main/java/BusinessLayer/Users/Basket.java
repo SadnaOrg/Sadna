@@ -7,11 +7,13 @@ public class Basket {
     //the key is the product id in the specific store
     //the value will be the quantity of the product
     private ConcurrentHashMap<Integer , Integer> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer, Double> prices;
 
     public Basket(int shopid)
     {
         this.shopid= shopid;
         products = new ConcurrentHashMap<>();
+        prices = new ConcurrentHashMap<>();
     }
 
     public Basket(Basket bmain)
@@ -24,10 +26,11 @@ public class Basket {
         }
     }
 
-    public boolean saveProducts(int productid, int quantity) {
+    public boolean saveProducts(int productid, int quantity,double price) {
        if(!products.containsKey(productid))
         {
             products.put(productid,quantity);
+            prices.put(productid,price);
             return true;
         }
         else
@@ -40,7 +43,7 @@ public class Basket {
     public boolean removeProduct(int productid) {
         if (products.containsKey(productid)) {
             products.remove(productid);
-
+            prices.remove(productid);
             return true;
         }
         else
@@ -69,6 +72,10 @@ public class Basket {
     }
     public ConcurrentHashMap<Integer, Integer> getProducts() {
         return products;
+    }
+
+    public ConcurrentHashMap<Integer, Double> getPrices(){
+        return prices;
     }
 
     public int getShopid() {

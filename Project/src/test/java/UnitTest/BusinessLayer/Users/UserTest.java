@@ -20,13 +20,13 @@ public class UserTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testSaveProductsNegAmount() {
-        getUser().saveProducts(1,1,-1);
+        getUser().saveProducts(1,1,-1,12);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testSaveProductsNegAmountAfterPosAmount() {
-        getUser().saveProducts(1,1,1);
-        getUser().saveProducts(1,1,-1);
+        getUser().saveProducts(1,1,1,12);
+        getUser().saveProducts(1,1,-1,12);
     }
 
     @Test
@@ -41,14 +41,14 @@ public class UserTest {
     }
 
     public void testSaveProductsOK(User u,int shopId,int productId,int quantity) {
-        u.saveProducts(shopId,productId,quantity);
+        u.saveProducts(shopId,productId,quantity,15);
         Assert.assertTrue("has the product after adding the product",u.getBasket(shopId)!=null && u.getBasket(shopId).getProducts().containsKey(productId));
         Assert.assertEquals("product dont add up to previous amount", (int) u.getBasket(shopId).getProducts().get(productId), quantity);
     }
 
     public void testSaveProductsFail(User u,int shopId,int productId,int quantity) {
         try {
-            u.saveProducts(shopId, productId, quantity);
+            u.saveProducts(shopId, productId, quantity,15);
             Assert.fail("should fail adding product");
         } catch (Exception e) {
             Assert.assertTrue(true);

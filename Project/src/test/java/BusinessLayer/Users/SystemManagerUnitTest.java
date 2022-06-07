@@ -2,8 +2,8 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.PurchaseHistoryController;
-import BusinessLayer.Shops.PurchaseHistoryControllerUnitTest;
 import BusinessLayer.Shops.Shop;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockedStatic;
@@ -17,6 +17,7 @@ import static org.mockito.Mockito.*;
 @SuppressWarnings("unchecked")
 public class SystemManagerUnitTest {
     private PurchaseHistoryController phc;
+    private UserController uc;
     private Shop s1;
     private SystemManager manager = new SystemManager("Unit Maor", "Unit not Meir");
     private SubscribedUser buyer;
@@ -27,6 +28,7 @@ public class SystemManagerUnitTest {
 
     @Before
     public void setUp(){
+        uc = mock(UserController.class);
         phc = mock(PurchaseHistoryController.class);
         buyer = mock(SubscribedUser.class);
         founder = mock(SubscribedUser.class);
@@ -116,6 +118,24 @@ public class SystemManagerUnitTest {
             when(phc.getPurchaseInfo(otherShopId, buyer.getUserName())).thenReturn(histories);
             when(histories.size()).thenReturn(0);
             assertEquals(manager.getShopsAndUsersInfo(otherShopId, buyer.getUserName()).size(), 0);
+        }
+    }
+
+    @Test
+    public void removeSubscribedUser_sucsses() {
+        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)) {
+            mockedStatic.when(UserController::getInstance).thenReturn(uc);
+            when(uc.removeSubscribedUserFromSystem( buyer.getUserName())).thenReturn(true);
+            Assert.assertTrue(manager.removeSubscribedUser(buyer.getUserName()));
+        }
+    }
+
+    @Test
+    public void removeSubscribedUser_fail() {
+        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)) {
+            mockedStatic.when(UserController::getInstance).thenReturn(uc);
+            when(uc.removeSubscribedUserFromSystem( buyer.getUserName())).thenReturn(false);
+            Assert.assertFalse(manager.removeSubscribedUser(buyer.getUserName()));
         }
     }
 }

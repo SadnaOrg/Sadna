@@ -10,7 +10,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Field;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -76,7 +75,7 @@ public class ShopControllerTest {
 
     @Test
     public void purchaseBasket() {
-        basket.saveProducts(productID, 10);
+        basket.saveProducts(productID, 10,p1.getPrice());
         sc.AddBasket(shopID, userName, basket);
         Assert.assertEquals(50.0, sc.purchaseBasket(userName).get(shopID), 0.0);
     }
@@ -109,12 +108,12 @@ public class ShopControllerTest {
     @Test
     public void openShop() {
         int old_size = sc.getShops().size();
-        sc.openShop(su, "myShop" + su);
+        sc.openShop(su, "myShop" + su,"test shop");
         Assert.assertEquals(sc.getShops().get(old_size).getName(), "myShop" + su);
     }
 
     public Shop createShop() {
-        Shop s2 = new Shop(shopID, "ShopName", new SubscribedUser("User1", "Pass1"));
+        Shop s2 = new Shop(shopID, "ShopName", "testing shop",new SubscribedUser("User1", "Pass1"));
         s2.addProduct(createProduct());
         return s2;
     }

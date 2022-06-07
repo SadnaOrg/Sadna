@@ -8,11 +8,7 @@ import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
 
-import javax.naming.NoPermissionException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -29,10 +25,11 @@ public class Shop {
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
 
-    public Shop(int id, String name, SubscribedUser founder) {
+    public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
         this.name = name;
-        this.founder = new ShopOwner(this, founder, true);
+        this.description = description;
+        this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
     }
@@ -51,6 +48,18 @@ public class Shop {
             return true;
         }
         return false;
+    }
+
+    public void removeAdmin(String userName) {
+        shopAdministrators.remove(userName);
+    }
+
+    public void removeBasket(String userName) {
+        Basket b = usersBaskets.getOrDefault(userName,null);
+        if(b == null){
+            throw new IllegalStateException("the user doesn't have a basket!");
+        }
+        usersBaskets.remove(userName);
     }
 
     public enum State {
@@ -138,6 +147,35 @@ public class Shop {
                     int quantity = usersBaskets.get(user).getProducts().get(productID);
                     Product curr_product = products.get(productID);
                     double currentPrice = curr_product.purchaseProduct(quantity);
+                    if (currentPrice > 0.0)
+                        totalPrice += currentPrice;
+                    else
+                    {
+                        throw new IllegalStateException("Try to buy out of stock product from the shop");
+                    }
+                }
+                else
+                {
+                    throw new IllegalStateException("The product is not in the shop");
+                }
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return totalPrice;
+    }
+
+    //we can assume that this function is only called when all good;
+    public double checkIfcanBuy(String user) {
+        int totalPrice = 0;
+        if (state == State.OPEN) {
+            for (int productID : usersBaskets.get(user).getProducts().keySet()) {
+                if (products.containsKey(productID)) {
+                    int quantity = usersBaskets.get(user).getProducts().get(productID);
+                    Product curr_product = products.get(productID);
+                    double currentPrice = curr_product.checkIfCanBuy(quantity);
                     if (currentPrice > 0.0)
                         totalPrice += currentPrice;
                     else

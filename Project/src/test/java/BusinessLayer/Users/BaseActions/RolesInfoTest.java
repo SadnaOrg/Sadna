@@ -7,9 +7,11 @@ import BusinessLayer.Users.SubscribedUser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+
 import javax.naming.NoPermissionException;
+
+import java.util.Collection;
+import java.util.LinkedList;
 
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
@@ -35,13 +37,16 @@ public class RolesInfoTest {
 
     @Test
     public void getRolesInfoSuccess() throws NoPermissionException {
+        Collection<BaseActionType> types = new LinkedList<>();
+        types.add(BaseActionType.ROLE_INFO);
         when(shop.isOpen()).thenReturn(true);
         when(user.getAdministrator(shop.getId())).thenReturn(userOwnerMock);
+        when(userOwnerMock.getActionsTypes()).thenReturn(types);
         try {
             rolesInfo.act();
         }
         catch (Exception e){
-            fail("failed to get shop info when it is possible!");
+            fail(e.getMessage());
         }
     }
 
