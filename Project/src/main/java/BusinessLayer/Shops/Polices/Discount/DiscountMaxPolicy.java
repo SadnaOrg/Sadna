@@ -26,7 +26,7 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
     @Override
     public double calculateDiscount(Basket basket) {
         Iterator<DiscountRules> i = discountPolicies.iterator();
-        double maxprice = i.next().calculateDiscount(basket);
+        double maxprice = 0;
         while (i.hasNext()) {
             maxprice = Math.max(maxprice, i.next().calculateDiscount(basket));
         }

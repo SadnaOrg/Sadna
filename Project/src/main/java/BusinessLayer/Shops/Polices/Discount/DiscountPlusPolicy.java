@@ -10,6 +10,10 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
     private int connectId;
     Collection<DiscountRules> discountPolicies;
 
+    public DiscountPlusPolicy() {
+        this.connectId = atomicconnectId.incrementAndGet();
+    }
+
     public DiscountPlusPolicy(Collection<DiscountRules> discountPolicies) {
         this.discountPolicies = new ArrayList<>();
         this.discountPolicies.addAll(discountPolicies);
@@ -25,7 +29,7 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
     @Override
     public double calculateDiscount(Basket basket) {
         Iterator<DiscountRules> i = discountPolicies.iterator();
-        double price =i.next().calculateDiscount(basket);
+        double price =0;
         while (i.hasNext())
         {
             price += i.next().calculateDiscount(basket);

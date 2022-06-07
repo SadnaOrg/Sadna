@@ -4,6 +4,8 @@ package BusinessLayer.Shops;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
+import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
+import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.ShopAdministrator;
@@ -26,8 +28,8 @@ public class Shop {
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
-    private DiscountRules discounts;
-    private PurchasePolicy purchasePolicies;
+    private DiscountRules discounts = new DiscountPlusPolicy();
+    private PurchasePolicy purchasePolicy = new PurchaseAndPolicy();
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;

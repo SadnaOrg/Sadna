@@ -10,6 +10,9 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
 
     private Collection<PurchasePolicy> purchasePolicies;
 
+    public PurchaseAndPolicy() {
+    }
+
     public PurchaseAndPolicy(Collection<PurchasePolicy> purchasePolicies) {
         this.purchasePolicies = new ArrayList<>();
         this.purchasePolicies.addAll(purchasePolicies);
