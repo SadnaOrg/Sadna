@@ -344,4 +344,7 @@ public class UserController {
         subscribers.clear();
         managers.clear();
     }
+    public Collection<SystemManager> getSysManagers(){
+        return managers.values();
+    }
 }
