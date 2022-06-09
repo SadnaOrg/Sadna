@@ -28,6 +28,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         if (currUser != null)
             return Response.tryMakeResponse(()-> facade.logout(currUser.getUserName()),"logout " ,"incorrect user name or password").safe(UserServiceImp::new);
         return Response.makeResponse(null, "not logged in");
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Notifications.Notifier;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistoryController;
@@ -10,12 +11,18 @@ import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class System {
-    private Notifier notifier = new Notifier();
+
+    private final Notifier notifier;
     private ExternalServicesSystem externSystem = new ExternalServicesSystem();
     private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
+
+    public System() {
+        notifier = new Notifier();;
+    }
 
     static private class SystemHolder{
         static final System s = new System();
@@ -30,13 +37,15 @@ public class System {
     }
 
     public void initialize(){
-        notifier = new Notifier();
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
         //setUp();
     }
+
+
+
 
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
     private static ShopController sc = ShopController.getInstance();
@@ -94,10 +103,6 @@ public class System {
         return supplySituation;
     }
 
-    public void notifyUser(String username){
-        notifier.notifyUser(username);
-    }
-
     public PurchaseHistoryController getPurchaseHistoryServices() {
         return purchaseHistoryServices;
     }
@@ -121,4 +126,10 @@ public class System {
     public int getSupplySize(){//for tests only
         return externSystem.getSupplySize();
     }
+
+    public Notifier getNotifier(){
+        return notifier;
+    }
+
+
 }
