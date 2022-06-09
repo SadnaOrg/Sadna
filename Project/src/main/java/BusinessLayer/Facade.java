@@ -33,7 +33,10 @@ public class Facade{
     }
 
     public Guest logout(User currUser) {
-        return userController.logout(currUser.getUserName());
+        var g= userController.logout(currUser.getUserName());
+        if(g!= null)
+            system.getNotifier().unregister(currUser.getUserName());
+        return g;
     }
 
     public Shop openShop(SubscribedUser currUser,String name, String desc) {
@@ -128,18 +131,22 @@ public class Facade{
         return  userController.getShopsAndUsersInfo(currUser);
     }
 
-    public void RegisterToNotifier(String userName, Function<Notification, Boolean> con){
+    public boolean registerToNotifier(String userName, Function<Notification, Boolean> con){
         system.getNotifier().register(con,userName);
+        return true;
     }
-    public void sendNotification(Collection<String> users, String Content){
+    public boolean sendNotification(Collection<String> users, String Content){
         system.getNotifier().addNotification(new ConcreteNotification(users,Content));
+        return true;
     }
-    public void sendNotification(Notification not){
+    public boolean sendNotification(Notification not){
         system.getNotifier().addNotification(not);
+        return true;
     }
 
-    public void getDelayedNotifications(User currUser){
+    public boolean getDelayedNotifications(User currUser){
         system.getNotifier().getDelayedNotifications(currUser.getUserName());
+        return true;
     }
 
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {

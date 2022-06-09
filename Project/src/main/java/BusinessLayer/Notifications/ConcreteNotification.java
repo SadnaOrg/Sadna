@@ -9,12 +9,11 @@ import java.util.Collection;
 public class ConcreteNotification implements Notification {
     private Collection<String> usernames;
     private String content;
+
     public ConcreteNotification( Collection<String> usernames, String content){
         this.usernames = usernames;
         this.content = content;
     }
-
-
 
     @Override
     public boolean contains(String username) {
