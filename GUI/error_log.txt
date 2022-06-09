@@ -1,8 +1,4 @@
-יוני 09, 2022 1:45:42 אחה״צ ServiceLayer.Log error
+Jun 09, 2022 10:40:45 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 09, 2022 1:46:11 אחה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 09, 2022 1:47:16 אחה״צ ServiceLayer.Log error
-SEVERE: login - user admin: incorrect user name or password
-יוני 09, 2022 1:50:04 אחה״צ ServiceLayer.Log error
+Jun 09, 2022 10:40:50 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
