@@ -42,7 +42,7 @@ public class PaymentMethod {
     }
 
     private boolean isValidCVV(){
-        return (getCVV().get() >= 100 && getCVV().get() <= 999);
+        return (getCVV().get() >= 0 && getCVV().get() <= 999);
     }
 
     private boolean isValidExpiryDate(AtomicInteger month, AtomicInteger year){
