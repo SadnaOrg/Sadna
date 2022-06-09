@@ -48,8 +48,9 @@ import static com.example.application.Header.SessionData.save;
 
 @Route("Guest")
 public class GuestActionView extends Header {
-    UserService service;
-    String currUser;
+    protected UserService service;
+    protected String currUser;
+    protected Button logoutButton = new Button("Logout");
 
     public GuestActionView() {
         currUser = (String)Load("user-name");
@@ -64,7 +65,7 @@ public class GuestActionView extends Header {
             addToNavbar(registerButton, loginButton);
         }
         else {
-            Button logoutButton = new Button("Logout", e -> {
+            logoutButton.addClickListener(e -> {
                 service.logoutSystem();
                 save("user-name", null);
                 UI.getCurrent().navigate(MainView.class);
@@ -76,22 +77,16 @@ public class GuestActionView extends Header {
 
     private Tabs getTabs() {
         tabs = new Tabs();
-//        addTabWithClickEvent("Login", event -> UI.getCurrent().navigate(LoginView.class));
-//        addTabWithClickEvent("Register", event -> UI.getCurrent().navigate(RegisterView.class));
         addTabWithClickEvent("Check Cart", this::checkCartEvent);
         addTabWithClickEvent("Search Products", this::searchProductsEvent);
-        Collection<ProductInfo> basketProductsIDs = service.showCart().getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
-        if (basketProductsIDs.size() > 0) {
-            addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+        var res = service.showCart();
+        if(res.isOk()) {
+            Collection<ProductInfo> basketProductsIDs = res.getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
+            if (basketProductsIDs.size() > 0) {
+                addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+            }
         }
         addTabWithClickEvent("Products", this::productEvent);
-        //addTab("Info on Shops and Products");
-        addTabWithClickEvent("Exit", event -> {
-            if(service.logoutSystem().isOk()) {
-                save("user-name", null);
-                UI.getCurrent().navigate(MainView.class);
-            }
-        });
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;

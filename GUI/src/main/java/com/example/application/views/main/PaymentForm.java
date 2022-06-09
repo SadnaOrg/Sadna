@@ -43,10 +43,10 @@ public class PaymentForm extends FormLayout {
         binder.forField(cvv).withValidator(cvvNum -> cvvNum.length() == 3 &&
                 cvvNum.chars().allMatch(Character::isDigit), "CVV must be a 3 digit number")
                 .bind(PaymentMethod::getCvv, PaymentMethod::setCvv);
-        binder.forField(month).withValidator(monthNum -> monthNum >= 1 &&
+        binder.forField(month).withValidator(monthNum -> monthNum != null && monthNum >= 1 &&
                 monthNum <= 12, "Month value must be between 1 and 12")
                 .bind(PaymentMethod::getMonth, PaymentMethod::setMonth);
-        binder.forField(year).withValidator(yearNum -> yearNum >= Calendar.getInstance().get(Calendar.YEAR) &&
+        binder.forField(year).withValidator(yearNum -> yearNum != null && yearNum >= Calendar.getInstance().get(Calendar.YEAR) &&
                 yearNum <= Calendar.getInstance().get(Calendar.YEAR) + 10, "Year must be in the range of next 10 years")
                 .bind(PaymentMethod::getYear, PaymentMethod::setYear);
         payButton.addClickListener(click -> validateAndPay());
