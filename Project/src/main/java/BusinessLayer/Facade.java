@@ -42,7 +42,7 @@ public class Facade{
 
     public boolean assignShopManager(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
         return  userController.assignShopManager(currUser,shop,userNameToAssign);
-      }
+    }
 
     public boolean assignShopOwner(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
         return userController.assignShopOwner(currUser,shop,userNameToAssign);
@@ -136,6 +136,10 @@ public class Facade{
     }
     public void sendNotification(Notification not){
         system.getNotifier().addNotification(not);
+    }
+
+    public void getDelayedNotifications(User currUser){
+        system.getNotifier().getDelayedNotifications(currUser.getUserName());
     }
 
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
