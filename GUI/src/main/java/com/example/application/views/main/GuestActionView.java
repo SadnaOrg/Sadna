@@ -78,15 +78,9 @@ public class GuestActionView extends Header {
     private Tabs getTabs() {
         tabs = new Tabs();
         addTabWithClickEvent("Check Cart", this::checkCartEvent);
-        addTabWithClickEvent("Search Products", this::searchProductsEvent);
-        var res = service.showCart();
-        if(res.isOk()) {
-            Collection<ProductInfo> basketProductsIDs = res.getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
-            if (basketProductsIDs.size() > 0) {
-                addTabWithClickEvent("Buy Cart", this::buyCartEvent);
-            }
-        }
-        addTabWithClickEvent("Products", this::productEvent);
+        addTabWithClickEvent("Search Product by Shop", this::searchProductsEvent);
+        addTabWithClickEvent("Buy Cart", this::buyCartEvent);
+        addTabWithClickEvent("Add Products to Cart", this::productEvent);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;
@@ -98,8 +92,16 @@ public class GuestActionView extends Header {
     }
 
     private void buyCartEvent(DomEvent event) {
-        PaymentForm layout = new PaymentForm();
-        setContent(layout);
+        var res = service.showCart();
+        if(res.isOk()) {
+            Collection<ProductInfo> basketProductsIDs = res.getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
+            if (basketProductsIDs.size() > 0) {
+                PaymentForm layout = new PaymentForm();
+                setContent(layout);
+                return;
+            }
+        }
+        setContent(new Label("No cart to buy"));
     }
 
     private void searchProductsEvent(DomEvent event) {
