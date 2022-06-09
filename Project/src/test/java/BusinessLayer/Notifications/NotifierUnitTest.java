@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.function.Function;
 

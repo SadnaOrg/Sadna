@@ -75,6 +75,7 @@ public class SubscribedUserView extends Header {
         addToNavbar(logoutButton);
         createOpenShop();
         createTabs();
+        registerToNotification();
     }
 
     private void createOpenShop() {
