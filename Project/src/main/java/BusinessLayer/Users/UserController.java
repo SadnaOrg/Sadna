@@ -29,7 +29,6 @@ public class UserController {
         return UserControllerHolder.uc;
     }
 
-
     private UserController() {
         users = new ConcurrentHashMap<>();
         managers = new ConcurrentHashMap<>();
@@ -55,6 +54,7 @@ public class UserController {
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
+
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId,productId);
         if(price != -1) {
@@ -229,6 +229,7 @@ public class UserController {
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, String userName) {
         return currUser.getShopsAndUsersInfo(userName);
     }
+
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop) {
         return currUser.getShopsAndUsersInfo(shop);
     }
@@ -295,8 +296,7 @@ public class UserController {
     private ShopAdministrator getAdmin(String username, int shopID){
         if (subscribers.containsKey(username)){
             SubscribedUser u = subscribers.get(username);
-            ShopAdministrator admin = u.getAdministrator(shopID);
-            return admin;
+            return u.getAdministrator(shopID);
         }
         return null;
     }
@@ -313,6 +313,7 @@ public class UserController {
         System.out.println("renoved ----------------> " +userName);
         return true;
     }
+
     public enum UserState{
         REMOVED,LOGGED_IN,LOGGED_OUT;
 
@@ -327,6 +328,7 @@ public class UserController {
             };
         }
     }
+
     public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
         if(!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
@@ -344,7 +346,13 @@ public class UserController {
         subscribers.clear();
         managers.clear();
     }
+
     public Collection<SystemManager> getSysManagers(){
         return managers.values();
     }
+
+    public void addUserForTest(User u){
+        this.users.put(u.getUserName(),u);
+    }
+
 }
