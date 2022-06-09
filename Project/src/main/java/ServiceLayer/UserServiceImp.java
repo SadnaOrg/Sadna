@@ -1,14 +1,13 @@
 package ServiceLayer;
 
 import BusinessLayer.Facade;
-import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.User;
-import BusinessLayer.Shops.ShopFilters;
 import BusinessLayer.System.PaymentMethod;
 import ServiceLayer.Objects.*;;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -85,6 +84,16 @@ public class UserServiceImp implements UserService {
     @Override
     public Response<ServiceLayer.Objects.User> getUserInfo(){
         return ifUserNotNullRes(()-> new ServiceLayer.Objects.User(currUser),"user details lookup");
+    }
+
+    @Override
+    public Result registerToNotifier(Function<Notification, Boolean> con){
+       return ifUserNotNull(()->facade.registerToNotifier(currUser.getUserName(),(not) -> con.apply(new Notification(not))),"register to notification service");
+    }
+
+    @Override
+    public Result getDelayNotification(){
+        return ifUserNotNull(() -> facade.getDelayedNotifications(currUser),"get all delay notification");
     }
 
     private Result ifUserNotNull(Supplier<Boolean> s, String eventName){

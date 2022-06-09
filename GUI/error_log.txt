@@ -1,12 +1,8 @@
-Jun 08, 2022 6:08:17 PM ServiceLayer.Log error
+יוני 09, 2022 1:45:42 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log error
+יוני 09, 2022 1:46:11 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 08, 2022 6:09:19 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 08, 2022 6:09:39 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 08, 2022 6:09:50 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 08, 2022 6:10:04 PM ServiceLayer.Log error
+יוני 09, 2022 1:47:16 אחה״צ ServiceLayer.Log error
+SEVERE: login - user admin: incorrect user name or password
+יוני 09, 2022 1:50:04 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first

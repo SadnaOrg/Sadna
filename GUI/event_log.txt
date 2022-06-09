@@ -1,90 +1,88 @@
-Jun 08, 2022 6:08:17 PM ServiceLayer.Log event
+יוני 09, 2022 1:45:42 אחה״צ ServiceLayer.Log event
 INFO: login to system Successes
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log event
-INFO: login - user Admin Successes
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log event
-INFO: login Successes
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 08, 2022 6:08:52 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 08, 2022 6:08:53 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:08:54 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 08, 2022 6:08:57 PM ServiceLayer.Log event
-INFO: open shop succeeded Successes
-Jun 08, 2022 6:08:57 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 08, 2022 6:08:58 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:00 PM ServiceLayer.Log event
-INFO: adding product to shop Successes
-Jun 08, 2022 6:09:00 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:03 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:06 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:08 PM ServiceLayer.Log event
-INFO: product save Successes
-Jun 08, 2022 6:09:10 PM ServiceLayer.Log event
+יוני 09, 2022 1:45:42 אחה״צ ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 08, 2022 6:09:14 PM ServiceLayer.Log event
+יוני 09, 2022 1:45:44 אחה״צ ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 08, 2022 6:09:16 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 08, 2022 6:09:17 PM ServiceLayer.Log event
+יוני 09, 2022 1:45:57 אחה״צ ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 08, 2022 6:09:26 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 08, 2022 6:09:36 PM ServiceLayer.Log event
-INFO: purchased cart Successes
-Jun 08, 2022 6:09:39 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 08, 2022 6:09:39 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 08, 2022 6:09:41 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:42 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 08, 2022 6:09:42 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 08, 2022 6:09:43 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:48 PM ServiceLayer.Log event
-INFO: update product name Successes
-Jun 08, 2022 6:09:48 PM ServiceLayer.Log event
-INFO: update product description Successes
-Jun 08, 2022 6:09:48 PM ServiceLayer.Log event
-INFO: update product quantity Successes
-Jun 08, 2022 6:09:48 PM ServiceLayer.Log event
-INFO: update product price Successes
-Jun 08, 2022 6:09:48 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:09:50 PM ServiceLayer.Log event
+יוני 09, 2022 1:46:04 אחה״צ ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 08, 2022 6:09:50 PM ServiceLayer.Log event
-INFO: logout  Successes
-Jun 08, 2022 6:09:50 PM ServiceLayer.Log event
+יוני 09, 2022 1:46:11 אחה״צ ServiceLayer.Log event
 INFO: login to system Successes
-Jun 08, 2022 6:09:51 PM ServiceLayer.Log event
+יוני 09, 2022 1:46:11 אחה״צ ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 08, 2022 6:09:52 PM ServiceLayer.Log event
+יוני 09, 2022 1:47:58 אחה״צ ServiceLayer.Log event
+INFO: login - user Admin Successes
+יוני 09, 2022 1:47:58 אחה״צ ServiceLayer.Log event
+INFO: login Successes
+יוני 09, 2022 1:47:58 אחה״צ ServiceLayer.Log event
+INFO: switch to system manager Admin Successes
+יוני 09, 2022 1:47:58 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:47:58 אחה״צ ServiceLayer.Log event
+INFO: switch to system manager Admin Successes
+יוני 09, 2022 1:48:01 אחה״צ ServiceLayer.Log event
+INFO: get subscribed user info Successes
+יוני 09, 2022 1:48:06 אחה״צ ServiceLayer.Log event
+INFO: removed buyer from system Successes
+יוני 09, 2022 1:48:06 אחה״צ ServiceLayer.Log event
+INFO: get subscribed user info Successes
+יוני 09, 2022 1:48:13 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:48:14 אחה״צ ServiceLayer.Log event
+INFO: get subscribed user info Successes
+יוני 09, 2022 1:48:19 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:48:44 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+יוני 09, 2022 1:48:44 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:48:46 אחה״צ ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 08, 2022 6:09:54 PM ServiceLayer.Log event
+יוני 09, 2022 1:49:16 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 09, 2022 1:49:16 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:49:19 אחה״צ ServiceLayer.Log event
+INFO: remove product from shop Successes
+יוני 09, 2022 1:49:19 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:49:20 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 09, 2022 1:49:20 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:49:26 אחה״צ ServiceLayer.Log event
+INFO: get subscribed user info Successes
+יוני 09, 2022 1:49:44 אחה״צ ServiceLayer.Log event
+INFO: get shops and users info succeeded Successes
+יוני 09, 2022 1:49:44 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:49:49 אחה״צ ServiceLayer.Log event
+INFO: get shops and users info succeeded Successes
+יוני 09, 2022 1:49:50 אחה״צ ServiceLayer.Log event
+INFO: get shops and users info succeeded Successes
+יוני 09, 2022 1:49:51 אחה״צ ServiceLayer.Log event
+INFO: get shops and users info succeeded Successes
+יוני 09, 2022 1:49:53 אחה״צ ServiceLayer.Log event
+INFO: get shops and users info succeeded Successes
+יוני 09, 2022 1:49:53 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:49:59 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:49:59 אחה״צ ServiceLayer.Log event
+INFO: receive information Successes
+יוני 09, 2022 1:50:02 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 09, 2022 1:50:04 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 09, 2022 1:50:04 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+יוני 09, 2022 1:50:05 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:50:13 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 09, 2022 1:50:18 אחה״צ ServiceLayer.Log event
 INFO: product save Successes
-Jun 08, 2022 6:09:55 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 08, 2022 6:10:02 PM ServiceLayer.Log event
-INFO: purchased cart Successes
-Jun 08, 2022 6:10:05 PM ServiceLayer.Log event
-INFO: cart showed Successes
-Jun 08, 2022 6:10:05 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:10:08 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 08, 2022 6:10:09 PM ServiceLayer.Log event
+יוני 09, 2022 1:50:20 אחה״צ ServiceLayer.Log event
 INFO: cart showed Successes

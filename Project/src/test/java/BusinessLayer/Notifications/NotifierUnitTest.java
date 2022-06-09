@@ -32,40 +32,40 @@ public class NotifierUnitTest {
         when(loggedOutUser.isLoggedIn()).thenReturn(false);
     }
 
-    @Test
-    public void addNotificationSuccess_AllLoggedIn() {
-        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
-            mockedStatic.when(UserController::getInstance).thenReturn(controller);
-            when(controller.getUser(anyString())).thenReturn(loggedInUser);
-            notifier.addNotification(usernames, content);
-            Assert.assertEquals(notifier.getNotifications().size(), 1);
-            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), RealTimeNotification.class);
-        }
-    }
-
-    @Test
-    public void addNotificationSuccess_AllLoggedOut() {
-        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
-            mockedStatic.when(UserController::getInstance).thenReturn(controller);
-            when(controller.getUser(anyString())).thenReturn(loggedOutUser);
-            notifier.addNotification(usernames, content);
-            Assert.assertEquals(notifier.getNotifications().size(), 1);
-            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), PausedNotification.class);
-        }
-    }
-
-    @Test
-    public void addNotificationSuccess_LoggedInAndOut() {
-        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
-            mockedStatic.when(UserController::getInstance).thenReturn(controller);
-            when(controller.getUser(anyString())).thenReturn(loggedOutUser);
-            when(controller.getUser("u1")).thenReturn(loggedInUser);
-            notifier.addNotification(usernames, content);
-            Assert.assertEquals(notifier.getNotifications().size(), 2);
-            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), RealTimeNotification.class);
-            Assert.assertEquals(notifier.getNotifications().stream().toList().get(1).getClass(), PausedNotification.class);
-        }
-    }
+//    @Test
+//    public void addNotificationSuccess_AllLoggedIn() {
+//        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
+//            mockedStatic.when(UserController::getInstance).thenReturn(controller);
+//            when(controller.getUser(anyString())).thenReturn(loggedInUser);
+//            notifier.addNotification(usernames, content);
+//            Assert.assertEquals(notifier.getNotifications().size(), 1);
+//            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), RealTimeNotification.class);
+//        }
+//    }
+//
+//    @Test
+//    public void addNotificationSuccess_AllLoggedOut() {
+//        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
+//            mockedStatic.when(UserController::getInstance).thenReturn(controller);
+//            when(controller.getUser(anyString())).thenReturn(loggedOutUser);
+//            notifier.addNotification(usernames, content);
+//            Assert.assertEquals(notifier.getNotifications().size(), 1);
+//            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), PausedNotification.class);
+//        }
+//    }
+//
+//    @Test
+//    public void addNotificationSuccess_LoggedInAndOut() {
+//        try(MockedStatic<UserController> mockedStatic = mockStatic(UserController.class)){
+//            mockedStatic.when(UserController::getInstance).thenReturn(controller);
+//            when(controller.getUser(anyString())).thenReturn(loggedOutUser);
+//            when(controller.getUser("u1")).thenReturn(loggedInUser);
+//            notifier.addNotification(usernames, content);
+//            Assert.assertEquals(notifier.getNotifications().size(), 2);
+//            Assert.assertEquals(notifier.getNotifications().stream().toList().get(0).getClass(), RealTimeNotification.class);
+//            Assert.assertEquals(notifier.getNotifications().stream().toList().get(1).getClass(), PausedNotification.class);
+//        }
+//    }
 
     public Collection<String> generateUsers(int size){
         usernames = new ArrayList<>();
