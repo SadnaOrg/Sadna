@@ -24,4 +24,14 @@ public class ProductQuantityInPriceDiscount implements DiscountPolicy{
         }
         return 0;
     }
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 }

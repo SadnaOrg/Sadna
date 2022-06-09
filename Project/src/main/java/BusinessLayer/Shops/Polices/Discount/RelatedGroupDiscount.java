@@ -37,4 +37,15 @@ public class RelatedGroupDiscount implements DiscountPolicy{
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(newProducts);
     }
+
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 }

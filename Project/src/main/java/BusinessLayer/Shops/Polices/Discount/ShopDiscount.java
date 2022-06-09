@@ -8,7 +8,7 @@ public class ShopDiscount implements DiscountPolicy {
     double discount;
     private int discountId;
 
-    public ShopDiscount( int basketQuantity,double discount)
+    public ShopDiscount(int basketQuantity,double discount)
     {
         this.basketQuantity= basketQuantity;
         this.discount = discount;
@@ -31,6 +31,14 @@ public class ShopDiscount implements DiscountPolicy {
 
     }
 
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
 
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 
 }

@@ -24,5 +24,13 @@ public class ProductDiscount implements DiscountPolicy {
 
     }
 
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
 
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 }

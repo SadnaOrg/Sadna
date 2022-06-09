@@ -7,10 +7,7 @@ import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,8 +25,8 @@ public class Shop {
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
-    private DiscountRules discounts = new DiscountPlusPolicy();
-    private PurchasePolicy purchasePolicy = new PurchaseAndPolicy();
+    private DiscountPlusPolicy discounts = new DiscountPlusPolicy();
+    private PurchaseAndPolicy purchasePolicy = new PurchaseAndPolicy();
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
@@ -194,6 +191,8 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
+            ///added here
+            totalPrice -= calculateDiscount(user);
         }
         else
         {
@@ -250,6 +249,45 @@ public class Shop {
         {
             throw new IllegalStateException("The shop is closed");
         }
+    }
+
+
+    public boolean approvePurchase(User user)
+    {
+        return this.purchasePolicy.isValid(user,usersBaskets.get(user.getName()));
+    }
+    public double calculateDiscount(String user){
+        return this.discounts.calculateDiscount(usersBaskets.get(user));
+    }
+
+    public boolean addDiscount(int addToConnectId, DiscountRules discountRules) {
+        if (state == State.OPEN) {
+            NumericDiscountRules numericDiscountRule =discounts.getNumericRule(addToConnectId);
+            if (numericDiscountRule != null)
+                numericDiscountRule.add(discountRules);
+            else
+                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return true;
+    }
+
+    public boolean addPredicate(int addToConnectId, DiscountPred discountPred) {
+        if (state == State.OPEN) {
+            LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
+            if (logicDiscountRules != null)
+                logicDiscountRules.add(discountPred);
+            else
+                throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return true;
     }
 
     public String getName() {

@@ -336,4 +336,13 @@ public class UserController {
         subscribers.clear();
         managers.clear();
     }
+
+    public boolean createProductByQuantityDiscount(String username,int productId, int productQuantity, double discount,int conncectId, int shopId) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopId);
+        if (admin != null) {
+            admin.createProductByQuantityDiscount(productId, productQuantity, discount, conncectId);
+            return true;
+        }
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
 }

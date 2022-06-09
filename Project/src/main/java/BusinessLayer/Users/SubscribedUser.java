@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -134,6 +136,86 @@ public class SubscribedUser extends User {
     }
 
     public boolean isRemoved(){return !isNotRemoved.get();}
+//
+//    public synchronized boolean createProductByQuantityDiscount(int productId, int productQuantity, double discount,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createProductByQuantityDiscount(productId, productQuantity, discount, conncectId);
+//    }
+//
+//
+//    public synchronized boolean createProductDiscount(int productId, double discount, int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createProductDiscount(productId, discount, conncectId);
+//    }
+//
+//    public synchronized boolean createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, conncectId);
+//    }
+//
+//    public synchronized boolean createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId , int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createRelatedGroupDiscount(relatedProducts, discount, conncectId);
+//    }
+//
+//    public synchronized boolean createShopDiscount(int basketQuantity,double discount,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createShopDiscount(basketQuantity, discount, conncectId);
+//    }
+//
+//    public synchronized boolean createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createDiscountAndPolicy(discountPred, discountPolicy, conncectId);
+//    }
+//
+//    public synchronized boolean createDiscountMaxPolicy(DiscountRules discountPolicy,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createDiscountMaxPolicy(discountPolicy, conncectId);
+//    }
+//
+//    public synchronized boolean  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createDiscountOrPolicy(discountPred, discountPolicy, conncectId);
+//    }
+//
+//    public synchronized boolean  createDiscountPlusPolicy(DiscountRules discountPolicy,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createDiscountPlusPolicy(discountPolicy, conncectId);
+//    }
+//
+//    public synchronized boolean createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createDiscountXorPolicy(discountRules1, discountRules2, tieBreaker, conncectId);
+//    }
+//
+//    public synchronized boolean  createValidateBasketQuantityDiscount(int basketquantity ,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createValidateBasketQuantityDiscount(basketquantity, conncectId);
+//    }
+//
+//    public synchronized boolean createValidateBasketValueDiscount(double basketvalue ,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createValidateBasketValueDiscount(basketvalue, conncectId);
+//    }
+//    public synchronized boolean createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int conncectId, int shopId) throws NoPermissionException {
+//        validatePermission(shopId);
+//
+//        return shopAdministrator.get(shopId).createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, conncectId);
+//    }
+//
+//
 
 // Java program to calculate SHA hash value
 

@@ -33,7 +33,7 @@ public enum BaseActionType {
             case STOCK_MANAGEMENT -> new StockManagement(shop);
             case ASSIGN_SHOP_OWNER -> new AssignShopOwner(shop, user);
             case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop, user);
-            case SET_PURCHASE_POLICY -> new SetPurchasePolicy();
+            case SET_PURCHASE_POLICY -> new SetPurchasePolicy(shop);
             case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission(shop, user);
             case REOPEN_SHOP -> new ReOpenShop(shop, user);
             case REMOVE_ADMIN -> new RemoveAdmin(user,shop);

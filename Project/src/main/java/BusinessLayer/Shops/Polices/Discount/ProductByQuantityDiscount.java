@@ -23,4 +23,14 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
                 return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId);
         return 0;
     }
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 }
