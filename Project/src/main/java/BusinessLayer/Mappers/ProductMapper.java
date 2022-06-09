@@ -1,7 +1,7 @@
 package BusinessLayer.Mappers;
 
 import BusinessLayer.Products.Product;
-import com.SadnaORM.ShopRepositoriesImpl.ProductRepositoryImpl;
+import com.SadnaORM.RepositoriesImpl.ShopRepositoriesImpl.ProductRepositoryImpl;
 
 public class ProductMapper implements MapperInterface<com.SadnaORM.Shops.Product, Product, Integer> {
     private ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();

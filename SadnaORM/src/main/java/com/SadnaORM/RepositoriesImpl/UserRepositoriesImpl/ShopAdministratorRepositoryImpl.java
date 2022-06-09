@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.util.Optional;
 
-@Profile({"sa", "a"})
+@Profile("sa")
 public class ShopAdministratorRepositoryImpl implements RepositoryImpl<ShopAdministrator,ShopAdministrator.ShopAdministratorPK> {
     @Autowired
     private ShopAdministratorRepository shopAdministratorRepository;
