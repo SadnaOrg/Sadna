@@ -4,6 +4,7 @@ package BusinessLayer.Shops;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
+import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
@@ -280,6 +281,21 @@ public class Shop {
             LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
             if (logicDiscountRules != null)
                 logicDiscountRules.add(discountPred);
+            else
+                throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return true;
+    }
+
+    public boolean addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+        if (state == State.OPEN) {
+            LogicPurchasePolicy logicPurchasePolicyo =purchasePolicy.getLogicRule(addToConnectId);
+            if (logicPurchasePolicyo != null)
+                logicPurchasePolicyo.add(purchasePolicy);
             else
                 throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
         }

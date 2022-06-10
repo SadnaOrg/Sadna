@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
@@ -201,20 +202,25 @@ public class SubscribedUser extends User {
     public synchronized boolean  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateBasketQuantityDiscount(basketquantity,cantBeMore, connectId);
-
     }
 
     public synchronized boolean createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-
         return shopAdministrator.get(shopId).createValidateBasketValueDiscount(basketvalue,cantBeMore, connectId);
     }
     public synchronized boolean createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-
         return shopAdministrator.get(shopId).createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, connectId);
     }
+    public synchronized boolean createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateProductPurchase(productId, productQuantity, cantbemore, connectId);
+    }
 
+    public synchronized boolean createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
+    }
 
 
 // Java program to calculate SHA hash value

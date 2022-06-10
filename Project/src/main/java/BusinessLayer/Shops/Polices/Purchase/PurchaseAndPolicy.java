@@ -1,5 +1,6 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Shops.Polices.Discount.LogicDiscountRules;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
@@ -9,6 +10,7 @@ import java.util.Collection;
 public class PurchaseAndPolicy implements LogicPurchasePolicy{
 
     private Collection<PurchasePolicy> purchasePolicies;
+    private int policyLogicId;
 
     public PurchaseAndPolicy() {
     }
@@ -16,10 +18,12 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     public PurchaseAndPolicy(Collection<PurchasePolicy> purchasePolicies) {
         this.purchasePolicies = new ArrayList<>();
         this.purchasePolicies.addAll(purchasePolicies);
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
     public PurchaseAndPolicy(PurchasePolicy purchasePolicy) {
         this.purchasePolicies = new ArrayList<>();
         this.purchasePolicies.add(purchasePolicy);
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
     @Override
     public boolean isValid(User u, Basket basket) {
@@ -29,6 +33,19 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
                 return false;
         }
         return true;
+    }
+
+    public LogicPurchasePolicy getLogicRule(int searchConnectId)
+    {
+        if(this.policyLogicId == searchConnectId)
+            return this;
+        for (PurchasePolicy policy : purchasePolicies)
+        {
+            LogicPurchasePolicy findrule = policy.getLogicRule(searchConnectId);
+            if (findrule!=null)
+                return findrule;
+        }
+        return null;
     }
 
     public void add(PurchasePolicy purchasePolicy)

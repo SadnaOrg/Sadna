@@ -10,6 +10,7 @@ import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -224,6 +225,13 @@ public class Facade{
     public boolean createValidateProductQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
 
         return userController.createValidateProductQuantityDiscount(currUser,productId, productQuantity, cantbemore, connectId, shopId);
+    }
+    public boolean createValidateProductPurchase(SubscribedUser currUser,int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return userController.createValidateProductPurchase(currUser, productId, productQuantity, cantbemore, connectId, shopId);
+
+    }
+    public boolean createValidateTImeStampPurchase(SubscribedUser currUser, LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
     }
 
 }

@@ -8,6 +8,7 @@ import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -397,5 +398,14 @@ public class UserController {
 
         return currUser.createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, connectId, shopId);
     }
+
+    public boolean createValidateProductPurchase(SubscribedUser currUser,int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateProductPurchase(productId, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public boolean createValidateTImeStampPurchase(SubscribedUser currUser,LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
+    }
+
 
 }

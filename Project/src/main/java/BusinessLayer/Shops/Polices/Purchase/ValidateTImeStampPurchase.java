@@ -12,7 +12,7 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
     private LocalTime localTime =null;
     private LocalDate date= null;
-    private boolean buybefore;
+    private boolean buybefore=false;
 
     public ValidateTImeStampPurchase(LocalDate date) {
         this.date = date;
@@ -37,5 +37,10 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
             return LocalDate.now().compareTo(date)==0;
         }
         return true;
+    }
+    @Override
+    public LogicPurchasePolicy getLogicRule(int searchConnectId)
+    {
+        return null;
     }
 }

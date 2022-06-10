@@ -10,6 +10,7 @@ import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalTime;
 import java.util.Collection;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
@@ -192,7 +193,16 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNull(()-> facade.createValidateProductQuantityDiscount(currUser,productId, productQuantity, cantbemore, connectId, shopId),"add discount predicate succeeded");
     }
 
+    @Override
+    public Result createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId){
+        return ifUserNotNull(()-> facade.createValidateProductPurchase(currUser, productId, productQuantity, cantbemore, connectId, shopId),"add purchase policy succeeded");
 
+    }
+
+    @Override
+    public Result createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
+        return ifUserNotNull(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
+    }
 
 
     protected void setCurrUser(SubscribedUser currUser) {

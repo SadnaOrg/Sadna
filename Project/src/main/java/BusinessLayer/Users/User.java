@@ -23,7 +23,7 @@ public abstract class User{
     //assume that the productid is in the relevant shop handle in facade
     public boolean saveProducts(int shopid, int productid, int quantity,double price) {
         if(quantity<=0)
-            throw new IllegalArgumentException("quantity mast be positive amount");
+            throw new IllegalArgumentException("quantity must be positive amount");
         if (!shoppingCart.containsKey(shopid)) {
             Basket b = new Basket(shopid);
             shoppingCart.put(shopid, b);

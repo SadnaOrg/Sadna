@@ -10,6 +10,12 @@ public class ValidateProductPurchase implements ValidatePurchasePolicy{
     //if true then can't be higher than false can't be lower than
     boolean cantbemore;
 
+    public ValidateProductPurchase(int productId, int productQuantity, boolean cantbemore) {
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+        this.cantbemore = cantbemore;
+    }
+
     public boolean isValid(User u, Basket basket) {
         if (basket.getProducts().containsKey(productId))
         {
@@ -20,5 +26,9 @@ public class ValidateProductPurchase implements ValidatePurchasePolicy{
         }
         return true;
     }
-
+    @Override
+    public LogicPurchasePolicy getLogicRule(int searchConnectId)
+    {
+        return null;
+    }
 }

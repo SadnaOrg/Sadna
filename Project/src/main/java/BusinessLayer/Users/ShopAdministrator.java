@@ -4,11 +4,14 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Discount.ProductByQuantityDiscount;
+import BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase;
+import BusinessLayer.Shops.Polices.Purchase.ValidateTImeStampPurchase;
 import BusinessLayer.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -269,6 +272,20 @@ public class ShopAdministrator {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, conncectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+
+    }
+
+    public boolean createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int conncectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateProductPurchase(productId, productQuantity, cantbemore, conncectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+
+    }
+
+    public boolean createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int connectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateTImeStampPurchase(localTime, buybefore, connectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }

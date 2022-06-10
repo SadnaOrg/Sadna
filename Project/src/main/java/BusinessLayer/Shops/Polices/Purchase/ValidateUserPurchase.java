@@ -9,4 +9,9 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
     public boolean isValid(User u, Basket basket) {
         return false;
     }
+    @Override
+    public LogicPurchasePolicy getLogicRule(int searchConnectId)
+    {
+        return null;
+    }
 }

@@ -9,14 +9,17 @@ import java.util.Collection;
 public class PurchaseOrPolicy implements LogicPurchasePolicy{
 
     private Collection<PurchasePolicy> purchasePolicies;
+    private int policyLogicId;
 
     public PurchaseOrPolicy(Collection<PurchasePolicy> purchasePolicies) {
         this.purchasePolicies = new ArrayList<>();
         this.purchasePolicies.addAll(purchasePolicies);
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
     public PurchaseOrPolicy(PurchasePolicy purchasePolicy) {
         this.purchasePolicies = new ArrayList<>();
         this.purchasePolicies.add(purchasePolicy);
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
 
     @Override
@@ -29,6 +32,18 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
         return false;
     }
 
+    public LogicPurchasePolicy getLogicRule(int searchConnectId)
+    {
+        if(this.policyLogicId == searchConnectId)
+            return this;
+        for (PurchasePolicy policy : purchasePolicies)
+        {
+            LogicPurchasePolicy findrule = policy.getLogicRule(searchConnectId);
+            if (findrule!=null)
+                return findrule;
+        }
+        return null;
+    }
 
 
     public void add(PurchasePolicy purchasePolicy)
