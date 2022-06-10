@@ -250,18 +250,18 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
-    public boolean createValidateBasketQuantityDiscount(int basketquantity ,int conncectId) throws NoPermissionException {
+    public boolean createValidateBasketQuantityDiscount(int basketquantity ,boolean cantBeMore,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateBasketQuantityDiscount(basketquantity, conncectId);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateBasketQuantityDiscount(basketquantity,cantBeMore, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
 
-    public boolean createValidateBasketValueDiscount(double basketvalue ,int conncectId) throws NoPermissionException {
+    public boolean createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateBasketValueDiscount(basketvalue, conncectId);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateBasketValueDiscount(basketvalue, cantBeMore, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }

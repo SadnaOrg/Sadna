@@ -39,10 +39,8 @@ public class DiscountXorPolicy implements LogicDiscountRules{
                     if (!tieBreaker.validateDiscount(basket))
                         return dr2;
                 }
-                return dr1;
             }
-            else
-                return dr1;
+            return dr1;
         }
         if (dr2>0)
             return dr2;

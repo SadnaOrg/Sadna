@@ -1,5 +1,7 @@
 package ServiceLayer.interfaces;
 
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
@@ -46,4 +48,30 @@ public interface SubscribedUserService extends UserService {
     Response<Administrator> getMyInfo(int shopID);
 
     Result removeAdmin(int shopID, String toRemove);
+
+    Result createProductByQuantityDiscount(int productId, int productQuantity, double discount, int connectId, int shopId);
+
+    Result createProductDiscount(int productId, double discount, int connectId, int shopId) ;
+
+    Result createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
+
+    Result createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
+
+    Result createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
+
+    Result createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) ;
+
+    Result createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+
+    Result  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) ;
+
+    Result  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+
+    Result createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
+
+    Result  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
+
+    Result createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) ;
+
+    Result createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) ;
 }

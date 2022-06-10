@@ -1,5 +1,7 @@
 package ServiceLayer;
 
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.*;
@@ -7,6 +9,7 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
+import javax.naming.NoPermissionException;
 import java.util.Collection;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
@@ -122,6 +125,75 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     public Result removeAdmin(int shopID, String toRemove) {
         return ifUserNotNull(() -> facade.removeAdmin(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
+    @Override
+    public Result createProductByQuantityDiscount(int productId, int productQuantity, double discount, int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createProductByQuantityDiscount(currUser,productId, productQuantity, discount, connectId, shopId) ,"add discount succeeded");
+    }
+
+    @Override
+    public Result createProductDiscount(int productId, double discount, int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createProductDiscount(currUser,productId, discount, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createProductQuantityInPriceDiscount(currUser,productID, quantity, priceForQuantity, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  {
+        return ifUserNotNull(()-> facade.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createShopDiscount(int basketQuantity,double discount,int connectId, int shopId)  {
+
+        return ifUserNotNull(()-> facade.createShopDiscount(currUser,basketQuantity, discount, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createDiscountAndPolicy(currUser,discountPred, discountPolicy, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createDiscountMaxPolicy(currUser,discountPolicy, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createDiscountOrPolicy(currUser,discountPred, discountPolicy, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createDiscountPlusPolicy(currUser,discountPolicy, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createDiscountXorPolicy(currUser,discountRules1, discountRules2, tieBreaker, connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Result  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createValidateBasketQuantityDiscount(currUser,basketquantity, cantBeMore, connectId, shopId),"add discount predicate succeeded");
+    }
+
+    @Override
+    public Result createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId)  {
+        return ifUserNotNull(()-> facade.createValidateBasketValueDiscount(currUser,basketvalue, cantBeMore, connectId, shopId),"add discount predicate succeeded");
+    }
+
+    @Override
+    public Result createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId)  {
+
+        return ifUserNotNull(()-> facade.createValidateProductQuantityDiscount(currUser,productId, productQuantity, cantbemore, connectId, shopId),"add discount predicate succeeded");
+    }
+
+
+
 
     protected void setCurrUser(SubscribedUser currUser) {
         this.currUser = currUser;

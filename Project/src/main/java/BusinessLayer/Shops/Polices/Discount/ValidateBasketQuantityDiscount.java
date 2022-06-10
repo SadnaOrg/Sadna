@@ -8,10 +8,13 @@ public class ValidateBasketQuantityDiscount implements DiscountPred{
     private int ruleId;
 
     private int basketquantity;
+    boolean cantBeMore;
 
-    public ValidateBasketQuantityDiscount(int basketquantity) {
+    public ValidateBasketQuantityDiscount(int basketquantity,boolean cantBeMore) {
         this.basketquantity = basketquantity;
         this.ruleId = atomicRuleID.incrementAndGet();
+        this.cantBeMore =cantBeMore;
+
     }
 
     @Override
@@ -21,6 +24,8 @@ public class ValidateBasketQuantityDiscount implements DiscountPred{
         {
             currQuantity+= basket.getProducts().get(i);
         }
+        if(cantBeMore)
+            return currQuantity<=basketquantity;
         return currQuantity>=basketquantity;
     }
 }

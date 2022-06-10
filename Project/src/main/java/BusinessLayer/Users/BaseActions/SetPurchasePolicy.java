@@ -69,15 +69,15 @@ public class SetPurchasePolicy extends BaseAction {
         return true;
     }
 
-    public boolean createValidateBasketQuantityDiscount(int basketquantity ,int conncectId)
+    public boolean createValidateBasketQuantityDiscount(int basketquantity,boolean cantBeMore ,int conncectId)
     {
-        shop.addPredicate(conncectId,new ValidateBasketQuantityDiscount(basketquantity));
+        shop.addPredicate(conncectId,new ValidateBasketQuantityDiscount(basketquantity,cantBeMore));
         return true;
     }
 
-    public boolean createValidateBasketValueDiscount(double basketvalue ,int conncectId)
+    public boolean createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int conncectId)
     {
-        shop.addPredicate(conncectId,new ValidateBasketValueDiscount(basketvalue));
+        shop.addPredicate(conncectId,new ValidateBasketValueDiscount(basketvalue,cantBeMore));
         return true;
     }
 
