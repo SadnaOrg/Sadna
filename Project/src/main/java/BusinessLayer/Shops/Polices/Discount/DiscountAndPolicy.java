@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class DiscountAndPolicy implements LogicDiscountRules{
+    private int connectId;
      private Collection<DiscountPred> discountPreds;
      private DiscountRules discountPolicy;
-     private int connectId;
 
     public DiscountAndPolicy(Collection<DiscountPred> discountPreds,DiscountRules discountPolicy) {
         this.discountPreds = new ArrayList<>();
@@ -26,6 +26,11 @@ public class DiscountAndPolicy implements LogicDiscountRules{
 
     }
 
+    public DiscountAndPolicy(int connectId,Collection<DiscountPred> discountPreds, DiscountRules discountPolicy) {
+        this.discountPreds = discountPreds;
+        this.discountPolicy = discountPolicy;
+        this.connectId = connectId;
+    }
 
     @Override
     public double calculateDiscount(Basket basket){

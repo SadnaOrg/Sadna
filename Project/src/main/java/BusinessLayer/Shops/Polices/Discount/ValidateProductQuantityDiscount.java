@@ -10,6 +10,12 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
     //if true then can't be higher than false can't be lower than
     private boolean cantbemore;
 
+    public ValidateProductQuantityDiscount(int ruleId, int productId, int productQuantity, boolean cantbemore) {
+        this.ruleId = ruleId;
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+        this.cantbemore = cantbemore;
+    }
 
     public ValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore) {
         this.productId = productId;

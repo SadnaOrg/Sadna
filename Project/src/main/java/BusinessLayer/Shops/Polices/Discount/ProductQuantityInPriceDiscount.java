@@ -16,6 +16,13 @@ public class ProductQuantityInPriceDiscount implements DiscountPolicy{
         this.discountId = atomicDiscountID.incrementAndGet();
     }
 
+    public ProductQuantityInPriceDiscount(int discountId, int productID, int quantity, double priceForQuantity) {
+        this.discountId = discountId;
+        this.productID = productID;
+        this.quantity = quantity;
+        this.priceForQuantity = priceForQuantity;
+    }
+
     @Override
     public double calculateDiscount(Basket basket) {
         if (basket.getProducts().containsKey(productID)) {

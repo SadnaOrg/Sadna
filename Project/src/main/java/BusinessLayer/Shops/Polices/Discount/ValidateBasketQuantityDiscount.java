@@ -16,6 +16,12 @@ public class ValidateBasketQuantityDiscount implements DiscountPred{
 
     }
 
+    public ValidateBasketQuantityDiscount(int ruleId, int basketquantity, boolean cantBeMore) {
+        this.ruleId = ruleId;
+        this.basketquantity = basketquantity;
+        this.cantBeMore = cantBeMore;
+    }
+
     @Override
     public boolean validateDiscount(Basket basket) {
         int currQuantity=0;

@@ -7,7 +7,13 @@ public class ValidateBasketValueDiscount implements DiscountPred {
     private double basketvalue;
     private boolean cantBeMore;
 
-    public ValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore) {
+    public ValidateBasketValueDiscount(int ruleId, double basketvalue, boolean cantBeMore) {
+        this.ruleId = ruleId;
+        this.basketvalue = basketvalue;
+        this.cantBeMore = cantBeMore;
+    }
+
+    public ValidateBasketValueDiscount(double basketvalue , boolean cantBeMore) {
         this.basketvalue = basketvalue;
         this.ruleId = atomicRuleID.incrementAndGet();
         this.cantBeMore =cantBeMore;

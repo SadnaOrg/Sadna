@@ -6,7 +6,15 @@ public interface DiscountPred {
     {
         if(discountPred instanceof ValidateBasketQuantityDiscount)
         {
-//            return new BusinessLayer.Shops.Polices.Discount.ValidateBasketQuantityDiscount();
+            return new BusinessLayer.Shops.Polices.Discount.ValidateBasketQuantityDiscount(((ValidateBasketQuantityDiscount) discountPred).ruleId(), ((ValidateBasketQuantityDiscount) discountPred).basketquantity(), ((ValidateBasketQuantityDiscount) discountPred).cantBeMore());
+        }
+        if(discountPred instanceof ValidateBasketValueDiscount)
+        {
+            return new BusinessLayer.Shops.Polices.Discount.ValidateBasketValueDiscount(((ValidateBasketValueDiscount) discountPred).ruleId(), ((ValidateBasketValueDiscount) discountPred).basketvalue(), ((ValidateBasketValueDiscount) discountPred).cantBeMore());
+        }
+        if(discountPred instanceof ValidateProductQuantityDiscount)
+        {
+            return new BusinessLayer.Shops.Polices.Discount.ValidateProductQuantityDiscount(((ValidateProductQuantityDiscount) discountPred).ruleId(), ((ValidateProductQuantityDiscount) discountPred).productId(), ((ValidateProductQuantityDiscount) discountPred).productQuantity(), ((ValidateProductQuantityDiscount) discountPred).cantbemore());
         }
         throw new IllegalStateException("can't be other then the known ones");
     }

@@ -3,10 +3,10 @@ package BusinessLayer.Shops.Polices.Discount;
 import BusinessLayer.Users.Basket;
 
 public class ProductByQuantityDiscount implements DiscountPolicy{
+    private int discountId;
     private int productId;
     private int productQuantity;
     private double discount;
-    private int discountId;
 
     public ProductByQuantityDiscount(int productId, int productQuantity, double discount)
     {
@@ -14,6 +14,13 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
         this.productQuantity= productQuantity;
         this.discount= discount;
         this.discountId = atomicDiscountID.incrementAndGet();
+    }
+
+    public ProductByQuantityDiscount( int discountId,int productId, int productQuantity, double discount) {
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+        this.discount = discount;
+        this.discountId = discountId;
     }
 
     @Override
