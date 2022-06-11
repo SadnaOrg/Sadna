@@ -14,25 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
 
-    public AdministratorInfo getMyInfo(String userName, int shopID) {
-        if(subscribers.containsKey(userName)){
-            SubscribedUser u = subscribers.get(userName);
-            ShopAdministrator admin = u.getAdministrator(shopID);
-            if(admin != null){
-                return admin.getMyInfo();
-            }
-            return null;
-        }
-        return null;
-    }
 
-    public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        if(subscribers.containsKey(requesting)){
-            SubscribedUser u = subscribers.get(requesting);
-            return u.removeAdmin(shopID,subscribers.get(toRemove));
-        }
-        throw new IllegalArgumentException("you aren't a subscribed user!");
-    }
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
@@ -54,6 +36,25 @@ public class UserController {
         subscribers = new ConcurrentHashMap<>();
     }
 
+    public AdministratorInfo getMyInfo(String userName, int shopID) {
+        if(subscribers.containsKey(userName)){
+            SubscribedUser u = subscribers.get(userName);
+            ShopAdministrator admin = u.getAdministrator(shopID);
+            if(admin != null){
+                return admin.getMyInfo();
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        if(subscribers.containsKey(requesting)){
+            SubscribedUser u = subscribers.get(requesting);
+            return u.removeAdmin(shopID,subscribers.get(toRemove));
+        }
+        throw new IllegalArgumentException("you aren't a subscribed user!");
+    }
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId,productId);
         if(price != -1) {
@@ -307,6 +308,9 @@ public class UserController {
     protected boolean removeSubscribedUserFromSystem(String userName){
         if(!getSubUser(userName).removeFromSystem())
             throw new IllegalArgumentException("user "+userName+" cant be removed");
+        subscribers.remove(userName);
+        users.remove(userName);
+        System.out.println("renoved ----------------> " +userName);
         return true;
     }
     public enum UserState{
@@ -323,11 +327,15 @@ public class UserController {
             };
         }
     }
-    public Map<UserState,SubscribedUser> getSubscribedUserInfo(String user){
+    public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
         if(!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
-        Map<UserState,SubscribedUser> m = new ConcurrentHashMap<>();
-        this.subscribers.values().forEach((u)->{m.put(UserState.get(u),u);});
+        Map<UserState,List<SubscribedUser>> m = new ConcurrentHashMap<>();
+        this.subscribers.values().forEach((u)->{
+            var k =UserState.get(u);
+            if(!m.containsKey(k))
+                m.put(k,new LinkedList<SubscribedUser>());
+            m.get(k).add(u);});
         return m;
     }
 

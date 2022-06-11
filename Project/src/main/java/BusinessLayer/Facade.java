@@ -1,5 +1,7 @@
 package BusinessLayer;
 
+import BusinessLayer.Notifications.ConcreteNotification;
+import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.*;
@@ -9,12 +11,15 @@ import BusinessLayer.System.System;
 
 import javax.naming.NoPermissionException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class Facade{
     private final UserController userController = UserController.getInstance();
     private final ShopController shopController= ShopController.getInstance();
+    private final System system = System.getInstance();
 
     private Facade() {
     }
@@ -28,7 +33,10 @@ public class Facade{
     }
 
     public Guest logout(User currUser) {
-        return userController.logout(currUser.getUserName());
+        var g= userController.logout(currUser.getUserName());
+        if(g!= null)
+            system.getNotifier().unregister(currUser.getUserName());
+        return g;
     }
 
     public Shop openShop(SubscribedUser currUser,String name, String desc) {
@@ -37,7 +45,7 @@ public class Facade{
 
     public boolean assignShopManager(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
         return  userController.assignShopManager(currUser,shop,userNameToAssign);
-      }
+    }
 
     public boolean assignShopOwner(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
         return userController.assignShopOwner(currUser,shop,userNameToAssign);
@@ -101,7 +109,7 @@ public class Facade{
 // TODO: fix
     public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
-        ConcurrentHashMap<Integer, Boolean> paymentSituation = System.getInstance().pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
             return false;
         return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
@@ -121,6 +129,24 @@ public class Facade{
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser) {
         return  userController.getShopsAndUsersInfo(currUser);
+    }
+
+    public boolean registerToNotifier(String userName, Function<Notification, Boolean> con){
+        system.getNotifier().register(con,userName);
+        return true;
+    }
+    public boolean sendNotification(Collection<String> users, String Content){
+        system.getNotifier().addNotification(new ConcreteNotification(users,Content));
+        return true;
+    }
+    public boolean sendNotification(Notification not){
+        system.getNotifier().addNotification(not);
+        return true;
+    }
+
+    public boolean getDelayedNotifications(User currUser){
+        system.getNotifier().getDelayedNotifications(currUser.getUserName());
+        return true;
     }
 
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
@@ -161,7 +187,7 @@ public class Facade{
     public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
         return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
     }
-    public Map<UserController.UserState, SubscribedUser> getSubscribedUserInfo(String userName){
+    public Map<UserController.UserState, List<SubscribedUser>> getSubscribedUserInfo(String userName){
         return userController.getSubscribedUserInfo(userName);
     }
 

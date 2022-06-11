@@ -1,10 +1,16 @@
 package com.example.application;
 
+import ServiceLayer.Objects.Product;
+import ServiceLayer.Objects.Shop;
+import ServiceLayer.Objects.ShopsInfo;
 import ServiceLayer.Result;
 import com.example.application.views.main.ProductView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
+
+import java.util.Collection;
+import java.util.function.Predicate;
 
 public class Utility {
     public static final String projectName = "Superli";
@@ -31,5 +37,9 @@ public class Utility {
             notifySuccess(successMsg);
         else
             notifyError(res.getMsg());
+    }
+
+    public static Collection<Product> getProducts(ShopsInfo shopsInfo) {
+        return shopsInfo.shops().stream().map(Shop::shopProducts).flatMap(Collection::stream).toList();
     }
 }

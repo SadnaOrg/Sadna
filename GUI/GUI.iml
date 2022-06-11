@@ -31,6 +31,7 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Project" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin:23.0.9" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-core:23.0.9" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin:flow-server:23.0.7" level="project" />

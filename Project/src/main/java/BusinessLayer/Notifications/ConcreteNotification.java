@@ -6,21 +6,13 @@ import BusinessLayer.Users.UserController;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class ConcreteNotification implements Notification {
+public class ConcreteNotification implements Notification {
     private Collection<String> usernames;
     private String content;
-    public ConcreteNotification(String content){
-        usernames = new ArrayList<>();
-        this.content = content;
-    }
 
-    @Override
-    public boolean notifyUser(String username) {
-        if(UserController.getInstance().getUser(username).isLoggedIn()){
-            //TODO: notify user
-            usernames.remove(username);
-        }
-        return false;
+    public ConcreteNotification( Collection<String> usernames, String content){
+        this.usernames = usernames;
+        this.content = content;
     }
 
     @Override
@@ -43,5 +35,15 @@ public abstract class ConcreteNotification implements Notification {
     @Override
     public boolean isEmpty(){
         return usernames.isEmpty();
+    }
+
+    @Override
+    public Collection<String> getUserNames() {
+        return usernames;
+    }
+
+    @Override
+    public String getContent() {
+        return content;
     }
 }
