@@ -11,6 +11,7 @@ public enum BaseActionType {
     STOCK_MANAGEMENT(1),
     SET_PURCHASE_POLICY(2),
     ASSIGN_SHOP_OWNER(4),
+   // REMOVE_SHOP_OWNER(5),
     ASSIGN_SHOP_MANAGER(6),
     CHANGE_MANAGER_PERMISSION(7),
     CLOSE_SHOP(9),
@@ -25,6 +26,9 @@ public enum BaseActionType {
         this.code = i;
     }
 
+    private static final Map<Integer,BaseActionType> lookup
+            = new HashMap<>();
+
     static public BaseAction getAction(SubscribedUser user, Shop shop, BaseActionType actionType) {
         return switch (actionType) {
             case ROLE_INFO -> new RolesInfo(shop,user);
@@ -34,14 +38,12 @@ public enum BaseActionType {
             case ASSIGN_SHOP_OWNER -> new AssignShopOwner(shop, user);
             case ASSIGN_SHOP_MANAGER -> new AssignShopManager(shop, user);
             case SET_PURCHASE_POLICY -> new SetPurchasePolicy(shop);
+           // case REMOVE_SHOP_OWNER -> new RemoveShopOwner(shop,user);
             case CHANGE_MANAGER_PERMISSION -> new ChangeManagerPermission(shop, user);
             case REOPEN_SHOP -> new ReOpenShop(shop, user);
             case REMOVE_ADMIN -> new RemoveAdmin(user,shop);
         };
     }
-
-    private static final Map<Integer,BaseActionType> lookup
-            = new HashMap<Integer,BaseActionType>();
 
     static {
         for(BaseActionType s : EnumSet.allOf(BaseActionType.class))

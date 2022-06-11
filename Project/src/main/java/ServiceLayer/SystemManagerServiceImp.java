@@ -21,7 +21,6 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     @Override
     public Response<PurchaseHistoryInfo> getShopsAndUsersInfo(int shop, String userName) {
         return ifUserNotNullRes(() -> new PurchaseHistoryInfo(facade.getShopsAndUsersInfo(currUser, shop, userName)), "get shops and users info succeeded");
-
     }
 
     @Override
@@ -40,21 +39,22 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     }
     @Override
     public Response<List<SubscribedUserInfo>> getAllSubscribedUserInfo(){
-        return ifUserNotNullRes(()-> UserController.getInstance().getSubscribedUserInfo(currUser.getUserName()).entrySet().stream().map(SubscribedUserInfo::new).collect(Collectors.toList()),"get subscribed user info");
+        return ifUserNotNullRes(()-> facade.getSubscribedUserInfo(currUser.getUserName()).entrySet().stream().map(SubscribedUserInfo::new).collect(Collectors.toList()),"get subscribed user info");
     }
 
     protected void setCurrUser(SystemManager currUser) {
         super.setCurrUser(currUser);
         this.currUser = currUser;
     }
+
     @Override
     public Result removeSubscribedUserFromSystem(String userToRemove){
-        return ifUserNotNull(()->currUser.removeSubscribedUser(userToRemove),"removed "+ userToRemove +" from system");
+        return ifUserNotNull(()->facade.removeSubscribedUserFromSystem(currUser,userToRemove),"removed "+ userToRemove +" from system");
     }
 
 
     private Result ifUserNotNull(MySupplier<Boolean> s, String eventName) {
-        return Result.tryMakeResult((() -> currUser != null && !currUser.isLoggedIn() && s.get()), eventName, "log in to the system first as a subscribed user");
+        return Result.tryMakeResult((() -> currUser != null && currUser.isLoggedIn() && s.get()), eventName, "log in to the system first as a subscribed user");
     }
 
     private Result ifUserNull(MySupplier<Boolean> s, String eventName) {

@@ -1,11 +1,11 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Shops.ShopFilters;
+import BusinessLayer.Notifications.Notification;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface UserService {
@@ -34,4 +34,8 @@ public interface UserService {
 
     Response<User> getUserInfo();
 
+
+    Result registerToNotifier(Function<ServiceLayer.Objects.Notification, Boolean> con);
+
+    Result getDelayNotification();
 }
