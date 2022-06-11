@@ -1,6 +1,8 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.BaseActionType;
 import ServiceLayer.Objects.Administrator;
 import ServiceLayer.Objects.AdministratorInfo;
@@ -222,6 +224,56 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
             return reopened.isOk();
         }
         return false;
+    }
+
+    @Override
+    public Integer createProductByQuantityDiscount(String username, int productId, int productQuantity, double discount, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createProductDiscount(String username, int productId, double discount, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createProductQuantityInPriceDiscount(String username, int productID, int quantity, double priceForQuantity, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createShopDiscount(String username, int basketQuantity, double discount, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createDiscountAndPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createDiscountMaxPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createDiscountOrPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createDiscountPlusPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
+        return null;
+    }
+
+    @Override
+    public Integer createDiscountXorPolicy(String username, DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
+        return null;
     }
 
     SubscribedUser manageSystemAsSystemManager(String username){

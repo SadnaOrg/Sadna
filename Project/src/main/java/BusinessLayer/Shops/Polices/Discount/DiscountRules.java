@@ -9,5 +9,6 @@ public interface DiscountRules {
     public double calculateDiscount(Basket basket);
     public NumericDiscountRules getNumericRule(int searchConnectId);
     public LogicDiscountRules getLogicRule(int searchConnectId);
+    public int getID();
 
 }

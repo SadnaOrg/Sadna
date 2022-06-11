@@ -261,11 +261,15 @@ public class Shop {
         return this.discounts.calculateDiscount(usersBaskets.get(user));
     }
 
-    public boolean addDiscount(int addToConnectId, DiscountRules discountRules) {
+    public int addDiscount(int addToConnectId, DiscountRules discountRules) {
+        int id = -1;
         if (state == State.OPEN) {
             NumericDiscountRules numericDiscountRule =discounts.getNumericRule(addToConnectId);
-            if (numericDiscountRule != null)
+            if (numericDiscountRule != null){
                 numericDiscountRule.add(discountRules);
+                id = discountRules.getID(); // this will return either the connectID or the discountID
+                                              // depending on the rule. composite discount -> connectID , leaf discount -> discountID
+            }
             else
                 throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
         }
@@ -273,7 +277,7 @@ public class Shop {
         {
             throw new IllegalStateException("The shop is closed");
         }
-        return true;
+        return id;
     }
 
     public boolean addPredicate(int addToConnectId, DiscountPred discountPred) {

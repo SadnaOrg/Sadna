@@ -109,6 +109,7 @@ public class Facade{
     public boolean editProductQuantity(User currUser, int shopId, int productId, int newQuantity) {
         return  userController.editProductQuantity(currUser,shopId,productId,newQuantity);
     }
+
 // TODO: fix
     public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
@@ -199,45 +200,44 @@ public class Facade{
     }
 
 
-    public boolean createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
+    public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
         return userController.createProductByQuantityDiscount(currUser,productId, productQuantity, discount, connectId, shopId);
     }
 
-
-    public boolean createProductDiscount(SubscribedUser currUser, int productId, double discount, int connectId, int shopId) throws NoPermissionException {
+    public int createProductDiscount(SubscribedUser currUser, int productId, double discount, int connectId, int shopId) throws NoPermissionException {
         return userController.createProductDiscount(currUser,productId, discount, connectId, shopId);
     }
 
-    public boolean createProductQuantityInPriceDiscount(SubscribedUser currUser, int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
+    public int createProductQuantityInPriceDiscount(SubscribedUser currUser, int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
         return userController.createProductQuantityInPriceDiscount(currUser,productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public boolean createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
+    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
         return userController.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId);
     }
 
-    public boolean createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
+    public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
 
         return userController.createShopDiscount(currUser,basketQuantity, discount, connectId, shopId);
     }
 
-    public boolean createDiscountAndPolicy(SubscribedUser currUser, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
+    public int createDiscountAndPolicy(SubscribedUser currUser, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
         return userController.createDiscountAndPolicy(currUser,discountPred, discountPolicy, connectId, shopId);
     }
 
-    public boolean createDiscountMaxPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public int createDiscountMaxPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         return userController.createDiscountMaxPolicy(currUser,discountPolicy, connectId, shopId);
     }
 
-    public boolean  createDiscountOrPolicy(SubscribedUser currUser, DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public int  createDiscountOrPolicy(SubscribedUser currUser, DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         return userController.createDiscountOrPolicy(currUser,discountPred, discountPolicy, connectId, shopId);
     }
 
-    public boolean  createDiscountPlusPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public int  createDiscountPlusPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         return userController.createDiscountPlusPolicy(currUser,discountPolicy, connectId, shopId);
     }
 
-    public boolean createDiscountXorPolicy(SubscribedUser currUser, DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
+    public int createDiscountXorPolicy(SubscribedUser currUser, DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
         return userController.createDiscountXorPolicy(currUser,discountRules1, discountRules2, tieBreaker, connectId, shopId);
     }
 

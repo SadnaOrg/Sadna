@@ -41,4 +41,9 @@ public class ShopDiscount implements DiscountPolicy {
         return null;
     }
 
+    @Override
+    public int getID(){
+        return this.discountId;
+    }
+
 }

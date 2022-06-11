@@ -33,4 +33,10 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
     public LogicDiscountRules getLogicRule(int searchConnectId) {
         return null;
     }
+
+    @Override
+    public int getID() {
+        return this.discountId;
+    }
+
 }

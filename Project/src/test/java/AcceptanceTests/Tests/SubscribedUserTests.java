@@ -855,6 +855,8 @@ public class SubscribedUserTests extends UserTests {
         closeSupersal = true;
     }
 
+
+
     public User enter() {
         Guest g = subscribedUserBridge.visit();
         return subscribedUserBridge.login(g.name,new RegistrationInfo( "enterUser","enterPass"));

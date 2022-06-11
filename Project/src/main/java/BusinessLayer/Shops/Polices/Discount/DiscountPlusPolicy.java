@@ -69,4 +69,9 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
         }
         return null;
     }
+
+    @Override
+    public int getID(){
+        return this.connectId;
+    }
 }

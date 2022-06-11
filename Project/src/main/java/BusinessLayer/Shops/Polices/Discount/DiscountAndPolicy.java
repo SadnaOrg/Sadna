@@ -57,4 +57,9 @@ public class DiscountAndPolicy implements LogicDiscountRules{
             return this;
         return discountPolicy.getLogicRule(searchConnectId);
     }
+
+    @Override
+    public int getID(){
+        return this.connectId;
+    }
 }

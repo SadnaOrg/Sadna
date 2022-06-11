@@ -138,62 +138,62 @@ public class SubscribedUser extends User {
 
     public boolean isRemoved(){return !isNotRemoved.get();}
 
-    public synchronized boolean createProductByQuantityDiscount(int productId, int productQuantity, double discount,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createProductByQuantityDiscount(int productId, int productQuantity, double discount,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createProductByQuantityDiscount(productId, productQuantity, discount, connectId);
     }
 
 
-    public synchronized boolean createProductDiscount(int productId, double discount, int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createProductDiscount(int productId, double discount, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createProductDiscount(productId, discount, connectId);
     }
 
-    public synchronized boolean createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId);
     }
 
-    public synchronized boolean createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
+    public synchronized int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createRelatedGroupDiscount(relatedProducts, discount, connectId);
     }
 
-    public synchronized boolean createShopDiscount(int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createShopDiscount(int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createShopDiscount(basketQuantity, discount, connectId);
     }
 
-    public synchronized boolean createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createDiscountAndPolicy(discountPred, discountPolicy, connectId);
     }
 
-    public synchronized boolean createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createDiscountMaxPolicy(discountPolicy, connectId);
     }
 
-    public synchronized boolean  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createDiscountOrPolicy(discountPred, discountPolicy, connectId);
     }
 
-    public synchronized boolean  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createDiscountPlusPolicy(discountPolicy, connectId);
     }
 
-    public synchronized boolean createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
         return shopAdministrator.get(shopId).createDiscountXorPolicy(discountRules1, discountRules2, tieBreaker, connectId);

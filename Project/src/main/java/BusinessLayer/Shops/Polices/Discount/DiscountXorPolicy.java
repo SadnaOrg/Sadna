@@ -77,4 +77,9 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         return tieBreakers.remove(discountPred);
     }
 
+    @Override
+    public int getID(){
+        return this.connectId;
+    }
+
 }

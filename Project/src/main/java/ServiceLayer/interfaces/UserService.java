@@ -34,7 +34,6 @@ public interface UserService {
 
     Response<User> getUserInfo();
 
-
     Result registerToNotifier(Function<ServiceLayer.Objects.Notification, Boolean> con);
 
     Result getDelayNotification();

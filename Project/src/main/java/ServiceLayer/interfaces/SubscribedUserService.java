@@ -50,25 +50,25 @@ public interface SubscribedUserService extends UserService {
 
     Result removeAdmin(int shopID, String toRemove);
 
-    Result createProductByQuantityDiscount(int productId, int productQuantity, double discount, int connectId, int shopId);
+    Response<Integer> createProductByQuantityDiscount(int productId, int productQuantity, double discount, int connectId, int shopId);
 
-    Result createProductDiscount(int productId, double discount, int connectId, int shopId) ;
+    Response<Integer> createProductDiscount(int productId, double discount, int connectId, int shopId) ;
 
-    Result createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
+    Response<Integer> createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
 
-    Result createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
+    Response<Integer> createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
 
-    Result createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
+    Response<Integer> createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
 
-    Result createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) ;
+    Response<Integer> createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Result createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer> createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
 
-    Result  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer>  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) ;
 
-    Result  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer>  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
 
-    Result createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
+    Response<Integer> createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
 
     Result  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
 
