@@ -38,7 +38,7 @@ public class ProductDiscountUnitTest {
         pidprice.put(2,15.0);
         when(basket.getProducts()).thenReturn(pidquan);
         when(basket.getPrices()).thenReturn(pidprice);
-        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        productDiscount= new ProductDiscount(1,0.1);
         Assert.assertEquals(0.1*10*5,productDiscount.calculateDiscount(basket),0.1);
     }
 
@@ -50,21 +50,8 @@ public class ProductDiscountUnitTest {
         pidprice.put(2,15.0);
         when(basket.getProducts()).thenReturn(pidquan);
         when(basket.getPrices()).thenReturn(pidprice);
-        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        productDiscount= new ProductDiscount(1,0.1);
         Assert.assertEquals(0,productDiscount.calculateDiscount(basket),0.1);
     }
 
-    @Test
-    public void calculateDiscountMultipleProducts() {
-        ConcurrentHashMap<Integer,Integer> pidquan = new ConcurrentHashMap<>();
-        ConcurrentHashMap<Integer,Double> pidprice = new ConcurrentHashMap<>();
-        pidquan.put(1,10);
-        pidquan.put(2,100);
-        pidprice.put(1,5.0);
-        pidprice.put(2,15.0);
-        when(basket.getProducts()).thenReturn(pidquan);
-        when(basket.getPrices()).thenReturn(pidprice);
-        productDiscount= new ProductDiscount(new ProductDiscount(new DefaultDiscount(),1,0.1),2,0.2);
-        Assert.assertEquals(0.1*10*5+0.2*15*100,productDiscount.calculateDiscount(basket),0.1);
-    }
 }

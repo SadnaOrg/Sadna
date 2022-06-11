@@ -3,6 +3,7 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
+import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
@@ -79,8 +80,11 @@ public class ShopController {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                if(checkIfUserHasBasket(shopid,user))
-                    finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
+                if (checkIfUserHasBasket(shopid, user)) {
+                    //added here
+                    if (shops.get(shopid).approvePurchase(UserController.getInstance().getUser(user)))
+                        finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
+                }
             }
             catch (IllegalStateException e)
             {

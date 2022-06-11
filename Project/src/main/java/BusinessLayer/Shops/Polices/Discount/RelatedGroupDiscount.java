@@ -5,16 +5,17 @@ import BusinessLayer.Users.Basket;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class RelatedGroupDiscount extends DiscountPolicy{
+public class RelatedGroupDiscount implements DiscountPolicy{
     Collection<Integer> relatedProducts;
     double discount;
+    private int discountId;
 
-    public RelatedGroupDiscount(DiscountPolicyInterface discountPolicy, Collection<Integer> relatedProducts, double discount)
+    public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
     {
-        super(discountPolicy);
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(relatedProducts);
         this.discount =discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
 
@@ -27,7 +28,7 @@ public class RelatedGroupDiscount extends DiscountPolicy{
                 currentDiscountPrice +=  discount*basket.getProducts().get(pid)*basket.getPrices().get(pid);
             }
         }
-        return currentDiscountPrice+ this.discountPolicy.calculateDiscount(basket);
+        return currentDiscountPrice;
     }
 
 
@@ -35,5 +36,16 @@ public class RelatedGroupDiscount extends DiscountPolicy{
     {
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(newProducts);
+    }
+
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
     }
 }

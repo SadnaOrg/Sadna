@@ -3,15 +3,16 @@ package BusinessLayer.Shops.Polices.Discount;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
-public class ShopDiscount extends DiscountPolicy {
+public class ShopDiscount implements DiscountPolicy {
     int basketQuantity;
     double discount;
+    private int discountId;
 
-    public ShopDiscount(DiscountPolicyInterface discountPolicy, int basketQuantity,double discount)
+    public ShopDiscount(int basketQuantity,double discount)
     {
-        super(discountPolicy);
         this.basketQuantity= basketQuantity;
         this.discount = discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
     @Override
@@ -24,11 +25,20 @@ public class ShopDiscount extends DiscountPolicy {
             currentPrice+= basket.getPrices().get(productId)*basket.getProducts().get(productId);
         }
         if(currentQuantity>=basketQuantity)
-            return discount*currentPrice+this.discountPolicy.calculateDiscount(basket);
-        else
-            return this.discountPolicy.calculateDiscount(basket);
+            return discount*currentPrice;
+
+        return 0;
+
     }
 
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
 
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 
 }
