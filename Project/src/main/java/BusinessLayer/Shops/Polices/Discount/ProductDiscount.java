@@ -3,8 +3,8 @@ package BusinessLayer.Shops.Polices.Discount;
 import BusinessLayer.Users.Basket;
 
 public class ProductDiscount implements DiscountPolicy {
-    int productId;
-    double discount;
+    private int productId;
+    private double discount;
     private int discountId;
 
     public ProductDiscount(int productId, double discount)
@@ -37,5 +37,17 @@ public class ProductDiscount implements DiscountPolicy {
     @Override
     public int getID(){
         return this.discountId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public int getDiscountId() {
+        return discountId;
     }
 }

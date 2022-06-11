@@ -74,4 +74,12 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
     public int getID(){
         return this.connectId;
     }
+
+    public int getConnectId() {
+        return connectId;
+    }
+
+    public Collection<DiscountRules> getDiscountPolicies() {
+        return discountPolicies;
+    }
 }

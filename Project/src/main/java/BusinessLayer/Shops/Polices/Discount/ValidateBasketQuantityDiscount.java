@@ -6,9 +6,8 @@ import java.util.Collection;
 
 public class ValidateBasketQuantityDiscount implements DiscountPred{
     private int ruleId;
-
     private int basketquantity;
-    boolean cantBeMore;
+    private boolean cantBeMore;
 
     public ValidateBasketQuantityDiscount(int basketquantity,boolean cantBeMore) {
         this.basketquantity = basketquantity;
@@ -27,5 +26,17 @@ public class ValidateBasketQuantityDiscount implements DiscountPred{
         if(cantBeMore)
             return currQuantity<=basketquantity;
         return currQuantity>=basketquantity;
+    }
+
+    public int getRuleId() {
+        return ruleId;
+    }
+
+    public int getBasketquantity() {
+        return basketquantity;
+    }
+
+    public boolean isCantBeMore() {
+        return cantBeMore;
     }
 }

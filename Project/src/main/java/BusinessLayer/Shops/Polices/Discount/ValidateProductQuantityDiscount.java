@@ -8,7 +8,7 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
     private int productId;
     private int productQuantity;
     //if true then can't be higher than false can't be lower than
-    boolean cantbemore;
+    private boolean cantbemore;
 
 
     public ValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore) {
@@ -29,5 +29,21 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
 
         }
         return false;
+    }
+
+    public int getRuleId() {
+        return ruleId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public boolean isCantbemore() {
+        return cantbemore;
     }
 }

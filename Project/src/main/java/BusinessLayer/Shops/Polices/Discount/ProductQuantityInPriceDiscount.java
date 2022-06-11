@@ -5,9 +5,9 @@ import BusinessLayer.Users.Basket;
 public class ProductQuantityInPriceDiscount implements DiscountPolicy{
     private int discountId;
 
-    int productID;
-    int quantity;
-    double priceForQuantity;
+    private int productID;
+    private int quantity;
+    private double priceForQuantity;
 
     public ProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity) {
         this.productID = productID;
@@ -38,5 +38,21 @@ public class ProductQuantityInPriceDiscount implements DiscountPolicy{
     @Override
     public int getID(){
         return this.discountId;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPriceForQuantity() {
+        return priceForQuantity;
     }
 }

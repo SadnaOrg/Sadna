@@ -82,4 +82,19 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         return this.connectId;
     }
 
+    public int getConnectId() {
+        return connectId;
+    }
+
+    public DiscountRules getDiscountRules1() {
+        return discountRules1;
+    }
+
+    public DiscountRules getDiscountRules2() {
+        return discountRules2;
+    }
+
+    public Collection<DiscountPred> getTieBreakers() {
+        return tieBreakers;
+    }
 }

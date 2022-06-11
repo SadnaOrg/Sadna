@@ -4,9 +4,8 @@ import BusinessLayer.Users.Basket;
 
 public class ValidateBasketValueDiscount implements DiscountPred {
     private int ruleId;
-
-    double basketvalue;
-    boolean cantBeMore;
+    private double basketvalue;
+    private boolean cantBeMore;
 
     public ValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore) {
         this.basketvalue = basketvalue;
@@ -24,5 +23,17 @@ public class ValidateBasketValueDiscount implements DiscountPred {
         if(cantBeMore)
             return currprice<=basketvalue;
         return currprice>=basketvalue;
+    }
+
+    public int getRuleId() {
+        return ruleId;
+    }
+
+    public double getBasketvalue() {
+        return basketvalue;
+    }
+
+    public boolean isCantBeMore() {
+        return cantBeMore;
     }
 }

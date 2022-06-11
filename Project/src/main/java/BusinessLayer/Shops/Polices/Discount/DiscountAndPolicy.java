@@ -62,4 +62,17 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     public int getID(){
         return this.connectId;
     }
+
+
+    public Collection<DiscountPred> getDiscountPreds() {
+        return discountPreds;
+    }
+
+    public DiscountRules getDiscountPolicy() {
+        return discountPolicy;
+    }
+
+    public int getConnectId() {
+        return connectId;
+    }
 }
