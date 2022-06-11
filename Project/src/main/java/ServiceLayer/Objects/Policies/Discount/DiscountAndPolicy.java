@@ -9,11 +9,15 @@ public record DiscountAndPolicy(Collection<ServiceLayer.Objects.Policies.Discoun
 
     public DiscountAndPolicy(BusinessLayer.Shops.Polices.Discount.DiscountAndPolicy discountAndPolicy)
     {
-        Collection<ServiceLayer.Objects.Policies.Discount.DiscountPred> discountPreds = new ArrayList<>();
+        this(DiscountRules.makeServiceRule(discountAndPolicy.getDiscountPolicy()));
         for (DiscountPred discountPred:discountAndPolicy.getDiscountPreds())
         {
             discountPreds.add(ServiceLayer.Objects.Policies.Discount.DiscountPred.makeServicePred(discountPred));
         }
-        this(discountPreds,);
     }
+    public DiscountAndPolicy( ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy)
+    {
+        this(new ArrayList<>(),discountPolicy);
+    }
+
 }

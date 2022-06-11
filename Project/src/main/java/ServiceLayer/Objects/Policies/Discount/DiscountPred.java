@@ -2,13 +2,14 @@ package ServiceLayer.Objects.Policies.Discount;
 
 public interface DiscountPred {
 
-//    static BusinessLayer.Shops.Polices.Discount.DiscountPred makeBusinessPred(DiscountPred discountPred)
-//    {
-//        if(discountPred instanceof ValidateBasketQuantityDiscount)
-//        {
+    static BusinessLayer.Shops.Polices.Discount.DiscountPred makeBusinessPred(DiscountPred discountPred)
+    {
+        if(discountPred instanceof ValidateBasketQuantityDiscount)
+        {
 //            return new BusinessLayer.Shops.Polices.Discount.ValidateBasketQuantityDiscount();
-//        }
-//    }
+        }
+        throw new IllegalStateException("can't be other then the known ones");
+    }
 
     static DiscountPred makeServicePred(BusinessLayer.Shops.Polices.Discount.DiscountPred discountPred)
     {
