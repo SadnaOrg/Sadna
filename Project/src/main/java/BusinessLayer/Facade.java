@@ -111,12 +111,13 @@ public class Facade{
     }
 
 // TODO: fix
-    public boolean purchaseCartFromShop(User currUser, PaymentMethod method) {
+    public double purchaseCartFromShop(User currUser, PaymentMethod method) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
         ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
-            return false;
-        return shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
+            return 0;
+        shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
+        return prices.values().stream().reduce(0.0, Double::sum);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {

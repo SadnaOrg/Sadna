@@ -20,7 +20,7 @@ public interface UserService {
 
     Response<ShopsInfo> receiveInformation();
 
-    Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
+    Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
 
     Result saveProducts(int shopid, int productid, int quantity);
 

@@ -361,8 +361,8 @@ public abstract class UserTests extends ProjectTests {
 
         assertEquals(100,quantity);
 
-        boolean bought = userBridge.purchaseCart(u.name,"4800470023456848", 674, 7, 2025);
-        assertFalse(bought);
+        double bought = userBridge.purchaseCart(u.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.0,bought,0);
     }
 
     @Test
@@ -397,8 +397,8 @@ public abstract class UserTests extends ProjectTests {
 
     @Test
     public void testPurchaseEmptyCart() {
-        boolean purchaseResult = userBridge.purchaseCart(u.name,"4580476511112222", 694, 9, 22);
-        assertFalse(purchaseResult);
+        double purchaseResult = userBridge.purchaseCart(u.name,"4580476511112222", 694, 9, 22);
+        assertEquals(0.0,purchaseResult,0);
         //assertEquals(0,u.numOfNotifications());
     }
 
@@ -406,8 +406,9 @@ public abstract class UserTests extends ProjectTests {
     public void testPurchaseNotEmptyCart() {
         testAddProductToCartSuccess();
 
-        boolean purchaseResult = userBridge.purchaseCart(u.name, "4800470023456848", 674, 7, 2025);
-        assertTrue(purchaseResult);
+        double purchaseResult = userBridge.purchaseCart(u.name, "4800470023456848", 674, 7, 2025);
+        assertNotEquals(0.0,purchaseResult,0);
+
         //assertEquals(1,u.numOfNotifications());
         //assertEquals("Purchase",u.notifications.get(0));
 
@@ -416,30 +417,31 @@ public abstract class UserTests extends ProjectTests {
 
         int numOfProducts = userCart.numOfProductsInCart();
         assertEquals(0,numOfProducts);
+        assertEquals(0,userCart.getNumberOfBaskets());
     }
 
     @Test
     public void testPurchaseCartFailurePaymentFailedBadCreditCard(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"11110000av",965,12,2025);
-        assertFalse(purchased);
+        double purchased = userBridge.purchaseCart(u.name,"11110000av",965,12,2025);
+        assertEquals(0.0,purchased,0);
     }
 
     @Test
     public void testPurchaseCartFailurePaymentFailedBadCVV(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",-15,12,2025);
-        assertFalse(purchased);
+        double purchased = userBridge.purchaseCart(u.name,"4800470023456848",-15,12,2025);
+        assertEquals(0.0,purchased,0);
     }
 
     @Test
     public void testPurchaseCartFailurePaymentFailedBadExpirationDate(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",15,13,3);
-        assertFalse(purchased);
+        double purchased = userBridge.purchaseCart(u.name,"4800470023456848",15,13,3);
+        assertEquals(0.0,purchased,0);
     }
 
     private void assertShops(List<Shop> shops, ShopFilter filter,List<Integer> expected){

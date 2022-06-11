@@ -819,6 +819,7 @@ public class SubscribedUserTests extends UserTests {
         // cancel side-effects
         Product p = new Product("shoes","recommended","china");
         subscribedUserBridge.addProductToShop(castroFounder.name, shops[castro_ID].ID, p, 45, 40, 50);
+        subscribedUserBridge.updateCart(u1.name, 45,shops[castro_ID].ID,0);
     }
 
     @Test
@@ -877,6 +878,54 @@ public class SubscribedUserTests extends UserTests {
     }
 
     @Test
+    public void testPurchaseCartWithProductByQuantityDiscountSuccess(){
+        testCreateProductByQuantityDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,10);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(0.75*10*20,payed,0.0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductByQuantityDiscountSuccessNoDiscountBadQuantity(){
+        testCreateProductByQuantityDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(5*20,payed,0.0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductByQuantityDiscountOtherProduct(){
+        testCreateProductByQuantityDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(5*25,payed,0.0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductByQuantityDiscountMixedProducts(){
+        testCreateProductByQuantityDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,5);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(5*20 + 5*25,payed,0.0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
     public void testCreateProductDiscountSuccess(){
         int id = subscribedUserBridge.createProductDiscount(ACEFounder.name, 0,0.25,1, shops[ACE_ID].ID);
         assertNotEquals(-1, id);
@@ -895,6 +944,43 @@ public class SubscribedUserTests extends UserTests {
     }
 
     @Test
+    public void testPurchaseCartWithProductDiscountSuccess(){
+        testCreateProductDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,4);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.75*20*4,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductDiscountOtherProduct(){
+        testCreateProductDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,4);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(25*4,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductDiscountMixedProducts(){
+        testCreateProductDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,4);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,4);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.75*20*4 + 25*4,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
     public void testCreateProductQuantityInPriceDiscount(){
         int id = subscribedUserBridge.createProductQuantityInPriceDiscount(ACEFounder.name, 0,5,10,1,shops[ACE_ID].ID);
         assertNotEquals(-1,id);
@@ -910,6 +996,43 @@ public class SubscribedUserTests extends UserTests {
     public void testCreateProductQuantityInPriceDiscountFailureNoPermission(){
         int id = subscribedUserBridge.createProductQuantityInPriceDiscount(MegaSportFounder.name, 0,5,10,1,shops[castro_ID].ID);
         assertEquals(-1,id);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductQuantityInPriceDiscount(){
+        testCreateProductQuantityInPriceDiscount();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,7);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(140 - (7*20 - (7/5)*10 - 2*20),payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductQuantityInPriceDiscountOtherProduct(){
+        testCreateProductQuantityInPriceDiscount();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,1,7);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(7*25,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
+    public void testPurchaseCartWithProductQuantityInPriceDiscountMixed(){
+        testCreateProductQuantityInPriceDiscount();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,7);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,1,7);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(140 - (7*20 - (7/5)*10 - 2*20) + 7*25,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
     }
 
     @Test
@@ -937,6 +1060,51 @@ public class SubscribedUserTests extends UserTests {
     }
 
     @Test
+    public void testPurchaseCartWithRelatedGroupDiscountAllRelated(){
+        testCreateRelatedGroupDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,10);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,8);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.4*(10*20 + 8*25),payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+    }
+
+    @Test
+    public void testPurchaseCartWithRelatedGroupDiscountNoneRelated(){
+        testCreateRelatedGroupDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,2,15);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(15*40, payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,2,40);
+    }
+
+    @Test
+    public void testPurchaseCartWithRelatedGroupDiscountSomeRelatedSomeNot(){
+        testCreateRelatedGroupDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,10);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,1,8);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,2,15);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(15*40 + 0.4*(10*20 + 8*25),payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,1,100);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,2,40);
+    }
+
+    @Test
     public void testCreateShopDiscountSuccess(){
         int id = subscribedUserBridge.createShopDiscount(ACEFounder.name, 5,0.5,1,shops[ACE_ID].ID);
         assertNotEquals(-1,id);
@@ -952,6 +1120,43 @@ public class SubscribedUserTests extends UserTests {
     public void testCreateShopDiscountFailureNoPermission(){
         int id = subscribedUserBridge.createShopDiscount(MegaSportFounder.name, 5,0.5,1,shops[castro_ID].ID);
         assertEquals(-1,id);
+    }
+
+    @Test
+    public void testPurchaseCartWithShopDiscount(){
+        testCreateShopDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.5*5*20,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithShopDiscountOtherShop(){
+        testCreateShopDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(5*30,payed,0);
+        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
+    }
+
+    @Test
+    public void testPurchaseCartWithShopDiscountMixedShops(){
+        testCreateShopDiscountSuccess();
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,5);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,5);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals( 0.5*5*20+ 5*30,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
+        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
     }
 
     @Test

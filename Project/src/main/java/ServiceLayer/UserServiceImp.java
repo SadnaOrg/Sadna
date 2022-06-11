@@ -24,8 +24,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear) {
-        return ifUserNotNull(()-> facade.purchaseCartFromShop(currUser,new PaymentMethod(creditCardNumber,CVV,expiryMonth,expiryYear)),"purchased cart");
+    public Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear) {
+        return ifUserNotNullRes(()-> facade.purchaseCartFromShop(currUser,new PaymentMethod(creditCardNumber,CVV,expiryMonth,expiryYear)),"purchased cart");
     }
 
     @Override

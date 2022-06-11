@@ -30,7 +30,7 @@ public interface UserBridge {
 
     boolean updateCart(String username,int productsID, int shopsID,int quantity);
 
-    boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear);
+    double purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear);
 
     ProductInShop searchProductInShop(String username,int productID, int shopID);
 
