@@ -7,9 +7,12 @@ import AcceptanceTests.DataObjects.*;
 import AcceptanceTests.Threads.*;
 import org.junit.*;
 
+import java.time.LocalTime;
 import java.util.*;
 
 import static org.junit.Assert.*;
+
+// TODO: fix success case for adding validations.
 
 public class SubscribedUserTests extends UserTests {
     private static SubscribedUserBridge subscribedUserBridge = null;
@@ -855,10 +858,201 @@ public class SubscribedUserTests extends UserTests {
         closeSupersal = true;
     }
 
+    @Test
+    public void testCreateProductByQuantityDiscountSuccess(){
+        int id = subscribedUserBridge.createProductByQuantityDiscount(ACEFounder.name, 0,5,0.25,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
 
+    @Test
+    public void testCreateProductByQuantityDiscountSuccessFailureNoSuchShop(){
+        int id = subscribedUserBridge.createProductByQuantityDiscount(ACEFounder.name, 0,5,0.25,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateProductByQuantityDiscountSuccessFailureNoPermission(){
+        int id = subscribedUserBridge.createProductByQuantityDiscount(MegaSportFounder.name, 0,5,0.25,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateProductDiscountSuccess(){
+        int id = subscribedUserBridge.createProductDiscount(ACEFounder.name, 0,0.25,1, shops[ACE_ID].ID);
+        assertNotEquals(-1, id);
+    }
+
+    @Test
+    public void testCreateProductDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createProductDiscount(ACEFounder.name, 0,0.11,1,-2);
+        assertEquals(-1, id);
+    }
+
+    @Test
+    public void testCreateProductDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createProductDiscount(MegaSportFounder.name,0,0.12,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateProductQuantityInPriceDiscount(){
+        int id = subscribedUserBridge.createProductQuantityInPriceDiscount(ACEFounder.name, 0,5,10,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateProductQuantityInPriceDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createProductQuantityInPriceDiscount(ACEFounder.name, 0,5,10,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateProductQuantityInPriceDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createProductQuantityInPriceDiscount(MegaSportFounder.name, 0,5,10,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateRelatedGroupDiscountSuccess(){
+        List<Integer> relatedProducts = makeRelatedProducts();
+
+        int id = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, relatedProducts,0.6,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateRelatedGroupDiscountFailureNoSuchShop(){
+        List<Integer> relatedProducts = makeRelatedProducts();
+
+        int id = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, relatedProducts,0.6,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateRelatedGroupDiscountFailureNoPermission(){
+        List<Integer> relatedProducts = makeRelatedProducts();
+
+        int id = subscribedUserBridge.createRelatedGroupDiscount(MegaSportFounder.name, relatedProducts,0.6,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateShopDiscountSuccess(){
+        int id = subscribedUserBridge.createShopDiscount(ACEFounder.name, 5,0.5,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateShopDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createShopDiscount(ACEFounder.name, 5,0.5,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateShopDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createShopDiscount(MegaSportFounder.name, 5,0.5,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketQuantityDiscountSuccess(){
+        int id = subscribedUserBridge.createValidateBasketQuantityDiscount(ACEFounder.name, 5,true,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketQuantityDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createValidateBasketQuantityDiscount(ACEFounder.name, 5,true,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketQuantityDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createValidateBasketQuantityDiscount(MegaSportFounder.name, 5,true,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketValueDiscountSuccess(){
+        int id = subscribedUserBridge.createValidateBasketValueDiscount(ACEFounder.name, 35,false,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketValueDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createValidateBasketValueDiscount(ACEFounder.name, 35,false,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateBasketValueDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createValidateBasketValueDiscount(MegaSportFounder.name, 35,false,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductPurchaseSuccess(){
+        int id = subscribedUserBridge.createValidateProductPurchase(ACEFounder.name, 0,5,true,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductPurchaseFailureNoSuchShop(){
+        int id = subscribedUserBridge.createValidateProductPurchase(ACEFounder.name, 0,5,true,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductPurchaseFailureNoPermission(){
+        int id = subscribedUserBridge.createValidateProductPurchase(MegaSportFounder.name, 0,5,true,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateTImeStampPurchaseSuccess(){
+        int id = subscribedUserBridge.createValidateTImeStampPurchase(ACEFounder.name, LocalTime.now(),false,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateTImeStampPurchaseFailureNoSuchShop(){
+        int id = subscribedUserBridge.createValidateTImeStampPurchase(ACEFounder.name, LocalTime.now(),false,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateTImeStampPurchaseFailureNoPermission(){
+        int id = subscribedUserBridge.createValidateTImeStampPurchase(MegaSportFounder.name, LocalTime.now(),false,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductQuantityDiscountSuccess(){
+        int id = subscribedUserBridge.createValidateProductQuantityDiscount(ACEFounder.name, 0,5,true,1,shops[ACE_ID].ID);
+        assertNotEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductQuantityDiscountFailureNoSuchShop(){
+        int id = subscribedUserBridge.createValidateProductQuantityDiscount(ACEFounder.name, 0,5,true,1,-2);
+        assertEquals(-1,id);
+    }
+
+    @Test
+    public void testCreateValidateProductQuantityDiscountFailureNoPermission(){
+        int id = subscribedUserBridge.createValidateProductQuantityDiscount(MegaSportFounder.name, 0,5,true,1,shops[castro_ID].ID);
+        assertEquals(-1,id);
+    }
 
     public User enter() {
         Guest g = subscribedUserBridge.visit();
         return subscribedUserBridge.login(g.name,new RegistrationInfo( "enterUser","enterPass"));
+    }
+
+    private List<Integer> makeRelatedProducts(){
+        List<Integer> relatedProducts = new LinkedList<>();
+        relatedProducts.add(0);
+        relatedProducts.add(1);
+        return relatedProducts;
     }
 }

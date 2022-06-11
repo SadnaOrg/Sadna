@@ -281,7 +281,7 @@ public class Shop {
     }
 
     public int addPredicate(int addToConnectId, DiscountPred discountPred) {
-        int id = 1;
+        int id = -1;
         if (state == State.OPEN) {
             LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
             if (logicDiscountRules != null){

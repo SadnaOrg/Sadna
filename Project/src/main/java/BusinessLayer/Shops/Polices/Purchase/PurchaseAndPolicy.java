@@ -13,6 +13,7 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     private int policyLogicId;
 
     public PurchaseAndPolicy() {
+        purchasePolicies = new ArrayList<>();
     }
 
     public PurchaseAndPolicy(Collection<PurchasePolicy> purchasePolicies) {
