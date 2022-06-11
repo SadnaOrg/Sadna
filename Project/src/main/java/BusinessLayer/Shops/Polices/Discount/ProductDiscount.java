@@ -2,26 +2,35 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public class ProductDiscount extends DiscountPolicy {
+public class ProductDiscount implements DiscountPolicy {
     int productId;
     double discount;
+    private int discountId;
 
-    public ProductDiscount(DiscountPolicyInterface discountPolicy, int productId, double discount)
+    public ProductDiscount(int productId, double discount)
     {
-        super(discountPolicy);
         this.productId= productId;
         this.discount= discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
     @Override
     public double calculateDiscount(Basket basket)
     {
         if(basket.getProducts().containsKey(productId))
-            return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId)
-                    +this.discountPolicy.calculateDiscount(basket);
-        else
-            return this.discountPolicy.calculateDiscount(basket);
+            return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId);
+
+        return 0;
+
     }
 
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
 
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
 }
