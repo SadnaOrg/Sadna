@@ -13,6 +13,7 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
+import java.time.LocalTime;
 import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
@@ -228,27 +229,57 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
 
     @Override
     public Integer createProductByQuantityDiscount(String username, int productId, int productQuantity, double discount, int connectId, int shopId) {
-        return null;
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> discountID = service.createProductByQuantityDiscount(productId,productQuantity,discount,connectId,shopId);
+            if(discountID.isOk())
+                return discountID.getElement();
+        }
+        return -1;
     }
 
     @Override
     public Integer createProductDiscount(String username, int productId, double discount, int connectId, int shopId) {
-        return null;
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> discountID = service.createProductDiscount(productId,discount,connectId,shopId);
+            if(discountID.isOk())
+                return discountID.getElement();
+        }
+        return -1;
     }
 
     @Override
     public Integer createProductQuantityInPriceDiscount(String username, int productID, int quantity, double priceForQuantity, int connectId, int shopId) {
-        return null;
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> discountID = service.createProductQuantityInPriceDiscount(productID,quantity,priceForQuantity,connectId,shopId);
+            if(discountID.isOk())
+                return discountID.getElement();
+        }
+        return -1;
     }
 
     @Override
     public Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId, int shopId) {
-        return null;
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> discountID = service.createRelatedGroupDiscount(relatedProducts,discount,connectId,shopId);
+            if(discountID.isOk())
+                return discountID.getElement();
+        }
+        return -1;
     }
 
     @Override
     public Integer createShopDiscount(String username, int basketQuantity, double discount, int connectId, int shopId) {
-        return null;
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> discountID = service.createShopDiscount(basketQuantity,discount,connectId,shopId);
+            if(discountID.isOk())
+                return discountID.getElement();
+        }
+        return -1;
     }
 
     @Override
@@ -276,16 +307,58 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         return null;
     }
 
-    SubscribedUser manageSystemAsSystemManager(String username){
+    @Override
+    public Integer createValidateBasketQuantityDiscount(String username, int basketquantity, boolean cantBeMore, int connectId, int shopId) {
         if(subscribedUsers.containsKey(username)){
             SubscribedUserService service = subscribedUsers.get(username);
-            Response<SystemManagerService> manage = service.manageSystemAsSystemManager();
-            if(manage.isOk()){
-                managers.put(username,manage.getElement());
-                return new SubscribedUser(manage.getElement().getSubscribedUserInfo().getElement());
-            }
-            else return null;
+            Response<Integer> predID = service.createValidateBasketQuantityDiscount(basketquantity,cantBeMore,connectId,shopId);
+            if(predID.isOk())
+                return predID.getElement();
         }
-        return null;
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateBasketValueDiscount(String username, double basketvalue, boolean cantBeMore, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> predID = service.createValidateBasketValueDiscount(basketvalue,cantBeMore,connectId,shopId);
+            if(predID.isOk())
+                return predID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateProductQuantityDiscount(String username, int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> predID = service.createValidateProductQuantityDiscount(productId,productQuantity,cantbemore,connectId,shopId);
+            if(predID.isOk())
+                return predID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateProductPurchase(String username, int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateProductPurchase(productId,productQuantity,cantbemore,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateTImeStampPurchase(String username, LocalTime localTime, boolean buybefore, int conncectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
 }

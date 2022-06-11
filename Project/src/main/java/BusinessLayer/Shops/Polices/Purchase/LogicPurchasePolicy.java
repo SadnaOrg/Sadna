@@ -10,7 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public interface LogicPurchasePolicy extends PurchasePolicy{
 
-    AtomicInteger purchaseLogicId = new AtomicInteger(0);
     public boolean isValid(User u, Basket basket);
     public void add(PurchasePolicy purchasePolicy);
     public boolean remove(PurchasePolicy purchasePolicy);

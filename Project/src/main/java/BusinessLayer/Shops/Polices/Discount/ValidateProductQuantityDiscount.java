@@ -30,4 +30,9 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
         }
         return false;
     }
+
+    @Override
+    public int getID(){
+        return this.ruleId;
+    }
 }

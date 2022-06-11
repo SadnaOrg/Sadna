@@ -4,6 +4,7 @@ import AcceptanceTests.DataObjects.*;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -143,5 +144,30 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public Integer createDiscountXorPolicy(String username, DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
         return null;
+    }
+
+    @Override
+    public Integer createValidateBasketQuantityDiscount(String username, int basketquantity, boolean cantBeMore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateBasketQuantityDiscount(username,basketquantity,cantBeMore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateBasketValueDiscount(String username, double basketvalue, boolean cantBeMore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateBasketValueDiscount(username,basketvalue,cantBeMore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateProductQuantityDiscount(String username, int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateProductQuantityDiscount(username,productId,productQuantity,cantbemore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateProductPurchase(String username, int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateProductPurchase(username,productId,productQuantity,cantbemore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateTImeStampPurchase(String username, LocalTime localTime, boolean buybefore, int conncectId, int shopId) {
+        return subscribedUserAdapter.createValidateTImeStampPurchase(username, localTime, buybefore, conncectId, shopId);
     }
 }

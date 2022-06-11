@@ -70,14 +70,14 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
 
-    Result  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
+    Response<Integer>  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
 
-    Result createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) ;
+    Response<Integer> createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) ;
 
-    Result createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) ;
+    Response<Integer> createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) ;
 
-    Result createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId);
+    Response<Integer> createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId);
 
-    Result createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
+    Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
 }

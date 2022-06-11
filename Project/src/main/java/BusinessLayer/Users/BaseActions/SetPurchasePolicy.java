@@ -57,28 +57,23 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addDiscount(conncectId, new DiscountXorPolicy(discountRules1, discountRules2, tieBreaker));
     }
 
-    public boolean createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateBasketQuantityDiscount(basketquantity, cantBeMore));
-        return true;
+    public int createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateBasketQuantityDiscount(basketquantity, cantBeMore));
     }
 
-    public boolean createValidateBasketValueDiscount(double basketvalue, boolean cantBeMore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateBasketValueDiscount(basketvalue, cantBeMore));
-        return true;
+    public int createValidateBasketValueDiscount(double basketvalue, boolean cantBeMore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateBasketValueDiscount(basketvalue, cantBeMore));
     }
 
-    public boolean createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateProductQuantityDiscount(productId, productQuantity, cantbemore));
-        return true;
+    public int createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateProductQuantityDiscount(productId, productQuantity, cantbemore));
     }
 
-    public boolean createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int conncectId) {
-        shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
-        return true;
+    public int createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
     }
 
-    public boolean createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
-        shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
-        return true;
+    public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
     }
 }

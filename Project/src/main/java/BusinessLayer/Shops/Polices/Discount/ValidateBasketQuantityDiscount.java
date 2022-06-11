@@ -28,4 +28,9 @@ public class ValidateBasketQuantityDiscount implements DiscountPred{
             return currQuantity<=basketquantity;
         return currQuantity>=basketquantity;
     }
+
+    @Override
+    public int getID(){
+        return this.ruleId;
+    }
 }

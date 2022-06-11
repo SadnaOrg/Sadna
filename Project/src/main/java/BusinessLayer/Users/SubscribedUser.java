@@ -199,25 +199,25 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createDiscountXorPolicy(discountRules1, discountRules2, tieBreaker, connectId);
     }
 
-    public synchronized boolean  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateBasketQuantityDiscount(basketquantity,cantBeMore, connectId);
     }
 
-    public synchronized boolean createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateBasketValueDiscount(basketvalue,cantBeMore, connectId);
     }
-    public synchronized boolean createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, connectId);
     }
-    public synchronized boolean createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateProductPurchase(productId, productQuantity, cantbemore, connectId);
     }
 
-    public synchronized boolean createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }

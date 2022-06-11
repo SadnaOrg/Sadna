@@ -56,4 +56,9 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     public boolean remove(PurchasePolicy purchasePolicy){
         return this.purchasePolicies.remove(purchasePolicy);
     }
+
+    @Override
+    public int getID(){
+        return this.policyLogicId;
+    }
 }
