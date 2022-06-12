@@ -6,6 +6,7 @@ import ServiceLayer.Result;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 public interface SubscribedUserService extends UserService {
 
@@ -46,4 +47,8 @@ public interface SubscribedUserService extends UserService {
     Response<Administrator> getMyInfo(int shopID);
 
     Result removeAdmin(int shopID, String toRemove);
+
+    Result removeShopOwner(int shopId, String toRemove);
+
+    Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 }

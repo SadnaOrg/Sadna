@@ -430,7 +430,7 @@ public abstract class UserTests extends ProjectTests {
     public void testPurchaseCartFailurePaymentFailedBadCVV(){
         testAddProductToCartSuccess();
 
-        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",15,12,2025);
+        boolean purchased = userBridge.purchaseCart(u.name,"4800470023456848",-15,12,2025);
         assertFalse(purchased);
     }
 

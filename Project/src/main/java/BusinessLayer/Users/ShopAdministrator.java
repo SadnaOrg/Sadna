@@ -84,7 +84,6 @@ public class ShopAdministrator{
         else throw new NoPermissionException("you don't have permission to do that!");
     }
 
-
     public void addAppoint(ShopAdministrator admin) {
         if(checkForCycles(admin))
             throw new IllegalStateException("cyclic appointment!");
@@ -164,6 +163,13 @@ public class ShopAdministrator{
     public boolean removeAdmin(SubscribedUser toRemove) throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.REMOVE_ADMIN)){
             return ((RemoveAdmin)action.get(BaseActionType.REMOVE_ADMIN)).act(toRemove);
+        }
+        else throw new NoPermissionException("don't have permission to remove appointments!");
+    }
+
+    public boolean removeShopOwner(SubscribedUser toRemove) throws NoPermissionException {
+        if(this.action.containsKey(BaseActionType.REMOVE_SHOP_OWNER)){
+            return ((RemoveShopOwner)action.get(BaseActionType.REMOVE_SHOP_OWNER)).act(toRemove);
         }
         else throw new NoPermissionException("don't have permission to remove appointments!");
     }

@@ -121,12 +121,7 @@ public class Shop {
     }
 
     public ConcurrentHashMap<Integer, Product> getProducts() {
-        if (state == State.OPEN)
-            return products;
-        else
-        {
-            throw new IllegalStateException("The shop is closed");
-        }
+        return products;
     }
 
     public Collection<Product> searchProducts(ProductFilters pred)

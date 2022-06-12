@@ -39,7 +39,7 @@ public class ProxyPaymentTest {
 
     @Test
     public void testPayFailureCVVInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", 10, 4, 2032);
+        PaymentMethod method = new PaymentMethod("4580123456789012", -50, 4, 2032);
         Assert.assertFalse(p.pay(100, method));
     }
 

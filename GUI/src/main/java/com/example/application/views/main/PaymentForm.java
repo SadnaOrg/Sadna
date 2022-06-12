@@ -131,6 +131,8 @@ public class PaymentForm extends FormLayout {
                 dialog.close();
                 UI.getCurrent().getPage().reload();
             });
+            dialog.setCloseOnEsc(false);
+            dialog.setCloseOnOutsideClick(false);
             dialog.add(layout);
             dialog.open();
         }

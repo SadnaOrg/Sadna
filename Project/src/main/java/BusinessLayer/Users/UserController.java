@@ -13,9 +13,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
-
-
-
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
     }
@@ -55,6 +52,15 @@ public class UserController {
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
+
+    public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        if(subscribers.containsKey(requesting)){
+            SubscribedUser u = subscribers.get(requesting);
+            return u.removeShopOwner(shopID,subscribers.get(toRemove));
+        }
+        throw new IllegalArgumentException("you aren't a subscribed user!");
+    }
+
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId,productId);
         if(price != -1) {

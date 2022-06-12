@@ -8,6 +8,7 @@ import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
 import java.util.Collection;
+import java.util.function.Predicate;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
     SubscribedUser currUser;
@@ -79,6 +80,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username){
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchShops(s -> shopPred.test(new Shop(s)), username)),"search shops succeeded");
+    }
+
+    @Override
     public Result updateProductPrice(int shopID, int productID, double newPrice) {
         return ifUserNotNullStockManagement(() -> facade.updateProductPrice(currUser.getUserName(),shopID,productID,newPrice), "update product price");
     }
@@ -122,6 +128,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Result removeAdmin(int shopID, String toRemove) {
         return ifUserNotNull(() -> facade.removeAdmin(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
+    }
+
+    @Override
+    public Result removeShopOwner(int shopID, String toRemove) {
+        return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
 
     protected void setCurrUser(SubscribedUser currUser) {

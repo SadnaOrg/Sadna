@@ -1,26 +1,14 @@
-Jun 09, 2022 10:40:45 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:13 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 09, 2022 10:40:50 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:32 PM ServiceLayer.Log event
 INFO: login - user Admin Successes
-Jun 09, 2022 10:40:50 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:32 PM ServiceLayer.Log event
 INFO: login Successes
-Jun 09, 2022 10:40:50 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:32 PM ServiceLayer.Log event
 INFO: switch to system manager Admin Successes
-Jun 09, 2022 10:40:50 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:32 PM ServiceLayer.Log event
 INFO: receive information Successes
-Jun 09, 2022 10:40:50 PM ServiceLayer.Log event
+Jun 12, 2022 9:02:32 PM ServiceLayer.Log event
 INFO: switch to system manager Admin Successes
-Jun 09, 2022 10:40:52 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 09, 2022 10:40:57 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 09, 2022 10:41:02 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 09, 2022 10:41:05 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 09, 2022 10:41:06 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 09, 2022 10:41:07 PM ServiceLayer.Log event
-INFO: logout from system Successes
-Jun 09, 2022 10:41:07 PM ServiceLayer.Log event
-INFO: logout  Successes
+Jun 12, 2022 9:02:47 PM ServiceLayer.Log event
+INFO: receive information Successes
