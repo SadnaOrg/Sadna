@@ -88,4 +88,36 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
     public Collection<DiscountRules> getDiscountPolicies() {
         return discountPolicies;
     }
+
+    @Override
+    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+        for (DiscountRules discountRule :discountPolicies) {
+            if (discountRule.getID() ==removeFromConnectId.getID()) {
+                return remove(discountRule);
+            }
+            boolean temp = false ;
+            if(discountRule instanceof NumericDiscountRules)
+                temp = ((NumericDiscountRules) discountRule).removeSonDiscount(removeFromConnectId);
+            if(temp)
+            {
+                return temp;
+            }
+        }
+        return false;
+    }
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred)
+    {
+        for (DiscountRules discountRule :discountPolicies) {
+            boolean temp = false ;
+            if(discountRule instanceof LogicDiscountRules ||discountRule instanceof NumericDiscountRules)
+                temp =  discountRule.removeSonPredicate(discountPred);
+            if(temp)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

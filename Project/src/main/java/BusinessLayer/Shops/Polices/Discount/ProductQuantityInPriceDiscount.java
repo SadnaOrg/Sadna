@@ -62,4 +62,9 @@ public class ProductQuantityInPriceDiscount implements DiscountPolicy{
     public double getPriceForQuantity() {
         return priceForQuantity;
     }
+
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        return false;
+    }
 }

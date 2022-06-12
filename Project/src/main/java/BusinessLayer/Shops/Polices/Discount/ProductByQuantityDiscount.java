@@ -61,4 +61,8 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
     public int getDiscountId() {
         return discountId;
     }
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+      return false;
+    }
 }
