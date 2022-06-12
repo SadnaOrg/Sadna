@@ -4,9 +4,9 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
 public class ShopDiscount implements DiscountPolicy {
-    int basketQuantity;
-    double discount;
     private int discountId;
+    private int basketQuantity;
+    private double discount;
 
     public ShopDiscount(int basketQuantity,double discount)
     {
@@ -14,6 +14,14 @@ public class ShopDiscount implements DiscountPolicy {
         this.discount = discount;
         this.discountId = atomicDiscountID.incrementAndGet();
     }
+
+
+    public ShopDiscount(int discountId, int basketQuantity, double discount) {
+        this.basketQuantity = basketQuantity;
+        this.discount = discount;
+        this.discountId = discountId;
+    }
+
 
     @Override
     public double calculateDiscount(Basket basket)
@@ -46,4 +54,15 @@ public class ShopDiscount implements DiscountPolicy {
         return this.discountId;
     }
 
+    public int getBasketQuantity() {
+        return basketQuantity;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
 }

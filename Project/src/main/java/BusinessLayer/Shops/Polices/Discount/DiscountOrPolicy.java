@@ -24,6 +24,12 @@ public class DiscountOrPolicy implements LogicDiscountRules{
         this.discountPolicy = discountPolicy;
     }
 
+    public DiscountOrPolicy(int connectId, DiscountRules discountPolicy, Collection<DiscountPred> discountPreds) {
+        this.connectId = connectId;
+        this.discountPolicy = discountPolicy;
+        this.discountPreds = discountPreds;
+    }
+
     @Override
     public double calculateDiscount(Basket basket){
         for(DiscountPred discountPred: discountPreds)
@@ -59,4 +65,15 @@ public class DiscountOrPolicy implements LogicDiscountRules{
         return this.connectId;
     }
 
+    public Collection<DiscountPred> getDiscountPreds() {
+        return discountPreds;
+    }
+
+    public DiscountRules getDiscountPolicy() {
+        return discountPolicy;
+    }
+
+    public int getConnectId() {
+        return connectId;
+    }
 }

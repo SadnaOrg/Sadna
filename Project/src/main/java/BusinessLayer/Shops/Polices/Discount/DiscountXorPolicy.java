@@ -20,7 +20,15 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         this.tieBreakers.addAll(tieBreakers);
         this.connectId = atomicconnectId.incrementAndGet();
     }
-    public DiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker) {
+
+    public DiscountXorPolicy(int connectId, DiscountRules discountRules1, DiscountRules discountRules2, Collection<DiscountPred> tieBreakers) {
+        this.connectId = connectId;
+        this.discountRules1 = discountRules1;
+        this.discountRules2 = discountRules2;
+        this.tieBreakers = tieBreakers;
+    }
+
+    public DiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker) {
         this.discountRules1 = discountRules1;
         this.discountRules2 = discountRules2;
         this.tieBreakers = new ArrayList<>();
@@ -82,4 +90,19 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         return this.connectId;
     }
 
+    public int getConnectId() {
+        return connectId;
+    }
+
+    public DiscountRules getDiscountRules1() {
+        return discountRules1;
+    }
+
+    public DiscountRules getDiscountRules2() {
+        return discountRules2;
+    }
+
+    public Collection<DiscountPred> getTieBreakers() {
+        return tieBreakers;
+    }
 }

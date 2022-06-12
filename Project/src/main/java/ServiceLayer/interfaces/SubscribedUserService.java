@@ -1,8 +1,8 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.Objects.*;
+import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -60,15 +60,15 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
 
-    Response<Integer> createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) ;
+    Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Response<Integer> createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer> createDiscountMaxPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
 
-    Response<Integer>  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer>  createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId) ;
 
-    Response<Integer>  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer>  createDiscountPlusPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
 
-    Response<Integer> createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
+    Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  ;
 
     Response<Integer>  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
 
