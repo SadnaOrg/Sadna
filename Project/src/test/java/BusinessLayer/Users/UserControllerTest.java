@@ -288,7 +288,7 @@ public class UserControllerTest {
 
     private void createPrerequisitePurchase() {
         saveProducts();
-        sc.purchaseBasket(user.getName());
+        sc.purchaseBasket(user);
         ConcurrentHashMap<Integer, Boolean> paymentSituation = createPayments();
         sc.addToPurchaseHistory(user.getName(), paymentSituation);
         createSystemManager();

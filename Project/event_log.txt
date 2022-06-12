@@ -1,0 +1,3692 @@
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: open shop succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: adding product to shop Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign MegaSportFounder to shop manager  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign ACEFounder to shop owner  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: ACEFounderassign MegaSportFounder to shop owner  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:40 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 9:59:49 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: purchased cart Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: update product quantity Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: change manager permission succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: MegaSportFounderget administrator info  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: change manager permission succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 9:59:59 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:06 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+יוני 12, 2022 10:00:16 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:16 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:17 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:17 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:18 אחה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+יוני 12, 2022 10:00:23 אחה״צ ServiceLayer.Log event
+INFO: edit product quantity  Successes
+יוני 12, 2022 10:00:24 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:24 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:00:25 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:00:27 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+יוני 12, 2022 10:01:06 אחה״צ ServiceLayer.Log event
+INFO: purchased cart Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: update product price Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: update product price Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: castroFounderget administrator info  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:12 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:01:14 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign testUser3 to shop owner  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: testUser3get administrator info  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign michael to shop manager  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: testUser3get administrator info  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: removing admin appointment Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: removing admin appointment Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign testUser3 to shop manager  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: castroFounderget administrator info  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: removing admin appointment Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: castroFounderget administrator info  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:21 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:01:26 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:06 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: update product description Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign testUser3 to shop owner  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: testUser3get administrator info  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: castroFounderget administrator info  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: removing admin appointment Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: castroFounderassign testUser3 to shop manager  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: castroFounderget administrator info  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: change manager permission succeeded Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: testUser3get administrator info  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: removing admin appointment Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: login  Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: getting user info Successes
+יוני 12, 2022 10:03:07 אחה״צ ServiceLayer.Log event
+INFO: add discount succeeded Successes

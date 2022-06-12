@@ -118,7 +118,7 @@ public class Facade{
 
 // TODO: fix
     public double purchaseCartFromShop(User currUser, PaymentMethod method) {
-        ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
+        ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser);
         ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
             return 0;

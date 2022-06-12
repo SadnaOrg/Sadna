@@ -315,9 +315,7 @@ public class UserController {
         return true;
     }
 
-    public enum UserState{
-        REMOVED,LOGGED_IN,LOGGED_OUT;
-    }
+
 
     public enum UserState {
         REMOVED, LOGGED_IN, LOGGED_OUT;
