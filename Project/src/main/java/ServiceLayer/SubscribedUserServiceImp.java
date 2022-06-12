@@ -258,10 +258,18 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
                         PurchasePolicy.makeBusinessPurchasePolicy(purchasePolicyToDelete),
                         shopId)
         ,"remove purchase policy succeeded");
-
+    }
+    @Override
+    public Response<DiscountRules> getDiscount(SubscribedUser currUser, int shopId){
+        return ifUserNotNullRes(()-> DiscountRules.makeServiceRule(facade.getDiscount(currUser,shopId)),"here is the discounts");
     }
 
-        @Override
+    @Override
+    public Response<PurchasePolicy> getPurchasePolicy(SubscribedUser currUser, int shopId) {
+        return ifUserNotNullRes(()-> PurchasePolicy.makeServicePurchasePolicy(facade.getPurchasePolicy(currUser,shopId)),"here is the purchase policies");
+    }
+
+    @Override
     public Result removeShopOwner(int shopID, String toRemove) {
         return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }

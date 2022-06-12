@@ -336,6 +336,13 @@ public class Facade{
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);
     }
 
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getDiscount(currUser,shopId);
+    }
+
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getPurchasePolicy(currUser,shopId);
+    }
 
 }
 

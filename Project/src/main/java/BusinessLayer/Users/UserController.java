@@ -447,5 +447,11 @@ public class UserController {
     public boolean removePurchasePolicy(SubscribedUser currUser,PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return currUser.removePurchasePolicy(purchasePolicyToDelete,shopId);
     }
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getDiscount(shopId);
+    }
 
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getPurchasePolicy(shopId);
+    }
 }

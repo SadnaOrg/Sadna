@@ -375,7 +375,15 @@ public class Shop {
         return state==State.OPEN;
     }
 
-//    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
+    public DiscountRules getDiscounts() {
+        return discounts;
+    }
+
+    public PurchasePolicy getPurchasePolicy() {
+        return purchasePolicy;
+    }
+
+    //    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
 //    {
 //        if (state == State.OPEN) {
 //            if (products.containsKey(productId)) {

@@ -7,6 +7,7 @@ import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
@@ -95,4 +96,8 @@ public interface SubscribedUserService extends UserService {
     Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId);
 
     Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId);
+
+    Response<DiscountRules> getDiscount(BusinessLayer.Users.SubscribedUser currUser, int shopId);
+
+    Response<PurchasePolicy> getPurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, int shopId);
 }

@@ -320,4 +320,17 @@ public class ShopAdministrator {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePurchasePolicy(purchasePolicyToDelete);
         } else throw new NoPermissionException("you don't have permission to do that!");
     }
+
+    public DiscountRules getDiscount() throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).getDiscount();
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public PurchasePolicy getPurchasePolicy() throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).getPurchasePolicy();
+        } else throw new NoPermissionException("you don't have permission to do that!");
+
+    }
 }

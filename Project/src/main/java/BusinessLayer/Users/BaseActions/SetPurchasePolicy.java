@@ -92,8 +92,17 @@ public class SetPurchasePolicy extends BaseAction {
     public boolean removePredicate(DiscountPred discountPred) {
         return shop.removePredicate(discountPred);
     }
+
     public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
         return shop.removePurchasePolicy(purchasePolicyToDelete);
+    }
+
+    public DiscountRules getDiscount() {
+        return shop.getDiscounts();
+    }
+
+    public PurchasePolicy getPurchasePolicy() {
+        return shop.getPurchasePolicy();
     }
 
 }

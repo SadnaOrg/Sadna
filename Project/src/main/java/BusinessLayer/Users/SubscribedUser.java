@@ -253,6 +253,16 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).removePurchasePolicy(purchasePolicyToDelete);
     }
 
+    public synchronized DiscountRules getDiscount(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getDiscount();
+    }
+
+    public synchronized PurchasePolicy getPurchasePolicy(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getPurchasePolicy();
+    }
+
 
 // Java program to calculate SHA hash value
 
