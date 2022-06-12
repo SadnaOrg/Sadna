@@ -76,4 +76,13 @@ public class SetPurchasePolicy extends BaseAction {
     public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
     }
+
+    public boolean removeDiscount(DiscountRules discountRules) {
+        return shop.removeDiscount(discountRules);
+    }
+
+    public boolean removePredicate(DiscountPred discountPred) {
+        return shop.removePredicate(discountPred);
+    }
+
 }
