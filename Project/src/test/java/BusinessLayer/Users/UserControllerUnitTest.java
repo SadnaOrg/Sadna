@@ -7,6 +7,9 @@ import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import static org.mockito.Mockito.*;
@@ -75,7 +78,7 @@ public class UserControllerUnitTest {
         when(user.getShoppingCart()).thenReturn(cart);
         when(user.getName()).thenReturn(userLog);
 
-        uc.registerToSystem(userName, passWord);
+        uc.registerToSystem(userName, passWord,new Date(2001, Calendar.DECEMBER,1));
         loggedUser = uc.login(userName, passWord, null);
     }
 
@@ -152,7 +155,7 @@ public class UserControllerUnitTest {
     @Test
     public void showCart() {
         saveProducts();
-        uc.registerToSystem(user.getName(), "123456");
+        uc.registerToSystem(user.getName(), "123456",new Date(2001, Calendar.DECEMBER,1));
         ConcurrentHashMap<Integer, BasketInfo> cart = createBasketInfo();
         when(user.showCart()).thenReturn(cart);
         Assert.assertEquals(0, uc.showCart(user).size());
