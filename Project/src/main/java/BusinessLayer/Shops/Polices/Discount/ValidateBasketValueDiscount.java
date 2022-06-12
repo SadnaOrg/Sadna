@@ -30,4 +30,6 @@ public class ValidateBasketValueDiscount implements DiscountPred {
     public int getID(){
         return this.ruleId;
     }
+
+
 }
