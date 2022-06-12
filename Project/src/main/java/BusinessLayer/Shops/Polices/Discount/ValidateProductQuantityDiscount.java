@@ -52,4 +52,5 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
     public boolean isCantbemore() {
         return cantbemore;
     }
+
 }
