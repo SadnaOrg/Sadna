@@ -5,6 +5,7 @@ import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import java.util.Date;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -14,7 +15,7 @@ public interface UserService {
 
     Result logoutSystem();
 
-    Result registerToSystem(String userName, String password);
+    Result registerToSystem(String userName, String password, Date date);
 
     Response<SubscribedUserService> login(String username, String password);
 

@@ -8,6 +8,8 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -16,8 +18,8 @@ public class PurchaseHistoryControllerTest {
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
     private static ShopController sc = ShopController.getInstance();
     private static Shop s1;
-    private static SubscribedUser founder = new SubscribedUser("Guy Kish on", "I am not Guy Kishon");
-    private static SubscribedUser buyer = new SubscribedUser("Guy Ki Shon", "I am also not Guy Kishon");
+    private static SubscribedUser founder = new SubscribedUser("Guy Kish on", "I am not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
+    private static SubscribedUser buyer = new SubscribedUser("Guy Ki Shon", "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
     private static final int shopId = 1200;
     private static final int otherShopId = 12930;
     private static Product p1 = new Product(12090, "pord", 156.2, 45);
@@ -27,8 +29,8 @@ public class PurchaseHistoryControllerTest {
     @BeforeClass
     public static void setUp(){
         if(!flag) {
-            uc.registerToSystem(founder.getUserName(), "I am not Guy Kishon");
-            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
+            uc.registerToSystem(founder.getUserName(), "I am not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
+            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
             s1 = new Shop(shopId, "name of shop","testing shop", founder);
             s1.addProduct(p1);
