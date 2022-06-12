@@ -32,6 +32,7 @@ public class GuestActionView extends Header {
     protected Button logoutButton = new Button("Logout");
 
     public GuestActionView() {
+        super();
         currUser = (String)Load("user-name");
         service = (UserService)Load("service");
         service.loginSystem();
@@ -76,7 +77,7 @@ public class GuestActionView extends Header {
         if(res.isOk()) {
             Collection<ProductInfo> basketProductsIDs = res.getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
             if (basketProductsIDs.size() > 0) {
-                PaymentForm layout = new PaymentForm();
+                PaymentForm layout = new PaymentForm(service);
                 setContent(layout);
                 return;
             }
