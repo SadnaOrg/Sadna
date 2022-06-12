@@ -39,6 +39,7 @@ public class RegisterView extends Header {
                 notifyError(res.getMsg());
             }
         }
+
     });
 
     private VerticalLayout layout = new VerticalLayout();
@@ -49,6 +50,7 @@ public class RegisterView extends Header {
         setLayout();
         layout.setSizeFull();
         content.add(layout);
+        registerToNotification();
     }
 
     private void setLayout() {

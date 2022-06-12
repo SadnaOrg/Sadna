@@ -6,6 +6,7 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 
 import java.util.*;
@@ -81,20 +82,18 @@ public class ShopController {
         return res;
     }
 
-    public ConcurrentHashMap<Integer, Double> purchaseBasket(String user) {
+    public ConcurrentHashMap<Integer, Double> purchaseBasket(User user) {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                if (checkIfUserHasBasket(shopid, user)) {
+                if (checkIfUserHasBasket(shopid, user.getUserName())) {
                     //added here
-                    if (shops.get(shopid).approvePurchase(UserController.getInstance().getUser(user)))
-                        finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
+                    if (shops.get(shopid).approvePurchase(user))
+                        finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user.getUserName()));
                 }
             }
-            catch (IllegalStateException e)
+            catch (IllegalStateException ignored)
             {
-                //TODO: add notification when implemented
-                //finalprices.put(shopid,0.0);
             }
         }
         if(finalprices.size() == 0)

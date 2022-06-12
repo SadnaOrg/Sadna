@@ -19,7 +19,7 @@ public class Notifier {
 
     public void addNotification(Notification not){
         for(String user : not.getUserNames()) {
-            if (UserController.getInstance().getUser(user).isLoggedIn() && connection.containsKey(user)) {
+            if (UserController.getInstance().getUser(user)!= null && UserController.getInstance().getUser(user).isLoggedIn() && connection.containsKey(user)) {
                 connection.get(user).apply(not);
             } else {
                 addDelayedNotification(user,not);

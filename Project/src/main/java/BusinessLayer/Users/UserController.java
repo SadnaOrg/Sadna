@@ -30,7 +30,6 @@ public class UserController {
         return UserControllerHolder.uc;
     }
 
-
     private UserController() {
         users = new ConcurrentHashMap<>();
         managers = new ConcurrentHashMap<>();
@@ -305,8 +304,7 @@ public class UserController {
     private ShopAdministrator getAdmin(String username, int shopID) {
         if (subscribers.containsKey(username)) {
             SubscribedUser u = subscribers.get(username);
-            ShopAdministrator admin = u.getAdministrator(shopID);
-            return admin;
+            return u.getAdministrator(shopID);
         }
         return null;
     }
@@ -324,6 +322,8 @@ public class UserController {
         return true;
     }
 
+
+
     public enum UserState {
         REMOVED, LOGGED_IN, LOGGED_OUT;
 
@@ -339,6 +339,7 @@ public class UserController {
             };
         }
     }
+
     public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
         if(!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
@@ -355,6 +356,14 @@ public class UserController {
         users.clear();
         subscribers.clear();
         managers.clear();
+    }
+
+    public Collection<SystemManager> getSysManagers(){
+        return managers.values();
+    }
+
+    public void addUserForTest(User u){
+        this.users.put(u.getUserName(),u);
     }
 
     public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
