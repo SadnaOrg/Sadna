@@ -9,4 +9,6 @@ public interface LogicDiscountRules extends DiscountRules {
     public double calculateDiscount(Basket basket);
     public void add(DiscountPred discountRules);
     public boolean remove(DiscountPred discountRules);
-}
+    public boolean removeSonDiscount(DiscountRules removeFromConnectId);
+
+    }

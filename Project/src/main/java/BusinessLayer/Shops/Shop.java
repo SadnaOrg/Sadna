@@ -181,6 +181,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
+            totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
@@ -210,8 +213,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
-            ///added here
             totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
@@ -315,6 +319,27 @@ public class Shop {
         }
         return id;
     }
+
+    public boolean removeDiscount(DiscountRules discountRules) {
+        if (state == State.OPEN) {
+            return discounts.removeSonDiscount(discountRules);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+    public boolean removePredicate(DiscountPred discountPred) {
+        if (state == State.OPEN) {
+            return discounts.removeSonPredicate(discountPred);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
 
     public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
         int id = -1;

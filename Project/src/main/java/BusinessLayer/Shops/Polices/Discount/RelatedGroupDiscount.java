@@ -58,4 +58,9 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     public int getID(){
         return this.discountId;
     }
+
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        return false;
+    }
 }

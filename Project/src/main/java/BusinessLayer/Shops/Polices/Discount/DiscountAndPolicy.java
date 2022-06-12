@@ -80,4 +80,26 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     public int getConnectId() {
         return connectId;
     }
+
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        for (DiscountPred discountPred1 :discountPreds) {
+            if (discountPred1.getID() == discountPred.getID()) {
+                return remove(discountPred);
+            }
+        }
+        boolean temp = false ;
+        if(discountPolicy instanceof NumericDiscountRules ||discountPolicy instanceof LogicDiscountRules)
+            temp = (discountPolicy.removeSonPredicate(discountPred));
+        return temp;
+    }
+
+    @Override
+    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+        if (discountPolicy instanceof NumericDiscountRules)
+            return ((NumericDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+        if (discountPolicy instanceof LogicDiscountRules)
+            return ((LogicDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+        return false;
+    }
 }

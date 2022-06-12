@@ -1,10 +1,10 @@
 package ServiceLayer;
 
-import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
+import ServiceLayer.Objects.Policies.Discount.DiscountRules;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
@@ -222,7 +222,17 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
         return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
     }
+    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId) throws NoPermissionException {
+        return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
+                DiscountRules.makeBusinessRule(discountRules),
+                shopId),"remove purchase policy succeeded");
+    }
 
+    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) throws NoPermissionException {
+        return ifUserNotNullRes(()-> facade.removePredicate(currUser,
+                DiscountPred.makeBusinessPred(discountPred),
+                shopId),"remove purchase policy succeeded");
+    }
 
     protected void setCurrUser(SubscribedUser currUser) {
         this.currUser = currUser;

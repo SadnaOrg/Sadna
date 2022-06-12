@@ -415,5 +415,11 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
+    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
+        return currUser.removeDiscount(discountRules,shopId);
+    }
 
+    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
+        return currUser.removePredicate(discountPred,shopId);
+    }
 }

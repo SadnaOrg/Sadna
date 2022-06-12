@@ -57,22 +57,22 @@ public class DiscountXorPolicyTest {
     }
 
     @Test
-    public void calculateDiscountInOrDiscountWrong() {
+    public void calculateDiscountInAndDiscountWrong() {
         validateProductQuantityDiscount1=new ValidateProductQuantityDiscount(1, 5, true) ;
         validateProductQuantityDiscount2=new ValidateProductQuantityDiscount(2, 5, true) ;
         discountXorPolicy = new  DiscountXorPolicy(shopDiscount,shopDiscount2,validateProductQuantityDiscount1);
         discountXorPolicy.add(validateProductQuantityDiscount2);
         ValidateBasketValueDiscount validateProductQuantityDiscount3= new ValidateBasketValueDiscount(100.0,false);
         ValidateProductQuantityDiscount validateProductQuantityDiscount4=new ValidateProductQuantityDiscount(2, 5, false) ;
-        DiscountOrPolicy discountOrPolicy2 =new DiscountOrPolicy(validateProductQuantityDiscount3,discountXorPolicy);
+        DiscountAndPolicy discountOrPolicy2 =new DiscountAndPolicy(validateProductQuantityDiscount3,discountXorPolicy);
         discountOrPolicy2.add(validateProductQuantityDiscount4);
-        Assert.assertEquals(0,discountOrPolicy2.calculateDiscount(basket),0.1);
+        Assert.assertEquals((10*5+100*15)*0.2,discountOrPolicy2.calculateDiscount(basket),0.1);
 
     }
 
 
     @Test
-    public void calculateDiscountInOrDiscountGood() {
+    public void calculateDiscountInAndDiscountGood() {
         validateProductQuantityDiscount1=new ValidateProductQuantityDiscount(1, 5, false) ;
         validateProductQuantityDiscount2=new ValidateProductQuantityDiscount(2, 5, false) ;
         discountXorPolicy = new  DiscountXorPolicy(shopDiscount,shopDiscount2,validateProductQuantityDiscount1);

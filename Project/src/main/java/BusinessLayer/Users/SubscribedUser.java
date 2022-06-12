@@ -221,6 +221,14 @@ public class SubscribedUser extends User {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
+    public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removeDiscount(discountRules);
+    }
+    public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removePredicate(discountPred);
+    }
 
     public boolean setCategory(int productId, String category, int shopId) throws NoPermissionException {
         validatePermission(shopId);
