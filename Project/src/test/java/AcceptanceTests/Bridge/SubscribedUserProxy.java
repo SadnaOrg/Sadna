@@ -112,8 +112,8 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId, int shopId) {
-        return subscribedUserAdapter.createRelatedGroupDiscount(username,relatedProducts,discount,connectId,shopId);
+    public Integer createRelatedGroupDiscount(String username, String category, double discount, int connectId, int shopId) {
+        return subscribedUserAdapter.createRelatedGroupDiscount(username,category,discount,connectId,shopId);
     }
 
     @Override

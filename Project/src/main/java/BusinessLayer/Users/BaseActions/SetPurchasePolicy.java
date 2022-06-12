@@ -29,8 +29,8 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addDiscount(conncectId, new ProductQuantityInPriceDiscount(productID, quantity, priceForQuantity));
     }
 
-    public int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId) {
-        return shop.addDiscount(conncectId, new RelatedGroupDiscount(relatedProducts, discount));
+    public int createRelatedGroupDiscount(String category, double discount, int conncectId) {
+        return shop.addDiscount(conncectId, new RelatedGroupDiscount(category, discount));
     }
 
     public int createShopDiscount(int basketQuantity, double discount, int conncectId) {

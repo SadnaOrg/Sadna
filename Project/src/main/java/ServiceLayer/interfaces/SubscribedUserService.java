@@ -56,7 +56,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
 
-    Response<Integer> createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
+    Response<Integer> createRelatedGroupDiscount(String category, double discount, int connectId , int shopId)  ;
 
     Response<Integer> createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
 

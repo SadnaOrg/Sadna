@@ -201,10 +201,10 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
     }
 
-    public int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId) throws NoPermissionException {
+    public int createRelatedGroupDiscount(String category, double discount, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createRelatedGroupDiscount(relatedProducts, discount, conncectId);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createRelatedGroupDiscount(category, discount, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }

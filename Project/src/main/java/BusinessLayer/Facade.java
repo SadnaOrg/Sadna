@@ -271,8 +271,8 @@ public class Facade{
         return userController.createProductQuantityInPriceDiscount(currUser,productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
-        return userController.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId);
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return userController.createRelatedGroupDiscount(currUser,category, discount, connectId, shopId);
     }
 
     public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
