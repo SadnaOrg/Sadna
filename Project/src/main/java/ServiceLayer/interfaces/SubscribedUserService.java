@@ -2,6 +2,8 @@ package ServiceLayer.interfaces;
 
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
+import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
@@ -84,4 +86,9 @@ public interface SubscribedUserService extends UserService {
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
+    Response<Boolean> removeDiscount(BusinessLayer.Users.SubscribedUser currUser, DiscountRules discountRules, int shopId);
+
+    Response<Boolean> removePredicate(BusinessLayer.Users.SubscribedUser currUser, DiscountPred discountPred, int shopId);
+
+    Response<Boolean> removePurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) ;
 }

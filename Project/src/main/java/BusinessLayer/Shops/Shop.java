@@ -6,11 +6,9 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
-import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -334,6 +332,16 @@ public class Shop {
             throw new IllegalStateException("The shop is closed");
         }
         return id;
+    }
+
+    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
+        if (state == State.OPEN) {
+            return purchasePolicy.removeChild(purchasePolicyToDelete);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
     }
 
     public String getName() {

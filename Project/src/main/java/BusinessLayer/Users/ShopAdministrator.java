@@ -4,6 +4,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Discount.ProductByQuantityDiscount;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase;
 import BusinessLayer.Shops.Polices.Purchase.ValidateTImeStampPurchase;
 import BusinessLayer.Users.BaseActions.*;
@@ -302,5 +303,10 @@ public class ShopAdministrator {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePredicate(discountPred);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
+    }
+    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePurchasePolicy(purchasePolicyToDelete);
+        } else throw new NoPermissionException("you don't have permission to do that!");
     }
 }

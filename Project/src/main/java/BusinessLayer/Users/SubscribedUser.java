@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -234,6 +235,10 @@ public class SubscribedUser extends User {
     public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removePredicate(discountPred);
+    }
+    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removePurchasePolicy(purchasePolicyToDelete);
     }
 
 

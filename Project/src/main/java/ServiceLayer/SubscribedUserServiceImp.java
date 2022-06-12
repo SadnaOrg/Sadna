@@ -5,6 +5,7 @@ import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
@@ -224,19 +225,28 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
         return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
     }
-    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId) throws NoPermissionException {
+    @Override
+    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
                 DiscountRules.makeBusinessRule(discountRules),
                 shopId),"remove purchase policy succeeded");
     }
-
-    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) throws NoPermissionException {
+    @Override
+    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
                 DiscountPred.makeBusinessPred(discountPred),
                 shopId),"remove purchase policy succeeded");
     }
-
     @Override
+    public Response<Boolean> removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) {
+        return ifUserNotNullRes(()-> facade.removePurchasePolicy(currUser,
+                        PurchasePolicy.makeBusinessPurchasePolicy(purchasePolicyToDelete),
+                        shopId)
+        ,"remove purchase policy succeeded");
+
+    }
+
+        @Override
     public Result removeShopOwner(int shopID, String toRemove) {
         return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
