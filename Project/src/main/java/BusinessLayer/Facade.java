@@ -6,6 +6,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
@@ -14,6 +15,7 @@ import BusinessLayer.System.System;
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -84,8 +86,8 @@ public class Facade{
         return userController.logoutSystem(currUser.getUserName());
     }
 
-    public boolean registerToSystem(String userName, String password) {
-        return userController.registerToSystem(userName,password);
+    public boolean registerToSystem(String userName, String password, Date date) {
+        return userController.registerToSystem(userName,password,date);
     }
 
     public SubscribedUser login(String username, String password,User currUser) {
@@ -314,6 +316,16 @@ public class Facade{
     public int createValidateTImeStampPurchase(SubscribedUser currUser, LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
         return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
     }
+
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createPurchaseAndPolicy(currUser,policy, conncectId, shopId);
+    }
+
+    public int createPurchaseOrPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createPurchaseOrPolicy(currUser,policy, conncectId, shopId);
+    }
+
+
     public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
         return userController.removeDiscount(currUser,discountRules,shopId);
     }
@@ -321,4 +333,18 @@ public class Facade{
     public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
         return userController.removePredicate(currUser,discountPred,shopId);
     }
+    public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);
+    }
+
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getDiscount(currUser,shopId);
+    }
+
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getPurchasePolicy(currUser,shopId);
+    }
+
 }
+
+

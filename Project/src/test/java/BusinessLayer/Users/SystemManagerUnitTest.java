@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.MockedStatic;
 
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -19,7 +21,7 @@ public class SystemManagerUnitTest {
     private PurchaseHistoryController phc;
     private UserController uc;
     private Shop s1;
-    private SystemManager manager = new SystemManager("Unit Maor", "Unit not Meir");
+    private SystemManager manager = new SystemManager("Unit Maor", "Unit not Meir",new Date(2001, Calendar.DECEMBER,1));
     private SubscribedUser buyer;
     private SubscribedUser founder;
     private final int shopId = 1561;

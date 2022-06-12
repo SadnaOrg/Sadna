@@ -7,12 +7,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class ShopTest {
 
-    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
+    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456",new Date(2001, Calendar.DECEMBER,1));
     private Shop s1;
     private Product p1;
     private Product p2;
@@ -183,7 +186,7 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedAddAdministrator() {
         s1.addProduct(p1);
-        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor");
+        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor",new Date(2001, Calendar.DECEMBER,1));
         ShopAdministrator sa1 = new ShopAdministrator(s1,subscribedUser,s1.getFounder().getUserName());
         assertTrue(s1.close());
         try {
@@ -430,7 +433,7 @@ public class ShopTest {
     @Test
 
     public void addAdministratorNewOne() {
-        SubscribedUser u1 = new SubscribedUser("Meir","Maor");
+        SubscribedUser u1 = new SubscribedUser("Meir","Maor",new Date(2001, Calendar.DECEMBER,1));
         ShopAdministrator sa1 = new ShopAdministrator(s1,u1,s1.getFounder().getUserName());
         Assert.assertEquals(1, s1.getShopAdministrators().size());
         Assert.assertTrue(s1.addAdministrator(sa1.getUserName(),sa1));

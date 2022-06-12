@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
@@ -9,10 +10,7 @@ import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
@@ -152,18 +150,18 @@ public class UserController {
         return currUser.closeShop(shopIdToClose);
     }
 
-    public boolean createSystemManager(String username, String password) {
-        SystemManager systemManager = new SystemManager(username, password);
+    public boolean createSystemManager(String username, String password, Date date) {
+        SystemManager systemManager = new SystemManager(username, password,date);
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
         return true;
     }
 
-    public synchronized boolean registerToSystem(String userName, String password) {
+    public synchronized boolean registerToSystem(String userName, String password, Date date) {
         if (!subscribers.containsKey(userName)) {
             //todo : change the shoping catr
-            SubscribedUser newUser = new SubscribedUser(userName, password);
+            SubscribedUser newUser = new SubscribedUser(userName, password,date);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
             return true;
@@ -428,11 +426,29 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
+    }
+
+    public int createPurchaseOrPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseOrPolicy(policy, conncectId, shopId);
+    }
+
     public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
         return currUser.removeDiscount(discountRules,shopId);
     }
 
     public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
         return currUser.removePredicate(discountPred,shopId);
+    }
+    public boolean removePurchasePolicy(SubscribedUser currUser,PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        return currUser.removePurchasePolicy(purchasePolicyToDelete,shopId);
+    }
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getDiscount(shopId);
+    }
+
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getPurchasePolicy(shopId);
     }
 }

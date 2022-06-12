@@ -9,9 +9,7 @@ import org.junit.Test;
 
 import javax.naming.NoPermissionException;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -24,9 +22,9 @@ public class ShopAdministratorIntegrationTest {
     private Product product;
     @Before
     public void setUp(){
-        sua = new SubscribedUser("ShopFounder","pass");
-        assignee = new SubscribedUser("assignee","new admin");
-        assignee1 = new SubscribedUser("assignee1","new admin!");
+        sua = new SubscribedUser("ShopFounder","pass",new Date(2001, Calendar.DECEMBER,1));
+        assignee = new SubscribedUser("assignee","new admin",new Date(2001, Calendar.DECEMBER,1));
+        assignee1 = new SubscribedUser("assignee1","new admin!",new Date(2001, Calendar.DECEMBER,1));
         product = new Product(0,"test P",12.5,100);
 
         shop = new Shop(0,"test shop","test shop", sua);

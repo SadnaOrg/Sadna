@@ -9,7 +9,9 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import javax.naming.NoPermissionException;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
@@ -36,10 +38,10 @@ public class SubscribedUserTest {
     @Before
     public void setUp() {
         user1pass = "pass12";
-        user1 = new SubscribedUser("user1",user1pass);
-        user2 = new SubscribedUser("user2","pass12");
-        toAssign = new SubscribedUser("toAssign","pass12");
-        founder = new SubscribedUser("Founder Guy","pass12");
+        user1 = new SubscribedUser("user1",user1pass,new Date(2001, Calendar.DECEMBER,1));
+        user2 = new SubscribedUser("user2","pass12",new Date(2001, Calendar.DECEMBER,1));
+        toAssign = new SubscribedUser("toAssign","pass12",new Date(2001, Calendar.DECEMBER,1));
+        founder = new SubscribedUser("Founder Guy","pass12",new Date(2001, Calendar.DECEMBER,1));
 
         shop1 = mock(Shop.class);// new Shop(1,"shop1", founder);
         when(shop1.getId()).thenReturn(1);

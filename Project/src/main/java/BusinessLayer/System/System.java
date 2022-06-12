@@ -10,6 +10,8 @@ import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
@@ -40,7 +42,7 @@ public class System {
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
-        UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
+        UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria",new Date(2001, Calendar.DECEMBER,1));
         //setUp();
     }
 
@@ -50,7 +52,7 @@ public class System {
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
     private static ShopController sc = ShopController.getInstance();
     private static Shop s1;
-    private static SubscribedUser buyer = new SubscribedUser("buyer", "I am also not Guy Kishon");
+    private static SubscribedUser buyer = new SubscribedUser("buyer", "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
     private static final int shopId = 1200;
     private static final int otherShopId = 12930;
     private static Product p1 = new Product(12090, "pord", 156.2, 45);
@@ -59,7 +61,7 @@ public class System {
     private static boolean flag = false;
     public static void setUp(){
         if(!flag) {
-            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
+            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
             s1 = new Shop(shopId, "name of shop","testing shop", buyer);
             s1.addProduct(p1);
