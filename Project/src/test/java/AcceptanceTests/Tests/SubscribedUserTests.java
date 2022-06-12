@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 // TODO: fix success case for adding validations.
 // TODO: remove policies after in teardown.
-// TODO: test composite policies.
 
 public class SubscribedUserTests extends UserTests {
     private static SubscribedUserBridge subscribedUserBridge = null;
