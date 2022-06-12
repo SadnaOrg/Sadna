@@ -125,6 +125,12 @@ public class SubscribedUser extends User {
         return admin.removeAdmin(toRemove);
     }
 
+    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
+        validatePermission(shopID);
+        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
+        return admin.removeShopOwner(toRemove);
+    }
+
     public void removeMyRole(int id) {
         shopAdministrator.remove(id);
     }

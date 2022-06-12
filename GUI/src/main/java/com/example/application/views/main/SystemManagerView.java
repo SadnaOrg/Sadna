@@ -41,6 +41,7 @@ public class SystemManagerView extends SubscribedUserView {
             return;
         }
         createTabs();
+        registerToNotification();
     }
 
     private void createTabs() {
