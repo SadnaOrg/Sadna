@@ -177,6 +177,10 @@ public class Facade{
     public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         return userController.addProductToShop(username,shopID,name,manufacturer,desc,productID,quantity,price);
     }
+    public boolean setCategory(SubscribedUser currUser,int productId, String category, int productID) throws NoPermissionException {
+        return userController.setCategory(currUser, productId, category, productID);
+    }
+
 
     public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
         return userController.reopenShop(userName,shopID);

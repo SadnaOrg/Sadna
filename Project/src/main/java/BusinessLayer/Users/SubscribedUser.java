@@ -222,6 +222,11 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
 
+    public boolean setCategory(int productId, String category, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).setCategory(productId,category);
+    }
+
 
 // Java program to calculate SHA hash value
 

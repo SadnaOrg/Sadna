@@ -80,4 +80,6 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
-}
+    Result setCategory(BusinessLayer.Users.SubscribedUser currUser, int productId, String category, int productID);
+
+    }

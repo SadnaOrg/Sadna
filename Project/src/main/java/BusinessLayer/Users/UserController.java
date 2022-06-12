@@ -349,7 +349,11 @@ public class UserController {
         managers.clear();
     }
 
-    public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
+    public boolean setCategory(SubscribedUser currUser,int productId, String category, int shopId) throws NoPermissionException {
+        return currUser.setCategory(productId, category, shopId);
+    }
+
+        public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
         return currUser.createProductByQuantityDiscount(productId, productQuantity, discount, connectId, shopId);
     }
 

@@ -110,6 +110,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Result setCategory(SubscribedUser currUser,int productId, String category, int productID){
+        return ifUserNotNullStockManagement(() -> facade.setCategory(currUser, productId, category, productID), "you change the category");
+    }
+    @Override
     public Result reopenShop(int shopID) {
         return ifUserNotNull(() -> facade.reopenShop(currUser.getUserName(),shopID),"reopen shop", "you aren't a founder!");
     }

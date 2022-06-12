@@ -68,6 +68,12 @@ public class ShopAdministrator {
         else throw new NoPermissionException("you don't have permission to do that!");
     }
 
+    public boolean setCategory(int productId, String category) throws NoPermissionException {
+        if (action.containsKey(BaseActionType.STOCK_MANAGEMENT))
+            return ((StockManagement) action.get(BaseActionType.STOCK_MANAGEMENT)).setCategory(productId, category);
+        else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
     public boolean changeProductQuantity(int productid, int newQuantity) throws NoPermissionException {
         if (action.containsKey(BaseActionType.STOCK_MANAGEMENT))
             return ((StockManagement) action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductQuantity(productid, newQuantity);
