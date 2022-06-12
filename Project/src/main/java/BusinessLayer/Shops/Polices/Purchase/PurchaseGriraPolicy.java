@@ -49,4 +49,17 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
     public int getID(){
         return this.policyLogicId;
     }
+    @Override
+    public boolean removeChild(PurchasePolicy policy){
+
+        if(purchasePolicyAllow instanceof LogicPurchasePolicy)
+        {
+            return ((LogicPurchasePolicy) purchasePolicyAllow).removeChild(policy);
+        }
+        if(validatePurchase instanceof LogicPurchasePolicy)
+        {
+            return ((LogicPurchasePolicy) validatePurchase).removeChild(policy);
+        }
+        return false;
+    }
 }

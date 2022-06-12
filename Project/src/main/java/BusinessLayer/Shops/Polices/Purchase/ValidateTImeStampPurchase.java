@@ -26,6 +26,13 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
         this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
 
+    public ValidateTImeStampPurchase(int policyLogicId, LocalTime localTime, LocalDate date, boolean buybefore) {
+        this.policyLogicId = policyLogicId;
+        this.localTime = localTime;
+        this.date = date;
+        this.buybefore = buybefore;
+    }
+
     @Override
     public boolean isValid(User u, Basket basket) {
         if(localTime!=null)
@@ -50,5 +57,21 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
     @Override
     public int getID() {
         return this.policyLogicId;
+    }
+
+    public int getPolicyLogicId() {
+        return policyLogicId;
+    }
+
+    public LocalTime getLocalTime() {
+        return localTime;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public boolean isBuybefore() {
+        return buybefore;
     }
 }
