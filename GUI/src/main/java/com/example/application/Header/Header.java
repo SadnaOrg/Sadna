@@ -52,6 +52,9 @@ public class Header extends AppLayout {
             notificationLayout.setEnabled(true);
             dialog.add(notificationLayout);
             dialog.setOpened(true);
+            dialog.setCloseOnEsc(false);
+            dialog.setCloseOnOutsideClick(false);
+            dialog.open();
             return true;
         });
         service.getDelayNotification();
