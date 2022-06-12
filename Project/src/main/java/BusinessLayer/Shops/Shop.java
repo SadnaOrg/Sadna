@@ -163,6 +163,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
+            totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
@@ -192,8 +195,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
-            ///added here
             totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
