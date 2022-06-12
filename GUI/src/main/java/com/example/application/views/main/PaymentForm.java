@@ -40,7 +40,8 @@ public class PaymentForm extends FormLayout {
 
     Binder<PaymentMethod> binder;
 
-    public PaymentForm(){
+    public PaymentForm(UserService service){
+        this.service = service;
         binder = new BeanValidationBinder<>(PaymentMethod.class);
         binder.bindInstanceFields(this);
         this.service = (UserService)Load("service");

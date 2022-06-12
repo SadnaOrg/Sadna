@@ -220,6 +220,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin:vaadin-text-field-testbench:23.0.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin:vaadin-time-picker-testbench:23.0.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.vaadin:vaadin-upload-testbench:23.0.9" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.1.10.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.vintage:junit-vintage-engine:5.8.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
