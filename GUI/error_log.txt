@@ -168,3 +168,15 @@ SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.
 SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.isLoggedIn()" because the return value of "BusinessLayer.Users.UserController.getUser(java.lang.String)" is null
 יוני 12, 2022 9:09:36 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.isLoggedIn()" because the return value of "BusinessLayer.Users.UserController.getUser(java.lang.String)" is null
+יוני 12, 2022 9:12:08 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 12, 2022 9:12:10 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 12, 2022 9:12:10 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 12, 2022 9:12:13 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 12, 2022 9:12:13 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 12, 2022 9:12:13 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first

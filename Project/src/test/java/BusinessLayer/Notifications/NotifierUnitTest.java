@@ -38,6 +38,7 @@ public class NotifierUnitTest {
         when(u1.getName()).thenReturn(user1);
         when(u1.getUserName()).thenReturn(user1);
         con1 = (n)->notList1.add(n);
+        con2 = (n)->notList2.add(n);
         notifier.register(con1,user1);
         UserController.getInstance().addUserForTest(u1);
         var x = new LinkedList<String>();
@@ -48,11 +49,13 @@ public class NotifierUnitTest {
         when(not2.getUserNames()).thenReturn(x);
     }
 
-    @Test (expected = Exception.class)
+    @Test
     public void notification_on_real_time_fail_nonExistUser() {
+        notifier.register(con2,user2);
         notifier.addNotification(not2);
-        fail("send massege to a non existing user");
+        assertEquals("send massege to a non existing user", 0, notList2.size());
     }
+
     @Test
     public void notification_on_real_time_Sucsses() {
         when(u1.isLoggedIn()).thenReturn(true);

@@ -38,11 +38,14 @@ public class Header extends AppLayout {
         tabs.add(tab);
     }
 
+
     protected void registerToNotification(){
         var service = (UserService)Load("service");
+        Dialog dialog = new Dialog();
+        VerticalLayout notificationLayout = new VerticalLayout();
         service.registerToNotifier(not->{
-            Dialog dialog = new Dialog();
-            VerticalLayout notificationLayout = new VerticalLayout();
+
+
             H1 title = new H1("You receive a notification:");
             var content = new H2(not.Content());
             Button button = new Button("close", e1 -> dialog.close());

@@ -202,3 +202,21 @@ INFO: get all delay notification Successes
 INFO: product save Successes
 יוני 12, 2022 9:09:09 אחה״צ ServiceLayer.Log event
 INFO: cart showed Successes
+יוני 12, 2022 9:11:27 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:11:45 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:11:45 אחה״צ ServiceLayer.Log event
+INFO: register to notification service Successes
+יוני 12, 2022 9:11:45 אחה״צ ServiceLayer.Log event
+INFO: get all delay notification Successes
+יוני 12, 2022 9:11:48 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:12:06 אחה״צ ServiceLayer.Log event
+INFO: product save Successes
+יוני 12, 2022 9:12:10 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:12:11 אחה״צ ServiceLayer.Log event
+INFO: search products succeeded Successes
+יוני 12, 2022 9:12:13 אחה״צ ServiceLayer.Log event
+INFO: logout  Successes
