@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="fixed logout because subscribed users couldn't log out">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Shops/ShopControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Shops/ShopControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Shops/ShopControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Shops/ShopControllerUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/UserControllerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="fixed logout because subscribed users couldn't log out" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,9 +214,6 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/Header/Header.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="47" />
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/PaymentForm.java</url>
           <line>111</line>
           <option name="timeStamp" value="41" />
