@@ -26,7 +26,6 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
                 return basket.getProducts().get(productId)<=productQuantity;
             else
                 return basket.getProducts().get(productId)>=productQuantity;
-
         }
         return false;
     }
