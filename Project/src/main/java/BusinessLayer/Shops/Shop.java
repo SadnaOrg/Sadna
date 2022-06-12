@@ -3,11 +3,14 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Shops.Polices.Discount.*;
+import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
+import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
+import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Users.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -23,7 +26,8 @@ public class Shop {
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
-
+    private DiscountPlusPolicy discounts = new DiscountPlusPolicy();
+    private PurchaseAndPolicy purchasePolicy = new PurchaseAndPolicy();
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
@@ -154,6 +158,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
+            totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
@@ -183,6 +190,9 @@ public class Shop {
                     throw new IllegalStateException("The product is not in the shop");
                 }
             }
+            totalPrice -= calculateDiscount(user);
+            if(totalPrice<=0)
+                return 0;
         }
         else
         {
@@ -241,6 +251,91 @@ public class Shop {
         }
     }
 
+
+    public boolean approvePurchase(User user)
+    {
+        return this.purchasePolicy.isValid(user,usersBaskets.get(user.getName()));
+    }
+    public double calculateDiscount(String user){
+        return this.discounts.calculateDiscount(usersBaskets.get(user));
+    }
+
+    public int addDiscount(int addToConnectId, DiscountRules discountRules) {
+        int id = -1;
+        if (state == State.OPEN) {
+            NumericDiscountRules numericDiscountRule =discounts.getNumericRule(addToConnectId);
+            if (numericDiscountRule != null){
+                numericDiscountRule.add(discountRules);
+                id = discountRules.getID(); // this will return either the connectID or the discountID
+                                              // depending on the rule. composite discount -> connectID , leaf discount -> discountID
+            }
+            else
+                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return id;
+    }
+
+    public int addPredicate(int addToConnectId, DiscountPred discountPred) {
+        int id = -1;
+        if (state == State.OPEN) {
+            LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
+            if (logicDiscountRules != null){
+                logicDiscountRules.add(discountPred);
+                id = discountPred.getID();
+            }
+            else
+                throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return id;
+    }
+
+    public boolean removeDiscount(DiscountRules discountRules) {
+        if (state == State.OPEN) {
+            return discounts.removeSonDiscount(discountRules);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+    public boolean removePredicate(DiscountPred discountPred) {
+        if (state == State.OPEN) {
+            return discounts.removeSonPredicate(discountPred);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+
+    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+        int id = -1;
+        if (state == State.OPEN) {
+            LogicPurchasePolicy logicPurchasePolicyo =purchasePolicy.getLogicRule(addToConnectId);
+            if (logicPurchasePolicyo != null){
+                logicPurchasePolicyo.add(purchasePolicy);
+                id = purchasePolicy.getID();
+            }
+            else
+                throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -271,4 +366,106 @@ public class Shop {
     public boolean isOpen(){
         return state==State.OPEN;
     }
+
+//    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
+//    {
+//        if (state == State.OPEN) {
+//            if (products.containsKey(productId)) {
+//                if(productQuantity<0 || discount<=0 ||discount>1)
+//                {
+//                    throw new IllegalStateException("The quantity or discount not in the right form");
+//                }
+//                discountPolicyInterface = new ProductByQuantityDiscount(discountPolicyInterface, productId, productQuantity, discount);
+//            }
+//            else
+//            {
+//                throw new IllegalStateException("The product is not in the shop");
+//            }
+//        }
+//        else
+//        {
+//            throw new IllegalStateException("The shop is closed");
+//        }
+//    }
+//
+//    public void addDiscountProductDiscount(int productId, double discount)
+//    {
+//        if (state == State.OPEN) {
+//            if (products.containsKey(productId)) {
+//                if(discount<=0 ||discount>1)
+//                {
+//                    throw new IllegalStateException("The quantity or discount not in the right form");
+//                }
+//                discountPolicyInterface = new ProductDiscount(discountPolicyInterface, productId, discount);
+//            }
+//            else
+//            {
+//                throw new IllegalStateException("The product is not in the shop");
+//            }
+//        }
+//        else
+//        {
+//            throw new IllegalStateException("The shop is closed");
+//        }
+//    }
+//
+//    public void addDiscountProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity)
+//    {
+//        if (state == State.OPEN) {
+//            if (products.containsKey(productID)) {
+//                if (quantity < 0 || priceForQuantity <= 0) {
+//                    throw new IllegalStateException("The quantity or discount not in the right form");
+//                }
+//                discountPolicyInterface = new ProductQuantityInPriceDiscount(discountPolicyInterface, productID, quantity, priceForQuantity);
+//            } else {
+//                throw new IllegalStateException("The product is not in the shop");
+//            }
+//        } else {
+//            throw new IllegalStateException("The shop is closed");
+//        }
+//    }
+//
+//
+//    public void addDiscountRelatedGroupDiscount(Collection < Integer > relatedProducts,double discount)
+//    {
+//        if (state == State.OPEN) {
+//            for(int productId: relatedProducts) {
+//                if (products.containsKey(productId)) {
+//                    throw new IllegalStateException("The product is not in the shop");
+//                }
+//            }
+//            if (discount <= 0 || discount > 1) {
+//                    throw new IllegalStateException("The quantity or discount not in the right form");
+//                }
+//                discountPolicyInterface = new RelatedGroupDiscount(discountPolicyInterface, relatedProducts, discount);
+//
+//        } else {
+//            throw new IllegalStateException("The shop is closed");
+//        }
+//    }
+//
+//    public void addDiscountShopDiscount(int basketQuantity,double discount)
+//    {
+//        if (state == State.OPEN) {
+//                if(basketQuantity<0 || discount<=0 ||discount>1)
+//            {
+//                throw new IllegalStateException("The quantity or discount not in the right form");
+//            }
+//            discountPolicyInterface = new ShopDiscount(discountPolicyInterface, basketQuantity, discount);
+//        }
+//        else
+//        {
+//            throw new IllegalStateException("The shop is closed");
+//        }
+//    }
+//
+//    public void removeDiscountById(int id) {
+//        discountPolicyInterface = discountPolicyInterface.removeDiscountById(id);
+//    }
+//
+//    public DiscountPolicyInterface getDiscountById(int id)
+//    {
+//        return discountPolicyInterface.getDiscountById(id);
+//    }
+
 }

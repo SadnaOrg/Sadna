@@ -33,7 +33,7 @@ public class RelatedGroupDiscountTest {
         basket.saveProducts(2,100,15);
         Collection<Integer> pids= new ArrayList<>();
         pids.add(1);
-        relatedGroupDiscount= new RelatedGroupDiscount(new DefaultDiscount(),pids,0.1);
+        relatedGroupDiscount= new RelatedGroupDiscount(pids,0.1);
         Assert.assertEquals(0.1*10*5,relatedGroupDiscount.calculateDiscount(basket),0.1);
     }
 
@@ -42,7 +42,7 @@ public class RelatedGroupDiscountTest {
         basket.saveProducts(2,100,15);
         Collection<Integer> pids= new ArrayList<>();
         pids.add(1);
-        relatedGroupDiscount= new RelatedGroupDiscount(new DefaultDiscount(),pids,0.1);
+        relatedGroupDiscount= new RelatedGroupDiscount(pids,0.1);
         Assert.assertEquals(0,relatedGroupDiscount.calculateDiscount(basket),0.1);
     }
 
@@ -53,7 +53,7 @@ public class RelatedGroupDiscountTest {
         Collection<Integer> pids= new ArrayList<>();
         pids.add(1);
         pids.add(2);
-        relatedGroupDiscount= new RelatedGroupDiscount(new DefaultDiscount(),pids,0.1);
+        relatedGroupDiscount= new RelatedGroupDiscount(pids,0.1);
         Assert.assertEquals(0.1*10*5+0.1*15*100,relatedGroupDiscount.calculateDiscount(basket),0.1);
     }
 

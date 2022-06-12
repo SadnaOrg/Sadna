@@ -1,5 +1,7 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -8,6 +10,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
@@ -140,6 +143,99 @@ public class SubscribedUser extends User {
     }
 
     public boolean isRemoved(){return !isNotRemoved.get();}
+
+    public synchronized int createProductByQuantityDiscount(int productId, int productQuantity, double discount,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createProductByQuantityDiscount(productId, productQuantity, discount, connectId);
+    }
+
+
+    public synchronized int createProductDiscount(int productId, double discount, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createProductDiscount(productId, discount, connectId);
+    }
+
+    public synchronized int createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId);
+    }
+
+    public synchronized int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createRelatedGroupDiscount(relatedProducts, discount, connectId);
+    }
+
+    public synchronized int createShopDiscount(int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createShopDiscount(basketQuantity, discount, connectId);
+    }
+
+    public synchronized int createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createDiscountAndPolicy(discountPred, discountPolicy, connectId);
+    }
+
+    public synchronized int createDiscountMaxPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createDiscountMaxPolicy(discountPolicy, connectId);
+    }
+
+    public synchronized int  createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createDiscountOrPolicy(discountPred, discountPolicy, connectId);
+    }
+
+    public synchronized int  createDiscountPlusPolicy(DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createDiscountPlusPolicy(discountPolicy, connectId);
+    }
+
+    public synchronized int createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+
+        return shopAdministrator.get(shopId).createDiscountXorPolicy(discountRules1, discountRules2, tieBreaker, connectId);
+    }
+
+    public synchronized int  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateBasketQuantityDiscount(basketquantity,cantBeMore, connectId);
+    }
+
+    public synchronized int createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateBasketValueDiscount(basketvalue,cantBeMore, connectId);
+    }
+    public synchronized int createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, connectId);
+    }
+    public synchronized int createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateProductPurchase(productId, productQuantity, cantbemore, connectId);
+    }
+
+    public synchronized int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
+    }
+    public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removeDiscount(discountRules);
+    }
+    public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removePredicate(discountPred);
+    }
+
 
 // Java program to calculate SHA hash value
 

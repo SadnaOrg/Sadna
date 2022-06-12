@@ -74,7 +74,7 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay) {
+    public double purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay) {
         return adapter.purchaseCart(username,creditCard,CVV,expirationMonth,expirationDay);
     }
 

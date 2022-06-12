@@ -5,18 +5,24 @@ import BusinessLayer.Users.Basket;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class RelatedGroupDiscount extends DiscountPolicy{
-    Collection<Integer> relatedProducts;
-    double discount;
+public class RelatedGroupDiscount implements DiscountPolicy{
+    private int discountId;
+    private Collection<Integer> relatedProducts;
+    private double discount;
 
-    public RelatedGroupDiscount(DiscountPolicyInterface discountPolicy, Collection<Integer> relatedProducts, double discount)
+    public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
     {
-        super(discountPolicy);
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(relatedProducts);
         this.discount =discount;
+        this.discountId = atomicDiscountID.incrementAndGet();
     }
 
+    public RelatedGroupDiscount(int discountId,Collection<Integer> relatedProducts, double discount) {
+        this.relatedProducts = relatedProducts;
+        this.discount = discount;
+        this.discountId = discountId;
+    }
 
     @Override
     public double calculateDiscount(Basket basket) {
@@ -27,7 +33,7 @@ public class RelatedGroupDiscount extends DiscountPolicy{
                 currentDiscountPrice +=  discount*basket.getProducts().get(pid)*basket.getPrices().get(pid);
             }
         }
-        return currentDiscountPrice+ this.discountPolicy.calculateDiscount(basket);
+        return currentDiscountPrice;
     }
 
 
@@ -35,5 +41,26 @@ public class RelatedGroupDiscount extends DiscountPolicy{
     {
         this.relatedProducts= new ArrayList<>();
         this.relatedProducts.addAll(newProducts);
+    }
+
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public int getID(){
+        return this.discountId;
+    }
+
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        return false;
     }
 }
