@@ -18,6 +18,7 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.router.Route;
 
 import java.util.Collection;
@@ -30,7 +31,6 @@ import static com.example.application.Utility.*;
 
 @Route("SubscribedUser")
 public class SubscribedUserView extends GuestActionView {
-    protected String currUser;
     protected SubscribedUserService service;
 
     private final Dialog dialog = new Dialog();
@@ -166,17 +166,15 @@ public class SubscribedUserView extends GuestActionView {
         descriptionColumn = shopProducts.addColumn(Product::description).setHeader("Description").setSortable(true);
         quantityColumn = shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
         priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
-        closeColumn = shopProducts.addComponentColumn(item -> {
-            return new Button(VaadinIcon.CLOSE.create(), e -> {
-                Result res = service.deleteProductFromShop(item.shopId(), item.productID());
-                if (res.isOk()) {
-                    updateProductGrid(item.shopId());
-                    notifySuccess("Product Removed Successfully!");
-                }
-                else
-                    notifyError(res.getMsg());
-                });
-        });
+        closeColumn = shopProducts.addComponentColumn(item -> new Button(VaadinIcon.CLOSE.create(), e -> {
+            Result res = service.deleteProductFromShop(item.shopId(), item.productID());
+            if (res.isOk()) {
+                updateProductGrid(item.shopId());
+                notifySuccess("Product Removed Successfully!");
+            }
+            else
+                notifyError(res.getMsg());
+            }));
         editor = shopProducts.getEditor();
         setEditorComponent();
         shopProducts.addItemClickListener(item -> {
@@ -232,8 +230,14 @@ public class SubscribedUserView extends GuestActionView {
 
     private void createTabs(){
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
+        addTabWithClickEvent("Manage Actions", this::createActionView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createActionView(DomEvent domEvent) {
+        ActionView view = new ActionView(service, currUser);
+        setContent(view);
     }
 }

@@ -8,10 +8,7 @@ import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -51,6 +48,14 @@ public class ShopController {
             if(b.getProducts().size() == 0)
                 s.removeBasket(username);
         }
+    }
+
+    public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username) {
+        ConcurrentHashMap<Integer, ShopInfo> res = new ConcurrentHashMap<>();
+        for (Shop s : shops.values().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
+            res.put(s.getId(), new ShopInfo(s));
+        }
+        return res;
     }
 
     static private class ShopControllerHolder {

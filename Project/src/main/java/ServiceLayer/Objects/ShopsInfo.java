@@ -15,6 +15,6 @@ public record ShopsInfo(Collection<Shop> shops) {
     }
 
     public ShopsInfo(Map<BusinessLayer.Shops.Shop, Collection<Product>> products) {
-        this(products.entrySet().stream().map(e-> new Shop(e.getKey().getId(),e.getKey().getName(),e.getKey().getDescription(),e.getValue().stream().map(p->new ServiceLayer.Objects.Product(e.getKey().getId(), p)).collect(Collectors.toList()))).collect(Collectors.toList()));
+        this(products.entrySet().stream().map(e-> new Shop(e.getKey().getId(),e.getKey().getName(),e.getKey().getDescription(),e.getValue().stream().map(p->new ServiceLayer.Objects.Product(e.getKey().getId(), p)).collect(Collectors.toList()), e.getKey().isOpen())).collect(Collectors.toList()));
     }
 }
