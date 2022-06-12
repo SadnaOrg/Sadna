@@ -91,4 +91,8 @@ public interface SubscribedUserService extends UserService {
     Response<Boolean> removePredicate(BusinessLayer.Users.SubscribedUser currUser, DiscountPred discountPred, int shopId);
 
     Response<Boolean> removePurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) ;
+
+    Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId);
+
+    Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId);
 }

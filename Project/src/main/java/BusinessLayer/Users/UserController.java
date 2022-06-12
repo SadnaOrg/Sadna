@@ -429,6 +429,14 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
+    }
+
+    public int createPurchaseOrPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseOrPolicy(policy, conncectId, shopId);
+    }
+
     public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
         return currUser.removeDiscount(discountRules,shopId);
     }

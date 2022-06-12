@@ -225,6 +225,21 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
         return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
     }
+
+    @Override
+    public Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createPurchaseAndPolicy(currUser,
+                PurchasePolicy.makeBusinessPurchasePolicy(policy),
+                conncectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createPurchaseOrPolicy(currUser,
+                PurchasePolicy.makeBusinessPurchasePolicy(policy),
+                conncectId, shopId),"add purchase policy succeeded");
+    }
+
     @Override
     public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,

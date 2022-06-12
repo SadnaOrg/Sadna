@@ -1,9 +1,7 @@
 package BusinessLayer.Users.BaseActions;
 
 import BusinessLayer.Shops.Polices.Discount.*;
-import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
-import BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase;
-import BusinessLayer.Shops.Polices.Purchase.ValidateTImeStampPurchase;
+import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
@@ -76,6 +74,14 @@ public class SetPurchasePolicy extends BaseAction {
 
     public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
+    }
+
+    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new PurchaseAndPolicy(policy));
+    }
+
+    public int createPurchaseOrPolicy(PurchasePolicy policy,int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new PurchaseOrPolicy(policy));
     }
 
 
