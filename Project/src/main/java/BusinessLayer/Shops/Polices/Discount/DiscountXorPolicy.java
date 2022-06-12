@@ -105,4 +105,33 @@ public class DiscountXorPolicy implements LogicDiscountRules{
     public Collection<DiscountPred> getTieBreakers() {
         return tieBreakers;
     }
+
+    @Override
+    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+        if (discountRules1 instanceof NumericDiscountRules)
+            return ((NumericDiscountRules) discountRules1).removeSonDiscount(removeFromConnectId);
+        if (discountRules1 instanceof LogicDiscountRules)
+            return ((LogicDiscountRules) discountRules1).removeSonDiscount(removeFromConnectId);
+
+        if (discountRules2 instanceof NumericDiscountRules)
+            return ((NumericDiscountRules) discountRules2).removeSonDiscount(removeFromConnectId);
+        if (discountRules2 instanceof LogicDiscountRules)
+            return ((LogicDiscountRules) discountRules2).removeSonDiscount(removeFromConnectId);
+        return false;
+    }
+
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        for (DiscountPred discountPred1 :tieBreakers) {
+            if (discountPred1.getID() == discountPred.getID()) {
+                return remove(discountPred);
+            }
+        }
+        boolean temp = false ;
+        if(discountRules1 instanceof NumericDiscountRules ||discountRules1 instanceof LogicDiscountRules)
+            temp = (discountRules1.removeSonPredicate(discountPred));
+        if(discountRules2 instanceof NumericDiscountRules ||discountRules2 instanceof LogicDiscountRules)
+            temp = (discountRules2.removeSonPredicate(discountPred));
+        return temp;
+    }
 }

@@ -65,4 +65,8 @@ public class ShopDiscount implements DiscountPolicy {
     public int getDiscountId() {
         return discountId;
     }
+    @Override
+    public boolean removeSonPredicate(DiscountPred discountPred) {
+        return false;
+    }
 }
