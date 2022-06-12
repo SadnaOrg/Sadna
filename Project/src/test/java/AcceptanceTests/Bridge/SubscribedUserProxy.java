@@ -1,12 +1,12 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
-import BusinessLayer.Shops.Polices.Discount.DiscountPred;
-import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Discount.DiscountPred;
+import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.Response;
 
 import java.time.LocalTime;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -122,28 +122,28 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public Integer createDiscountAndPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountAndPolicy(String username,DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        return subscribedUserAdapter.createDiscountAndPolicy(username,discountPred,discountPolicy,connectId,shopId);
     }
 
     @Override
-    public Integer createDiscountMaxPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountMaxPolicy(String username,DiscountRules discountPolicy, int connectId, int shopId) {
+        return subscribedUserAdapter.createDiscountMaxPolicy(username,discountPolicy,connectId,shopId);
     }
 
     @Override
-    public Integer createDiscountOrPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountOrPolicy(String username,DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        return subscribedUserAdapter.createDiscountOrPolicy(username,discountPred,discountPolicy,connectId,shopId);
     }
 
     @Override
-    public Integer createDiscountPlusPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountPlusPolicy(String username,DiscountRules discountPolicy, int connectId, int shopId) {
+        return subscribedUserAdapter.createDiscountPlusPolicy(username,discountPolicy,connectId,shopId);
     }
 
     @Override
-    public Integer createDiscountXorPolicy(String username, DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountXorPolicy(String username,DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
+        return subscribedUserAdapter.createDiscountXorPolicy(username,discountRules1,discountRules2,tieBreaker,connectId,shopId);
     }
 
     @Override

@@ -14,4 +14,9 @@ public record DiscountMaxPolicy(int connectId, Collection<ServiceLayer.Objects.P
             discountPolicies.add(ServiceLayer.Objects.Policies.Discount.DiscountRules.makeServiceRule(discountRules));
         }
     }
+
+    public DiscountMaxPolicy(int connectId, Collection<ServiceLayer.Objects.Policies.Discount.DiscountRules> discountPolicies) {
+        this.connectId = connectId;
+        this.discountPolicies = discountPolicies;
+    }
 }

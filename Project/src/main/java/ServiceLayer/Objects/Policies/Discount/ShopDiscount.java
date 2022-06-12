@@ -6,4 +6,10 @@ public record ShopDiscount(int discountId, int basketQuantity,double discount)im
     {
         this(shopDiscount.getDiscountId(), shopDiscount.getBasketQuantity(), shopDiscount.getDiscount());
     }
+
+    public ShopDiscount(int discountId, int basketQuantity, double discount) {
+        this.discountId = discountId;
+        this.basketQuantity = basketQuantity;
+        this.discount = discount;
+    }
 }

@@ -1,8 +1,8 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
-import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
 
 import java.time.LocalTime;
@@ -54,15 +54,15 @@ public interface SubscribedUserBridge extends UserBridge {
 
     Integer createShopDiscount(String username, int basketQuantity,double discount,int connectId, int shopId);
 
-    Integer createDiscountAndPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) ;
+    Integer createDiscountAndPolicy(String username,ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Integer createDiscountMaxPolicy(String username, DiscountRules discountPolicy,int connectId, int shopId) ;
+    Integer createDiscountMaxPolicy(String username,ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
 
-    Integer  createDiscountOrPolicy(String username, DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) ;
+    Integer  createDiscountOrPolicy(String username,ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId) ;
 
-    Integer  createDiscountPlusPolicy(String username, DiscountRules discountPolicy,int connectId, int shopId) ;
+    Integer  createDiscountPlusPolicy(String username,ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
 
-    Integer createDiscountXorPolicy(String username, DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId)  ;
+    Integer createDiscountXorPolicy(String username,ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  ;
 
     Integer  createValidateBasketQuantityDiscount(String username,int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
 

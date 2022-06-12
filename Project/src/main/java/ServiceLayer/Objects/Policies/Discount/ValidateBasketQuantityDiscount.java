@@ -6,4 +6,10 @@ public record ValidateBasketQuantityDiscount(int ruleId,int basketquantity,boole
 
         this(discountPred.getRuleId(),discountPred.getBasketquantity(),discountPred.isCantBeMore());
     }
+
+    public ValidateBasketQuantityDiscount(int ruleId, int basketquantity, boolean cantBeMore) {
+        this.ruleId = ruleId;
+        this.basketquantity = basketquantity;
+        this.cantBeMore = cantBeMore;
+    }
 }
