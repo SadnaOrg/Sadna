@@ -40,7 +40,7 @@ public class MainView extends Header {
         content.setFlexGrow(1, guestLayout);
         guestLayout.setWidthFull();
         content.add(guestLayout);
-        this.registerToNotification();
+        this.registerToNotification(service);
     }
 
     private void createButtons() {

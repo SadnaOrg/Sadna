@@ -68,7 +68,7 @@ public class SubscribedUserView extends GuestActionView {
         });
         createOpenShop();
         createTabs();
-        registerToNotification();
+        registerToNotification(service);
     }
 
     private void createOpenShop() {

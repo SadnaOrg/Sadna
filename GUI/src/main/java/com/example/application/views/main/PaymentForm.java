@@ -62,6 +62,7 @@ public class PaymentForm extends FormLayout {
         binder.addStatusChangeListener(evt -> payButton.setEnabled(binder.isValid()));
         binder.setBean(method);
         add(creditCardNumber, cvv, month, year, payButton);
+
     }
 
     private void validateAndPay() {

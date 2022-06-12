@@ -47,6 +47,7 @@ public class ActionView extends VerticalLayout {
             }
         }
         add(menuBar);
+
     }
 
     private void setPermissionsForUser(ConcurrentHashMap<BaseActionType, List<Integer>> actionShopsMap) {
