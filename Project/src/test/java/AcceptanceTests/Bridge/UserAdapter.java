@@ -196,14 +196,16 @@ public class UserAdapter implements UserBridge{
         }
         return false;
     }
-// ADD SUBSCRIBED USER PURCHASE
+
     @Override
-    public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear) {
+    public double purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear) {
         UserService service = getService(username);
         if(service == null)
-            return false;
-        Result purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
-        return purchased.isOk();
+            return 0;
+        Response<Double> purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
+        if(purchased.isOk())
+            return purchased.getElement();
+        return 0;
     }
 
     @Override

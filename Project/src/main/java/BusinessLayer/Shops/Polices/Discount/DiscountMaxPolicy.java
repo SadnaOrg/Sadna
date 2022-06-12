@@ -9,7 +9,7 @@ import java.util.Iterator;
 public class DiscountMaxPolicy implements NumericDiscountRules{
     private int connectId;
 
-    Collection<DiscountRules> discountPolicies;
+    private Collection<DiscountRules> discountPolicies;
 
     public DiscountMaxPolicy(Collection<DiscountRules> discountPolicies) {
         this.discountPolicies= new ArrayList<>();
@@ -21,6 +21,11 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
         this.discountPolicies= new ArrayList<>();
         this.discountPolicies.add(discountPolicy);
         this.connectId = atomicconnectId.incrementAndGet();
+    }
+
+    public DiscountMaxPolicy(int connectId, Collection<DiscountRules> discountPolicies) {
+        this.connectId = connectId;
+        this.discountPolicies = discountPolicies;
     }
 
     @Override
@@ -66,5 +71,18 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
                 return findrule;
         }
         return null;
+    }
+
+    @Override
+    public int getID(){
+        return this.connectId;
+    }
+
+    public int getConnectId() {
+        return connectId;
+    }
+
+    public Collection<DiscountRules> getDiscountPolicies() {
+        return discountPolicies;
     }
 }

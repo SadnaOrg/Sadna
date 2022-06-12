@@ -14,4 +14,7 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
     {
         return null;
     }
+
+    @Override
+    public int getID(){return -1;}
 }

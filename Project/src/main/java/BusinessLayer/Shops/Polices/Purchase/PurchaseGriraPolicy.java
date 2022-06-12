@@ -44,4 +44,9 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
     public boolean remove(PurchasePolicy purchasePolicy) {
         throw new IllegalStateException("can't remove her");
     }
+
+    @Override
+    public int getID(){
+        return this.policyLogicId;
+    }
 }

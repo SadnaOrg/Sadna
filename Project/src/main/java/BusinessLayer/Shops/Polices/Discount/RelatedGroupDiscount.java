@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class RelatedGroupDiscount implements DiscountPolicy{
-    Collection<Integer> relatedProducts;
-    double discount;
     private int discountId;
+    private Collection<Integer> relatedProducts;
+    private double discount;
 
     public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
     {
@@ -18,6 +18,11 @@ public class RelatedGroupDiscount implements DiscountPolicy{
         this.discountId = atomicDiscountID.incrementAndGet();
     }
 
+    public RelatedGroupDiscount(int discountId,Collection<Integer> relatedProducts, double discount) {
+        this.relatedProducts = relatedProducts;
+        this.discount = discount;
+        this.discountId = discountId;
+    }
 
     @Override
     public double calculateDiscount(Basket basket) {
@@ -47,5 +52,10 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     @Override
     public LogicDiscountRules getLogicRule(int searchConnectId) {
         return null;
+    }
+
+    @Override
+    public int getID(){
+        return this.discountId;
     }
 }

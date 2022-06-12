@@ -10,17 +10,20 @@ import java.util.Date;
 public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
 
+    private final int policyLogicId;
     private LocalTime localTime =null;
     private LocalDate date= null;
     private boolean buybefore=false;
 
     public ValidateTImeStampPurchase(LocalDate date) {
         this.date = date;
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
 
     public ValidateTImeStampPurchase(LocalTime localTime, boolean buybefore) {
         this.localTime = localTime;
         this.buybefore = buybefore;
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
 
     @Override
@@ -42,5 +45,10 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
     public LogicPurchasePolicy getLogicRule(int searchConnectId)
     {
         return null;
+    }
+
+    @Override
+    public int getID() {
+        return this.policyLogicId;
     }
 }

@@ -18,6 +18,13 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
         this.ruleId = atomicRuleID.incrementAndGet();
     }
 
+    public ValidateProductQuantityDiscount(int ruleId, int productId, int productQuantity, boolean cantbemore) {
+        this.ruleId = ruleId;
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+        this.cantbemore = cantbemore;
+    }
+
     @Override
     public boolean validateDiscount(Basket basket) {
         if (basket.getProducts().containsKey(productId))
@@ -26,8 +33,27 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
                 return basket.getProducts().get(productId)<=productQuantity;
             else
                 return basket.getProducts().get(productId)>=productQuantity;
-
         }
         return false;
     }
+
+    @Override
+    public int getID(){
+        return this.ruleId;
+    }
+
+    public int getRuleId(){return this.ruleId;}
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public boolean isCantbemore() {
+        return cantbemore;
+    }
+
 }

@@ -14,6 +14,12 @@ public class ValidateBasketValueDiscount implements DiscountPred {
         this.cantBeMore =cantBeMore;
     }
 
+    public ValidateBasketValueDiscount(int ruleId, double basketvalue, boolean cantBeMore) {
+        this.ruleId = ruleId;
+        this.basketvalue = basketvalue;
+        this.cantBeMore = cantBeMore;
+    }
+
     @Override
     public boolean validateDiscount(Basket basket) {
         double currprice=0;
@@ -25,4 +31,22 @@ public class ValidateBasketValueDiscount implements DiscountPred {
             return currprice<=basketvalue;
         return currprice>=basketvalue;
     }
+
+    @Override
+    public int getID(){
+        return this.ruleId;
+    }
+
+    public int getRuleId() {
+        return ruleId;
+    }
+
+    public double getBasketvalue() {
+        return basketvalue;
+    }
+
+    public boolean isCantBeMore() {
+        return cantBeMore;
+    }
+
 }

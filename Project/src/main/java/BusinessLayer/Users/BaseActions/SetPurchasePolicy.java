@@ -17,78 +17,63 @@ public class SetPurchasePolicy extends BaseAction {
         this.shop = shop;
     }
 
-    public boolean createProductByQuantityDiscount(int productId, int productQuantity, double discount, int conncectId) throws NoPermissionException {
-        shop.addDiscount(conncectId, new ProductByQuantityDiscount(productId, productQuantity, discount));
-        return true;
+    public int createProductByQuantityDiscount(int productId, int productQuantity, double discount, int conncectId) throws NoPermissionException {
+        return shop.addDiscount(conncectId, new ProductByQuantityDiscount(productId, productQuantity, discount));
     }
 
-    public boolean createProductDiscount(int productId, double discount, int conncectId) {
-        shop.addDiscount(conncectId, new ProductDiscount(productId, discount));
-        return true;
+    public int createProductDiscount(int productId, double discount, int conncectId) {
+        return shop.addDiscount(conncectId, new ProductDiscount(productId, discount));
     }
 
-    public boolean createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int conncectId) {
-        shop.addDiscount(conncectId, new ProductQuantityInPriceDiscount(productID, quantity, priceForQuantity));
-        return true;
+    public int createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int conncectId) {
+        return shop.addDiscount(conncectId, new ProductQuantityInPriceDiscount(productID, quantity, priceForQuantity));
     }
 
-    public boolean createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId) {
-        shop.addDiscount(conncectId, new RelatedGroupDiscount(relatedProducts, discount));
-        return true;
+    public int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId) {
+        return shop.addDiscount(conncectId, new RelatedGroupDiscount(relatedProducts, discount));
     }
 
-    public boolean createShopDiscount(int basketQuantity, double discount, int conncectId) {
-        shop.addDiscount(conncectId, new ShopDiscount(basketQuantity, discount));
-        return true;
+    public int createShopDiscount(int basketQuantity, double discount, int conncectId) {
+        return shop.addDiscount(conncectId, new ShopDiscount(basketQuantity, discount));
     }
 
-    public boolean createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int conncectId) {
-        shop.addDiscount(conncectId, new DiscountAndPolicy(discountPred, discountPolicy));
-        return true;
+    public int createDiscountAndPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int conncectId) {
+        return shop.addDiscount(conncectId, new DiscountAndPolicy(discountPred, discountPolicy));
     }
 
-    public boolean createDiscountMaxPolicy(DiscountRules discountPolicy, int conncectId) {
-        shop.addDiscount(conncectId, new DiscountMaxPolicy(discountPolicy));
-        return true;
+    public int createDiscountMaxPolicy(DiscountRules discountPolicy, int conncectId) {
+        return shop.addDiscount(conncectId, new DiscountMaxPolicy(discountPolicy));
     }
 
-    public boolean createDiscountOrPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int conncectId) {
-        shop.addDiscount(conncectId, new DiscountOrPolicy(discountPred, discountPolicy));
-        return true;
+    public int createDiscountOrPolicy(DiscountPred discountPred, DiscountRules discountPolicy, int conncectId) {
+        return shop.addDiscount(conncectId, new DiscountOrPolicy(discountPred, discountPolicy));
     }
 
-    public boolean createDiscountPlusPolicy(DiscountRules discountPolicy, int conncectId) {
-        shop.addDiscount(conncectId, new DiscountPlusPolicy(discountPolicy));
-        return true;
+    public int createDiscountPlusPolicy(DiscountRules discountPolicy, int conncectId) {
+        return shop.addDiscount(conncectId, new DiscountPlusPolicy(discountPolicy));
     }
 
-    public boolean createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int conncectId) {
-        shop.addDiscount(conncectId, new DiscountXorPolicy(discountRules1, discountRules2, tieBreaker));
-        return true;
+    public int createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int conncectId) {
+        return shop.addDiscount(conncectId, new DiscountXorPolicy(discountRules1, discountRules2, tieBreaker));
     }
 
-    public boolean createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateBasketQuantityDiscount(basketquantity, cantBeMore));
-        return true;
+    public int createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateBasketQuantityDiscount(basketquantity, cantBeMore));
     }
 
-    public boolean createValidateBasketValueDiscount(double basketvalue, boolean cantBeMore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateBasketValueDiscount(basketvalue, cantBeMore));
-        return true;
+    public int createValidateBasketValueDiscount(double basketvalue, boolean cantBeMore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateBasketValueDiscount(basketvalue, cantBeMore));
     }
 
-    public boolean createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore, int conncectId) {
-        shop.addPredicate(conncectId, new ValidateProductQuantityDiscount(productId, productQuantity, cantbemore));
-        return true;
+    public int createValidateProductQuantityDiscount(int productId, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPredicate(conncectId, new ValidateProductQuantityDiscount(productId, productQuantity, cantbemore));
     }
 
-    public boolean createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int conncectId) {
-        shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
-        return true;
+    public int createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
     }
 
-    public boolean createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
-        shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
-        return true;
+    public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
     }
 }

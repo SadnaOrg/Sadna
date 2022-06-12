@@ -13,6 +13,7 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     private int policyLogicId;
 
     public PurchaseAndPolicy() {
+        purchasePolicies = new ArrayList<>();
     }
 
     public PurchaseAndPolicy(Collection<PurchasePolicy> purchasePolicies) {
@@ -55,5 +56,10 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
 
     public boolean remove(PurchasePolicy purchasePolicy){
         return this.purchasePolicies.remove(purchasePolicy);
+    }
+
+    @Override
+    public int getID(){
+        return this.policyLogicId;
     }
 }

@@ -261,11 +261,15 @@ public class Shop {
         return this.discounts.calculateDiscount(usersBaskets.get(user));
     }
 
-    public boolean addDiscount(int addToConnectId, DiscountRules discountRules) {
+    public int addDiscount(int addToConnectId, DiscountRules discountRules) {
+        int id = -1;
         if (state == State.OPEN) {
             NumericDiscountRules numericDiscountRule =discounts.getNumericRule(addToConnectId);
-            if (numericDiscountRule != null)
+            if (numericDiscountRule != null){
                 numericDiscountRule.add(discountRules);
+                id = discountRules.getID(); // this will return either the connectID or the discountID
+                                              // depending on the rule. composite discount -> connectID , leaf discount -> discountID
+            }
             else
                 throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
         }
@@ -273,14 +277,17 @@ public class Shop {
         {
             throw new IllegalStateException("The shop is closed");
         }
-        return true;
+        return id;
     }
 
-    public boolean addPredicate(int addToConnectId, DiscountPred discountPred) {
+    public int addPredicate(int addToConnectId, DiscountPred discountPred) {
+        int id = -1;
         if (state == State.OPEN) {
             LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
-            if (logicDiscountRules != null)
+            if (logicDiscountRules != null){
                 logicDiscountRules.add(discountPred);
+                id = discountPred.getID();
+            }
             else
                 throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
         }
@@ -288,14 +295,17 @@ public class Shop {
         {
             throw new IllegalStateException("The shop is closed");
         }
-        return true;
+        return id;
     }
 
-    public boolean addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+        int id = -1;
         if (state == State.OPEN) {
             LogicPurchasePolicy logicPurchasePolicyo =purchasePolicy.getLogicRule(addToConnectId);
-            if (logicPurchasePolicyo != null)
+            if (logicPurchasePolicyo != null){
                 logicPurchasePolicyo.add(purchasePolicy);
+                id = purchasePolicy.getID();
+            }
             else
                 throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
         }
@@ -303,7 +313,7 @@ public class Shop {
         {
             throw new IllegalStateException("The shop is closed");
         }
-        return true;
+        return id;
     }
 
     public String getName() {
