@@ -56,6 +56,14 @@ public class UserController {
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
 
+    public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        if(subscribers.containsKey(requesting)){
+            SubscribedUser u = subscribers.get(requesting);
+            return u.removeShopOwner(shopID,subscribers.get(toRemove));
+        }
+        throw new IllegalArgumentException("you aren't a subscribed user!");
+    }
+
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId, productId);
         if (price != -1) {
@@ -304,7 +312,6 @@ public class UserController {
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser) {
         return currUser.getShopsAndUsersInfo();
     }
-
 
     protected boolean removeSubscribedUserFromSystem(String userName){
         if(!getSubUser(userName).removeFromSystem())

@@ -12,6 +12,7 @@ import ServiceLayer.interfaces.UserService;
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.function.Predicate;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
     SubscribedUser currUser;
@@ -80,6 +81,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Result updateProductQuantity(int shopID, int productID, int newQuantity){
         return ifUserNotNullStockManagement(() -> facade.updateProductQuantity(currUser.getUserName(),shopID,productID,newQuantity), "update product quantity");
+    }
+
+    @Override
+    public Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username){
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchShops(s -> shopPred.test(new Shop(s)), username)),"search shops succeeded");
     }
 
     @Override
@@ -228,6 +234,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
                 DiscountPred.makeBusinessPred(discountPred),
                 shopId),"remove purchase policy succeeded");
+    }
+
+    @Override
+    public Result removeShopOwner(int shopID, String toRemove) {
+        return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
 
     protected void setCurrUser(SubscribedUser currUser) {

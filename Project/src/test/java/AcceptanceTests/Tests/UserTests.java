@@ -148,12 +148,7 @@ public abstract class UserTests extends ProjectTests {
         List<ProductInShop> products = userBridge.searchShopProducts(u.name,shops[ACE_ID].ID);
         assertNotNull(products);
         List<Integer> ids = products.stream().map(productInShop -> productInShop.ID).toList();
-        List<Shop> shopsSearch = userBridge.getShopsInfo(u.name, new ShopFilter() {
-            @Override
-            public boolean filter(Shop shop) {
-                return shop.ID == UserTests.shops[ACE_ID].ID;
-            }
-        });
+        List<Shop> shopsSearch = userBridge.getShopsInfo(u.name, shop -> shop.ID == UserTests.shops[ACE_ID].ID);
         assertEquals(1,shopsSearch.size());
         shops[ACE_ID] = shopsSearch.get(0);
         List<Integer> realIDs = shops[ACE_ID].products.keySet().stream().toList();
@@ -431,7 +426,6 @@ public abstract class UserTests extends ProjectTests {
     @Test
     public void testPurchaseCartFailurePaymentFailedBadCVV(){
         testAddProductToCartSuccess();
-
         double purchased = userBridge.purchaseCart(u.name,"4800470023456848",-15,12,2025);
         assertEquals(0.0,purchased,0);
     }

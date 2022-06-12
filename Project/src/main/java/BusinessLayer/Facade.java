@@ -100,6 +100,10 @@ public class Facade{
         return shopController.searchProducts(shopPred,productPred);
     }
 
+    public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username){
+        return shopController.searchShops(shopPred, username);
+    }
+
     public boolean saveProducts(User currUser, int shopId, int productId, int quantity) {
         return userController.saveProducts(currUser,shopId,productId,quantity);
     }
@@ -212,6 +216,10 @@ public class Facade{
     }
     public Map<UserController.UserState, List<SubscribedUser>> getSubscribedUserInfo(String userName){
         return userController.getSubscribedUserInfo(userName);
+    }
+
+    public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        return userController.removeShopOwner(shopID, requesting, toRemove);
     }
 
     private static class FacadeHolder{

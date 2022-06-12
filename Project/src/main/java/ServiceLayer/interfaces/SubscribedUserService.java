@@ -1,6 +1,5 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
@@ -9,6 +8,7 @@ import ServiceLayer.Result;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 public interface SubscribedUserService extends UserService {
 
@@ -79,5 +79,9 @@ public interface SubscribedUserService extends UserService {
     Response<Integer> createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId);
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
+
+    Result removeShopOwner(int shopId, String toRemove);
+
+    Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
 }
