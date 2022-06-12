@@ -6,16 +6,23 @@ import BusinessLayer.Users.User;
 public class ValidateProductPurchase implements ValidatePurchasePolicy{
 
     private final int policyLogicId;
-    int productId;
-    int productQuantity;
+    private int productId;
+    private int productQuantity;
     //if true then can't be higher than false can't be lower than
-    boolean cantbemore;
+    private boolean cantbemore;
 
     public ValidateProductPurchase(int productId, int productQuantity, boolean cantbemore) {
         this.productId = productId;
         this.productQuantity = productQuantity;
         this.cantbemore = cantbemore;
         this.policyLogicId = purchaseLogicId.incrementAndGet();
+    }
+
+    public ValidateProductPurchase(int policyLogicId, int productId, int productQuantity, boolean cantbemore) {
+        this.policyLogicId = policyLogicId;
+        this.productId = productId;
+        this.productQuantity = productQuantity;
+        this.cantbemore = cantbemore;
     }
 
     public boolean isValid(User u, Basket basket) {
@@ -37,5 +44,21 @@ public class ValidateProductPurchase implements ValidatePurchasePolicy{
     @Override
     public int getID() {
         return this.policyLogicId;
+    }
+
+    public int getPolicyLogicId() {
+        return policyLogicId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public boolean isCantbemore() {
+        return cantbemore;
     }
 }

@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -227,6 +228,18 @@ public class SubscribedUser extends User {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
+
+    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
+    }
+
+    public synchronized int createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createPurchaseOrPolicy(policy, conncectId);
+    }
+
+
     public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removeDiscount(discountRules);
@@ -234,6 +247,20 @@ public class SubscribedUser extends User {
     public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removePredicate(discountPred);
+    }
+    public synchronized boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removePurchasePolicy(purchasePolicyToDelete);
+    }
+
+    public synchronized DiscountRules getDiscount(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getDiscount();
+    }
+
+    public synchronized PurchasePolicy getPurchasePolicy(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getPurchasePolicy();
     }
 
     public boolean setCategory(int productId, String category, int shopId) throws NoPermissionException {
