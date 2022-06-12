@@ -174,11 +174,6 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("don't have permission to remove appointments!");
     }
 
-    public SubscribedUser getSubscribed() {
-        return this.user;
-    }
-
-
     public int createProductByQuantityDiscount(int productId, int productQuantity, double discount, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
@@ -224,14 +219,15 @@ public class ShopAdministrator {
     }
     public int createDiscountMaxPolicy(DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createDiscountMaxPolicy(discountPolicy, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
-
     }
+
     public int createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createDiscountOrPolicy(discountPred, discountPolicy, conncectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
     public boolean removeShopOwner(SubscribedUser toRemove) throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.REMOVE_SHOP_OWNER)){
             return ((RemoveShopOwner)action.get(BaseActionType.REMOVE_SHOP_OWNER)).act(toRemove);
@@ -239,11 +235,10 @@ public class ShopAdministrator {
         else throw new NoPermissionException("don't have permission to remove appointments!");
     }
 
-    public SubscribedUser getSubscribed(){return this.user;}
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createDiscountOrPolicy(discountPred, discountPolicy, conncectId);
-        } else throw new NoPermissionException("you don't have permission to do that!");
-
+    public SubscribedUser getSubscribed(){
+        return this.user;
     }
+
 
     public int createDiscountPlusPolicy(DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
