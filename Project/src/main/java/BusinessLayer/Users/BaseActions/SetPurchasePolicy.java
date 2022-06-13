@@ -76,7 +76,17 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
     }
 
-    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
+    public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId, new ValidateCategoryPurchase(category,productQuantity,cantbemore));
+    }
+
+    public int createValidateUserPurchase(int age, int connectId) {
+        return shop.addPurchasePolicy(connectId, new ValidateUserPurchase(age));
+
+    }
+
+
+        public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new PurchaseAndPolicy(policy));
     }
 
