@@ -267,6 +267,16 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public  Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId){
+        return  ifUserNotNullRes(()-> facade.createValidateCategoryPurchase(currUser,category, productQuantity, cantbemore, connectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public  Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId) {
+        return  ifUserNotNullRes(()-> facade.createValidateUserPurchase(currUser,age,connectId,shopId),"add purchase policy succeeded");
+    }
+
+    @Override
     public Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createPurchaseAndPolicy(currUser,
                 PurchasePolicy.makeBusinessPurchasePolicy(policy),

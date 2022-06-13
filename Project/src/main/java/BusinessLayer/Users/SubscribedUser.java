@@ -232,7 +232,18 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
 
-    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId);
+    }
+
+    public synchronized int createValidateUserPurchase(int age, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateUserPurchase(age, connectId);
+    }
+
+
+        public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
     }
@@ -271,6 +282,9 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).setCategory(productId,category);
     }
 
+    public Date getBirthDate() {
+        return birthDate;
+    }
 
 // Java program to calculate SHA hash value
 

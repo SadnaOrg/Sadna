@@ -321,6 +321,14 @@ public class Facade{
         return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
     }
 
+    public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return userController.createValidateCategoryPurchase(currUser,category, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateUserPurchase(SubscribedUser currUser,int age, int connectId, int shopId) throws NoPermissionException {
+        return userController.createValidateUserPurchase(currUser,age,connectId,shopId);
+    }
+
     public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return userController.createPurchaseAndPolicy(currUser,policy, conncectId, shopId);
     }

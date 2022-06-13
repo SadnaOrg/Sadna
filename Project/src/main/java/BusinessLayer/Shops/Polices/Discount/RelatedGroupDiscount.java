@@ -18,12 +18,14 @@ public class RelatedGroupDiscount implements DiscountPolicy{
         this.discountId = atomicDiscountID.incrementAndGet();
     }
 
-    public RelatedGroupDiscount(String category, double discount, int discountId)
+    public RelatedGroupDiscount(int discountId,String category, double discount)
     {
         this.category =category;
         this.discount = discount;
         this.discountId = discountId;
     }
+
+
 
     @Override
     public double calculateDiscount(Basket basket) {
@@ -64,5 +66,17 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     @Override
     public boolean removeSonPredicate(DiscountPred discountPred) {
         return false;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getDiscount() {
+        return discount;
     }
 }

@@ -93,6 +93,10 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
+    Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId);
+
+    Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId);
+
     Result setCategory(BusinessLayer.Users.SubscribedUser currUser, int productId, String category, int productID);
 
     Result removeShopOwner(int shopId, String toRemove);
