@@ -1,58 +1,18 @@
-יוני 13, 2022 2:12:22 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:28 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:12:22 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:28 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:12:23 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:29 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:25 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:12:25 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:12:26 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:34 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:28 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:12:28 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:12:29 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:56 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:30 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:12:30 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:12:30 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:10 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:38 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:19 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:41 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:32 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:47 לפנה״צ ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-יוני 13, 2022 2:12:47 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:12:57 לפנה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you aren't an admin of that shop!
-יוני 13, 2022 2:13:19 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:13:37 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:13:44 לפנה״צ ServiceLayer.Log error
-SEVERE: open shop succeeded: log in to the system first as a subscribed user
-יוני 13, 2022 2:13:47 לפנה״צ ServiceLayer.Log error
-SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
-יוני 13, 2022 2:13:48 לפנה״צ ServiceLayer.Log error
-SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
-יוני 13, 2022 2:13:49 לפנה״צ ServiceLayer.Log error
-SEVERE: logout from system : log in to system first
-יוני 13, 2022 2:13:49 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:13:49 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:13:49 לפנה״צ ServiceLayer.Log error
-SEVERE: logout : incorrect user name or password
-יוני 13, 2022 2:13:50 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:13:54 לפנה״צ ServiceLayer.Log error
-SEVERE: login - user maor: incorrect user name or password
-יוני 13, 2022 2:13:58 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:03:01 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

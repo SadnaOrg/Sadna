@@ -169,6 +169,14 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountAndPolicy(currUser,
+                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(discountPred),
+                null,
+                connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
     public Response<Integer> createDiscountMaxPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountMaxPolicy(currUser,
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountPolicy)
@@ -176,10 +184,24 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer>  createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  {
+    public Response<Integer> createDiscountMaxPolicy(int connectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountMaxPolicy(currUser, null
+                , connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountOrPolicy(currUser,
                 ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(discountPred),
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountPolicy),
+                connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountOrPolicy(currUser,
+                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(discountPred),
+                null,
                 connectId, shopId),"add discount succeeded");
     }
 
@@ -191,10 +213,24 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Response<Integer>  createDiscountPlusPolicy(int parentId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountPlusPolicy(currUser,
+                null, parentId, shopId),"add discount succeeded");
+    }
+
+
+    @Override
     public Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountXorPolicy(currUser,
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules1),
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules2),
+                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(tieBreaker)
+                , connectId, shopId),"add discount succeeded");
+    }
+
+    @Override
+    public Response<Integer> createDiscountXorPolicy(DiscountPred tieBreaker, int connectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountXorPolicy(currUser, null, null,
                 ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(tieBreaker)
                 , connectId, shopId),"add discount succeeded");
     }
@@ -241,31 +277,31 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId)  {
+    public Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
                 DiscountRules.makeBusinessRule(discountRules),
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) {
+    public Response<Boolean> removePredicate(DiscountPred discountPred, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
                 DiscountPred.makeBusinessPred(discountPred),
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) {
+    public Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) {
         return ifUserNotNullRes(()-> facade.removePurchasePolicy(currUser,
                         PurchasePolicy.makeBusinessPurchasePolicy(purchasePolicyToDelete),
                         shopId)
         ,"remove purchase policy succeeded");
     }
     @Override
-    public Response<DiscountRules> getDiscount(SubscribedUser currUser, int shopId){
+    public Response<DiscountRules> getDiscount(int shopId){
         return ifUserNotNullRes(()-> DiscountRules.makeServiceRule(facade.getDiscount(currUser,shopId)),"here is the discounts");
     }
 
     @Override
-    public Response<PurchasePolicy> getPurchasePolicy(SubscribedUser currUser, int shopId) {
+    public Response<PurchasePolicy> getPurchasePolicy(int shopId) {
         return ifUserNotNullRes(()-> PurchasePolicy.makeServicePurchasePolicy(facade.getPurchasePolicy(currUser,shopId)),"here is the purchase policies");
     }
 
