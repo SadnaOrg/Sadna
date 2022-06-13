@@ -1,5 +1,6 @@
 package com.example.application.Parser;
 
+import ServiceLayer.Result;
 import ServiceLayer.interfaces.UserService;
 
 import java.time.LocalDate;
@@ -22,11 +23,11 @@ public class RegisterLine implements ParsedLine {
     @Override
     public UserService act(UserService u) throws RuntimeException {
 
-        var ur = u.registerToSystem(name,password,Date.from(LocalDate.parse(bDay, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant()));
-       if(ur.isOk())
-           return u ;
-       throw new RuntimeException(ur.getMsg());
+        var res = u.registerToSystem(name,password,Date.from(LocalDate.parse(bDay, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        return ParsedLine.getUserService(u, res);
     }
+
+
 
     @Override
     public String toString() {

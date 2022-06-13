@@ -34,17 +34,22 @@ import java.util.Scanner;
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        if(args.length >=1){
+        if (args.length >= 1 ) {
+            System.out.println("startttttttttttttttttttttt");
             try {
-                var g =Grammer.parse(Files.readString(Path.of(args[0])));
+                var g = Grammer.parse(Files.readString(Path.of(args[0])));
+                args = new String[0];
                 var u = Grammer.runLines(g);
+                if (u == null)
+                    return;
             } catch (IOException e) {
                 e.printStackTrace();
+                return;
             }
+            System.out.println("finishhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         }
-        SpringApplication.run(Application.class, args);
+         SpringApplication.run(Application.class, args);
     }
 
-
-
 }
+
