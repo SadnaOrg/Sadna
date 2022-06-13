@@ -173,10 +173,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId)  {
+    public Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountAndPolicy(currUser,
-                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(discountPred),
                 null,
+                ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountPolicy),
                 connectId, shopId),"add discount succeeded");
     }
 
@@ -202,10 +202,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId)  {
+    public Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountOrPolicy(currUser,
-                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(discountPred),
                 null,
+                ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountPolicy),
                 connectId, shopId),"add discount succeeded");
     }
 
@@ -224,7 +224,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
 
     @Override
-    public Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  {
+    public Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createDiscountXorPolicy(currUser,
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules1),
                 ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules2),
@@ -233,10 +233,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer> createDiscountXorPolicy(DiscountPred tieBreaker, int connectId, int shopId)  {
-        return ifUserNotNullRes(()-> facade.createDiscountXorPolicy(currUser, null, null,
-                ServiceLayer.Objects.Policies.Discount.DiscountPred.makeBusinessPred(tieBreaker)
-                , connectId, shopId),"add discount succeeded");
+    public Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules discountRules2, int connectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createDiscountXorPolicy(currUser,
+                ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules1),
+                ServiceLayer.Objects.Policies.Discount.DiscountRules.makeBusinessRule(discountRules2),
+                null, connectId, shopId),"add discount succeeded");
     }
 
     @Override
