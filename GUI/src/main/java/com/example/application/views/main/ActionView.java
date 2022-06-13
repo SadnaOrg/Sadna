@@ -86,7 +86,7 @@ public class ActionView extends VerticalLayout {
         switch (actionType){
             case ROLE_INFO -> component = actionContentCreator.createRoleInfo();
             case CLOSE_SHOP -> component = actionContentCreator.createCloseShop();
-//            case HISTORY_INFO -> component = actionContentCreator.createHistoryInfo();
+            case HISTORY_INFO -> component = actionContentCreator.createHistoryInfo();
 //            case STOCK_MANAGEMENT -> component = actionContentCreator.createStockManagement();
             case ASSIGN_SHOP_OWNER -> component = actionContentCreator.createAssignShopOwner();
             case ASSIGN_SHOP_MANAGER -> component = actionContentCreator.createAssignShopManager();
