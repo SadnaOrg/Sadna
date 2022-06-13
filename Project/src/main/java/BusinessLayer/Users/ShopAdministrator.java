@@ -294,8 +294,23 @@ public class ShopAdministrator {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateTImeStampPurchase(localTime, buybefore, connectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+
+    public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public int createValidateUserPurchase(int age, int connectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateUserPurchase(age, connectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
+
+
 
     public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {

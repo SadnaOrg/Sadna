@@ -430,7 +430,16 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
-    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateUserPurchase(SubscribedUser currUser,int age, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateUserPurchase(age,connectId,shopId);
+    }
+
+
+        public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
     }
 
