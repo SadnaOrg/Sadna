@@ -20,8 +20,8 @@ public class ShopDiscountTest {
     public void setUp() throws Exception {
 
         basket = new Basket(1);
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(1,10,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
     }
 
 

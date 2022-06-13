@@ -117,6 +117,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Result setCategory(SubscribedUser currUser,int productId, String category, int productID){
+        return ifUserNotNullStockManagement(() -> facade.setCategory(currUser, productId, category, productID), "you change the category");
+    }
+    @Override
     public Result reopenShop(int shopID) {
         return ifUserNotNull(() -> facade.reopenShop(currUser.getUserName(),shopID),"reopen shop", "you aren't a founder!");
     }
@@ -150,8 +154,8 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer> createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  {
-        return ifUserNotNullRes(()-> facade.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId),"add discount succeeded");
+    public Response<Integer> createRelatedGroupDiscount(String category, double discount, int connectId , int shopId)  {
+        return ifUserNotNullRes(()-> facade.createRelatedGroupDiscount(currUser,category, discount, connectId, shopId),"add discount succeeded");
     }
 
     @Override

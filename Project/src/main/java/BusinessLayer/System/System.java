@@ -65,7 +65,7 @@ public class System {
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
             s1 = new Shop(shopId, "name of shop","testing shop", buyer);
             s1.addProduct(p1);
-            basket.saveProducts(p1.getID(), 23, p1.getPrice());
+            basket.saveProducts(p1.getID(), 23, p1.getPrice(),"meow");
             s1.addBasket(buyer.getUserName(), basket);
             sc.addShop(s1);
             sc.addToPurchaseHistory(buyer.getUserName(), createPayments());

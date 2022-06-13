@@ -167,10 +167,10 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId);
     }
 
-    public synchronized int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
+    public synchronized int createRelatedGroupDiscount(String category, double discount, int connectId , int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
-        return shopAdministrator.get(shopId).createRelatedGroupDiscount(relatedProducts, discount, connectId);
+        return shopAdministrator.get(shopId).createRelatedGroupDiscount(category, discount, connectId);
     }
 
     public synchronized int createShopDiscount(int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
@@ -264,6 +264,11 @@ public class SubscribedUser extends User {
     public synchronized PurchasePolicy getPurchasePolicy(int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).getPurchasePolicy();
+    }
+
+    public boolean setCategory(int productId, String category, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).setCategory(productId,category);
     }
 
 

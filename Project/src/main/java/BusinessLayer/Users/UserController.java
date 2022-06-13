@@ -65,7 +65,7 @@ public class UserController {
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId, productId);
         if (price != -1) {
-            if (u.saveProducts(shopId, productId, quantity, price)) {
+            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
                 if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
@@ -356,6 +356,10 @@ public class UserController {
         managers.clear();
     }
 
+    public boolean setCategory(SubscribedUser currUser,int productId, String category, int shopId) throws NoPermissionException {
+        return currUser.setCategory(productId, category, shopId);
+    }
+
     public Collection<SystemManager> getSysManagers(){
         return managers.values();
     }
@@ -377,8 +381,8 @@ public class UserController {
         return currUser.createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
-        return currUser.createRelatedGroupDiscount(relatedProducts, discount, connectId, shopId);
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return currUser.createRelatedGroupDiscount(category, discount, connectId, shopId);
     }
 
     public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {

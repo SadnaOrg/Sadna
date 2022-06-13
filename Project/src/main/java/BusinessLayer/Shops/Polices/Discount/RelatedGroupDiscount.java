@@ -1,5 +1,6 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Users.Basket;
 
 import java.util.ArrayList;
@@ -7,19 +8,19 @@ import java.util.Collection;
 
 public class RelatedGroupDiscount implements DiscountPolicy{
     private int discountId;
-    private Collection<Integer> relatedProducts;
+    private String category;
     private double discount;
 
-    public RelatedGroupDiscount(Collection<Integer> relatedProducts, double discount)
+    public RelatedGroupDiscount(String category, double discount)
     {
-        this.relatedProducts= new ArrayList<>();
-        this.relatedProducts.addAll(relatedProducts);
+        this.category =category;
         this.discount =discount;
         this.discountId = atomicDiscountID.incrementAndGet();
     }
 
-    public RelatedGroupDiscount(int discountId,Collection<Integer> relatedProducts, double discount) {
-        this.relatedProducts = relatedProducts;
+    public RelatedGroupDiscount(String category, double discount, int discountId)
+    {
+        this.category =category;
         this.discount = discount;
         this.discountId = discountId;
     }
@@ -28,7 +29,7 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     public double calculateDiscount(Basket basket) {
         double currentDiscountPrice=0;
         for (int pid:basket.getProducts().keySet()) {
-            if(relatedProducts.contains(pid))
+            if(category.equals(ShopController.getInstance().getShops().get(basket.getShopid()).getProducts().get(pid).getCategory()))
             {
                 currentDiscountPrice +=  discount*basket.getProducts().get(pid)*basket.getPrices().get(pid);
             }
@@ -37,10 +38,9 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     }
 
 
-    public void setProducts(Collection<Integer> newProducts)
+    public void setCategory(String category)
     {
-        this.relatedProducts= new ArrayList<>();
-        this.relatedProducts.addAll(newProducts);
+        this.category =category;
     }
 
 

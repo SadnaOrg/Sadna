@@ -261,10 +261,10 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId, int shopId) {
+    public Integer createRelatedGroupDiscount(String username, String category, double discount, int connectId, int shopId) {
         if(subscribedUsers.containsKey(username)){
             SubscribedUserService service = subscribedUsers.get(username);
-            Response<Integer> discountID = service.createRelatedGroupDiscount(relatedProducts,discount,connectId,shopId);
+            Response<Integer> discountID = service.createRelatedGroupDiscount(category,discount,connectId,shopId);
             if(discountID.isOk())
                 return discountID.getElement();
         }

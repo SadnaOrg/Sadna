@@ -21,7 +21,7 @@ public abstract class User{
     }
 
     //assume that the productid is in the relevant shop handle in facade
-    public boolean saveProducts(int shopid, int productid, int quantity,double price) {
+    public boolean saveProducts(int shopid, int productid, int quantity,double price,String category) {
         if(quantity<=0)
             throw new IllegalArgumentException("quantity must be positive amount");
         if (!shoppingCart.containsKey(shopid)) {
@@ -31,7 +31,7 @@ public abstract class User{
         Basket b = shoppingCart.get(shopid);
 
         //the product is already exist in the basket
-        return b.saveProducts(productid, quantity,price);
+        return b.saveProducts(productid, quantity,price,category);
     }
 
     public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
