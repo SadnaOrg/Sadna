@@ -20,12 +20,11 @@ import static com.example.application.Header.SessionData.Load;
 public class Header extends AppLayout {
     protected VerticalLayout content = new VerticalLayout();
     protected Tabs tabs;
-
+    protected UI ui;
     protected Button title;
 
 
     public Header() {
-
         DrawerToggle toggle = new DrawerToggle();
         tabs = new Tabs();
         title = new Button("Superli");
@@ -34,8 +33,7 @@ public class Header extends AppLayout {
                 .set("margin", "0");
         addToNavbar(toggle, title);
         setContent(content);
-
-
+        ui = UI.getCurrent();
     }
 
     protected void addTabWithClickEvent(String name, DomEventListener listener) {
@@ -62,14 +60,20 @@ public class Header extends AppLayout {
         dialog.open();
     }
 
+    public UI getThisUI(){
+        return ui;
+    }
 
-    protected void registerToNotification(){
-        var service = (UserService)Load("service");
-        var ui = UI.getCurrent();
+
+    protected void registerToNotification(UserService service){
+         this.ui = UI.getCurrent();
         service.registerToNotifier(not->{
-            ui.access(()->showNotification(not));
+            this.getThisUI().access(()->showNotification(not));
           return true;
         });
         service.getDelayNotification();
     }
+
+
+
 }

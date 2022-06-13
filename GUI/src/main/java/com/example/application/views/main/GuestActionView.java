@@ -53,7 +53,7 @@ public class GuestActionView extends Header {
             logoutButton.getStyle().set("margin-left", "auto");
             addToNavbar(logoutButton);
         }
-        registerToNotification();
+        registerToNotification(service);
     }
 
     private Tabs getTabs() {
