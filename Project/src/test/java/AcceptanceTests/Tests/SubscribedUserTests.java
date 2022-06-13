@@ -14,9 +14,6 @@ import java.util.*;
 import static AcceptanceTests.DataObjects.SubscribedUser.Permission.REMOVE_SHOP_OWNER;
 import static org.junit.Assert.*;
 
-// TODO: fix success case for adding validations.
-// TODO: remove policies after in teardown.
-
 public class SubscribedUserTests extends UserTests {
     private static SubscribedUserBridge subscribedUserBridge = null;
 
@@ -83,6 +80,11 @@ public class SubscribedUserTests extends UserTests {
         u2 = subscribedUserBridge.login(setUpU2.getName(), u2Reg);
         u3 = subscribedUserBridge.login(setUpU3.getName(), u3Reg);
         supersalFounder = subscribedUserBridge.login(setUpSupersal.name, supersalReg);
+
+        subscribedUserBridge.registerToNotifier(u1.name);
+        subscribedUserBridge.registerToNotifier(u2.name);
+        subscribedUserBridge.registerToNotifier(u3.name);
+        subscribedUserBridge.registerToNotifier(supersalFounder.name);
 
         subscribedUserBridge.exit(u1.name);
         subscribedUserBridge.exit(u2.name);
@@ -155,6 +157,15 @@ public class SubscribedUserTests extends UserTests {
             subscribedUserBridge.removeDiscount(castroFounder.name, policyID,shops[castro_ID].ID);
             removeCastro = false;
         }
+
+        subscribedUserBridge.getDelayNotification(u1.name);
+        subscribedUserBridge.getDelayNotification(u2.name);
+        subscribedUserBridge.getDelayNotification(u3.name);
+        subscribedUserBridge.getDelayNotification(supersalFounder.name);
+        subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        subscribedUserBridge.getDelayNotification(castroFounder.name);
+
         subscribedUserBridge.exit(u1.name);
         subscribedUserBridge.exit(u2.name);
         subscribedUserBridge.exit(u3.name);
@@ -298,6 +309,16 @@ public class SubscribedUserTests extends UserTests {
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(ACEFounder.name, 222,shops[castro_ID].ID);
         assertNull(pis);
         deleteCastro222 = false;
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 222 from shop 1 got deleted",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 222 from shop 1 got deleted",notifications.get(0).getContent());
     }
 
     @Test
@@ -307,6 +328,14 @@ public class SubscribedUserTests extends UserTests {
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(ACEFounder.name, 5,shops[castro_ID].ID);
         assertNull(pis);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
     }
 
     @Test
@@ -319,6 +348,22 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
         assertEquals(120,pis.price,0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(castroFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 120.0",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 120.0",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 120.0",notifications.get(0).getContent());
+
         testUpdateKeepProductPriceByFounderSuccess();
     }
 
@@ -332,6 +377,22 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
         assertEquals(12.5,pis.price,0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(castroFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 12.5",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 12.5",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 12.5",notifications.get(0).getContent());
+
         testUpdateKeepProductPriceByFounderSuccess();
     }
 
@@ -345,6 +406,20 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(45,pis.ID);
         assertEquals(40,pis.quantity);
         assertEquals(50,pis.price,0);
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(castroFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 50.0",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 50.0",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 45 from shop 1 price has change to: 50.0",notifications.get(0).getContent());
     }
 
     @Test
@@ -354,6 +429,14 @@ public class SubscribedUserTests extends UserTests {
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 3,shops[ACE_ID].ID);
         assertNull(pis);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
     }
 
     @Test
@@ -365,6 +448,14 @@ public class SubscribedUserTests extends UserTests {
         assertNotNull(pis);
         assertEquals(pis.ID,1);
         assertEquals(pis.price,25,0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
     }
 
     @Test
@@ -374,6 +465,14 @@ public class SubscribedUserTests extends UserTests {
 
         ProductInShop pis  = subscribedUserBridge.searchProductInShop(MegaSportFounder.name, 11,shops[ACE_ID].ID);
         assertNull(pis);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(0,notifications.size());
     }
 
     @Test
@@ -385,6 +484,17 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(p.shopID, shops[ACE_ID].ID);
         assertEquals(p.desc,"new desc!");
         assertEquals(p.ID,0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 0 from shop 0 description has change to: new desc!",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 0 from shop 0 description has change to: new desc!",notifications.get(0).getContent());
+
         testUpdateProductDescriptionSuccessKeepSame();
     }
 
@@ -628,7 +738,10 @@ public class SubscribedUserTests extends UserTests {
         List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersalFounder.name, supersal.ID);
         assertNull(productInShops);
 
-
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(supersalFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("superfounder has close the shop "+supersal.ID,notifications.get(0).getContent());
     }
 
     @Test
@@ -673,6 +786,11 @@ public class SubscribedUserTests extends UserTests {
 
         boolean result = subscribedUserBridge.changeAdminPermission(shops[ACE_ID].ID,ACEFounder.name,MegaSportFounder.name, Arrays.stream(defaultFounderPermissions).toList());
         assertTrue(result);
+
+        List<Notification> notifications =  subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("ACEFounder has change your permission as administrator of shop 0 to[1, 2, 4, 6, 7, 9, 10, 11, 13, 5, 12]",notifications.get(0).getContent());
 
         Map<String,List<SubscribedUser.Permission>> permissions = subscribedUserBridge.getShopPermissions(MegaSportFounder.name,shops[ACE_ID].ID);
         assertNotNull(permissions);
@@ -895,6 +1013,12 @@ public class SubscribedUserTests extends UserTests {
 
         double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
         assertEquals(0.75*10*20,payed,0.0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("testUser3 has buy from your shop \"ACE\" 10 for product #0 lamp",notifications.get(0).getContent());
+
         subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
     }
 
@@ -906,6 +1030,12 @@ public class SubscribedUserTests extends UserTests {
 
         double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
         assertEquals(5*20,payed,0.0);
+
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("testUser3 has buy from your shop \"ACE\" 5 for product #0 lamp",notifications.get(0).getContent());
+
         subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
     }
 
@@ -1444,6 +1574,21 @@ public class SubscribedUserTests extends UserTests {
         boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
         assertTrue(closed);
 
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(castroFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+
+        notifications = subscribedUserBridge.getDelayNotification(MegaSportFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+
         added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
         assertFalse(added);
 
@@ -1471,7 +1616,16 @@ public class SubscribedUserTests extends UserTests {
 
         double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
         assertEquals(0.75*4*20,payed,0);
+        List<Notification> notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("testUser3 has buy from your shop \"ACE\" 4 for product #0 lamp",notifications.get(0).getContent());
         subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
+
+        notifications = subscribedUserBridge.getDelayNotification(ACEFounder.name);
+        assertNotNull(notifications);
+        assertEquals(1,notifications.size());
+        assertEquals("product 0 from shop 0 quantity has change to: 30",notifications.get(0).getContent());
     }
 
 

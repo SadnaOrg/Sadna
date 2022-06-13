@@ -11,7 +11,7 @@ import java.util.Map;
 public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge{
     SubscribedUserAdapter subscribedUserAdapter;
     public SubscribedUserProxy(UserProxy proxy){
-        super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed()));
+        super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed(),proxy.getNotifications()));
         subscribedUserAdapter = (SubscribedUserAdapter) super.adapter;
     }
     @Override

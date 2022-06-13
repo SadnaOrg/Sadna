@@ -217,6 +217,7 @@ public class Facade{
                 toCollection(toRemove),
                 requesting+": has remove u as administrating the shop "+shopID);
     }
+
     public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
         return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
     }
@@ -232,8 +233,9 @@ public class Facade{
         private static final Facade facade= new Facade();
     }
 
-    private <T> T notifyUsers(T toReturn,Collection<String> users,String content){
-        system.getNotifier().addNotification(new ConcreteNotification(users,content));
+    private boolean notifyUsers(boolean toReturn,Collection<String> users,String content){
+        if(toReturn)
+            system.getNotifier().addNotification(new ConcreteNotification(users,content));
         return toReturn;
     }
 
