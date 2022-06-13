@@ -60,7 +60,7 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     }
 
     @Override
-    public boolean removeSonPredicate(DiscountPred discountPred) {
+    public boolean removeSonPredicate(int ID) {
         return false;
     }
 }

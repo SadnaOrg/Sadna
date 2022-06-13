@@ -97,9 +97,9 @@ public interface SubscribedUserService extends UserService {
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
-    Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId);
+    Response<Boolean> removeDiscount(int discountID, int shopId);
 
-    Response<Boolean> removePredicate(DiscountPred discountPred, int shopId);
+    Response<Boolean> removePredicate(int predicateID, int shopId);
 
     Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) ;
 

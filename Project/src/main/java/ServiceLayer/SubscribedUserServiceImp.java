@@ -277,15 +277,15 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId)  {
+    public Response<Boolean> removeDiscount(int discountID, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
-                DiscountRules.makeBusinessRule(discountRules),
+                discountID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePredicate(DiscountPred discountPred, int shopId) {
+    public Response<Boolean> removePredicate(int predicateID, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
-                DiscountPred.makeBusinessPred(discountPred),
+                predicateID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override

@@ -295,9 +295,9 @@ public class Shop {
         return id;
     }
 
-    public boolean removeDiscount(DiscountRules discountRules) {
+    public boolean removeDiscount(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonDiscount(discountRules);
+            return discounts.removeSonDiscount(ID);
         }
         else
         {
@@ -305,9 +305,9 @@ public class Shop {
         }
     }
 
-    public boolean removePredicate(DiscountPred discountPred) {
+    public boolean removePredicate(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonPredicate(discountPred);
+            return discounts.removeSonPredicate(ID);
         }
         else
         {

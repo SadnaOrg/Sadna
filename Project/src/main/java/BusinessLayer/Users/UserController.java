@@ -434,12 +434,12 @@ public class UserController {
         return currUser.createPurchaseOrPolicy(policy, conncectId, shopId);
     }
 
-    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
-        return currUser.removeDiscount(discountRules,shopId);
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return currUser.removeDiscount(discountID,shopId);
     }
 
-    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
-        return currUser.removePredicate(discountPred,shopId);
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return currUser.removePredicate(predID,shopId);
     }
     public boolean removePurchasePolicy(SubscribedUser currUser,PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return currUser.removePurchasePolicy(purchasePolicyToDelete,shopId);

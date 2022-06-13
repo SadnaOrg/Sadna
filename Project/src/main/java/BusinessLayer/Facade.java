@@ -326,12 +326,12 @@ public class Facade{
     }
 
 
-    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
-        return userController.removeDiscount(currUser,discountRules,shopId);
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return userController.removeDiscount(currUser,discountID,shopId);
     }
 
-    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
-        return userController.removePredicate(currUser,discountPred,shopId);
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return userController.removePredicate(currUser,predID,shopId);
     }
     public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);

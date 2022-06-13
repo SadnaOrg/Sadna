@@ -170,4 +170,14 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     public Integer createValidateTImeStampPurchase(String username, LocalTime localTime, boolean buybefore, int conncectId, int shopId) {
         return subscribedUserAdapter.createValidateTImeStampPurchase(username, localTime, buybefore, conncectId, shopId);
     }
+
+    @Override
+    public boolean removeDiscount(String username,int discountID, int shopId) {
+        return subscribedUserAdapter.removeDiscount(username,discountID,shopId);
+    }
+
+    @Override
+    public boolean removePredicate(String username,int predicateID, int shopId) {
+        return subscribedUserAdapter.removePredicate(username,predicateID,shopId);
+    }
 }

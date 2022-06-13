@@ -392,4 +392,26 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         }
         return -1;
     }
+
+    @Override
+    public boolean removeDiscount(String username,int discountID, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removeDiscount(discountID,shopId);
+            if(removed.isOk())
+                return removed.getElement();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removePredicate(String username,int predicateID, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removePredicate(predicateID,shopId);
+            if(removed.isOk())
+                return removed.getElement();
+        }
+        return false;
+    }
 }

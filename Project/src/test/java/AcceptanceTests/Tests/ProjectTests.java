@@ -11,7 +11,6 @@ import java.util.List;
 public abstract class ProjectTests {
 
     protected static UserBridge userBridge;
-    protected static SystemBridge systemBridge;
 
     protected static ShopFilter [] shopFilters = null;
     public static final int NAME_FILTER = 0, DESC_FILTER = 1;
@@ -95,10 +94,6 @@ public abstract class ProjectTests {
         productFilters = setUpProductFilters();
         productFailFilters = setUpFailProductFilters();
 
-    }
-
-    private static void setUpSystem(){
-        // use system bridge here
     }
 
     private static Product [] setUpACEProducts(SubscribedUserBridge b){
