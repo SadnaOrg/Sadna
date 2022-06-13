@@ -1,20 +1,20 @@
-Jun 14, 2022 1:16:13 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 1:16:13 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 1:16:13 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:08 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 1:16:18 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:14 AM ServiceLayer.Log error
+SEVERE: login - user maoe: incorrect user name or password
+Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
+SEVERE: switch to system manager maor: log in to the system first as a subscribed user
+Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 1:16:28 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 1:16:34 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 14, 2022 1:16:44 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 14, 2022 1:16:52 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 14, 2022 1:17:20 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 14, 2022 1:17:39 AM ServiceLayer.Log error
+Jun 14, 2022 2:11:59 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

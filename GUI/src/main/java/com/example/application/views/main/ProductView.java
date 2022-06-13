@@ -49,9 +49,8 @@ public class ProductView extends Header {
     private Dialog emptyProductSection;
 
 
-    public ProductView() {
-
-        service = (UserService)Load("service");
+    public ProductView(UserService service) {
+        this.service = service;
         content.add(createFilterBy());
         productGrid = new Grid<>();
         productGrid.addColumn(Product::name).setHeader("Name").setSortable(true);
@@ -86,6 +85,12 @@ public class ProductView extends Header {
         filterBy.setItems("Name", "Description");
         filterBy.addValueChangeListener(e -> {
             if (e.getValue().equals("Name"))
+                filterByName(textField.getValue());
+            else
+                filterByDescription(textField.getValue());
+        });
+        textField.addValueChangeListener(e -> {
+            if (filterBy.getValue().equals("Name"))
                 filterByName(textField.getValue());
             else
                 filterByDescription(textField.getValue());

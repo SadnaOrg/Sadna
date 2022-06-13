@@ -87,7 +87,7 @@ public class DiscountContentCreator {
         Button button = new Button("Create Shop Discount");
         button.addClickListener(e -> {
             if(amount.getValue() != null && basketCount.getValue() != null) {
-                var res = service.createShopDiscount(basketCount.getValue()/100, amount.getValue(), parentId, shopId);
+                var res = service.createShopDiscount(basketCount.getValue(), amount.getValue()/100, parentId, shopId);
                 validateResult(res, "Added Shop Discount Successfully!");
             }
         });
@@ -142,7 +142,7 @@ public class DiscountContentCreator {
         selectProduct.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null));
         button.addClickListener(e -> {
             if(priceField.getValue() != null && selectProduct.getValue() != null) {
-                var res = service.createProductDiscount(selectProduct.getValue(), priceField.getValue(), parentId, shopId);
+                var res = service.createProductDiscount(selectProduct.getValue(), priceField.getValue()/100, parentId, shopId);
                 validateResult(res, "Added Product Discount Successfully!");
             }
         });

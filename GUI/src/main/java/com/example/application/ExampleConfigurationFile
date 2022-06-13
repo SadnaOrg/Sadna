@@ -4,4 +4,7 @@ Register : {"name" : "maor","password" : "maor","bDay" : "1-01-2000"}
 Login : {"username": "maor" , "password" : "maor"}
 Open shop : {"name": "maor's shop" , "description" : "the best shop in the world"}
 Add product to shop : { "shop": 0 ,"product_name": "banana","product_description":"yellow and good banana","manufacture": "yammy banani","productID": 1,"quantity":4000,"price": 4.5}
+Add product to shop : { "shop": 0 ,"product_name": "not a banana","product_description":"yellow and good banana","manufacture": "yammy banani","productID": 2,"quantity":4000,"price": 8}
+Add product to cart : {"shop": 0 , "product": 1, "quantity": 100}
+Assign Owner : {"shop": 0, "username" : "Admin"}
 Logout : {}
