@@ -1371,6 +1371,85 @@ public class SubscribedUserTests extends UserTests {
     }
 
     @Test
+    public void testScenario1(){
+        boolean updated =subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,12.5);
+        assertTrue(updated);
+
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,45,3);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(3*12.5,payed,0);
+
+        testCreateProductByQuantityDiscountSuccess();
+
+        added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,6);
+        assertTrue(added);
+
+        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(6*20*0.75,payed,0);
+
+        subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,50);
+        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
+    }
+
+    @Test
+    public void testScenario2(){
+        testAppointShopOwnerSuccess(); // u1 - owner at castro
+        policyID = subscribedUserBridge.createProductByQuantityDiscount(u1.name, 2,5,0.5,2,shops[castro_ID].ID);
+        assertNotEquals(-1,policyID);
+
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u2.name, shops[castro_ID].ID,2,30);
+        assertTrue(added);
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0.5*10*30+15*50,payed,0);
+
+        payed = subscribedUserBridge.purchaseCart(u2.name,"4800470023456848", 674, 7, 2025);
+        assertEquals(0,payed,0);
+
+        subscribedUserBridge.updateCart(u2.name, 2,shops[castro_ID].ID,0);
+        subscribedUserBridge.updateProductQuantity(u1.name, shops[castro_ID].ID,2,30);
+        subscribedUserBridge.updateProductQuantity(u1.name,shops[castro_ID].ID,45,40);
+    }
+
+    @Test
+    public void testScenario3(){
+        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
+        assertTrue(added);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,1);
+        assertTrue(added);
+
+        boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
+        assertTrue(closed);
+
+        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
+        assertFalse(added);
+
+        testReopenShop();
+
+        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(20,payed,0);
+
+        boolean opened = subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
+        assertTrue(opened);
+
+        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+        assertEquals(10*30+15*50,payed,0);
+
+        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
+        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
+    }
+
+    @Test
     public void testPurchaseWithXorDiscountBothConditionsHold(){
         testCreateXorDiscountSuccess();
         boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,4);

@@ -169,7 +169,7 @@ public class Shop {
 
     //we can assume that this function is only called when all good;
     public double checkIfcanBuy(String user) {
-        int totalPrice = 0;
+        double totalPrice = 0;
         if (state == State.OPEN) {
             for (int productID : usersBaskets.get(user).getProducts().keySet()) {
                 if (products.containsKey(productID)) {

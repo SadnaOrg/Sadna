@@ -1,262 +1,288 @@
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: open shop succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: open shop succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: open shop succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: adding product to shop Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: castroFounderassign MegaSportFounder to shop manager  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: castroFounderassign ACEFounder to shop owner  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: ACEFounderassign MegaSportFounder to shop owner  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: search products succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
-INFO: add discount predicate succeeded Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: product save Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: product save Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: close shop succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: open shop succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: superfounderget administrator info  Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: close shop succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: reopen shop Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: purchased cart Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: reopen shop Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: purchased cart Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: update product quantity Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: update product quantity Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: update product quantity Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
+INFO: close shop succeeded Successes
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: login  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: getting user info Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: update product quantity Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: update product quantity Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout  Successes
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log event
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log event
 INFO: logout from system Successes

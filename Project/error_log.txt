@@ -1,4 +1,6 @@
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log error
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 11:59:19 AM ServiceLayer.Log error
+Jun 13, 2022 1:07:07 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
