@@ -60,7 +60,7 @@ public class ProductView extends Header {
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
         createProductList();
         content.add(productGrid);
-        registerToNotification();
+        registerToNotification(service);
     }
 
     private void createProductList() {

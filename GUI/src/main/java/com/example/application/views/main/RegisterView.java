@@ -61,7 +61,7 @@ public class RegisterView extends Header {
         setLayout();
         layout.setSizeFull();
         content.add(layout);
-        registerToNotification();
+        registerToNotification(service);
     }
 
     private void setLayout() {
