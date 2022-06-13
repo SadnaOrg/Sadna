@@ -1,28 +1,30 @@
-יוני 13, 2022 5:43:54 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:20 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 5:43:54 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:20 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 5:43:55 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:24 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 5:43:57 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:45 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 5:43:58 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:45 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 5:43:58 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:47 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:47 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:48 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 5:44:13 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
-SEVERE: logout from system : log in to system first
-יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:49 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:49 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 7:28:50 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 7:28:52 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 7:29:32 לפנה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+יוני 13, 2022 7:29:50 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 7:30:25 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
