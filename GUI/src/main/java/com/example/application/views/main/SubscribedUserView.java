@@ -1,5 +1,6 @@
 package com.example.application.views.main;
 
+import ServiceLayer.Objects.Guest;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
@@ -62,12 +63,20 @@ public class SubscribedUserView extends GuestActionView {
             return;
         }
         logoutButton.addClickListener(e -> {
-            service.logout();
+           var s= service.logout();
             save("user-name", null);
-            UI.getCurrent().navigate(MainView.class);
+            if(s.isOk()) {
+                save("service", s.getElement());
+                UI.getCurrent().navigate(GuestActionView.class);
+            }
+            else
+                UI.getCurrent().navigate(MainView.class);
         });
         createOpenShop();
         createTabs();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
         registerToNotification(service);
     }
 

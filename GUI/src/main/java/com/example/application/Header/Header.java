@@ -9,6 +9,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H3;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -22,19 +24,29 @@ public class Header extends AppLayout {
     protected Tabs tabs;
     protected UI ui;
     protected Button title;
+    protected Label name;
 
 
     public Header() {
         DrawerToggle toggle = new DrawerToggle();
+        name=new Label("");
         tabs = new Tabs();
         title = new Button("Superli");
         title.getStyle()
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");
-        addToNavbar(toggle, title);
+        addToNavbar(toggle ,title, name);
         setContent(content);
         ui = UI.getCurrent();
     }
+
+    protected void setName(String name){
+        this.name.setText("Hello "+name);
+    }
+    protected void resetName(String name){
+        this.name.setText("");
+    }
+
 
     protected void addTabWithClickEvent(String name, DomEventListener listener) {
         Tab tab = new Tab(name);
