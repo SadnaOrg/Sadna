@@ -101,6 +101,29 @@ public class ShopController {
         return finalprices;
     }
 
+    public double getCartPrice(User user) {
+        double finalprice =0;
+        for (int shopid : shops.keySet()) {
+            finalprice +=getBasketPrice(shopid,user);
+        }
+        return finalprice;
+    }
+
+    public double getBasketPrice(int shopid , User user) {
+        try {
+            if (checkIfUserHasBasket(shopid, user.getUserName())) {
+                //added here
+                if (shops.get(shopid).approvePurchase(user))
+                    return shops.get(shopid).checkIfcanBuy(user.getUserName());
+            }
+        }
+        catch (IllegalStateException ignored)
+        {
+        }
+        return 0;
+    }
+
+
     public boolean addToPurchaseHistory(String user, ConcurrentHashMap<Integer, Boolean> paymentSituation) {
         for (int shopid:paymentSituation.keySet())
         {
