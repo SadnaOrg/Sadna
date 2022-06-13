@@ -87,16 +87,16 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
     }
 
     @Override
-    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+    public boolean removeSonDiscount(int ID) {
         for (DiscountRules discountRule :discountPolicies) {
-            if (discountRule.getID() ==removeFromConnectId.getID()) {
+            if (discountRule.getID() ==ID) {
                 return remove(discountRule);
             }
             boolean temp = false ;
             if(discountRule instanceof NumericDiscountRules)
-                temp = ((NumericDiscountRules) discountRule).removeSonDiscount(removeFromConnectId);
+                temp = ((NumericDiscountRules) discountRule).removeSonDiscount(ID);
             if(discountRule instanceof LogicDiscountRules)
-                temp = ((LogicDiscountRules) discountRule).removeSonDiscount(removeFromConnectId);
+                temp = ((LogicDiscountRules) discountRule).removeSonDiscount(ID);
             if(temp)
             {
                 return temp;
@@ -106,12 +106,12 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
     }
 
     @Override
-    public boolean removeSonPredicate(DiscountPred discountPred)
+    public boolean removeSonPredicate(int ID)
     {
         for (DiscountRules discountRule :discountPolicies) {
             boolean temp = false ;
             if(discountRule instanceof LogicDiscountRules ||discountRule instanceof NumericDiscountRules)
-                temp =  discountRule.removeSonPredicate(discountPred);
+                temp =  discountRule.removeSonPredicate(ID);
             if(temp)
             {
                 return true;

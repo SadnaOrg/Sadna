@@ -6,4 +6,7 @@ public record Notification(String Content){
         this(not.getContent());
     }
 
+    public Notification(String Content) {
+        this.Content = Content;
+    }
 }

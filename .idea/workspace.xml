@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="Made hashmap threadsafe">
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/System/ExternalPayment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/System/ExternalSupply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/System/PaymentInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/System/SupplyInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/test/java/BusinessLayer/System/RealPaymentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/test/java/BusinessLayer/System/RealSupplyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sadna.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sadna.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/runConfigurations.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +27,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="24-shopowner-4-appoint-owner" />
-        <entry key="$PROJECT_DIR$" value="190-make-init-data-to-project" />
+        <entry key="$PROJECT_DIR$" value="165-add-acceptation-test-on-ms2-system-manager" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

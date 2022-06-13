@@ -8,4 +8,10 @@ public record ValidateBasketValueDiscount(int ruleId, double basketvalue , boole
     {
         this(validateBasketValueDiscount.getRuleId(), validateBasketValueDiscount.getBasketvalue(), validateBasketValueDiscount.isCantBeMore());
     }
+
+    public ValidateBasketValueDiscount(int ruleId, double basketvalue, boolean cantBeMore) {
+        this.ruleId = ruleId;
+        this.basketvalue = basketvalue;
+        this.cantBeMore = cantBeMore;
+    }
 }

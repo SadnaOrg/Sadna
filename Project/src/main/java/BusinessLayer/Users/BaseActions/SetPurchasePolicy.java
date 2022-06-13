@@ -95,13 +95,12 @@ public class SetPurchasePolicy extends BaseAction {
     }
 
 
-
-    public boolean removeDiscount(DiscountRules discountRules) {
-        return shop.removeDiscount(discountRules);
+    public boolean removeDiscount(int ID) {
+        return shop.removeDiscount(ID);
     }
 
-    public boolean removePredicate(DiscountPred discountPred) {
-        return shop.removePredicate(discountPred);
+    public boolean removePredicate(int ID) {
+        return shop.removePredicate(ID);
     }
 
     public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {

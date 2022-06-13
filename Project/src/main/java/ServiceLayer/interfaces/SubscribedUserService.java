@@ -97,15 +97,15 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId);
 
-    Result setCategory(BusinessLayer.Users.SubscribedUser currUser, int productId, String category, int productID);
+    Result setCategory(int productId, String category, int shopID);
 
     Result removeShopOwner(int shopId, String toRemove);
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
-    Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId);
+    Response<Boolean> removeDiscount(int discountID, int shopId);
 
-    Response<Boolean> removePredicate(DiscountPred discountPred, int shopId);
+    Response<Boolean> removePredicate(int predicateID, int shopId);
 
     Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) ;
 
