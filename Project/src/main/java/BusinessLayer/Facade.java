@@ -15,6 +15,7 @@ import BusinessLayer.System.System;
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -85,8 +86,8 @@ public class Facade{
         return userController.logoutSystem(currUser.getUserName());
     }
 
-    public boolean registerToSystem(String userName, String password) {
-        return userController.registerToSystem(userName,password);
+    public boolean registerToSystem(String userName, String password, Date date) {
+        return userController.registerToSystem(userName,password,date);
     }
 
     public SubscribedUser login(String username, String password,User currUser) {

@@ -10,10 +10,7 @@ import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
@@ -153,18 +150,18 @@ public class UserController {
         return currUser.closeShop(shopIdToClose);
     }
 
-    public boolean createSystemManager(String username, String password) {
-        SystemManager systemManager = new SystemManager(username, password);
+    public boolean createSystemManager(String username, String password, Date date) {
+        SystemManager systemManager = new SystemManager(username, password,date);
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
         return true;
     }
 
-    public synchronized boolean registerToSystem(String userName, String password) {
+    public synchronized boolean registerToSystem(String userName, String password, Date date) {
         if (!subscribers.containsKey(userName)) {
             //todo : change the shoping catr
-            SubscribedUser newUser = new SubscribedUser(userName, password);
+            SubscribedUser newUser = new SubscribedUser(userName, password,date);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
             return true;

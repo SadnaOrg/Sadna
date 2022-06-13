@@ -1,10 +1,11 @@
 package com.example.application.views.main;
 
+import ServiceLayer.Objects.Guest;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
-import com.example.application.Header.Header;
+import com.example.application.views.main.Discount.DiscountPolicyView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -62,13 +63,21 @@ public class SubscribedUserView extends GuestActionView {
             return;
         }
         logoutButton.addClickListener(e -> {
-            service.logout();
+           var s= service.logout();
             save("user-name", null);
-            UI.getCurrent().navigate(MainView.class);
+            if(s.isOk()) {
+                save("service", s.getElement());
+                UI.getCurrent().navigate(GuestActionView.class);
+            }
+            else
+                UI.getCurrent().navigate(MainView.class);
         });
         createOpenShop();
         createTabs();
-        registerToNotification();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
+        registerToNotification(service);
     }
 
     private void createOpenShop() {
@@ -232,9 +241,15 @@ public class SubscribedUserView extends GuestActionView {
     private void createTabs(){
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
         addTabWithClickEvent("Manage Actions", this::createActionView);
+        addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createDiscountPolicyView(DomEvent domEvent) {
+        DiscountPolicyView policyView = new DiscountPolicyView(service, currUser);
+        setContent(policyView);
     }
 
     private void createActionView(DomEvent domEvent) {

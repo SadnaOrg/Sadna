@@ -13,6 +13,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,12 +24,14 @@ public class SubscribedUser extends User {
     private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
     private String hashedPassword;
     private Map<Integer,ShopAdministrator> shopAdministrator;
+    private Date birthDate;
     private boolean is_login = false;
 
-    public SubscribedUser(String userName,String password) {
+    public SubscribedUser(String userName,String password,Date birthDate) {
         super(userName);
         shopAdministrator = new ConcurrentHashMap<>();
         hashedPassword = GFG2.Hash(password);
+        this.birthDate =birthDate;
     }
 
     public boolean login(String userName,String password) {

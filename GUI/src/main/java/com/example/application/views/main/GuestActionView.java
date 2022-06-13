@@ -4,9 +4,13 @@ import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.accordion.Accordion;
+import com.vaadin.flow.component.accordion.AccordionPanel;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.details.DetailsVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -23,6 +27,7 @@ import java.util.stream.Stream;
 
 import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Header.SessionData.save;
+import static com.example.application.Utility.notifyError;
 
 
 @Route("Guest")
@@ -32,6 +37,7 @@ public class GuestActionView extends Header {
     protected Button logoutButton = new Button("Logout");
 
     public GuestActionView() {
+        super();
         currUser = (String)Load("user-name");
         service = (UserService)Load("service");
         service.loginSystem();
@@ -52,7 +58,10 @@ public class GuestActionView extends Header {
             logoutButton.getStyle().set("margin-left", "auto");
             addToNavbar(logoutButton);
         }
-        registerToNotification();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
+        registerToNotification(service);
     }
 
     private Tabs getTabs() {
@@ -76,7 +85,7 @@ public class GuestActionView extends Header {
         if(res.isOk()) {
             Collection<ProductInfo> basketProductsIDs = res.getElement().baskets().stream().map(Basket::productsID).flatMap(Collection::stream).toList();
             if (basketProductsIDs.size() > 0) {
-                PaymentForm layout = new PaymentForm();
+                PaymentForm layout = new PaymentForm(service);
                 setContent(layout);
                 return;
             }
@@ -167,29 +176,63 @@ public class GuestActionView extends Header {
         return grid;
     }
 
+    private Grid<Basket> createCartGrid(){
+        var grid = new Grid<>(Basket.class, false);
+        grid.addColumn(Basket::shopId).setHeader("Shop ID");
+        grid.addColumn(b->b.productsID().size()).setHeader("Product count");
+        return grid;
+    }
+
     private void checkCartEvent(DomEvent event) {
-        HorizontalLayout layout = new HorizontalLayout();
-        Cart cart = service.showCart().getElement();
-        if (cart != null) {
-            Collection<Basket> basket = cart.baskets();
-            Grid<Basket> grid = new Grid<>(Basket.class, false);
-            grid.addColumn(Basket::shopId).setHeader("Shops");
-            Grid<ProductInfo> prodGrid = createProductInfoGrid();
-            grid.addItemClickListener(item -> {
-                Basket curr = basket.stream()
-                    .filter(prod -> item.getItem().equals(prod))
-                    .findAny()
-                    .orElse(null);
-                if (curr != null) {
-                    Collection<ProductInfo> products = curr.productsID();
-                    prodGrid.setItems(products);
-                    layout.replace(layout.getComponentAt(1), prodGrid);
-                }
-            });
-            grid.setItems(basket);
-            layout.add(grid);
-            layout.add(prodGrid);
+//        HorizontalLayout layout = new HorizontalLayout();
+//        Cart cart;
+//        var cartres = service.showCart();
+//        if (cartres.isOk()) {
+//            cart = cartres.getElement();
+//            var grid = createCartGrid();
+//            grid.setItems(cart.baskets());
+//            Grid<ProductInfo> prodGrid = createProductInfoGrid();
+//            grid.addItemClickListener(item -> {
+//                Basket curr = cart.baskets().stream()
+//                    .filter(prod -> item.getItem().equals(prod))
+//                    .findAny()
+//                    .orElse(null);
+//                if (curr != null) {
+//                    Collection<ProductInfo> products = curr.productsID();
+//                    prodGrid.setItems(products);
+////                    layout.replace(layout.getComponentAt(1), prodGrid);
+//                }
+//            });
+//            layout.add(prodGrid,grid);
+////            layout.add(prodGrid);
+//        } else {
+//            notifyError(cartres.getMsg());
+//            Label label = new Label("No Cart");
+//            layout.add(label);
+//        }
+//        setContent(layout);
+
+        Cart cart;
+        var cartres = service.showCart();
+        var layout = new VerticalLayout();
+        layout.setWidthFull();
+        var title = new H1("Your cart:");
+        if (cartres.isOk()) {
+            cart = cartres.getElement();
+
+            Accordion accordion = new Accordion();
+            accordion.setWidthFull();
+            for (var b : cart.baskets()){
+                var p = createProductInfoGrid();
+                p.setItems(b.productsID());
+                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),p);
+                shopPannel.addThemeVariants(DetailsVariant.FILLED);
+                p.setWidthFull();
+            }
+            layout.add(title,accordion);
+
         } else {
+            notifyError(cartres.getMsg());
             Label label = new Label("No Cart");
             layout.add(label);
         }

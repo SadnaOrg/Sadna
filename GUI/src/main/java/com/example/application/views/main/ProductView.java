@@ -2,6 +2,7 @@ package com.example.application.views.main;
 
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
+import ServiceLayer.Objects.Notification;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
@@ -16,7 +17,6 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.html.Pre;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -50,6 +50,7 @@ public class ProductView extends Header {
 
 
     public ProductView() {
+
         service = (UserService)Load("service");
         content.add(createFilterBy());
         productGrid = new Grid<>();
@@ -59,7 +60,7 @@ public class ProductView extends Header {
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
         createProductList();
         content.add(productGrid);
-        registerToNotification();
+        registerToNotification(service);
     }
 
     private void createProductList() {

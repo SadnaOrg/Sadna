@@ -6,6 +6,9 @@ import BusinessLayer.System.PaymentMethod;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class UserTest {
@@ -122,6 +125,6 @@ public class UserTest {
     }
 
     private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy","pass12");
+        return new SubscribedUser("Founder Guy","pass12",new Date(2001, Calendar.DECEMBER,1));
     }
 }
