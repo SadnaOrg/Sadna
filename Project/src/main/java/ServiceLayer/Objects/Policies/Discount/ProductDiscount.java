@@ -5,4 +5,5 @@ public record ProductDiscount(int discountId,int productId, double discount)impl
     {
         this(productDiscount.getDiscountId(), productDiscount.getProductId(), productDiscount.getDiscount());
     }
+
 }

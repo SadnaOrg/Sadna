@@ -309,15 +309,15 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
     }
 
-    public boolean removeDiscount(DiscountRules discountRules) throws NoPermissionException {
+    public boolean removeDiscount(int ID) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removeDiscount(discountRules);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removeDiscount(ID);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
-    public boolean removePredicate(DiscountPred discountPred) throws NoPermissionException {
+    public boolean removePredicate(int ID) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePredicate(discountPred);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePredicate(ID);
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }

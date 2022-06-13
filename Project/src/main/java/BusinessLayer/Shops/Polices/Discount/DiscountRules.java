@@ -10,6 +10,6 @@ public interface DiscountRules {
     public NumericDiscountRules getNumericRule(int searchConnectId);
     public LogicDiscountRules getLogicRule(int searchConnectId);
     public int getID();
-    public boolean removeSonPredicate(DiscountPred discountPred);
+    public boolean removeSonPredicate(int ID);
 
 }

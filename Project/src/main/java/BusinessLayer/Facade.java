@@ -199,8 +199,8 @@ public class Facade{
     public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         return userController.addProductToShop(username,shopID,name,manufacturer,desc,productID,quantity,price);
     }
-    public boolean setCategory(SubscribedUser currUser,int productId, String category, int productID) throws NoPermissionException {
-        return userController.setCategory(currUser, productId, category, productID);
+    public boolean setCategory(SubscribedUser user,int productId, String category, int shopID) throws NoPermissionException {
+        return userController.setCategory(user, productId, category, shopID);
     }
 
 
@@ -330,12 +330,12 @@ public class Facade{
     }
 
 
-    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
-        return userController.removeDiscount(currUser,discountRules,shopId);
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return userController.removeDiscount(currUser,discountID,shopId);
     }
 
-    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
-        return userController.removePredicate(currUser,discountPred,shopId);
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return userController.removePredicate(currUser,predID,shopId);
     }
     public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);

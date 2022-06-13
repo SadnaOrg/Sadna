@@ -243,13 +243,13 @@ public class SubscribedUser extends User {
     }
 
 
-    public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
+    public synchronized boolean removeDiscount(int ID, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-        return shopAdministrator.get(shopId).removeDiscount(discountRules);
+        return shopAdministrator.get(shopId).removeDiscount(ID);
     }
-    public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
+    public synchronized boolean removePredicate(int ID, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-        return shopAdministrator.get(shopId).removePredicate(discountPred);
+        return shopAdministrator.get(shopId).removePredicate(ID);
     }
     public synchronized boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         validatePermission(shopId);

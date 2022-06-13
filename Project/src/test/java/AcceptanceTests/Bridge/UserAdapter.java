@@ -10,6 +10,7 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
 import java.util.*;
+import java.util.function.Function;
 
 public class UserAdapter implements UserBridge{
     protected HashMap<String, UserService> users;
@@ -220,6 +221,20 @@ public class UserAdapter implements UserBridge{
             else return productInShops.get(0);
         }
         else return null;
+    }
+
+    @Override
+    public boolean registerToNotifier(String username,Function<Notification, Boolean> con) {
+        UserService service = getService(username);
+        if(service != null){
+
+        }
+        return false;
+    }
+
+    @Override
+    public boolean getDelayNotification(String username) {
+        return false;
     }
 
     public HashMap<String, UserService> getGuests() {

@@ -117,8 +117,8 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Result setCategory(SubscribedUser currUser,int productId, String category, int productID){
-        return ifUserNotNullStockManagement(() -> facade.setCategory(currUser, productId, category, productID), "you change the category");
+    public Result setCategory(int productId, String category, int shopID){
+        return ifUserNotNullStockManagement(() -> facade.setCategory(currUser, productId, category, shopID), "you change the category");
     }
     @Override
     public Result reopenShop(int shopID) {
@@ -281,15 +281,15 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId)  {
+    public Response<Boolean> removeDiscount(int discountID, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
-                DiscountRules.makeBusinessRule(discountRules),
+                discountID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePredicate(DiscountPred discountPred, int shopId) {
+    public Response<Boolean> removePredicate(int predicateID, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
-                DiscountPred.makeBusinessPred(discountPred),
+                predicateID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override
