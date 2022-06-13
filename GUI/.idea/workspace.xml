@@ -5,33 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added action management, added searchShops method to search shops, fixed cvv tests, added removeShopOwner method, changed getProducts to be non-state dependant">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/CompositePolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/DiscountPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/LeafPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/PlusDiscount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/ProductDiscount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/ProductQuantityInPriceDiscount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/ShopDiscount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicyView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Discount/DiscountPolicyType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_1_10_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/LoginAsGuest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/RegisterView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/RegisterView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/error_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Discount/DiscountRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Discount/DiscountRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +60,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -90,10 +76,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.application.Parser" />
       <recent name="com.example.application.views.main" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="Grammer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.Grammer" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
@@ -118,16 +118,25 @@
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="GUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\ntur4\OneDrive\Desktop\university\sem_f\sadna\Sadna\GUI\src\main\java\com\example\application\ExampleConfigurationFile" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.com.example.application.Application" />
+      <item itemvalue="Application.Grammer" />
+      <item itemvalue="JUnit.All in GUI" />
+      <item itemvalue="Spring Boot.Application" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Grammer" />
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
-        <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="Application.com.example.application.Application" />
       </list>
     </recent_temporary>
@@ -254,57 +263,57 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>80</line>
+          <line>78</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>100</line>
+          <line>98</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>116</line>
+          <line>114</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>122</line>
+          <line>120</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>130</line>
+          <line>128</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>157</line>
+          <line>155</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>186</line>
+          <line>184</line>
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>200</line>
+          <line>198</line>
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>209</line>
+          <line>207</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>227</line>
+          <line>225</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>237</line>
+          <line>235</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -324,7 +333,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
-          <line>261</line>
+          <line>259</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -332,7 +341,27 @@
           <line>18</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/Application.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java" line="12">
+        <watch expression="jsons" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
 </project>

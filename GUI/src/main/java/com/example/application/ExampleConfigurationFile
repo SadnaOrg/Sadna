@@ -1,0 +1,5 @@
+Login as guest : {}
+Register : {"name" : "maor","password" : "maor","bDay" : "1-01-2000"}
+Register : {"name": "maor2" , "password" : "maor","bDay" : "28-01-2000"}
+Register : {"name": "maor3" , "password" : "maor","bDay" : "28-10-2000"}
+Register : {"name": "maor4" , "password" : "maor","bDay" : "28-01-2000"}

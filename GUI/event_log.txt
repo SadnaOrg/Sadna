@@ -1,158 +1,48 @@
-Jun 13, 2022 5:00:29 PM ServiceLayer.Log event
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
 INFO: login to system Successes
-Jun 13, 2022 5:00:29 PM ServiceLayer.Log event
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
+INFO: register to system succeeded Successes
+יוני 13, 2022 9:36:56 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 13, 2022 9:37:15 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 13, 2022 9:37:15 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 13, 2022 9:37:15 אחה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 13, 2022 5:00:29 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:15 אחה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
-INFO: login - user Admin Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:16 אחה״צ ServiceLayer.Log event
+INFO: logout from system Successes
+יוני 13, 2022 9:37:16 אחה״צ ServiceLayer.Log event
+INFO: login to system Successes
+יוני 13, 2022 9:37:16 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 13, 2022 9:37:16 אחה״צ ServiceLayer.Log event
+INFO: register to notification service Successes
+יוני 13, 2022 9:37:16 אחה״צ ServiceLayer.Log event
+INFO: get all delay notification Successes
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
+INFO: login - user maor Successes
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: login Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: receive information Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
+INFO: user details lookup Successes
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
+יוני 13, 2022 9:37:19 אחה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:00:34 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:00:39 PM ServiceLayer.Log event
-INFO: open shop succeeded Successes
-Jun 13, 2022 5:00:39 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:00:40 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 13, 2022 5:00:45 PM ServiceLayer.Log event
-INFO: adding product to shop Successes
-Jun 13, 2022 5:00:45 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 13, 2022 5:00:47 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:00:48 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:00:51 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 13, 2022 5:00:55 PM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:00:56 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:00:59 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:01:01 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:01:09 PM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:10 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:12 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:01:13 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:01:18 PM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:19 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:20 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:01:21 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:01:28 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
-Jun 13, 2022 5:01:31 PM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:01:32 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:01:33 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:01:34 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:03:00 PM ServiceLayer.Log event
-INFO: add discount succeeded Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 13, 2022 5:03:01 PM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 13, 2022 5:03:02 PM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 13, 2022 5:03:03 PM ServiceLayer.Log event
-INFO: here is the discounts Successes
-Jun 13, 2022 5:03:29 PM ServiceLayer.Log event
-INFO: search products succeeded Successes
