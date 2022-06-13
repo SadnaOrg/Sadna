@@ -23,7 +23,9 @@ public class DiscountPlusPolicy implements NumericDiscountRules{
 
     public DiscountPlusPolicy(DiscountRules discountPolicy) {
         this.discountPolicies = new ArrayList<>();
-        this.discountPolicies.add(discountPolicy);
+        if(discountPolicy != null) {
+            this.discountPolicies.add(discountPolicy);
+        }
         this.connectId = atomicconnectId.incrementAndGet();
     }
 

@@ -1,14 +1,17 @@
 package com.example.application.views.main;
 
+import BusinessLayer.Users.BaseActions.HistoryInfo;
 import ServiceLayer.BaseActionType;
-import ServiceLayer.Objects.Product;
-import ServiceLayer.Objects.Shop;
+import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.SubscribedUserService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.checkbox.CheckboxGroup;
-import com.vaadin.flow.component.contextmenu.MenuItem;
+import com.vaadin.flow.component.details.Details;
+import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
@@ -17,6 +20,7 @@ import static com.example.application.Utility.notifyError;
 
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 public class ActionContentCreator {
@@ -196,5 +200,141 @@ public class ActionContentCreator {
         if(!res.isOk())
             return null;
         return res.getElement().shops().stream().map(Shop::shopId).filter(id -> shops.contains(id)).toList();
+    }
+
+    public Component createRoleInfo() {
+
+        var selectShop =  createShopSelect(Shop::isOpen);
+        AtomicInteger shop= new AtomicInteger();
+        var bttn = new Button("show role info");
+        var layout = new VerticalLayout(selectShop,bttn);
+        bttn.setEnabled(false);
+
+        selectShop.addValueChangeListener(e -> {
+            if(e.getValue()==null)
+                bttn.setEnabled(false);
+            else{
+                shop.set(e.getValue());
+                bttn.setEnabled(true);
+            }
+        });
+        bttn.addClickListener(e->{
+            var res = service.getAdministratorInfo(shop.get());
+            if(res.isOk()){
+                var grid = getAdministratorGrid(res.getElement().administrators());
+                layout.removeAll();
+                layout.add(grid);
+            }
+            else{
+                notifyError(res.getMsg());
+            }
+        });
+        return layout;
+    }
+
+    private Grid<Administrator> getAdministratorGrid(List<Administrator> administrators) {
+        var g = new Grid<Administrator>();
+        g.setWidthFull();
+        g.addColumn(Administrator::getUsername).setHeader("user name ");
+        g.addColumn(a -> {
+            return switch (a.getType()) {
+                case MANAGER -> "MANAGER";
+                case OWNER -> "OWNER";
+                case FOUNDER -> "FOUNDER";
+            };
+        }).setHeader("Administrator Type");
+        g.addColumn(Administrator::getAppointer).setHeader("user name ");
+        g.addComponentColumn(a->createPermisionSlider(a.getPermissions())).setHeader("permission");
+        g.setItems(administrators);
+        return g;
+    }
+
+    private Details createPermisionSlider(Collection<BaseActionType> permissions) {
+        VerticalLayout content = new VerticalLayout();
+        permissions.forEach(p ->{
+           content.add(new Span(switch (p){
+               case STOCK_MANAGEMENT -> "STOCK MANAGMENT";
+               case SET_PURCHASE_POLICY -> "SET PURCHASE POLICY";
+               case ASSIGN_SHOP_OWNER -> "ASSING SHOP OWNER";
+               case REMOVE_SHOP_OWNER -> "REMOVE SHOP OWNER";
+               case ASSIGN_SHOP_MANAGER -> "ASSIGN SHOP MANAGER";
+               case CHANGE_MANAGER_PERMISSION -> "CHANGE MANAGER PERMISSION";
+               case CLOSE_SHOP -> "CLOSE SHOP";
+               case REOPEN_SHOP -> "REOPEN SHOP";
+               case ROLE_INFO -> "ROLE INFO";
+               case HISTORY_INFO -> "HISTORY INFO";
+               case REMOVE_ADMIN -> "REMOVE ADMIN";
+           }));
+        });
+        return new Details("permission", content);
+    }
+
+    public Component createHistoryInfo() {
+        var selectShop =  createShopSelect(Shop::isOpen);
+        AtomicInteger shop= new AtomicInteger();
+        var bttn = new Button("show role info");
+        var layout = new VerticalLayout(selectShop,bttn);
+        bttn.setEnabled(false);
+
+        selectShop.addValueChangeListener(e -> {
+            if(e.getValue()==null)
+                bttn.setEnabled(false);
+            else{
+                shop.set(e.getValue());
+                bttn.setEnabled(true);
+            }
+        });
+        bttn.addClickListener(e->{
+            var res = service.getHistoryInfo(shop.get());
+            if(res.isOk()){
+                var grid = getHistoryInfoGrid(res.getElement().historyInfo());
+                layout.removeAll();
+                layout.add(grid);
+            }
+            else{
+                notifyError(res.getMsg());
+            }
+        });
+        return layout;
+    }
+
+    private Grid<PurchaseHistory> getHistoryInfoGrid(List<PurchaseHistory> historyInfo) {
+        var g = new Grid<PurchaseHistory>();
+        g.addColumn(PurchaseHistory::user).setHeader("user name");
+        g.addColumn(p->p.shop().shopId()).setHeader("shop ID");
+        g.addColumn(p->p.shop().shopName()).setHeader("shop name");
+        g.addComponentColumn(p->getPurcasesSlider(p.purchases())).setHeader("purchasses");
+        g.setItems(historyInfo);
+        return g;
+    }
+
+    private Component getPurcasesSlider(List<Purchase> purchases) {
+        var dialog = new Dialog();
+        var g = new Grid<Purchase>();
+        g.addColumn(Purchase::dateOfPurchase).setHeader("date");
+        g.addColumn(Purchase::transectionId).setHeader("transaction id");
+        g.addComponentColumn(p->productPopUp(p.products()));
+        return getButton(purchases,dialog,g,"Purchases History");
+    }
+
+    private Component productPopUp(List<ProductInfo> products) {
+        var dialog = new Dialog();
+        var g = new Grid<ProductInfo>();
+        g.addColumn(ProductInfo::Id).setHeader("id");
+        g.addColumn(ProductInfo::quantity).setHeader("quantity");
+        g.addColumn(ProductInfo::price).setHeader("price");
+        return getButton(products, dialog, g,"Products");
+    }
+
+    private <T> Button getButton(Collection<T> products, Dialog dialog, Grid<T> g,String s) {
+        g.setItems(products);
+        var closeButton = new Button("close");
+        dialog.add(new H1(s), g,closeButton);
+        dialog.setWidthFull();
+        g.setWidthFull();
+        var b = new Button(s);
+        b.addClickListener(e-> dialog.open());
+        closeButton.addClickListener(e-> dialog.close());
+        return b;
     }
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public interface DiscountRules{
-
     static BusinessLayer.Shops.Polices.Discount.DiscountRules makeBusinessRule(DiscountRules discountRules) {
 
         if(discountRules instanceof ProductByQuantityDiscount)

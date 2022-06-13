@@ -5,7 +5,7 @@ import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
-import com.example.application.Header.Header;
+import com.example.application.views.main.Discount.DiscountPolicyView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -241,9 +241,15 @@ public class SubscribedUserView extends GuestActionView {
     private void createTabs(){
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
         addTabWithClickEvent("Manage Actions", this::createActionView);
+        addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createDiscountPolicyView(DomEvent domEvent) {
+        DiscountPolicyView policyView = new DiscountPolicyView(service, currUser);
+        setContent(policyView);
     }
 
     private void createActionView(DomEvent domEvent) {
