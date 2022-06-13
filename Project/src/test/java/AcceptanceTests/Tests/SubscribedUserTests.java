@@ -628,9 +628,7 @@ public class SubscribedUserTests extends UserTests {
         List<ProductInShop> productInShops = subscribedUserBridge.searchShopProducts(supersalFounder.name, supersal.ID);
         assertNull(productInShops);
 
-        //List<String> supersalFounderNotifications = u2.notifications;
-        //assertEquals(1,supersalFounderNotifications.size());
-        //assertEquals("supersal closed",supersalFounderNotifications.get(0));
+
     }
 
     @Test
@@ -1478,6 +1476,11 @@ public class SubscribedUserTests extends UserTests {
 
         double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
         assertEquals(0.75*4*20,payed,0);
+    }
+
+    @Test
+    public void testCreateValidateProductPurchase(){
+
     }
 
     public User enter() {
