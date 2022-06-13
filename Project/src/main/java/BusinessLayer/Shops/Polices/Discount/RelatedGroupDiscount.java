@@ -28,10 +28,12 @@ public class RelatedGroupDiscount implements DiscountPolicy{
     @Override
     public double calculateDiscount(Basket basket) {
         double currentDiscountPrice=0;
-        for (int pid:basket.getProducts().keySet()) {
-            if(category.equals(ShopController.getInstance().getShops().get(basket.getShopid()).getProducts().get(pid).getCategory()))
-            {
-                currentDiscountPrice +=  discount*basket.getProducts().get(pid)*basket.getPrices().get(pid);
+        for (int pid:basket.getCategories().keySet()) {
+            String productCategory =basket.getCategories().get(pid);
+            if(productCategory!= null) {
+                if (category.equals(productCategory)) {
+                    currentDiscountPrice += discount * basket.getProducts().get(pid) * basket.getPrices().get(pid);
+                }
             }
         }
         return currentDiscountPrice;
