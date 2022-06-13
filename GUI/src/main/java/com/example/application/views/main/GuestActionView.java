@@ -3,10 +3,12 @@ package com.example.application.views.main;
 import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.accordion.AccordionPanel;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.details.DetailsVariant;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
@@ -28,6 +30,7 @@ import java.util.stream.Stream;
 import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Header.SessionData.save;
 import static com.example.application.Utility.notifyError;
+import static com.example.application.Utility.notifySuccess;
 
 
 @Route("Guest")
@@ -184,34 +187,6 @@ public class GuestActionView extends Header {
     }
 
     private void checkCartEvent(DomEvent event) {
-//        HorizontalLayout layout = new HorizontalLayout();
-//        Cart cart;
-//        var cartres = service.showCart();
-//        if (cartres.isOk()) {
-//            cart = cartres.getElement();
-//            var grid = createCartGrid();
-//            grid.setItems(cart.baskets());
-//            Grid<ProductInfo> prodGrid = createProductInfoGrid();
-//            grid.addItemClickListener(item -> {
-//                Basket curr = cart.baskets().stream()
-//                    .filter(prod -> item.getItem().equals(prod))
-//                    .findAny()
-//                    .orElse(null);
-//                if (curr != null) {
-//                    Collection<ProductInfo> products = curr.productsID();
-//                    prodGrid.setItems(products);
-////                    layout.replace(layout.getComponentAt(1), prodGrid);
-//                }
-//            });
-//            layout.add(prodGrid,grid);
-////            layout.add(prodGrid);
-//        } else {
-//            notifyError(cartres.getMsg());
-//            Label label = new Label("No Cart");
-//            layout.add(label);
-//        }
-//        setContent(layout);
-
         Cart cart;
         var cartres = service.showCart();
         var layout = new VerticalLayout();
@@ -245,7 +220,34 @@ public class GuestActionView extends Header {
         prodGrid.addColumn(ProductInfo::price).setHeader("Price");
         prodGrid.addColumn(ProductInfo::quantity).setHeader("Quantity");
         prodGrid.addColumn(ProductInfo::shopId).setHeader("Shop ID");
+        prodGrid.addComponentColumn(this::removeProductFromCart).setHeader("");
         prodGrid.setWidthFull();
         return prodGrid;
+    }
+    private Button removeProductFromCart(ProductInfo p){
+        ConfirmDialog dialog = new ConfirmDialog();
+        dialog.setHeader("Delete \"Report Q4\"?");
+        dialog.setText("Are you sure you want to permanently delete this item?");
+
+        dialog.setCancelable(true);
+        dialog.addCancelListener(event -> dialog.close());
+
+        dialog.setConfirmText("Delete");
+        dialog.setConfirmButtonTheme("error primary");
+        dialog.addConfirmListener(event -> {
+            var res = service.removeProduct(p.shopId(),p.Id());
+            if(res.isOk())
+                notifySuccess("product remove successfully");
+            else notifyError(res.getMsg());
+            dialog.close();
+            UI.getCurrent().getPage().reload();
+        });
+
+        Button button = new Button("Open confirm dialog");
+        var b = new Button(("remove"));
+        b.addClickListener(e->{
+            dialog.open();
+        });
+        return  b;
     }
 }
