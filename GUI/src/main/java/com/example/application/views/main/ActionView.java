@@ -26,6 +26,8 @@ public class ActionView extends VerticalLayout {
         ConcurrentHashMap<BaseActionType, List<Integer>> actionShopsMap = new ConcurrentHashMap<>();
 
         for(var actionType : BaseActionType.values()){
+            if(actionType == BaseActionType.STOCK_MANAGEMENT)
+                continue;
             MenuItem item = menuBar.addItem(actionType.name());
             actionMenuItemMap.put(actionType, item);
             actionShopsMap.put(actionType, new ArrayList<>());
@@ -63,6 +65,8 @@ public class ActionView extends VerticalLayout {
                 continue;
             var permissions = userInfo.getElement().getPermissions();
             for(BaseActionType permission : permissions){
+                if(permission == BaseActionType.STOCK_MANAGEMENT)
+                    continue;
                 actionShopsMap.get(permission).add(shop.shopId());
             }
         }
@@ -80,7 +84,7 @@ public class ActionView extends VerticalLayout {
         ActionContentCreator actionContentCreator = new ActionContentCreator(service, shops);
         Component component;
         switch (actionType){
-//            case ROLE_INFO -> component = actionContentCreator.createRoleInfo();
+            case ROLE_INFO -> component = actionContentCreator.createRoleInfo();
             case CLOSE_SHOP -> component = actionContentCreator.createCloseShop();
 //            case HISTORY_INFO -> component = actionContentCreator.createHistoryInfo();
 //            case STOCK_MANAGEMENT -> component = actionContentCreator.createStockManagement();
