@@ -3,10 +3,8 @@ package AcceptanceTests.Bridge;
 import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Objects.Policies.Discount.DiscountRules;
-import ServiceLayer.Response;
 
 import java.time.LocalTime;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -179,5 +177,10 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public boolean removePredicate(String username,int predicateID, int shopId) {
         return subscribedUserAdapter.removePredicate(username,predicateID,shopId);
+    }
+
+    @Override
+    public boolean setCategory(String username, int productId, String category, int shopID) {
+        return subscribedUserAdapter.setCategory(username,productId,category,shopID);
     }
 }

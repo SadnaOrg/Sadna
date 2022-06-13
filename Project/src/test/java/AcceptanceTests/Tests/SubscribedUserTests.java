@@ -1047,25 +1047,19 @@ public class SubscribedUserTests extends UserTests {
 
     @Test
     public void testCreateRelatedGroupDiscountSuccess(){
-        List<Integer> relatedProducts = makeRelatedProducts();
-
-        policyID = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, relatedProducts,0.6,1,shops[ACE_ID].ID);
+        policyID = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, "not expensive",0.6,1,shops[ACE_ID].ID);
         assertNotEquals(-1,policyID);
     }
 
     @Test
     public void testCreateRelatedGroupDiscountFailureNoSuchShop(){
-        List<Integer> relatedProducts = makeRelatedProducts();
-
-        policyID = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, relatedProducts,0.6,1,-2);
+        policyID = subscribedUserBridge.createRelatedGroupDiscount(ACEFounder.name, "not expensive",0.6,1,-2);
         assertEquals(-1,policyID);
     }
 
     @Test
     public void testCreateRelatedGroupDiscountFailureNoPermission(){
-        List<Integer> relatedProducts = makeRelatedProducts();
-
-        policyID = subscribedUserBridge.createRelatedGroupDiscount(MegaSportFounder.name, relatedProducts,0.6,1,shops[castro_ID].ID);
+        policyID = subscribedUserBridge.createRelatedGroupDiscount(MegaSportFounder.name, "relatedProducts",0.6,1,shops[castro_ID].ID);
         assertEquals(-1,policyID);
     }
 
@@ -1410,6 +1404,7 @@ public class SubscribedUserTests extends UserTests {
 
         subscribedUserBridge.updateProductPrice(castroFounder.name,shops[castro_ID].ID,45,50);
         subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name, shops[ACE_ID].ID,0,30);
     }
 
     @Test
@@ -1476,22 +1471,12 @@ public class SubscribedUserTests extends UserTests {
 
         double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
         assertEquals(0.75*4*20,payed,0);
+        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
     }
 
-    @Test
-    public void testCreateValidateProductPurchase(){
-
-    }
 
     public User enter() {
         Guest g = subscribedUserBridge.visit();
         return subscribedUserBridge.login(g.name,new RegistrationInfo( "enterUser","enterPass"));
-    }
-
-    private List<Integer> makeRelatedProducts(){
-        List<Integer> relatedProducts = new LinkedList<>();
-        relatedProducts.add(0);
-        relatedProducts.add(1);
-        return relatedProducts;
     }
 }

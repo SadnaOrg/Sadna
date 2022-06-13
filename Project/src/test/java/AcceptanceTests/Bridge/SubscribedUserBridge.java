@@ -4,6 +4,7 @@ import AcceptanceTests.DataObjects.*;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
+import ServiceLayer.Result;
 
 import java.time.LocalTime;
 import java.util.Collection;
@@ -77,4 +78,6 @@ public interface SubscribedUserBridge extends UserBridge {
     boolean removeDiscount(String username,int discountID, int shopId);
 
     boolean removePredicate(String username,int predicateID, int shopId);
+
+    boolean setCategory(String username,int productId, String category, int shopID);
 }

@@ -356,8 +356,8 @@ public class UserController {
         managers.clear();
     }
 
-    public boolean setCategory(SubscribedUser currUser,int productId, String category, int shopId) throws NoPermissionException {
-        return currUser.setCategory(productId, category, shopId);
+    public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
+        return user.setCategory(productId,category,shopId);
     }
 
     public Collection<SystemManager> getSysManagers(){

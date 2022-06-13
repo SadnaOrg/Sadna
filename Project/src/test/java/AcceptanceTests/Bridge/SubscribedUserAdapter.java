@@ -414,4 +414,14 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         }
         return false;
     }
+
+    @Override
+    public boolean setCategory(String username, int productId, String category, int shopID) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Result set = service.setCategory(productId,category,shopID);
+            return set.isOk();
+        }
+        return false;
+    }
 }

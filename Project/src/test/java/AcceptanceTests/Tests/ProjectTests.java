@@ -105,6 +105,9 @@ public abstract class ProjectTests {
         b.addProductToShop(ACEFounder.name, shops[ACE_ID].ID, p2, 1, 100, 25);
         b.addProductToShop(ACEFounder.name, shops[ACE_ID].ID, p3, 2, 40, 40);
 
+        b.setCategory(ACEFounder.name,0,"not expensive",shops[ACE_ID].ID);
+        b.setCategory(ACEFounder.name,1,"not expensive",shops[ACE_ID].ID);
+        b.setCategory(ACEFounder.name,2,"expensive",shops[ACE_ID].ID);
         return new Product[]{p1, p2, p3};
     }
 

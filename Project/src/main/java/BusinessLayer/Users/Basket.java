@@ -28,6 +28,7 @@ public class Basket {
         {
             products.put(pid,bmain.getProducts().get(pid));
             prices.put(pid,bmain.getPrices().get(pid));
+            if(bmain.getCategories().get(pid)!=null)
             categories.put(pid,bmain.getCategories().get(pid));
         }
     }
@@ -37,7 +38,8 @@ public class Basket {
         {
             products.put(productid,quantity);
             prices.put(productid,price);
-            categories.put(productid,category);
+            if(category!=null)
+                categories.put(productid,category);
             return true;
         }
         else
