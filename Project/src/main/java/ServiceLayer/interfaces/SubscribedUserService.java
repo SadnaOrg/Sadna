@@ -65,15 +65,25 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Response<Integer> createDiscountMaxPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
+    Response<Integer> createDiscountAndPolicy(DiscountPred discountPred, int connectId, int shopId);
 
-    Response<Integer>  createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId) ;
+    Response<Integer> createDiscountMaxPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  ;
 
-    Response<Integer>  createDiscountPlusPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy,int connectId, int shopId)  ;
+    Response<Integer> createDiscountMaxPolicy(int connectId, int shopId);
+
+    Response<Integer>  createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
+
+    Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId);
+
+    Response<Integer>  createDiscountPlusPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  ;
+
+    Response<Integer>  createDiscountPlusPolicy(int parentId, int shopId);
 
     Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  ;
 
-    Response<Integer>  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore ,int connectId, int shopId)  ;
+    Response<Integer> createDiscountXorPolicy(DiscountPred tieBreaker, int connectId, int shopId);
+
+    Response<Integer>  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore , int connectId, int shopId)  ;
 
     Response<Integer> createValidateBasketValueDiscount(double basketvalue ,boolean cantBeMore,int connectId, int shopId) ;
 
@@ -87,17 +97,17 @@ public interface SubscribedUserService extends UserService {
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
-    Response<Boolean> removeDiscount(BusinessLayer.Users.SubscribedUser currUser, DiscountRules discountRules, int shopId);
+    Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId);
 
-    Response<Boolean> removePredicate(BusinessLayer.Users.SubscribedUser currUser, DiscountPred discountPred, int shopId);
+    Response<Boolean> removePredicate(DiscountPred discountPred, int shopId);
 
-    Response<Boolean> removePurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) ;
+    Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) ;
 
     Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId);
 
     Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId);
 
-    Response<DiscountRules> getDiscount(BusinessLayer.Users.SubscribedUser currUser, int shopId);
+    Response<DiscountRules> getDiscount(int shopId);
 
-    Response<PurchasePolicy> getPurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, int shopId);
+    Response<PurchasePolicy> getPurchasePolicy(int shopId);
 }

@@ -1,30 +1,18 @@
-יוני 13, 2022 7:28:20 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:28 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 7:28:20 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:28 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 7:28:24 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:29 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:28:45 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:34 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:28:45 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:00:56 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:28:47 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 7:28:47 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 7:28:48 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:10 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:28:49 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 7:28:49 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 7:28:50 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:19 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:28:52 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:01:32 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 7:29:32 לפנה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-יוני 13, 2022 7:29:50 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 7:30:25 לפנה״צ ServiceLayer.Log error
+Jun 13, 2022 5:03:01 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
