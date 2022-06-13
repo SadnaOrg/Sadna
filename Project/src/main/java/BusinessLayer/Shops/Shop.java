@@ -69,6 +69,24 @@ public class Shop {
         CLOSED
     }
 
+    public boolean setCategory(int productId, String category)
+    {
+        if (state == State.OPEN) {
+            if(products.containsKey(productId)) {
+                products.get(productId).setCategory(category);
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The product is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
 
     public void addProduct(Product p) {
         if (state == State.OPEN) {
@@ -169,7 +187,7 @@ public class Shop {
 
     //we can assume that this function is only called when all good;
     public double checkIfcanBuy(String user) {
-        int totalPrice = 0;
+        double totalPrice = 0;
         if (state == State.OPEN) {
             for (int productID : usersBaskets.get(user).getProducts().keySet()) {
                 if (products.containsKey(productID)) {
@@ -304,9 +322,9 @@ public class Shop {
         return id;
     }
 
-    public boolean removeDiscount(DiscountRules discountRules) {
+    public boolean removeDiscount(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonDiscount(discountRules);
+            return discounts.removeSonDiscount(ID);
         }
         else
         {
@@ -314,9 +332,9 @@ public class Shop {
         }
     }
 
-    public boolean removePredicate(DiscountPred discountPred) {
+    public boolean removePredicate(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonPredicate(discountPred);
+            return discounts.removeSonPredicate(ID);
         }
         else
         {

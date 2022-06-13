@@ -117,6 +117,10 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Result setCategory(int productId, String category, int shopID){
+        return ifUserNotNullStockManagement(() -> facade.setCategory(currUser, productId, category, shopID), "you change the category");
+    }
+    @Override
     public Result reopenShop(int shopID) {
         return ifUserNotNull(() -> facade.reopenShop(currUser.getUserName(),shopID),"reopen shop", "you aren't a founder!");
     }
@@ -150,8 +154,8 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Integer> createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  {
-        return ifUserNotNullRes(()-> facade.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId),"add discount succeeded");
+    public Response<Integer> createRelatedGroupDiscount(String category, double discount, int connectId , int shopId)  {
+        return ifUserNotNullRes(()-> facade.createRelatedGroupDiscount(currUser,category, discount, connectId, shopId),"add discount succeeded");
     }
 
     @Override
@@ -264,6 +268,16 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public  Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId){
+        return  ifUserNotNullRes(()-> facade.createValidateCategoryPurchase(currUser,category, productQuantity, cantbemore, connectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public  Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId) {
+        return  ifUserNotNullRes(()-> facade.createValidateUserPurchase(currUser,age,connectId,shopId),"add purchase policy succeeded");
+    }
+
+    @Override
     public Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
         return ifUserNotNullRes(()-> facade.createPurchaseAndPolicy(currUser,
                 PurchasePolicy.makeBusinessPurchasePolicy(policy),
@@ -278,15 +292,15 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
-    public Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId)  {
+    public Response<Boolean> removeDiscount(int discountID, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
-                DiscountRules.makeBusinessRule(discountRules),
+                discountID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePredicate(DiscountPred discountPred, int shopId) {
+    public Response<Boolean> removePredicate(int predicateID, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
-                DiscountPred.makeBusinessPred(discountPred),
+                predicateID,
                 shopId),"remove purchase policy succeeded");
     }
     @Override

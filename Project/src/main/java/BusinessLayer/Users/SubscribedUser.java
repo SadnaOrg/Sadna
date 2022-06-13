@@ -167,10 +167,10 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId);
     }
 
-    public synchronized int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
+    public synchronized int createRelatedGroupDiscount(String category, double discount, int connectId , int shopId) throws NoPermissionException {
         validatePermission(shopId);
 
-        return shopAdministrator.get(shopId).createRelatedGroupDiscount(relatedProducts, discount, connectId);
+        return shopAdministrator.get(shopId).createRelatedGroupDiscount(category, discount, connectId);
     }
 
     public synchronized int createShopDiscount(int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
@@ -232,7 +232,18 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
 
-    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId);
+    }
+
+    public synchronized int createValidateUserPurchase(int age, int connectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateUserPurchase(age, connectId);
+    }
+
+
+        public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
     }
@@ -243,13 +254,13 @@ public class SubscribedUser extends User {
     }
 
 
-    public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
+    public synchronized boolean removeDiscount(int ID, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-        return shopAdministrator.get(shopId).removeDiscount(discountRules);
+        return shopAdministrator.get(shopId).removeDiscount(ID);
     }
-    public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
+    public synchronized boolean removePredicate(int ID, int shopId) throws NoPermissionException {
         validatePermission(shopId);
-        return shopAdministrator.get(shopId).removePredicate(discountPred);
+        return shopAdministrator.get(shopId).removePredicate(ID);
     }
     public synchronized boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         validatePermission(shopId);
@@ -266,6 +277,14 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).getPurchasePolicy();
     }
 
+    public boolean setCategory(int productId, String category, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).setCategory(productId,category);
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
 
 // Java program to calculate SHA hash value
 

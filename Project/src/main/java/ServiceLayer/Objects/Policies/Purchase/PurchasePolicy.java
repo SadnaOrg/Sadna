@@ -23,6 +23,18 @@ public interface PurchasePolicy {
                     ((ValidateProductPurchase) purchasePolicy).productQuantity(),
                     ((ValidateProductPurchase) purchasePolicy).cantbemore());
         }
+        if (purchasePolicy instanceof ValidateUserPurchase) {
+            return new BusinessLayer.Shops.Polices.Purchase.ValidateUserPurchase(
+                    ((ValidateUserPurchase) purchasePolicy).policyLogicId(),
+                    ((ValidateUserPurchase) purchasePolicy).age());
+        }
+        if (purchasePolicy instanceof ValidateCategoryPurchase) {
+            return new BusinessLayer.Shops.Polices.Purchase.ValidateCategoryPurchase(
+                    ((ValidateCategoryPurchase) purchasePolicy).policyLogicId(),
+                    ((ValidateCategoryPurchase) purchasePolicy).category(),
+                    ((ValidateCategoryPurchase) purchasePolicy).productQuantity(),
+                    ((ValidateCategoryPurchase) purchasePolicy).cantbemore());
+        }
         if (purchasePolicy instanceof PurchaseAndPolicy) {
             Collection<BusinessLayer.Shops.Polices.Purchase.PurchasePolicy> buispolicies =new ArrayList<>();
             for(PurchasePolicy policy : ((PurchaseAndPolicy) purchasePolicy).purchasePolicies()) {
@@ -50,6 +62,12 @@ public interface PurchasePolicy {
         }
         if (purchasePolicy instanceof BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase) {
             return new ValidateProductPurchase((BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase) purchasePolicy);
+        }
+        if (purchasePolicy instanceof BusinessLayer.Shops.Polices.Purchase.ValidateUserPurchase) {
+            return new ValidateUserPurchase((BusinessLayer.Shops.Polices.Purchase.ValidateUserPurchase) purchasePolicy);
+        }
+        if (purchasePolicy instanceof BusinessLayer.Shops.Polices.Purchase.ValidateCategoryPurchase) {
+            return new ValidateCategoryPurchase((BusinessLayer.Shops.Polices.Purchase.ValidateCategoryPurchase) purchasePolicy);
         }
         if (purchasePolicy instanceof BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy) {
             return new PurchaseAndPolicy((BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy) purchasePolicy);

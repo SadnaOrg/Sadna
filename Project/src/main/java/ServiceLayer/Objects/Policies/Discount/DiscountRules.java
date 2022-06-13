@@ -38,6 +38,13 @@ public interface DiscountRules{
                             ((ShopDiscount) discountRules).discount());
         }
 
+        if(discountRules instanceof RelatedGroupDiscount)
+        {
+            return new BusinessLayer.Shops.Polices.Discount.RelatedGroupDiscount
+                    (((RelatedGroupDiscount) discountRules).discountId(), ((RelatedGroupDiscount) discountRules).category(),
+                            ((RelatedGroupDiscount) discountRules).discount());
+        }
+
         if(discountRules instanceof DiscountAndPolicy)
         {
             Collection<BusinessLayer.Shops.Polices.Discount.DiscountPred> preds = new ArrayList<>();
@@ -128,6 +135,10 @@ public interface DiscountRules{
         if(discountRules instanceof BusinessLayer.Shops.Polices.Discount.ShopDiscount)
         {
             return new ShopDiscount((BusinessLayer.Shops.Polices.Discount.ShopDiscount)discountRules);
+        }
+        if(discountRules instanceof BusinessLayer.Shops.Polices.Discount.RelatedGroupDiscount)
+        {
+            return new RelatedGroupDiscount((BusinessLayer.Shops.Polices.Discount.RelatedGroupDiscount)discountRules);
         }
         if(discountRules instanceof BusinessLayer.Shops.Polices.Discount.DiscountAndPolicy)
         {

@@ -59,7 +59,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
 
-    Response<Integer> createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
+    Response<Integer> createRelatedGroupDiscount(String category, double discount, int connectId , int shopId)  ;
 
     Response<Integer> createShopDiscount(int basketQuantity,double discount,int connectId, int shopId);
 
@@ -93,13 +93,19 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
+    Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId);
+
+    Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId);
+
+    Result setCategory(int productId, String category, int shopID);
+
     Result removeShopOwner(int shopId, String toRemove);
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
 
-    Response<Boolean> removeDiscount(DiscountRules discountRules, int shopId);
+    Response<Boolean> removeDiscount(int discountID, int shopId);
 
-    Response<Boolean> removePredicate(DiscountPred discountPred, int shopId);
+    Response<Boolean> removePredicate(int predicateID, int shopId);
 
     Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) ;
 

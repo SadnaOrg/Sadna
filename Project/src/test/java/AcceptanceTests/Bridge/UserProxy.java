@@ -6,6 +6,7 @@ import ServiceLayer.interfaces.UserService;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Function;
 
 public class UserProxy implements UserBridge{
     protected UserBridge adapter;
@@ -81,6 +82,16 @@ public class UserProxy implements UserBridge{
     @Override
     public ProductInShop searchProductInShop(String username,int productID, int shopID) {
         return adapter.searchProductInShop(username,productID,shopID);
+    }
+
+    @Override
+    public boolean registerToNotifier(String username,Function<Notification, Boolean> con) {
+        return false;
+    }
+
+    @Override
+    public boolean getDelayNotification(String username) {
+        return false;
     }
 
     protected HashMap<String, UserService> getGuests() {

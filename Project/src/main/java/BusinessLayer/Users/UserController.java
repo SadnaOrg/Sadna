@@ -65,7 +65,7 @@ public class UserController {
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId, productId);
         if (price != -1) {
-            if (u.saveProducts(shopId, productId, quantity, price)) {
+            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
                 if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
@@ -356,6 +356,10 @@ public class UserController {
         managers.clear();
     }
 
+    public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
+        return user.setCategory(productId,category,shopId);
+    }
+
     public Collection<SystemManager> getSysManagers(){
         return managers.values();
     }
@@ -377,8 +381,8 @@ public class UserController {
         return currUser.createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
-        return currUser.createRelatedGroupDiscount(relatedProducts, discount, connectId, shopId);
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return currUser.createRelatedGroupDiscount(category, discount, connectId, shopId);
     }
 
     public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
@@ -426,7 +430,16 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
-    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateUserPurchase(SubscribedUser currUser,int age, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateUserPurchase(age,connectId,shopId);
+    }
+
+
+        public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
     }
 
@@ -434,12 +447,12 @@ public class UserController {
         return currUser.createPurchaseOrPolicy(policy, conncectId, shopId);
     }
 
-    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
-        return currUser.removeDiscount(discountRules,shopId);
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return currUser.removeDiscount(discountID,shopId);
     }
 
-    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
-        return currUser.removePredicate(discountPred,shopId);
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return currUser.removePredicate(predID,shopId);
     }
     public boolean removePurchasePolicy(SubscribedUser currUser,PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return currUser.removePurchasePolicy(purchasePolicyToDelete,shopId);

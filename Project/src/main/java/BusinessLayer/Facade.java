@@ -199,6 +199,10 @@ public class Facade{
     public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         return userController.addProductToShop(username,shopID,name,manufacturer,desc,productID,quantity,price);
     }
+    public boolean setCategory(SubscribedUser user,int productId, String category, int shopID) throws NoPermissionException {
+        return userController.setCategory(user, productId, category, shopID);
+    }
+
 
     public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
         return userController.reopenShop(userName,shopID);
@@ -269,8 +273,8 @@ public class Facade{
         return userController.createProductQuantityInPriceDiscount(currUser,productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
-        return userController.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId);
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return userController.createRelatedGroupDiscount(currUser,category, discount, connectId, shopId);
     }
 
     public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
@@ -317,6 +321,14 @@ public class Facade{
         return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
     }
 
+    public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return userController.createValidateCategoryPurchase(currUser,category, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateUserPurchase(SubscribedUser currUser,int age, int connectId, int shopId) throws NoPermissionException {
+        return userController.createValidateUserPurchase(currUser,age,connectId,shopId);
+    }
+
     public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return userController.createPurchaseAndPolicy(currUser,policy, conncectId, shopId);
     }
@@ -326,12 +338,12 @@ public class Facade{
     }
 
 
-    public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
-        return userController.removeDiscount(currUser,discountRules,shopId);
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return userController.removeDiscount(currUser,discountID,shopId);
     }
 
-    public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
-        return userController.removePredicate(currUser,discountPred,shopId);
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return userController.removePredicate(currUser,predID,shopId);
     }
     public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);

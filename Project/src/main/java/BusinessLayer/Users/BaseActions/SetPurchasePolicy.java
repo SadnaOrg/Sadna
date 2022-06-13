@@ -28,8 +28,8 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addDiscount(conncectId, new ProductQuantityInPriceDiscount(productID, quantity, priceForQuantity));
     }
 
-    public int createRelatedGroupDiscount(Collection<Integer> relatedProducts, double discount, int conncectId) {
-        return shop.addDiscount(conncectId, new RelatedGroupDiscount(relatedProducts, discount));
+    public int createRelatedGroupDiscount(String category, double discount, int conncectId) {
+        return shop.addDiscount(conncectId, new RelatedGroupDiscount(category, discount));
     }
 
     public int createShopDiscount(int basketQuantity, double discount, int conncectId) {
@@ -76,7 +76,17 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
     }
 
-    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
+    public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int conncectId) {
+        return shop.addPurchasePolicy(conncectId, new ValidateCategoryPurchase(category,productQuantity,cantbemore));
+    }
+
+    public int createValidateUserPurchase(int age, int connectId) {
+        return shop.addPurchasePolicy(connectId, new ValidateUserPurchase(age));
+
+    }
+
+
+        public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new PurchaseAndPolicy(policy));
     }
 
@@ -85,12 +95,12 @@ public class SetPurchasePolicy extends BaseAction {
     }
 
 
-    public boolean removeDiscount(DiscountRules discountRules) {
-        return shop.removeDiscount(discountRules);
+    public boolean removeDiscount(int ID) {
+        return shop.removeDiscount(ID);
     }
 
-    public boolean removePredicate(DiscountPred discountPred) {
-        return shop.removePredicate(discountPred);
+    public boolean removePredicate(int ID) {
+        return shop.removePredicate(ID);
     }
 
     public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {

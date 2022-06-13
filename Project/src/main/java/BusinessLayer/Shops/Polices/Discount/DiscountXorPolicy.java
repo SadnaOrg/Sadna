@@ -92,8 +92,15 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         tieBreakers.add(discountPred);
     }
     @Override
-    public boolean remove(DiscountPred discountPred) {
-        return tieBreakers.remove(discountPred);
+    public boolean remove(int ID) {
+        for (DiscountPred pred:
+                tieBreakers) {
+            if(pred.getID() == ID){
+                tieBreakers.remove(pred);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -118,16 +125,16 @@ public class DiscountXorPolicy implements LogicDiscountRules{
     }
 
     @Override
-    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+    public boolean removeSonDiscount(int ID) {
         if (discountRules1 instanceof NumericDiscountRules)
-            return ((NumericDiscountRules) discountRules1).removeSonDiscount(removeFromConnectId);
+            return ((NumericDiscountRules) discountRules1).removeSonDiscount(ID);
         if (discountRules1 instanceof LogicDiscountRules)
-            return ((LogicDiscountRules) discountRules1).removeSonDiscount(removeFromConnectId);
+            return ((LogicDiscountRules) discountRules1).removeSonDiscount(ID);
 
         if (discountRules2 instanceof NumericDiscountRules)
-            return ((NumericDiscountRules) discountRules2).removeSonDiscount(removeFromConnectId);
+            return ((NumericDiscountRules) discountRules2).removeSonDiscount(ID);
         if (discountRules2 instanceof LogicDiscountRules)
-            return ((LogicDiscountRules) discountRules2).removeSonDiscount(removeFromConnectId);
+            return ((LogicDiscountRules) discountRules2).removeSonDiscount(ID);
         return false;
     }
 
@@ -147,17 +154,17 @@ public class DiscountXorPolicy implements LogicDiscountRules{
     }
 
     @Override
-    public boolean removeSonPredicate(DiscountPred discountPred) {
+    public boolean removeSonPredicate(int ID) {
         for (DiscountPred discountPred1 :tieBreakers) {
-            if (discountPred1.getID() == discountPred.getID()) {
-                return remove(discountPred);
+            if (discountPred1.getID() == ID) {
+                return remove(ID);
             }
         }
         boolean temp = false ;
         if(discountRules1 instanceof NumericDiscountRules ||discountRules1 instanceof LogicDiscountRules)
-            temp = (discountRules1.removeSonPredicate(discountPred));
+            temp = (discountRules1.removeSonPredicate(ID));
         if(discountRules2 instanceof NumericDiscountRules ||discountRules2 instanceof LogicDiscountRules)
-            temp = (discountRules2.removeSonPredicate(discountPred));
+            temp = (discountRules2.removeSonPredicate(ID));
         return temp;
     }
 }

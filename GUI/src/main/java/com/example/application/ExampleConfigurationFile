@@ -1,0 +1,7 @@
+Lord Of The Ring : {}
+Login as guest : {}
+Register : {"name" : "maor","password" : "maor","bDay" : "1-01-2000"}
+Login : {"username": "maor" , "password" : "maor"}
+Open shop : {"name": "maor's shop" , "description" : "the best shop in the world"}
+Add product to shop : { "shop": 0 ,"product_name": "banana","product_description":"yellow and good banana","manufacture": "yammy banani","productID": 1,"quantity":4000,"price": 4.5}
+Logout : {}

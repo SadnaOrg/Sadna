@@ -20,4 +20,5 @@ public record DiscountAndPolicy(int connectId, Collection<ServiceLayer.Objects.P
         this(connectId,new ArrayList<>(),discountPolicy);
     }
 
+
 }

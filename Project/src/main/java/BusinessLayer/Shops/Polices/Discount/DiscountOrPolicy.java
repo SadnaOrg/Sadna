@@ -49,8 +49,15 @@ public class DiscountOrPolicy implements LogicDiscountRules{
         discountPreds.add(discountPred);
     }
     @Override
-    public boolean remove(DiscountPred discountPred) {
-        return discountPreds.remove(discountPred);
+    public boolean remove(int ID) {
+        for (DiscountPred pred:
+                discountPreds) {
+            if(pred.getID() == ID){
+                discountPreds.remove(pred);
+                return true;
+            }
+        }
+        return false;
     }
 
     public NumericDiscountRules getNumericRule(int searchConnectId) {
@@ -87,11 +94,11 @@ public class DiscountOrPolicy implements LogicDiscountRules{
 
 
     @Override
-    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+    public boolean removeSonDiscount(int ID) {
         if (discountPolicy instanceof NumericDiscountRules)
-            return ((NumericDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+            return ((NumericDiscountRules) discountPolicy).removeSonDiscount(ID);
         if (discountPolicy instanceof LogicDiscountRules)
-            return ((LogicDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+            return ((LogicDiscountRules) discountPolicy).removeSonDiscount(ID);
         return false;
     }
 
@@ -106,15 +113,15 @@ public class DiscountOrPolicy implements LogicDiscountRules{
     }
 
     @Override
-    public boolean removeSonPredicate(DiscountPred discountPred) {
+    public boolean removeSonPredicate(int ID) {
         for (DiscountPred discountPred1 :discountPreds) {
-            if (discountPred1.getID() == discountPred.getID()) {
-                return remove(discountPred);
+            if (discountPred1.getID() == ID) {
+                return remove(ID);
             }
         }
         boolean temp = false ;
         if(discountPolicy instanceof NumericDiscountRules ||discountPolicy instanceof LogicDiscountRules)
-            temp = (discountPolicy.removeSonPredicate(discountPred));
+            temp = (discountPolicy.removeSonPredicate(ID));
         return temp;
     }
 }
