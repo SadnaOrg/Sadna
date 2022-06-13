@@ -65,7 +65,7 @@ public class UserController {
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
         double price = ShopController.getInstance().getProductPrice(shopId, productId);
         if (price != -1) {
-            if (u.saveProducts(shopId, productId, quantity, price)) {
+            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
                 if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }

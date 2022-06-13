@@ -77,7 +77,7 @@ public class ShopControllerTest {
 
     @Test
     public void purchaseBasket() {
-        basket.saveProducts(productID, 10,p1.getPrice());
+        basket.saveProducts(productID, 10,p1.getPrice(),"meow");
         sc.AddBasket(shopID, userName, basket);
         Assert.assertEquals(50.0, sc.purchaseBasket(uc.getUser(userName)).get(shopID), 0.0);
     }
