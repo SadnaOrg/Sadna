@@ -65,7 +65,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createDiscountAndPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Response<Integer> createDiscountAndPolicy(DiscountPred discountPred, int connectId, int shopId);
+    Response<Integer> createDiscountAndPolicy(DiscountRules discountPolicy, int connectId, int shopId);
 
     Response<Integer> createDiscountMaxPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  ;
 
@@ -73,7 +73,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer>  createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId) ;
 
-    Response<Integer> createDiscountOrPolicy(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int connectId, int shopId);
+    Response<Integer> createDiscountOrPolicy(DiscountRules discountPolicy, int connectId, int shopId);
 
     Response<Integer>  createDiscountPlusPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules discountPolicy, int connectId, int shopId)  ;
 
@@ -81,7 +81,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createDiscountXorPolicy(ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules1, ServiceLayer.Objects.Policies.Discount.DiscountRules  discountRules2, DiscountPred tieBreaker, int connectId, int shopId)  ;
 
-    Response<Integer> createDiscountXorPolicy(DiscountPred tieBreaker, int connectId, int shopId);
+    Response<Integer> createDiscountXorPolicy(DiscountRules discountRules1, DiscountRules discountRules2, int connectId, int shopId);
 
     Response<Integer>  createValidateBasketQuantityDiscount(int basketquantity, boolean cantBeMore , int connectId, int shopId)  ;
 

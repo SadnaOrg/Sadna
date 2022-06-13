@@ -19,7 +19,9 @@ public class DiscountMaxPolicy implements NumericDiscountRules{
 
     public DiscountMaxPolicy(DiscountRules discountPolicy) {
         this.discountPolicies= new ArrayList<>();
-        this.discountPolicies.add(discountPolicy);
+        if(discountPolicy != null) {
+            this.discountPolicies.add(discountPolicy);
+        }
         this.connectId = atomicconnectId.incrementAndGet();
     }
 

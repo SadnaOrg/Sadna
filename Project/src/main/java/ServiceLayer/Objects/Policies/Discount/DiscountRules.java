@@ -107,8 +107,8 @@ public interface DiscountRules{
                             rules);
         }
 
-
-        throw new IllegalStateException("can't be other then the known ones");
+        return null;
+//        throw new IllegalStateException("can't be other then the known ones");
     }
 
     static DiscountRules makeServiceRule(BusinessLayer.Shops.Polices.Discount.DiscountRules discountRules)
@@ -149,6 +149,8 @@ public interface DiscountRules{
         {
             return new DiscountPlusPolicy((BusinessLayer.Shops.Polices.Discount.DiscountPlusPolicy)discountRules);
         }
-        throw new IllegalStateException("can't be other then the known ones");
+
+        return null;
+//        throw new IllegalStateException("can't be other then the known ones");
     }
 }

@@ -1,12 +1,16 @@
 package com.example.application.views.main.Discount;
 
 import ServiceLayer.Objects.Policies.Discount.*;
+import ServiceLayer.Objects.Policies.Discount.ProductByQuantityDiscount;
+import ServiceLayer.Objects.Policies.Discount.ProductDiscount;
+import ServiceLayer.Objects.Policies.Discount.ProductQuantityInPriceDiscount;
+import ServiceLayer.Objects.Policies.Discount.ShopDiscount;
 import ServiceLayer.Objects.Product;
-import ServiceLayer.Objects.Shop;
 import ServiceLayer.Response;
 import ServiceLayer.interfaces.SubscribedUserService;
-import com.example.application.views.main.Discount.DiscountPolicies.DiscountPolicy;
-import com.example.application.views.main.Discount.DiscountPolicies.PlusDiscount;
+import com.example.application.views.main.Discount.DiscountPolicies.*;
+import com.example.application.views.main.Discount.DiscountPred.DiscountPred;
+import com.example.application.views.main.Discount.DiscountPred.DiscountPredCreator;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -40,6 +44,42 @@ public class DiscountContentCreator {
         return button;
     }
 
+    public Component createMaxDiscount(int parentId) {
+        Button button = new Button("Create Max Discount");
+        button.addClickListener(e -> {
+            var res = service.createDiscountMaxPolicy(parentId, shopId);
+            validateResult(res, "Added Max Discount Successfully!");
+        });
+        return button;
+    }
+
+    public Component createAndDiscount(int parentId) {
+        Button button = new Button("Create And Discount");
+        button.addClickListener(e -> {
+            var res = service.createDiscountAndPolicy(null, parentId, shopId);
+            validateResult(res, "Added And Discount Successfully!");
+        });
+        return button;
+    }
+
+    public Component createOrDiscount(int parentId) {
+        Button button = new Button("Create Or Discount");
+        button.addClickListener(e -> {
+            var res = service.createDiscountOrPolicy(null, parentId, shopId);
+            validateResult(res, "Added Or Discount Successfully!");
+        });
+        return button;
+    }
+
+    public Component createXorDiscount(int parentId) {
+        Button button = new Button("Create Xor Discount");
+        button.addClickListener(e -> {
+            var res = service.createDiscountXorPolicy(null, null, parentId, shopId);
+            validateResult(res, "Added Xor Discount Successfully!");
+        });
+        return button;
+    }
+
     public Component createShopDiscount(int parentId) {
         VerticalLayout layout = new VerticalLayout();
         NumberField amount = createNumberField("Enter a discount between 0-100", 100);
@@ -52,6 +92,25 @@ public class DiscountContentCreator {
             }
         });
         layout.add(amount, basketCount, button);
+        return layout;
+    }
+
+    public Component createProductByQuantityDiscount(int parentId) {
+        VerticalLayout layout = new VerticalLayout();
+        NumberField priceField = createNumberField("Enter price", -1);
+        IntegerField quantityField = createIntegerField("Enter product quantity");
+        Select<Integer> selectProduct = createShopSelect();
+        Button button = new Button("Create Product by Quantity Discount");
+        priceField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
+        quantityField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
+        selectProduct.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
+        button.addClickListener(e -> {
+            if(priceField.getValue() != null && quantityField.getValue() != null && selectProduct.getValue() != null) {
+                var res = service.createProductByQuantityDiscount(selectProduct.getValue(), quantityField.getValue(), priceField.getValue(), parentId, shopId);
+                validateResult(res, "Added Product By Discount Successfully!");
+            }
+        });
+        layout.add(priceField, quantityField, selectProduct, button);
         return layout;
     }
 
@@ -84,7 +143,7 @@ public class DiscountContentCreator {
         button.addClickListener(e -> {
             if(priceField.getValue() != null && selectProduct.getValue() != null) {
                 var res = service.createProductDiscount(selectProduct.getValue(), priceField.getValue(), parentId, shopId);
-                validateResult(res, "Added Shop Discount Successfully!");
+                validateResult(res, "Added Product Discount Successfully!");
             }
         });
         layout.add(priceField, selectProduct, button);
@@ -150,8 +209,8 @@ public class DiscountContentCreator {
     }
 
     public DiscountPolicy getDiscounts(DiscountRules discountRules, int parentId){
-        if(discountRules instanceof ProductByQuantityDiscount) {
-            //((ProductByQuantityDiscount)discountRules)
+        if(discountRules instanceof ProductByQuantityDiscount discount) {
+            return new com.example.application.views.main.Discount.DiscountPolicies.ProductByQuantityDiscount(service, shopId, parentId, discount.productId(), discount.productQuantity(), discount.discount());
         }
 
         else if(discountRules instanceof ProductDiscount discount) {
@@ -166,28 +225,62 @@ public class DiscountContentCreator {
             return new com.example.application.views.main.Discount.DiscountPolicies.ShopDiscount(service, shopId, parentId, discount.discount(), discount.basketQuantity());
         }
 
-        else if(discountRules instanceof DiscountAndPolicy) {
-
+        else if(discountRules instanceof DiscountAndPolicy discount) {
+            List<DiscountPred> preds = new ArrayList<>();
+            for(ServiceLayer.Objects.Policies.Discount.DiscountPred pred : discount.discountPreds()) {
+                preds.add(getPreds(pred, discount.connectId()));
+            }
+            return new AndDiscount(service, shopId, parentId, preds, getDiscounts(discount.discountPolicy()));
         }
 
-        else if(discountRules instanceof DiscountOrPolicy) {
-
+        else if(discountRules instanceof DiscountOrPolicy discount) {
+            List<DiscountPred> preds = new ArrayList<>();
+            for(ServiceLayer.Objects.Policies.Discount.DiscountPred pred : discount.discountPreds()) {
+                preds.add(getPreds(pred, discount.connectId()));
+            }
+            return new OrDiscount(service, shopId, parentId, preds, getDiscounts(discount.discountPolicy()));
         }
 
-        else if(discountRules instanceof DiscountXorPolicy) {
-
+        else if(discountRules instanceof DiscountXorPolicy discount) {
+            List<DiscountPred> preds = new ArrayList<>();
+            for(ServiceLayer.Objects.Policies.Discount.DiscountPred pred : discount.tieBreakers()) {
+                preds.add(getPreds(pred, discount.connectId()));
+            }
+            return new XorDiscount(service, shopId, parentId, preds, getDiscounts(discount.discountRules1()), getDiscounts(discount.discountRules2()));
         }
 
-        else if(discountRules instanceof DiscountMaxPolicy) {
-
+        else if(discountRules instanceof DiscountMaxPolicy discount) {
+            List<DiscountPolicy> rules = new ArrayList<>();
+            for(DiscountRules rule : discount.discountPolicies()){
+                rules.add(getDiscounts(rule));
+            }
+            return new MaxDiscount(service, shopId, parentId, rules);
         }
 
         else if(discountRules instanceof DiscountPlusPolicy discount) {
             List<DiscountPolicy> rules = new ArrayList<>();
             for(DiscountRules rule : discount.discountPolicies()){
-                rules.add(getDiscounts(rule, findParentId(rule)));
+                rules.add(getDiscounts(rule));
             }
             return new PlusDiscount(service, shopId, parentId, rules);
+        }
+        return null;
+    }
+
+
+    private DiscountPolicy getDiscounts(DiscountRules rule) {
+        return getDiscounts(rule, findParentId(rule));
+    }
+
+    private DiscountPred getPreds(ServiceLayer.Objects.Policies.Discount.DiscountPred discountPred, int parentId) {
+        if(discountPred instanceof ValidateBasketQuantityDiscount pred){
+            return new com.example.application.views.main.Discount.DiscountPred.ValidateBasketQuantityDiscount(service, shopId, parentId, pred.basketquantity(), pred.cantBeMore(), pred.ruleId());
+        }
+        else if(discountPred instanceof ValidateBasketValueDiscount pred){
+            return new com.example.application.views.main.Discount.DiscountPred.ValidateBasketValueDiscount(service, shopId, parentId, pred.basketvalue(), pred.cantBeMore(), pred.ruleId());
+        }
+        else if(discountPred instanceof ValidateProductQuantityDiscount pred){
+            return new com.example.application.views.main.Discount.DiscountPred.ValidateProductQuantityDiscount(service, shopId, parentId, pred.productId(), pred.productQuantity(), pred.cantbemore(), pred.ruleId());
         }
         return null;
     }

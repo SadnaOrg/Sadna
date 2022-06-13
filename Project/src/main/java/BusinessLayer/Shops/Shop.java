@@ -268,7 +268,16 @@ public class Shop {
                                               // depending on the rule. composite discount -> connectID , leaf discount -> discountID
             }
             else
-                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
+            {
+                LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
+                if (logicDiscountRules != null){
+                    logicDiscountRules.setPolicy(discountRules);
+                    id = discountRules.getID(); // this will return either the connectID or the discountID
+                    // depending on the rule. composite discount -> connectID , leaf discount -> discountID
+                }
+            }
+//            else
+//                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
         }
         else
         {
