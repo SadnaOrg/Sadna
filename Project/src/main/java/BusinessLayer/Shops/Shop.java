@@ -217,6 +217,7 @@ public class Shop {
         return totalPrice;
     }
 
+
     public int getId() {
         return id;
     }

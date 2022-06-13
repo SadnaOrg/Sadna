@@ -132,7 +132,16 @@ public class Facade{
         return prices.values().stream().reduce(0.0, Double::sum);
     }
 
-    public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {
+    public double getCartPrice(User currUser) {
+        return shopController.getCartPrice(currUser);
+
+    }
+    public double getBasketPrice(User currUser, int shopid) {
+        return shopController.getBasketPrice(shopid,currUser);
+    }
+
+
+        public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {
         return  userController.getShopsAndUsersInfo(currUser,shop,userName);
     }
 
