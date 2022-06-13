@@ -1,46 +1,28 @@
-יוני 13, 2022 2:51:06 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:43:54 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:51:06 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:43:54 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:51:07 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:43:55 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:08 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:43:57 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 5:43:58 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 5:43:58 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:51:08 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:51:08 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:01 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:11 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:13 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:30 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:51:30 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:51:30 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:33 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:39 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:51:42 לפנה״צ ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-יוני 13, 2022 2:51:42 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:52:05 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:53:23 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:53:38 לפנה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 13, 2022 2:53:38 לפנה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 13, 2022 2:53:39 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:54:05 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:54:26 לפנה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 13, 2022 2:55:32 לפנה״צ ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-יוני 13, 2022 2:55:32 לפנה״צ ServiceLayer.Log error
+יוני 13, 2022 5:44:47 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
