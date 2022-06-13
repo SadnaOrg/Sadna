@@ -4,8 +4,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Discount.ProductByQuantityDiscount;
-import BusinessLayer.Shops.Polices.Purchase.ValidateProductPurchase;
-import BusinessLayer.Shops.Polices.Purchase.ValidateTImeStampPurchase;
+import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
@@ -92,7 +91,6 @@ public class ShopAdministrator {
         else throw new NoPermissionException("you don't have permission to do that!");
     }
 
-
     public void addAppoint(ShopAdministrator admin) {
         if (checkForCycles(admin))
             throw new IllegalStateException("cyclic appointment!");
@@ -175,11 +173,6 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("don't have permission to remove appointments!");
     }
 
-    public SubscribedUser getSubscribed() {
-        return this.user;
-    }
-
-
     public int createProductByQuantityDiscount(int productId, int productQuantity, double discount, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
 
@@ -225,18 +218,26 @@ public class ShopAdministrator {
     }
     public int createDiscountMaxPolicy(DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createDiscountMaxPolicy(discountPolicy, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
-
     }
+
     public int createDiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createDiscountOrPolicy(discountPred, discountPolicy, conncectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
-
     }
+    public boolean removeShopOwner(SubscribedUser toRemove) throws NoPermissionException {
+        if(this.action.containsKey(BaseActionType.REMOVE_SHOP_OWNER)){
+            return ((RemoveShopOwner)action.get(BaseActionType.REMOVE_SHOP_OWNER)).act(toRemove);
+        }
+        else throw new NoPermissionException("don't have permission to remove appointments!");
+    }
+
+    public SubscribedUser getSubscribed(){
+        return this.user;
+    }
+
 
     public int createDiscountPlusPolicy(DiscountRules discountPolicy,int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
@@ -289,6 +290,19 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
+
+    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createPurchaseAndPolicy(policy, conncectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public int createPurchaseOrPolicy(PurchasePolicy policy,int conncectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createPurchaseOrPolicy(policy, conncectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
     public boolean removeDiscount(DiscountRules discountRules) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removeDiscount(discountRules);
@@ -298,6 +312,24 @@ public class ShopAdministrator {
     public boolean removePredicate(DiscountPred discountPred) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePredicate(discountPred);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+
+    }
+    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).removePurchasePolicy(purchasePolicyToDelete);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public DiscountRules getDiscount() throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).getDiscount();
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public PurchasePolicy getPurchasePolicy() throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).getPurchasePolicy();
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }

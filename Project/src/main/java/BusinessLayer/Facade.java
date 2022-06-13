@@ -6,6 +6,7 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
@@ -14,10 +15,13 @@ import BusinessLayer.System.System;
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Facade{
     private final UserController userController = UserController.getInstance();
@@ -55,11 +59,15 @@ public class Facade{
     }
 
     public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
-        return userController.changeManagerPermission(currUser,shop,userNameToAssign,types);
+        return notifyUsers(userController.changeManagerPermission(currUser,shop,userNameToAssign,types),
+                toCollection(userNameToAssign),
+                currUser.getUserName()+" has change your permission as administrator of shop "+shop+" to"+types.toString());
     }
 
     public boolean closeShop(SubscribedUser currUser, int shop) throws NoPermissionException {
-        return  userController.closeShop(currUser,shop);
+        return  notifyUsers(userController.closeShop(currUser,shop),
+                getSystemManagersAndShopAdmins(shop),
+                currUser.getUserName()+" has close the shop "+shop);
     }
 
     public Collection<AdministratorInfo> getAdministratorInfo(SubscribedUser currUser, int shop) throws NoPermissionException {
@@ -78,8 +86,8 @@ public class Facade{
         return userController.logoutSystem(currUser.getUserName());
     }
 
-    public boolean registerToSystem(String userName, String password) {
-        return userController.registerToSystem(userName,password);
+    public boolean registerToSystem(String userName, String password, Date date) {
+        return userController.registerToSystem(userName,password,date);
     }
 
     public SubscribedUser login(String username, String password,User currUser) {
@@ -92,6 +100,10 @@ public class Facade{
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
         return shopController.searchProducts(shopPred,productPred);
+    }
+
+    public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username){
+        return shopController.searchShops(shopPred, username);
     }
 
     public boolean saveProducts(User currUser, int shopId, int productId, int quantity) {
@@ -112,7 +124,7 @@ public class Facade{
 
 // TODO: fix
     public double purchaseCartFromShop(User currUser, PaymentMethod method) {
-        ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser.getName());
+        ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser);
         ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
             return 0;
@@ -155,23 +167,33 @@ public class Facade{
     }
 
     public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
-        return userController.updateProductQuantity(username,shopID,productID,newQuantity);
+        return notifyUsers(userController.updateProductQuantity(username,shopID,productID,newQuantity),
+                getShopAdmins(shopID),
+                "product "+productID+" from shop "+shopID+" quantity has change to: "+newQuantity);
     }
 
     public boolean updateProductPrice(String username,int shopID, int productID, double newPrice) throws NoPermissionException {
-        return userController.updateProductPrice(username,shopID,productID,newPrice);
+        return notifyUsers(userController.updateProductPrice(username,shopID,productID,newPrice),
+                getShopAdmins(shopID),
+                "product "+productID+" from shop "+shopID+" price has change to: "+newPrice);
     }
 
     public boolean updateProductDescription(String username,int shopID, int productID, String Desc) throws NoPermissionException {
-        return userController.updateProductDescription(username,shopID,productID,Desc);
+        return notifyUsers(userController.updateProductDescription(username,shopID,productID,Desc),
+                getShopAdmins(shopID),
+                "product "+productID+" from shop "+shopID+" description has change to: "+Desc);
     }
 
     public boolean updateProductName(String username,int shopID, int productID, String newName) throws NoPermissionException {
-        return userController.updateProductName(username,shopID,productID,newName);
+        return notifyUsers(userController.updateProductName(username,shopID,productID,newName),
+                getShopAdmins(shopID),
+                "product "+productID+" from shop "+shopID+" name has change to "+newName);
     }
 
     public boolean deleteProductFromShop(String username,int shopID, int productID) throws NoPermissionException {
-        return userController.deleteProductFromShop(username,shopID,productID);
+        return notifyUsers(userController.deleteProductFromShop(username,shopID,productID),
+                getShopAdmins(shopID),
+                "product "+productID+" from shop "+shopID+" got deleted");
     }
 
     public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
@@ -187,7 +209,9 @@ public class Facade{
     }
 
     public Boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        return userController.removeAdmin(shopID,requesting,toRemove);
+        return  notifyUsers(userController.removeAdmin(shopID,requesting,toRemove),
+                toCollection(toRemove),
+                requesting+": has remove u as administrating the shop "+shopID);
     }
     public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
         return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
@@ -196,8 +220,40 @@ public class Facade{
         return userController.getSubscribedUserInfo(userName);
     }
 
+    public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        return userController.removeShopOwner(shopID, requesting, toRemove);
+    }
+
     private static class FacadeHolder{
-        private static Facade facade= new Facade();
+        private static final Facade facade= new Facade();
+    }
+
+    private <T> T notifyUsers(T toReturn,Collection<String> users,String content){
+        system.getNotifier().addNotification(new ConcreteNotification(users,content));
+        return toReturn;
+    }
+
+    private Collection<String> toCollection(String s){
+        var x = new ConcurrentLinkedDeque<String>();
+        x.add(s);
+        return x;
+    }
+    private Collection<String> getFounder(int shopID){
+        return toCollection(shopController.getShops().get(shopID).getFounder().getUserName());
+    }
+    private Collection<String> getOwners(int shopID){
+        return shopController.getShops().get(shopID).getShopAdministrators().stream().filter(s->s instanceof ShopOwner).map(ShopAdministrator::getUserName).collect(Collectors.toList());
+    }
+    private Collection<String> getShopAdmins(int shopID){
+        return shopController.getShops().get(shopID).getShopAdministrators().stream().map(ShopAdministrator::getUserName).collect(Collectors.toList());
+    }
+    private Collection<String> getSystemManagers(){
+        return userController.getSysManagers().stream().map(User::getUserName).collect(Collectors.toList());
+    }
+    private Collection<String> getSystemManagersAndShopAdmins(int shopID){
+        var c = getShopAdmins(shopID);
+        c.addAll(getSystemManagers());
+        return c;
     }
 
 
@@ -260,6 +316,16 @@ public class Facade{
     public int createValidateTImeStampPurchase(SubscribedUser currUser, LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
         return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
     }
+
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createPurchaseAndPolicy(currUser,policy, conncectId, shopId);
+    }
+
+    public int createPurchaseOrPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createPurchaseOrPolicy(currUser,policy, conncectId, shopId);
+    }
+
+
     public boolean removeDiscount(SubscribedUser currUser,DiscountRules discountRules, int shopId) throws NoPermissionException {
         return userController.removeDiscount(currUser,discountRules,shopId);
     }
@@ -267,4 +333,18 @@ public class Facade{
     public boolean removePredicate(SubscribedUser currUser,DiscountPred discountPred, int shopId) throws NoPermissionException {
         return userController.removePredicate(currUser,discountPred,shopId);
     }
+    public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);
+    }
+
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getDiscount(currUser,shopId);
+    }
+
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return userController.getPurchasePolicy(currUser,shopId);
+    }
+
 }
+
+

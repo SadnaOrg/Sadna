@@ -2,6 +2,7 @@ package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -12,6 +13,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -22,12 +24,14 @@ public class SubscribedUser extends User {
     private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
     private String hashedPassword;
     private Map<Integer,ShopAdministrator> shopAdministrator;
+    private Date birthDate;
     private boolean is_login = false;
 
-    public SubscribedUser(String userName,String password) {
+    public SubscribedUser(String userName,String password,Date birthDate) {
         super(userName);
         shopAdministrator = new ConcurrentHashMap<>();
         hashedPassword = GFG2.Hash(password);
+        this.birthDate =birthDate;
     }
 
     public boolean login(String userName,String password) {
@@ -123,6 +127,12 @@ public class SubscribedUser extends User {
         validatePermission(shopID);
         ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
         return admin.removeAdmin(toRemove);
+    }
+
+    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
+        validatePermission(shopID);
+        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
+        return admin.removeShopOwner(toRemove);
     }
 
     public void removeMyRole(int id) {
@@ -221,6 +231,18 @@ public class SubscribedUser extends User {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
+
+    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
+    }
+
+    public synchronized int createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createPurchaseOrPolicy(policy, conncectId);
+    }
+
+
     public synchronized boolean removeDiscount(DiscountRules discountRules, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removeDiscount(discountRules);
@@ -228,6 +250,20 @@ public class SubscribedUser extends User {
     public synchronized boolean removePredicate(DiscountPred discountPred, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removePredicate(discountPred);
+    }
+    public synchronized boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).removePurchasePolicy(purchasePolicyToDelete);
+    }
+
+    public synchronized DiscountRules getDiscount(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getDiscount();
+    }
+
+    public synchronized PurchasePolicy getPurchasePolicy(int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).getPurchasePolicy();
     }
 
 

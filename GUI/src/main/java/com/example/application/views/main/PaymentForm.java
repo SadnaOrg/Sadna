@@ -40,7 +40,8 @@ public class PaymentForm extends FormLayout {
 
     Binder<PaymentMethod> binder;
 
-    public PaymentForm(){
+    public PaymentForm(UserService service){
+        this.service = service;
         binder = new BeanValidationBinder<>(PaymentMethod.class);
         binder.bindInstanceFields(this);
         this.service = (UserService)Load("service");
@@ -61,6 +62,7 @@ public class PaymentForm extends FormLayout {
         binder.addStatusChangeListener(evt -> payButton.setEnabled(binder.isValid()));
         binder.setBean(method);
         add(creditCardNumber, cvv, month, year, payButton);
+
     }
 
     private void validateAndPay() {
@@ -131,6 +133,8 @@ public class PaymentForm extends FormLayout {
                 dialog.close();
                 UI.getCurrent().getPage().reload();
             });
+            dialog.setCloseOnEsc(false);
+            dialog.setCloseOnOutsideClick(false);
             dialog.add(layout);
             dialog.open();
         }

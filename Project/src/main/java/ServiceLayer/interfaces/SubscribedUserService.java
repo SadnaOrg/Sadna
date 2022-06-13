@@ -1,14 +1,17 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
+import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 public interface SubscribedUserService extends UserService {
 
@@ -80,4 +83,21 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
+    Result removeShopOwner(int shopId, String toRemove);
+
+    Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);
+
+    Response<Boolean> removeDiscount(BusinessLayer.Users.SubscribedUser currUser, DiscountRules discountRules, int shopId);
+
+    Response<Boolean> removePredicate(BusinessLayer.Users.SubscribedUser currUser, DiscountPred discountPred, int shopId);
+
+    Response<Boolean> removePurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) ;
+
+    Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId);
+
+    Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId);
+
+    Response<DiscountRules> getDiscount(BusinessLayer.Users.SubscribedUser currUser, int shopId);
+
+    Response<PurchasePolicy> getPurchasePolicy(BusinessLayer.Users.SubscribedUser currUser, int shopId);
 }

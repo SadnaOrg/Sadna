@@ -1,6 +1,7 @@
 package com.example.application.views.main;
 
 import BusinessLayer.Users.SubscribedUser;
+import ServiceLayer.Objects.Notification;
 import ServiceLayer.Result;
 import ServiceLayer.SubscribedUserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
@@ -14,6 +15,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.UnicastProcessor;
 
 import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Header.SessionData.save;
@@ -39,16 +42,19 @@ public class RegisterView extends Header {
                 notifyError(res.getMsg());
             }
         }
+
     });
 
     private VerticalLayout layout = new VerticalLayout();
 
     public RegisterView() {
+
         service = (UserService)Load("service");
         createButtons();
         setLayout();
         layout.setSizeFull();
         content.add(layout);
+        registerToNotification(service);
     }
 
     private void setLayout() {

@@ -5,6 +5,7 @@ import BusinessLayer.Users.SystemManager;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
@@ -12,6 +13,7 @@ import ServiceLayer.interfaces.UserService;
 import javax.naming.NoPermissionException;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.function.Predicate;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
     SubscribedUser currUser;
@@ -80,6 +82,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Result updateProductQuantity(int shopID, int productID, int newQuantity){
         return ifUserNotNullStockManagement(() -> facade.updateProductQuantity(currUser.getUserName(),shopID,productID,newQuantity), "update product quantity");
+    }
+
+    @Override
+    public Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username){
+        return ifUserNotNullRes(()->new ShopsInfo(facade.searchShops(s -> shopPred.test(new Shop(s)), username)),"search shops succeeded");
     }
 
     @Override
@@ -218,16 +225,53 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
         return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
     }
-    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId) throws NoPermissionException {
+
+    @Override
+    public Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createPurchaseAndPolicy(currUser,
+                PurchasePolicy.makeBusinessPurchasePolicy(policy),
+                conncectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public Response<Integer> createPurchaseOrPolicy(PurchasePolicy policy, int conncectId, int shopId)  {
+        return ifUserNotNullRes(()-> facade.createPurchaseOrPolicy(currUser,
+                PurchasePolicy.makeBusinessPurchasePolicy(policy),
+                conncectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public Response<Boolean> removeDiscount(SubscribedUser currUser, DiscountRules discountRules, int shopId)  {
         return ifUserNotNullRes(()-> facade.removeDiscount(currUser,
                 DiscountRules.makeBusinessRule(discountRules),
                 shopId),"remove purchase policy succeeded");
     }
-
-    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) throws NoPermissionException {
+    @Override
+    public Response<Boolean> removePredicate(SubscribedUser currUser, DiscountPred discountPred, int shopId) {
         return ifUserNotNullRes(()-> facade.removePredicate(currUser,
                 DiscountPred.makeBusinessPred(discountPred),
                 shopId),"remove purchase policy succeeded");
+    }
+    @Override
+    public Response<Boolean> removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) {
+        return ifUserNotNullRes(()-> facade.removePurchasePolicy(currUser,
+                        PurchasePolicy.makeBusinessPurchasePolicy(purchasePolicyToDelete),
+                        shopId)
+        ,"remove purchase policy succeeded");
+    }
+    @Override
+    public Response<DiscountRules> getDiscount(SubscribedUser currUser, int shopId){
+        return ifUserNotNullRes(()-> DiscountRules.makeServiceRule(facade.getDiscount(currUser,shopId)),"here is the discounts");
+    }
+
+    @Override
+    public Response<PurchasePolicy> getPurchasePolicy(SubscribedUser currUser, int shopId) {
+        return ifUserNotNullRes(()-> PurchasePolicy.makeServicePurchasePolicy(facade.getPurchasePolicy(currUser,shopId)),"here is the purchase policies");
+    }
+
+    @Override
+    public Result removeShopOwner(int shopID, String toRemove) {
+        return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }
 
     protected void setCurrUser(SubscribedUser currUser) {

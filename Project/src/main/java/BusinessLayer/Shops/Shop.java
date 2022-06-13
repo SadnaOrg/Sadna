@@ -6,11 +6,9 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
-import BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -125,12 +123,7 @@ public class Shop {
     }
 
     public ConcurrentHashMap<Integer, Product> getProducts() {
-        if (state == State.OPEN)
-            return products;
-        else
-        {
-            throw new IllegalStateException("The shop is closed");
-        }
+        return products;
     }
 
     public Collection<Product> searchProducts(ProductFilters pred)
@@ -341,6 +334,16 @@ public class Shop {
         return id;
     }
 
+    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
+        if (state == State.OPEN) {
+            return purchasePolicy.removeChild(purchasePolicyToDelete);
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
     public String getName() {
         return name;
     }
@@ -372,7 +375,15 @@ public class Shop {
         return state==State.OPEN;
     }
 
-//    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
+    public DiscountRules getDiscounts() {
+        return discounts;
+    }
+
+    public PurchasePolicy getPurchasePolicy() {
+        return purchasePolicy;
+    }
+
+    //    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
 //    {
 //        if (state == State.OPEN) {
 //            if (products.containsKey(productId)) {

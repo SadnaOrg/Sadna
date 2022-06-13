@@ -18,7 +18,7 @@ public class PaymentMethodUnitTest {
 
     @Test
     public void testPayFailureCVVInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", 10, 4, 2032);
+        PaymentMethod method = new PaymentMethod("4580123456789012", 5500, 4, 2032);
         Assert.assertFalse(method.isValidPaymentMethod(month, year));
     }
 

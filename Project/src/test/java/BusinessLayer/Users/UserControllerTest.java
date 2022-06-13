@@ -7,6 +7,8 @@ import BusinessLayer.Shops.ShopController;
 import org.junit.*;
 
 import javax.naming.NoPermissionException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -58,11 +60,11 @@ public class UserControllerTest {
         passWord = "_PW" + userID;
         userLog = "_User_" + userID;
         passLog = "_Pass_" + userID;
-        uc.registerToSystem(userName, passWord);
+        uc.registerToSystem(userName, passWord,new Date(2001, Calendar.DECEMBER,1));
 
         loggedUser = uc.login(userName, passWord, null);
         admin = "admin_userController_Test"+count;
-        uc.createSystemManager(admin,admin);
+        uc.createSystemManager(admin,admin,new Date(2001, Calendar.DECEMBER,1));
 
     }
 
@@ -81,7 +83,7 @@ public class UserControllerTest {
 
         var u = "user______"+(count_ref.incrementAndGet()); //for the cuncarency
         var sm =(SystemManager)uc.login(admin,admin,null);
-        uc.registerToSystem(u,u);
+        uc.registerToSystem(u,u,new Date(2001, Calendar.DECEMBER,1));
         loggedUser=uc.login(u,u,null);
         assertTrue("user does not exist",uc.getSubscribedUserInfo(admin).get(UserController.UserState.LOGGED_IN).contains(loggedUser));
         assertTrue("dont removed user",uc.removeSubscribedUserFromSystem(sm,loggedUser.getName()));
@@ -94,7 +96,7 @@ public class UserControllerTest {
         var u = "user___con___"+(count_ref.incrementAndGet()); //for the cuncarency
         var flag = new AtomicBoolean(false);
         AtomicBoolean suc = new AtomicBoolean(true);
-        uc.registerToSystem(u,u);
+        uc.registerToSystem(u,u,new Date(2001, Calendar.DECEMBER,1));
         loggedUser=uc.login(u,u,null);
         int num = 20;
         Thread[] thread = new Thread[num];
@@ -102,7 +104,7 @@ public class UserControllerTest {
         for (int i = 0; i < num; i++) {
             thread[i] = new Thread(()->{
                 var admin = this.admin+"_con_"+(count_ref.incrementAndGet());
-                uc.createSystemManager(admin,admin);
+                uc.createSystemManager(admin,admin,new Date(2001, Calendar.DECEMBER,1));
                 var sm =(SystemManager)uc.login(admin,admin,null);
                 try {
                     if (uc.removeSubscribedUserFromSystem(sm, loggedUser.getName()))
@@ -173,13 +175,13 @@ public class UserControllerTest {
 
     @Test
     public void createSystemManager() {
-        uc.createSystemManager(userName, passWord);
+        uc.createSystemManager(userName, passWord,new Date(2001, Calendar.DECEMBER,1));
         Assert.assertNotNull(uc.getSysUser(userName));
     }
 
     @Test
     public void registerToSystem() {
-        Assert.assertTrue(uc.registerToSystem(userLog, passLog));
+        Assert.assertTrue(uc.registerToSystem(userLog, passLog,new Date(2001, Calendar.DECEMBER,1)));
         Assert.assertNotNull(uc.getUser(userLog));
         Assert.assertNotNull(uc.getSubUser(userLog));
     }
@@ -266,7 +268,7 @@ public class UserControllerTest {
     private void createFounder() {
         String username = "FounderName" + shopID;
         String password = "FounderPass" + shopID;
-        uc.registerToSystem(username, password);
+        uc.registerToSystem(username, password,new Date(2001, Calendar.DECEMBER,1));
         founder = uc.login(username, password, null);
     }
 
@@ -288,7 +290,7 @@ public class UserControllerTest {
 
     private void createPrerequisitePurchase() {
         saveProducts();
-        sc.purchaseBasket(user.getName());
+        sc.purchaseBasket(user);
         ConcurrentHashMap<Integer, Boolean> paymentSituation = createPayments();
         sc.addToPurchaseHistory(user.getName(), paymentSituation);
         createSystemManager();

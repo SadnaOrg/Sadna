@@ -9,10 +9,7 @@ import ServiceLayer.UserServiceImp;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class UserAdapter implements UserBridge{
     protected HashMap<String, UserService> users;
@@ -58,7 +55,7 @@ public class UserAdapter implements UserBridge{
     public boolean register(String guestname,RegistrationInfo info) {
         if(users.containsKey(guestname)){
             UserService userService = users.get(guestname);
-            Result registered = userService.registerToSystem(info.username,info.password);
+            Result registered = userService.registerToSystem(info.username,info.password,new Date(2001, Calendar.DECEMBER,1));
             return registered.isOk();
         }
         return false;

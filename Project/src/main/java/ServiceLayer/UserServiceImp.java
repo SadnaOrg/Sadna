@@ -7,6 +7,7 @@ import ServiceLayer.Objects.*;;
 import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
+import java.util.Date;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -65,9 +66,9 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Result registerToSystem(String userName, String password){
+    public Result registerToSystem(String userName, String password, Date date){
             if (currUser != null)
-                return Response.tryMakeResult(()-> facade.registerToSystem(userName,password),"register to system succeeded","error in register");
+                return Response.tryMakeResult(()-> facade.registerToSystem(userName,password,date),"register to system succeeded","error in register");
             return Result.makeResult(false, "have to use the system to register!");
     }
 

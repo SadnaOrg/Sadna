@@ -12,6 +12,11 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     private Collection<PurchasePolicy> purchasePolicies;
     private int policyLogicId;
 
+    public PurchaseAndPolicy(Collection<PurchasePolicy> purchasePolicies, int policyLogicId) {
+        this.purchasePolicies = purchasePolicies;
+        this.policyLogicId = policyLogicId;
+    }
+
     public PurchaseAndPolicy() {
         purchasePolicies = new ArrayList<>();
     }
@@ -61,5 +66,28 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     @Override
     public int getID(){
         return this.policyLogicId;
+    }
+    @Override
+    public boolean removeChild(PurchasePolicy policy){
+        for (PurchasePolicy purchasePolicy: purchasePolicies)
+        {
+            if(purchasePolicy.getID() == policy.getID())
+            {
+                return remove(policy);
+            }
+            if(purchasePolicy instanceof LogicPurchasePolicy)
+            {
+                return ((LogicPurchasePolicy) purchasePolicy).removeChild(policy);
+            }
+        }
+        return false;
+    }
+
+    public Collection<PurchasePolicy> getPurchasePolicies() {
+        return purchasePolicies;
+    }
+
+    public int getPolicyLogicId() {
+        return policyLogicId;
     }
 }
