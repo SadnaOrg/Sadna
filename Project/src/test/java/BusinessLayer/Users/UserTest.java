@@ -22,7 +22,7 @@ public class UserTest {
         s1 = createShopWithProduct();
         u1 = createUser();
         assertSame("Yuval", u1.getUserName());
-        u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice());
+        u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice(),"meow");
         assertSame(u1.getProducts(s1.getId()).get(p1.getID()), quantity);
     }
 
@@ -35,7 +35,7 @@ public class UserTest {
     public void testSaveProductsFail() {
         //saving a second time
         try {
-            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice()));
+            assertFalse(u1.saveProducts(s1.getId(), p1.getID(), quantity, p1.getPrice(),"meow"));
         }
         catch(Exception ignored) {
             assertEquals(quantity, (int) u1.getProducts(s1.getId()).get(p1.getID()));

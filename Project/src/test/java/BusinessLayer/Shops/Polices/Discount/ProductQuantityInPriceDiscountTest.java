@@ -26,15 +26,15 @@ public class ProductQuantityInPriceDiscountTest {
 
     @Test
     public void calculateDiscountOneProductDiscount() {
-        basket.saveProducts(1,11,5);
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(1,11,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
         productQuantityInPriceDiscount= new ProductQuantityInPriceDiscount(1,5,20);
         Assert.assertEquals(11*5-(20*2+ 5),productQuantityInPriceDiscount.calculateDiscount(basket),0.1);
     }
 
     @Test
     public void calculateDiscountDifferentProductDiscount() {
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(2,100,15,"meow");
         productQuantityInPriceDiscount= new ProductQuantityInPriceDiscount(1,5,20);
         Assert.assertEquals(0,productQuantityInPriceDiscount.calculateDiscount(basket),0.1);
     }

@@ -51,6 +51,7 @@ public class UserControllerTest {
 
         createFounder();
         p1 = createProduct();
+        p1.setCategory("meow");
         s1 = createShop();
 
         sc.addShop(s1);

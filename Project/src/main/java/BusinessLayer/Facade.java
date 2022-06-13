@@ -199,6 +199,10 @@ public class Facade{
     public boolean addProductToShop(String username,int shopID, String name,String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         return userController.addProductToShop(username,shopID,name,manufacturer,desc,productID,quantity,price);
     }
+    public boolean setCategory(SubscribedUser currUser,int productId, String category, int productID) throws NoPermissionException {
+        return userController.setCategory(currUser, productId, category, productID);
+    }
+
 
     public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
         return userController.reopenShop(userName,shopID);
@@ -269,8 +273,8 @@ public class Facade{
         return userController.createProductQuantityInPriceDiscount(currUser,productID, quantity, priceForQuantity, connectId, shopId);
     }
 
-    public int createRelatedGroupDiscount(SubscribedUser currUser, Collection<Integer> relatedProducts, double discount, int connectId , int shopId) throws NoPermissionException {
-        return userController.createRelatedGroupDiscount(currUser,relatedProducts, discount, connectId, shopId);
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return userController.createRelatedGroupDiscount(currUser,category, discount, connectId, shopId);
     }
 
     public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {

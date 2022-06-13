@@ -69,6 +69,24 @@ public class Shop {
         CLOSED
     }
 
+    public boolean setCategory(int productId, String category)
+    {
+        if (state == State.OPEN) {
+            if(products.containsKey(productId)) {
+                products.get(productId).setCategory(category);
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The product is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
 
     public void addProduct(Product p) {
         if (state == State.OPEN) {

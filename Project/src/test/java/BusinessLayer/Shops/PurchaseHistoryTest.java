@@ -57,7 +57,7 @@ public class PurchaseHistoryTest {
     private User createUserWithItemInBasket(int shopid, int productid, int quantity,double price)
     {
         User u = new Guest("Yuval");
-        u.saveProducts(shopid, productid, quantity,price);
+        u.saveProducts(shopid, productid, quantity,price,"meow");
         return u;
     }
 

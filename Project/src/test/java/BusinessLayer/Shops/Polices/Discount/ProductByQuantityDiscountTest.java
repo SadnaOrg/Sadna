@@ -24,23 +24,23 @@ public class ProductByQuantityDiscountTest {
 
     @Test
     public void calculateDiscountOneProductDiscount() {
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(1,10,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
         productByQuantityDiscount= new ProductByQuantityDiscount(1,5,0.1);
         Assert.assertEquals(0.1*10*5,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }
 
     @Test
     public void calculateDiscountDifferentProductDiscount() {
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(2,100,15,"meow");
         productByQuantityDiscount= new ProductByQuantityDiscount(1,5,0.1);
         Assert.assertEquals(0,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }
 
     @Test
     public void calculateDiscountOneProductDiscountAndIgnoreOther() {
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(1,10,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
         productByQuantityDiscount= new ProductByQuantityDiscount(2,200,0.2);
         Assert.assertEquals(0,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }

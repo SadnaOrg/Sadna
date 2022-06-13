@@ -50,7 +50,7 @@ public interface SubscribedUserBridge extends UserBridge {
 
     Integer createProductQuantityInPriceDiscount(String username, int productID, int quantity, double priceForQuantity, int connectId, int shopId)  ;
 
-    Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId , int shopId)  ;
+    Integer createRelatedGroupDiscount(String username, String category, double discount, int connectId , int shopId)  ;
 
     Integer createShopDiscount(String username, int basketQuantity,double discount,int connectId, int shopId);
 
