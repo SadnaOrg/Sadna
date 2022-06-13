@@ -200,11 +200,13 @@ public class GuestActionView extends Header {
             for (var b : cart.baskets()){
                 var p = createProductInfoGrid();
                 p.setItems(b.productsID());
-                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),p);
+                var v = new VerticalLayout(p, new Label("bascket price :"+service.getBasketPrice(b.shopId()).getElement()));
+                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),v);
                 shopPannel.addThemeVariants(DetailsVariant.FILLED);
                 p.setWidthFull();
             }
-            layout.add(title,accordion);
+            var totalPrice = new Label("total :"+service.getCartPrice().getElement());
+            layout.add(title,accordion,totalPrice);
 
         } else {
             notifyError(cartres.getMsg());
@@ -243,7 +245,6 @@ public class GuestActionView extends Header {
             UI.getCurrent().getPage().reload();
         });
 
-        Button button = new Button("Open confirm dialog");
         var b = new Button(("remove"));
         b.addClickListener(e->{
             dialog.open();
