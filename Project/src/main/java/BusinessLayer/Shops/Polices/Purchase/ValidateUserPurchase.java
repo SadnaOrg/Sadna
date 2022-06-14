@@ -27,7 +27,9 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
     public boolean isValid(User u, Basket basket) {
         if(u instanceof SubscribedUser)
         {
-            return 0>=((SubscribedUser)u).getBirthDate().compareTo(Date.from(Instant.from(LocalDate.now())));
+            int yeardiff =LocalDate.now().getYear() -  ((SubscribedUser)u).getBirthDate().getYear();
+
+            return yeardiff>=age;
         }
         return false;
     }
