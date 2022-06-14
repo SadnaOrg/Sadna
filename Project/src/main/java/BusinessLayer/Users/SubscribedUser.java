@@ -262,7 +262,7 @@ public class SubscribedUser extends User {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removePredicate(ID);
     }
-    public synchronized boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+    public synchronized boolean removePurchasePolicy(int purchasePolicyToDelete, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).removePurchasePolicy(purchasePolicyToDelete);
     }

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SystemManagerAdapter extends SubscribedUserAdapter implements SystemManagerBridge{
     public SystemManagerAdapter(HashMap<String, UserService> guests, HashMap<String, SubscribedUserService> subscribed) {
-        super(guests, subscribed);
+        super(guests, subscribed,null);
     }
 
     @Override

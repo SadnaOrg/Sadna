@@ -6,7 +6,6 @@ import ServiceLayer.interfaces.UserService;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.function.Function;
 
 public class UserProxy implements UserBridge{
     protected UserBridge adapter;
@@ -17,6 +16,10 @@ public class UserProxy implements UserBridge{
 
     public UserProxy(SubscribedUserBridge subscribedUserBridge){
         this.adapter = subscribedUserBridge;
+    }
+
+    public UserProxy(SubscribedUserAdapter subscribedUserAdapter, HashMap<String, List<Notification>> notifications) {
+        adapter = subscribedUserAdapter;
     }
 
     @Override
@@ -85,13 +88,18 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public boolean registerToNotifier(String username,Function<Notification, Boolean> con) {
-        return false;
+    public boolean registerToNotifier(String username) {
+        return adapter.registerToNotifier(username);
     }
 
     @Override
-    public boolean getDelayNotification(String username) {
-        return false;
+    public List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username) {
+        return adapter.getDelayNotification(username);
+    }
+
+    @Override
+    public List<Notification> getNotifications(String username) {
+        return adapter.getNotifications(username);
     }
 
     protected HashMap<String, UserService> getGuests() {
@@ -100,5 +108,9 @@ public class UserProxy implements UserBridge{
 
     protected HashMap<String, SubscribedUserService> getSubscribed() {
         return ((UserAdapter)adapter).getSubscribed();
+    }
+
+    protected HashMap<String,List<Notification>> getNotifications(){
+        return ((UserAdapter)adapter).getUserNotifications();
     }
 }

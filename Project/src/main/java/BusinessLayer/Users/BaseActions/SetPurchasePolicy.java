@@ -103,7 +103,7 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.removePredicate(ID);
     }
 
-    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
+    public boolean removePurchasePolicy(int purchasePolicyToDelete) {
         return shop.removePurchasePolicy(purchasePolicyToDelete);
     }
 

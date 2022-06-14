@@ -35,8 +35,10 @@ public interface UserBridge {
 
     ProductInShop searchProductInShop(String username,int productID, int shopID);
 
-    boolean registerToNotifier(String username,Function<Notification, Boolean> con);
+    boolean registerToNotifier(String username);
 
-    boolean getDelayNotification(String username);
+    List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username);
+
+    List<Notification> getNotifications(String username);
 
 }

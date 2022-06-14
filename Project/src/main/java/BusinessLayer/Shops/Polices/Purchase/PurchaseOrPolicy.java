@@ -57,8 +57,15 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
         this.purchasePolicies.add(purchasePolicy);
     }
 
-    public boolean remove(PurchasePolicy purchasePolicy){
-        return this.purchasePolicies.remove(purchasePolicy);
+    public boolean remove(int purchasePolicy){
+        for (PurchasePolicy p:
+                purchasePolicies) {
+            if(p.getID() == purchasePolicy){
+                purchasePolicies.remove(p);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -67,10 +74,10 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
     }
 
     @Override
-    public boolean removeChild(PurchasePolicy policy){
+    public boolean removeChild(int policy){
         for (PurchasePolicy purchasePolicy: purchasePolicies)
         {
-            if(purchasePolicy.getID() == policy.getID())
+            if(purchasePolicy.getID() == policy)
             {
                 return remove(policy);
             }

@@ -41,7 +41,7 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
     }
 
     @Override
-    public int getID(){return -1;}
+    public int getID(){return policyLogicId;}
 
     public int getAge() {
         return age;
