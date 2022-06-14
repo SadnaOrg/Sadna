@@ -77,7 +77,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.example.application.Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
       <extension name="coverage">
@@ -101,7 +101,7 @@
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="GUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\talgo\Desktop\6th Semester\Workshop\Git\Sadna\GUI\src\main\java\com\example\application\ExampleConfigurationFile&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="src/main/java/com/example/application/ExampleConfigurationFile" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
@@ -116,7 +116,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in GUI" />
-        <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="Application.com.example.application.Application" />
