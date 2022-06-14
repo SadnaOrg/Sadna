@@ -104,20 +104,6 @@ public abstract class UserTests extends ProjectTests {
         filterSearchShopFailure(u.name,shopFailFilters[DESCF_FILTER]);
     }
 
-//    @Test
-//    public void testGetProductsInfoByRatingSuccess() {
-//        List<ProductInShop> expected = new LinkedList<>();
-//        expected.add(new ProductInShop(345,1,100,25,4.2,new Product("jeans","china")));
-//        expected.add(new ProductInShop(1,0,100,35,4.2,new Product("office chair","china")));
-//        expected.add(new ProductInShop(31,2,100,55,4.2,new Product("dumbbell" ,"china")));
-//        filterSearchProductSuccess(productFilters[PRODUCT_RATING_FILTER],expected);
-//    }
-//
-//    @Test
-//    public void testGetProductsInfoByRatingFailure() {
-//        filterSearchProductFailure(productFailFilters[PRODUCT_RATINGF_FILTER]);
-//    }
-
     @Test
     public void testGetProductsInfoByManufacturerSuccess() {
         List<ProductInShop> expected = new LinkedList<>();
@@ -129,19 +115,6 @@ public abstract class UserTests extends ProjectTests {
     public void testGetProductsInfoByManufacturerFailure() {
         filterSearchProductFailure(u.name,productFailFilters[MANUFACTURERF_FILTER]);
     }
-
-//    @Test
-//    public void testSearchShopFilteredSuccess(){
-//        List<ProductInShop> products = userBridge.filterShopProducts(0,productFilters[RATING_FILTER]);
-//        assertEquals(1, products.size());
-//        assertEquals(1,products.get(0).ID);
-//    }
-//
-//    @Test
-//    public void testSearchShopFilteredFailure(){
-//        List<ProductInShop> products = userBridge.filterShopProducts(0,productFailFilters[RATINGF_FILTER]);
-//        assertEquals(0, products.size());
-//    }
 
     @Test
     public void testSearchShopProductsSuccess() {
@@ -394,7 +367,6 @@ public abstract class UserTests extends ProjectTests {
     public void testPurchaseEmptyCart() {
         double purchaseResult = userBridge.purchaseCart(u.name,"4580476511112222", 694, 9, 22);
         assertEquals(0.0,purchaseResult,0);
-        //assertEquals(0,u.numOfNotifications());
     }
 
     @Test
@@ -403,9 +375,6 @@ public abstract class UserTests extends ProjectTests {
 
         double purchaseResult = userBridge.purchaseCart(u.name, "4800470023456848", 674, 7, 2025);
         assertNotEquals(0.0,purchaseResult,0);
-
-        //assertEquals(1,u.numOfNotifications());
-        //assertEquals("Purchase",u.notifications.get(0));
 
         ShoppingCart userCart = userBridge.checkCart(u.name);
         assertNotNull(userCart);

@@ -226,6 +226,7 @@ public class Facade{
                 toCollection(toRemove),
                 requesting+": has remove u as administrating the shop "+shopID);
     }
+
     public boolean removeSubscribedUserFromSystem(SystemManager currUser, String userToRemoved) {
         return userController.removeSubscribedUserFromSystem(currUser,userToRemoved);
     }
@@ -241,8 +242,9 @@ public class Facade{
         private static final Facade facade= new Facade();
     }
 
-    private <T> T notifyUsers(T toReturn,Collection<String> users,String content){
-        system.getNotifier().addNotification(new ConcreteNotification(users,content));
+    private boolean notifyUsers(boolean toReturn,Collection<String> users,String content){
+        if(toReturn)
+            system.getNotifier().addNotification(new ConcreteNotification(users,content));
         return toReturn;
     }
 
@@ -354,7 +356,7 @@ public class Facade{
     public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
         return userController.removePredicate(currUser,predID,shopId);
     }
-    public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+    public boolean removePurchasePolicy(SubscribedUser currUser, int purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);
     }
 

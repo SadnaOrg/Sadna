@@ -75,6 +75,12 @@ public interface SubscribedUserBridge extends UserBridge {
 
     Integer createValidateTImeStampPurchase(String username,LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
+    Integer createValidateCategoryPurchase(String username,String category, int productQuantity, boolean cantbemore, int connectId, int shopId);
+
+    Integer createValidateUserPurchase(String username,int age, int connectId, int shopId);
+
+    boolean removePurchasePolicy(String username,int purchasePolicyToDelete, int shopId) ;
+
     boolean removeDiscount(String username,int discountID, int shopId);
 
     boolean removePredicate(String username,int predicateID, int shopId);

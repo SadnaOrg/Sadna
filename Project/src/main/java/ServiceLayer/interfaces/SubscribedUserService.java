@@ -107,7 +107,7 @@ public interface SubscribedUserService extends UserService {
 
     Response<Boolean> removePredicate(int predicateID, int shopId);
 
-    Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) ;
+    Response<Boolean> removePurchasePolicy(int purchasePolicyToDelete, int shopId) ;
 
     Response<Integer> createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId);
 

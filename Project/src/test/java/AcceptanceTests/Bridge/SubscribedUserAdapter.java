@@ -18,8 +18,8 @@ import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
     private Map<String, SystemManagerService> managers;
-    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
-        super(guests, subscribed);
+    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed,HashMap<String,List<Notification>> notifications){
+        super(guests, subscribed,notifications);
     }
 
     @Override
@@ -391,6 +391,38 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
                 return policyID.getElement();
         }
         return -1;
+    }
+
+    @Override
+    public Integer createValidateCategoryPurchase(String username,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateCategoryPurchase(category,productQuantity,cantbemore,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateUserPurchase(String username, int age, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateUserPurchase(age,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean removePurchasePolicy(String username, int purchasePolicyToDelete, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removePurchasePolicy(purchasePolicyToDelete,shopId);
+            return removed.isOk();
+        }
+        return false;
     }
 
     @Override

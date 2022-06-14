@@ -11,7 +11,7 @@ import java.util.Map;
 public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge{
     SubscribedUserAdapter subscribedUserAdapter;
     public SubscribedUserProxy(UserProxy proxy){
-        super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed()));
+        super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed(),proxy.getNotifications()));
         subscribedUserAdapter = (SubscribedUserAdapter) super.adapter;
     }
     @Override
@@ -167,6 +167,21 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public Integer createValidateTImeStampPurchase(String username, LocalTime localTime, boolean buybefore, int conncectId, int shopId) {
         return subscribedUserAdapter.createValidateTImeStampPurchase(username, localTime, buybefore, conncectId, shopId);
+    }
+
+    @Override
+    public Integer createValidateCategoryPurchase(String username,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateCategoryPurchase(username,category,productQuantity,cantbemore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateUserPurchase(String username, int age, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateUserPurchase(username,age,connectId,shopId);
+    }
+
+    @Override
+    public boolean removePurchasePolicy(String username, int purchasePolicyToDelete, int shopId) {
+        return subscribedUserAdapter.removePurchasePolicy(username,purchasePolicyToDelete,shopId);
     }
 
     @Override
