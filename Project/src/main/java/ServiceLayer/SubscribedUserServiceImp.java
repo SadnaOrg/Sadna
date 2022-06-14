@@ -304,9 +304,9 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
                 shopId),"remove purchase policy succeeded");
     }
     @Override
-    public Response<Boolean> removePurchasePolicy(PurchasePolicy purchasePolicyToDelete, int shopId) {
+    public Response<Boolean> removePurchasePolicy(int purchasePolicyToDelete, int shopId) {
         return ifUserNotNullRes(()-> facade.removePurchasePolicy(currUser,
-                        PurchasePolicy.makeBusinessPurchasePolicy(purchasePolicyToDelete),
+                        purchasePolicyToDelete,
                         shopId)
         ,"remove purchase policy succeeded");
     }

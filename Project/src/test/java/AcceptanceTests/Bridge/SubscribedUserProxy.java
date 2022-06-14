@@ -170,6 +170,21 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
+    public Integer createValidateCategoryPurchase(String username,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateCategoryPurchase(username,category,productQuantity,cantbemore,connectId,shopId);
+    }
+
+    @Override
+    public Integer createValidateUserPurchase(String username, int age, int connectId, int shopId) {
+        return subscribedUserAdapter.createValidateUserPurchase(username,age,connectId,shopId);
+    }
+
+    @Override
+    public boolean removePurchasePolicy(String username, int purchasePolicyToDelete, int shopId) {
+        return subscribedUserAdapter.removePurchasePolicy(username,purchasePolicyToDelete,shopId);
+    }
+
+    @Override
     public boolean removeDiscount(String username,int discountID, int shopId) {
         return subscribedUserAdapter.removeDiscount(username,discountID,shopId);
     }

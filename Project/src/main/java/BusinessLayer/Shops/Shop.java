@@ -344,13 +344,13 @@ public class Shop {
     }
 
 
-    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicyNew) {
         int id = -1;
         if (state == State.OPEN) {
             LogicPurchasePolicy logicPurchasePolicyo =purchasePolicy.getLogicRule(addToConnectId);
             if (logicPurchasePolicyo != null){
-                logicPurchasePolicyo.add(purchasePolicy);
-                id = purchasePolicy.getID();
+                logicPurchasePolicyo.add(purchasePolicyNew);
+                id = purchasePolicyNew.getID();
             }
             else
                 throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
@@ -362,7 +362,7 @@ public class Shop {
         return id;
     }
 
-    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
+    public boolean removePurchasePolicy(int purchasePolicyToDelete) {
         if (state == State.OPEN) {
             return purchasePolicy.removeChild(purchasePolicyToDelete);
         }

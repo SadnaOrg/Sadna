@@ -51,7 +51,7 @@ public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
     }
 
     @Override
-    public int getID(){return -1;}
+    public int getID(){return policyLogicId;}
 
     public int getPolicyLogicId() {
         return policyLogicId;

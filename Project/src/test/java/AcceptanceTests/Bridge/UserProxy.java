@@ -97,6 +97,11 @@ public class UserProxy implements UserBridge{
         return adapter.getDelayNotification(username);
     }
 
+    @Override
+    public List<Notification> getNotifications(String username) {
+        return adapter.getNotifications(username);
+    }
+
     protected HashMap<String, UserService> getGuests() {
         return ((UserAdapter)adapter).getGuests();
     }

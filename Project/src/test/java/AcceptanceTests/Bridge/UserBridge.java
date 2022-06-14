@@ -1,7 +1,6 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
-import ServiceLayer.Objects.Notification;
 
 import java.util.List;
 import java.util.function.Function;
@@ -39,5 +38,7 @@ public interface UserBridge {
     boolean registerToNotifier(String username);
 
     List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username);
+
+    List<Notification> getNotifications(String username);
 
 }

@@ -268,6 +268,20 @@ public class UserAdapter implements UserBridge{
         return null;
     }
 
+    @Override
+    public List<AcceptanceTests.DataObjects.Notification> getNotifications(String username) {
+        UserService service = getService(username);
+        if(service!=null){
+            Result response = service.getDelayNotification();
+            if(response.isOk()){
+                List<AcceptanceTests.DataObjects.Notification> notifications = userNotifications.getOrDefault(username,null);
+                userNotifications.put(username,new LinkedList<>());
+                return notifications;
+            }
+        }
+        return null;
+    }
+
     public HashMap<String, UserService> getGuests() {
         return users;
     }

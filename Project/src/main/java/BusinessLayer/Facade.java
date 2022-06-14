@@ -356,7 +356,7 @@ public class Facade{
     public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
         return userController.removePredicate(currUser,predID,shopId);
     }
-    public boolean removePurchasePolicy(SubscribedUser currUser, PurchasePolicy purchasePolicyToDelete, int shopId) throws NoPermissionException {
+    public boolean removePurchasePolicy(SubscribedUser currUser, int purchasePolicyToDelete, int shopId) throws NoPermissionException {
         return userController.removePurchasePolicy(currUser, purchasePolicyToDelete, shopId);
     }
 
