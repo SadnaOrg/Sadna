@@ -21,9 +21,22 @@ public class Shop {
     private ShopOwner founder;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
+
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
+
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
 
+    public Shop(int id, String name, String description, State state, ShopOwner founder, ConcurrentHashMap<Integer, Product> products, ConcurrentHashMap<String, Basket> usersBaskets, ConcurrentHashMap<String, PurchaseHistory> purchaseHistory, ConcurrentHashMap<String, ShopAdministrator> shopAdministrators) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.state = state;
+        this.founder = founder;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+    }
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
@@ -256,6 +269,10 @@ public class Shop {
     
     public ShopOwner getFounder() { return founder; }
 
+    public State getState() {
+        return state;
+    }
+
     public ShopAdministrator getShopAdministrator(String userName) {
         return shopAdministrators.getOrDefault(userName,null);
     }
@@ -263,6 +280,10 @@ public class Shop {
 
     public Collection<PurchaseHistory> getPurchaseHistory() {
         return purchaseHistory.values();
+    }
+
+    public ConcurrentHashMap<String, PurchaseHistory> getPurchaseHistoryMap() {
+        return purchaseHistory;
     }
 
     public void addPurchaseHistory(String username, PurchaseHistory ph){

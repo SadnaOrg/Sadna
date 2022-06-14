@@ -1,6 +1,8 @@
 package com.SadnaORM.Users;
 
 
+import com.SadnaORM.UserImpl.UserObjects.SubscribedUserDTO;
+
 import javax.persistence.*;
 @Entity
 @Table(name = "PaymentMethod")

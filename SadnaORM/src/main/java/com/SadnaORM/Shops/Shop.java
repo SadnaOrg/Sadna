@@ -2,7 +2,9 @@ package com.SadnaORM.Shops;
 
 import com.SadnaORM.Users.Basket;
 import com.SadnaORM.Users.ShopAdministrator;
+import com.SadnaORM.Users.ShopOwner;
 import com.SadnaORM.Users.SubscribedUser;
+import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,8 +23,13 @@ public class Shop {
 
     private String description;
 
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL)
+    private ShopOwner founder;
+
     @Enumerated(EnumType.STRING)
     private State state = State.OPEN;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
@@ -50,6 +57,20 @@ public class Shop {
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
 
+    public Shop(int id, String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
+                Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
+                Map<SubscribedUser, ShopAdministrator> shopAdministrators) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.founder = new ShopOwner(new ArrayList<>(), founder, this, isFounder);
+        this.state = state;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+    }
+
     public Shop(int id, String name, String description) {
         this.id = id;
         this.name = name;
@@ -70,6 +91,7 @@ public class Shop {
 
 
 
+
     }
     public int getId() {
         return id;
@@ -82,6 +104,9 @@ public class Shop {
     }
     public State getState() {
         return state;
+    }
+    public ShopOwner getFounder() {
+        return founder;
     }
 
     public Collection<Product> getProducts() {

@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
@@ -152,9 +153,10 @@ public class UserController {
     }
 
     public synchronized boolean registerToSystem(String userName, String password) {
-        if (!subscribers.containsKey(userName)) {
+        if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
+            SubscribedUserMapper.getInstance().save(newUser);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
             return true;
@@ -163,15 +165,16 @@ public class UserController {
     }
 
     public SubscribedUser login(String userName, String password, User currUser) {
-        if (subscribers.containsKey(userName) && (currUser == null || currUser instanceof Guest))
+        if (subscribersContainsKey(userName) && (currUser == null || currUser instanceof Guest)) {
             if (subscribers.get(userName).login(userName, password)) {
-                if (currUser != null){
+                if (currUser != null) {
                     users.remove(currUser.getUserName());
                 }
+                SubscribedUserMapper.getInstance().save(subscribers.get(userName));
                 return subscribers.get(userName);
-            }
-            else
+            } else
                 return null;
+        }
         return null;
     }
 
@@ -337,6 +340,22 @@ public class UserController {
                 m.put(k,new LinkedList<SubscribedUser>());
             m.get(k).add(u);});
         return m;
+    }
+
+    public boolean subscribersContainsKey(String key) {
+        if (subscribers.containsKey(key))
+            return true;
+        else {
+            SubscribedUser user = SubscribedUserMapper.getInstance().findByID(key);
+            if (user != null) {
+                users.put(key, user);
+                subscribers.put(key, user);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
 
     public void clearForTestsOnly() {

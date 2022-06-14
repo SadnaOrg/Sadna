@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,10 +18,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SubscribedUser extends User {
     private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
+
     private String hashedPassword;
+
+    public SubscribedUser(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login) {
+        super(username);
+        this.isNotRemoved = new AtomicBoolean(isNotRemoved);
+        this.hashedPassword = hashedPassword;
+        this.shopAdministrator = new ConcurrentHashMap<>();
+        for (ShopAdministrator sa : shopAdministrator) {
+            this.shopAdministrator.put(sa.getShopID(), sa);
+        }
+        this.is_login = is_login;
+    }
+
     private Map<Integer,ShopAdministrator> shopAdministrator;
     private boolean is_login = false;
-
     public SubscribedUser(String userName,String password) {
         super(userName);
         shopAdministrator = new ConcurrentHashMap<>();
@@ -44,6 +57,10 @@ public class SubscribedUser extends User {
             return true;
         }
         else throw new IllegalStateException("user is already logged out");
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
     }
     @Override
     public boolean isLoggedIn() {

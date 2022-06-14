@@ -1,6 +1,7 @@
 package com.SadnaORM.UserRepositories;
 
 import com.SadnaORM.Users.SubscribedUser;
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

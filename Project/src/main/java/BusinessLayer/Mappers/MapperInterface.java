@@ -1,10 +1,13 @@
 package BusinessLayer.Mappers;
 
-public interface MapperInterface<S, T, K> {
+import BusinessLayer.Users.SubscribedUser;
+
+public interface MapperInterface<S, M, T, K> {
 
     public void save(T entity);
     public void delete(T entity);
-    public S toEntity(T entity);
-    public T FromEntity(S entity);
+    public M toEntity(T entity);
+    public T FromEntity(M entity);
+
     public T findByID(K key);
 }

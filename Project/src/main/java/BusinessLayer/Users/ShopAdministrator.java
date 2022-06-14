@@ -169,4 +169,8 @@ public class ShopAdministrator{
     }
 
     public SubscribedUser getSubscribed(){return this.user;}
+
+    public int getShopID() {
+        return shop.getId();
+    }
 }

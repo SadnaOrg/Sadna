@@ -4,6 +4,7 @@ import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,6 +38,13 @@ public abstract class ShopAdministrator implements Serializable{
         this.user = user;
         this.shop = shop;
         this.appoints = appoints;
+    }
+
+    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop) {
+        this.action = action;
+        this.user = user;
+        this.shop = shop;
+        this.appoints = new ArrayList<>();
     }
 
     public ShopAdministrator(){
