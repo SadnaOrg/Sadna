@@ -1760,6 +1760,45 @@ public class SubscribedUserTests extends UserTests {
         subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
     }
 
+    @Test
+    public void testRemoveManager(){
+        testAppointShopManagerSuccess();
+        Map<String,Appointment> appointments = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertEquals(4,appointments.size());
+        subscribedUserBridge.removeAdmin(shops[castro_ID].ID, castroFounder.name, u1.name);
+        appointments = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertEquals(3,appointments.size());
+        removeU1ManagerCastro = false;
+    }
+
+    @Test
+    public void testRemoveOwner(){
+        List<String> admins = new LinkedList<>();
+        admins.add(ACEFounder.name);
+        admins.add(castroFounder.name);
+        admins.add(MegaSportFounder.name);
+
+        testAppointShopOwnerSuccess(); // u1 - owner at castro
+        Map<String,Appointment> appointments = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertEquals(4,appointments.size());
+        assertTrue(appointments.keySet().containsAll(admins));
+        assertTrue(appointments.containsKey(u1.name));
+
+        boolean appointed = subscribedUserBridge.appointManager(shops[castro_ID].ID, u1.name, u2.name);
+        assertTrue(appointed);
+        appointments = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertEquals(5,appointments.size());
+        assertTrue(appointments.keySet().containsAll(admins));
+        assertTrue(appointments.containsKey(u1.name));
+        assertTrue(appointments.containsKey(u2.name));
+
+        subscribedUserBridge.removeAdmin(shops[castro_ID].ID, castroFounder.name, u1.name);
+        appointments = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertEquals(3,appointments.size());
+        assertTrue(appointments.keySet().containsAll(admins));
+        removeU1ManagerCastro = false;
+    }
+
     public User enter() {
         Guest g = subscribedUserBridge.visit();
         return subscribedUserBridge.login(g.name,new RegistrationInfo( "enterUser","enterPass"));
