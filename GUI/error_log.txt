@@ -1,20 +1,64 @@
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:07 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:07 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:08 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:08 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:14 AM ServiceLayer.Log error
-SEVERE: login - user maoe: incorrect user name or password
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:09 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:14 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:01:29 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:29 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:31 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:59 AM ServiceLayer.Log error
+יוני 14, 2022 1:01:35 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 14, 2022 1:01:35 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 14, 2022 1:01:42 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:01:48 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:01:49 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:01:49 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:01:50 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:07 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 14, 2022 1:02:07 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 14, 2022 1:02:11 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:38 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:39 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 14, 2022 1:02:39 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 14, 2022 1:02:39 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:42 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:43 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 14, 2022 1:02:43 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 14, 2022 1:02:43 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 14, 2022 1:02:43 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:44 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 1:02:45 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 14, 2022 1:02:45 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 14, 2022 1:02:45 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 14, 2022 1:02:45 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
