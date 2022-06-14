@@ -23,6 +23,10 @@ public interface UserService {
 
     Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
 
+    Response<Double> getCartPrice();
+
+    Response<Double> getBasketPrice(int shopid);
+
     Result saveProducts(int shopid, int productid, int quantity);
 
     Response<Cart> showCart();

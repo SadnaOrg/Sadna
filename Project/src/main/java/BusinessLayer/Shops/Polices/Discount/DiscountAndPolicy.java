@@ -20,7 +20,9 @@ public class DiscountAndPolicy implements LogicDiscountRules{
 
     public DiscountAndPolicy(DiscountPred discountPred,DiscountRules discountPolicy) {
         this.discountPreds = new ArrayList<>();
-        this.discountPreds.add(discountPred);
+        if(discountPred != null) {
+            this.discountPreds.add(discountPred);
+        }
         this.connectId = atomicconnectId.incrementAndGet();
         this.discountPolicy = discountPolicy;
 
@@ -34,6 +36,8 @@ public class DiscountAndPolicy implements LogicDiscountRules{
 
     @Override
     public double calculateDiscount(Basket basket){
+        if(!validate())
+            return 0;
          for(DiscountPred discountPred: discountPreds)
          {
              if(!discountPred.validateDiscount(basket))
@@ -59,7 +63,9 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     }
 
     public NumericDiscountRules getNumericRule(int searchConnectId) {
-        return discountPolicy.getNumericRule(searchConnectId);
+        if(validate())
+            return discountPolicy.getNumericRule(searchConnectId);
+        return null;
     }
 
 
@@ -67,6 +73,8 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     {
         if(this.connectId == searchConnectId)
             return this;
+        if(!validate())
+            return null;
         return discountPolicy.getLogicRule(searchConnectId);
     }
 
@@ -108,5 +116,15 @@ public class DiscountAndPolicy implements LogicDiscountRules{
         if (discountPolicy instanceof LogicDiscountRules)
             return ((LogicDiscountRules) discountPolicy).removeSonDiscount(ID);
         return false;
+    }
+
+    @Override
+    public void setPolicy(DiscountRules discountRules) {
+        this.discountPolicy = discountRules;
+    }
+
+    @Override
+    public boolean validate() {
+        return (discountPolicy != null);
     }
 }

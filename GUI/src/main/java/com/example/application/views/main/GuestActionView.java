@@ -3,14 +3,19 @@ package com.example.application.views.main;
 import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.accordion.AccordionPanel;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.details.DetailsVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -28,6 +33,7 @@ import java.util.stream.Stream;
 import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Header.SessionData.save;
 import static com.example.application.Utility.notifyError;
+import static com.example.application.Utility.notifySuccess;
 
 
 @Route("Guest")
@@ -76,7 +82,7 @@ public class GuestActionView extends Header {
     }
 
     private void productEvent(DomEvent domEvent) {
-        ProductView productView = new ProductView();
+        ProductView productView = new ProductView(service);
         setContent(productView);
     }
 
@@ -184,34 +190,6 @@ public class GuestActionView extends Header {
     }
 
     private void checkCartEvent(DomEvent event) {
-//        HorizontalLayout layout = new HorizontalLayout();
-//        Cart cart;
-//        var cartres = service.showCart();
-//        if (cartres.isOk()) {
-//            cart = cartres.getElement();
-//            var grid = createCartGrid();
-//            grid.setItems(cart.baskets());
-//            Grid<ProductInfo> prodGrid = createProductInfoGrid();
-//            grid.addItemClickListener(item -> {
-//                Basket curr = cart.baskets().stream()
-//                    .filter(prod -> item.getItem().equals(prod))
-//                    .findAny()
-//                    .orElse(null);
-//                if (curr != null) {
-//                    Collection<ProductInfo> products = curr.productsID();
-//                    prodGrid.setItems(products);
-////                    layout.replace(layout.getComponentAt(1), prodGrid);
-//                }
-//            });
-//            layout.add(prodGrid,grid);
-////            layout.add(prodGrid);
-//        } else {
-//            notifyError(cartres.getMsg());
-//            Label label = new Label("No Cart");
-//            layout.add(label);
-//        }
-//        setContent(layout);
-
         Cart cart;
         var cartres = service.showCart();
         var layout = new VerticalLayout();
@@ -225,11 +203,13 @@ public class GuestActionView extends Header {
             for (var b : cart.baskets()){
                 var p = createProductInfoGrid();
                 p.setItems(b.productsID());
-                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),p);
+                var v = new VerticalLayout(p, new Label("bascket price :"+service.getBasketPrice(b.shopId()).getElement()));
+                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),v);
                 shopPannel.addThemeVariants(DetailsVariant.FILLED);
                 p.setWidthFull();
             }
-            layout.add(title,accordion);
+            var totalPrice = new Label("total :"+service.getCartPrice().getElement());
+            layout.add(title,accordion,totalPrice);
 
         } else {
             notifyError(cartres.getMsg());
@@ -245,7 +225,32 @@ public class GuestActionView extends Header {
         prodGrid.addColumn(ProductInfo::price).setHeader("Price");
         prodGrid.addColumn(ProductInfo::quantity).setHeader("Quantity");
         prodGrid.addColumn(ProductInfo::shopId).setHeader("Shop ID");
+        prodGrid.addComponentColumn(this::removeProductFromCart).setHeader("");
         prodGrid.setWidthFull();
         return prodGrid;
+    }
+    private Button removeProductFromCart(ProductInfo p){
+        var h = new H2("Delete \"" + p.Id() + "\"?");
+        h.setWidthFull();
+        Dialog dialog = new Dialog(h);
+        var text = new Text("Are you sure you want to permanently delete this product?");
+        var cancel = new Button("Cancel");
+        cancel.addClickListener(event -> dialog.close());
+        var delete = new Button("Delete");
+        delete.getStyle().set("margin-left", "auto");
+        delete.addClickListener(event -> {
+            var res = service.removeProduct(p.shopId(),p.Id());
+            if(res.isOk())
+                notifySuccess("product remove successfully");
+            else notifyError(res.getMsg());
+            dialog.close();
+            UI.getCurrent().getPage().reload();
+        });
+        HorizontalLayout layout = new HorizontalLayout(cancel,delete);
+        layout.setWidthFull();
+        dialog.add(new VerticalLayout(text, layout));
+        var b = new Button(("remove"));
+        b.addClickListener(e -> dialog.open());
+        return  b;
     }
 }

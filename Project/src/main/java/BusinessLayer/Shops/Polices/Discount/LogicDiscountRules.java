@@ -11,4 +11,6 @@ public interface LogicDiscountRules extends DiscountRules {
     public boolean remove(int ID);
     public boolean removeSonDiscount(int ID);
 
-    }
+    public void setPolicy(DiscountRules discountRules);
+    public boolean validate();
+}

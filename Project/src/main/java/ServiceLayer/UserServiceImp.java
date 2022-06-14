@@ -30,6 +30,16 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public Response<Double> getCartPrice() {
+        return ifUserNotNullRes(()-> facade.getCartPrice(currUser),"here is the cart value");
+    }
+
+    @Override
+    public Response<Double> getBasketPrice(int shopid) {
+        return ifUserNotNullRes(()-> facade.getBasketPrice(currUser,shopid),"here is the basket value");
+    }
+
+    @Override
     public Result saveProducts(int shopId, int productId, int quantity){
         return ifUserNotNull(()-> facade.saveProducts(currUser,shopId,productId,quantity),"product save");
     }

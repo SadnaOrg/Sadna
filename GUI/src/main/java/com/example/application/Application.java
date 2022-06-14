@@ -1,5 +1,6 @@
 package com.example.application;
 
+import com.example.application.Parser.Grammer;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.component.page.Push;
@@ -12,6 +13,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 
 import javax.management.Notification;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
 
 /**
  * The entry point of the Spring Boot application.
@@ -28,9 +34,22 @@ import javax.management.Notification;
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        if (args.length >= 1 ) {
+            System.out.println("startttttttttttttttttttttt");
+            try {
+                var g = Grammer.parse(Files.readString(Path.of(args[0])));
+                args = new String[0];
+                var u = Grammer.runLines(g);
+                if (u == null)
+                    return;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            System.out.println("finishhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+        }
+         SpringApplication.run(Application.class, args);
     }
 
-
-
 }
+
