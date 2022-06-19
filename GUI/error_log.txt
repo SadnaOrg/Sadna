@@ -1,20 +1,28 @@
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:06 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:06 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:08 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:07 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:14 AM ServiceLayer.Log error
-SEVERE: login - user maoe: incorrect user name or password
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:08 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:08 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:08 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:59 AM ServiceLayer.Log error
+Jun 19, 2022 10:26:13 PM ServiceLayer.Log error
+SEVERE: login - user Admin: incorrect user name or password
+Jun 19, 2022 10:26:20 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:26:28 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:26:36 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:26:41 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:26:59 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:27:08 PM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 19, 2022 10:27:15 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

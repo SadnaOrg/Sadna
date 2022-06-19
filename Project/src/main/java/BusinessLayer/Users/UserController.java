@@ -439,7 +439,7 @@ public class UserController {
     }
 
 
-        public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
     }
 

@@ -243,7 +243,7 @@ public class SubscribedUser extends User {
     }
 
 
-        public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
     }

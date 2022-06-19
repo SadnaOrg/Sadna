@@ -310,8 +310,6 @@ public class ShopAdministrator {
 
     }
 
-
-
     public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createPurchaseAndPolicy(policy, conncectId);

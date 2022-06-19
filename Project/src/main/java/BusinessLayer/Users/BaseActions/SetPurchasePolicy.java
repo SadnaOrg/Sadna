@@ -82,18 +82,15 @@ public class SetPurchasePolicy extends BaseAction {
 
     public int createValidateUserPurchase(int age, int connectId) {
         return shop.addPurchasePolicy(connectId, new ValidateUserPurchase(age));
-
     }
 
-
-        public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
-        return shop.addPurchasePolicy(conncectId,new PurchaseAndPolicy(policy));
+    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
+        return shop.addPurchasePolicy(conncectId, new PurchaseAndPolicy(policy));
     }
 
     public int createPurchaseOrPolicy(PurchasePolicy policy,int conncectId) {
-        return shop.addPurchasePolicy(conncectId,new PurchaseOrPolicy(policy));
+        return shop.addPurchasePolicy(conncectId, new PurchaseOrPolicy(policy));
     }
-
 
     public boolean removeDiscount(int ID) {
         return shop.removeDiscount(ID);
