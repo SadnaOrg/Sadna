@@ -1,20 +1,30 @@
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+יוני 14, 2022 11:58:47 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:05 AM ServiceLayer.Log error
+יוני 14, 2022 11:58:47 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:08 AM ServiceLayer.Log error
+יוני 14, 2022 11:58:50 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:14 AM ServiceLayer.Log error
-SEVERE: login - user maoe: incorrect user name or password
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-Jun 14, 2022 2:11:19 AM ServiceLayer.Log error
+יוני 14, 2022 11:58:56 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 14, 2022 2:11:46 AM ServiceLayer.Log error
+יוני 14, 2022 11:59:08 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 2:11:59 AM ServiceLayer.Log error
+יוני 14, 2022 11:59:14 לפנה״צ ServiceLayer.Log error
+SEVERE: switch to system manager ggg: log in to the system first as a subscribed user
+יוני 14, 2022 11:59:14 לפנה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 12:07:24 אחה״צ ServiceLayer.Log error
+SEVERE: close shop succeeded : log in to the system first as a subscribed user
+יוני 14, 2022 12:07:29 אחה״צ ServiceLayer.Log error
+SEVERE: close shop succeeded : log in to the system first as a subscribed user
+יוני 14, 2022 12:09:49 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: user Maor doesn't exist
+יוני 14, 2022 12:10:56 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: user admin doesn't exist
+יוני 14, 2022 12:11:23 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: user maor doesn't exist
+יוני 14, 2022 12:22:14 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+יוני 14, 2022 12:22:46 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 14, 2022 12:26:18 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first

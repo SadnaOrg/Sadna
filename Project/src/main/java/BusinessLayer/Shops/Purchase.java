@@ -10,6 +10,7 @@ public class Purchase {
     int transectionid;
     ConcurrentHashMap<Integer , Integer> infoProducts;
     ConcurrentHashMap<Integer,Double> productPrices;
+    ConcurrentHashMap<Integer, String> categories;
     Date dateOfPurchase;
     int shopid;
     String user;
@@ -19,10 +20,12 @@ public class Purchase {
         this.transectionid= transactionid;
         this.infoProducts =new ConcurrentHashMap<>();
         this.productPrices = new ConcurrentHashMap<>();
+        this.categories = new ConcurrentHashMap<>();
         for (int productid: info.getProducts().keySet())
         {
             this.infoProducts.put(productid,info.getProducts().get(productid));
             this.productPrices.put(productid,info.getPrices().get(productid));
+            this.categories.put(productid,info.getCategories().get(productid));
         }
         this.dateOfPurchase= new Date();
         this.user= user;
@@ -50,4 +53,8 @@ public class Purchase {
     }
 
     public ConcurrentHashMap<Integer, Double> getProductPrices(){return this.productPrices;}
+
+    public ConcurrentHashMap<Integer, String> getCategories() {
+        return categories;
+    }
 }

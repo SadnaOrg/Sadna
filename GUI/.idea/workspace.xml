@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added discount policies support to gui, added fitting service methods, added date to registration">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/GuestActionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/GuestActionView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sw.ts" beforeDir="false" afterPath="$PROJECT_DIR$/target/sw.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,7 @@
       <recent name="com.example.application.views.main" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="Application.com.example.application.Application">
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
@@ -111,12 +110,11 @@
     <list>
       <item itemvalue="Application.com.example.application.Application" />
       <item itemvalue="JUnit.All in GUI" />
-      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
+        <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="Application.com.example.application.Application" />
@@ -219,7 +217,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Vaadin" />
