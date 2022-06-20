@@ -11,6 +11,7 @@ import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.function.Predicate;
@@ -264,7 +265,12 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
     @Override
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
-        return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
+        return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime, buybefore, conncectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public Response<Integer> createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId){
+        return ifUserNotNullRes(()-> facade.createValidateDateStampPurchase(currUser, localDate, conncectId, shopId),"add purchase policy succeeded");
     }
 
     @Override

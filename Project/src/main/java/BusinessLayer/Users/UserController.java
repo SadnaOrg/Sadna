@@ -9,11 +9,13 @@ import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
+
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
@@ -428,6 +430,10 @@ public class UserController {
 
     public int createValidateTImeStampPurchase(SubscribedUser currUser,LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
+    }
+
+    public int createValidateDateStampPurchase(SubscribedUser currUser, LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateDateStampPurchase(localDate, conncectId, shopId);
     }
 
     public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {

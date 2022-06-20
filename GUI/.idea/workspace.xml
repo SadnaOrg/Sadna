@@ -4,38 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added discount policies support to gui, added fitting service methods, added date to registration">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/AndPurchase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/CompositePurchase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/LeafPurchase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/OrPurchase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/PurchasePolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateTimeStamp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicyView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Purchase/PurchasePolicyType.java" afterDir="false" />
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added purchase policy page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/CompositePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/CompositePolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicyView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PaymentForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PaymentForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ShopView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateTimeStamp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateTimeStamp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/SetPurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/SetPurchasePolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Purchase/PurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/Policies/Purchase/PurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +172,7 @@
       <workItem from="1655127374764" duration="4281000" />
       <workItem from="1655139873192" duration="6193000" />
       <workItem from="1655146263323" duration="11980000" />
+      <workItem from="1655670625447" duration="3753000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>
@@ -233,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655158744241</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added purchase policy page">
+      <created>1655667046657</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655667046657</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +251,8 @@
     <MESSAGE value="added action management, added searchShops method to search shops, fixed cvv tests, added removeShopOwner method, changed getProducts to be non-state dependant" />
     <MESSAGE value="added discount policies support to gui, added fitting service methods, added date to registration" />
     <MESSAGE value="implemented all discounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented all discounts" />
+    <MESSAGE value="added purchase policy page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added purchase policy page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -338,17 +329,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java</url>
-          <line>175</line>
+          <line>189</line>
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>

@@ -23,10 +23,16 @@ public class ValidateTimeStamp extends LeafPurchase{
     @Override
     public void createValidateView() {
         layout.removeAll();
-        Label localTimeLabel = new Label("Local Time: " + localTime.format(DateTimeFormatter.ISO_LOCAL_TIME));
+        if(localTime != null) {
+            Label localTimeLabel = new Label("Local Time: " + localTime.format(DateTimeFormatter.ISO_LOCAL_TIME));
+            layout.add(localTimeLabel);
+        }
+        if(date != null) {
+            Label dateLabel = new Label("Date: " + date.format(DateTimeFormatter.ISO_LOCAL_DATE));
+            layout.add(dateLabel);
+        }
         Label buyBeforeLabel = new Label("Buy Before: " + buyBefore);
-        //Label dateLabel = new Label("Date: " + date.format(DateTimeFormatter.ISO_DATE_TIME));
-        layout.add(localTimeLabel, buyBeforeLabel);
+        layout.add(buyBeforeLabel);
     }
 
     @Override

@@ -5,6 +5,7 @@ import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 
@@ -72,8 +73,12 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
     }
 
-    public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
+    public int createValidateTimeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
+    }
+
+    public int createValidateDateStampPurchase(LocalDate localDate, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localDate));
     }
 
     public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int conncectId) {

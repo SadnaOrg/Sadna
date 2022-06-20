@@ -11,6 +11,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Date;
@@ -230,6 +231,11 @@ public class SubscribedUser extends User {
     public synchronized int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
+    }
+
+    public int createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateDateStampPurchase(localDate, conncectId);
     }
 
     public synchronized int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {

@@ -11,11 +11,13 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.timepicker.TimePicker;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -90,15 +92,26 @@ public class PurchaseContentCreator {
     public Component createValidateTimeStamp(int parentId) {
         VerticalLayout layout = new VerticalLayout();
         Button button = new Button("Create Validate Time Stamp");
-        DateTimePicker timePicker = new DateTimePicker("Choose Time Stamp");
+        TimePicker timePicker = new TimePicker("Choose Time Stamp");
+        timePicker.setClearButtonVisible(true);
+        DatePicker datePicker = new DatePicker("Choose Date Stamp");
+        datePicker.setClearButtonVisible(true);
         Checkbox cantBeMoreBox = new Checkbox("Can't Be More");
-        timePicker.addValueChangeListener(e -> button.setEnabled(timePicker.getValue() != null && cantBeMoreBox.getValue() != null));
-        cantBeMoreBox.addValueChangeListener(e -> button.setEnabled(timePicker.getValue() != null && cantBeMoreBox.getValue() != null));
+        timePicker.addValueChangeListener(e -> button.setEnabled((datePicker.getValue() != null ^ timePicker.getValue() != null) && cantBeMoreBox.getValue() != null));
+        datePicker.addValueChangeListener(e -> button.setEnabled((datePicker.getValue() != null ^ timePicker.getValue() != null) && cantBeMoreBox.getValue() != null));
+        cantBeMoreBox.addValueChangeListener(e -> button.setEnabled((datePicker.getValue() != null ^ timePicker.getValue() != null) && cantBeMoreBox.getValue() != null));
         button.addClickListener(e -> {
-            var res = service.createValidateTImeStampPurchase(LocalTime.from(timePicker.getValue()), cantBeMoreBox.getValue(), parentId, shopId);
-            validateResult(res, "Added Validate Time Stamp Successfully!");
+            if(datePicker.getValue() != null){
+                var res = service.createValidateDateStampPurchase(datePicker.getValue(), parentId, shopId);
+                validateResult(res, "Added Validate Time Stamp Successfully!");
+
+            }
+            else if(timePicker.getValue() != null){
+                var res = service.createValidateTImeStampPurchase(timePicker.getValue(), cantBeMoreBox.getValue(), parentId, shopId);
+                validateResult(res, "Added Validate Time Stamp Successfully!");
+            }
         });
-        layout.add(timePicker, cantBeMoreBox, button);
+        layout.add(timePicker, datePicker, cantBeMoreBox, button);
         return layout;
     }
 
