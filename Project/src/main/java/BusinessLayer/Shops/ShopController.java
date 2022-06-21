@@ -73,7 +73,7 @@ public class ShopController {
     private final Map<Integer, Shop> shops;
 
     private ShopController() {
-        this.shops = loadFromDB();
+        this.shops = new HashMap<>();
     }
 
     private Map<Integer, Shop> loadFromDB() {
