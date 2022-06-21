@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
@@ -11,6 +12,7 @@ import BusinessLayer.Users.UserController;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class ShopController {
@@ -71,7 +73,12 @@ public class ShopController {
     private final Map<Integer, Shop> shops;
 
     private ShopController() {
-        this.shops = new ConcurrentHashMap<>();
+        this.shops = loadFromDB();
+    }
+
+    private Map<Integer, Shop> loadFromDB() {
+        return ShopMapper.getInstance().findAll().stream()
+                .collect(Collectors.toMap(Shop::getId, Function.identity()));
     }
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
@@ -190,7 +197,9 @@ public class ShopController {
 //        if(names.contains(name))
 //            throw new IllegalStateException("there is a shop with that name!!!");
         int shopID = shops.size();
-        shops.put(shopID, new Shop(shopID, name, description, su));
+        Shop shop = new Shop(shopID, name, description, su);
+        shops.put(shopID, shop);
+        ShopMapper.getInstance().save(shop);
         return shops.get(shopID);
     }
 

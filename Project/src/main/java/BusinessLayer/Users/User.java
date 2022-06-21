@@ -17,7 +17,7 @@ public abstract class User{
     public User(String name) {
         this.name= name;
         method = null;
-        shoppingCart= new ConcurrentHashMap<>();
+        shoppingCart = new ConcurrentHashMap<>();
     }
 
     //assume that the productid is in the relevant shop handle in facade
