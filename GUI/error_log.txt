@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 יוני 14, 2022 12:05:53 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
 יוני 14, 2022 12:05:53 לפנה״צ ServiceLayer.Log error
@@ -17,4 +18,23 @@ SEVERE: register to notification service : log in to system first
 יוני 14, 2022 12:06:16 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
 יוני 14, 2022 12:06:16 לפנה״צ ServiceLayer.Log error
+=======
+יוני 21, 2022 12:36:11 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 21, 2022 12:36:11 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 21, 2022 12:36:39 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 21, 2022 12:37:23 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 21, 2022 12:37:23 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 21, 2022 12:37:25 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 21, 2022 12:37:27 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 21, 2022 12:37:48 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 21, 2022 12:38:11 אחה״צ ServiceLayer.Log error
+>>>>>>> Stashed changes
 SEVERE: login to system : logout from system first

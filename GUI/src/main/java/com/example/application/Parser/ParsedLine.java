@@ -9,9 +9,43 @@ import com.google.gson.Gson;
 import java.util.Objects;
 import java.util.function.Function;
 
-public interface ParsedLine {
-     UserService act(UserService u) throws RuntimeException;
-     static ParsedLine GetLine(String name ,String json){
+public abstract class ParsedLine {
+     public abstract UserService act(UserService u) throws RuntimeException;
+
+    public static String GetJson(ParsedLine line){
+        var gson = new Gson();
+        return getStr(line.getClass())+" : " + gson.toJson(line);
+    }
+
+    public static String getStr(Class<? extends ParsedLine> x) {
+        if (Logout.class.equals(x)) {
+            return "Logout";
+        } else if (OpenShop.class.equals(x)) {
+            return "Open shop";
+        } else if (AddToCart.class.equals(x)) {
+            return "Add product to cart";
+        } else if (Login.class.equals(x)) {
+            return "Login";
+        } else if (RegisterLine.class.equals(x)) {
+            return "Register";
+        } else if (LoginAsGuest.class.equals(x)) {
+            return "Login as guest";
+        } else if (AddProductToShop.class.equals(x)) {
+            return "Add product to shop";
+        } else if (PurchaseCart.class.equals(x)) {
+            return "Purchase cart";
+        } else if (AssignOwner.class.equals(x)) {
+            return "Assign Owner";
+        } else if (AssignManager.class.equals(x)) {
+            return "Assign Manager";
+        } else if (RemoveProduct.class.equals(x)) {
+            return "Remove Product";
+        }
+        throw new UnsupportedOperationException("function douse not exist in the grammar");
+
+    }
+
+    public static ParsedLine GetLine(String name, String json){
          var gson = new Gson();
         return gson.fromJson(json, switch (name.trim()){
             case "Logout" -> Logout.class;
@@ -28,26 +62,31 @@ public interface ParsedLine {
             default -> {throw new UnsupportedOperationException("function "+name+" douse not exist in the grammar");}
         });
      }
-     static  UserService getUserService(UserService u, Result res) {
+     public static  UserService getUserService(UserService u, Result res) {
         if(res.isOk())
             return u;
         throw new RuntimeException(res.getMsg());
     }
-    static<T>  UserService getUserServiceRes(UserService u, Response<T> res) {
+    public static<T>  UserService getUserServiceRes(UserService u, Response<T> res) {
         if(res.isOk())
             return u;
         throw new RuntimeException(res.getMsg());
     }
-    static  UserService getUserService(UserService u, Response<? extends UserService> res) {
+    public static  UserService getUserService(UserService u, Response<? extends UserService> res) {
         if(res.isOk())
             return res.getElement();
         throw new RuntimeException(res.getMsg());
     }
 
-    static UserService getIfSubUserService(UserService u, Function<SubscribedUserService, UserService> f){
+    public static UserService getIfSubUserService(UserService u, Function<SubscribedUserService, UserService> f){
          if(u instanceof SubscribedUserService service){
              return f.apply(service);
          }
          throw new RuntimeException("not logged in as Subscribed user");
+    }
+
+    @Override
+    public String toString() {
+        return GetJson(this);
     }
 }

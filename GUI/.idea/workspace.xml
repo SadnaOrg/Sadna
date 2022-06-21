@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added action management, added searchShops method to search shops, fixed cvv tests, added removeShopOwner method, changed getProducts to be non-state dependant">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" afterDir="false" />
@@ -28,6 +29,26 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/GuestActionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/GuestActionView.java" afterDir="false" />
+=======
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/GrammerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/LoginAsGuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/LoginAsGuest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/OpenShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/OpenShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/PurchaseCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/PurchaseCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +60,8 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -85,7 +108,12 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -100,7 +128,14 @@
       <recent name="com.example.application.Parser" />
       <recent name="com.example.application.views.main" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.application.Parser" />
+    </key>
   </component>
+<<<<<<< Updated upstream
   <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Grammer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.Grammer" />
@@ -116,6 +151,10 @@
       </method>
     </configuration>
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+=======
+  <component name="RunManager" selected="JUnit.GrammerTest">
+    <configuration name="com.example.application.Application" type="Application" factoryName="Application" nameIsGenerated="true">
+>>>>>>> Stashed changes
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
       <extension name="coverage">
@@ -149,6 +188,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GrammerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrammerTest.test_parse_assingManager" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="METHOD_NAME" value="test_parse_assingManager" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrammerTest.test_parse_login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="METHOD_NAME" value="test_parse_login" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="GUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
@@ -164,6 +250,7 @@
       <item itemvalue="Application.Grammer" />
       <item itemvalue="JUnit.All in GUI" />
       <item itemvalue="Spring Boot.Application" />
+<<<<<<< Updated upstream
       <item itemvalue="Application.main" />
     </list>
     <recent_temporary>
@@ -173,6 +260,19 @@
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
+=======
+      <item itemvalue="JUnit.GrammerTest.test_parse_login" />
+      <item itemvalue="JUnit.GrammerTest.test_parse_assingManager" />
+      <item itemvalue="JUnit.GrammerTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GrammerTest" />
+        <item itemvalue="JUnit.GrammerTest.test_parse_assingManager" />
+        <item itemvalue="JUnit.GrammerTest.test_parse_login" />
+        <item itemvalue="JUnit.All in GUI" />
+        <item itemvalue="JUnit.All in GUI" />
+>>>>>>> Stashed changes
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +310,17 @@
       <workItem from="1654685841389" duration="15592000" />
       <workItem from="1654951763396" duration="13800000" />
       <workItem from="1655035247142" duration="3810000" />
+<<<<<<< Updated upstream
       <workItem from="1655127374764" duration="1602000" />
+=======
+      <workItem from="1655127374764" duration="4281000" />
+      <workItem from="1655139873192" duration="6193000" />
+      <workItem from="1655146263323" duration="11980000" />
+      <workItem from="1655542997839" duration="361000" />
+      <workItem from="1655717254748" duration="419000" />
+      <workItem from="1655803750799" duration="626000" />
+      <workItem from="1655834985861" duration="3496000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>
