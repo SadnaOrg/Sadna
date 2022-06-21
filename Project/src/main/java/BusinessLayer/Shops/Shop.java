@@ -69,6 +69,24 @@ public class Shop {
         CLOSED
     }
 
+    public boolean setCategory(int productId, String category)
+    {
+        if (state == State.OPEN) {
+            if(products.containsKey(productId)) {
+                products.get(productId).setCategory(category);
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The product is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
 
     public void addProduct(Product p) {
         if (state == State.OPEN) {
@@ -169,7 +187,7 @@ public class Shop {
 
     //we can assume that this function is only called when all good;
     public double checkIfcanBuy(String user) {
-        int totalPrice = 0;
+        double totalPrice = 0;
         if (state == State.OPEN) {
             for (int productID : usersBaskets.get(user).getProducts().keySet()) {
                 if (products.containsKey(productID)) {
@@ -198,6 +216,7 @@ public class Shop {
         }
         return totalPrice;
     }
+
 
     public int getId() {
         return id;
@@ -268,7 +287,16 @@ public class Shop {
                                               // depending on the rule. composite discount -> connectID , leaf discount -> discountID
             }
             else
-                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
+            {
+                LogicDiscountRules logicDiscountRules =discounts.getLogicRule(addToConnectId);
+                if (logicDiscountRules != null){
+                    logicDiscountRules.setPolicy(discountRules);
+                    id = discountRules.getID(); // this will return either the connectID or the discountID
+                    // depending on the rule. composite discount -> connectID , leaf discount -> discountID
+                }
+            }
+//            else
+//                throw new IllegalStateException("do not have or can't add discount policy to that Discount Rules");
         }
         else
         {
@@ -295,9 +323,9 @@ public class Shop {
         return id;
     }
 
-    public boolean removeDiscount(DiscountRules discountRules) {
+    public boolean removeDiscount(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonDiscount(discountRules);
+            return discounts.removeSonDiscount(ID);
         }
         else
         {
@@ -305,9 +333,9 @@ public class Shop {
         }
     }
 
-    public boolean removePredicate(DiscountPred discountPred) {
+    public boolean removePredicate(int ID) {
         if (state == State.OPEN) {
-            return discounts.removeSonPredicate(discountPred);
+            return discounts.removeSonPredicate(ID);
         }
         else
         {
@@ -316,13 +344,13 @@ public class Shop {
     }
 
 
-    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicy) {
+    public int addPurchasePolicy(int addToConnectId, PurchasePolicy purchasePolicyNew) {
         int id = -1;
         if (state == State.OPEN) {
             LogicPurchasePolicy logicPurchasePolicyo =purchasePolicy.getLogicRule(addToConnectId);
             if (logicPurchasePolicyo != null){
-                logicPurchasePolicyo.add(purchasePolicy);
-                id = purchasePolicy.getID();
+                logicPurchasePolicyo.add(purchasePolicyNew);
+                id = purchasePolicyNew.getID();
             }
             else
                 throw new IllegalStateException("do not have or can't add discount predicate to that Discount Rules");
@@ -334,7 +362,7 @@ public class Shop {
         return id;
     }
 
-    public boolean removePurchasePolicy(PurchasePolicy purchasePolicyToDelete) {
+    public boolean removePurchasePolicy(int purchasePolicyToDelete) {
         if (state == State.OPEN) {
             return purchasePolicy.removeChild(purchasePolicyToDelete);
         }

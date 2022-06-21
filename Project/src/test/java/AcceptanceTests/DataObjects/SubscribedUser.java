@@ -24,6 +24,7 @@ public class SubscribedUser extends User{
         REOPEN_SHOP(10),
         ROLE_INFO(11),
         HISTORY_INFO(13),
+        REMOVE_SHOP_OWNER(12),
         REMOVE_ADMIN(5),;
 
         private int code;

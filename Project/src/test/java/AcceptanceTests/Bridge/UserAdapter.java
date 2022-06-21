@@ -2,6 +2,7 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Objects.Cart;
+import ServiceLayer.Objects.Notification;
 import ServiceLayer.Objects.ShopsInfo;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
@@ -10,15 +11,25 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.UserService;
 
 import java.util.*;
+import java.util.function.Function;
 
 public class UserAdapter implements UserBridge{
     protected HashMap<String, UserService> users;
     protected HashMap<String, SubscribedUserService> subscribedUsers;
+    protected HashMap<String,List<AcceptanceTests.DataObjects.Notification>> userNotifications;
 
     public UserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
         this.users = guests;
         this.subscribedUsers = subscribed;
+        this.userNotifications = new HashMap<>();
     }
+
+    public UserAdapter(HashMap<String, UserService> guests, HashMap<String, SubscribedUserService> subscribed, HashMap<String, List<AcceptanceTests.DataObjects.Notification>> notifications) {
+        this.users = guests;
+        this.subscribedUsers = subscribed;
+        this.userNotifications = notifications;
+    }
+
     @Override
     public AcceptanceTests.DataObjects.Guest visit() {
         UserService userService = new UserServiceImp();
@@ -27,6 +38,7 @@ public class UserAdapter implements UserBridge{
             ServiceLayer.Objects.User u = userService.getUserInfo().getElement();
             String name = u.username;
             users.put(name, userService);
+            userNotifications.put(name,new LinkedList<>());
             return new Guest(name);
         }
         return null;
@@ -56,7 +68,10 @@ public class UserAdapter implements UserBridge{
         if(users.containsKey(guestname)){
             UserService userService = users.get(guestname);
             Result registered = userService.registerToSystem(info.username,info.password,new Date(2001, Calendar.DECEMBER,1));
-            return registered.isOk();
+            if(registered.isOk()){
+                userNotifications.put(info.username,new LinkedList<>());
+                return true;
+            }
         }
         return false;
     }
@@ -67,8 +82,10 @@ public class UserAdapter implements UserBridge{
         if(users.containsKey(username)){
             UserService userService = users.get(username);
             loggedOut = userService.logoutSystem().isOk();
-            if(loggedOut)
+            if(loggedOut){
                 users.remove(username);
+                userNotifications.remove(username);
+            }
         }
         else if(subscribedUsers.containsKey(username)){
             SubscribedUserService userService = subscribedUsers.get(username);
@@ -222,12 +239,59 @@ public class UserAdapter implements UserBridge{
         else return null;
     }
 
+    @Override
+    public boolean registerToNotifier(String username) {
+        UserService service = getService(username);
+        if(service != null){
+            Function<Notification,Boolean> con = notification -> {
+                userNotifications.get(username).add(0, new AcceptanceTests.DataObjects.Notification(notification.Content()));
+                return true;
+            };
+
+            Result registered = service.registerToNotifier(con);
+            return registered.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username) {
+        UserService service = getService(username);
+        if(service!=null){
+            Result got = service.getDelayNotification();
+            if(got.isOk()){
+                List<AcceptanceTests.DataObjects.Notification> notifications = userNotifications.getOrDefault(username,null);
+                userNotifications.put(username,new LinkedList<>());
+                return notifications;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<AcceptanceTests.DataObjects.Notification> getNotifications(String username) {
+        UserService service = getService(username);
+        if(service!=null){
+            Result response = service.getDelayNotification();
+            if(response.isOk()){
+                List<AcceptanceTests.DataObjects.Notification> notifications = userNotifications.getOrDefault(username,null);
+                userNotifications.put(username,new LinkedList<>());
+                return notifications;
+            }
+        }
+        return null;
+    }
+
     public HashMap<String, UserService> getGuests() {
         return users;
     }
 
     public HashMap<String, SubscribedUserService> getSubscribed() {
         return subscribedUsers;
+    }
+
+    public HashMap<String,List<AcceptanceTests.DataObjects.Notification>> getUserNotifications(){
+        return this.userNotifications;
     }
 
     private UserService getService(String username){

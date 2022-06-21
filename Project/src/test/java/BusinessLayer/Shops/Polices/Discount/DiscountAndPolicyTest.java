@@ -21,8 +21,8 @@ public class DiscountAndPolicyTest {
     public void setUp() throws Exception {
 
         basket = new Basket(1);
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
+        basket.saveProducts(1,10,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
         shopDiscount= new ShopDiscount(5,0.1);
 
 //        Assert.assertEquals(0.1*(10*5+ 100*15),shopDiscount.calculateDiscount(basket),0.1);

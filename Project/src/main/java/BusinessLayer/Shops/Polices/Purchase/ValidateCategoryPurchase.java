@@ -6,15 +6,24 @@ import BusinessLayer.Users.User;
 import java.util.Collection;
 
 public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
+    private final int policyLogicId;
 
     //category
-    Collection<Integer> relatedProducts;
-    int productQuantity;
+    private String category;
+    private int productQuantity;
     //if true then can't be higher than false can't be lower than
-    boolean cantbemore;
+    private boolean cantbemore;
 
-    public ValidateCategoryPurchase(Collection<Integer> relatedProducts, int productQuantity, boolean cantbemore) {
-        this.relatedProducts = relatedProducts;
+    public ValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore) {
+        this.category = category;
+        this.productQuantity = productQuantity;
+        this.cantbemore = cantbemore;
+        this.policyLogicId = purchaseLogicId.incrementAndGet();
+    }
+
+    public ValidateCategoryPurchase(int policyLogicId, String category, int productQuantity, boolean cantbemore) {
+        this.policyLogicId = policyLogicId;
+        this.category = category;
         this.productQuantity = productQuantity;
         this.cantbemore = cantbemore;
     }
@@ -23,12 +32,14 @@ public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
 
         boolean valid =true;
         for (int pid:basket.getProducts().keySet()) {
-            if(relatedProducts.contains(pid))
-            {
-                if(cantbemore)
-                    valid= valid && basket.getProducts().get(pid)<=productQuantity;
-                else
-                    valid= valid && basket.getProducts().get(pid)>=productQuantity;
+            String productCategory = basket.getCategories().get(pid);
+            if(productCategory!= null) {
+                if (category.equals(productCategory)) {
+                    if (cantbemore)
+                        valid = valid && basket.getProducts().get(pid) <= productQuantity;
+                    else
+                        valid = valid && basket.getProducts().get(pid) >= productQuantity;
+                }
             }
         }
       return valid;
@@ -40,5 +51,21 @@ public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
     }
 
     @Override
-    public int getID(){return -1;}
+    public int getID(){return policyLogicId;}
+
+    public int getPolicyLogicId() {
+        return policyLogicId;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public boolean isCantbemore() {
+        return cantbemore;
+    }
 }

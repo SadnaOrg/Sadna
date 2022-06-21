@@ -9,9 +9,7 @@ import com.vaadin.flow.component.contextmenu.MenuItem;
 import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-import java.util.concurrent.ConcurrentHashMap;
-
-public abstract class CompositePolicy extends DiscountPolicy{
+public class CompositePolicy extends DiscountPolicy{
     protected Accordion policies = new Accordion();
     protected MenuBar menuBar;
 
@@ -27,7 +25,7 @@ public abstract class CompositePolicy extends DiscountPolicy{
             MenuItem item = menuBar.addItem(discountType.name());
             item.addClickListener(itemClickEvent -> {
                 layout.removeAll();
-                layout.add(menuBar, createContent(discountType, shopId), policies);
+                layout.add(menuBar, createPolicy(discountType, shopId), policies);
             });
         }
         layout.removeAll();
@@ -50,16 +48,16 @@ public abstract class CompositePolicy extends DiscountPolicy{
         policies.remove(policy.layout);
     }
 
-    private Component createContent(DiscountPolicyType discountType, Integer shopId){
+    private Component createPolicy(DiscountPolicyType discountType, Integer shopId){
         DiscountContentCreator discountContentCreator = new DiscountContentCreator(service, shopId);
         Component component;
         switch (discountType){
-//            case AND -> component = discountContentCreator.createRoleInfo();
-//            case OR -> component = discountContentCreator.createCloseShop();
-//            case XOR -> component = discountContentCreator.createHistoryInfo();
+            case AND -> component = discountContentCreator.createAndDiscount(parentId);
+            case OR -> component = discountContentCreator.createOrDiscount(parentId);
+            case XOR -> component = discountContentCreator.createXorDiscount(parentId);
             case PLUS -> component = discountContentCreator.createPlusDiscount(parentId);
-//            case MAX -> component = discountContentCreator.createAssignShopOwner();
-//            case PRODUCT_QUANTITY -> component = discountContentCreator.createAssignShopManager();
+            case MAX -> component = discountContentCreator.createMaxDiscount(parentId);
+            case PRODUCT_QUANTITY -> component = discountContentCreator.createProductByQuantityDiscount(parentId);
             case PRODUCT -> component = discountContentCreator.createProductDiscount(parentId);
             case QUANTITY_IN_PRICE -> component = discountContentCreator.createProductQuantityInPriceDiscount(parentId);
 //            case CATEGORY -> component = discountContentCreator.createChangeManagerPermission();

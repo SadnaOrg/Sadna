@@ -12,6 +12,6 @@ public interface LogicPurchasePolicy extends PurchasePolicy{
 
     public boolean isValid(User u, Basket basket);
     public void add(PurchasePolicy purchasePolicy);
-    public boolean remove(PurchasePolicy purchasePolicy);
-    public boolean removeChild(PurchasePolicy policy);
+    public boolean remove(int purchasePolicy);
+    public boolean removeChild(int policy);
 }

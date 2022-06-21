@@ -19,7 +19,9 @@ public class DiscountOrPolicy implements LogicDiscountRules{
 
     public DiscountOrPolicy(DiscountPred discountPred,DiscountRules discountPolicy) {
         this.discountPreds = new ArrayList<>();
-        this.discountPreds.add(discountPred);
+        if(discountPolicy != null) {
+            this.discountPreds.add(discountPred);
+        }
         this.connectId = atomicconnectId.incrementAndGet();
         this.discountPolicy = discountPolicy;
     }
@@ -32,6 +34,8 @@ public class DiscountOrPolicy implements LogicDiscountRules{
 
     @Override
     public double calculateDiscount(Basket basket){
+        if(!validate())
+            return 0;
         for(DiscountPred discountPred: discountPreds)
         {
             if(discountPred.validateDiscount(basket))
@@ -45,18 +49,29 @@ public class DiscountOrPolicy implements LogicDiscountRules{
         discountPreds.add(discountPred);
     }
     @Override
-    public boolean remove(DiscountPred discountPred) {
-        return discountPreds.remove(discountPred);
+    public boolean remove(int ID) {
+        for (DiscountPred pred:
+                discountPreds) {
+            if(pred.getID() == ID){
+                discountPreds.remove(pred);
+                return true;
+            }
+        }
+        return false;
     }
 
     public NumericDiscountRules getNumericRule(int searchConnectId) {
-        return discountPolicy.getNumericRule(searchConnectId);
+        if(validate())
+            return discountPolicy.getNumericRule(searchConnectId);
+        return null;
     }
 
     public LogicDiscountRules getLogicRule(int searchConnectId)
     {
         if(this.connectId == searchConnectId)
             return this;
+        if(!validate())
+            return null;
         return discountPolicy.getLogicRule(searchConnectId);
     }
 
@@ -79,24 +94,34 @@ public class DiscountOrPolicy implements LogicDiscountRules{
 
 
     @Override
-    public boolean removeSonDiscount(DiscountRules removeFromConnectId) {
+    public boolean removeSonDiscount(int ID) {
         if (discountPolicy instanceof NumericDiscountRules)
-            return ((NumericDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+            return ((NumericDiscountRules) discountPolicy).removeSonDiscount(ID);
         if (discountPolicy instanceof LogicDiscountRules)
-            return ((LogicDiscountRules) discountPolicy).removeSonDiscount(removeFromConnectId);
+            return ((LogicDiscountRules) discountPolicy).removeSonDiscount(ID);
         return false;
     }
 
     @Override
-    public boolean removeSonPredicate(DiscountPred discountPred) {
+    public void setPolicy(DiscountRules discountRules) {
+        this.discountPolicy = discountRules;
+    }
+
+    @Override
+    public boolean validate() {
+        return this.discountPolicy != null;
+    }
+
+    @Override
+    public boolean removeSonPredicate(int ID) {
         for (DiscountPred discountPred1 :discountPreds) {
-            if (discountPred1.getID() == discountPred.getID()) {
-                return remove(discountPred);
+            if (discountPred1.getID() == ID) {
+                return remove(ID);
             }
         }
         boolean temp = false ;
         if(discountPolicy instanceof NumericDiscountRules ||discountPolicy instanceof LogicDiscountRules)
-            temp = (discountPolicy.removeSonPredicate(discountPred));
+            temp = (discountPolicy.removeSonPredicate(ID));
         return temp;
     }
 }

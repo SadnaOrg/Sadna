@@ -8,6 +8,7 @@ public class ProductInfo {
     private double productprice;
     private int productquantity;
     private String manufacturer;
+    private String category;
 
 
     public ProductInfo(Product p)
@@ -18,6 +19,8 @@ public class ProductInfo {
         this.productprice = p.getPrice();
         this.productquantity = p.getQuantity();
         this.manufacturer = p.getManufacturer();
+        this.category= p.getCategory();
+
     }
 
     public ProductInfo getProductInfo()
@@ -47,4 +50,8 @@ public class ProductInfo {
     }
 
     public String getManufacturer(){return this.manufacturer;}
+
+    public String getCategory() {
+        return category;
+    }
 }

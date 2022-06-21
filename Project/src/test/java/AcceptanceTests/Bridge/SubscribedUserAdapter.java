@@ -1,11 +1,11 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
-import BusinessLayer.Shops.Polices.Discount.DiscountPred;
-import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import ServiceLayer.BaseActionType;
 import ServiceLayer.Objects.Administrator;
 import ServiceLayer.Objects.AdministratorInfo;
+import ServiceLayer.Objects.Policies.Discount.DiscountPred;
+import ServiceLayer.Objects.Policies.Discount.DiscountRules;
 import ServiceLayer.Objects.User;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
@@ -18,8 +18,8 @@ import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
     private Map<String, SystemManagerService> managers;
-    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed){
-        super(guests, subscribed);
+    public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed,HashMap<String,List<Notification>> notifications){
+        super(guests, subscribed,notifications);
     }
 
     @Override
@@ -261,10 +261,10 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public Integer createRelatedGroupDiscount(String username, Collection<Integer> relatedProducts, double discount, int connectId, int shopId) {
+    public Integer createRelatedGroupDiscount(String username, String category, double discount, int connectId, int shopId) {
         if(subscribedUsers.containsKey(username)){
             SubscribedUserService service = subscribedUsers.get(username);
-            Response<Integer> discountID = service.createRelatedGroupDiscount(relatedProducts,discount,connectId,shopId);
+            Response<Integer> discountID = service.createRelatedGroupDiscount(category,discount,connectId,shopId);
             if(discountID.isOk())
                 return discountID.getElement();
         }
@@ -283,29 +283,60 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public Integer createDiscountAndPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountAndPolicy(String username,DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createDiscountAndPolicy(discountPred,discountPolicy,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
 
     @Override
-    public Integer createDiscountMaxPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountMaxPolicy(String username,DiscountRules discountPolicy, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createDiscountMaxPolicy(discountPolicy,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
 
     @Override
-    public Integer createDiscountOrPolicy(String username, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountOrPolicy(String username,DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createDiscountOrPolicy(discountPred,discountPolicy,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
 
     @Override
-    public Integer createDiscountPlusPolicy(String username, DiscountRules discountPolicy, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountPlusPolicy(String username,DiscountRules discountPolicy, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createDiscountPlusPolicy(discountPolicy,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
 
     @Override
-    public Integer createDiscountXorPolicy(String username, DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
-        return null;
+    public Integer createDiscountXorPolicy(String username,DiscountRules discountRules1, DiscountRules discountRules2, DiscountPred tieBreaker, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createDiscountXorPolicy(discountRules1,discountRules2,tieBreaker,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
     }
+
 
     @Override
     public Integer createValidateBasketQuantityDiscount(String username, int basketquantity, boolean cantBeMore, int connectId, int shopId) {
@@ -360,5 +391,69 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
                 return policyID.getElement();
         }
         return -1;
+    }
+
+    @Override
+    public Integer createValidateCategoryPurchase(String username,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateCategoryPurchase(category,productQuantity,cantbemore,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public Integer createValidateUserPurchase(String username, int age, int connectId, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Integer> policyID = service.createValidateUserPurchase(age,connectId,shopId);
+            if(policyID.isOk())
+                return policyID.getElement();
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean removePurchasePolicy(String username, int purchasePolicyToDelete, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removePurchasePolicy(purchasePolicyToDelete,shopId);
+            return removed.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removeDiscount(String username,int discountID, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removeDiscount(discountID,shopId);
+            if(removed.isOk())
+                return removed.getElement();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean removePredicate(String username,int predicateID, int shopId) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Response<Boolean> removed = service.removePredicate(predicateID,shopId);
+            if(removed.isOk())
+                return removed.getElement();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean setCategory(String username, int productId, String category, int shopID) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Result set = service.setCategory(productId,category,shopID);
+            return set.isOk();
+        }
+        return false;
     }
 }

@@ -3,6 +3,7 @@ package AcceptanceTests.Bridge;
 import AcceptanceTests.DataObjects.*;
 
 import java.util.List;
+import java.util.function.Function;
 
 // This is the interface of the options available for all types of users.
 
@@ -33,5 +34,11 @@ public interface UserBridge {
     double purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationYear);
 
     ProductInShop searchProductInShop(String username,int productID, int shopID);
+
+    boolean registerToNotifier(String username);
+
+    List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username);
+
+    List<Notification> getNotifications(String username);
 
 }

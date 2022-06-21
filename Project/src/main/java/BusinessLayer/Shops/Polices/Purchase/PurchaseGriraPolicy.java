@@ -41,7 +41,7 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
     }
 
     @Override
-    public boolean remove(PurchasePolicy purchasePolicy) {
+    public boolean remove(int purchasePolicy) {
         throw new IllegalStateException("can't remove her");
     }
 
@@ -50,7 +50,7 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
         return this.policyLogicId;
     }
     @Override
-    public boolean removeChild(PurchasePolicy policy){
+    public boolean removeChild(int policy){
 
         if(purchasePolicyAllow instanceof LogicPurchasePolicy)
         {

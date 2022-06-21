@@ -4,15 +4,18 @@ import ServiceLayer.Objects.*;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.accordion.AccordionPanel;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.details.DetailsVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -79,7 +82,7 @@ public class GuestActionView extends Header {
     }
 
     private void productEvent(DomEvent domEvent) {
-        ProductView productView = new ProductView();
+        ProductView productView = new ProductView(service);
         setContent(productView);
     }
 
@@ -200,11 +203,13 @@ public class GuestActionView extends Header {
             for (var b : cart.baskets()){
                 var p = createProductInfoGrid();
                 p.setItems(b.productsID());
-                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),p);
+                var v = new VerticalLayout(p, new Label("bascket price :"+service.getBasketPrice(b.shopId()).getElement()));
+                AccordionPanel shopPannel = accordion.add("shop id : "+b.shopId(),v);
                 shopPannel.addThemeVariants(DetailsVariant.FILLED);
                 p.setWidthFull();
             }
-            layout.add(title,accordion);
+            var totalPrice = new Label("total :"+service.getCartPrice().getElement());
+            layout.add(title,accordion,totalPrice);
 
         } else {
             notifyError(cartres.getMsg());
@@ -225,16 +230,15 @@ public class GuestActionView extends Header {
         return prodGrid;
     }
     private Button removeProductFromCart(ProductInfo p){
-        ConfirmDialog dialog = new ConfirmDialog();
-        dialog.setHeader("Delete \"Report Q4\"?");
-        dialog.setText("Are you sure you want to permanently delete this item?");
-
-        dialog.setCancelable(true);
-        dialog.addCancelListener(event -> dialog.close());
-
-        dialog.setConfirmText("Delete");
-        dialog.setConfirmButtonTheme("error primary");
-        dialog.addConfirmListener(event -> {
+        var h = new H2("Delete \"" + p.Id() + "\"?");
+        h.setWidthFull();
+        Dialog dialog = new Dialog(h);
+        var text = new Text("Are you sure you want to permanently delete this product?");
+        var cancel = new Button("Cancel");
+        cancel.addClickListener(event -> dialog.close());
+        var delete = new Button("Delete");
+        delete.getStyle().set("margin-left", "auto");
+        delete.addClickListener(event -> {
             var res = service.removeProduct(p.shopId(),p.Id());
             if(res.isOk())
                 notifySuccess("product remove successfully");
@@ -242,12 +246,11 @@ public class GuestActionView extends Header {
             dialog.close();
             UI.getCurrent().getPage().reload();
         });
-
-        Button button = new Button("Open confirm dialog");
+        HorizontalLayout layout = new HorizontalLayout(cancel,delete);
+        layout.setWidthFull();
+        dialog.add(new VerticalLayout(text, layout));
         var b = new Button(("remove"));
-        b.addClickListener(e->{
-            dialog.open();
-        });
+        b.addClickListener(e -> dialog.open());
         return  b;
     }
 }

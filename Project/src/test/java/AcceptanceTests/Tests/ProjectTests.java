@@ -4,14 +4,12 @@ import AcceptanceTests.Bridge.*;
 import AcceptanceTests.DataObjects.*;
 
 import java.util.List;
-
-// TODO: NOTIFICATION TEST
+import java.util.function.Function;
 
 // This class is used for setting up data for tests
 public abstract class ProjectTests {
 
     protected static UserBridge userBridge;
-    protected static SystemBridge systemBridge;
 
     protected static ShopFilter [] shopFilters = null;
     public static final int NAME_FILTER = 0, DESC_FILTER = 1;
@@ -44,28 +42,31 @@ public abstract class ProjectTests {
     private static boolean init = true;
 
     public static void setUpTests(){
-        // setUpSystem();
+        if(init) {
+            Guest ace_guest = userBridge.visit();
+            Guest castro_guest = userBridge.visit();
+            Guest megasport_guest = userBridge.visit();
 
-        Guest ace_guest =userBridge.visit();
-        Guest castro_guest = userBridge.visit();
-        Guest megasport_guest = userBridge.visit();
+            RegistrationInfo ace = new RegistrationInfo("ACEFounder", "ACE_rocks");
+            RegistrationInfo castro = new RegistrationInfo("castroFounder", "castro_rocks");
+            RegistrationInfo megaSport = new RegistrationInfo("MegaSportFounder", "MegaSport_rocks");
 
-        RegistrationInfo ace = new RegistrationInfo("ACEFounder","ACE_rocks");
-        RegistrationInfo castro = new RegistrationInfo("castroFounder","castro_rocks");
-        RegistrationInfo megaSport = new RegistrationInfo("MegaSportFounder","MegaSport_rocks");
+            userBridge.register(ace_guest.name, ace);
+            userBridge.register(castro_guest.name, castro);
+            userBridge.register(megasport_guest.name, megaSport);
 
-        userBridge.register(ace_guest.name,ace);
-        userBridge.register(castro_guest.name,castro);
-        userBridge.register(megasport_guest.name, megaSport);
+            ACEFounder = userBridge.login(ace_guest.getName(), ace);
+            castroFounder = userBridge.login(castro_guest.getName(), castro);
+            MegaSportFounder = userBridge.login(megasport_guest.getName(), megaSport);
 
-        ACEFounder = userBridge.login(ace_guest.getName(),ace);
-        castroFounder = userBridge.login(castro_guest.getName(), castro);
-        MegaSportFounder = userBridge.login(megasport_guest.getName(), megaSport);
+            userBridge.registerToNotifier(ACEFounder.name);
+            userBridge.registerToNotifier(castroFounder.name);
+            userBridge.registerToNotifier(MegaSportFounder.name);
 
-        // not initialized by one of the test classes
-        if(init){
+            // not initialized by one of the test classes
+
             SubscribedUserProxy proxy = new SubscribedUserProxy((UserProxy) userBridge);
-            Shop aceShop =proxy.openShop(ACEFounder.name,"ACE", "home renovation");
+            Shop aceShop = proxy.openShop(ACEFounder.name, "ACE", "home renovation");
             Shop castroShop = proxy.openShop(castroFounder.name, "castro", "fashion");
             Shop megaSportShop = proxy.openShop(MegaSportFounder.name, "MegaSport", "sports");
             shops[ACE_ID] = aceShop;
@@ -76,29 +77,26 @@ public abstract class ProjectTests {
             castroProducts = setUpCastroProducts(proxy);
             MegaSportProducts = setUpMegaSportProducts(proxy);
 
-            proxy.appointManager(castroShop.ID, castroFounder.name,MegaSportFounder.name);
-            proxy.appointOwner(castroShop.ID, castroFounder.name,ACEFounder.name);
-            proxy.appointOwner(aceShop.ID, ACEFounder.name,MegaSportFounder.name);
+            proxy.appointManager(castroShop.ID, castroFounder.name, MegaSportFounder.name);
+            proxy.appointOwner(castroShop.ID, castroFounder.name, ACEFounder.name);
+            proxy.appointOwner(aceShop.ID, ACEFounder.name, MegaSportFounder.name);
 
             shops[castro_ID] = shopSearch(shops[castro_ID].ID);
             shops[MegaSport_ID] = shopSearch(shops[MegaSport_ID].ID);
             shops[ACE_ID] = shopSearch(shops[ACE_ID].ID);
             init = false;
+
+
+            userBridge.exit(ACEFounder.name);
+            userBridge.exit(castroFounder.name);
+            userBridge.exit(MegaSportFounder.name);
+
+            shopFilters = setUpShopFilters();
+            shopFailFilters = setUpFailShopFilters();
+            productFilters = setUpProductFilters();
+            productFailFilters = setUpFailProductFilters();
         }
 
-        userBridge.exit(ACEFounder.name);
-        userBridge.exit(castroFounder.name);
-        userBridge.exit(MegaSportFounder.name);
-
-        shopFilters = setUpShopFilters();
-        shopFailFilters = setUpFailShopFilters();
-        productFilters = setUpProductFilters();
-        productFailFilters = setUpFailProductFilters();
-
-    }
-
-    private static void setUpSystem(){
-        // use system bridge here
     }
 
     private static Product [] setUpACEProducts(SubscribedUserBridge b){
@@ -110,6 +108,9 @@ public abstract class ProjectTests {
         b.addProductToShop(ACEFounder.name, shops[ACE_ID].ID, p2, 1, 100, 25);
         b.addProductToShop(ACEFounder.name, shops[ACE_ID].ID, p3, 2, 40, 40);
 
+        b.setCategory(ACEFounder.name,0,"not expensive",shops[ACE_ID].ID);
+        b.setCategory(ACEFounder.name,1,"not expensive",shops[ACE_ID].ID);
+        b.setCategory(ACEFounder.name,2,"expensive",shops[ACE_ID].ID);
         return new Product[]{p1, p2, p3};
     }
 
