@@ -1,8 +1,10 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
+import com.SadnaORM.ShopImpl.ShopObjects.Policies.PurchasePolicyDTO;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -49,5 +51,10 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
 
     public int getPolicyLogicId() {
         return policyLogicId;
+    }
+
+    @Override
+    public PurchasePolicyDTO conversion(Converter c) {
+        return c.convert(this);
     }
 }

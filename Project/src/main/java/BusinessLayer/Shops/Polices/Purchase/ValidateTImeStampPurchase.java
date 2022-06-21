@@ -1,7 +1,9 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
+import com.SadnaORM.ShopImpl.ShopObjects.Policies.PurchasePolicyDTO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -73,5 +75,10 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
     public boolean isBuybefore() {
         return buybefore;
+    }
+
+    @Override
+    public PurchasePolicyDTO conversion(Converter c) {
+        return c.convert(this);
     }
 }
