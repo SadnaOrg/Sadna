@@ -3,13 +3,13 @@ package BusinessLayer.Users;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
-import BusinessLayer.Shops.Polices.Discount.ProductByQuantityDiscount;
 import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Users.BaseActions.*;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Map;
@@ -292,10 +292,15 @@ public class ShopAdministrator {
 
     public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int connectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
-            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateTImeStampPurchase(localTime, buybefore, connectId);
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateTimeStampPurchase(localTime, buybefore, connectId);
         } else throw new NoPermissionException("you don't have permission to do that!");
     }
 
+    public int createValidateDateStampPurchase(LocalDate localDate, int connectId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).createValidateDateStampPurchase(localDate, connectId);
+        } else throw new NoPermissionException("you don't have permission to do that!");
+    }
 
     public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
@@ -309,8 +314,6 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
-
-
 
     public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {

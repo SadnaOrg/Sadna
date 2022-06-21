@@ -10,7 +10,6 @@ import ServiceLayer.Response;
 import ServiceLayer.interfaces.SubscribedUserService;
 import com.example.application.views.main.Discount.DiscountPolicies.*;
 import com.example.application.views.main.Discount.DiscountPred.DiscountPred;
-import com.example.application.views.main.Discount.DiscountPred.DiscountPredCreator;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -99,7 +98,7 @@ public class DiscountContentCreator {
         VerticalLayout layout = new VerticalLayout();
         NumberField priceField = createNumberField("Enter price", -1);
         IntegerField quantityField = createIntegerField("Enter product quantity");
-        Select<Integer> selectProduct = createShopSelect();
+        Select<Integer> selectProduct = createProductSelect();
         Button button = new Button("Create Product by Quantity Discount");
         priceField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
         quantityField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
@@ -118,7 +117,7 @@ public class DiscountContentCreator {
         VerticalLayout layout = new VerticalLayout();
         NumberField priceField = createNumberField("Enter price", -1);
         IntegerField quantityField = createIntegerField("Enter product quantity");
-        Select<Integer> selectProduct = createShopSelect();
+        Select<Integer> selectProduct = createProductSelect();
         Button button = new Button("Create Product Quantity in Price Discount");
         priceField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
         quantityField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null && quantityField.getValue() != null));
@@ -135,7 +134,7 @@ public class DiscountContentCreator {
 
     public Component createProductDiscount(int parentId) {
         VerticalLayout layout = new VerticalLayout();
-        Select<Integer> selectProduct = createShopSelect();
+        Select<Integer> selectProduct = createProductSelect();
         NumberField priceField = createNumberField("Enter an amount between 0-100", 100);
         Button button = new Button("Create Product Discount");
         priceField.addValueChangeListener(e -> button.setEnabled(priceField.getValue() != null && selectProduct.getValue() != null));
@@ -306,7 +305,7 @@ public class DiscountContentCreator {
         return basketField;
     }
 
-    private Select<Integer> createShopSelect() {
+    private Select<Integer> createProductSelect() {
         Select<Integer> selectShop = new Select<>();
         selectShop.setLabel("Select Product");
         selectShop.setItems(filterShopIds());

@@ -13,6 +13,7 @@ import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Date;
@@ -329,7 +330,11 @@ public class Facade{
 
     }
     public int createValidateTImeStampPurchase(SubscribedUser currUser, LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
-        return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
+        return userController.createValidateTImeStampPurchase(currUser, localTime, buybefore, conncectId, shopId);
+    }
+
+    public int createValidateDateStampPurchase(SubscribedUser currUser, LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createValidateDateStampPurchase(currUser, localDate, conncectId, shopId);
     }
 
     public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
