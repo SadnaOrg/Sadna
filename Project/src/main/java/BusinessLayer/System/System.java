@@ -1,5 +1,6 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Notifications.Notification;
 import BusinessLayer.Notifications.Notifier;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistoryController;
@@ -9,13 +10,21 @@ import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.UserController;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 public class System {
-    private Notifier notifier = new Notifier();
+
+    private final Notifier notifier;
     private ExternalServicesSystem externSystem = new ExternalServicesSystem();
     private PurchaseHistoryController purchaseHistoryServices;
     private ConcurrentHashMap<Integer, Shop> shops;
+
+    public System() {
+        notifier = new Notifier();;
+    }
 
     static private class SystemHolder{
         static final System s = new System();
@@ -30,18 +39,20 @@ public class System {
     }
 
     public void initialize(){
-        notifier = new Notifier();
         externSystem = new ExternalServicesSystem();
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
-        UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria");
+        UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria",new Date(2001, Calendar.DECEMBER,1));
         //setUp();
     }
+
+
+
 
     private static PurchaseHistoryController phc = PurchaseHistoryController.getInstance();
     private static ShopController sc = ShopController.getInstance();
     private static Shop s1;
-    private static SubscribedUser buyer = new SubscribedUser("buyer", "I am also not Guy Kishon");
+    private static SubscribedUser buyer = new SubscribedUser("buyer", "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
     private static final int shopId = 1200;
     private static final int otherShopId = 12930;
     private static Product p1 = new Product(12090, "pord", 156.2, 45);
@@ -50,11 +61,11 @@ public class System {
     private static boolean flag = false;
     public static void setUp(){
         if(!flag) {
-            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon");
+            uc.registerToSystem(buyer.getUserName(), "I am also not Guy Kishon",new Date(2001, Calendar.DECEMBER,1));
             uc.login(buyer.getUserName(), "I am also not Guy Kishon", buyer);
             s1 = new Shop(shopId, "name of shop","testing shop", buyer);
             s1.addProduct(p1);
-            basket.saveProducts(p1.getID(), 23, p1.getPrice());
+            basket.saveProducts(p1.getID(), 23, p1.getPrice(),"meow");
             s1.addBasket(buyer.getUserName(), basket);
             sc.addShop(s1);
             sc.addToPurchaseHistory(buyer.getUserName(), createPayments());
@@ -94,10 +105,6 @@ public class System {
         return supplySituation;
     }
 
-    public void notifyUser(String username){
-        notifier.notifyUser(username);
-    }
-
     public PurchaseHistoryController getPurchaseHistoryServices() {
         return purchaseHistoryServices;
     }
@@ -121,4 +128,10 @@ public class System {
     public int getSupplySize(){//for tests only
         return externSystem.getSupplySize();
     }
+
+    public Notifier getNotifier(){
+        return notifier;
+    }
+
+
 }

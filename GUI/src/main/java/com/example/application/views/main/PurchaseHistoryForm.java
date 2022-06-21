@@ -35,6 +35,7 @@ public class PurchaseHistoryForm extends Header {
         searchButton.addClickListener(click -> searchPurchaseHistory());
         layout.add(userField, shopField, searchButton, purchaseHistory);
         setContent(layout);
+        registerToNotification(service);
     }
 
     private void searchPurchaseHistory() {

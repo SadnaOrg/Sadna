@@ -1,10 +1,11 @@
 package com.example.application.views.main;
 
+import ServiceLayer.Objects.Guest;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
-import com.example.application.Header.Header;
+import com.example.application.views.main.Discount.DiscountPolicyView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -18,6 +19,7 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.router.Route;
 
 import java.util.Collection;
@@ -29,12 +31,10 @@ import static com.example.application.Header.SessionData.save;
 import static com.example.application.Utility.*;
 
 @Route("SubscribedUser")
-public class SubscribedUserView extends Header {
-    protected String currUser;
+public class SubscribedUserView extends GuestActionView {
     protected SubscribedUserService service;
 
     private final Dialog dialog = new Dialog();
-    private Button logoutButton;
     private Grid<Shop> shops;
 
     private Grid<Product> shopProducts;
@@ -58,23 +58,26 @@ public class SubscribedUserView extends Header {
             if(service == null)
                 throw new IllegalStateException();
         }
-        catch(Exception e){
+        catch(Exception e) {
             UI.getCurrent().getPage().getHistory().go(-1);
             return;
         }
-        logoutButton = new Button("Logout", e -> {
-            var service = this.service.logout();
-
-            if (service.isOk()) {
-                save("user-name", null);
-                save("service",service.getElement());
-                UI.getCurrent().navigate(MainView.class);
+        logoutButton.addClickListener(e -> {
+           var s= service.logout();
+            save("user-name", null);
+            if(s.isOk()) {
+                save("service", s.getElement());
+                UI.getCurrent().navigate(GuestActionView.class);
             }
+            else
+                UI.getCurrent().navigate(MainView.class);
         });
-        logoutButton.getStyle().set("margin-left", "auto");
-        addToNavbar(logoutButton);
         createOpenShop();
         createTabs();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
+        registerToNotification(service);
     }
 
     private void createOpenShop() {
@@ -173,17 +176,15 @@ public class SubscribedUserView extends Header {
         descriptionColumn = shopProducts.addColumn(Product::description).setHeader("Description").setSortable(true);
         quantityColumn = shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
         priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
-        closeColumn = shopProducts.addComponentColumn(item -> {
-            return new Button(VaadinIcon.CLOSE.create(), e -> {
-                Result res = service.deleteProductFromShop(item.shopId(), item.productID());
-                if (res.isOk()) {
-                    updateProductGrid(item.shopId());
-                    notifySuccess("Product Removed Successfully!");
-                }
-                else
-                    notifyError(res.getMsg());
-                });
-        });
+        closeColumn = shopProducts.addComponentColumn(item -> new Button(VaadinIcon.CLOSE.create(), e -> {
+            Result res = service.deleteProductFromShop(item.shopId(), item.productID());
+            if (res.isOk()) {
+                updateProductGrid(item.shopId());
+                notifySuccess("Product Removed Successfully!");
+            }
+            else
+                notifyError(res.getMsg());
+            }));
         editor = shopProducts.getEditor();
         setEditorComponent();
         shopProducts.addItemClickListener(item -> {
@@ -239,8 +240,20 @@ public class SubscribedUserView extends Header {
 
     private void createTabs(){
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
+        addTabWithClickEvent("Manage Actions", this::createActionView);
+        addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createDiscountPolicyView(DomEvent domEvent) {
+        DiscountPolicyView policyView = new DiscountPolicyView(service, currUser);
+        setContent(policyView);
+    }
+
+    private void createActionView(DomEvent domEvent) {
+        ActionView view = new ActionView(service, currUser);
+        setContent(view);
     }
 }

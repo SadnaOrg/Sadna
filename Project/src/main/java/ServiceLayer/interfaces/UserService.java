@@ -1,11 +1,12 @@
 package ServiceLayer.interfaces;
 
-import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Shops.ShopFilters;
+import BusinessLayer.Notifications.Notification;
 import ServiceLayer.Objects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 
+import java.util.Date;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public interface UserService {
@@ -14,13 +15,17 @@ public interface UserService {
 
     Result logoutSystem();
 
-    Result registerToSystem(String userName, String password);
+    Result registerToSystem(String userName, String password, Date date);
 
     Response<SubscribedUserService> login(String username, String password);
 
     Response<ShopsInfo> receiveInformation();
 
-    Result purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
+    Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
+
+    Response<Double> getCartPrice();
+
+    Response<Double> getBasketPrice(int shopid);
 
     Result saveProducts(int shopid, int productid, int quantity);
 
@@ -34,4 +39,7 @@ public interface UserService {
 
     Response<User> getUserInfo();
 
+    Result registerToNotifier(Function<ServiceLayer.Objects.Notification, Boolean> con);
+
+    Result getDelayNotification();
 }

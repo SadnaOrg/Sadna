@@ -63,7 +63,7 @@ public class SystemTest {
 
     @Test
     public void testPayFailureCVVInvalid(){
-        PaymentMethod method = new PaymentMethod("4580123456789012", 10, 4, 2032);
+        PaymentMethod method = new PaymentMethod("4580123456789012", -10, 4, 2032);
         prices.put(1, 100.0);
         ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
         Assert.assertFalse(res.get(1));

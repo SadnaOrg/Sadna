@@ -8,29 +8,38 @@ public class Basket {
     //the value will be the quantity of the product
     private ConcurrentHashMap<Integer , Integer> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<Integer, Double> prices;
+    private ConcurrentHashMap<Integer, String> categories;
 
     public Basket(int shopid)
     {
         this.shopid= shopid;
         products = new ConcurrentHashMap<>();
         prices = new ConcurrentHashMap<>();
+        categories = new ConcurrentHashMap<>();
     }
 
     public Basket(Basket bmain)
     {
         this.shopid =bmain.shopid;
         this.products = new ConcurrentHashMap<>();
+        this.prices = new ConcurrentHashMap<>();
+        this.categories = new ConcurrentHashMap<>();
         for (int pid:bmain.getProducts().keySet())
         {
             products.put(pid,bmain.getProducts().get(pid));
+            prices.put(pid,bmain.getPrices().get(pid));
+            if(bmain.getCategories().get(pid)!=null)
+            categories.put(pid,bmain.getCategories().get(pid));
         }
     }
 
-    public boolean saveProducts(int productid, int quantity,double price) {
+    public boolean saveProducts(int productid, int quantity,double price,String category) {
        if(!products.containsKey(productid))
         {
             products.put(productid,quantity);
             prices.put(productid,price);
+            if(category!=null)
+                categories.put(productid,category);
             return true;
         }
         else
@@ -44,6 +53,7 @@ public class Basket {
         if (products.containsKey(productid)) {
             products.remove(productid);
             prices.remove(productid);
+            categories.remove(productid);
             return true;
         }
         else
@@ -76,6 +86,10 @@ public class Basket {
 
     public ConcurrentHashMap<Integer, Double> getPrices(){
         return prices;
+    }
+
+    public ConcurrentHashMap<Integer, String> getCategories() {
+        return categories;
     }
 
     public int getShopid() {

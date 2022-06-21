@@ -19,5 +19,6 @@ public class ShopView extends Header {
         shops.addColumn(Shop::shopName).setHeader("Name");
         shops.addColumn(Shop::shopDescription).setHeader("Description");
         content.add(shops);
+        registerToNotification(service);
     }
 }

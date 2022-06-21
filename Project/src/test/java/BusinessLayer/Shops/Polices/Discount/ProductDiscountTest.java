@@ -25,24 +25,18 @@ public class ProductDiscountTest {
 
     @Test
     public void calculateDiscountOneProductDiscount() {
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
-        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        basket.saveProducts(1,10,5,"meow");
+        basket.saveProducts(2,100,15,"meow");
+        productDiscount= new ProductDiscount(1,0.1);
         Assert.assertEquals(0.1*10*5,productDiscount.calculateDiscount(basket),0.1);
     }
 
     @Test
     public void calculateDiscountDifferentProductDiscount() {
-        basket.saveProducts(2,100,15);
-        productDiscount= new ProductDiscount(new DefaultDiscount(),1,0.1);
+        basket.saveProducts(2,100,15,"meow");
+        productDiscount= new ProductDiscount(1,0.1);
         Assert.assertEquals(0,productDiscount.calculateDiscount(basket),0.1);
     }
 
-    @Test
-    public void calculateDiscountMultipleProducts() {
-        basket.saveProducts(1,10,5);
-        basket.saveProducts(2,100,15);
-        productDiscount= new ProductDiscount(new ProductDiscount(new DefaultDiscount(),1,0.1),2,0.2);
-        Assert.assertEquals(0.1*10*5+0.2*15*100,productDiscount.calculateDiscount(basket),0.1);
-    }
+
 }

@@ -6,26 +6,18 @@ public class Product {
 
     private int id;
     private String name;
-
     private String description;
-
     private String manufacturer;
-
+    private String category;
     private double price;
     private int quantity;
-    public Product(int id, String name, String description, String manufacturer, double price, int quantity) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.manufacturer = manufacturer;
-        this.price = price;
-        this.quantity = quantity;
-    }
+
     public Product(int id, String name, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.category = null;
     }
 
 
@@ -90,5 +82,13 @@ public class Product {
 
     public String  getManufacturer() {
         return this.manufacturer;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -2,6 +2,7 @@ package com.example.application.views.main;
 
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.ShopFilters;
+import ServiceLayer.Objects.Notification;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
@@ -16,7 +17,6 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H5;
 import com.vaadin.flow.component.html.Pre;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -49,8 +49,8 @@ public class ProductView extends Header {
     private Dialog emptyProductSection;
 
 
-    public ProductView() {
-        service = (UserService)Load("service");
+    public ProductView(UserService service) {
+        this.service = service;
         content.add(createFilterBy());
         productGrid = new Grid<>();
         productGrid.addColumn(Product::name).setHeader("Name").setSortable(true);
@@ -59,6 +59,7 @@ public class ProductView extends Header {
         productGrid.addItemClickListener(e -> itemClicked(e.getItem()));
         createProductList();
         content.add(productGrid);
+        registerToNotification(service);
     }
 
     private void createProductList() {
@@ -84,6 +85,12 @@ public class ProductView extends Header {
         filterBy.setItems("Name", "Description");
         filterBy.addValueChangeListener(e -> {
             if (e.getValue().equals("Name"))
+                filterByName(textField.getValue());
+            else
+                filterByDescription(textField.getValue());
+        });
+        textField.addValueChangeListener(e -> {
+            if (filterBy.getValue().equals("Name"))
                 filterByName(textField.getValue());
             else
                 filterByDescription(textField.getValue());

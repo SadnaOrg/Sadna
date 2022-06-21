@@ -7,12 +7,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class ShopTest {
 
-    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456");
+    private final SubscribedUser founder = new SubscribedUser("Founder Guy","Guy123456",new Date(2001, Calendar.DECEMBER,1));
     private Shop s1;
     private Product p1;
     private Product p2;
@@ -183,7 +186,7 @@ public class ShopTest {
     @Test
     public void closeShopCheckWhenClosedAddAdministrator() {
         s1.addProduct(p1);
-        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor");
+        SubscribedUser subscribedUser =new SubscribedUser("Guy","meirMaor",new Date(2001, Calendar.DECEMBER,1));
         ShopAdministrator sa1 = new ShopAdministrator(s1,subscribedUser,s1.getFounder().getUserName());
         assertTrue(s1.close());
         try {
@@ -330,8 +333,8 @@ public class ShopTest {
         s1.addProduct(p2);
         User u1 = new Guest("Yuval");
         Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10,p1.getPrice());
-        b.saveProducts(p2.getID(),50,p1.getPrice());
+        b.saveProducts(p1.getID(),10,p1.getPrice(),"meow");
+        b.saveProducts(p2.getID(),50,p1.getPrice(),"meow");
         s1.addBasket(u1.getName(), b);
         double price =s1.purchaseBasket(u1.getName());
         Assert.assertEquals(price, 5.0*10+15.0*50, 0.0);
@@ -345,9 +348,9 @@ public class ShopTest {
         Product p3 = new Product(32, "fake", 50, 1000);
         User u1 = new Guest("Yuval");
         Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10,p1.getPrice());
-        b.saveProducts(p2.getID(),50,p2.getPrice());
-        b.saveProducts(p3.getID(),51,p3.getPrice());
+        b.saveProducts(p1.getID(),10,p1.getPrice(),"meow");
+        b.saveProducts(p2.getID(),50,p2.getPrice(),"meow");
+        b.saveProducts(p3.getID(),51,p3.getPrice(),"meow");
         s1.addBasket(u1.getName(), b);
         try {
             double price = s1.purchaseBasket(u1.getName());
@@ -370,9 +373,9 @@ public class ShopTest {
         s1.addProduct(p3);
         User u1 = new Guest("Yuval");
         Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10, p1.getPrice());
-        b.saveProducts(p2.getID(),50, p2.getPrice());
-        b.saveProducts(p3.getID(),51, p3.getPrice());
+        b.saveProducts(p1.getID(),10, p1.getPrice(),"meow");
+        b.saveProducts(p2.getID(),50, p2.getPrice(),"meow");
+        b.saveProducts(p3.getID(),51, p3.getPrice(),"meow");
         s1.addBasket(u1.getName(), b);
         try {
             double price = s1.purchaseBasket(u1.getName());
@@ -394,8 +397,8 @@ public class ShopTest {
         User u1 = new Guest("Yuval");
         User u2 = new Guest("Meir");
         Basket b = new Basket(s1.getId());
-        b.saveProducts(p1.getID(),10, p1.getPrice());
-        b.saveProducts(p2.getID(),50, p2.getPrice());
+        b.saveProducts(p1.getID(),10, p1.getPrice(),"meow");
+        b.saveProducts(p2.getID(),50, p2.getPrice(),"meow");
         s1.addBasket(u1.getName(), b);
         Assert.assertTrue(s1.checkIfUserHasBasket(u1.getName()));
         Assert.assertFalse(s1.checkIfUserHasBasket(u2.getName()));
@@ -409,10 +412,10 @@ public class ShopTest {
         User u2 = new Guest("Meir");
         Basket b1 = new Basket(s1.getId());
         Basket b2 = new Basket(s1.getId());
-        b1.saveProducts(p1.getID(),10, p1.getPrice());
-        b1.saveProducts(p2.getID(),50, p2.getPrice());
+        b1.saveProducts(p1.getID(),10, p1.getPrice(),"meow");
+        b1.saveProducts(p2.getID(),50, p2.getPrice(),"meow");
         s1.addBasket(u1.getName(), b1);
-        b2.saveProducts(p1.getID(),10, p1.getPrice());
+        b2.saveProducts(p1.getID(),10, p1.getPrice(),"meow");
         Assert.assertTrue(s1.checkIfUserHasBasket(u1.getName()));
         Assert.assertFalse(s1.checkIfUserHasBasket(u2.getName()));
         try
@@ -430,7 +433,7 @@ public class ShopTest {
     @Test
 
     public void addAdministratorNewOne() {
-        SubscribedUser u1 = new SubscribedUser("Meir","Maor");
+        SubscribedUser u1 = new SubscribedUser("Meir","Maor",new Date(2001, Calendar.DECEMBER,1));
         ShopAdministrator sa1 = new ShopAdministrator(s1,u1,s1.getFounder().getUserName());
         Assert.assertEquals(1, s1.getShopAdministrators().size());
         Assert.assertTrue(s1.addAdministrator(sa1.getUserName(),sa1));

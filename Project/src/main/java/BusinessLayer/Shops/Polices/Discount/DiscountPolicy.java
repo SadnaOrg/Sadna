@@ -2,18 +2,10 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public abstract class DiscountPolicy implements DiscountPolicyInterface{
+import java.util.concurrent.atomic.AtomicInteger;
 
-    protected DiscountPolicyInterface discountPolicy;
-
-    public DiscountPolicy(DiscountPolicyInterface discountPolicy)
-    {
-        this.discountPolicy = discountPolicy;
-    }
-
-    public double calculateDiscount(Basket basket){
-        return discountPolicy.calculateDiscount(basket);
-    }
-
+public interface DiscountPolicy extends DiscountRules{
+    AtomicInteger atomicDiscountID= new AtomicInteger(0);
+    public double calculateDiscount(Basket basket);
 
 }
