@@ -8,27 +8,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ProductByQuantityDiscount")
-public class ProductByQuantityDiscount extends DiscountPolicy{
+@Table(name = "ValidateProductQuantityDiscount")
+public class ValidateProductQuantityDiscount extends DiscountPred{
     @ManyToOne
     private Product product;
     private int productQuantity;
-    private double discount;
+    //if true then can't be higher than false can't be lower than
+    boolean cantbemore;
 
-    public ProductByQuantityDiscount() {
+    public ValidateProductQuantityDiscount() {
     }
 
-    public ProductByQuantityDiscount(Shop shop, int ID, Product product, int productQuantity, double discount) {
+    public ValidateProductQuantityDiscount(Shop shop, int ID, Product product, int productQuantity, boolean cantbemore) {
         super(shop, ID);
         this.product = product;
         this.productQuantity = productQuantity;
-        this.discount = discount;
+        this.cantbemore = cantbemore;
     }
 
-    public ProductByQuantityDiscount(Product product, int productQuantity, double discount) {
+    public ValidateProductQuantityDiscount(Product product, int productQuantity, boolean cantbemore) {
         this.product = product;
         this.productQuantity = productQuantity;
-        this.discount = discount;
+        this.cantbemore = cantbemore;
     }
 
     public Product getProduct() {
@@ -39,7 +40,7 @@ public class ProductByQuantityDiscount extends DiscountPolicy{
         return productQuantity;
     }
 
-    public double getDiscount() {
-        return discount;
+    public boolean isCantbemore() {
+        return cantbemore;
     }
 }

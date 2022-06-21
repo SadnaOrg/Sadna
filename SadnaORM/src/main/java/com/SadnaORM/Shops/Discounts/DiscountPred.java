@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @IdClass(DiscountPolicy.DiscountPolicyPK.class)
-public abstract class DiscountPolicy {
+public abstract class DiscountPred {
     @Id
     @ManyToOne
     protected Shop shop;
@@ -16,12 +16,12 @@ public abstract class DiscountPolicy {
     @Id
     protected int ID;
 
-    public DiscountPolicy(Shop shop, int ID) {
+    public DiscountPred(Shop shop, int ID) {
         this.shop = shop;
         this.ID = ID;
     }
 
-    public DiscountPolicy() {
+    public DiscountPred() {
     }
 
     public Shop getShop() {
@@ -32,16 +32,16 @@ public abstract class DiscountPolicy {
         return ID;
     }
 
-    public static class DiscountPolicyPK implements Serializable {
+    public static class DiscountPredPK implements Serializable {
         private Shop shop;
         private int ID;
 
-        public DiscountPolicyPK(Shop shop, int ID) {
+        public DiscountPredPK(Shop shop, int ID) {
             this.shop = shop;
             this.ID = ID;
         }
 
-        public DiscountPolicyPK() {
+        public DiscountPredPK() {
         }
     }
 }

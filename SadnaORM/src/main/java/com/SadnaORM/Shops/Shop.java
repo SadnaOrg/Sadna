@@ -1,5 +1,7 @@
 package com.SadnaORM.Shops;
 
+import com.SadnaORM.Shops.Discounts.DiscountPlusPolicy;
+import com.SadnaORM.Shops.Purchases.PurchaseAndPolicy;
 import com.SadnaORM.Users.Basket;
 import com.SadnaORM.Users.ShopAdministrator;
 import com.SadnaORM.Users.SubscribedUser;
@@ -49,6 +51,32 @@ public class Shop {
             joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")})
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
+    @OneToOne
+    private DiscountPlusPolicy discounts;
+
+    public DiscountPlusPolicy getDiscounts() {
+        return discounts;
+    }
+
+    public PurchaseAndPolicy getPurchasePolicy() {
+        return purchasePolicy;
+    }
+
+    public Shop(int id, String name, String description, State state, Collection<Product> products, Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory, Map<SubscribedUser, ShopAdministrator> shopAdministrators, DiscountPlusPolicy discounts, PurchaseAndPolicy purchasePolicy) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.state = state;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+        this.discounts = discounts;
+        this.purchasePolicy = purchasePolicy;
+    }
+
+    @OneToOne
+    private PurchaseAndPolicy purchasePolicy;
 
     public Shop(int id, String name, String description) {
         this.id = id;

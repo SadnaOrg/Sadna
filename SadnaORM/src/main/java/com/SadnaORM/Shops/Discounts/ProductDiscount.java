@@ -4,25 +4,17 @@ import com.SadnaORM.Shops.Product;
 import com.SadnaORM.Shops.Shop;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ProductDiscounts")
+@Table(name = "ProductDiscount")
 public class ProductDiscount extends DiscountPolicy{
     @ManyToOne
-    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
-    double discount;
+    private double discount;
 
     public ProductDiscount() {
-    }
-
-    public ProductDiscount(Shop shop, int ID, DiscountPolicy policy, Product product, double discount) {
-        super(shop, ID, policy);
-        this.product = product;
-        this.discount = discount;
     }
 
     public ProductDiscount(Shop shop, int ID, Product product, double discount) {
@@ -31,4 +23,16 @@ public class ProductDiscount extends DiscountPolicy{
         this.discount = discount;
     }
 
+    public ProductDiscount(Product product, double discount) {
+        this.product = product;
+        this.discount = discount;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
 }
