@@ -1,28 +1,28 @@
 package com.SadnaORM.ShopImpl.ShopObjects.Discounts;
 
-import com.SadnaORM.ShopImpl.ShopObjects.ProductDTO;
-import com.SadnaORM.Shops.Product;
+public class RelatedGroupDiscountDTO extends DiscountPolicyDTO{
+    private String category;
+    private double discount;
 
-import java.util.Collection;
-
-public class RelatedGroupDiscountDTO extends DiscountPolicyDTO {
-
-    Collection<ProductDTO> relatedProducts;
-    double discount;
-
-    public RelatedGroupDiscountDTO() {
-    }
-
-    public RelatedGroupDiscountDTO(int shop, int ID, DiscountPolicyDTO policy, Collection<ProductDTO> relatedProducts, double discount) {
-        super(shop, ID, policy);
-        this.relatedProducts = relatedProducts;
+    public RelatedGroupDiscountDTO(int ID, int shopID, String category, double discount) {
+        super(ID, shopID);
+        this.category = category;
         this.discount = discount;
     }
 
-    public RelatedGroupDiscountDTO(int shop, int ID, Collection<ProductDTO> relatedProducts, double discount) {
-        super(shop, ID);
-        this.relatedProducts = relatedProducts;
-        this.discount = discount;
+    public String getCategory() {
+        return category;
     }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
 }

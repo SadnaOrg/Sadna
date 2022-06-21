@@ -1,30 +1,38 @@
 package com.SadnaORM.ShopImpl.ShopObjects.Discounts;
 
-import com.SadnaORM.ShopImpl.ShopObjects.ProductDTO;
-import com.SadnaORM.Shops.Product;
-
-
-public class ProductByQuantityDiscountDTO extends DiscountPolicyDTO {
-
-    private ProductDTO product;
+public class ProductByQuantityDiscountDTO extends DiscountPolicyDTO{
+    private int productID;
     private int productQuantity;
     private double discount;
 
-    public ProductByQuantityDiscountDTO() {
-    }
-
-    public ProductByQuantityDiscountDTO(int shop, int ID, DiscountPolicyDTO policy, ProductDTO product, int productQuantity, double discount) {
-        super(shop, ID, policy);
-        this.product = product;
+    public ProductByQuantityDiscountDTO(int ID, int shopID, int productID, int productQuantity, double discount) {
+        super(ID, shopID);
+        this.productID = productID;
         this.productQuantity = productQuantity;
         this.discount = discount;
     }
 
-    public ProductByQuantityDiscountDTO(int shop, int ID, ProductDTO product, int productQuantity, double discount) {
-        super(shop, ID);
-        this.product = product;
-        this.productQuantity = productQuantity;
-        this.discount = discount;
+    public int getProductID() {
+        return productID;
     }
 
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
 }

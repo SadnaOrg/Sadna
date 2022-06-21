@@ -1,27 +1,28 @@
 package com.SadnaORM.ShopImpl.ShopObjects.Discounts;
 
-import com.SadnaORM.Shops.Shop;
-
-import java.io.Serializable;
-
 public abstract class DiscountPolicyDTO {
-    protected int shop;
-
     protected int ID;
 
-    protected DiscountPolicyDTO policy;
+    protected int shopID;
 
-    public DiscountPolicyDTO(int shop, int ID, DiscountPolicyDTO policy) {
-        this.shop = shop;
+    public DiscountPolicyDTO(int ID, int shopID) {
         this.ID = ID;
-        this.policy = policy;
+        this.shopID = shopID;
     }
 
-    public DiscountPolicyDTO(int shop, int ID) {
-        this.shop = shop;
+    public int getID() {
+        return ID;
+    }
+
+    public int getShopID() {
+        return shopID;
+    }
+
+    public void setID(int ID) {
         this.ID = ID;
     }
 
-    public DiscountPolicyDTO() {
+    public void setShopID(int shopID) {
+        this.shopID = shopID;
     }
 }
