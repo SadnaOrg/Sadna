@@ -36,6 +36,10 @@ public class Shop {
         founder.addAdministrator(id, this.founder);
     }
 
+    public Shop(int id, String name, String description, State valueOf, ShopOwner fromEntity, ConcurrentHashMap<Integer, Product> products, ConcurrentHashMap<String, Basket> usersBaskets, ConcurrentHashMap<String, PurchaseHistory> purchaseHistory, ConcurrentHashMap<String, ShopAdministrator> shopAdministrators) {
+        this.id = id;
+    }
+
     public synchronized boolean close() {
         if(state!=State.CLOSED){
             state=State.CLOSED;

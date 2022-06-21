@@ -12,10 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -32,6 +29,10 @@ public class SubscribedUser extends User {
         shopAdministrator = new ConcurrentHashMap<>();
         hashedPassword = GFG2.Hash(password);
         this.birthDate =birthDate;
+    }
+
+    public SubscribedUser(String username, boolean notRemoved, String password, ArrayList<Object> objects, boolean is_login) {
+        super(username);
     }
 
     public boolean login(String userName,String password) {
@@ -284,6 +285,10 @@ public class SubscribedUser extends User {
 
     public Date getBirthDate() {
         return birthDate;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
 // Java program to calculate SHA hash value

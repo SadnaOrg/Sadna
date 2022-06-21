@@ -84,7 +84,7 @@ public class ShopMapper implements MapperInterface<com.SadnaORM.Shops.Shop, Shop
         Map<String, ShopAdministratorDTO> shopAdministrators = new ConcurrentHashMap<>();
         Collection<ProductDTO> products = new ArrayList<>();
         return new ShopDTO(entity.getId(), entity.getName(), entity.getDescription(), founder,
-                com.SadnaORM.ShopImpl.ShopObjects.ShopDTO.State.valueOf(entity.getState().toString()),
+                com.SadnaORM.ShopImpl.ShopObjects.ShopDTO.State.valueOf(String.valueOf(entity.isOpen())),
                 products, usersBaskets, purchaseHistory, shopAdministrators);
     }
 
