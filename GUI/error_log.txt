@@ -1,54 +1,10 @@
-Jun 20, 2022 7:04:37 PM ServiceLayer.Log error
+Jun 20, 2022 6:48:36 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 20, 2022 7:04:37 PM ServiceLayer.Log error
+Jun 20, 2022 6:48:36 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 20, 2022 7:04:38 PM ServiceLayer.Log error
+Jun 20, 2022 6:48:37 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 20, 2022 7:04:38 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 20, 2022 7:04:38 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 20, 2022 7:04:39 PM ServiceLayer.Log error
+Jun 20, 2022 6:48:42 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 20, 2022 7:04:43 PM ServiceLayer.Log error
+Jun 20, 2022 6:48:53 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 20, 2022 7:04:48 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 20, 2022 7:04:48 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 20, 2022 7:04:48 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:04:58 PM ServiceLayer.Log error
-SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-Jun 20, 2022 7:04:58 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:22 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 20, 2022 7:05:22 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 20, 2022 7:05:22 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:27 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:35 PM ServiceLayer.Log error
-SEVERE: logout from system : log in to system first
-Jun 20, 2022 7:05:35 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 20, 2022 7:05:35 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 20, 2022 7:05:35 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:37 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:44 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:49 PM ServiceLayer.Log error
-SEVERE: switch to system manager name: log in to the system first as a subscribed user
-Jun 20, 2022 7:05:49 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 20, 2022 7:05:54 PM ServiceLayer.Log error
-SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.AdministratorInfo.getUserName()" because "a" is null
-Jun 20, 2022 7:05:54 PM ServiceLayer.Log error
-SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.AdministratorInfo.getUserName()" because "a" is null
-Jun 20, 2022 7:05:54 PM ServiceLayer.Log error
-SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.AdministratorInfo.getUserName()" because "a" is null
