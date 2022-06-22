@@ -213,7 +213,7 @@ public class SubscribedUserView extends GuestActionView {
     }
 
     private void updateGrid() {
-        Collection<Shop> shopItems = service.receiveInformation().getElement().shops();
+        Collection<Shop> shopItems = service.searchShops(s -> true, currUser).getElement().shops();
         shops.setItems(shopItems);
     }
 
