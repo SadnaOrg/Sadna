@@ -77,6 +77,36 @@ public class UserController {
         return false;
     }
 
+    public boolean saveProductsAsBid(User u, int shopId, int productId, int quantity, double price) {
+        if (price != -1) {
+            if (u.saveProductsAsBid(shopId, productId, quantity, price/quantity)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean moveBidToBasket(String user,int productId, int shopId)
+    {
+        User u = users.get(user);
+        BidOffer bidOffer = u.getBidOffer(shopId);
+        double price = bidOffer.getPriceById(productId);
+        int quantity = bidOffer.getQuantityById(productId);
+        if (price != -1) {
+            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
+                if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
+                    ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+                }
+                if(u.removeProductFromBid(shopId,productId))
+                {
+                    ShopController.getInstance().removeBid(shopId);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u) {
         User u1 = users.get(u);
         return u1.getShoppingCart();
@@ -470,4 +500,28 @@ public class UserController {
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return currUser.getPurchasePolicy(shopId);
     }
+
+    public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        return currUser.reOfferBid(user, productId, newPrice, shopId);
+    }
+
+    public boolean declineBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        if(currUser.declineBidOffer(user, productId, shopId))
+        {
+            UserController.getInstance().getUser(user).getShoppingBids().remove(shopId);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        if (currUser.approveBidOffer(user, productId, shopId))
+        {
+            moveBidToBasket(user,productId,shopId);
+            return true;
+        }
+        return false;
+    }
+
+
 }

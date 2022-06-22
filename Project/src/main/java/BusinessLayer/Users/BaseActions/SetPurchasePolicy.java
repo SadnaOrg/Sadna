@@ -3,6 +3,7 @@ package BusinessLayer.Users.BaseActions;
 import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.UserController;
 
 import javax.naming.NoPermissionException;
 import java.time.LocalDate;
@@ -117,4 +118,17 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.getPurchasePolicy();
     }
 
+    public boolean reOfferBid(String user,int productId, double newPrice)
+    {
+        return shop.reOfferBid(user, productId, newPrice);
+    }
+
+    public boolean declineBidOffer(String user,int productId)
+    {
+        return shop.declineBidOffer(user, productId);
+    }
+
+    public boolean approveBidOffer(String user,String adminName,int productId) {
+        return shop.approveBidOffer(user, adminName, productId);
+    }
 }

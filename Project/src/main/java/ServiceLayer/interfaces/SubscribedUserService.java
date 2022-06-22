@@ -102,6 +102,12 @@ public interface SubscribedUserService extends UserService {
 
     Result setCategory(int productId, String category, int shopID);
 
+    Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId) throws NoPermissionException;
+
+    Response<Boolean> declineBidOffer(String user, int productId, int shopId) throws NoPermissionException;
+
+    Response<Boolean> approveBidOffer(String user, int productId, int shopId) throws NoPermissionException;
+
     Result removeShopOwner(int shopId, String toRemove);
 
     Response<ShopsInfo> searchShops(Predicate<Shop> shopPred, String username);

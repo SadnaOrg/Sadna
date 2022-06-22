@@ -327,6 +327,21 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId) throws NoPermissionException {
+        return ifUserNotNullRes(()-> facade.reOfferBid(currUser,user, productId, newPrice, shopId)," suggest another offer");
+    }
+
+    @Override
+    public Response<Boolean> declineBidOffer(String user,int productId, int shopId) throws NoPermissionException {
+        return ifUserNotNullRes(()-> facade.declineBidOffer(currUser,user, productId, shopId),"decline the offer");
+    }
+
+    @Override
+    public Response<Boolean> approveBidOffer(String user,int productId, int shopId) throws NoPermissionException {
+        return ifUserNotNullRes(()-> facade.approveBidOffer(currUser,user, productId, shopId),"approve the offer");
+    }
+
+    @Override
     public Result removeShopOwner(int shopID, String toRemove) {
         return ifUserNotNull(() -> facade.removeShopOwner(shopID, currUser.getUserName(), toRemove),"removing admin appointment");
     }

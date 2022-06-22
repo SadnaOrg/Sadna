@@ -5,6 +5,7 @@ import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
+import BusinessLayer.Users.BaseActions.SetPurchasePolicy;
 
 import javax.naming.NoPermissionException;
 import java.math.BigInteger;
@@ -288,6 +289,20 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).setCategory(productId,category);
     }
 
+    public synchronized boolean reOfferBid(String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).reOfferBid(user, productId, newPrice);
+    }
+
+    public synchronized boolean declineBidOffer(String user,int productId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).declineBidOffer(user, productId);
+    }
+
+    public synchronized boolean approveBidOffer(String user,int productId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).approveBidOffer(user, getUserName(), productId);
+    }
     public Date getBirthDate() {
         return birthDate;
     }
