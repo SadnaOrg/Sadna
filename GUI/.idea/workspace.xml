@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added purchase policy page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/ApproveBidTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/ApproveBidUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="33db6e90-3b92-4d16-9f03-6522cba65b30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt.1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Facade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ApproveBid.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ApproveBid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BidOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BidOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/SubscribedUserServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/interfaces/SubscribedUserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +42,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.6.7/spring-boot-2.6.7.jar!/org/springframework/boot/SpringApplication.class" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/com/vaadin/flow-server/23.0.7/flow-server-23.0.7.jar!/com/vaadin/flow/component/page/AppShellConfigurator.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$USER_HOME$/.jdks/semeru-17.0.3/lib/src.zip!/java.base/com/ibm/jit/JITHelpers.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.6.7/spring-boot-devtools-2.6.7.jar!/org/springframework/boot/devtools/restart/RestartLauncher.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.6.7/spring-boot-2.6.7.jar!/org/springframework/boot/SpringApplication.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -91,7 +81,7 @@
       <recent name="com.example.application.views.main.Purchase" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.example.application.Application">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
@@ -116,7 +106,7 @@
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="GUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\talgo\Desktop\6th Semester\Workshop\Git\Sadna\GUI\src\main\java\com\example\application\ExampleConfigurationFile&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="src\main\java\com\example\application\ExampleConfigurationFile" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
@@ -126,6 +116,7 @@
     <list>
       <item itemvalue="Application.com.example.application.Application" />
       <item itemvalue="JUnit.All in GUI" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
@@ -241,6 +232,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created Vaadin" />
@@ -275,7 +267,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>151</line>
+          <line>168</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
