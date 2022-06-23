@@ -1,4 +1,14 @@
-Jun 14, 2022 4:01:02 AM ServiceLayer.Log error
+Jun 21, 2022 12:32:15 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 14, 2022 4:01:29 AM ServiceLayer.Log error
-SEVERE: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "{"timestamp":"2022-06-14T01:01:18.776+00:00","status":500,"error":"Internal Server Error","path":"/subscribedUser"}"
+Jun 21, 2022 12:32:16 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 21, 2022 12:34:28 AM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 21, 2022 12:34:45 AM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 21, 2022 12:34:54 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 21, 2022 12:35:15 AM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 21, 2022 12:35:15 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first

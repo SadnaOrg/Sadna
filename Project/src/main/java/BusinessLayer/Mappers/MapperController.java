@@ -4,14 +4,18 @@ import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 
 public class MapperController {
-    private ShopMapper shopMapper = ShopMapper.getInstance();
 
-    private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
-    public ShopMapper getShopMapper() {
-        return shopMapper;
+    static private class MapperControllerHolder {
+        static final MapperController mapper = new MapperController();
     }
 
-    public SubscribedUserMapper getSubscribedUserMapper() {
-        return subscribedUserMapper;
+    public static MapperController getInstance(){
+        return MapperControllerHolder.mapper;
+    }
+
+    private String baseURL = "http://localhost:8081";
+
+    public String getBaseURL() {
+        return baseURL;
     }
 }

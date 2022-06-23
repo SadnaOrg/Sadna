@@ -1,5 +1,6 @@
 package BusinessLayer.Mappers.UserMappers;
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Mappers.MapperInterface;
 import BusinessLayer.Users.SubscribedUser;
 import com.SadnaORM.UserImpl.UserObjects.PaymentMethodDTO;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class SubscribedUserMapper implements MapperInterface<com.SadnaORM.Users.SubscribedUser, SubscribedUserDTO, SubscribedUser, String> {
     RestTemplate restTemplate = new RestTemplate();
-    private String baseURL = "http://localhost:8081/subscribedUser";
+    private final String baseURL = MapperController.getInstance().getBaseURL() + "/subscribedUser";
     Gson gson = new Gson();
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
@@ -37,7 +38,7 @@ public class SubscribedUserMapper implements MapperInterface<com.SadnaORM.Users.
     public void delete(SubscribedUser entity) {
         String dalEntity = gson.toJson(toEntity(entity));
         HttpEntity<String> httpEntity = new HttpEntity<>(dalEntity);
-        restTemplate.delete(baseURL + entity.getUserName(), httpEntity);
+        restTemplate.delete(baseURL + "/" + entity.getUserName(), httpEntity);
     }
 
     @Override
@@ -54,7 +55,7 @@ public class SubscribedUserMapper implements MapperInterface<com.SadnaORM.Users.
 
     @Override
     public SubscribedUser findByID(String key) {
-        String dalRes = restTemplate.getForObject("http://localhost:8081/subscribedUser/" + key, String.class);
+        String dalRes = restTemplate.getForObject(baseURL + "/" + key, String.class);
         SubscribedUserDTO user = gson.fromJson(dalRes, SubscribedUserDTO.class);
         return FromEntity(user);
     }

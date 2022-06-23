@@ -5,70 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added add product">
-      <change afterPath="$PROJECT_DIR$/../Project/.idea/libraries/Maven__com_google_code_gson_gson_2_8_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseHistoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/BasketMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopControllers/ShopController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/DefaultDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/DiscountPolicyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/ProductByQuantityDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/ProductDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/ProductQuantityInPriceDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/RelatedGroupDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/Discounts/ShopDiscountDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/ProductInfoDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/PurchaseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/PurchaseHistoryDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopObjects/ShopDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/ShopImpl/ShopServices/ShopService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserControllers/SubscribedUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/BasketDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/GuestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/PaymentMethodDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/ShopAdministratorDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/ShopManagerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/ShopOwnerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/SubscribedUserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/SystemManagerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserObjects/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/PersistanceLayer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/lib/javax.transaction.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/DBImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/ProductInfoDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/PurchaseDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/PurchaseHistoryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/ShopDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/BasketDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/PaymentMethodDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopManagerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopOwnerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/SubscribedUserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/SystemManagerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DefaultDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/ProductInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/PurchaseHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/TempApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/Basket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/Guest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/PaymentMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopOwner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/SubscribedUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/SystemManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/DBConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/.idea/artifacts/Market.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/.idea/artifacts/Market_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ProductMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopAdministratorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/SubscribedUserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/StockManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/StockManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SadnaORM/out/artifacts/SadnaORM_jar/SadnaORM.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/out/artifacts/SadnaORM_jar/SadnaORM.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SadnaORM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/RepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/RepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/UserRepositoriesImpl/ShopAdministratorRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserServices/ShopAdministratorRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/UserRepositoriesImpl/SubscribedUserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserImpl/UserServices/SubscribedUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Shops/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserRepositories/SubscribedUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/UserRepositories/SubscribedUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/PaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/ShopOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/java/com/SadnaORM/Users/ShopOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SadnaORM/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SadnaORM/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +202,7 @@
       <workItem from="1654344637144" duration="24860000" />
       <workItem from="1654463228842" duration="5379000" />
       <workItem from="1654776197655" duration="63735000" />
-      <workItem from="1655158463332" duration="9066000" />
+      <workItem from="1655158463332" duration="25944000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>

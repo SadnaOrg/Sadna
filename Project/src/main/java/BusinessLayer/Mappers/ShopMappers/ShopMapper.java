@@ -1,5 +1,6 @@
 package BusinessLayer.Mappers.ShopMappers;
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Mappers.MapperInterface;
 import BusinessLayer.Mappers.UserMappers.BasketMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
@@ -25,7 +26,7 @@ import java.util.stream.Collectors;
 
 public class ShopMapper implements MapperInterface<com.SadnaORM.Shops.Shop, ShopDTO ,Shop, Integer> {
     RestTemplate restTemplate = new RestTemplate();
-    private String baseURL = "http://localhost:8081/shop";
+    private final String baseURL = MapperController.getInstance().getBaseURL() + "/shop";
     private BasketMapper basketMapper = BasketMapper.getInstance();
 
     private Gson gson = new GsonBuilder()
@@ -102,12 +103,12 @@ public class ShopMapper implements MapperInterface<com.SadnaORM.Shops.Shop, Shop
 
     @Override
     public Shop findByID(Integer key) {
-        String dalRes = restTemplate.getForObject("http://localhost:8081/shop/" + key, String.class);
+        String dalRes = restTemplate.getForObject(baseURL + "/" + key, String.class);
         return FromEntity(gson.fromJson(dalRes, ShopDTO.class));
     }
 
     public List<Shop> findAll() {
-        ShopDTO[] dalRes = gson.fromJson(restTemplate.getForObject("http://localhost:8081/shop", String.class), ShopDTO[].class);
+        ShopDTO[] dalRes = gson.fromJson(restTemplate.getForObject(baseURL, String.class), ShopDTO[].class);
         List<Shop> shops = Arrays.stream(dalRes).map(e -> FromEntity(e)).toList();
         return shops;
     }
