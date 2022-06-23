@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
 public interface SubscribedUserService extends UserService {
@@ -102,11 +103,13 @@ public interface SubscribedUserService extends UserService {
 
     Result setCategory(int productId, String category, int shopID);
 
-    Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId) throws NoPermissionException;
+    Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId) ;
 
-    Response<Boolean> declineBidOffer(String user, int productId, int shopId) throws NoPermissionException;
+    Response<ConcurrentHashMap<Shop,Collection<BidOffer>>> getBidsToApprove();
 
-    Response<Boolean> approveBidOffer(String user, int productId, int shopId) throws NoPermissionException;
+    Response<Boolean> declineBidOffer(String user, int productId, int shopId) ;
+
+    Response<Boolean> approveBidOffer(String user, int productId, int shopId) ;
 
     Result removeShopOwner(int shopId, String toRemove);
 

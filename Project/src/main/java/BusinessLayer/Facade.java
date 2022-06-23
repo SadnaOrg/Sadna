@@ -252,6 +252,10 @@ public class Facade{
         return userController.removeShopOwner(shopID, requesting, toRemove);
     }
 
+    public ConcurrentHashMap<Shop,Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return userController.getBidsToApprove(currUser);
+    }
+
     private static class FacadeHolder{
         private static final Facade facade= new Facade();
     }

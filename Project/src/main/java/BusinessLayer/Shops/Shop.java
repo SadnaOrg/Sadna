@@ -11,6 +11,7 @@ import BusinessLayer.Users.*;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -65,6 +66,15 @@ public class Shop {
             throw new IllegalStateException("the user doesn't have a basket!");
         }
         usersBaskets.remove(userName);
+    }
+
+    public Collection<BidOffer> getBidsToApprove(String userName) {
+        Collection<BidOffer> c=new LinkedList<>();
+        for( var b : usersBids.values()){
+            if(b.isNeedMyApproval(userName))
+                c.add(b);
+        }
+        return c;
     }
 
     public enum State {

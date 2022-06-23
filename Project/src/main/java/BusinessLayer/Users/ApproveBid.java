@@ -7,10 +7,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ApproveBid {
     private int shopId;
+    private int productId;
+    private int quantity;
+    private double price;
     private ConcurrentHashMap<String,Boolean> administraitorsApproval;
 
-    public ApproveBid(int shopId, List<String> admins) {
+
+    public ApproveBid(int shopId, int productId,int quantity, Double price, List<String> admins) {
         this.shopId = shopId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.price = price;
         this.administraitorsApproval = new ConcurrentHashMap<>();
         for (String name:admins)
         {
@@ -18,10 +25,15 @@ public class ApproveBid {
         }
     }
 
-    public ApproveBid(int shopId, ConcurrentHashMap<String, Boolean> administraitorsApproval) {
+
+    public ApproveBid(int shopId, int productId,int quantity, Double price) {
         this.shopId = shopId;
-        this.administraitorsApproval = administraitorsApproval;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.price = price;
+        this.administraitorsApproval = new ConcurrentHashMap<>();
     }
+
 
     public boolean resetApproves()
     {
@@ -59,7 +71,37 @@ public class ApproveBid {
         return shopId;
     }
 
+    public List<String> getAdminsNames(){return administraitorsApproval.keySet().stream().toList();}
+
     public ConcurrentHashMap<String, Boolean> getAdministraitorsApproval() {
         return administraitorsApproval;
+    }
+
+    public void setAdministraitorsApproval(List<String> admins) {
+        for (String name: admins)
+        {
+            administraitorsApproval.put(name,false);
+        }
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 }

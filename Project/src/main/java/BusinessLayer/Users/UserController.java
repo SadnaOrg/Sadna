@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
@@ -15,6 +16,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
+
+
 
 
     static private class UserControllerHolder {
@@ -47,7 +50,9 @@ public class UserController {
         }
         return null;
     }
-
+    public ConcurrentHashMap<Shop, Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return currUser.getBidsToApprove();
+    }
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         if(subscribers.containsKey(requesting)){
             SubscribedUser u = subscribers.get(requesting);
