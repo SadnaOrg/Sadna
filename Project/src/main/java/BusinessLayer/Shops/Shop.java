@@ -26,6 +26,7 @@ public class Shop {
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
     private DiscountPlusPolicy discounts = new DiscountPlusPolicy();
     private PurchaseAndPolicy purchasePolicy = new PurchaseAndPolicy();
+    private ConcurrentHashMap<String, HeskemMinui> heskemMinuis = new ConcurrentHashMap<>();
 
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
@@ -267,8 +268,33 @@ public class Shop {
             throw new IllegalStateException("The shop is closed");
         }
     }
+    public boolean addAdministratorToHeskemMinui(String userNameToAssign,String appointer) {
+        if (state == State.OPEN)
+            return heskemMinuis.putIfAbsent(userNameToAssign, new HeskemMinui(this.id,userNameToAssign,appointer,this.shopAdministrators.keySet()))==null;
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
 
-
+    public boolean approveHeskemMinui(String adminToAssign,String adminName) {
+        if (state == State.OPEN)
+            return heskemMinuis.get(adminToAssign).approve(adminName);
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+    public boolean declineHeskemMinui(String adminToAssign) {
+        if (state == State.OPEN) {
+            heskemMinuis.remove(adminToAssign);
+            return true;
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
     public boolean approvePurchase(User user)
     {
         return this.purchasePolicy.isValid(user,usersBaskets.get(user.getName()));

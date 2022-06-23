@@ -25,6 +25,12 @@ public interface SubscribedUserService extends UserService {
 
     Result assignShopOwner(int shop, String userNameToAssign);
 
+    Result addAdministratorToHeskemMinui(int shop, String userNameToAssign) throws NoPermissionException;
+
+    Result approveHeskemMinui(int shop, String adminToAssign);
+
+    Result declineHeskemMinui(int shop, String adminToAssign);
+
     Result changeManagerPermission(int shop, String userNameToAssign, Collection<Integer> types);
 
     Result closeShop(int shop);

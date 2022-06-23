@@ -60,6 +60,22 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     }
 
     @Override
+    public Result addAdministratorToHeskemMinui(int shop, String userNameToAssign) {
+        return ifUserNotNull(()->  facade.addAdministratorToHeskemMinui(currUser,shop,userNameToAssign),(currUser.getUserName() + "waiting to be assigned "+userNameToAssign+" to shop owner "));
+
+    }
+
+    @Override
+    public Result approveHeskemMinui(int shop,String adminToAssign) {
+        return ifUserNotNull(()->  facade.approveHeskemMinui(currUser,shop,adminToAssign),(currUser.getUserName() + "approve as "+adminToAssign+" to shop owner "));
+    }
+
+    @Override
+    public Result declineHeskemMinui(int shop,String adminToAssign) {
+        return ifUserNotNull(()->  facade.declineHeskemMinui(currUser,shop,adminToAssign),(currUser.getUserName() + "decline as "+adminToAssign+" to shop owner "));
+    }
+
+    @Override
     public Result changeManagerPermission(int shop, String userNameToAssign, Collection<Integer> types){
         return ifUserNotNull(()->  facade.changeManagerPermission(currUser,shop,userNameToAssign,types),"change manager permission succeeded");
     }

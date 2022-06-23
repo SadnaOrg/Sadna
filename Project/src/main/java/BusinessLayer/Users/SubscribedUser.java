@@ -86,6 +86,21 @@ public class SubscribedUser extends User {
 
     }
 
+    public synchronized boolean addAdministratorToHeskemMinui(int shop, String userName) throws NoPermissionException {
+        validatePermission(shop);
+        return shopAdministrator.get(shop).addAdministratorToHeskemMinui(userName);
+    }
+
+    public synchronized boolean approveHeskemMinui(int shop,String adminToAssign) throws NoPermissionException {
+        validatePermission(shop);
+        return shopAdministrator.get(shop).approveHeskemMinui(adminToAssign);
+    }
+
+    public synchronized boolean declineHeskemMinui(int shop,String adminToAssign) throws NoPermissionException {
+        validatePermission(shop);
+        return shopAdministrator.get(shop).declineHeskemMinui(adminToAssign);
+    }
+
     public synchronized boolean changeManagerPermission(int shop, SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
         validatePermission(shop);
 

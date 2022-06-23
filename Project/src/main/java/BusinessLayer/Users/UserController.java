@@ -207,7 +207,23 @@ public class UserController {
         return user.assignShopOwner(shop, getSubUser(userNameToAssign));
     }
 
-    public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
+    public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {
+        return user.addAdministratorToHeskemMinui(shop, userNameToAssign);
+    }
+
+    public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        boolean check = user.approveHeskemMinui(shop,adminToAssign);
+        if(check)
+        {
+            return assignShopOwner(user, shop, adminToAssign);
+        }
+        return false;
+    }
+
+    public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        return user.declineHeskemMinui(shop,adminToAssign);
+    }
+        public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
         return user.changeManagerPermission(shop, getSubUser(userNameToAssign), convertToAction(types));
     }
 
