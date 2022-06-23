@@ -39,6 +39,7 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$MODULE_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

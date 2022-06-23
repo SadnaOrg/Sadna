@@ -2,7 +2,7 @@ package BusinessLayer.Mappers.ShopMappers;
 
 import BusinessLayer.Products.Product;
 
-public class ProductMapper {//implements MapperInterface<com.SadnaORM.Shops.Product, Product, Integer> {
+public class ProductMapper {//implements MapperInterface<ORM.Shops.Product, Product, Integer> {
     //private ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();
 //
     //@Override
@@ -16,13 +16,13 @@ public class ProductMapper {//implements MapperInterface<com.SadnaORM.Shops.Prod
     //}
 //
     //@Override
-    //public com.SadnaORM.Shops.Product toEntity(Product entity) {
-    //    return new com.SadnaORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(),
+    //public ORM.Shops.Product toEntity(Product entity) {
+    //    return new ORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(),
     //            entity.getManufacturer(), entity.getPrice(), entity.getQuantity());
     //}
 //
     //@Override
-    //public Product FromEntity(com.SadnaORM.Shops.Product entity) {
+    //public Product FromEntity(ORM.Shops.Product entity) {
     //    return new Product(entity.getId(), entity.getName(), entity.getDescription(),
     //            entity.getManufacturer(), entity.getPrice(), entity.getQuantity());
     //}

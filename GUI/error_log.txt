@@ -1,14 +1,2 @@
-Jun 21, 2022 12:32:15 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 21, 2022 12:32:16 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 21, 2022 12:34:28 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 21, 2022 12:34:45 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 21, 2022 12:34:54 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 21, 2022 12:35:15 AM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 21, 2022 12:35:15 AM ServiceLayer.Log error
+Jun 23, 2022 9:27:34 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

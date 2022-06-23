@@ -14,12 +14,4 @@ public class PurchaseHistoryMapper {
     private PurchaseHistoryMapper() {
 
     }
-
-    public com.SadnaORM.Users.Basket toEntity(Basket entity, String subscribedUser) {
-        return null;
-    }
-
-    public Basket FromEntity(com.SadnaORM.Users.Basket entity) {
-        return null;
-    }
 }

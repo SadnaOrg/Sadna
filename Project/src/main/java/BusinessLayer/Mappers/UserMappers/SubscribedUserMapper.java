@@ -1,20 +1,15 @@
 package BusinessLayer.Mappers.UserMappers;
 
-import BusinessLayer.Mappers.MapperController;
-import BusinessLayer.Mappers.MapperInterface;
+import BusinessLayer.Mappers.CastEntity;
+import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
-import com.SadnaORM.UserImpl.UserObjects.PaymentMethodDTO;
-import com.SadnaORM.UserImpl.UserObjects.SubscribedUserDTO;
-import com.google.gson.Gson;
-import org.springframework.http.HttpEntity;
-import org.springframework.web.client.RestTemplate;
+import ORM.DAOs.Users.SubscribedUserDAO;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
-public class SubscribedUserMapper implements MapperInterface<com.SadnaORM.Users.SubscribedUser, SubscribedUserDTO, SubscribedUser, String> {
-    RestTemplate restTemplate = new RestTemplate();
-    private final String baseURL = MapperController.getInstance().getBaseURL() + "/subscribedUser";
-    Gson gson = new Gson();
+public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, CastEntity<ORM.Users.SubscribedUser, SubscribedUser> {
+
+    private SubscribedUserDAO dao = new SubscribedUserDAO();
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
     }
@@ -28,35 +23,37 @@ public class SubscribedUserMapper implements MapperInterface<com.SadnaORM.Users.
     }
 
     @Override
+    public ORM.Users.SubscribedUser toEntity(SubscribedUser entity) {
+        return new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(), !entity.isRemoved(), null);
+    }
+
+    @Override
+    public SubscribedUser fromEntity(ORM.Users.SubscribedUser entity) {
+        return null;
+    }
+
+    @Override
     public void save(SubscribedUser entity) {
-        String dalEntity = gson.toJson(toEntity(entity));
-        HttpEntity<String> httpEntity = new HttpEntity<>(dalEntity);
-        restTemplate.postForEntity(baseURL, httpEntity, Void.class);
+        dao.save(toEntity(entity));
     }
 
     @Override
-    public void delete(SubscribedUser entity) {
-        String dalEntity = gson.toJson(toEntity(entity));
-        HttpEntity<String> httpEntity = new HttpEntity<>(dalEntity);
-        restTemplate.delete(baseURL + "/" + entity.getUserName(), httpEntity);
+    public void update(SubscribedUser entity) {
+        dao.update(toEntity(entity));
     }
 
     @Override
-    public SubscribedUserDTO toEntity(SubscribedUser entity) {
-        return new SubscribedUserDTO(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(), !entity.isRemoved(), new PaymentMethodDTO());
+    public void delete(String key) {
+        dao.delete(key);
     }
 
     @Override
-    public SubscribedUser FromEntity(SubscribedUserDTO entity) {
-        if (entity == null)
-            return null;
-        return new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(), new ArrayList<>(), entity.isIs_login());
+    public SubscribedUser findById(String key) {
+        return fromEntity(dao.findById(key));
     }
 
     @Override
-    public SubscribedUser findByID(String key) {
-        String dalRes = restTemplate.getForObject(baseURL + "/" + key, String.class);
-        SubscribedUserDTO user = gson.fromJson(dalRes, SubscribedUserDTO.class);
-        return FromEntity(user);
+    public Collection<SubscribedUser> findAll() {
+        return dao.findAll().stream().map(this::fromEntity).toList();
     }
 }

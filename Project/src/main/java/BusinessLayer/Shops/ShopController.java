@@ -66,7 +66,7 @@ public class ShopController {
     private final Map<Integer, Shop> shops;
 
     private ShopController() {
-        this.shops = loadFromDB();
+        this.shops = new ConcurrentHashMap<>();
     }
 
     private Map<Integer, Shop> loadFromDB() {
