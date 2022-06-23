@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
@@ -25,6 +26,7 @@ public class UserController {
     private final Map<String, SubscribedUser> subscribers;
     private final Map<String, SystemManager> managers;
     private int guest_serial = -1;
+    private MapperController mapperController = MapperController.getInstance();
 
     public static UserController getInstance() {
         return UserControllerHolder.uc;
@@ -156,7 +158,7 @@ public class UserController {
         if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
-            SubscribedUserMapper.getInstance().save(newUser);
+            MapperController.getInstance().getSubscribedUserMapper().save(newUser);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
             return true;
@@ -170,7 +172,7 @@ public class UserController {
                 if (currUser != null) {
                     users.remove(currUser.getUserName());
                 }
-                SubscribedUserMapper.getInstance().save(subscribers.get(userName));
+                MapperController.getInstance().getSubscribedUserMapper().update(subscribers.get(userName));
                 return subscribers.get(userName);
             } else
                 return null;
@@ -181,6 +183,7 @@ public class UserController {
     public Guest logout(String username) {
         if (subscribers.containsKey(username)){
             subscribers.get(username).logout();
+            MapperController.getInstance().getSubscribedUserMapper().update(subscribers.get(username));
             return loginSystem();
         }
         return null;

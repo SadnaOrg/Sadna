@@ -13,9 +13,14 @@ public class MapperController {
         return MapperControllerHolder.mapper;
     }
 
-    private String baseURL = "http://localhost:8081";
-
-    public String getBaseURL() {
-        return baseURL;
+    public ShopMapper getShopMapper() {
+        return shopMapper;
     }
+
+    public SubscribedUserMapper getSubscribedUserMapper() {
+        return subscribedUserMapper;
+    }
+
+    private ShopMapper shopMapper = ShopMapper.getInstance();
+    private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
 }
