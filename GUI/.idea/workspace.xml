@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added configuration, runs but can't load DBImpl">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="Fixed SubscribedUser">
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/Func.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/PaymentMethodMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopManagerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/PaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/PaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopAdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopAdministratorMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656017637842</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed SubscribedUser">
+      <created>1656018551261</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656018551261</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +202,8 @@
     <MESSAGE value="added add product" />
     <MESSAGE value="added test for connection to db" />
     <MESSAGE value="added configuration, runs but can't load DBImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="added configuration, runs but can't load DBImpl" />
+    <MESSAGE value="Fixed SubscribedUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed SubscribedUser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -225,28 +239,13 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/RegisterView.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Users/UserController.class</url>
           <line>153</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.class</url>
-          <line>18</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Users/UserController.class</url>
-          <line>151</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Users/UserController.class</url>
-          <line>354</line>
+          <line>357</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">

@@ -24,6 +24,13 @@ public class PaymentMethod {
         this.user = user;
     }
 
+    public PaymentMethod(String creditCard, int CVV, int expirationYear, int expirationDay) {
+        this.creditCard = creditCard;
+        this.CVV = CVV;
+        this.expirationYear = expirationYear;
+        this.expirationDay = expirationDay;
+    }
+
     public PaymentMethod(){
 
     }
@@ -42,5 +49,9 @@ public class PaymentMethod {
 
     public int getExpirationDay() {
         return expirationDay;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

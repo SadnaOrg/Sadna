@@ -1,20 +1,16 @@
-Jun 24, 2022 12:08:05 AM ServiceLayer.Log event
+Jun 24, 2022 1:33:55 AM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 24, 2022 12:08:05 AM ServiceLayer.Log event
+Jun 24, 2022 1:33:55 AM ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 24, 2022 12:08:10 AM ServiceLayer.Log event
+Jun 24, 2022 1:33:59 AM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 24, 2022 12:08:10 AM ServiceLayer.Log event
+Jun 24, 2022 1:33:59 AM ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 24, 2022 12:08:13 AM ServiceLayer.Log event
+Jun 24, 2022 1:34:02 AM ServiceLayer.Log event
 INFO: login - user a Successes
-Jun 24, 2022 12:08:13 AM ServiceLayer.Log event
+Jun 24, 2022 1:34:02 AM ServiceLayer.Log event
 INFO: login Successes
-Jun 24, 2022 12:08:13 AM ServiceLayer.Log event
+Jun 24, 2022 1:34:02 AM ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 24, 2022 12:08:13 AM ServiceLayer.Log event
+Jun 24, 2022 1:34:02 AM ServiceLayer.Log event
 INFO: receive information Successes
-Jun 24, 2022 12:08:16 AM ServiceLayer.Log event
-INFO: logout from system Successes
-Jun 24, 2022 12:08:17 AM ServiceLayer.Log event
-INFO: logout  Successes

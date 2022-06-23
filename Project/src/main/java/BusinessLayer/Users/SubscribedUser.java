@@ -82,6 +82,10 @@ public class SubscribedUser extends User {
         return null;
     }
 
+    public Collection<ShopAdministrator> getAdministrators() {
+        return shopAdministrator.values().stream().toList();
+    }
+
     public synchronized boolean assignShopManager(int shop,SubscribedUser toAssign) throws NoPermissionException {
         validatePermission(shop);
 
