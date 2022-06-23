@@ -4,10 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added purchase policy page">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added action management, added searchShops method to search shops, fixed cvv tests, added removeShopOwner method, changed getProducts to be non-state dependant">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignOwner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Logout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/OpenShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/PurchaseCart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/GrammerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddProductToShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AddToCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/AssignOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/LoginAsGuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/LoginAsGuest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Logout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/Logout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/OpenShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/OpenShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/PurchaseCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/PurchaseCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RegisterLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateTimeStamp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchasePolicies/ValidateTimeStamp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
@@ -29,13 +59,15 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="162-shop-manager-or-owner-action-page" />
+        <entry key="$PROJECT_DIR$/.." value="160-buy-cart-page" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -49,10 +81,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/vaadin/flow-server/23.0.7/flow-server-23.0.7.jar!/com/vaadin/flow/component/page/AppShellConfigurator.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$USER_HOME$/.jdks/semeru-17.0.3/lib/src.zip!/java.base/com/ibm/jit/JITHelpers.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/ServiceLayer/UserServiceImp.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.6.7/spring-boot-devtools-2.6.7.jar!/org/springframework/boot/devtools/restart/RestartLauncher.class" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.6.7/spring-boot-2.6.7.jar!/org/springframework/boot/SpringApplication.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://$MAVEN_REPOSITORY$/com/vaadin/flow-server/23.0.7/flow-server-23.0.7.jar!/com/vaadin/flow/component/page/AppShellConfigurator.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,33 +101,72 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="ts.external.directory.path" value="C:\Users\talgo\Desktop\6th Semester\Workshop\Git\Sadna\GUI\node_modules\typescript\lib" />
   </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.application.views.main.Purchase" />
       <recent name="com.example.application.views.main" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.application.Parser" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="Grammer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.Grammer" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.application.Application" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.main" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,10 +182,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GrammerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrammerTest.test_parse_assingManager" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="METHOD_NAME" value="test_parse_assingManager" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrammerTest.test_parse_login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.application.Parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.application.Parser" />
+      <option name="MAIN_CLASS_NAME" value="com.example.application.Parser.GrammerTest" />
+      <option name="METHOD_NAME" value="test_parse_login" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="GUI" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.application.Application" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\Users\talgo\Desktop\6th Semester\Workshop\Git\Sadna\GUI\src\main\java\com\example\application\ExampleConfigurationFile&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\ntur4\OneDrive\Desktop\university\sem_f\sadna\Sadna\GUI\src\main\java\com\example\application\ExampleConfigurationFile" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
@@ -122,16 +241,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.com.example.application.Application" />
+      <item itemvalue="Application.Grammer" />
       <item itemvalue="JUnit.All in GUI" />
       <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="JUnit.GrammerTest.test_parse_login" />
+      <item itemvalue="JUnit.GrammerTest.test_parse_assingManager" />
+      <item itemvalue="JUnit.GrammerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GrammerTest" />
+        <item itemvalue="JUnit.GrammerTest.test_parse_assingManager" />
+        <item itemvalue="JUnit.GrammerTest.test_parse_login" />
         <item itemvalue="JUnit.All in GUI" />
-        <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
-        <item itemvalue="Application.com.example.application.Application" />
-        <item itemvalue="Application.com.example.application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -169,9 +292,14 @@
       <workItem from="1654685841389" duration="15592000" />
       <workItem from="1654951763396" duration="13800000" />
       <workItem from="1655035247142" duration="3810000" />
+
       <workItem from="1655127374764" duration="4281000" />
       <workItem from="1655139873192" duration="6193000" />
       <workItem from="1655146263323" duration="11980000" />
+      <workItem from="1655542997839" duration="361000" />
+      <workItem from="1655717254748" duration="419000" />
+      <workItem from="1655803750799" duration="626000" />
+      <workItem from="1655834985861" duration="3496000" />
       <workItem from="1655670625447" duration="3753000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
@@ -269,23 +397,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java</url>
-          <line>61</line>
+          <line>58</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
-          <line>99</line>
+          <line>95</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="76" />
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="77" />
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
@@ -293,39 +421,74 @@
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPred/DiscountPredCreator.java</url>
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
+          <line>259</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/CompositePolicy.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java</url>
           <line>38</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPred/DiscountPred.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPolicies/AndDiscount.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountPred/DiscountPred.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
-          <line>227</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="103" />
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java</url>
@@ -344,5 +507,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java" line="12">
+        <watch expression="jsons" language="JAVA" />
+      </inline-watch>
+    </watches-manager>
   </component>
 </project>

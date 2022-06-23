@@ -6,7 +6,7 @@ import ServiceLayer.interfaces.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OpenShop implements ParsedLine{
+public class OpenShop extends ParsedLine {
     public static final List<Shop> SHOP_LIST= new ArrayList<>();
     private String name;
     private String description;

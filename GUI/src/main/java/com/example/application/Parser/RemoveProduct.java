@@ -2,7 +2,7 @@ package com.example.application.Parser;
 
 import ServiceLayer.interfaces.UserService;
 
-public class RemoveProduct implements ParsedLine{
+public class RemoveProduct extends ParsedLine {
     private int shop;
     private int product;
 

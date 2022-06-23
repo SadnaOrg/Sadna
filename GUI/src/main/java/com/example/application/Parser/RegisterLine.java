@@ -8,7 +8,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class RegisterLine implements ParsedLine {
+public class RegisterLine extends ParsedLine {
     String name;
     String password;
     String bDay;
