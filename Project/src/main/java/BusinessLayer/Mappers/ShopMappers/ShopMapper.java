@@ -4,12 +4,22 @@ import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Shops.Shop;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
+import ORM.Users.SubscribedUser;
 
 import java.util.*;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {
 
     private final ShopDAO dao = new ShopDAO();
+
+    // return the shop without a singe admin with the name of user.
+    public Shop fromEntityNoAdmin(SubscribedUser user, ORM.Shops.Shop shop) {
+        return null;
+    }
+
+    public ORM.Shops.Shop toEntityNoAdmin(Shop shop,SubscribedUser user) {
+        return null;
+    }
 
     static private class ShopMapperHolder {
         static final ShopMapper mapper = new ShopMapper();

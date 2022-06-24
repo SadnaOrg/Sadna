@@ -33,12 +33,28 @@ public abstract class ShopAdministrator implements Serializable{
             @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
     })
     private List<ShopAdministrator> appoints;
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name="MyAppointer", referencedColumnName="user_username"),
+            @JoinColumn(name="SHOP_ID", referencedColumnName="shop_id")
+    })
+    private ShopAdministrator appointer;
 
-    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
+
+    public ShopAdministrator getAppointer() {
+        return appointer;
+    }
+
+    public void setAppointer(ShopAdministrator appointer) {
+        this.appointer = appointer;
+    }
+
+    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints, ShopAdministrator appointer) {
         this.action = action;
         this.user = user;
         this.shop = shop;
         this.appoints = appoints;
+        this.appointer = appointer;
     }
 
     public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop) {

@@ -14,7 +14,7 @@ public class ShopManager extends ShopAdministrator{
         super();
     }
 
-    public ShopManager(List<BaseActionType> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints) {
-        super(action, user, shop, appoints);
+    public ShopManager(List<BaseActionType> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints, ShopAdministrator appointer) {
+        super(action, user, shop, appoints, appointer);
     }
 }

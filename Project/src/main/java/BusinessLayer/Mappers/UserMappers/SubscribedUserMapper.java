@@ -5,14 +5,23 @@ import BusinessLayer.Mappers.Func;
 import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
+import ORM.Shops.Shop;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, CastEntity<ORM.Users.SubscribedUser, SubscribedUser> {
 
     private SubscribedUserDAO dao = new SubscribedUserDAO();
     private Func<PaymentMethodMapper> paymentMethodMapper = () -> PaymentMethodMapper.getInstance();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
+
+    // create the object without the admin matching shop
+    public SubscribedUser fromEntityNoAdmin(ORM.Users.SubscribedUser user, Shop shop) {
+        return null;
+    }
+
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
     }
@@ -43,8 +52,10 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     public SubscribedUser fromEntity(ORM.Users.SubscribedUser entity) {
         if (entity == null)
             return null;
-        return new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList(), entity.isIs_login());
+        SubscribedUser u = new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
+                new ArrayList<>(entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).collect(Collectors.toList())), entity.isIs_login());
+        u.updatePaymentMethod(paymentMethodMapper.run().fromEntity(entity.getPaymentMethod()));
+        return u;
     }
 
     @Override

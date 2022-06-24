@@ -22,7 +22,7 @@ public class Basket {
 
     @ElementCollection
     @CollectionTable(
-            name = "ProductsInBaskets",
+            name = "ProductsInBasketsQuantities",
             joinColumns = {
                     @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
                     @JoinColumn(name = "username", referencedColumnName = "username")
@@ -31,6 +31,37 @@ public class Basket {
     @MapKeyColumn(name = "PRODUCT_ID")
     @Column(name = "QUANTITY")
     private Map<Integer,Integer> products;
+    @ElementCollection
+    @CollectionTable(
+            name = "ProductsInBasketsPrices",
+            joinColumns = {
+                    @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "username", referencedColumnName = "username")
+            }
+    )
+    @MapKeyColumn(name = "PRODUCT_ID")
+    @Column(name = "PRICE")
+    private Map<Integer,Double> prices;
+    @ElementCollection
+    @CollectionTable(
+            name = "ProductsInBasketsCategories",
+            joinColumns = {
+                    @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "username", referencedColumnName = "username")
+            }
+    )
+    @MapKeyColumn(name = "PRODUCT_ID")
+    @Column(name = "CATEGORY")
+    private Map<Integer,String> categories;
+
+
+    public Basket(Shop shop, SubscribedUser user, Map<Integer, Integer> products, Map<Integer, Double> prices, Map<Integer, String> categories) {
+        this.shop = shop;
+        this.user = user;
+        this.products = products;
+        this.prices = prices;
+        this.categories = categories;
+    }
 
     public Basket() {
     }
@@ -45,6 +76,30 @@ public class Basket {
         this.shop = shop;
         this.user = user;
         this.products = new HashMap<>();
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
+    }
+
+    public Map<Integer, Double> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Map<Integer, Double> prices) {
+        this.prices = prices;
+    }
+
+    public Map<Integer, String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Map<Integer, String> categories) {
+        this.categories = categories;
     }
 
     public void setProducts(Map<Integer, Integer> products) {
