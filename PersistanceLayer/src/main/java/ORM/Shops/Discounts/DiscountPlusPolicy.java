@@ -1,6 +1,7 @@
 package ORM.Shops.Discounts;
 
-import com.SadnaORM.Shops.Shop;
+
+import ORM.Shops.Shop;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
