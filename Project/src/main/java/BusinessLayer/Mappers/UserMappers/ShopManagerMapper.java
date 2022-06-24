@@ -23,13 +23,16 @@ public class ShopManagerMapper {
     private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
     private ShopAdministratorMapper shopAdministratorMapper = ShopAdministratorMapper.getInstance();
 
-    public ORM.Users.ShopManager toEntity(ShopManager entity, SubscribedUser user) {
+    public ORM.Users.ShopManager toEntity(ShopManager entity) {
+        ORM.Users.SubscribedUser user = subscribedUserMapper.toEntityNoAdmin(entity.getUser(),entity.getShop());
         List<ORM.Users.ShopAdministrator.BaseActionType> actionTypes = entity.getActionsTypes().stream().map(actionType -> ShopAdministrator.BaseActionType.values()[actionType.ordinal()]).toList();
         ORM.Shops.Shop shop = shopMapper.run().toEntityNoAdmin(entity.getShop(), user);
-        List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin -> shopAdministratorMapper.toEntity(admin, subscribedUserMapper.toEntity(admin.getUser()))).toList();
+        List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin -> shopAdministratorMapper.toEntity(admin)).toList();
         ORM.Users.SubscribedUser appointer = subscribedUserMapper.toEntity(subscribedUserMapper.findById(entity.getAppointer()));
         ORM.Users.ShopAdministrator myAppointer = appointer.getAdministrators().get(shop.getId());
-        return new ORM.Users.ShopManager(actionTypes, user, shop, appoints, myAppointer);
+        ORM.Users.ShopManager manager = new ORM.Users.ShopManager(actionTypes, user, shop, appoints, myAppointer);
+        user.addAdministrator(manager);
+        return manager;
     }
 
     public ShopManager fromEntity(ORM.Users.ShopManager entity) {

@@ -76,7 +76,7 @@ public class Shop {
         this.policies = policies;
     }
 
-    public Shop(int id, String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
+    public Shop(int id, String name, String description, ShopOwner founder, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
                 Map<SubscribedUser, ShopAdministrator> shopAdministrators, DiscountPlusPolicy discounts, PurchaseAndPolicy policies) {
         this.id = id;
@@ -84,7 +84,7 @@ public class Shop {
         this.description = description;
         this.discounts = discounts;
         this.policies = policies;
-        this.founder = new ShopOwner(new ArrayList<>(), founder, this, isFounder);
+        this.founder = founder;
         this.state = state;
         this.products = products;
         this.usersBaskets = usersBaskets;

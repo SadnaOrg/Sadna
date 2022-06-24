@@ -22,6 +22,10 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
         return null;
     }
 
+    public ORM.Users.SubscribedUser toEntityNoAdmin(SubscribedUser user, BusinessLayer.Shops.Shop shop) {
+        return null;
+    }
+
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
     }
@@ -41,7 +45,7 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
 
         ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(),
                 !entity.isRemoved(), paymentMethodMapper.run().toEntity(entity.getMethod()),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin, toEntity(admin.getUser()))).toList());
+                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin)).toList());
 
         if (user.getPaymentMethod() != null)
             user.getPaymentMethod().setUser(user);

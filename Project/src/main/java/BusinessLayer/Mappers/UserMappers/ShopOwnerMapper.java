@@ -20,11 +20,18 @@ public class ShopOwnerMapper {
     private Func<ShopMapper> shopMapper = () -> ShopMapper.getInstance();
     private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
     private ShopAdministratorMapper shopAdministratorMapper = ShopAdministratorMapper.getInstance();
-    public ORM.Users.ShopOwner toEntity(ShopOwner entity, SubscribedUser user) {
-        return new ORM.Users.ShopOwner(
-                entity.getActionsTypes().stream().map(action -> ShopAdministrator.BaseActionType.values()[action.ordinal()])
-                        .collect(Collectors.toList()),
-                user, shopMapper.run().toEntity(shopMapper.run().findById(entity.getShopID())), entity.isFounder());
+
+    public ORM.Users.ShopOwner toEntity(ShopOwner entity) {
+        ORM.Users.SubscribedUser user = subscribedUserMapper.toEntityNoAdmin(entity.getUser(),entity.getShop());
+        List<ORM.Users.ShopAdministrator.BaseActionType> actionTypes = entity.getActionsTypes().stream().map(actionType -> ShopAdministrator.BaseActionType.values()[actionType.ordinal()]).toList();
+        ORM.Shops.Shop shop = shopMapper.run().toEntityNoAdmin(entity.getShop(), user);
+        List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin -> shopAdministratorMapper.toEntity(admin)).toList();
+        ORM.Users.SubscribedUser appointer = subscribedUserMapper.toEntity(subscribedUserMapper.findById(entity.getAppointer()));
+        ORM.Users.ShopAdministrator myAppointer = appointer.getAdministrators().get(shop.getId());
+        ORM.Users.ShopOwner owner = new ORM.Users.ShopOwner(actionTypes,  user,  shop,  appoints, entity.isFounder(), myAppointer);
+        user.addAdministrator(owner);
+        shop.getShopAdministrators().put(user,owner);
+        return owner;
     }
 
     public ShopOwner fromEntity(ORM.Users.ShopOwner entity) {

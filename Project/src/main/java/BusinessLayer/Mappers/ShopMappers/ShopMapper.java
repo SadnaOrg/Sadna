@@ -1,12 +1,24 @@
 package BusinessLayer.Mappers.ShopMappers;
 
 import BusinessLayer.Mappers.CastEntity;
+import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
+import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
+import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Shop;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
+import ORM.Shops.Discounts.DiscountPlusPolicy;
+import ORM.Shops.Product;
+import ORM.Shops.PurchaseHistory;
+import ORM.Shops.Purchases.PurchaseAndPolicy;
+import ORM.Users.Basket;
+import ORM.Users.ShopAdministrator;
+import ORM.Users.ShopOwner;
 import ORM.Users.SubscribedUser;
 
+import javax.persistence.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {
 
@@ -35,7 +47,23 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
-        return null;
+        int id = entity.getId();
+        String name = entity.getName();
+        String description = entity.getDescription();
+        ShopOwner founder = ShopOwnerMapper.getInstance().toEntity(entity.getFounder());
+        ORM.Shops.Shop.State state = ORM.Shops.Shop.State.OPEN;
+        if(!(entity.isOpen()))
+            state = ORM.Shops.Shop.State.CLOSED;
+        Collection<Product> products = entity.getProducts().values().stream().map(product -> ProductMapper.getInstance().toEntity(product)).toList();
+        ConcurrentHashMap<String, BusinessLayer.Users.Basket> usersBaskets = entity.getUsersBaskets();
+        Map<SubscribedUser, Basket> DALUsersBaskets = new HashMap<>();
+        Map<SubscribedUser, PurchaseHistory> purchaseHistory = null;
+        Map<SubscribedUser, ShopAdministrator> shopAdministrators = null;
+        DiscountPlusPolicy discounts = null;
+        PurchaseAndPolicy policies = null;
+        return new ORM.Shops.Shop(id, name, description, founder, state,  products,
+                DALUsersBaskets,  purchaseHistory,
+                 shopAdministrators, discounts,  policies);
     }
 
     @Override
