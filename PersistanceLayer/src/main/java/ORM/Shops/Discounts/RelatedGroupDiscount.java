@@ -1,37 +1,36 @@
 package ORM.Shops.Discounts;
 
 
-import ORM.Shops.Product;
 import ORM.Shops.Shop;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "RelatedGroupDiscounts")
+@Table(name = "RelatedGroupDiscount")
 public class RelatedGroupDiscount extends DiscountPolicy{
-    @ManyToMany
-    @JoinTable(name="RelatedGroupDiscountsProducts", joinColumns={
-            @JoinColumn(name="SHOP_ID"),
-            @JoinColumn(name = "POLICY_ID")
-    },
-            inverseJoinColumns=@JoinColumn(name="product_id"))
-    Collection<Product> relatedProducts;
-    double discount;
+    private String category;
+    private double discount;
 
     public RelatedGroupDiscount() {
     }
 
-    public RelatedGroupDiscount(Shop shop, int ID, DiscountPolicy policy, Collection<Product> relatedProducts, double discount) {
-        super(shop, ID, policy);
-        this.relatedProducts = relatedProducts;
-        this.discount = discount;
-    }
-
-    public RelatedGroupDiscount(Shop shop, int ID, Collection<Product> relatedProducts, double discount) {
+    public RelatedGroupDiscount(Shop shop, int ID, String category, double discount) {
         super(shop, ID);
-        this.relatedProducts = relatedProducts;
+        this.category = category;
         this.discount = discount;
     }
 
+    public RelatedGroupDiscount(String category, double discount) {
+        this.category = category;
+        this.discount = discount;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
 }

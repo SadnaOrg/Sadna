@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="mapping shops and admins,users">
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/AndPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPlusPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/MaxDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/OrDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateBasketQuantityPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateBasketValueDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateProductQuantityDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/XorDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ProductInfoRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ProductRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/PurchaseHistoryRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/PurchaseRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ShopRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/DefaultDiscount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sadna.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Sadna.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +85,16 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/PersistanceLayer" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.scopes" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\michael zaslavski\IdeaProjects\Sadna\PersistanceLayer\src\main\java\ORM\Shops" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>

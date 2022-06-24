@@ -1,4 +1,6 @@
 package ORM.Shops;
+import ORM.Shops.Discounts.DiscountPlusPolicy;
+import ORM.Shops.Purchases.PurchaseAndPolicy;
 import ORM.Users.Basket;
 import ORM.Users.ShopAdministrator;
 import ORM.Users.ShopOwner;
@@ -53,13 +55,35 @@ public class Shop {
             joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")})
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
+    @OneToOne (cascade = CascadeType.ALL)
+    private DiscountPlusPolicy discounts;
+    @OneToOne (cascade = CascadeType.ALL)
+    private PurchaseAndPolicy policies;
+
+    public DiscountPlusPolicy getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(DiscountPlusPolicy discounts) {
+        this.discounts = discounts;
+    }
+
+    public PurchaseAndPolicy getPolicies() {
+        return policies;
+    }
+
+    public void setPolicies(PurchaseAndPolicy policies) {
+        this.policies = policies;
+    }
 
     public Shop(int id, String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
-                Map<SubscribedUser, ShopAdministrator> shopAdministrators) {
+                Map<SubscribedUser, ShopAdministrator> shopAdministrators, DiscountPlusPolicy discounts, PurchaseAndPolicy policies) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.discounts = discounts;
+        this.policies = policies;
         this.founder = new ShopOwner(new ArrayList<>(), founder, this, isFounder);
         this.state = state;
         this.products = products;
