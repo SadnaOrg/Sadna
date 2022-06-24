@@ -8,6 +8,7 @@ import BusinessLayer.Users.BaseActions.CloseShop;
 
 import javax.naming.NoPermissionException;
 import java.util.Map;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ShopOwner extends ShopAdministrator{
     private boolean founder;
@@ -23,10 +24,11 @@ public class ShopOwner extends ShopAdministrator{
 
     }
 
-    public ShopOwner(Shop s, SubscribedUser u, String appointer, boolean founder, Map<BaseActionType, BaseAction> adminActions) {
+    public ShopOwner(Shop s, SubscribedUser u, String appointer, boolean founder, Map<BaseActionType, BaseAction> adminActions, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
         super(s, u, appointer);
         this.founder = founder;
         action = adminActions;
+        this.appoints = appoints;
     }
 
     public boolean isFounder() {

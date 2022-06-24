@@ -28,21 +28,21 @@ public class ShopOwnerMapper {
     }
 
     public ShopOwner fromEntity(ORM.Users.ShopOwner entity) {
-        BusinessLayer.Shops.Shop s = shopMapper.run().fromEntityNoAdmin(entity.getUser(),entity.getShop()); // to avoid infinite recursion
-        BusinessLayer.Users.SubscribedUser u = subscribedUserMapper.fromEntityNoAdmin(entity.getUser(),entity.getShop()); // to avoid infinite recursion...
-        BusinessLayer.Users.ShopAdministrator appointer = shopAdministratorMapper.fromEntity(entity.getAppointer()); // recursive but finite, no circles
+        BusinessLayer.Shops.Shop s = shopMapper.run().fromEntityNoAdmin(entity.getUser(),entity.getShop());
+        BusinessLayer.Users.SubscribedUser u = subscribedUserMapper.fromEntityNoAdmin(entity.getUser(),entity.getShop());
+        BusinessLayer.Users.ShopAdministrator appointer = shopAdministratorMapper.fromEntity(entity.getAppointer());
         Collection<BaseActionType> actions = entity.getAction().stream().map(baseActionType -> BusinessLayer.Users.BaseActions.BaseActionType.values()[baseActionType.ordinal()]).toList();
         Map<BaseActionType, BaseAction> adminActions = new ConcurrentHashMap<>();
         for(BaseActionType actionType: actions){
-            adminActions.put(actionType,BaseActionType.getAction(u,s, actionType)); // change the user later
+            adminActions.put(actionType,BaseActionType.getAction(u,s, actionType));
         }
         ConcurrentLinkedDeque<BusinessLayer.Users.ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
         List<ORM.Users.ShopAdministrator> administratorAppoints = entity.getAppoints();
         for (ORM.Users.ShopAdministrator admin:
              administratorAppoints) {
-            appoints.add(shopAdministratorMapper.fromEntity(admin)); //recursive but finite,no circles
+            appoints.add(shopAdministratorMapper.fromEntity(admin));
         }
-        ShopOwner owner = new ShopOwner(s, u,appointer.getSubscribed().getUserName(),entity.isFounder(), adminActions);
+        ShopOwner owner = new ShopOwner(s, u,appointer.getSubscribed().getUserName(),entity.isFounder(), adminActions, appoints);
         u.addAdministrator(s.getId(),owner);
         s.addAdministrator(u.getUserName(),owner);
         return owner;
