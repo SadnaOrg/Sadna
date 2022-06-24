@@ -1,5 +1,7 @@
 package ORM.Shops;
 
+import com.sun.istack.Nullable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,13 +9,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 public class Product {
-    public Product(int id, String name, String description, String manufacturer, double price, int quantity) {
+    public Product(int id, String name, String description, String manufacturer, double price, int quantity, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
         this.price = price;
         this.quantity = quantity;
+        this.category = category;
     }
 
     @Id
@@ -21,6 +24,8 @@ public class Product {
     private String name;
     private String description;
     private String manufacturer;
+    @Nullable
+    private String category;
     private double price;
     private int quantity;
 
@@ -70,6 +75,14 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Product() {
