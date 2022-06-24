@@ -11,6 +11,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -233,6 +234,11 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
 
+    public int createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateDateStampPurchase(localDate, conncectId);
+    }
+
     public synchronized int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId);
@@ -244,7 +250,7 @@ public class SubscribedUser extends User {
     }
 
 
-        public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
     }

@@ -8,6 +8,7 @@ import ServiceLayer.Response;
 import ServiceLayer.Result;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
@@ -92,6 +93,8 @@ public interface SubscribedUserService extends UserService {
     Response<Integer> createValidateProductPurchase(int productId, int productQuantity, boolean cantbemore, int connectId, int shopId);
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
+
+    Response<Integer> createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId);
 
     Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId);
 

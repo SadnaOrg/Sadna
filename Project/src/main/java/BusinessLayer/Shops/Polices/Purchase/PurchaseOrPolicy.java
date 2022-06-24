@@ -13,7 +13,6 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
     private Collection<PurchasePolicy> purchasePolicies;
     private int policyLogicId;
 
-
     public PurchaseOrPolicy(Collection<PurchasePolicy> purchasePolicies, int policyLogicId) {
         this.purchasePolicies = purchasePolicies;
         this.policyLogicId = policyLogicId;
@@ -24,9 +23,11 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
         this.purchasePolicies.addAll(purchasePolicies);
         this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
+
     public PurchaseOrPolicy(PurchasePolicy purchasePolicy) {
         this.purchasePolicies = new ArrayList<>();
-        this.purchasePolicies.add(purchasePolicy);
+        if(purchasePolicy != null)
+            this.purchasePolicies.add(purchasePolicy);
         this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
 

@@ -44,7 +44,6 @@ public class PaymentForm extends FormLayout {
         this.service = service;
         binder = new BeanValidationBinder<>(PaymentMethod.class);
         binder.bindInstanceFields(this);
-        this.service = (UserService)Load("service");
         payButton.setEnabled(false);
         binder.forField(creditCardNumber).withValidator(cardNum -> cardNum.length() == 16 &&
                 cardNum.chars().allMatch(Character::isDigit), "Credit Card must be a 16 digit number")
