@@ -1,8 +1,6 @@
 package BusinessLayer.Shops.Polices.Discount;
 
-import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
-import com.SadnaORM.ShopImpl.ShopObjects.Discounts.DiscountPolicyDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -130,8 +128,4 @@ public class DiscountAndPolicy implements LogicDiscountRules{
         return (discountPolicy != null);
     }
 
-    @Override
-    public DiscountPolicyDTO conversion(Converter c) {
-        return c.convert(this);
-    }
 }

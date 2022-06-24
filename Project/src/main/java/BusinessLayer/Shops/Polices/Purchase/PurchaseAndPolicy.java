@@ -1,10 +1,7 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
-import BusinessLayer.Mappers.ShopMappers.Converter;
-import BusinessLayer.Shops.Polices.Discount.LogicDiscountRules;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
-import com.SadnaORM.ShopImpl.ShopObjects.Policies.PurchasePolicyDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -102,8 +99,4 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
         return policyLogicId;
     }
 
-    @Override
-    public PurchasePolicyDTO conversion(Converter c) {
-        return c.convert(this);
-    }
 }

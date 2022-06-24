@@ -1,8 +1,6 @@
 package BusinessLayer.Shops.Polices.Discount;
 
-import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
-import com.SadnaORM.ShopImpl.ShopObjects.Discounts.DiscountPredDTO;
 
 public class ValidateProductQuantityDiscount implements  DiscountPred{
     private int ruleId;
@@ -58,8 +56,4 @@ public class ValidateProductQuantityDiscount implements  DiscountPred{
         return cantbemore;
     }
 
-    @Override
-    public DiscountPredDTO conversion(Converter c) {
-        return c.convert(this);
-    }
 }

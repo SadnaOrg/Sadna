@@ -1,11 +1,7 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
-import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
-import com.SadnaORM.ShopImpl.ShopObjects.Policies.PurchasePolicyDTO;
-
-import java.util.Collection;
 
 public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
     private final int policyLogicId;
@@ -69,10 +65,5 @@ public class ValidateCategoryPurchase implements ValidatePurchasePolicy{
 
     public boolean isCantbemore() {
         return cantbemore;
-    }
-
-    @Override
-    public PurchasePolicyDTO conversion(Converter c) {
-        return c.convert(this);
     }
 }

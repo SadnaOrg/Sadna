@@ -1,8 +1,6 @@
 package BusinessLayer.Shops.Polices.Discount;
 
-import BusinessLayer.Mappers.ShopMappers.Converter;
 import BusinessLayer.Users.Basket;
-import com.SadnaORM.ShopImpl.ShopObjects.Discounts.DiscountPolicyDTO;
 
 public class RelatedGroupDiscount implements DiscountPolicy{
     private int discountId;
@@ -78,8 +76,4 @@ public class RelatedGroupDiscount implements DiscountPolicy{
         return discount;
     }
 
-    @Override
-    public DiscountPolicyDTO conversion(Converter c) {
-        return c.convert(this);
-    }
 }
