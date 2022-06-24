@@ -6,10 +6,12 @@ import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -52,14 +54,6 @@ public class ShopController {
         }
     }
 
-    public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username) {
-        ConcurrentHashMap<Integer, ShopInfo> res = new ConcurrentHashMap<>();
-        for (Shop s : shops.values().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
-            res.put(s.getId(), new ShopInfo(s));
-        }
-        return res;
-    }
-
     static private class ShopControllerHolder {
         static final ShopController sc = new ShopController();
     }
@@ -72,7 +66,7 @@ public class ShopController {
     private final Map<Integer, Shop> shops;
 
     private ShopController() {
-        this.shops = new HashMap<>();
+        this.shops = new ConcurrentHashMap<>();
     }
 
     private Map<Integer, Shop> loadFromDB() {
@@ -88,47 +82,23 @@ public class ShopController {
         return res;
     }
 
-    public ConcurrentHashMap<Integer, Double> purchaseBasket(User user) {
+    public ConcurrentHashMap<Integer, Double> purchaseBasket(String user) {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
         for (int shopid : shops.keySet()) {
             try {
-                if (checkIfUserHasBasket(shopid, user.getUserName())) {
-                    //added here
-                    if (shops.get(shopid).approvePurchase(user))
-                        finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user.getUserName()));
-                }
+                if(checkIfUserHasBasket(shopid,user))
+                    finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
             }
-            catch (IllegalStateException ignored)
+            catch (IllegalStateException e)
             {
+                //TODO: add notification when implemented
+                //finalprices.put(shopid,0.0);
             }
         }
         if(finalprices.size() == 0)
             throw new IllegalStateException("can't purchase an empty cart!");
         return finalprices;
     }
-
-    public double getCartPrice(User user) {
-        double finalprice =0;
-        for (int shopid : shops.keySet()) {
-            finalprice +=getBasketPrice(shopid,user);
-        }
-        return finalprice;
-    }
-
-    public double getBasketPrice(int shopid , User user) {
-        try {
-            if (checkIfUserHasBasket(shopid, user.getUserName())) {
-                //added here
-                if (shops.get(shopid).approvePurchase(user))
-                    return shops.get(shopid).checkIfcanBuy(user.getUserName());
-            }
-        }
-        catch (IllegalStateException ignored)
-        {
-        }
-        return 0;
-    }
-
 
     public boolean addToPurchaseHistory(String user, ConcurrentHashMap<Integer, Boolean> paymentSituation) {
         for (int shopid:paymentSituation.keySet())

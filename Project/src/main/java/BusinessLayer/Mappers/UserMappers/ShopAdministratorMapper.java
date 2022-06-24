@@ -1,35 +1,34 @@
 package BusinessLayer.Mappers.UserMappers;
 
-import BusinessLayer.Mappers.MapperInterface;
-import com.SadnaORM.UserImpl.UserObjects.ShopAdministratorDTO;
-import com.SadnaORM.Users.ShopAdministrator;
+import BusinessLayer.Mappers.CastEntity;
+import BusinessLayer.Mappers.Func;
+import BusinessLayer.Users.ShopAdministrator;
+import BusinessLayer.Users.ShopManager;
+import BusinessLayer.Users.ShopOwner;
+import ORM.Users.SubscribedUser;
+import org.mockito.internal.matchers.InstanceOf;
 
 
-public  class ShopAdministratorMapper implements MapperInterface<ShopAdministrator, ShopAdministratorDTO, BusinessLayer.Users.ShopAdministrator, ShopAdministrator.ShopAdministratorPK> {
+public class ShopAdministratorMapper {
+    private Func<ShopOwnerMapper> shopOwnerMapper = () -> ShopOwnerMapper.getInstance();
+    private Func<ShopManagerMapper> shopManagerMapper = () -> ShopManagerMapper.getInstance();
+    static private class ShopAdministratorMapperHolder {
+        static final ShopAdministratorMapper mapper = new ShopAdministratorMapper();
+    }
 
+    public static ShopAdministratorMapper getInstance(){
+        return ShopAdministratorMapper.ShopAdministratorMapperHolder.mapper;
+    }
 
-    @Override
-    public void save(BusinessLayer.Users.ShopAdministrator entity) {
+    private ShopAdministratorMapper() {
 
     }
 
-    @Override
-    public void delete(BusinessLayer.Users.ShopAdministrator entity) {
-
+    public ORM.Users.ShopAdministrator toEntity(ShopAdministrator entity, SubscribedUser user) {
+        return entity instanceof ShopOwner ? shopOwnerMapper.run().toEntity((ShopOwner) entity, user) : shopManagerMapper.run().toEntity((ShopManager) entity);
     }
 
-    @Override
-    public ShopAdministratorDTO toEntity(BusinessLayer.Users.ShopAdministrator entity) {
-        return null;
-    }
-
-    @Override
-    public BusinessLayer.Users.ShopAdministrator FromEntity(ShopAdministratorDTO entity) {
-        return null;
-    }
-
-    @Override
-    public BusinessLayer.Users.ShopAdministrator findByID(ShopAdministrator.ShopAdministratorPK key) {
+    public ShopAdministrator fromEntity(ORM.Users.ShopAdministrator entity) {
         return null;
     }
 }

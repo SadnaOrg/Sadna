@@ -129,7 +129,7 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
 
-    public User getUser() {
+    public SubscribedUser getUser() {
         return user;
     }
 
