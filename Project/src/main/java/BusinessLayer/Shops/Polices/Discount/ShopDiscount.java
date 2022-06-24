@@ -1,5 +1,7 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
 public class ShopDiscount implements DiscountPolicy {
@@ -69,4 +71,8 @@ public class ShopDiscount implements DiscountPolicy {
         return false;
     }
 
+    @Override
+    public ORM.Shops.Discounts.DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
+    }
 }

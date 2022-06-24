@@ -1,8 +1,10 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.User;
+import ORM.Shops.Purchases.PurchasePolicy;
 
 import java.time.LocalDate;
 
@@ -49,4 +51,8 @@ public class ValidateUserPurchase implements ValidatePurchasePolicy{
         return policyLogicId;
     }
 
+    @Override
+    public PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
+    }
 }

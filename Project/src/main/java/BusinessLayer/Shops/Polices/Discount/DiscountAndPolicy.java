@@ -1,6 +1,9 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
+import ORM.Shops.Discounts.DiscountPolicy;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -126,6 +129,11 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     @Override
     public boolean validate() {
         return (discountPolicy != null);
+    }
+
+    @Override
+    public DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this, shop);
     }
 
 }

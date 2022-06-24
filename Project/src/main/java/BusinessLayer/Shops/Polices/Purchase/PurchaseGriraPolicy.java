@@ -1,5 +1,6 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
@@ -72,5 +73,10 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
 
     public PurchasePolicy getValidatePurchase() {
         return validatePurchase;
+    }
+
+    @Override
+    public ORM.Shops.Purchases.PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this, shop);
     }
 }
