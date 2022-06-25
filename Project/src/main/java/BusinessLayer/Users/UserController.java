@@ -1,5 +1,8 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Caches.SubscribedUserCache;
+import BusinessLayer.Caches.SystemManagerCache;
+import BusinessLayer.Caches.UserCache;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
@@ -22,9 +25,9 @@ public class UserController {
         static final UserController uc = new UserController();
     }
 
-    private final Map<String, User> users;
-    private final Map<String, SubscribedUser> subscribers;
-    private final Map<String, SystemManager> managers;
+    private final UserCache users;
+    private final SubscribedUserCache subscribers;
+    private final SystemManagerCache managers;
     private int guest_serial = -1;
 
     public static UserController getInstance() {
@@ -32,14 +35,14 @@ public class UserController {
     }
 
     private UserController() {
-        users = new ConcurrentHashMap<>();
-        managers = new ConcurrentHashMap<>();
-        subscribers = new ConcurrentHashMap<>();
+        users = new UserCache(30);
+        managers = new SystemManagerCache(30);
+        subscribers = new SubscribedUserCache(30);
     }
 
     public AdministratorInfo getMyInfo(String userName, int shopID) {
-        if(subscribers.containsKey(userName)){
-            SubscribedUser u = subscribers.get(userName);
+        SubscribedUser u = subscribers.findElement(userName);
+        if(u != null){
             ShopAdministrator admin = u.getAdministrator(shopID);
             if(admin != null){
                 return admin.getMyInfo();
@@ -48,19 +51,27 @@ public class UserController {
         }
         return null;
     }
-
+    // TODO: check all functions that change state of object and call matching caches.
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        if(subscribers.containsKey(requesting)){
-            SubscribedUser u = subscribers.get(requesting);
-            return u.removeAdmin(shopID,subscribers.get(toRemove));
+        SubscribedUser remover = subscribers.findElement(requesting);
+        SubscribedUser removed;
+        if(remover != null){
+            removed = subscribers.findElement(toRemove);
+            if(removed != null)
+                return remover.removeAdmin(shopID,removed);
+            else throw  new IllegalArgumentException("trying to remove a not subscribed user from the admins of a shop!");
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
 
     public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        if(subscribers.containsKey(requesting)){
-            SubscribedUser u = subscribers.get(requesting);
-            return u.removeShopOwner(shopID,subscribers.get(toRemove));
+        SubscribedUser remover = subscribers.findElement(requesting);
+        SubscribedUser removed;
+        if(remover != null){
+            removed = subscribers.findElement(toRemove);
+            if(removed != null)
+                return remover.removeShopOwner(shopID,removed);
+            else throw  new IllegalArgumentException("trying to remove a not subscribed user from the admins of a shop!");
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
@@ -79,8 +90,10 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u) {
-        User u1 = users.get(u);
-        return u1.getShoppingCart();
+        User u1 = users.findElement(u);
+        if(u1 != null)
+            return u1.getShoppingCart();
+        throw new IllegalArgumentException("no such user in the system");
     }
 
     public ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, Integer>> getShoppingCartClone(User u) {
@@ -113,11 +126,13 @@ public class UserController {
 
 
     public User getUser(String user) {
-        return users.get(user);
+        return users.findElement(user);
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        User user = users.get(u.getName());
+        User user = users.findElement(u.getUserName());
+        if(user == null)
+            throw new IllegalArgumentException("no such user in the system");
         return user.showCart();
     }
 
@@ -130,22 +145,24 @@ public class UserController {
      * @throws NoPermissionException if the shop Administrator has no permission to complete the transaction
      */
     public boolean AssignShopManager(SubscribedUser currUser, String userNameToAssign, int shopId) throws NoPermissionException {
-        if (subscribers.containsKey(userNameToAssign)) {
+        if (subscribers.findElement(userNameToAssign) != null) {
             return currUser.assignShopManager(shopId, getSubUser(userNameToAssign));
         } else
             throw new IllegalArgumentException("non such user - " + userNameToAssign);
     }
 
     public SubscribedUser getSubUser(String userName) {
-        if (!subscribers.containsKey(userName))
+        SubscribedUser subscribedUser = subscribers.findElement(userName);
+        if (subscribedUser == null)
             throw new IllegalArgumentException("user " + userName + " doesn't exist");
-        return subscribers.getOrDefault(userName, null);
+        return subscribedUser;
     }
 
     public SystemManager getSysUser(String userName) {
-        if (!managers.containsKey(userName))
+        SystemManager systemManager = managers.findElement(userName);
+        if (systemManager == null)
             throw new IllegalArgumentException("user " + userName + " doesn't exist or dont have system manager permission");
-        return managers.getOrDefault(userName, null);
+        return systemManager;
     }
 
 
@@ -155,38 +172,41 @@ public class UserController {
 
     public boolean createSystemManager(String username, String password, Date date) {
         SystemManager systemManager = new SystemManager(username, password,date);
-        users.put(systemManager.getName(), systemManager);
-        subscribers.put(systemManager.getName(), systemManager);
-        managers.put(systemManager.getName(), systemManager);
+        users.insert(systemManager.getName(), systemManager, true);
+        subscribers.insert(systemManager.getName(), systemManager, true);
+        managers.insert(systemManager.getName(), systemManager, true);
         return true;
     }
 
     public synchronized boolean registerToSystem(String userName, String password, Date date) {
-        if (!subscribers.containsKey(userName)) {
+        if (subscribers.findElement(userName) == null) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password,date);
-            users.put(userName, newUser);
-            subscribers.put(userName, newUser);
+            users.insert(userName, newUser, false);
+            subscribers.insert(userName, newUser, false);
             return true;
         }
         return false;
     }
 
     public SubscribedUser login(String userName, String password, User currUser) {
-        if (subscribers.containsKey(userName) && (currUser == null || currUser instanceof Guest))
-            if (subscribers.get(userName).login(userName, password)) {
+        SubscribedUser subscribedUser = subscribers.findElement(userName);
+        if ((subscribedUser != null) && (currUser == null || currUser instanceof Guest))
+            if (subscribedUser.login(userName, password)) {
                 if (currUser != null) {
-                    users.remove(currUser.getUserName());
+                    users.remove(currUser.getUserName(),false);
                 }
-                return subscribers.get(userName);
+                return subscribedUser;
             } else
                 return null;
         return null;
     }
 
     public Guest logout(String username) {
-        if (subscribers.containsKey(username)) {
-            subscribers.get(username).logout();
+        SubscribedUser subscribedUser = subscribers.findElement(username);
+        if (subscribedUser != null) {
+            subscribedUser.logout();
+            subscribers.remove(username,false);
             return loginSystem();
         }
         return null;
@@ -194,12 +214,12 @@ public class UserController {
 
     public Guest loginSystem() {
         Guest guest = new Guest("guest_" + ++guest_serial);
-        users.put(guest.getName(), guest);
+        users.insert(guest.getName(), guest, true);
         return guest;
     }
 
     public boolean logoutSystem(String name) {
-        return users.remove(name) != null;
+        return users.remove(name, false);
     } // exit everything
 
     public boolean assignShopManager(SubscribedUser user, int shop, String userNameToAssign) throws NoPermissionException {
@@ -303,9 +323,9 @@ public class UserController {
     }
 
     private ShopAdministrator getAdmin(String username, int shopID) {
-        if (subscribers.containsKey(username)) {
-            SubscribedUser u = subscribers.get(username);
-            return u.getAdministrator(shopID);
+        SubscribedUser subscribedUser = subscribers.findElement(username);
+        if (subscribedUser != null) {
+            return subscribedUser.getAdministrator(shopID);
         }
         return null;
     }
@@ -317,8 +337,8 @@ public class UserController {
     protected boolean removeSubscribedUserFromSystem(String userName){
         if(!getSubUser(userName).removeFromSystem())
             throw new IllegalArgumentException("user "+userName+" cant be removed");
-        subscribers.remove(userName);
-        users.remove(userName);
+        subscribers.remove(userName, false);
+        users.remove(userName, false);
         System.out.println("renoved ----------------> " +userName);
         return true;
     }
@@ -345,7 +365,7 @@ public class UserController {
         if(!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
         Map<UserState,List<SubscribedUser>> m = new ConcurrentHashMap<>();
-        this.subscribers.values().forEach((u)->{
+        this.subscribers.findAll().forEach((u)->{
             var k =UserState.get(u);
             if(!m.containsKey(k))
                 m.put(k,new LinkedList<SubscribedUser>());
@@ -353,23 +373,14 @@ public class UserController {
         return m;
     }
 
-    public void clearForTestsOnly() {
-        users.clear();
-        subscribers.clear();
-        managers.clear();
-    }
-
     public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
         return user.setCategory(productId,category,shopId);
     }
 
     public Collection<SystemManager> getSysManagers(){
-        return managers.values();
+        return managers.findAll();
     }
 
-    public void addUserForTest(User u){
-        this.users.put(u.getUserName(),u);
-    }
 
     public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
         return currUser.createProductByQuantityDiscount(productId, productQuantity, discount, connectId, shopId);
@@ -470,21 +481,5 @@ public class UserController {
 
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return currUser.getPurchasePolicy(shopId);
-    }
-
-    public boolean subscribersContainsKey(String key) {
-        if (subscribers.containsKey(key))
-            return true;
-        else {
-            SubscribedUser user = SubscribedUserMapper.getInstance().findById(key);
-            if (user != null) {
-                users.put(key, user);
-                subscribers.put(key, user);
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
     }
 }
