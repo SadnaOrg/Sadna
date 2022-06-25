@@ -340,7 +340,7 @@ public class Shop {
         }
     }
 
-    public boolean approveBidOffer(String user,String adminName,int productId)
+    public BidOffer approveBidOffer(String user, String adminName, int productId)
     {
         if (state == State.OPEN) {
             if (usersBids.containsKey(user)) {

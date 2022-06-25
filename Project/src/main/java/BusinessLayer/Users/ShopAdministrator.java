@@ -368,7 +368,7 @@ public class ShopAdministrator {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).declineBidOffer(user, productId);
         } else throw new NoPermissionException("you don't have permission to do that!");    }
 
-    public boolean approveBidOffer(String user,String adminName,int productId) throws NoPermissionException {
+    public BidOffer approveBidOffer(String user, String adminName, int productId) throws NoPermissionException {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).approveBidOffer(user, adminName, productId);
         } else throw new NoPermissionException("you don't have permission to do that!");    }

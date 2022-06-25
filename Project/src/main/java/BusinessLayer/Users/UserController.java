@@ -91,22 +91,23 @@ public class UserController {
         return false;
     }
 
-    private boolean moveBidToBasket(String user,int productId, int shopId)
+    private boolean moveBidToBasket(User u,int productId, int shopId)
     {
-        User u = users.get(user);
-        BidOffer bidOffer = u.getBidOffer(shopId);
-        double price = bidOffer.getPriceById(productId);
-        int quantity = bidOffer.getQuantityById(productId);
-        if (price != -1) {
-            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
-                if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
-                    ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+        if(u != null){
+            BidOffer bidOffer = u.getBidOffer(shopId);
+            double price = bidOffer.getPriceById(productId);
+            int quantity = bidOffer.getQuantityById(productId);
+            if (price != -1) {
+                if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
+                    if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
+                        ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+                    }
+                    if(u.removeProductFromBid(shopId,productId))
+                    {
+                        ShopController.getInstance().removeBid(shopId);
+                    }
+                    return true;
                 }
-                if(u.removeProductFromBid(shopId,productId))
-                {
-                    ShopController.getInstance().removeBid(shopId);
-                }
-                return true;
             }
         }
         return false;
@@ -151,8 +152,7 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        User user = users.get(u.getName());
-        return user.showCart();
+        return u.showCart();
     }
 
 
@@ -520,9 +520,10 @@ public class UserController {
     }
 
     public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
-        if (currUser.approveBidOffer(user, productId, shopId))
+        var bid = currUser.approveBidOffer(user, productId, shopId);
+        if(bid!= null)
         {
-            moveBidToBasket(user,productId,shopId);
+            moveBidToBasket(bid.getUser(),productId,shopId);
             return true;
         }
         return false;

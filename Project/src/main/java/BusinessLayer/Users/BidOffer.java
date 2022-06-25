@@ -1,17 +1,17 @@
 package BusinessLayer.Users;
 
-import BusinessLayer.Shops.Shop;
-
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class BidOffer {
     private int shopID;
+    private User user;
 
     private ConcurrentHashMap<Integer, ApproveBid> approvals;
 
-    public BidOffer(int shopID) {
+    public BidOffer(int shopID,User user) {
         this.shopID = shopID;
+        this.user = user;
         this.approvals= new ConcurrentHashMap<>();
     }
 
@@ -26,7 +26,11 @@ public class BidOffer {
 
     }
 
-    public void setApproval(int productid,List<String> admins) {
+    public String getUserName() {
+        return user.getUserName();
+    }
+
+    public void setApproval(int productid, List<String> admins) {
        if(approvals.containsKey(productid))
            if(approvals.get(productid).getAdministraitorsApproval().size()==0)
                approvals.get(productid).setAdministraitorsApproval(admins);
@@ -88,9 +92,10 @@ public class BidOffer {
         return removeProduct(productId);
     }
 
-    public boolean approveBidOffer(String adminName, int productId)
+    public BidOffer approveBidOffer(String adminName, int productId)
     {
-        return this.approvals.get(productId).approve(adminName);
+        if (this.approvals.get(productId).approve(adminName))return this;
+        else return null;
     }
 
 
@@ -131,5 +136,9 @@ public class BidOffer {
                 return true;
         }
         return false;
+    }
+
+    public User getUser() {
+        return this.user;
     }
 }

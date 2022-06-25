@@ -28,7 +28,7 @@ public class BidOfferTest {
         p2 = new Product(2, "c", 15, 500);
         founder.login(founder.getUserName(),"Guy123456");
         founder.assignShopOwner(s1.getId(),subscribedUser1);
-        bidOffer= new BidOffer(s1.getId());
+        bidOffer= new BidOffer(s1.getId(), user1);
     }
 
     @Test
@@ -194,9 +194,9 @@ public class BidOfferTest {
         assertEquals(1, bidOffer.getApprovals().size());
         bidOffer.editProductPrice(p1.getID(), 3);
         assertEquals(1, bidOffer.getApprovals().size());
-        assertFalse(bidOffer.approveBidOffer(founder.getName(), p1.getID()));
+        assertNull(bidOffer.approveBidOffer(founder.getName(), p1.getID()));
         assertEquals(2, bidOffer.getApprovals().get(p1.getID()).getAdministraitorsApproval().size());
-        assertTrue(bidOffer.approveBidOffer(subscribedUser1.getName(), p1.getID()));
+        assertNotNull(bidOffer.approveBidOffer(subscribedUser1.getName(), p1.getID()));
     }
     @Test
     public void approveBidOfferTwice() {
@@ -209,7 +209,7 @@ public class BidOfferTest {
         assertEquals(1, bidOffer.getApprovals().size());
         bidOffer.editProductPrice(p1.getID(), 3);
         assertEquals(1, bidOffer.getApprovals().size());
-        assertFalse(bidOffer.approveBidOffer(founder.getName(), p1.getID()));
+        assertNull(bidOffer.approveBidOffer(founder.getName(), p1.getID()));
         try {
             bidOffer.approveBidOffer(founder.getName(), p1.getID());
             fail("shouldn't get her");
