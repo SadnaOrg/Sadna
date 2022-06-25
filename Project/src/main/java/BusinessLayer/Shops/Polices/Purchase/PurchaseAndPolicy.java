@@ -29,7 +29,8 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
     }
     public PurchaseAndPolicy(PurchasePolicy purchasePolicy) {
         this.purchasePolicies = new ArrayList<>();
-        this.purchasePolicies.add(purchasePolicy);
+        if(purchasePolicy != null)
+            this.purchasePolicies.add(purchasePolicy);
         this.policyLogicId = purchaseLogicId.incrementAndGet();
     }
     @Override

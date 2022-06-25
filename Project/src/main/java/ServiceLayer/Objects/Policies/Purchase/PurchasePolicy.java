@@ -53,7 +53,8 @@ public interface PurchasePolicy {
                     buispolicies,
                     ((PurchaseOrPolicy) purchasePolicy).policyLogicId());
         }
-        throw new IllegalStateException("can't be other then the known ones");
+        return null;
+//        throw new IllegalStateException("can't be other then the known ones");
     }
 
     static PurchasePolicy makeServicePurchasePolicy(BusinessLayer.Shops.Polices.Purchase.PurchasePolicy purchasePolicy) {
@@ -75,6 +76,7 @@ public interface PurchasePolicy {
         if (purchasePolicy instanceof BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy) {
             return new PurchaseOrPolicy((BusinessLayer.Shops.Polices.Purchase.PurchaseOrPolicy) purchasePolicy);
         }
-        throw new IllegalStateException("can't be other then the known ones");
+        return null;
+//        throw new IllegalStateException("can't be other then the known ones");
     }
 }

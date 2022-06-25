@@ -11,6 +11,7 @@ public abstract class User{
     //the key is the shopid
     //the value is the basket of the specific shop
     private ConcurrentHashMap<Integer, Basket> shoppingCart;
+    private ConcurrentHashMap<Integer, BidOffer> shoppingBids;
     protected String name;
     protected PaymentMethod method;
 
@@ -18,6 +19,7 @@ public abstract class User{
         this.name= name;
         method = null;
         shoppingCart= new ConcurrentHashMap<>();
+        shoppingBids = new ConcurrentHashMap<>();
     }
 
     //assume that the productid is in the relevant shop handle in facade
@@ -33,6 +35,21 @@ public abstract class User{
         //the product is already exist in the basket
         return b.saveProducts(productid, quantity,price,category);
     }
+
+    //assume that the productid is in the relevant shop handle in facade
+    public boolean saveProductsAsBid(int shopid, int productid, int quantity,double price) {
+        if(quantity<=0)
+            throw new IllegalArgumentException("quantity must be positive amount");
+        if(price<0)
+            throw new IllegalArgumentException("price must be positive amount");
+        if (!shoppingBids.containsKey(shopid)) {
+            BidOffer b = new BidOffer(shopid,this);
+            shoppingBids.put(shopid, b);
+        }
+        BidOffer b = shoppingBids.get(shopid);
+        return b.AddToBid(productid, quantity,price);
+    }
+
 
     public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
         if(shoppingCart.containsKey(shopid))
@@ -61,6 +78,24 @@ public abstract class User{
     }
 
 
+    public boolean removeProductFromBid(int shopId,int productId) {
+        if(shoppingBids.containsKey(shopId))
+        {
+            shoppingBids.get(shopId).removeProduct(productId);
+            BidOffer b = getBidOffer(shopId);
+            if(b.getProducts().size()==0)
+            {
+                shoppingBids.remove(shopId);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ConcurrentHashMap<Integer, BidOffer> getShoppingBids() {
+        return shoppingBids;
+    }
+
     public boolean editProductQuantity(int shopid, int productid, int newquantity){
         if(newquantity==0)
             return removeProduct(shopid,productid);
@@ -83,6 +118,11 @@ public abstract class User{
     public Basket getBasket(int shopid)
     {
         return shoppingCart.getOrDefault(shopid,null);
+    }
+
+    public BidOffer getBidOffer(int shopid)
+    {
+        return shoppingBids.getOrDefault(shopid,null);
     }
 
     public synchronized void updatePaymentMethod(PaymentMethod method){

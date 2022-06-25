@@ -3,17 +3,22 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
+
+
+
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
@@ -45,7 +50,9 @@ public class UserController {
         }
         return null;
     }
-
+    public ConcurrentHashMap<Shop, Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return currUser.getBidsToApprove();
+    }
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         if(subscribers.containsKey(requesting)){
             SubscribedUser u = subscribers.get(requesting);
@@ -70,6 +77,37 @@ public class UserController {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean saveProductsAsBid(User u, int shopId, int productId, int quantity, double price) {
+        if (price != -1) {
+            if (u.saveProductsAsBid(shopId, productId, quantity, price/quantity)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean moveBidToBasket(User u,int productId, int shopId)
+    {
+        if(u != null){
+            BidOffer bidOffer = u.getBidOffer(shopId);
+            double price = bidOffer.getPriceById(productId);
+            int quantity = bidOffer.getQuantityById(productId);
+            if (price != -1) {
+                if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
+                    if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
+                        ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+                    }
+                    if(u.removeProductFromBid(shopId,productId))
+                    {
+                        ShopController.getInstance().removeBid(shopId);
+                    }
+                    return true;
+                }
             }
         }
         return false;
@@ -114,8 +152,7 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        User user = users.get(u.getName());
-        return user.showCart();
+        return u.showCart();
     }
 
 
@@ -446,6 +483,10 @@ public class UserController {
         return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
     }
 
+    public int createValidateDateStampPurchase(SubscribedUser currUser, LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateDateStampPurchase(localDate, conncectId, shopId);
+    }
+
     public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
         return currUser.createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId, shopId);
     }
@@ -455,7 +496,7 @@ public class UserController {
     }
 
 
-        public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
     }
 
@@ -480,4 +521,29 @@ public class UserController {
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return currUser.getPurchasePolicy(shopId);
     }
+
+    public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        return currUser.reOfferBid(user, productId, newPrice, shopId);
+    }
+
+    public boolean declineBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        if(currUser.declineBidOffer(user, productId, shopId))
+        {
+            UserController.getInstance().getUser(user).getShoppingBids().remove(shopId);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        var bid = currUser.approveBidOffer(user, productId, shopId);
+        if(bid!= null)
+        {
+            moveBidToBasket(bid.getUser(),productId,shopId);
+            return true;
+        }
+        return false;
+    }
+
+
 }

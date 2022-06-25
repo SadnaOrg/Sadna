@@ -8,9 +8,11 @@ import ServiceLayer.Response;
 import ServiceLayer.Result;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
 public interface SubscribedUserService extends UserService {
@@ -99,11 +101,21 @@ public interface SubscribedUserService extends UserService {
 
     Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId);
 
+    Response<Integer> createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId);
+
     Response<Integer> createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId);
 
     Response<Integer> createValidateUserPurchase(int age, int connectId, int shopId);
 
     Result setCategory(int productId, String category, int shopID);
+
+    Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId) ;
+
+    Response<ConcurrentHashMap<Shop,Collection<BidOffer>>> getBidsToApprove();
+
+    Response<Boolean> declineBidOffer(String user, int productId, int shopId) ;
+
+    Response<Boolean> approveBidOffer(String user, int productId, int shopId) ;
 
     Result removeShopOwner(int shopId, String toRemove);
 

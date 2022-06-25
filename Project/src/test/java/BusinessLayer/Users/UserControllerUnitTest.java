@@ -167,7 +167,7 @@ public class UserControllerUnitTest {
         uc.registerToSystem(user.getName(), "123456",new Date(2001, Calendar.DECEMBER,1));
         ConcurrentHashMap<Integer, BasketInfo> cart = createBasketInfo();
         when(user.showCart()).thenReturn(cart);
-        Assert.assertEquals(0, uc.showCart(user).size());
+        Assert.assertEquals(cart, uc.showCart(user));
     }
 
     private ConcurrentHashMap<Integer, BasketInfo> createBasketInfo() {

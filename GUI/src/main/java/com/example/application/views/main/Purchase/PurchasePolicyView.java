@@ -1,23 +1,20 @@
-package com.example.application.views.main.Discount;
+package com.example.application.views.main.Purchase;
 
-import ServiceLayer.Objects.Policies.Discount.DiscountPolicyType;
+import ServiceLayer.Objects.Policies.Purchase.PurchasePolicy;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.interfaces.SubscribedUserService;
+import com.example.application.views.main.Discount.DiscountContentCreator;
 import com.example.application.views.main.Discount.DiscountPolicies.DiscountPolicy;
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.contextmenu.MenuItem;
-import com.vaadin.flow.component.menubar.MenuBar;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
-public class DiscountPolicyView extends VerticalLayout {
+public class PurchasePolicyView extends VerticalLayout {
     SubscribedUserService service;
     String currUser;
     Select<Integer> shopSelect;
-    public DiscountPolicyView(SubscribedUserService service, String currUser){
+    public PurchasePolicyView(SubscribedUserService service, String currUser){
         this.service = service;
         this.currUser = currUser;
         var res = service.searchShops(s -> true, currUser);
@@ -34,8 +31,8 @@ public class DiscountPolicyView extends VerticalLayout {
         shopSelect.addValueChangeListener(e -> {
             removeAll();
             if(e.getValue() != null){
-                DiscountContentCreator contentCreator = new DiscountContentCreator(service, e.getValue());
-                add(shopSelect, contentCreator.getDiscounts().getLayout());
+                PurchaseContentCreator contentCreator = new PurchaseContentCreator(service, e.getValue());
+                add(shopSelect, contentCreator.getPurchases().getLayout());
             }
         });
         return shopSelect;
