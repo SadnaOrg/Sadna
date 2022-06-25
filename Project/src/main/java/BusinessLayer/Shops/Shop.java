@@ -8,8 +8,11 @@ import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -22,6 +25,7 @@ public class Shop {
     private ShopOwner founder;
     private ConcurrentHashMap<Integer, Product> products = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Basket> usersBaskets = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, BidOffer> usersBids = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String,PurchaseHistory> purchaseHistory= new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
     private DiscountPlusPolicy discounts = new DiscountPlusPolicy();
@@ -63,6 +67,15 @@ public class Shop {
             throw new IllegalStateException("the user doesn't have a basket!");
         }
         usersBaskets.remove(userName);
+    }
+
+    public Collection<BidOffer> getBidsToApprove(String userName) {
+        Collection<BidOffer> c=new LinkedList<>();
+        for( var b : usersBids.values()){
+            if(b.isNeedMyApproval(userName))
+                c.add(b);
+        }
+        return c;
     }
 
     public enum State {
@@ -232,6 +245,15 @@ public class Shop {
         }
     }
 
+    public boolean checkIfUserHasBid(String user) {
+        if (state == State.OPEN)
+            return usersBids.containsKey(user);
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
     public ConcurrentHashMap<String, Basket> getUsersBaskets() {
         if (state == State.OPEN)
             return usersBaskets;
@@ -259,8 +281,89 @@ public class Shop {
         }
     }
 
+    public boolean addBidOffer(String user,int productId, BidOffer bidOffer)
+    {
+        if (state == State.OPEN) {
+            if (!usersBids.containsKey(user)) {
+                bidOffer.setApproval(productId,getShopAdministrators().stream().filter(sa->sa.getActionsTypes().contains(BaseActionType.SET_PURCHASE_POLICY)).map(ShopAdministrator::getUserName).collect(Collectors.toList()));
+                usersBids.put(user, bidOffer);
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The user' basket is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
 
-    public boolean addAdministrator(String userName,ShopAdministrator administrator) {
+    public boolean reOfferBid(String user,int productId, double newPrice)
+    {
+        if (state == State.OPEN) {
+            if (usersBids.containsKey(user)) {
+                usersBids.get(user).editProductPrice(productId,newPrice);
+                //TODO:add notification;
+                return true;
+            }
+            else
+            {
+                throw new IllegalStateException("The user' basket is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+    public boolean declineBidOffer(String user,int productId)
+    {
+        if (state == State.OPEN) {
+            if (usersBids.containsKey(user)) {
+                usersBids.get(user).declineBidOffer(productId);
+                //TODO:add notification;
+                boolean check=usersBids.get(user).getProducts().size() == 0;
+                if(check)
+                    usersBids.remove(user);
+                return check;
+            }
+            else
+            {
+                throw new IllegalStateException("The user' basket is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+    public BidOffer approveBidOffer(String user, String adminName, int productId)
+    {
+        if (state == State.OPEN) {
+            if (usersBids.containsKey(user)) {
+                return usersBids.get(user).approveBidOffer(adminName,productId);
+                //TODO:add notification;
+            }
+            else
+            {
+                throw new IllegalStateException("The user' basket is already in the shop");
+            }
+        }
+        else
+        {
+            throw new IllegalStateException("The shop is closed");
+        }
+    }
+
+    public Collection< HeskemMinui> getHeskemMinuis() {
+        return heskemMinuis.values();
+    }
+
+    public boolean addAdministrator(String userName, ShopAdministrator administrator) {
         if (state == State.OPEN)
             return shopAdministrators.putIfAbsent(userName,administrator)==null;
         else
@@ -424,6 +527,9 @@ public class Shop {
     public Collection<ShopAdministrator> getShopAdministrators() {
         return shopAdministrators.values();
     }
+    public List<String> getShopAdministratorsNames() {
+        return shopAdministrators.keySet().stream().toList();
+    }
 
     public boolean isOpen(){
         return state==State.OPEN;
@@ -437,6 +543,9 @@ public class Shop {
         return purchasePolicy;
     }
 
+    public ConcurrentHashMap<String, BidOffer> getUsersBids() {
+        return usersBids;
+    }
     //    public void addDiscountProductByQuantityDiscount(int productId, int productQuantity, double discount)
 //    {
 //        if (state == State.OPEN) {

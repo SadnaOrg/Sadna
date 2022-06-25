@@ -40,14 +40,6 @@ public class CompositePolicy extends DiscountPolicy{
         return menuBar;
     }
 
-    public void addPolicy(DiscountPolicy policy){
-        policies.add(policy.toString(), policy.layout);
-    }
-
-    public void removePolicy(DiscountPolicy policy){
-        policies.remove(policy.layout);
-    }
-
     private Component createPolicy(DiscountPolicyType discountType, Integer shopId){
         DiscountContentCreator discountContentCreator = new DiscountContentCreator(service, shopId);
         Component component;

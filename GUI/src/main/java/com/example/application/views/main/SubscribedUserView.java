@@ -6,6 +6,7 @@ import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
 import com.example.application.views.main.Discount.DiscountPolicyView;
+import com.example.application.views.main.Purchase.PurchasePolicyView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -242,9 +243,27 @@ public class SubscribedUserView extends GuestActionView {
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
         addTabWithClickEvent("Manage Actions", this::createActionView);
         addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
+        addTabWithClickEvent("Add Purchase Policy", this::createPurchasePolicyView);
+        addTabWithClickEvent("approve bids", this::createApproveBidsView);
+        addTabWithClickEvent("approve assign owners", this::createApproveAssignView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createApproveAssignView(DomEvent domEvent) {
+        var approveView = new ApproveAssignmentsView(service,currUser);
+        setContent(approveView);
+    }
+
+    private void createApproveBidsView(DomEvent domEvent) {
+        var approveBidsView = new ApproveBidsView(service,currUser);
+        setContent(approveBidsView);
+    }
+
+    private void createPurchasePolicyView(DomEvent domEvent) {
+        PurchasePolicyView policyView = new PurchasePolicyView(service, currUser);
+        setContent(policyView);
     }
 
     private void createDiscountPolicyView(DomEvent domEvent) {

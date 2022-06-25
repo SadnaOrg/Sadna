@@ -11,8 +11,10 @@ import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Date;
@@ -55,11 +57,7 @@ public class Facade{
     }
 
     public boolean assignShopOwner(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
-        return userController.assignShopOwner(currUser,shop,userNameToAssign);
-    }
-    public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {
-        return userController.addAdministratorToHeskemMinui(user, shop, userNameToAssign);
-        //TODO: add notification
+          return notifyUsers(userController.addAdministratorToHeskemMinui(currUser, shop, userNameToAssign),getShopAdmins(shop),"A new user wait to be approve as Shop Owner of shop number "+shop);
     }
 
     public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
@@ -68,6 +66,10 @@ public class Facade{
 
     public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
         return userController.declineHeskemMinui(user,shop,adminToAssign);
+    }
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser currUser) throws NoPermissionException{
+        return userController.getHeskemeyMinui(currUser);
+
     }
 
     public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
@@ -119,7 +121,19 @@ public class Facade{
     }
 
     public boolean saveProducts(User currUser, int shopId, int productId, int quantity) {
-        return userController.saveProducts(currUser,shopId,productId,quantity);
+        return  userController.saveProducts(currUser,shopId,productId,quantity);
+    }
+
+    public boolean saveProductsAsBid(User u, int shopId, int productId, int quantity, double price) {
+        boolean check=notifyUsers(userController.saveProductsAsBid(u, shopId, productId, quantity, price),getShoppBidsAdmins(shopId),"look at the pending bid requests");
+        if (!ShopController.getInstance().checkIfUserHasBid(shopId, u.getName()) &&check) {
+            ShopController.getInstance().addBidOffer(shopId,productId, u.getName(), u.getBidOffer(shopId));
+        }
+        return true;
+    }
+
+    private Collection<String> getShoppBidsAdmins(int shopId) {
+        return shopController.getShops().get(shopId).getShopAdministrators().stream().filter(sa->sa.getActionsTypes().contains(BaseActionType.SET_PURCHASE_POLICY)).map(ShopAdministrator::getUserName).collect(Collectors.toList());
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User currUser) {
@@ -250,6 +264,10 @@ public class Facade{
         return userController.removeShopOwner(shopID, requesting, toRemove);
     }
 
+    public ConcurrentHashMap<Shop,Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return userController.getBidsToApprove(currUser);
+    }
+
     private static class FacadeHolder{
         private static final Facade facade= new Facade();
     }
@@ -341,7 +359,11 @@ public class Facade{
 
     }
     public int createValidateTImeStampPurchase(SubscribedUser currUser, LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
-        return userController.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId);
+        return userController.createValidateTImeStampPurchase(currUser, localTime, buybefore, conncectId, shopId);
+    }
+
+    public int createValidateDateStampPurchase(SubscribedUser currUser, LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        return userController.createValidateDateStampPurchase(currUser, localDate, conncectId, shopId);
     }
 
     public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
@@ -378,6 +400,19 @@ public class Facade{
 
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return userController.getPurchasePolicy(currUser,shopId);
+    }
+
+
+    public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        return notifyUsers(userController.reOfferBid(currUser,user, productId, newPrice, shopId),getShoppBidsAdmins(shopId),"look at the pending bid requests");
+    }
+
+    public boolean declineBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        return userController.declineBidOffer(currUser,user, productId, shopId);
+    }
+
+    public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        return notifyUsers(userController.approveBidOffer(currUser,user, productId, shopId),toCollection(user),"your bid has been accepted");
     }
 
 }

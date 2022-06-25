@@ -10,10 +10,13 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
-import javax.naming.NoPermissionException;
+
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class SubscribedUserServiceImp extends UserServiceImp implements SubscribedUserService {
     SubscribedUser currUser;
@@ -59,11 +62,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNull(()->  facade.assignShopOwner(currUser,shop,userNameToAssign),(currUser.getUserName() + "assign "+userNameToAssign+" to shop owner "));
     }
 
-    @Override
-    public Result addAdministratorToHeskemMinui(int shop, String userNameToAssign) {
-        return ifUserNotNull(()->  facade.addAdministratorToHeskemMinui(currUser,shop,userNameToAssign),(currUser.getUserName() + "waiting to be assigned "+userNameToAssign+" to shop owner "));
 
-    }
 
     @Override
     public Result approveHeskemMinui(int shop,String adminToAssign) {
@@ -73,6 +72,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Result declineHeskemMinui(int shop,String adminToAssign) {
         return ifUserNotNull(()->  facade.declineHeskemMinui(currUser,shop,adminToAssign),(currUser.getUserName() + "decline as "+adminToAssign+" to shop owner "));
+    }
+    @Override
+    public Response<Collection<HeskemMinui>> getHeskemeyMinui() {
+        return  ifUserNotNullRes(()->facade.getHeskemeyMinui(currUser),"get all assingment approval").safe(heskemim-> heskemim.stream().map(HeskemMinui::new).collect(Collectors.toList()));
+
     }
 
     @Override
@@ -280,7 +284,12 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
 
     @Override
     public Response<Integer> createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId, int shopId){
-        return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime,buybefore,conncectId,shopId),"add purchase policy succeeded");
+        return ifUserNotNullRes(()-> facade.createValidateTImeStampPurchase(currUser, localTime, buybefore, conncectId, shopId),"add purchase policy succeeded");
+    }
+
+    @Override
+    public Response<Integer> createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId){
+        return ifUserNotNullRes(()-> facade.createValidateDateStampPurchase(currUser, localDate, conncectId, shopId),"add purchase policy succeeded");
     }
 
     @Override
@@ -334,6 +343,34 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Response<PurchasePolicy> getPurchasePolicy(int shopId) {
         return ifUserNotNullRes(()-> PurchasePolicy.makeServicePurchasePolicy(facade.getPurchasePolicy(currUser,shopId)),"here is the purchase policies");
+    }
+
+    @Override
+    public Response<Boolean> reOfferBid(String user, int productId, double newPrice, int shopId)  {
+        return ifUserNotNullRes(()-> facade.reOfferBid(currUser,user, productId, newPrice, shopId)," suggest another offer");
+    }
+
+    @Override
+    public Response<ConcurrentHashMap<Shop,Collection<BidOffer>>> getBidsToApprove() {
+        return ifUserNotNullRes(()->makeBidsMap(facade.getBidsToApprove(currUser)),"get bids for user "+ currUser.getUserName());
+    }
+
+    private  ConcurrentHashMap<Shop,Collection<BidOffer>> makeBidsMap(ConcurrentHashMap<BusinessLayer.Shops.Shop, Collection<BusinessLayer.Users.BidOffer>> bidsToApprove) {
+        var map =new ConcurrentHashMap<Shop,Collection<BidOffer>>();
+        for (var e:bidsToApprove.entrySet()) {
+            map.put(new Shop(e.getKey()),e.getValue().stream().map(BidOffer::new).collect(Collectors.toList()));
+        }
+        return map;
+    }
+
+    @Override
+    public Response<Boolean> declineBidOffer(String user,int productId, int shopId) {
+        return ifUserNotNullRes(()-> facade.declineBidOffer(currUser,user, productId, shopId),"decline the offer");
+    }
+
+    @Override
+    public Response<Boolean> approveBidOffer(String user,int productId, int shopId) {
+        return ifUserNotNullRes(()-> facade.approveBidOffer(currUser,user, productId, shopId),"approve the offer");
     }
 
     @Override

@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 
@@ -11,11 +12,9 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -247,6 +246,11 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).createValidateTImeStampPurchase(localTime,buybefore,conncectId);
     }
 
+    public int createValidateDateStampPurchase(LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).createValidateDateStampPurchase(localDate, conncectId);
+    }
+
     public synchronized int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId);
@@ -258,7 +262,7 @@ public class SubscribedUser extends User {
     }
 
 
-        public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+    public synchronized int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
         return shopAdministrator.get(shopId).createPurchaseAndPolicy(policy, conncectId);
     }
@@ -297,9 +301,41 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shopId).setCategory(productId,category);
     }
 
+    public synchronized boolean reOfferBid(String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).reOfferBid(user, productId, newPrice);
+    }
+
+    public synchronized boolean declineBidOffer(String user,int productId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).declineBidOffer(user, productId);
+    }
+
+    public synchronized BidOffer approveBidOffer(String user, int productId, int shopId) throws NoPermissionException {
+        validatePermission(shopId);
+        return shopAdministrator.get(shopId).approveBidOffer(user, getUserName(), productId);
+    }
     public Date getBirthDate() {
         return birthDate;
     }
+
+    public ConcurrentHashMap<Shop, Collection<BidOffer>> getBidsToApprove() {
+        var map = new ConcurrentHashMap<Shop, Collection<BidOffer>>();
+        for(var s : shopAdministrator.values()){
+            map.put(s.shop,s.shop.getBidsToApprove(getUserName()));
+        }
+        return map;
+    }
+
+    public Collection<HeskemMinui> getHeskemeyMinui() {
+        var heskemim= new LinkedList<HeskemMinui>();
+        for (var shop:shopAdministrator.values()) {
+            heskemim.addAll(shop.getHeskemeyMinui(this));
+        }
+        return heskemim;
+    }
+
+
 
 // Java program to calculate SHA hash value
 

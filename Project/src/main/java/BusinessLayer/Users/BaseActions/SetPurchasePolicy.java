@@ -3,10 +3,11 @@ package BusinessLayer.Users.BaseActions;
 import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Shops.Polices.Purchase.*;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BidOffer;
 
 import javax.naming.NoPermissionException;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collection;
 
 public class SetPurchasePolicy extends BaseAction {
 
@@ -72,8 +73,12 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.addPurchasePolicy(conncectId,new ValidateProductPurchase(productId, productQuantity, cantbemore));
     }
 
-    public int createValidateTImeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
+    public int createValidateTimeStampPurchase(LocalTime localTime, boolean buybefore, int conncectId) {
         return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localTime, buybefore));
+    }
+
+    public int createValidateDateStampPurchase(LocalDate localDate, int conncectId) {
+        return shop.addPurchasePolicy(conncectId,new ValidateTImeStampPurchase(localDate));
     }
 
     public int createValidateCategoryPurchase(String category, int productQuantity, boolean cantbemore, int conncectId) {
@@ -82,18 +87,15 @@ public class SetPurchasePolicy extends BaseAction {
 
     public int createValidateUserPurchase(int age, int connectId) {
         return shop.addPurchasePolicy(connectId, new ValidateUserPurchase(age));
-
     }
 
-
-        public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
-        return shop.addPurchasePolicy(conncectId,new PurchaseAndPolicy(policy));
+    public int createPurchaseAndPolicy(PurchasePolicy policy, int conncectId) {
+        return shop.addPurchasePolicy(conncectId, new PurchaseAndPolicy(policy));
     }
 
     public int createPurchaseOrPolicy(PurchasePolicy policy,int conncectId) {
-        return shop.addPurchasePolicy(conncectId,new PurchaseOrPolicy(policy));
+        return shop.addPurchasePolicy(conncectId, new PurchaseOrPolicy(policy));
     }
-
 
     public boolean removeDiscount(int ID) {
         return shop.removeDiscount(ID);
@@ -115,4 +117,17 @@ public class SetPurchasePolicy extends BaseAction {
         return shop.getPurchasePolicy();
     }
 
+    public boolean reOfferBid(String user,int productId, double newPrice)
+    {
+        return shop.reOfferBid(user, productId, newPrice);
+    }
+
+    public boolean declineBidOffer(String user,int productId)
+    {
+        return shop.declineBidOffer(user, productId);
+    }
+
+    public BidOffer approveBidOffer(String user, String adminName, int productId) {
+        return shop.approveBidOffer(user, adminName, productId);
+    }
 }
