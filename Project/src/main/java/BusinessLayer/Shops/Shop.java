@@ -359,7 +359,11 @@ public class Shop {
         }
     }
 
-    public boolean addAdministrator(String userName,ShopAdministrator administrator) {
+    public Collection< HeskemMinui> getHeskemMinuis() {
+        return heskemMinuis.values();
+    }
+
+    public boolean addAdministrator(String userName, ShopAdministrator administrator) {
         if (state == State.OPEN)
             return shopAdministrators.putIfAbsent(userName,administrator)==null;
         else

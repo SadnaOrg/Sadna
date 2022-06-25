@@ -10,7 +10,7 @@ import ServiceLayer.interfaces.SubscribedUserService;
 import ServiceLayer.interfaces.SystemManagerService;
 import ServiceLayer.interfaces.UserService;
 
-import javax.naming.NoPermissionException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Collection;
@@ -62,11 +62,7 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
         return ifUserNotNull(()->  facade.assignShopOwner(currUser,shop,userNameToAssign),(currUser.getUserName() + "assign "+userNameToAssign+" to shop owner "));
     }
 
-    @Override
-    public Result addAdministratorToHeskemMinui(int shop, String userNameToAssign) {
-        return ifUserNotNull(()->  facade.addAdministratorToHeskemMinui(currUser,shop,userNameToAssign),(currUser.getUserName() + "waiting to be assigned "+userNameToAssign+" to shop owner "));
 
-    }
 
     @Override
     public Result approveHeskemMinui(int shop,String adminToAssign) {
@@ -76,6 +72,11 @@ public class SubscribedUserServiceImp extends UserServiceImp implements Subscrib
     @Override
     public Result declineHeskemMinui(int shop,String adminToAssign) {
         return ifUserNotNull(()->  facade.declineHeskemMinui(currUser,shop,adminToAssign),(currUser.getUserName() + "decline as "+adminToAssign+" to shop owner "));
+    }
+    @Override
+    public Response<Collection<HeskemMinui>> getHeskemeyMinui() {
+        return  ifUserNotNullRes(()->facade.getHeskemeyMinui(currUser),"get all assingment approval").safe(heskemim-> heskemim.stream().map(HeskemMinui::new).collect(Collectors.toList()));
+
     }
 
     @Override

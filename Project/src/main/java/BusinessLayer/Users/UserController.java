@@ -146,6 +146,9 @@ public class UserController {
         return ShopController.getInstance().reciveInformation();
     }
 
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser currUser) {
+       return currUser.getHeskemeyMinui();
+    }
 
     public User getUser(String user) {
         return users.get(user);

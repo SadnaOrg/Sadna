@@ -14,10 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -329,6 +326,16 @@ public class SubscribedUser extends User {
         }
         return map;
     }
+
+    public Collection<HeskemMinui> getHeskemeyMinui() {
+        var heskemim= new LinkedList<HeskemMinui>();
+        for (var shop:shopAdministrator.values()) {
+            heskemim.addAll(shop.getHeskemeyMinui(this));
+        }
+        return heskemim;
+    }
+
+
 
 // Java program to calculate SHA hash value
 

@@ -57,11 +57,7 @@ public class Facade{
     }
 
     public boolean assignShopOwner(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
-        return userController.assignShopOwner(currUser,shop,userNameToAssign);
-    }
-    public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {
-        return userController.addAdministratorToHeskemMinui(user, shop, userNameToAssign);
-        //TODO: add notification
+          return notifyUsers(userController.addAdministratorToHeskemMinui(currUser, shop, userNameToAssign),getShopAdmins(shop),"A new user wait to be approve as Shop Owner of shop number "+shop);
     }
 
     public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
@@ -70,6 +66,10 @@ public class Facade{
 
     public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
         return userController.declineHeskemMinui(user,shop,adminToAssign);
+    }
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser currUser) throws NoPermissionException{
+        return userController.getHeskemeyMinui(currUser);
+
     }
 
     public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {

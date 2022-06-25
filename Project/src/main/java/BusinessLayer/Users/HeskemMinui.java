@@ -51,4 +51,12 @@ public class HeskemMinui {
     public ConcurrentHashMap<String, Boolean> getApprovals() {
         return approvals;
     }
+
+    public String getAdminToAssign() {
+        return adminToAssign;
+    }
+
+    public String getAppointer() {
+        return appointer;
+    }
 }

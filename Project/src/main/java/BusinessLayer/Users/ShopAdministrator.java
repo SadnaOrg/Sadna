@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.stream.Collectors;
 
 public class ShopAdministrator {
     protected Map<BaseActionType, BaseAction> action = new ConcurrentHashMap<>();
@@ -387,4 +388,8 @@ public class ShopAdministrator {
         if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).approveBidOffer(user, adminName, productId);
         } else throw new NoPermissionException("you don't have permission to do that!");    }
+
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser user) {
+        return  shop.getHeskemMinuis().stream().filter(heskem->heskem.getApprovals().containsKey(user.getUserName())).collect(Collectors.toList());
+    }
 }
