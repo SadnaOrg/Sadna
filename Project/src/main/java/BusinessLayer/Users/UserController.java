@@ -151,6 +151,7 @@ public class UserController {
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
+        MapperController.getInstance().getSystemManagerMapper().save(systemManager);
         return true;
     }
 
@@ -158,9 +159,9 @@ public class UserController {
         if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password);
-            MapperController.getInstance().getSubscribedUserMapper().save(newUser);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
+            MapperController.getInstance().getSubscribedUserMapper().save(newUser);
             return true;
         }
         return false;
@@ -172,7 +173,6 @@ public class UserController {
                 if (currUser != null) {
                     users.remove(currUser.getUserName());
                 }
-                MapperController.getInstance().getSubscribedUserMapper().update(subscribers.get(userName));
                 return subscribers.get(userName);
             } else
                 return null;

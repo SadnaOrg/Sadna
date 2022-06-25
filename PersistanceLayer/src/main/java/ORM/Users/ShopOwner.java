@@ -17,8 +17,13 @@ public class ShopOwner extends ShopAdministrator implements Serializable {
         this.isFounder = isFounder;
     }
 
-    public ShopOwner(List<BaseActionType> action, SubscribedUser user, Shop shop, List<ShopAdministrator> appoints, boolean isFounder) {
-        super(action, user, shop, appoints);
+    public ShopOwner(List<BaseActionType> action, List<ShopAdministrator> appoints, boolean isFounder) {
+        super(action, appoints);
+        this.isFounder = isFounder;
+    }
+
+    public ShopOwner(List<BaseActionType> action, SubscribedUser user, List<ShopAdministrator> appoints, boolean isFounder) {
+        super(action, user, appoints);
         this.isFounder = isFounder;
     }
 

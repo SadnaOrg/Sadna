@@ -2,8 +2,9 @@ package BusinessLayer.Mappers.UserMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Users.ShopManager;
+import ORM.Users.SubscribedUser;
 
-public class ShopManagerMapper implements CastEntity<ORM.Users.ShopManager, ShopManager> {
+public class ShopManagerMapper implements CastEntity<ORM.Users.ShopManager, ShopManager>{
     @Override
     public ORM.Users.ShopManager toEntity(ShopManager entity) {
         return null;

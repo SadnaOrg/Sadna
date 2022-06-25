@@ -1,23 +1,21 @@
 package BusinessLayer.Mappers.UserMappers;
 
-import BusinessLayer.Mappers.Func;
-import BusinessLayer.Mappers.ShopMappers.ShopMapper;
+import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Users.ShopOwner;
-import ORM.Shops.Shop;
 import ORM.Users.ShopAdministrator;
-import ORM.Users.SubscribedUser;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class ShopOwnerMapper {
-    private Func<ShopMapper> shopMapper = () -> ShopMapper.getInstance();
-    public ORM.Users.ShopOwner toEntity(ShopOwner entity, SubscribedUser user) {
+public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwner> {
+    @Override
+    public ORM.Users.ShopOwner toEntity(ShopOwner entity) {
         return new ORM.Users.ShopOwner(
                 entity.getActionsTypes().stream().map(action -> ShopAdministrator.BaseActionType.values()[action.ordinal()])
-                        .collect(Collectors.toList()),
-                user, shopMapper.run().toEntity(shopMapper.run().findById(entity.getShopID())), entity.isFounder());
+                        .collect(Collectors.toList()), null, entity.isFounder());
     }
 
+    @Override
     public ShopOwner fromEntity(ORM.Users.ShopOwner entity) {
         return null;
     }

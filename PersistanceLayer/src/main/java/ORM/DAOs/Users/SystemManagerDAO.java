@@ -7,6 +7,8 @@ import ORM.Users.SystemManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Collection;
 
 public class SystemManagerDAO implements DBImpl<SystemManager, String> {
@@ -14,9 +16,12 @@ public class SystemManagerDAO implements DBImpl<SystemManager, String> {
 
     @Override
     public void save(SystemManager entity) {
-        entityManager.getTransaction().begin();
-        entityManager.persist(entity);
-        entityManager.getTransaction().commit();
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(entity);
+            entityManager.getTransaction().commit();
+        }
+        catch (Exception ignored) {}
     }
 
     @Override

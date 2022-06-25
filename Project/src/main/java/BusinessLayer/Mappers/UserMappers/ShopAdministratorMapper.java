@@ -24,8 +24,8 @@ public class ShopAdministratorMapper {
 
     }
 
-    public ORM.Users.ShopAdministrator toEntity(ShopAdministrator entity, SubscribedUser user) {
-        return entity instanceof ShopOwner ? shopOwnerMapper.run().toEntity((ShopOwner) entity, user) : shopManagerMapper.run().toEntity((ShopManager) entity);
+    public ORM.Users.ShopAdministrator toEntity(ShopAdministrator entity) {
+        return entity instanceof ShopOwner ? shopOwnerMapper.run().toEntity((ShopOwner) entity) : shopManagerMapper.run().toEntity((ShopManager) entity);
     }
 
     public ShopAdministrator fromEntity(ORM.Users.ShopAdministrator entity) {

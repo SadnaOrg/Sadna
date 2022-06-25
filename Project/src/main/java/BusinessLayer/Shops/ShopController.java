@@ -1,7 +1,7 @@
 package BusinessLayer.Shops;
 
 
-import BusinessLayer.Mappers.ShopMappers.ShopMapper;
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.Basket;
@@ -70,7 +70,7 @@ public class ShopController {
     }
 
     private Map<Integer, Shop> loadFromDB() {
-        return ShopMapper.getInstance().findAll().stream()
+        return MapperController.getInstance().getShopMapper().getInstance().findAll().stream()
                 .collect(Collectors.toMap(Shop::getId, Function.identity()));
     }
 
@@ -168,7 +168,7 @@ public class ShopController {
         int shopID = shops.size();
         Shop shop = new Shop(shopID, name, description, su);
         shops.put(shopID, shop);
-        ShopMapper.getInstance().save(shop);
+        MapperController.getInstance().getShopMapper().getInstance().save(shop);
         return shops.get(shopID);
     }
 

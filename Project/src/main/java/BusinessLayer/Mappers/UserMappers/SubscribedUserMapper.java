@@ -2,11 +2,13 @@ package BusinessLayer.Mappers.UserMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
+import BusinessLayer.Users.ShopAdministrator;
 import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
 
 import java.util.Collection;
+import java.util.Objects;
 
 public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, CastEntity<ORM.Users.SubscribedUser, SubscribedUser> {
 
@@ -30,10 +32,15 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
         if (entity == null)
             return null;
 
-        ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(),
-                !entity.isRemoved(), paymentMethodMapper.run().toEntity(entity.getMethod()),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin, toEntity(admin.getUser()))).toList());
+        ORM.Users.SubscribedUser user = findORMById(entity.getUserName());
 
+        for (ShopAdministrator admin : entity.getAdministrators()) {
+            if (admin.getUserName() != entity.getUserName()) {
+                ORM.Users.ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(admin);
+                ormAdmin.setUser(findORMById(admin.getUserName()));
+                user.getAdministrators().add(ormAdmin);
+            }
+        }
         if (user.getPaymentMethod() != null)
             user.getPaymentMethod().setUser(user);
         return user;
@@ -65,6 +72,10 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     @Override
     public SubscribedUser findById(String key) {
         return fromEntity(dao.findById(key));
+    }
+
+    public ORM.Users.SubscribedUser findORMById(String key) {
+        return dao.findById(key);
     }
 
     @Override
