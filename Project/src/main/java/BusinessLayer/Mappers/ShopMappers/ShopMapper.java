@@ -18,6 +18,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
     private Func<ShopOwnerMapper> shopOwnerMapper = () -> ShopOwnerMapper.getInstance();
+    private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
 
     static private class ShopMapperHolder {
@@ -35,11 +36,18 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
         ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getId(), entity.getName(), entity.getDescription(),
-                subscribedUserMapper.run().toEntity(entity.getFounder().getUser()), true,
+                subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
                 ORM.Shops.Shop.State.values()[entity.getState().ordinal()], new ArrayList<>(), new ConcurrentHashMap<>(),
                 new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
 
-        //shop.getShopAdministrators().put(shop.getFounder().getUser(), shop.getFounder());
+        for (String admin : entity.getShopAdministratorsMap().keySet()) {
+            if (admin != shop.getFounder().getUser().getUsername()) {
+                ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
+                ormAdmin.setUser(subscribedUserMapper.run().findORMById(admin));
+                ormAdmin.setShop(shop);
+                shop.getShopAdministrators().put(subscribedUserMapper.run().findORMById(admin), ormAdmin);
+            }
+        }
 
         //for (ShopAdministrator admin : shop.getFounder().getUser().getAdministrators()){
         //    if (admin.getUser().getUsername() == shop.getFounder().getUser().getUsername()) {

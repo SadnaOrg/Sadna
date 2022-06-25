@@ -5,45 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="Fixed SubscribedUser">
-      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SystemManagerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/flow-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/flow-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/frontend/versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/frontend/versions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/application-theme-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/application-theme-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-copy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-handle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-handle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/build-status-plugin/build-status-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/build-status-plugin/build-status-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/build-status-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/build-status-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/theme-live-reload-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/theme-live-reload-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-loader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-loader/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-loader/theme-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-loader/theme-loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sw.ts" beforeDir="false" afterPath="$PROJECT_DIR$/target/sw.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/artifacts/PersistanceLayer_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/.idea/artifacts/PersistanceLayer_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/hibernate.cfg.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/SystemManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/SystemManagerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopAdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopAdministratorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SystemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SystemManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +70,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project/out/artifacts/Market_jar/Project.jar",
+    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/GUI",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -186,6 +155,7 @@
       <workItem from="1654463228842" duration="5379000" />
       <workItem from="1654776197655" duration="63735000" />
       <workItem from="1655158463332" duration="25944000" />
+      <workItem from="1656147655841" duration="3855000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>
@@ -271,13 +241,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/ShopMappers/ShopMapper.class</url>
-          <line>36</line>
+          <line>42</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/UserMappers/SubscribedUserMapper.class</url>
-          <line>36</line>
-          <option name="timeStamp" value="99" />
+          <line>37</line>
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.class</url>

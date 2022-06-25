@@ -6,6 +6,7 @@ import BusinessLayer.Users.ShopAdministrator;
 import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
+import ORM.Users.PaymentMethod;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -32,7 +33,8 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
         if (entity == null)
             return null;
 
-        ORM.Users.SubscribedUser user = findORMById(entity.getUserName());
+        ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
+                entity.isLoggedIn(), !entity.isRemoved(), null);
 
         for (ShopAdministrator admin : entity.getAdministrators()) {
             if (admin.getUserName() != entity.getUserName()) {
@@ -41,6 +43,7 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
                 user.getAdministrators().add(ormAdmin);
             }
         }
+
         if (user.getPaymentMethod() != null)
             user.getPaymentMethod().setUser(user);
         return user;

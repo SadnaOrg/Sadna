@@ -294,6 +294,10 @@ public class Shop {
         return shopAdministrators.values();
     }
 
+    public ConcurrentHashMap<String, ShopAdministrator> getShopAdministratorsMap() {
+        return shopAdministrators;
+    }
+
     public boolean isOpen(){
         return state==State.OPEN;
     }

@@ -151,7 +151,7 @@ public class UserController {
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
-        MapperController.getInstance().getSystemManagerMapper().save(systemManager);
+        mapperController.getSystemManagerMapper().save(systemManager);
         return true;
     }
 
@@ -161,7 +161,7 @@ public class UserController {
             SubscribedUser newUser = new SubscribedUser(userName, password);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
-            MapperController.getInstance().getSubscribedUserMapper().save(newUser);
+            mapperController.getSubscribedUserMapper().save(newUser);
             return true;
         }
         return false;
@@ -183,7 +183,7 @@ public class UserController {
     public Guest logout(String username) {
         if (subscribers.containsKey(username)){
             subscribers.get(username).logout();
-            MapperController.getInstance().getSubscribedUserMapper().update(subscribers.get(username));
+            mapperController.getSubscribedUserMapper().update(subscribers.get(username));
             return loginSystem();
         }
         return null;
