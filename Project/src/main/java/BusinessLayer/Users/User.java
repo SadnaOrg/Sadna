@@ -43,7 +43,7 @@ public abstract class User{
         if(price<0)
             throw new IllegalArgumentException("price must be positive amount");
         if (!shoppingBids.containsKey(shopid)) {
-            BidOffer b = new BidOffer(shopid);
+            BidOffer b = new BidOffer(shopid,this);
             shoppingBids.put(shopid, b);
         }
         BidOffer b = shoppingBids.get(shopid);

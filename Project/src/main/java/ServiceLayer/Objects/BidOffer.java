@@ -8,7 +8,7 @@ public record BidOffer (int shopID ,ConcurrentHashMap<Integer, ApproveBid> appro
         this(bidOffer.getShopID(), new ConcurrentHashMap<>());
         for(Integer pid: bidOffer.getApprovals().keySet())
         {
-            approvals.put(pid,new ApproveBid(bidOffer.getApprovals().get(pid)));
+            approvals.put(pid,new ApproveBid(bidOffer.getApprovals().get(pid),bidOffer.getUserName()));
         }
     }
 }

@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33db6e90-3b92-4d16-9f03-6522cba65b30" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/proKey" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/error_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/event_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/SetPurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/SetPurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BidOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BidOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/ApproveBid.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/ApproveBid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/BidOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/ServiceLayer/Objects/BidOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/BidOfferUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/UserControllerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/test/java/BusinessLayer/Users/UserControllerUnitTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +97,10 @@
       <recent name="com.example.application.views.main" />
       <recent name="com.example.application.views.main.Purchase" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ntur4\OneDrive\Desktop\university\sem_f\sadna\Sadna\GUI\src\main\java\com\example\application" />
+      <recent name="C:\Users\ntur4\OneDrive\Desktop\university\sem_f\sadna\Sadna\GUI\src\main" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="com.example.application.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -134,7 +155,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="" />
+      <changelist id="33db6e90-3b92-4d16-9f03-6522cba65b30" name="Changes" comment="" />
       <created>1652894628415</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -166,6 +187,7 @@
       <workItem from="1655139873192" duration="6193000" />
       <workItem from="1655146263323" duration="11980000" />
       <workItem from="1655670625447" duration="3753000" />
+      <workItem from="1655994235613" duration="9967000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>
@@ -267,7 +289,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>168</line>
+          <line>181</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -324,6 +346,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Purchase/PurchaseContentCreator.java</url>
           <line>51</line>
           <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ApproveBidsView.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

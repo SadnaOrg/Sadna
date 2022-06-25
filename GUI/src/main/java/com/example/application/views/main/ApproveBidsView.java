@@ -18,9 +18,11 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.progressbar.ProgressBar;
 import com.vaadin.flow.component.select.Select;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
@@ -59,13 +61,18 @@ public class ApproveBidsView extends VerticalLayout {
     }
 
     private Grid<ApproveBid> createBidsGrid(Collection<BidOffer> bids) {
+        var c = new LinkedList<ApproveBid>();
+        for (var bid :bids) {
+            c.addAll(bid.approvals().values().stream().filter(ab->!ab.administraitorsApproval().getOrDefault(currUser,true)).collect(Collectors.toList()));
+        }
         var g = new Grid<ApproveBid>(ApproveBid.class,false);
+        g.addColumn(ApproveBid::userName).setHeader("from");
         g.addColumn(ApproveBid::productId).setHeader("product id");
         g.addColumn(ApproveBid::quantity).setHeader("quantity");
         g.addColumn(ApproveBid::price).setHeader("price");
-        g.addColumn(ab->createBidsProgressBar(ab.administraitorsApproval())).setHeader("approval progress");
-        g.addColumn(ab-> new Button("approve",(e)->{
-            var res = service.approveBidOffer(currUser,ab.productId(),ab.shopId());
+        g.addComponentColumn(ab->createBidsProgressBar(ab.administraitorsApproval())).setHeader("approval progress");
+        g.addComponentColumn(ab-> new Button("approve",(e)->{
+            var res = service.approveBidOffer(ab.userName(),ab.productId(),ab.shopId());
             if(res.isOk()){
                 notifySuccess("approved bid successfully");
                 UI.getCurrent().getPage().reload();
@@ -73,47 +80,57 @@ public class ApproveBidsView extends VerticalLayout {
             else
                 notifyError(res.getMsg());
         })).setHeader("approved bid");
+        g.setItems(c);
         return g;
     }
 
     private Component createBidsProgressBar(ConcurrentHashMap<String, Boolean> approvals) {
-        Chart chart = new Chart(ChartType.SOLIDGAUGE);
-        ListSeries series = new ListSeries("Approvals", (int) approvals.values().stream().filter(b -> b).count());
-        Configuration conf = chart.getConfiguration();
-        conf.setTitle("Solid Gauge");
+//        Chart chart = new Chart(ChartType.SOLIDGAUGE);
+        var x =(int) approvals.values().stream().filter(b -> b).count();
+//        ListSeries series = new ListSeries("Approvals",x );
+//        Configuration conf = chart.getConfiguration();
+//        Pane pane = conf.getPane();
+//                pane.setSize("100%");           // For positioning tick labels
+//        //        pane.setCenter("50%", "70%"); // Move center lower
+//                pane.setStartAngle(-135);        // Make semi-circle
+//                pane.setEndAngle(135);
+//
+//        Background bkg = new Background();
+//        bkg.setInnerRadius("60%");  // To make it an arc and not circle
+//        bkg.setOuterRadius("100%"); // Default - not necessary
+//        bkg.setShape(BackgroundShape.ARC);        // solid or arc
+//        pane.setBackground(bkg);
+//
+//
+//        YAxis yaxis = new YAxis();
+////        yaxis.setTitle("Approvals");
+////        yaxis.getTitle().setY(-80); // Move 70 px upwards from center
+//
+//        // The limits are mandatory
+//        yaxis.setMin(0);
+//        yaxis.setMax(approvals.size());
+//
+//        // Configure ticks and labels
+//        yaxis.setTickInterval(1);  // At 0, 100, and 200
+////        yaxis.getLabels().setY(-16); // Move 16 px upwards
+//        yaxis.setGridLineWidth(1); // Disable grid
+//
+//        PlotOptionsSolidgauge options = new PlotOptionsSolidgauge();
+//        options.setDataLabels(new DataLabels(false));
+//
+//        conf.addSeries(series);
+//        series.setData(x);
+//        return chart;
+        ProgressBar progressBar = new ProgressBar();
+        progressBar.setMin(0);
+        progressBar.setMax(approvals.size());
+        progressBar.setValue(x);
 
-        Pane pane = conf.getPane();
-        //        pane.setSize("100%");           // For positioning tick labels
-        //        pane.setCenter("50%", "70%"); // Move center lower
-        //        pane.setStartAngle(-180);        // Make semi-circle
-        //        pane.setEndAngle(180);
-
-        Background bkg = new Background();
-        bkg.setInnerRadius("60%");  // To make it an arc and not circle
-        bkg.setOuterRadius("100%"); // Default - not necessary
-        bkg.setShape(BackgroundShape.ARC);        // solid or arc
-        pane.setBackground(bkg);
+        var lable = new Label("progress ("+x+"/"+approvals.size()+")");
 
 
-        YAxis yaxis = new YAxis();
-        yaxis.setTitle("Approvals");
-        yaxis.getTitle().setY(-80); // Move 70 px upwards from center
 
-        // The limits are mandatory
-        yaxis.setMin(0);
-        yaxis.setMax(approvals.size());
-
-        // Configure ticks and labels
-        yaxis.setTickInterval(1);  // At 0, 100, and 200
-        yaxis.getLabels().setY(-16); // Move 16 px upwards
-        yaxis.setGridLineWidth(0); // Disable grid
-
-        PlotOptionsSolidgauge options = new PlotOptionsSolidgauge();
-
-
-        conf.addSeries(series);
-
-        return chart;
+        return new  HorizontalLayout(lable,progressBar);
 
     }
 

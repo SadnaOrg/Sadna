@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class BidOfferUnitTest {
@@ -44,8 +45,9 @@ public class BidOfferUnitTest {
         when(p2.getID()).thenReturn(2);
         when(p1.getPrice()).thenReturn(5.0);
         when(p2.getPrice()).thenReturn(15.0);
-
-        bidOffer= new BidOffer(s1.getId());
+        User u = mock(User.class);
+        when(u.getUserName()).thenReturn("mock user");
+        bidOffer= new BidOffer(s1.getId(),u);
     }
     @Test
     public void AddTOBidOnceGoodThenAddSame() {
@@ -209,8 +211,8 @@ public class BidOfferUnitTest {
         assertEquals(1, bidOffer.getApprovals().size());
         bidOffer.editProductPrice(p1.getID(), 3);
         assertEquals(1, bidOffer.getApprovals().size());
-        assertFalse(bidOffer.approveBidOffer(founder.getUserName(), p1.getID()));
-        assertTrue(bidOffer.approveBidOffer(subscribedUser1.getUserName(), p1.getID()));
+        assertNull(bidOffer.approveBidOffer(founder.getUserName(), p1.getID()));
+        assertNotNull(bidOffer.approveBidOffer(subscribedUser1.getUserName(), p1.getID()));
     }
     @Test
     public void approveBidOfferTwice() {
@@ -223,7 +225,7 @@ public class BidOfferUnitTest {
         assertEquals(1, bidOffer.getApprovals().size());
         bidOffer.editProductPrice(p1.getID(), 3);
         assertEquals(1, bidOffer.getApprovals().size());
-        assertFalse(bidOffer.approveBidOffer(founder.getUserName(), p1.getID()));
+        assertNull(bidOffer.approveBidOffer(founder.getUserName(), p1.getID()));
         try {
             bidOffer.approveBidOffer(founder.getUserName(), p1.getID());
             fail("shouldn't get her");

@@ -17,6 +17,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
@@ -111,6 +112,16 @@ public class ProductView extends Header {
         basketField.setHasControls(true);
         return basketField;
     }
+    private NumberField createNumberField(String label, int maxValue) {
+        NumberField amount = new NumberField(label);
+        amount.setAutofocus(true);
+        amount.setWidthFull();
+        amount.setClearButtonVisible(true);
+        amount.setMin(0);
+        if(maxValue != -1)
+            amount.setMax(maxValue);
+        return amount;
+    }
 
     private void addProductDetails(Product p) {
         Dialog dialog = new Dialog();
@@ -122,12 +133,13 @@ public class ProductView extends Header {
         HorizontalLayout row3 = new HorizontalLayout();
         row3.add("Quantity: " + p.quantity());
         HorizontalLayout row4 = new HorizontalLayout();
+        HorizontalLayout row5 = new HorizontalLayout();
         row4.setJustifyContentMode(JustifyContentMode.CENTER);
         row4.setAlignItems(Alignment.BASELINE);
         addToCartButton = new Button("Add To Cart", e -> addToCart(p, amount.getValue()));
         var addBidButton = new Button("Add Bid", e -> {
             var diag = new Dialog();
-            var integerField = createIntegerField("select quantity");
+            var integerField = createNumberField("enter total bid price",-1);
             var add = new Button("add bid",(event)->{
                 if(integerField.getValue()!=null&&amount.getValue()!=null)
                 {
@@ -138,15 +150,16 @@ public class ProductView extends Header {
                      }else
                          notifyError(res.getMsg());
                 }else
-                    notifyError("please enter quantity");
+                    notifyError("please enter total bid price");
             });
             diag.add(integerField,add);
             diag.open();
         });
+
         addToCartButton.setWidthFull();
         setAmountField(p);
-        row4.add(amount, addToCartButton,addBidButton);
-        productInfo.add(row1, row2, row3, row4);
+        row4.add(amount, addToCartButton);
+        productInfo.add(row1, row2, row3, row4,addBidButton);
         dialog.add(productInfo);
         dialog.setOpened(true);
     }
