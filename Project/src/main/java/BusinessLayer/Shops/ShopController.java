@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Caches.ShopCache;
 import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
@@ -18,7 +19,7 @@ public class ShopController {
 
 
     public double getProductPrice(int shopId, int productId) {
-        Shop s = shops.getOrDefault(shopId,null);
+        Shop s = shops.findElement(shopId);
         if(s != null){
             Product product = s.getProducts().getOrDefault(productId,null);
             if (product != null)
@@ -31,7 +32,7 @@ public class ShopController {
     public void removeBaskets(List<Integer> IDs, String userName) {
         for (int shopID:
              IDs) {
-            Shop s = shops.getOrDefault(shopID,null);
+            Shop s = shops.findElement(shopID);
             if(s == null)
                 throw new IllegalStateException("no such shop!");
             s.removeBasket(userName);
@@ -42,7 +43,7 @@ public class ShopController {
         if(newQuantity != 0)
             return;
         if(checkIfUserHasBasket(shopID,username)){
-            Shop s = shops.getOrDefault(shopID,null);
+            Shop s = shops.findElement(shopID);
             if(s == null)
                 throw new IllegalStateException("no such shop!");
 
@@ -61,10 +62,12 @@ public class ShopController {
     }
 
 
-    private final Map<Integer, Shop> shops;
+    private final ShopCache shops;
+    private final List<Integer> ids;
 
     private ShopController() {
-        this.shops = new ConcurrentHashMap<>();
+        this.shops = ShopCache.getInstance();
+        ids = new LinkedList<>();
     }
 
     private Map<Integer, Shop> loadFromDB() {
@@ -74,7 +77,7 @@ public class ShopController {
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
         Map<Shop, Collection<Product>> res = new ConcurrentHashMap<>();
-        for (Shop s : shops.values().stream().filter(shopPred.and(Shop::isOpen)).collect(Collectors.toSet())) {
+        for (Shop s : shops.findAll().stream().filter(shopPred.and(Shop::isOpen)).collect(Collectors.toSet())) {
             res.put(s, s.searchProducts(productPred));
         }
         return res;
@@ -82,10 +85,10 @@ public class ShopController {
 
     public ConcurrentHashMap<Integer, Double> purchaseBasket(String user) {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
-        for (int shopid : shops.keySet()) {
+        for (int shopid : ids) {
             try {
                 if(checkIfUserHasBasket(shopid,user))
-                    finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user));
+                    finalprices.put(shopid, shops.findElement(shopid).checkIfcanBuy(user));
             }
             catch (IllegalStateException e)
             {
@@ -113,12 +116,12 @@ public class ShopController {
                 }
                 if(!flagexist)
                 {
-                    PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.get(shopid), user);
+                    PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.findElement(shopid), user);
                     purchaseHistory.makePurchase();
-                    shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
+                    shops.findElement(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
-                shops.get(shopid).purchaseBasket(user);
-                shops.get(shopid).getUsersBaskets().remove(user);
+                shops.findElement(shopid).purchaseBasket(user);
+                shops.findElement(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
             }
         }
@@ -126,32 +129,36 @@ public class ShopController {
     }
 
     public boolean checkIfUserHasBasket(int shopid, String user) {
-        if(shops.containsKey(shopid))
-            return shops.get(shopid).checkIfUserHasBasket(user);
+        Shop shop = shops.findElement(shopid);
+        if(shop != null)
+            return shop.checkIfUserHasBasket(user);
         return false;
     }
 
     public boolean AddBasket(int shopid, String user, Basket basket) {
-        return shops.get(shopid).addBasket(user,basket);
+        return shops.findElement(shopid).addBasket(user,basket);
     }
 
-    public Map<Integer, Shop> getShops() {
+    public ShopCache getShops() {
         return shops;
     }
 
+    public int getShopsNumber(){return ids.size();}
+
     public boolean addShop(Shop s1) {
-        if (shops.containsKey(s1.getId())) {
+        if (ids.contains(s1.getId())) {
             return false;
         }
         else {
-            shops.put(s1.getId(), s1);
+            shops.insert(s1.getId(),s1,true);
+            ids.add(s1.getId());
             return true;
         }
     }
 
     public ConcurrentHashMap<Integer,ShopInfo> reciveInformation() {
         ConcurrentHashMap<Integer,ShopInfo> shopsInfo= new ConcurrentHashMap<>();
-        for (Shop s:shops.values())
+        for (Shop s:shops.findAll())
         {
             if (s.isOpen())
                 shopsInfo.put(s.getId(),new ShopInfo(s));
@@ -163,17 +170,16 @@ public class ShopController {
 //        List<String> names = shops.values().stream().map(Shop::getName).toList();
 //        if(names.contains(name))
 //            throw new IllegalStateException("there is a shop with that name!!!");
-        int shopID = shops.size();
+        int shopID = ids.size();
         Shop shop = new Shop(shopID, name, description, su);
-        shops.put(shopID, shop);
-        ShopMapper.getInstance().save(shop);
-        return shops.get(shopID);
+        shops.insert(shopID, shop,true);
+        return shop;
     }
 
 
     public double getCartPrice(User user) {
         double finalprice =0;
-        for (int shopid : shops.keySet()) {
+        for (int shopid : ids) {
             finalprice +=getBasketPrice(shopid,user);
         }
         return finalprice;
@@ -183,8 +189,8 @@ public class ShopController {
         try {
             if (checkIfUserHasBasket(shopid, user.getUserName())) {
                 //added here
-                if (shops.get(shopid).approvePurchase(user))
-                    return shops.get(shopid).checkIfcanBuy(user.getUserName());
+                if (shops.findElement(shopid).approvePurchase(user))
+                    return shops.findElement(shopid).checkIfcanBuy(user.getUserName());
             }
         }
         catch (IllegalStateException ignored)
@@ -195,7 +201,7 @@ public class ShopController {
 
     public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username) {
         ConcurrentHashMap<Integer, ShopInfo> res = new ConcurrentHashMap<>();
-        for (Shop s : shops.values().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
+        for (Shop s : shops.findAll().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
             res.put(s.getId(), new ShopInfo(s));
         }
         return res;
@@ -203,12 +209,12 @@ public class ShopController {
 
     public ConcurrentHashMap<Integer, Double> purchaseBasket(User user) {
         ConcurrentHashMap<Integer, Double> finalprices = new ConcurrentHashMap<>();
-        for (int shopid : shops.keySet()) {
+        for (int shopid :ids) {
             try {
                 if (checkIfUserHasBasket(shopid, user.getUserName())) {
                     //added here
-                    if (shops.get(shopid).approvePurchase(user))
-                        finalprices.put(shopid, shops.get(shopid).checkIfcanBuy(user.getUserName()));
+                    if (shops.findElement(shopid).approvePurchase(user))
+                        finalprices.put(shopid, shops.findElement(shopid).checkIfcanBuy(user.getUserName()));
                 }
             }
             catch (IllegalStateException ignored)

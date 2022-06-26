@@ -60,7 +60,7 @@ public class ShopControllerUnitTest {
         productID = rand.nextInt();
         userID = rand.nextInt();
         userName = "User" + userID;
-        sc.getShops().put(shopID, s1);
+        sc.getShops().insert(shopID, s1, false);
         when(s1.getId()).thenReturn(shopID);
         ph = mock(PurchaseHistory.class);
     }

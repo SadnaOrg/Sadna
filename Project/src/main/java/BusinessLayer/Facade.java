@@ -255,13 +255,13 @@ public class Facade{
         return x;
     }
     private Collection<String> getFounder(int shopID){
-        return toCollection(shopController.getShops().get(shopID).getFounder().getUserName());
+        return toCollection(shopController.getShops().findElement(shopID).getFounder().getUserName());
     }
     private Collection<String> getOwners(int shopID){
-        return shopController.getShops().get(shopID).getShopAdministrators().stream().filter(s->s instanceof ShopOwner).map(ShopAdministrator::getUserName).collect(Collectors.toList());
+        return shopController.getShops().findElement(shopID).getShopAdministrators().stream().filter(s->s instanceof ShopOwner).map(ShopAdministrator::getUserName).collect(Collectors.toList());
     }
     private Collection<String> getShopAdmins(int shopID){
-        return shopController.getShops().get(shopID).getShopAdministrators().stream().map(ShopAdministrator::getUserName).collect(Collectors.toList());
+        return shopController.getShops().findElement(shopID).getShopAdministrators().stream().map(ShopAdministrator::getUserName).collect(Collectors.toList());
     }
     private Collection<String> getSystemManagers(){
         return userController.getSysManagers().stream().map(User::getUserName).collect(Collectors.toList());

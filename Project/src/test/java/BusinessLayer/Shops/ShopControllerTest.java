@@ -59,13 +59,13 @@ public class ShopControllerTest {
     @Test
     public void addShop() {
         Assert.assertFalse(sc.addShop(s1));
-        Assert.assertNotEquals(0, sc.getShops().size());
+        Assert.assertNotEquals(0, sc.getShopsNumber());
     }
 
     @Test
     public void addBasket() {
         Assert.assertTrue(sc.AddBasket(s1.getId(), userName, basket));
-        Assert.assertNotEquals(0, sc.getShops().get(s1.getId()).getUsersBaskets().size());
+        Assert.assertNotEquals(0, sc.getShops().findElement(s1.getId()).getUsersBaskets().size());
     }
 
     @Test
@@ -109,9 +109,9 @@ public class ShopControllerTest {
 
     @Test
     public void openShop() {
-        int old_size = sc.getShops().size();
+        int old_size = sc.getShopsNumber();
         sc.openShop(su, "myShop" + su,"test shop");
-        Assert.assertEquals(sc.getShops().get(old_size).getName(), "myShop" + su);
+        Assert.assertEquals(sc.getShops().findElement(old_size).getName(), "myShop" + su);
     }
 
     public Shop createShop() {

@@ -5,10 +5,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public abstract class Cache<K,T> {
-    private ConcurrentLinkedDeque<Cacheable<K,T>> cache;
-    private ConcurrentHashMap<K,Cacheable<K,T>> quickLookUp;
-    private int maxSize;
-    private int size;
+    protected final ConcurrentLinkedDeque<Cacheable<K,T>> cache;
+    protected final ConcurrentHashMap<K,Cacheable<K,T>> quickLookUp;
+    protected final int maxSize;
+    protected int size;
 
     public Cache(int maxSize){
         cache = new ConcurrentLinkedDeque<>();
@@ -39,17 +39,19 @@ public abstract class Cache<K,T> {
         cacheable.setElement(newElement);
         reInsert(cacheable);
         remoteUpdate(newElement);
+        cacheable.unMark();
     }
 
     public void insert(K id, T element, boolean write){
         if(!(quickLookUp.containsKey(id))){
             Cacheable<K,T> cacheable = new Cacheable<>(id,element);
-            Cacheable <K,T> toRemove = null;
+            Cacheable <K,T> toRemove;
             if(size == maxSize){
                 // we simply write the head to the DB.
                 toRemove = cache.removeFirst();
                 quickLookUp.remove(toRemove.getId());
-                remoteUpdate(toRemove.getElement()); // write to DB.
+                if(toRemove.isDirty())
+                    remoteUpdate(toRemove.getElement()); // write to DB.
                 cache.add(cacheable);
                 quickLookUp.put(id,cacheable);
             }
@@ -70,17 +72,50 @@ public abstract class Cache<K,T> {
         cache.add(cacheable);
     }
 
-    public boolean remove(K id, boolean write){
+    public boolean remove(K id){
         Cacheable<K,T> cacheable = quickLookUp.getOrDefault(id,null);
         if(cacheable != null){
             quickLookUp.remove(id);
             cache.remove(cacheable);
             size--;
-            if(write)
+            if(cacheable.isDirty()){
                 remoteUpdate(cacheable.getElement());
+                cacheable.unMark(); // if it's cached elsewhere
+            }
             return true;
         }
         return false;
+    }
+
+    // some functions change the state of cached objects without writing (calling remoteUpdate).
+    // For example: removing the admin of the shop is done by calling the function of SubscribedUser.
+    // the shop was updated but through the user.
+    public void updateByID(K id){
+        Cacheable<K,T> cacheable = quickLookUp.getOrDefault(id,null); // look up
+        if(cacheable != null){
+            reInsert(cacheable);
+            remoteUpdate(cacheable.getElement());
+        }
+    }
+
+    public void mark(K id){
+        Cacheable<K,T> element = quickLookUp.get(id);
+        element.mark();
+    }
+
+    public boolean canPut(int numElements){
+        return maxSize - size >= numElements;
+    }
+
+    public void insertAll(Collection<Cacheable<K,T>> cacheables){
+        for (Cacheable<K,T> cacheable:
+             cacheables) {
+            insert(cacheable.getId(), cacheable.getElement(), false);
+        }
+    }
+
+    public Cacheable<K,T> quickSearch(K id){
+        return quickLookUp.getOrDefault(id, null);
     }
 
     public abstract Collection<T> findAll();
@@ -88,4 +123,6 @@ public abstract class Cache<K,T> {
     public abstract T remoteLookUp(K id);
 
     public abstract void remoteUpdate(T element);
+
+    public abstract void remoteRemove(K id);
 }

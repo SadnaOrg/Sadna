@@ -1,5 +1,6 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Caches.ShopCache;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.*;
 import org.junit.*;
@@ -95,13 +96,13 @@ public class UserControllerUnitTest {
         try(MockedStatic<ShopController> mockedStatic1 = mockStatic(ShopController.class)) {
             mockedStatic1.when(ShopController::getInstance).thenReturn(sc);
             when(sc.checkIfUserHasBasket(s1.getId(), user.getName())).thenReturn(true);
-            ConcurrentHashMap<Integer, Shop> shopConcurrentHashMap =new ConcurrentHashMap<>();
-            shopConcurrentHashMap.put(s1.getId(), s1);
+            ShopCache shopConcurrentHashMap = ShopCache.getInstance();
+            shopConcurrentHashMap.insert(s1.getId(), s1, false);
             ConcurrentHashMap<Integer, Product> productConcurrentHashMap =new ConcurrentHashMap<>();
             productConcurrentHashMap.put(p1.getID(), p1);
             when(sc.getShops()).thenReturn(shopConcurrentHashMap);
-            when(sc.getShops().get(s1.getId()).getProducts()).thenReturn(productConcurrentHashMap);
-            when(sc.getShops().get(s1.getId()).getProducts().get(p1.getID()).getCategory()).thenReturn("meow");
+            when(sc.getShops().findElement(s1.getId()).getProducts()).thenReturn(productConcurrentHashMap);
+            when(sc.getShops().findElement(s1.getId()).getProducts().get(p1.getID()).getCategory()).thenReturn("meow");
 
             when(user.getBasket(s1.getId())).thenReturn(basket);
             when(sc.AddBasket(s1.getId(), user.getName(), basket)).thenReturn(true);
