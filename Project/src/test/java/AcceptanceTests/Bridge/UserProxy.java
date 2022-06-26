@@ -18,6 +18,10 @@ public class UserProxy implements UserBridge{
         this.adapter = subscribedUserBridge;
     }
 
+    public UserProxy(SubscribedUserAdapter subscribedUserAdapter, HashMap<String, List<Notification>> notifications) {
+        adapter = subscribedUserAdapter;
+    }
+
     @Override
     public Guest visit() {
         return adapter.visit();
@@ -74,7 +78,7 @@ public class UserProxy implements UserBridge{
     }
 
     @Override
-    public boolean purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay) {
+    public double purchaseCart(String username,String creditCard, int CVV, int expirationMonth, int expirationDay) {
         return adapter.purchaseCart(username,creditCard,CVV,expirationMonth,expirationDay);
     }
 
@@ -83,11 +87,30 @@ public class UserProxy implements UserBridge{
         return adapter.searchProductInShop(username,productID,shopID);
     }
 
+    @Override
+    public boolean registerToNotifier(String username) {
+        return adapter.registerToNotifier(username);
+    }
+
+    @Override
+    public List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username) {
+        return adapter.getDelayNotification(username);
+    }
+
+    @Override
+    public List<Notification> getNotifications(String username) {
+        return adapter.getNotifications(username);
+    }
+
     protected HashMap<String, UserService> getGuests() {
         return ((UserAdapter)adapter).getGuests();
     }
 
     protected HashMap<String, SubscribedUserService> getSubscribed() {
         return ((UserAdapter)adapter).getSubscribed();
+    }
+
+    protected HashMap<String,List<Notification>> getNotifications(){
+        return ((UserAdapter)adapter).getUserNotifications();
     }
 }

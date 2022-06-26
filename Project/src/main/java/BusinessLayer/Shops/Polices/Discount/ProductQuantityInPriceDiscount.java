@@ -2,14 +2,22 @@ package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Users.Basket;
 
-public class ProductQuantityInPriceDiscount extends DiscountPolicy{
+public class ProductQuantityInPriceDiscount implements DiscountPolicy{
+    private int discountId;
 
-    int productID;
-    int quantity;
-    double priceForQuantity;
+    private int productID;
+    private int quantity;
+    private double priceForQuantity;
 
-    public ProductQuantityInPriceDiscount(DiscountPolicyInterface discountPolicy, int productID, int quantity, double priceForQuantity) {
-        super(discountPolicy);
+    public ProductQuantityInPriceDiscount(int productID, int quantity, double priceForQuantity) {
+        this.productID = productID;
+        this.quantity = quantity;
+        this.priceForQuantity = priceForQuantity;
+        this.discountId = atomicDiscountID.incrementAndGet();
+    }
+
+    public ProductQuantityInPriceDiscount(int discountId, int productID, int quantity, double priceForQuantity) {
+        this.discountId = discountId;
         this.productID = productID;
         this.quantity = quantity;
         this.priceForQuantity = priceForQuantity;
@@ -17,11 +25,46 @@ public class ProductQuantityInPriceDiscount extends DiscountPolicy{
 
     @Override
     public double calculateDiscount(Basket basket) {
-        if(basket.getProducts().containsKey(productID)) {
+        if (basket.getProducts().containsKey(productID)) {
             int quantityOfPid = basket.getProducts().get(productID);
-            return quantityOfPid * basket.getPrices().get(productID) - ((quantityOfPid / quantity) * priceForQuantity + (quantityOfPid % quantity) * basket.getPrices().get(productID))
-                    + this.discountPolicy.calculateDiscount(basket);
+            return quantityOfPid * basket.getPrices().get(productID) - ((quantityOfPid / quantity) * priceForQuantity + (quantityOfPid % quantity) * basket.getPrices().get(productID));
         }
-        else
-            return this.discountPolicy.calculateDiscount(basket);    }
+        return 0;
+    }
+
+    @Override
+    public NumericDiscountRules getNumericRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public LogicDiscountRules getLogicRule(int searchConnectId) {
+        return null;
+    }
+
+    @Override
+    public int getID(){
+        return this.discountId;
+    }
+
+    public int getDiscountId() {
+        return discountId;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPriceForQuantity() {
+        return priceForQuantity;
+    }
+
+    @Override
+    public boolean removeSonPredicate(int ID) {
+        return false;
+    }
 }

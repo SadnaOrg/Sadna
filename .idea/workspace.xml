@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="mapping shops and admins,users">
+    <list default="true" id="bb29ac5a-6283-4e3f-be08-9c4983da0d9c" name="Changes" comment="Made hashmap threadsafe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopAdministratorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/BusinessLayer/Mappers/ShopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ProductInfoRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ProductRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/PurchaseHistoryRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/PurchaseRepositoryImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SadnaORM/src/main/java/com/SadnaORM/RepositoriesImpl/ShopRepositoriesImpl/ShopRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/.idea/runConfigurations.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +27,7 @@
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="24-shopowner-4-appoint-owner" />
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="165-add-acceptation-test-on-ms2-system-manager" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -262,14 +256,7 @@
       <option name="project" value="LOCAL" />
       <updated>1651235742158</updated>
     </task>
-    <task id="LOCAL-00012" summary="mapping shops and admins,users">
-      <created>1654633825957</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1654633825959</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,8 +282,7 @@
     <MESSAGE value="Created necessary methods and fields in shop for appointing owner" />
     <MESSAGE value="initialized owners in Shop" />
     <MESSAGE value="Made hashmap threadsafe" />
-    <MESSAGE value="mapping shops and admins,users" />
-    <option name="LAST_COMMIT_MESSAGE" value="mapping shops and admins,users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made hashmap threadsafe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

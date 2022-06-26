@@ -24,6 +24,12 @@ public class StockManagement extends BaseAction {
         return product;
     }
 
+    public boolean setCategory(int productId, String category) {
+        if(category== null)
+            throw new IllegalStateException("must be real category");
+        return shop.setCategory(productId,category);
+    }
+
     public void removeProduct(int productid)
     {
         shop.removeProduct(productid);

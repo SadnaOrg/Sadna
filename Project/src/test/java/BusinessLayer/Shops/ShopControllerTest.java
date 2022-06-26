@@ -10,6 +10,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -44,7 +46,7 @@ public class ShopControllerTest {
         userID = rand.nextInt();
         userName = "User" + userID;
         passWord = "password" + userID;
-        uc.registerToSystem(userName, passWord);
+        uc.registerToSystem(userName, passWord,new Date(2001, Calendar.DECEMBER,1));
         su = uc.login(userName, passWord, null);
     }
 
@@ -75,9 +77,9 @@ public class ShopControllerTest {
 
     @Test
     public void purchaseBasket() {
-        basket.saveProducts(productID, 10,p1.getPrice());
+        basket.saveProducts(productID, 10,p1.getPrice(),"meow");
         sc.AddBasket(shopID, userName, basket);
-        Assert.assertEquals(50.0, sc.purchaseBasket(userName).get(shopID), 0.0);
+        Assert.assertEquals(50.0, sc.purchaseBasket(uc.getUser(userName)).get(shopID), 0.0);
     }
 
     @Test
@@ -113,7 +115,7 @@ public class ShopControllerTest {
     }
 
     public Shop createShop() {
-        Shop s2 = new Shop(shopID, "ShopName", "testing shop",new SubscribedUser("User1", "Pass1"));
+        Shop s2 = new Shop(shopID, "ShopName", "testing shop",new SubscribedUser("User1", "Pass1",new Date(2001, Calendar.DECEMBER,1)));
         s2.addProduct(createProduct());
         return s2;
     }

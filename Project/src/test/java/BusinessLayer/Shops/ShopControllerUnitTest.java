@@ -3,6 +3,7 @@ package BusinessLayer.Shops;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.User;
 import BusinessLayer.Users.UserController;
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,6 +28,9 @@ public class ShopControllerUnitTest {
 
     @Mock
     private Shop s1;
+
+    @Mock
+    private User u1;
 
     @Mock
     private Basket basket;
@@ -72,8 +76,10 @@ public class ShopControllerUnitTest {
         when(s1.addBasket(userName, basket)).thenReturn(true);
         when(s1.checkIfcanBuy(userName)).thenReturn(50.0);
         when(s1.checkIfUserHasBasket(userName)).thenReturn(true);
+        when(u1.getUserName()).thenReturn(userName);
+        when(s1.approvePurchase(u1)).thenReturn(true);
         sc.AddBasket(shopID, userName, basket);
-        Assert.assertEquals(50.0, sc.purchaseBasket(userName).get(shopID), 0.0);
+        Assert.assertEquals(50.0, sc.purchaseBasket(u1).get(shopID), 0.0);
     }
 
     @Test

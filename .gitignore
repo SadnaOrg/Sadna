@@ -2,3 +2,9 @@
 Project/out/production/Project/BusinessLayer/Products/Product.class
 Project/out/production/Project/BusinessLayer/Products/Product.class
 *.class
+GUI/event_log.txt
+GUI/error_log.txt.lck
+GUI/error_log.txt
+GUI/event_log.txt
+GUI/event_log.txt.lck
+*.txt

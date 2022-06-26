@@ -466,8 +466,8 @@ public class ShopUnitTest {
         s1.addProduct(p1);
         s1.addProduct(p2);
         when(b2.getShopid()).thenReturn(s1.getId());
-        b1.saveProducts(p1.getID(),10, p1.getPrice());
-        b1.saveProducts(p2.getID(),50,p1.getPrice());
+        b1.saveProducts(p1.getID(),10, p1.getPrice(),"meow");
+        b1.saveProducts(p2.getID(),50,p1.getPrice(),"meow");
         ConcurrentHashMap<Integer,Integer> map= new ConcurrentHashMap<>();
         map.put(p1.getID(),10);
         map.put(p2.getID(),50);

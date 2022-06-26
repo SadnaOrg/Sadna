@@ -1,6 +1,0 @@
-Jun 26, 2022 6:34:55 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 26, 2022 6:35:13 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 26, 2022 6:35:13 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first

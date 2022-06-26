@@ -1,5 +1,8 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Shops.Polices.Discount.DiscountPred;
+import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
@@ -8,10 +11,9 @@ import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
 
 import javax.naming.NoPermissionException;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
@@ -31,7 +33,6 @@ public class UserController {
     public static UserController getInstance() {
         return UserControllerHolder.uc;
     }
-
 
     private UserController() {
         users = new ConcurrentHashMap<>();
@@ -58,10 +59,19 @@ public class UserController {
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
+
+    public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
+        if(subscribers.containsKey(requesting)){
+            SubscribedUser u = subscribers.get(requesting);
+            return u.removeShopOwner(shopID,subscribers.get(toRemove));
+        }
+        throw new IllegalArgumentException("you aren't a subscribed user!");
+    }
+
     public boolean saveProducts(User u, int shopId, int productId, int quantity) {
-        double price = ShopController.getInstance().getProductPrice(shopId,productId);
-        if(price != -1) {
-            if (u.saveProducts(shopId, productId, quantity,price)) {
+        double price = ShopController.getInstance().getProductPrice(shopId, productId);
+        if (price != -1) {
+            if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
                 if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
@@ -87,15 +97,15 @@ public class UserController {
 
     public boolean removeproduct(User u, int shopId, int productId) {
         boolean removed = u.removeProduct(shopId, productId);
-        if(removed)
-            ShopController.getInstance().tryRemove(shopId,u.getUserName(),0);
+        if (removed)
+            ShopController.getInstance().tryRemove(shopId, u.getUserName(), 0);
         return removed;
     }
 
     public boolean editProductQuantity(User u, int shopId, int productId, int newQuantity) {
         boolean edited = u.editProductQuantity(shopId, productId, newQuantity);
-        if(edited)
-            ShopController.getInstance().tryRemove(shopId,u.getUserName(),newQuantity);
+        if (edited)
+            ShopController.getInstance().tryRemove(shopId, u.getUserName(), newQuantity);
         return edited;
     }
 
@@ -146,8 +156,8 @@ public class UserController {
         return currUser.closeShop(shopIdToClose);
     }
 
-    public boolean createSystemManager(String username, String password) {
-        SystemManager systemManager = new SystemManager(username, password);
+    public boolean createSystemManager(String username, String password, Date date) {
+        SystemManager systemManager = new SystemManager(username, password,date);
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
@@ -155,10 +165,10 @@ public class UserController {
         return true;
     }
 
-    public synchronized boolean registerToSystem(String userName, String password) {
+    public synchronized boolean registerToSystem(String userName, String password, Date date) {
         if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
-            SubscribedUser newUser = new SubscribedUser(userName, password);
+            SubscribedUser newUser = new SubscribedUser(userName, password,date);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
             mapperController.getSubscribedUserMapper().save(newUser);
@@ -176,12 +186,11 @@ public class UserController {
                 return subscribers.get(userName);
             } else
                 return null;
-        }
         return null;
     }
 
     public Guest logout(String username) {
-        if (subscribers.containsKey(username)){
+        if (subscribers.containsKey(username)) {
             subscribers.get(username).logout();
             mapperController.getSubscribedUserMapper().update(subscribers.get(username));
             return loginSystem();
@@ -213,8 +222,8 @@ public class UserController {
 
     private Collection<BaseActionType> convertToAction(Collection<Integer> types) {
         List<BaseActionType> actionTypes = new LinkedList<>();
-        for (Integer code:
-             types) {
+        for (Integer code :
+                types) {
             actionTypes.add(BaseActionType.lookup(code));
         }
         return actionTypes;
@@ -228,13 +237,14 @@ public class UserController {
         return currUser.getHistoryInfo(shop);
     }
 
-    public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop,String userName)  {
+    public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop, String userName) {
         return currUser.getShopsAndUsersInfo(shop, userName);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, String userName) {
         return currUser.getShopsAndUsersInfo(userName);
     }
+
     public Collection<PurchaseHistory> getShopsAndUsersInfo(SystemManager currUser, int shop) {
         return currUser.getShopsAndUsersInfo(shop);
     }
@@ -243,37 +253,37 @@ public class UserController {
         return currUser.removeSubscribedUser(userToRemoved);
     }
 
-    public boolean updateProductQuantity(String username,int shopID, int productID, int newQuantity) throws NoPermissionException {
-       ShopAdministrator admin = getAdmin(username, shopID);
-       if(admin != null)
-           return admin.changeProductQuantity(productID,newQuantity);
-       throw new NoPermissionException("you aren't an admin of that shop!");
-    }
-
-    public boolean updateProductPrice(String username,int shopID, int productID, double newPrice) throws NoPermissionException {
+    public boolean updateProductQuantity(String username, int shopID, int productID, int newQuantity) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if(admin != null)
-            return admin.changeProductPrice(productID,newPrice);
+        if (admin != null)
+            return admin.changeProductQuantity(productID, newQuantity);
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
-    public boolean updateProductDescription(String username,int shopID, int productID, String Desc) throws NoPermissionException {
+    public boolean updateProductPrice(String username, int shopID, int productID, double newPrice) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if(admin != null)
-            return admin.changeProductDesc(productID,Desc);
+        if (admin != null)
+            return admin.changeProductPrice(productID, newPrice);
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
-    public boolean updateProductName(String username,int shopID, int productID, String newName) throws NoPermissionException {
+    public boolean updateProductDescription(String username, int shopID, int productID, String Desc) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if(admin != null)
-            return admin.changeProductName(productID,newName);
+        if (admin != null)
+            return admin.changeProductDesc(productID, Desc);
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
-    public boolean deleteProductFromShop(String username,int shopID, int productID) throws NoPermissionException {
+    public boolean updateProductName(String username, int shopID, int productID, String newName) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if(admin != null){
+        if (admin != null)
+            return admin.changeProductName(productID, newName);
+        throw new NoPermissionException("you aren't an admin of that shop!");
+    }
+
+    public boolean deleteProductFromShop(String username, int shopID, int productID) throws NoPermissionException {
+        ShopAdministrator admin = getAdmin(username, shopID);
+        if (admin != null) {
             admin.removeProduct(productID);
             return true;
         }
@@ -282,27 +292,26 @@ public class UserController {
 
     public boolean addProductToShop(String username, int shopID, String name, String manufacturer, String desc, int productID, int quantity, double price) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if(admin != null){
-            admin.addProduct(productID,name,desc,manufacturer,price,quantity);
+        if (admin != null) {
+            admin.addProduct(productID, name, desc, manufacturer, price, quantity);
             return true;
         }
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
     public boolean reopenShop(String userName, int shopID) throws NoPermissionException {
-        ShopAdministrator admin = getAdmin(userName,shopID);
-        if(admin instanceof ShopOwner){
+        ShopAdministrator admin = getAdmin(userName, shopID);
+        if (admin instanceof ShopOwner) {
             ((ShopOwner) admin).reOpenShop();
             return true;
         }
         throw new NoPermissionException("you aren't the founder of that shop!");
     }
 
-    private ShopAdministrator getAdmin(String username, int shopID){
-        if (subscribers.containsKey(username)){
+    private ShopAdministrator getAdmin(String username, int shopID) {
+        if (subscribers.containsKey(username)) {
             SubscribedUser u = subscribers.get(username);
-            ShopAdministrator admin = u.getAdministrator(shopID);
-            return admin;
+            return u.getAdministrator(shopID);
         }
         return null;
     }
@@ -319,20 +328,25 @@ public class UserController {
         System.out.println("renoved ----------------> " +userName);
         return true;
     }
-    public enum UserState{
-        REMOVED,LOGGED_IN,LOGGED_OUT;
 
-        static UserState get(SubscribedUser u){
-            return u.isRemoved()? REMOVED : u.isLoggedIn()? LOGGED_IN:LOGGED_OUT;
+
+
+    public enum UserState {
+        REMOVED, LOGGED_IN, LOGGED_OUT;
+
+        static UserState get(SubscribedUser u) {
+            return u.isRemoved() ? REMOVED : u.isLoggedIn() ? LOGGED_IN : LOGGED_OUT;
         }
-        public static int getVal(UserState state){
-            return switch (state){
+
+        public static int getVal(UserState state) {
+            return switch (state) {
                 case REMOVED -> -1;
                 case LOGGED_IN -> 1;
                 case LOGGED_OUT -> 0;
             };
         }
     }
+
     public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
         if(!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
@@ -365,5 +379,118 @@ public class UserController {
         users.clear();
         subscribers.clear();
         managers.clear();
+    }
+
+    public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
+        return user.setCategory(productId,category,shopId);
+    }
+
+    public Collection<SystemManager> getSysManagers(){
+        return managers.values();
+    }
+
+    public void addUserForTest(User u){
+        this.users.put(u.getUserName(),u);
+    }
+
+    public int createProductByQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, double discount, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createProductByQuantityDiscount(productId, productQuantity, discount, connectId, shopId);
+    }
+
+
+    public int createProductDiscount(SubscribedUser currUser, int productId, double discount, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createProductDiscount(productId, discount, connectId, shopId);
+    }
+
+    public int createProductQuantityInPriceDiscount(SubscribedUser currUser, int productID, int quantity, double priceForQuantity, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createProductQuantityInPriceDiscount(productID, quantity, priceForQuantity, connectId, shopId);
+    }
+
+    public int createRelatedGroupDiscount(SubscribedUser currUser, String category, double discount, int connectId , int shopId) throws NoPermissionException {
+        return currUser.createRelatedGroupDiscount(category, discount, connectId, shopId);
+    }
+
+    public int createShopDiscount(SubscribedUser currUser, int basketQuantity,double discount,int connectId, int shopId) throws NoPermissionException {
+
+        return currUser.createShopDiscount(basketQuantity, discount, connectId, shopId);
+    }
+
+    public int createDiscountAndPolicy(SubscribedUser currUser, DiscountPred discountPred, DiscountRules discountPolicy, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createDiscountAndPolicy(discountPred, discountPolicy, connectId, shopId);
+    }
+
+    public int createDiscountMaxPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createDiscountMaxPolicy(discountPolicy, connectId, shopId);
+    }
+
+    public int  createDiscountOrPolicy(SubscribedUser currUser, DiscountPred discountPred,DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createDiscountOrPolicy(discountPred, discountPolicy, connectId, shopId);
+    }
+
+    public int  createDiscountPlusPolicy(SubscribedUser currUser, DiscountRules discountPolicy,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createDiscountPlusPolicy(discountPolicy, connectId, shopId);
+    }
+
+    public int createDiscountXorPolicy(SubscribedUser currUser, DiscountRules discountRules1, DiscountRules discountRules2,  DiscountPred tieBreaker,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createDiscountXorPolicy(discountRules1, discountRules2, tieBreaker, connectId, shopId);
+    }
+
+    public int  createValidateBasketQuantityDiscount(SubscribedUser currUser, int basketquantity, boolean cantBeMore ,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateBasketQuantityDiscount(basketquantity, cantBeMore, connectId, shopId);
+    }
+
+    public int createValidateBasketValueDiscount(SubscribedUser currUser, double basketvalue ,boolean cantBeMore,int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateBasketValueDiscount(basketvalue, cantBeMore, connectId, shopId);
+    }
+    public int createValidateProductQuantityDiscount(SubscribedUser currUser, int productId, int productQuantity, boolean cantbemore ,int connectId, int shopId) throws NoPermissionException {
+
+        return currUser.createValidateProductQuantityDiscount(productId, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateProductPurchase(SubscribedUser currUser,int productId, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateProductPurchase(productId, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateTImeStampPurchase(SubscribedUser currUser,LocalTime localTime, boolean buybefore, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateTImeStampPurchase(localTime,buybefore,conncectId,shopId);
+    }
+
+    public int createValidateDateStampPurchase(SubscribedUser currUser, LocalDate localDate, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateDateStampPurchase(localDate, conncectId, shopId);
+    }
+
+    public int createValidateCategoryPurchase(SubscribedUser currUser,String category, int productQuantity, boolean cantbemore, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateCategoryPurchase(category, productQuantity, cantbemore, connectId, shopId);
+    }
+
+    public int createValidateUserPurchase(SubscribedUser currUser,int age, int connectId, int shopId) throws NoPermissionException {
+        return currUser.createValidateUserPurchase(age,connectId,shopId);
+    }
+
+
+    public int createPurchaseAndPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseAndPolicy(policy, conncectId, shopId);
+    }
+
+    public int createPurchaseOrPolicy(SubscribedUser currUser,PurchasePolicy policy, int conncectId, int shopId) throws NoPermissionException {
+        return currUser.createPurchaseOrPolicy(policy, conncectId, shopId);
+    }
+
+    public boolean removeDiscount(SubscribedUser currUser,int discountID, int shopId) throws NoPermissionException {
+        return currUser.removeDiscount(discountID,shopId);
+    }
+
+    public boolean removePredicate(SubscribedUser currUser,int predID, int shopId) throws NoPermissionException {
+        return currUser.removePredicate(predID,shopId);
+    }
+    public boolean removePurchasePolicy(SubscribedUser currUser,int purchasePolicyToDelete, int shopId) throws NoPermissionException {
+        return currUser.removePurchasePolicy(purchasePolicyToDelete,shopId);
+    }
+    public DiscountRules getDiscount(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getDiscount(shopId);
+    }
+
+    public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
+        return currUser.getPurchasePolicy(shopId);
     }
 }

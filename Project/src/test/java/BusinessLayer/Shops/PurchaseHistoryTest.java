@@ -7,6 +7,9 @@ import BusinessLayer.Users.User;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 
 public class PurchaseHistoryTest {
@@ -48,13 +51,13 @@ public class PurchaseHistoryTest {
     }
 
     private SubscribedUser createFounder() {
-        return new SubscribedUser("Founder Guy","Guy123456");
+        return new SubscribedUser("Founder Guy","Guy123456",new Date(2001, Calendar.DECEMBER,1));
     }
 
     private User createUserWithItemInBasket(int shopid, int productid, int quantity,double price)
     {
         User u = new Guest("Yuval");
-        u.saveProducts(shopid, productid, quantity,price);
+        u.saveProducts(shopid, productid, quantity,price,"meow");
         return u;
     }
 

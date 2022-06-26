@@ -41,6 +41,10 @@ public class SystemManagerView extends SubscribedUserView {
             return;
         }
         createTabs();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
+        registerToNotification(service);
     }
 
     private void createTabs() {

@@ -37,7 +37,7 @@ public class ProductByQuantityDiscountUnitTest {
         pidprice.put(2,15.0);
         when(basket.getProducts()).thenReturn(pidquan);
         when(basket.getPrices()).thenReturn(pidprice);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1);
+        productByQuantityDiscount= new ProductByQuantityDiscount(1,5,0.1);
         Assert.assertEquals(0.1*10*5,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }
 
@@ -50,7 +50,7 @@ public class ProductByQuantityDiscountUnitTest {
         pidprice.put(2,15.0);
         when(basket.getProducts()).thenReturn(pidquan);
         when(basket.getPrices()).thenReturn(pidprice);
-        productByQuantityDiscount= new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1);
+        productByQuantityDiscount= new ProductByQuantityDiscount(1,5,0.1);
         Assert.assertEquals(0,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }
 
@@ -65,21 +65,7 @@ public class ProductByQuantityDiscountUnitTest {
         when(basket.getProducts()).thenReturn(pidquan);
         when(basket.getPrices()).thenReturn(pidprice);
 
-        productByQuantityDiscount= new ProductByQuantityDiscount(new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1),2,200,0.2);
-        Assert.assertEquals(0.1*10*5,productByQuantityDiscount.calculateDiscount(basket),0.1);
-    }
-    @Test
-    public void calculateDiscountMultipleProducts() {
-        ConcurrentHashMap<Integer,Integer> pidquan = new ConcurrentHashMap<>();
-        ConcurrentHashMap<Integer,Double> pidprice = new ConcurrentHashMap<>();
-        pidquan.put(1,10);
-        pidquan.put(2,100);
-        pidprice.put(1,5.0);
-        pidprice.put(2,15.0);
-        when(basket.getProducts()).thenReturn(pidquan);
-        when(basket.getPrices()).thenReturn(pidprice);
-
-        productByQuantityDiscount= new ProductByQuantityDiscount(new ProductByQuantityDiscount(new DefaultDiscount(),1,5,0.1),2,50,0.2);
-        Assert.assertEquals(0.1*10*5+0.2*15*100,productByQuantityDiscount.calculateDiscount(basket),0.1);
+        productByQuantityDiscount= new ProductByQuantityDiscount(2,200,0.2);
+        Assert.assertEquals(0,productByQuantityDiscount.calculateDiscount(basket),0.1);
     }
 }

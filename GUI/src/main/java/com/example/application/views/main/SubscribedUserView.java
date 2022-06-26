@@ -1,10 +1,12 @@
 package com.example.application.views.main;
 
+import ServiceLayer.Objects.Guest;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
-import com.example.application.Header.Header;
+import com.example.application.views.main.Discount.DiscountPolicyView;
+import com.example.application.views.main.Purchase.PurchasePolicyView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
@@ -18,6 +20,7 @@ import com.vaadin.flow.component.tabs.TabsVariant;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.dom.DomEvent;
 import com.vaadin.flow.router.Route;
 
 import java.util.Collection;
@@ -30,7 +33,6 @@ import static com.example.application.Utility.*;
 
 @Route("SubscribedUser")
 public class SubscribedUserView extends GuestActionView {
-    protected String currUser;
     protected SubscribedUserService service;
 
     private final Dialog dialog = new Dialog();
@@ -62,12 +64,21 @@ public class SubscribedUserView extends GuestActionView {
             return;
         }
         logoutButton.addClickListener(e -> {
-            service.logout();
+           var s= service.logout();
             save("user-name", null);
-            UI.getCurrent().navigate(MainView.class);
+            if(s.isOk()) {
+                save("service", s.getElement());
+                UI.getCurrent().navigate(GuestActionView.class);
+            }
+            else
+                UI.getCurrent().navigate(MainView.class);
         });
         createOpenShop();
         createTabs();
+        var name =service.getUserInfo();
+        if(name.isOk())
+            setName(name.getElement().username);
+        registerToNotification(service);
     }
 
     private void createOpenShop() {
@@ -131,30 +142,32 @@ public class SubscribedUserView extends GuestActionView {
     }
 
     private void itemClicked(Shop item) {
-        Dialog addProductDialog = new Dialog();
-        VerticalLayout addProductLayout = new VerticalLayout();
-        HorizontalLayout addLayout = new HorizontalLayout();
-        TextField name = new TextField("Name");
-        TextField description = new TextField("Description");
-        TextField manufacturer = new TextField("Manufacturer");
-        NumberField quantity = new NumberField("Quantity");
-        NumberField price = new NumberField("Price");
-        Button add = new Button("Add", e -> {
-            Result res = service.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
-            itemsSize += 1;
-            if (res.isOk()) {
-                updateProductGrid(item.shopId());
-                notifySuccess("Product Successfully Added!");
-            }
-            else
-                notifyError(res.getMsg());
-        });
-        addLayout.add(name, description, manufacturer, quantity, price, add);
-        addProductLayout.add(addLayout, shopProducts);
-        addProductDialog.add(addProductLayout);
-        updateProductGrid(item.shopId());
-        addProductLayout.add(shopProducts);
-        addProductDialog.open();
+        var isAdmin = service.getMyInfo(item.shopId());
+        if(isAdmin.isOk()) {
+            Dialog addProductDialog = new Dialog();
+            VerticalLayout addProductLayout = new VerticalLayout();
+            HorizontalLayout addLayout = new HorizontalLayout();
+            TextField name = new TextField("Name");
+            TextField description = new TextField("Description");
+            TextField manufacturer = new TextField("Manufacturer");
+            NumberField quantity = new NumberField("Quantity");
+            NumberField price = new NumberField("Price");
+            Button add = new Button("Add", e -> {
+                Result res = service.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
+                itemsSize += 1;
+                if (res.isOk()) {
+                    updateProductGrid(item.shopId());
+                    notifySuccess("Product Successfully Added!");
+                } else
+                    notifyError(res.getMsg());
+            });
+            addLayout.add(name, description, manufacturer, quantity, price, add);
+            addProductLayout.add(addLayout, shopProducts);
+            addProductDialog.add(addProductLayout);
+            updateProductGrid(item.shopId());
+            addProductLayout.add(shopProducts);
+            addProductDialog.open();
+        }
     }
 
     private void createProductGrid() {
@@ -166,17 +179,15 @@ public class SubscribedUserView extends GuestActionView {
         descriptionColumn = shopProducts.addColumn(Product::description).setHeader("Description").setSortable(true);
         quantityColumn = shopProducts.addColumn(Product::quantity).setHeader("Quantity").setSortable(true);
         priceColumn = shopProducts.addColumn(Product::price).setHeader("price").setSortable(true);
-        closeColumn = shopProducts.addComponentColumn(item -> {
-            return new Button(VaadinIcon.CLOSE.create(), e -> {
-                Result res = service.deleteProductFromShop(item.shopId(), item.productID());
-                if (res.isOk()) {
-                    updateProductGrid(item.shopId());
-                    notifySuccess("Product Removed Successfully!");
-                }
-                else
-                    notifyError(res.getMsg());
-                });
-        });
+        closeColumn = shopProducts.addComponentColumn(item -> new Button(VaadinIcon.CLOSE.create(), e -> {
+            Result res = service.deleteProductFromShop(item.shopId(), item.productID());
+            if (res.isOk()) {
+                updateProductGrid(item.shopId());
+                notifySuccess("Product Removed Successfully!");
+            }
+            else
+                notifyError(res.getMsg());
+            }));
         editor = shopProducts.getEditor();
         setEditorComponent();
         shopProducts.addItemClickListener(item -> {
@@ -202,7 +213,7 @@ public class SubscribedUserView extends GuestActionView {
     }
 
     private void updateGrid() {
-        Collection<Shop> shopItems = service.receiveInformation().getElement().shops();
+        Collection<Shop> shopItems = service.searchShops(s -> true, currUser).getElement().shops();
         shops.setItems(shopItems);
     }
 
@@ -232,8 +243,26 @@ public class SubscribedUserView extends GuestActionView {
 
     private void createTabs(){
         addTabWithClickEvent("Open Shop", e -> createOpenShop());
+        addTabWithClickEvent("Manage Actions", this::createActionView);
+        addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
+        addTabWithClickEvent("Add Purchase Policy", this::createPurchasePolicyView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createPurchasePolicyView(DomEvent domEvent) {
+        PurchasePolicyView policyView = new PurchasePolicyView(service, currUser);
+        setContent(policyView);
+    }
+
+    private void createDiscountPolicyView(DomEvent domEvent) {
+        DiscountPolicyView policyView = new DiscountPolicyView(service, currUser);
+        setContent(policyView);
+    }
+
+    private void createActionView(DomEvent domEvent) {
+        ActionView view = new ActionView(service, currUser);
+        setContent(view);
     }
 }
