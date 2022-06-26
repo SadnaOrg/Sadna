@@ -1,16 +1,12 @@
-Jun 25, 2022 1:06:19 PM ServiceLayer.Log event
+Jun 26, 2022 6:34:55 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 25, 2022 1:06:19 PM ServiceLayer.Log event
+Jun 26, 2022 6:34:55 PM ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 25, 2022 1:06:24 PM ServiceLayer.Log event
+Jun 26, 2022 6:35:13 PM ServiceLayer.Log event
 INFO: login - user a Successes
-Jun 25, 2022 1:06:24 PM ServiceLayer.Log event
+Jun 26, 2022 6:35:13 PM ServiceLayer.Log event
 INFO: login Successes
-Jun 25, 2022 1:06:24 PM ServiceLayer.Log event
+Jun 26, 2022 6:35:13 PM ServiceLayer.Log event
 INFO: cart showed Successes
-Jun 25, 2022 1:06:24 PM ServiceLayer.Log event
-INFO: receive information Successes
-Jun 25, 2022 1:06:44 PM ServiceLayer.Log event
-INFO: open shop succeeded Successes
-Jun 25, 2022 1:06:44 PM ServiceLayer.Log event
+Jun 26, 2022 6:35:13 PM ServiceLayer.Log event
 INFO: receive information Successes

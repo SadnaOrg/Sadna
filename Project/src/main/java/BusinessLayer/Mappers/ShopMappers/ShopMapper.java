@@ -6,10 +6,10 @@ import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.ShopOwner;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
 import ORM.Users.ShopAdministrator;
-import ORM.Users.ShopOwner;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -60,9 +60,12 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public Shop fromEntity(ORM.Shops.Shop entity) {
-        return new Shop(entity.getId(), entity.getName(), entity.getDescription(),
-                Shop.State.values()[entity.getState().ordinal()], shopOwnerMapper.run().fromEntity(entity.getFounder()),
+        ShopOwner founder = shopOwnerMapper.run().fromEntity(entity.getFounder());
+        Shop shop = new Shop(entity.getId(), entity.getName(), entity.getDescription(),
+                Shop.State.values()[entity.getState().ordinal()], founder,
                 null, null, null, null);
+        founder.getAppoints().stream().peek(admin -> admin.setShop(shop));
+        return shop;
     }
 
     @Override
@@ -83,6 +86,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     @Override
     public Shop findById(Integer key) {
         return fromEntity(dao.findById(key));
+    }
+
+    public Collection<Shop> findByFounder(String username) {
+        return dao.findByFounder(username).stream().map(this::fromEntity).toList();
     }
 
     @Override

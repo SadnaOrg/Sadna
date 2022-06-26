@@ -349,7 +349,7 @@ public class UserController {
         if (subscribers.containsKey(key))
             return true;
         else {
-            SubscribedUser user = SubscribedUserMapper.getInstance().findById(key);
+            SubscribedUser user = mapperController.getSubscribedUserMapper().findById(key);
             if (user != null) {
                 users.put(key, user);
                 subscribers.put(key, user);

@@ -64,13 +64,14 @@ public class ShopController {
 
 
     private final Map<Integer, Shop> shops;
+    private MapperController mapperController = MapperController.getInstance();
 
     private ShopController() {
         this.shops = new ConcurrentHashMap<>();
     }
 
-    private Map<Integer, Shop> loadFromDB() {
-        return MapperController.getInstance().getShopMapper().getInstance().findAll().stream()
+    private Map<Integer, Shop> loadFromDB(String username) {
+        return mapperController.getShopMapper().findByFounder(username).stream()
                 .collect(Collectors.toMap(Shop::getId, Function.identity()));
     }
 
@@ -168,7 +169,7 @@ public class ShopController {
         int shopID = shops.size();
         Shop shop = new Shop(shopID, name, description, su);
         shops.put(shopID, shop);
-        MapperController.getInstance().getShopMapper().getInstance().save(shop);
+        mapperController.getShopMapper().getInstance().save(shop);
         return shops.get(shopID);
     }
 

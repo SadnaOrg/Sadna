@@ -33,6 +33,10 @@ public class SubscribedUser extends User {
     }
 
     private Map<Integer,ShopAdministrator> shopAdministrator;
+
+    public void setShopAdministrator(Map<Integer, ShopAdministrator> shopAdministrator) {
+        this.shopAdministrator = shopAdministrator;
+    }
     private boolean is_login = false;
     public SubscribedUser(String userName,String password) {
         super(userName);

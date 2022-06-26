@@ -6,11 +6,24 @@ import BusinessLayer.Users.BaseActions.CloseShop;
 
 
 import javax.naming.NoPermissionException;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ShopOwner extends ShopAdministrator{
     private boolean founder;
-    public ShopOwner(Shop s, SubscribedUser u, String appointer,boolean founder) {
+    public ShopOwner(Shop s, SubscribedUser u, String appointer ,boolean founder) {
         super(s, u, appointer);
+        this.founder = founder;
+        for (BaseActionType b:BaseActionType.values()) {
+            if((b == BaseActionType.CLOSE_SHOP || b == BaseActionType.REOPEN_SHOP) && founder)
+                this.AddAction(b);
+            if((b != BaseActionType.CLOSE_SHOP && b != BaseActionType.REOPEN_SHOP))
+                this.AddAction(b);
+        }
+
+    }
+
+    public ShopOwner(String appointer, SubscribedUser user, boolean founder, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+        super(appointer, appoints);
         this.founder = founder;
         for (BaseActionType b:BaseActionType.values()) {
             if((b == BaseActionType.CLOSE_SHOP || b == BaseActionType.REOPEN_SHOP) && founder)

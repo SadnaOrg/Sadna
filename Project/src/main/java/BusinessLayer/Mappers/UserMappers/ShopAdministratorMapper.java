@@ -25,10 +25,19 @@ public class ShopAdministratorMapper {
     }
 
     public ORM.Users.ShopAdministrator toEntity(ShopAdministrator entity) {
-        return entity instanceof ShopOwner ? shopOwnerMapper.run().toEntity((ShopOwner) entity) : shopManagerMapper.run().toEntity((ShopManager) entity);
+        if (entity == null)
+            return null;
+        return entity instanceof ShopOwner ?
+                shopOwnerMapper.run().toEntity((ShopOwner) entity) :
+                shopManagerMapper.run().toEntity((ShopManager) entity);
     }
 
     public ShopAdministrator fromEntity(ORM.Users.ShopAdministrator entity) {
-        return null;
+        if (entity == null)
+            return null;
+        return entity instanceof ORM.Users.ShopOwner ?
+                shopOwnerMapper.run().fromEntity((ORM.Users.ShopOwner) entity) :
+                shopManagerMapper.run().fromEntity((ORM.Users.ShopManager) entity);
+
     }
 }

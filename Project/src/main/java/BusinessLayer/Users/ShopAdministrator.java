@@ -13,16 +13,24 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ShopAdministrator{
     protected Map<BaseActionType,BaseAction> action=new ConcurrentHashMap<>();
-    protected Shop shop;
-    protected SubscribedUser user;
-    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
-    private String appointer;
 
+    protected Shop shop;
+
+    protected SubscribedUser user;
+
+    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
+
+    private String appointer;
     public ShopAdministrator(Shop s, SubscribedUser u, String appointer) {
         super();
         this.appointer = appointer;
         shop = s;
         user = u;
+    }
+    public ShopAdministrator(String appointer, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+        super();
+        this.appointer = appointer;
+        this.appoints = appoints;
     }
 
     /**
@@ -54,6 +62,7 @@ public class ShopAdministrator{
             ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).removeProduct(productid);
         else throw new NoPermissionException("you don't have permission to do that!");
     }
+
     public Product addProduct(int productid, String name, String desc,String manufacturer, double price, int quantity) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
             return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).addProduct(productid, name, desc, manufacturer, price, quantity);
@@ -65,7 +74,6 @@ public class ShopAdministrator{
             return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductQuantity(productid, newQuantity);
         else throw new NoPermissionException("you don't have permission to do that!");
     }
-
     public boolean changeProductPrice(int productid, double newPrice) throws NoPermissionException {
         if(action.containsKey(BaseActionType.STOCK_MANAGEMENT))
             return ((StockManagement)action.get(BaseActionType.STOCK_MANAGEMENT)).changeProductPrice(productid, newPrice);
@@ -103,13 +111,13 @@ public class ShopAdministrator{
     public Collection<BaseActionType> getActionsTypes() {
         return action.keySet();
     }
+
     public Collection<AdministratorInfo> getAdministratorInfo() throws NoPermissionException {
         if(this.action.containsKey(BaseActionType.ROLE_INFO)){
             return ((RolesInfo)action.get(BaseActionType.ROLE_INFO)).act();
         }
         else throw new NoPermissionException("dont hve a permission to search information about shop administrator");
     }
-
 
 
     public Collection<PurchaseHistory> getHistoryInfo() throws NoPermissionException {
@@ -172,5 +180,13 @@ public class ShopAdministrator{
 
     public int getShopID() {
         return shop.getId();
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
     }
 }
