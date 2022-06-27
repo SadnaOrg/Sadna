@@ -372,21 +372,19 @@ public class Shop {
         }
     }
     public boolean addAdministratorToHeskemMinui(String userNameToAssign,String appointer) {
-        if (state == State.OPEN)
-            return heskemMinuis.putIfAbsent(userNameToAssign, new HeskemMinui(this.id,userNameToAssign,appointer,this.shopAdministrators.keySet()))==null;
-        else
-        {
+        if (state == State.OPEN) {
+            if (this.shopAdministrators.containsKey(userNameToAssign))
+                throw new IllegalArgumentException("user allready administrator fo the shop");
+            return heskemMinuis.putIfAbsent(userNameToAssign, new HeskemMinui(this.id, userNameToAssign, appointer, this.shopAdministrators.keySet())) == null;
+        }else
             throw new IllegalStateException("The shop is closed");
-        }
     }
 
     public boolean approveHeskemMinui(String adminToAssign,String adminName) {
         if (state == State.OPEN)
             return heskemMinuis.get(adminToAssign).approve(adminName);
         else
-        {
             throw new IllegalStateException("The shop is closed");
-        }
     }
     public boolean declineHeskemMinui(String adminToAssign) {
         if (state == State.OPEN) {
@@ -394,9 +392,7 @@ public class Shop {
             return true;
         }
         else
-        {
             throw new IllegalStateException("The shop is closed");
-        }
     }
     public boolean approvePurchase(User user)
     {

@@ -38,7 +38,7 @@ public class ApproveAssignmentsView extends VerticalLayout {
         this.currUser = currUser;
         var res = service.getHeskemeyMinui();
         if (res.isOk()) {
-            add(creatHeskemDisplay(res.getElement()));
+            add(creatHeskemDisplay(res.getElement().stream().filter(h->!h.approvals().getOrDefault(currUser,true)).collect(Collectors.toList())));
         } else
             add(new Label("there is no assignments to approve"));
     }
@@ -46,7 +46,7 @@ public class ApproveAssignmentsView extends VerticalLayout {
     private Component creatHeskemDisplay(Collection<HeskemMinui> list) {
         var layout = new VerticalLayout();
         layout.setWidthFull();
-        layout.add(new H1("your assignments to approve:"), createHeskemsGrid(list));
+        layout.add(new H1("Your assignments to approve:"), createHeskemsGrid(list));
         return layout;
     }
 
@@ -92,7 +92,9 @@ public class ApproveAssignmentsView extends VerticalLayout {
         progressBar.setMax(approvals.size());
         progressBar.setValue(x);
         var lable = new Label("progress (" + x + "/" + approvals.size() + ")");
-        return new HorizontalLayout(lable, progressBar);
+        var layer = new HorizontalLayout(lable, progressBar);
+        layer.setWidthFull();
+        return layer;
     }
 }
 

@@ -9,11 +9,15 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.accordion.Accordion;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.details.DetailsVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.NumberField;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -23,6 +27,7 @@ import java.util.stream.Collectors;
 import static com.example.application.Utility.notifyError;
 import static com.example.application.Utility.notifySuccess;
 import static com.example.application.views.main.ApproveAssignmentsView.createProgressBar;
+import static com.example.application.views.main.Discount.DiscountContentCreator.getNumberField;
 
 public class ApproveBidsView extends VerticalLayout {
     SubscribedUserService service;
@@ -90,13 +95,35 @@ public class ApproveBidsView extends VerticalLayout {
             b.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
             return b;
         }).setHeader("decline bid");
+
+        g.addComponentColumn(bid -> {
+            var b = new Button("re-offer bid", (e) -> {
+                var newPrice = getNumberField("enter new price:",-1);
+                var layout = new VerticalLayout();
+                var diag = new Dialog(layout);
+                layout.add(new H1("Re-offer bid:"),newPrice, new HorizontalLayout(new Button("cancle",e1->diag.close()),new Button("re-offer bid",e2 -> {
+                    if(newPrice.getValue()==null)
+                    {
+                        notifyError("enter a price value");
+                        return;
+                    }
+                    var res = service.reOfferBid(bid.userName(), bid.productId(), newPrice.getValue(), bid.shopId());
+                    if (res.isOk()) {
+                        notifySuccess("re-offer bid successfully");
+                        UI.getCurrent().getPage().reload();
+                    } else
+                        notifyError(res.getMsg());
+                    diag.close();
+                })));
+                diag.open();
+            });
+            b.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
+            return b;
+        }).setHeader("decline bid");
         g.setItems(c);
         return g;
     }
 
-    private Component createBidsProgressBar1(ConcurrentHashMap<String, Boolean> approvals) {
-        return createProgressBar(approvals);
 
-    }
 
 }
