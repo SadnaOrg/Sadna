@@ -1,37 +1,25 @@
 package BusinessLayer.Mappers.ShopMappers;
 
 import BusinessLayer.Mappers.CastEntity;
+import BusinessLayer.Mappers.Func;
 import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Shop;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
-import ORM.Shops.Discounts.DiscountPlusPolicy;
-import ORM.Shops.Product;
-import ORM.Shops.PurchaseHistory;
-import ORM.Shops.Purchases.PurchaseAndPolicy;
-import ORM.Users.Basket;
 import ORM.Users.ShopAdministrator;
 import ORM.Users.ShopOwner;
-import ORM.Users.SubscribedUser;
 
-import javax.persistence.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {
 
+    private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
+    private Func<ShopOwnerMapper> shopOwnerMapper = () -> ShopOwnerMapper.getInstance();
+    private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
-
-    // return the shop without a singe admin with the name of user.
-    public Shop fromEntityNoAdmin(SubscribedUser user, ORM.Shops.Shop shop) {
-        return null;
-    }
-
-    public ORM.Shops.Shop toEntityNoAdmin(Shop shop,SubscribedUser user) {
-        return null;
-    }
 
     static private class ShopMapperHolder {
         static final ShopMapper mapper = new ShopMapper();
@@ -47,28 +35,34 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
-        int id = entity.getId();
-        String name = entity.getName();
-        String description = entity.getDescription();
-        ShopOwner founder = ShopOwnerMapper.getInstance().toEntity(entity.getFounder());
-        ORM.Shops.Shop.State state = ORM.Shops.Shop.State.OPEN;
-        if(!(entity.isOpen()))
-            state = ORM.Shops.Shop.State.CLOSED;
-        Collection<Product> products = entity.getProducts().values().stream().map(product -> ProductMapper.getInstance().toEntity(product)).toList();
-        ConcurrentHashMap<String, BusinessLayer.Users.Basket> usersBaskets = entity.getUsersBaskets();
-        Map<SubscribedUser, Basket> DALUsersBaskets = new HashMap<>();
-        Map<SubscribedUser, PurchaseHistory> purchaseHistory = null;
-        Map<SubscribedUser, ShopAdministrator> shopAdministrators = null;
-        DiscountPlusPolicy discounts = null;
-        PurchaseAndPolicy policies = null;
-        return new ORM.Shops.Shop(id, name, description, founder, state,  products,
-                DALUsersBaskets,  purchaseHistory,
-                 shopAdministrators, discounts,  policies);
+        ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getId(), entity.getName(), entity.getDescription(),
+                subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
+                ORM.Shops.Shop.State.values()[entity.getState().ordinal()], new ArrayList<>(), new ConcurrentHashMap<>(),
+                new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
+
+        for (String admin : entity.getShopAdministratorsMap().keySet()) {
+            if (admin != shop.getFounder().getUser().getUsername()) {
+                ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
+                ormAdmin.setUser(subscribedUserMapper.run().findORMById(admin));
+                ormAdmin.setShop(shop);
+                shop.getShopAdministrators().put(subscribedUserMapper.run().findORMById(admin), ormAdmin);
+            }
+        }
+
+        //for (ShopAdministrator admin : shop.getFounder().getUser().getAdministrators()){
+        //    if (admin.getUser().getUsername() == shop.getFounder().getUser().getUsername()) {
+        //        admin.setUser(shop.getFounder().getUser());
+        //    }
+        //    admin.setShop(shop);
+        //};
+        return shop;
     }
 
     @Override
     public Shop fromEntity(ORM.Shops.Shop entity) {
-        return null;
+        return new Shop(entity.getId(), entity.getName(), entity.getDescription(),
+                Shop.State.values()[entity.getState().ordinal()], shopOwnerMapper.run().fromEntity(entity.getFounder()),
+                null, null, null, null);
     }
 
     @Override

@@ -64,6 +64,17 @@ public abstract class ShopAdministrator implements Serializable{
         this.appoints = new ArrayList<>();
     }
 
+    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user, List<ShopAdministrator> appoints) {
+        this.action = action;
+        this.user = user;
+        this.appoints = appoints;
+    }
+
+    public ShopAdministrator(List<BaseActionType> action, List<ShopAdministrator> appoints) {
+        this.action = action;
+        this.appoints = appoints;
+    }
+
     public ShopAdministrator(){
 
     }

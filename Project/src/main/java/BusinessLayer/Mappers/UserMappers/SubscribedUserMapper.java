@@ -2,30 +2,20 @@ package BusinessLayer.Mappers.UserMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
+import BusinessLayer.Users.ShopAdministrator;
 import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
-import ORM.Shops.Shop;
+import ORM.Users.PaymentMethod;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, CastEntity<ORM.Users.SubscribedUser, SubscribedUser> {
 
     private SubscribedUserDAO dao = new SubscribedUserDAO();
     private Func<PaymentMethodMapper> paymentMethodMapper = () -> PaymentMethodMapper.getInstance();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
-
-    // create the object without the admin matching shop
-    public SubscribedUser fromEntityNoAdmin(ORM.Users.SubscribedUser user, Shop shop) {
-        return null;
-    }
-
-    public ORM.Users.SubscribedUser toEntityNoAdmin(SubscribedUser user, BusinessLayer.Shops.Shop shop) {
-        return null;
-    }
-
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
     }
@@ -43,9 +33,16 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
         if (entity == null)
             return null;
 
-        ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(),
-                !entity.isRemoved(), paymentMethodMapper.run().toEntity(entity.getMethod()),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin)).toList());
+        ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
+                entity.isLoggedIn(), !entity.isRemoved(), null);
+
+        for (ShopAdministrator admin : entity.getAdministrators()) {
+            if (admin.getUserName() != entity.getUserName()) {
+                ORM.Users.ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(admin);
+                ormAdmin.setUser(findORMById(admin.getUserName()));
+                user.getAdministrators().add(ormAdmin);
+            }
+        }
 
         if (user.getPaymentMethod() != null)
             user.getPaymentMethod().setUser(user);
@@ -56,10 +53,8 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     public SubscribedUser fromEntity(ORM.Users.SubscribedUser entity) {
         if (entity == null)
             return null;
-        SubscribedUser u = new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
-                new ArrayList<>(entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).collect(Collectors.toList())), entity.isIs_login());
-        u.updatePaymentMethod(paymentMethodMapper.run().fromEntity(entity.getPaymentMethod()));
-        return u;
+        return new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
+                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList(), entity.isIs_login());
     }
 
     @Override
@@ -80,6 +75,10 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     @Override
     public SubscribedUser findById(String key) {
         return fromEntity(dao.findById(key));
+    }
+
+    public ORM.Users.SubscribedUser findORMById(String key) {
+        return dao.findById(key);
     }
 
     @Override
