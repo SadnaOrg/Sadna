@@ -8,6 +8,7 @@ import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
 import ORM.Users.PaymentMethod;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -54,7 +55,7 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
         if (entity == null)
             return null;
         return new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList(), entity.isIs_login());
+                new ArrayList<>(entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList()), entity.isIs_login());
     }
 
     @Override

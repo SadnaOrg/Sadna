@@ -19,6 +19,12 @@ public class PurchaseHistory {
         this.past_purchases = new ArrayList<>();
     }
 
+    public PurchaseHistory(Shop shop, String user, Collection<Purchase> purchases){
+        this.shop = shop;
+        this.user = user;
+        this.past_purchases = purchases;
+    }
+
     public void makePurchase()
     {
         Purchase purchase = new Purchase(shop.getId(), user, past_purchases.size()+1,shop.getUsersBaskets().get(user));

@@ -21,6 +21,18 @@ import java.util.Collection;
 
 public class PolicyAndPurchasesConverter implements Converter{
 
+    private PolicyAndPurchasesConverter(){
+
+    }
+
+    private static class Holder{
+        static final PolicyAndPurchasesConverter instance = new PolicyAndPurchasesConverter();
+    }
+
+    public static PolicyAndPurchasesConverter getInstance(){
+        return Holder.instance;
+    }
+
     @Override
     public DiscountPolicy toEntity(DiscountAndPolicy p, ORM.Shops.Shop shop) {
         int ID = p.getID();

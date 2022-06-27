@@ -68,6 +68,10 @@ public class Shop {
         usersBaskets.remove(userName);
     }
 
+    public State getState() {
+        return state;
+    }
+
     public enum State {
         OPEN,
         CLOSED

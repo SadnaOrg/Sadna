@@ -23,6 +23,8 @@ public class BasketMapper implements CastEntity<ORM.Users.Basket, Basket> {
         return new ORM.Users.Basket(shop, user, products, prices, categories);
     }
 
+
+
     @Override
     public Basket fromEntity(ORM.Users.Basket entity) {
         return new Basket(entity.getShop().getId(), entity.getProducts(), entity.getPrices(), entity.getCategories());

@@ -68,4 +68,6 @@ public class Purchase {
     public void setUser(SubscribedUser user) {
         this.user = user;
     }
+
+    public int getTransactionid(){return this.transactionid;}
 }

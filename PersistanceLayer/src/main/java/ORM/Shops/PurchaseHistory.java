@@ -43,6 +43,22 @@ public class PurchaseHistory {
         this.past_purchases = past_purchases;
     }
 
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public SubscribedUser getUser() {
+        return user;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
+    }
+
     public static class PurchaseHistoryPKID implements Serializable {
         private Shop shop;
         private SubscribedUser user;
