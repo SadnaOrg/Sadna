@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.function.Predicate;
 
 import static com.example.application.Utility.*;
+import static com.example.application.views.main.Discount.DiscountContentCreator.getNumberField;
 
 @Route("Products")
 public class ProductView extends Header {
@@ -113,14 +114,7 @@ public class ProductView extends Header {
         return basketField;
     }
     private NumberField createNumberField(String label, int maxValue) {
-        NumberField amount = new NumberField(label);
-        amount.setAutofocus(true);
-        amount.setWidthFull();
-        amount.setClearButtonVisible(true);
-        amount.setMin(0);
-        if(maxValue != -1)
-            amount.setMax(maxValue);
-        return amount;
+        return getNumberField(label, maxValue);
     }
 
     private void addProductDetails(Product p) {
