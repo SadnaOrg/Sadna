@@ -23,6 +23,12 @@ public class ProductInfo {
 
     }
 
+    public ProductInfo(int productid, int productquantity, double productprice) {
+        this.productid = productid;
+        this.productprice = productprice;
+        this.productquantity = productquantity;
+    }
+
     public ProductInfo getProductInfo()
     {
         return this;

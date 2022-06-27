@@ -31,8 +31,28 @@ public class PurchaseHistory {
     )
     private Collection<Purchase> past_purchases;
 
+    public PurchaseHistory(Collection<Purchase> past_purchases) {
+        this.past_purchases = past_purchases;
+    }
+
     public PurchaseHistory() {
 
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public SubscribedUser getUser() {
+        return user;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
     }
 
     public Collection<Purchase> getPast_purchases() {

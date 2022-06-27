@@ -12,12 +12,18 @@ public class ProductInfo {
     @Id
     @ManyToOne
     @JoinColumn(name = "transactionID")
-    private Purchase purchase;
+    private Purchase purchase;//TODO:check WTF is this
     private int quantity;
-    private int price;
+    private double price;
     public ProductInfo(int productID, Purchase purchase, int quantity, int price) {
         this.productID = productID;
         this.purchase = purchase;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    public ProductInfo(int productID,  int quantity, double price) {
+        this.productID = productID;
         this.quantity = quantity;
         this.price = price;
     }
@@ -29,5 +35,17 @@ public class ProductInfo {
     public class ProductInfoPKID implements Serializable {
         private int productID;
         private Purchase purchase;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }

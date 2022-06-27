@@ -103,6 +103,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         return fromEntity(dao.findById(key));
     }
 
+    public ORM.Shops.Shop findORMById(Integer key) {
+        return dao.findById(key);
+    }
+
     public Collection<Shop> findByFounder(String username) {
         return dao.findByFounder(username).stream().map(this::fromEntity).toList();
     }

@@ -30,6 +30,12 @@ public class Purchase {
         this.user = user;
     }
 
+    public Purchase(int transactionid, Collection<ProductInfo> productInfos, String dateOfPurchase) {
+        this.transactionid = transactionid;
+        this.productInfos = productInfos;
+        this.dateOfPurchase = dateOfPurchase;
+    }
+
     @ManyToOne
     @JoinColumn(name = "username")
     private SubscribedUser user;
@@ -67,5 +73,9 @@ public class Purchase {
 
     public void setUser(SubscribedUser user) {
         this.user = user;
+    }
+
+    public int getTransactionid() {
+        return transactionid;
     }
 }

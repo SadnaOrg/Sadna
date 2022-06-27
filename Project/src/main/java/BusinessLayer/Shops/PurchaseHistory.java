@@ -9,14 +9,20 @@ import java.util.stream.Collectors;
 
 
 public class PurchaseHistory {
-    Shop shop;
-    String user;
-    Collection<Purchase> past_purchases;
+    private Shop shop;
+    private String user;
+    private Collection<Purchase> past_purchases;
     public PurchaseHistory(Shop shop, String user)
     {
         this.shop = shop;
         this.user= user;
         this.past_purchases = new ArrayList<>();
+    }
+
+    public PurchaseHistory(Shop shop, String user, Collection<Purchase> past_purchases) {
+        this.shop = shop;
+        this.user = user;
+        this.past_purchases = past_purchases;
     }
 
     public void makePurchase()
