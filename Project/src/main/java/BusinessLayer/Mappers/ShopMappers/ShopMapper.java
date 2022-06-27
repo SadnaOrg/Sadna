@@ -61,6 +61,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         }
         Collection<Product> products = entity.getProducts().values().stream().map(product -> ProductMapper.getInstance().toEntity(product)).toList();
         ORM.Shops.PurchaseHistory purchaseHistory = PurchaseHistoryMapper.getInstance().toEntity(entity.getPurchaseHistory(), shop);
+        shop.setDiscounts(DiscountPlusPolicy);
+        shop.setPolicies(policy);
+        shop.setProducts(products);
+        shop.setPurchaseHistory(null);
         return shop;
     }
 
@@ -68,6 +72,8 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     public Shop fromEntity(ORM.Shops.Shop entity) {
         ConcurrentHashMap<Integer,BusinessLayer.Products.Product> productConcurrentHashMap = new ConcurrentHashMap<>();
         ConcurrentHashMap<String,BusinessLayer.Users.Basket> basketConcurrentHashMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String,BusinessLayer.Shops.PurchaseHistory> purchaseHistoryConcurrentHashMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String,BusinessLayer.Users.ShopAdministrator> administratorConcurrentHashMap = new ConcurrentHashMap<>();
         for (Product p:
              entity.getProducts()) { // build shop products
             BusinessLayer.Products.Product product = new BusinessLayer.Products.Product(p.getId(),p.getName(),p.getPrice(),p.getQuantity());
@@ -77,13 +83,24 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
             productConcurrentHashMap.put(p.getId(),product);
         }
         for (SubscribedUser u:
-             entity.getUsersBaskets().keySet()) {
+             entity.getUsersBaskets().keySet()) { // build baskets
             Basket basket = BasketMapper.getInstance().fromEntity(entity.getUsersBaskets().get(u));
             basketConcurrentHashMap.put(u.getUsername(), basket);
         }
-        return new Shop(entity.getId(), entity.getName(), entity.getDescription(),
+        for (SubscribedUser adminUser:
+             entity.getShopAdministrators().keySet()) { // build admins
+            BusinessLayer.Users.ShopAdministrator administrator = shopAdministratorMapper.run().fromEntity(entity.getShopAdministrators().get(adminUser));
+            administratorConcurrentHashMap.put(administrator.getUserName(), administrator);
+        }
+        Shop s = new Shop(entity.getId(), entity.getName(), entity.getDescription(),
                 Shop.State.values()[entity.getState().ordinal()], shopOwnerMapper.run().fromEntity(entity.getFounder()),
-                productConcurrentHashMap, basketConcurrentHashMap, null, null);
+                productConcurrentHashMap, basketConcurrentHashMap, null, administratorConcurrentHashMap);
+        for (ORM.Users.SubscribedUser u:
+             entity.getPurchaseHistory().keySet()) {
+                purchaseHistoryConcurrentHashMap.put(u.getUsername(),PurchaseHistoryMapper.getInstance().fromEntity(entity.getPurchaseHistory().get(u), s));
+        }
+        s.setHisory(purchaseHistoryConcurrentHashMap);
+        return s;
     }
 
     @Override

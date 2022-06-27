@@ -1,7 +1,5 @@
 package BusinessLayer.Mappers.ShopMappers;
 
-import BusinessLayer.Mappers.CastEntity;
-import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;

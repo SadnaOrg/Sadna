@@ -72,6 +72,10 @@ public class Shop {
         return state;
     }
 
+    public void setHisory(ConcurrentHashMap<String, PurchaseHistory> purchaseHistoryConcurrentHashMap) {
+        this.purchaseHistory = purchaseHistoryConcurrentHashMap;
+    }
+
     public enum State {
         OPEN,
         CLOSED
