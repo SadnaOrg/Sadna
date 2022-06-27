@@ -3,7 +3,7 @@ package com.example.application.Parser;
 import ServiceLayer.interfaces.UserService;
 import org.springframework.remoting.RemoteTimeoutException;
 
-public class LoginAsGuest implements ParsedLine{
+public class LoginAsGuest extends ParsedLine {
 
     @Override
     public UserService act(UserService u) throws RuntimeException {

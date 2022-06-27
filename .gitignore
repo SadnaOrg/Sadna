@@ -7,3 +7,4 @@ GUI/error_log.txt.lck
 GUI/error_log.txt
 GUI/event_log.txt
 GUI/event_log.txt.lck
+*.txt

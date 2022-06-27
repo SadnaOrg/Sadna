@@ -2,7 +2,7 @@ package com.example.application.Parser;
 
 import ServiceLayer.interfaces.UserService;
 
-public class PurchaseCart implements ParsedLine{
+public class PurchaseCart extends ParsedLine {
     private String credit_number;
     private int cvv;
     private int expierd_month;

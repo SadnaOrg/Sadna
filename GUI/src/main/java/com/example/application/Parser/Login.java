@@ -2,7 +2,7 @@ package com.example.application.Parser;
 
 import ServiceLayer.interfaces.UserService;
 
-public class Login implements ParsedLine{
+public class Login extends ParsedLine {
     private String username;
     private String password;
 
