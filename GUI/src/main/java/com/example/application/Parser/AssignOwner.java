@@ -2,7 +2,7 @@ package com.example.application.Parser;
 
 import ServiceLayer.interfaces.UserService;
 
-public class AssignOwner implements ParsedLine{
+public class AssignOwner extends ParsedLine {
     private int shop;
     private String username;
 

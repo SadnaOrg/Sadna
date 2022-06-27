@@ -142,30 +142,32 @@ public class SubscribedUserView extends GuestActionView {
     }
 
     private void itemClicked(Shop item) {
-        Dialog addProductDialog = new Dialog();
-        VerticalLayout addProductLayout = new VerticalLayout();
-        HorizontalLayout addLayout = new HorizontalLayout();
-        TextField name = new TextField("Name");
-        TextField description = new TextField("Description");
-        TextField manufacturer = new TextField("Manufacturer");
-        NumberField quantity = new NumberField("Quantity");
-        NumberField price = new NumberField("Price");
-        Button add = new Button("Add", e -> {
-            Result res = service.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
-            itemsSize += 1;
-            if (res.isOk()) {
-                updateProductGrid(item.shopId());
-                notifySuccess("Product Successfully Added!");
-            }
-            else
-                notifyError(res.getMsg());
-        });
-        addLayout.add(name, description, manufacturer, quantity, price, add);
-        addProductLayout.add(addLayout, shopProducts);
-        addProductDialog.add(addProductLayout);
-        updateProductGrid(item.shopId());
-        addProductLayout.add(shopProducts);
-        addProductDialog.open();
+        var isAdmin = service.getMyInfo(item.shopId());
+        if(isAdmin.isOk()) {
+            Dialog addProductDialog = new Dialog();
+            VerticalLayout addProductLayout = new VerticalLayout();
+            HorizontalLayout addLayout = new HorizontalLayout();
+            TextField name = new TextField("Name");
+            TextField description = new TextField("Description");
+            TextField manufacturer = new TextField("Manufacturer");
+            NumberField quantity = new NumberField("Quantity");
+            NumberField price = new NumberField("Price");
+            Button add = new Button("Add", e -> {
+                Result res = service.addProductToShop(item.shopId(), name.getValue(), description.getValue(), manufacturer.getValue(), itemsSize, quantity.getValue().intValue(), price.getValue());
+                itemsSize += 1;
+                if (res.isOk()) {
+                    updateProductGrid(item.shopId());
+                    notifySuccess("Product Successfully Added!");
+                } else
+                    notifyError(res.getMsg());
+            });
+            addLayout.add(name, description, manufacturer, quantity, price, add);
+            addProductLayout.add(addLayout, shopProducts);
+            addProductDialog.add(addProductLayout);
+            updateProductGrid(item.shopId());
+            addProductLayout.add(shopProducts);
+            addProductDialog.open();
+        }
     }
 
     private void createProductGrid() {
@@ -211,7 +213,7 @@ public class SubscribedUserView extends GuestActionView {
     }
 
     private void updateGrid() {
-        Collection<Shop> shopItems = service.receiveInformation().getElement().shops();
+        Collection<Shop> shopItems = service.searchShops(s -> true, currUser).getElement().shops();
         shops.setItems(shopItems);
     }
 

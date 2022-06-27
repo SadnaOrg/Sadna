@@ -2,7 +2,7 @@ package com.example.application.Parser;
 
 import ServiceLayer.interfaces.UserService;
 
-public class AddProductToShop implements ParsedLine{
+public class AddProductToShop extends ParsedLine {
     private int shop;
     private String product_name;
     private String product_description;

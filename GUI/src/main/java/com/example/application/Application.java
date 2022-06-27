@@ -1,5 +1,6 @@
 package com.example.application;
 
+import ServiceLayer.Log;
 import com.example.application.Parser.Grammer;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
@@ -35,7 +36,6 @@ public class Application extends SpringBootServletInitializer implements AppShel
 
     public static void main(String[] args) {
         if (args.length >= 1 ) {
-            System.out.println("startttttttttttttttttttttt");
             try {
                 var g = Grammer.parse(Files.readString(Path.of(args[0])));
                 args = new String[0];
@@ -43,10 +43,10 @@ public class Application extends SpringBootServletInitializer implements AppShel
                 if (u == null)
                     return;
             } catch (IOException e) {
+                Log.getInstance().error("Error in configure file :\n \t\t"+e.getMessage());
                 e.printStackTrace();
                 return;
             }
-            System.out.println("finishhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         }
          SpringApplication.run(Application.class, args);
     }

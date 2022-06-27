@@ -6,7 +6,7 @@ import ServiceLayer.interfaces.UserService;
 
 import java.util.function.Supplier;
 
-public class Logout implements ParsedLine{
+public class Logout extends ParsedLine {
 
     @Override
     public UserService act(UserService u) throws RuntimeException {
