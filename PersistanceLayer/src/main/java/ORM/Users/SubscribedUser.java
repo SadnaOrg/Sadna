@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Entity
 @Table(name = "SubscribedUser")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class SubscribedUser extends User{
     protected String password;
     protected boolean is_login;
