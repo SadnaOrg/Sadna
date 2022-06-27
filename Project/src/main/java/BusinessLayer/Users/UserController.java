@@ -21,6 +21,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserController {
 
 
+    public void addUserForTest(User u1) {
+        guests.insert(u1.getUserName(),(Guest)u1, false);
+    }
 
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
