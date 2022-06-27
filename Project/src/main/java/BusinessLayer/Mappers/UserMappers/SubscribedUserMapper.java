@@ -8,9 +8,12 @@ import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
 import ORM.Users.PaymentMethod;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Objects;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, CastEntity<ORM.Users.SubscribedUser, SubscribedUser> {
 
@@ -33,9 +36,10 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     public ORM.Users.SubscribedUser toEntity(SubscribedUser entity) {
         if (entity == null)
             return null;
-
+        String pattern = "yyyy-MM-dd";
+        DateFormat format = new SimpleDateFormat(pattern);
         ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
-                entity.isLoggedIn(), !entity.isRemoved(), null);
+                format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(), null);
 
         for (ShopAdministrator admin : entity.getAdministrators()) {
             if (admin.getUserName() != entity.getUserName()) {
@@ -54,8 +58,23 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     public SubscribedUser fromEntity(ORM.Users.SubscribedUser entity) {
         if (entity == null)
             return null;
-        return new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
-                new ArrayList<>(entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList()), entity.isIs_login());
+        SubscribedUser user = new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(), new ArrayList<>(),
+                entity.isIs_login(), entity.getDate());
+
+        //List<ShopAdministrator> administrators;
+        //Map<Integer, ShopAdministrator> shopAdministratorMap = new ConcurrentHashMap<>();
+        //if (entity.getAdministrators() != null) {
+        //    administrators = entity.getAdministrators().stream().map(admin -> {
+        //        ShopAdministrator buss_admin = shopAdministratorMapper.run().fromEntity(admin);
+        //        buss_admin.setUser(user);
+        //        return buss_admin;
+        //    }).collect(Collectors.toList());
+//
+        //    administrators.stream().peek(admin -> shopAdministratorMap.put(admin.getShopID(), admin));
+        //}
+//
+        //user.setShopAdministrator(shopAdministratorMap);
+        return user;
     }
 
     @Override

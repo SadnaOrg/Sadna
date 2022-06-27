@@ -6,10 +6,9 @@ import BusinessLayer.Shops.Shop;
 import java.util.Collection;
 
 public class HistoryInfo extends BaseAction {
-      private Shop shop;
       public HistoryInfo(Shop shop)
       {
-          this.shop= shop;
+          super(shop);
       }
 
 

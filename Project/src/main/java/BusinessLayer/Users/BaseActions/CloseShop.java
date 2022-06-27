@@ -7,11 +7,10 @@ import BusinessLayer.Shops.Shop;
 import javax.naming.NoPermissionException;
 
 public class CloseShop extends BaseAction {
-    Shop shop;
     SubscribedUser user;
 
     public CloseShop(Shop shop, SubscribedUser user) {
-        this.shop = shop;
+        super(shop);
         this.user = user;
     }
 

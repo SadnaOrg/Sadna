@@ -11,10 +11,9 @@ import java.util.Collection;
 
 public class SetPurchasePolicy extends BaseAction {
 
-    private Shop shop;
 
     public SetPurchasePolicy(Shop shop) {
-        this.shop = shop;
+        super(shop);
     }
 
     public int createProductByQuantityDiscount(int productId, int productQuantity, double discount, int conncectId) throws NoPermissionException {
