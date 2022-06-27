@@ -1,11 +1,8 @@
 package BusinessLayer.Caches;
 
 import BusinessLayer.Mappers.ShopMappers.ShopMapper;
-import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
-import BusinessLayer.Mappers.UserMappers.SystemManagerMapper;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.SystemManager;
 
 import java.util.Collection;
 
@@ -50,5 +47,16 @@ public class ShopCache extends Cache<Integer, Shop> {
             cacheable.unMark();
             remove(id);
         }
+    }
+
+    @Override
+    public void clear() {
+        Collection<Shop> all = findAll();
+        for (Integer id:
+             all.stream().map(Shop::getId).toList()) {
+            remoteRemove(id);
+        }
+        quickLookUp.clear();
+        cache.clear();
     }
 }

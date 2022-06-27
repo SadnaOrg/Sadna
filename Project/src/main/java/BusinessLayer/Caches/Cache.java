@@ -125,4 +125,6 @@ public abstract class Cache<K,T> {
     public abstract void remoteUpdate(T element);
 
     public abstract void remoteRemove(K id);
+
+    public abstract void clear();
 }

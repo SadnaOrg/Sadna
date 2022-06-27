@@ -3,6 +3,7 @@ package BusinessLayer.Caches;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.User;
 
 import java.util.Collection;
 
@@ -47,5 +48,16 @@ public class SubscribedUserCache extends Cache<String, SubscribedUser> {
             cacheable.unMark();
             remove(id);
         }
+    }
+
+    @Override
+    public void clear() {
+        Collection<SubscribedUser> all = findAll();
+        for (String username:
+             all.stream().map(User::getUserName).toList()) {
+            remoteRemove(username);
+        }
+        cache.clear();
+        quickLookUp.clear();
     }
 }

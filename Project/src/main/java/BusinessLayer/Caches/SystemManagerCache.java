@@ -1,9 +1,8 @@
 package BusinessLayer.Caches;
 
-import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Mappers.UserMappers.SystemManagerMapper;
-import BusinessLayer.Users.SubscribedUser;
 import BusinessLayer.Users.SystemManager;
+import BusinessLayer.Users.User;
 
 import java.util.Collection;
 
@@ -43,5 +42,16 @@ public class SystemManagerCache extends Cache<String, SystemManager> {
             cacheable.unMark();
             remove(id);
         }
+    }
+
+    @Override
+    public void clear() {
+        Collection<SystemManager> all = findAll();
+        for (String username:
+             all.stream().map(User::getUserName).toList()) {
+            remoteRemove(username);
+        }
+        quickLookUp.clear();
+        cache.clear();
     }
 }

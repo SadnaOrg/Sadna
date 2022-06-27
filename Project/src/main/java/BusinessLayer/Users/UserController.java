@@ -1,19 +1,16 @@
 package BusinessLayer.Users;
 
+import BusinessLayer.Caches.GuestCache;
 import BusinessLayer.Caches.ShopCache;
 import BusinessLayer.Caches.SubscribedUserCache;
 import BusinessLayer.Caches.SystemManagerCache;
-import BusinessLayer.Caches.UserCache;
-import BusinessLayer.Mappers.ShopMappers.ShopMapper;
-import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
 import BusinessLayer.Shops.ShopInfo;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
 import java.time.LocalDate;
@@ -24,11 +21,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserController {
 
 
+
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
     }
 
-    private final UserCache users;
+    private final GuestCache guests;
     private final SubscribedUserCache subscribers;
     private final SystemManagerCache managers;
     private int guest_serial = -1;
@@ -38,13 +36,13 @@ public class UserController {
     }
 
     private UserController() {
-        users = UserCache.getInstance();
+        guests = GuestCache.getInstance();
         managers = SystemManagerCache.getInstance();
         subscribers = SubscribedUserCache.getInstance();
     }
 
     public AdministratorInfo getMyInfo(String userName, int shopID) {
-        SubscribedUser u = subscribers.findElement(userName);
+        SubscribedUser u = getSubUser(userName);
         if(u != null){
             ShopAdministrator admin = u.getAdministrator(shopID);
             if(admin != null){
@@ -54,13 +52,12 @@ public class UserController {
         }
         return null;
     }
-    // TODO: check all functions that change state of object and call matching caches.
-    // TODO: make sure CASCADE is turned on.
+
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        SubscribedUser remover = subscribers.findElement(requesting);
+        SubscribedUser remover = getSubUser(requesting);
         SubscribedUser removed;
         if(remover != null){
-            removed = subscribers.findElement(toRemove);
+            removed = getSubUser(toRemove);
             if(removed != null){
                 boolean status = remover.removeAdmin(shopID,removed);
                 if(status){
@@ -77,10 +74,10 @@ public class UserController {
     }
 
     public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
-        SubscribedUser remover = subscribers.findElement(requesting);
+        SubscribedUser remover = getSubUser(requesting);
         SubscribedUser removed;
         if(remover != null){
-            removed = subscribers.findElement(toRemove);
+            removed = getSubUser(toRemove);
             if(removed != null){
                 boolean status = remover.removeShopOwner(shopID,removed);
                 if(status){
@@ -113,7 +110,7 @@ public class UserController {
     }
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart(String u) {
-        User u1 = users.findElement(u);
+        User u1 = getUser(u);
         if(u1 != null)
             return u1.getShoppingCart();
         throw new IllegalArgumentException("no such user in the system");
@@ -158,11 +155,14 @@ public class UserController {
 
 
     public User getUser(String user) {
-        return users.findElement(user);
+        User u = getSubUser(user);
+        if(u == null)
+            return guests.findElement(user);
+        return u;
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        User user = users.findElement(u.getUserName());
+        User user = getUser(u.getUserName());
         if(user == null)
             throw new IllegalArgumentException("no such user in the system");
         return user.showCart();
@@ -176,7 +176,7 @@ public class UserController {
      * @throws NoPermissionException if the shop Administrator has no permission to complete the transaction
      */
     public boolean AssignShopManager(SubscribedUser currUser, String userNameToAssign, int shopId) throws NoPermissionException {
-        SubscribedUser assignee = subscribers.findElement(userNameToAssign);
+        SubscribedUser assignee = getSubUser(userNameToAssign);
         if (assignee != null) {
             boolean status = currUser.assignShopManager(shopId, assignee);
             if(status){
@@ -190,7 +190,9 @@ public class UserController {
     }
 
     public SubscribedUser getSubUser(String userName) {
-        SubscribedUser subscribedUser = subscribers.findElement(userName);
+        SubscribedUser subscribedUser = managers.findElement(userName);
+        if (subscribedUser == null)
+            subscribedUser = subscribers.findElement(userName);
         if (subscribedUser == null)
             throw new IllegalArgumentException("user " + userName + " doesn't exist");
         return subscribedUser;
@@ -214,17 +216,14 @@ public class UserController {
 
     public boolean createSystemManager(String username, String password, Date date) {
         SystemManager systemManager = new SystemManager(username, password,date);
-        users.insert(systemManager.getName(), systemManager, false);
-        subscribers.insert(systemManager.getName(), systemManager, false);
         managers.insert(systemManager.getName(), systemManager, true); // write once
         return true;
     }
 
     public synchronized boolean registerToSystem(String userName, String password, Date date) {
-        if (subscribers.findElement(userName) == null) {
+        if (getSubUser(userName) == null) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password,date);
-            users.insert(userName, newUser, false);
             subscribers.insert(userName, newUser, true); // write once
             return true;
         }
@@ -232,11 +231,11 @@ public class UserController {
     }
 
     public SubscribedUser login(String userName, String password, User currUser) {
-        SubscribedUser subscribedUser = subscribers.findElement(userName);
+        SubscribedUser subscribedUser = getSubUser(userName);
         if ((subscribedUser != null) && (currUser == null || currUser instanceof Guest))
             if (subscribedUser.login(userName, password)) {
                 if (currUser != null) {
-                    users.remove(currUser.getUserName());
+                    guests.remove(currUser.getUserName());
                 }
                 return subscribedUser;
             } else
@@ -245,11 +244,11 @@ public class UserController {
     }
 
     public Guest logout(String username) {
-        SubscribedUser subscribedUser = subscribers.findElement(username);
+        SubscribedUser subscribedUser = getSubUser(username);
         if (subscribedUser != null) {
             subscribedUser.logout();
-            subscribers.remove(username);
-            managers.remove(username); // the user may also be a cached manager
+            if(!managers.remove(username)) // if not a manager he must be a subscribed user, getSubUser put him in the cache
+                subscribers.remove(username);
             return loginSystem();
         }
         return null;
@@ -257,12 +256,12 @@ public class UserController {
 
     public Guest loginSystem() {
         Guest guest = new Guest("guest_" + ++guest_serial);
-        users.insert(guest.getName(), guest, true);
+        guests.insert(guest.getName(), guest, true);
         return guest;
     }
 
     public boolean logoutSystem(String name) {
-        return users.remove(name) | subscribers.remove(name) | managers.remove(name);
+        return guests.remove(name) || subscribers.remove(name) || managers.remove(name);
     } // exit everything
 
     public boolean assignShopManager(SubscribedUser user, int shop, String userNameToAssign) throws NoPermissionException {
@@ -413,7 +412,7 @@ public class UserController {
     }
 
     private ShopAdministrator getAdmin(String username, int shopID) {
-        SubscribedUser subscribedUser = subscribers.findElement(username);
+        SubscribedUser subscribedUser = getSubUser(username);
         if (subscribedUser != null) {
             return subscribedUser.getAdministrator(shopID);
         }
@@ -428,7 +427,6 @@ public class UserController {
         if(!getSubUser(userName).removeFromSystem())
             throw new IllegalArgumentException("user "+userName+" cant be removed");
         subscribers.remoteRemove(userName);
-        users.remove(userName); // not dirty after remoteRemove, so no writing to DB
         System.out.println("renoved ----------------> " +userName);
         return true;
     }
@@ -665,5 +663,11 @@ public class UserController {
 
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return currUser.getPurchasePolicy(shopId);
+    }
+
+    public void clearForTestsOnly() {
+        guests.clear();
+        subscribers.clear();
+        managers.clear();
     }
 }

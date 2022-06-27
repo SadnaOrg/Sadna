@@ -67,7 +67,7 @@ public class ShopController {
 
     private ShopController() {
         this.shops = ShopCache.getInstance();
-        ids = new LinkedList<>();
+        ids = shops.findAll().stream().map(Shop::getId).toList();
     }
 
     private Map<Integer, Shop> loadFromDB() {
