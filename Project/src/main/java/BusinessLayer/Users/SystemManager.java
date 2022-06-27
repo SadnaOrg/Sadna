@@ -5,12 +5,17 @@ import BusinessLayer.Shops.PurchaseHistoryController;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 public class SystemManager extends SubscribedUser {
 
 
     public SystemManager(String userName, String password, Date date) {
         super(userName,password,date);
+    }
+
+    public SystemManager(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login, String date) {
+        super(username, isNotRemoved, hashedPassword, shopAdministrator, is_login, date);
     }
 
     public Collection<PurchaseHistory> getShopsAndUsersInfo()

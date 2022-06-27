@@ -14,6 +14,9 @@ import java.util.Map;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class SubscribedUser extends User{
     protected String password;
+
+    protected String date;
+
     protected boolean is_login;
     protected boolean isNotRemoved;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -28,28 +31,30 @@ public class SubscribedUser extends User{
     )
     @MapKeyJoinColumn(name = "shop_id")
     protected Map<Shop,Basket> userBaskets;
-
-    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod) {
+    public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod) {
         super(username,paymentMethod);
         this.password = password;
+        this.date = date;
         this.is_login = is_login;
         this.isNotRemoved = isNotRemoved;
         this.administrators = new LinkedList<>();
         this.userBaskets = new HashMap<>();
     }
 
-    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
+    public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
         super(username, paymentMethod);
         this.password = password;
+        this.date = date;
         this.is_login = is_login;
         this.isNotRemoved = isNotRemoved;
         this.administrators = administrators;
         this.userBaskets = new HashMap<>();
     }
 
-    public SubscribedUser(String username, String password, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators, Map<Shop, Basket> userBaskets) {
+    public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators, Map<Shop, Basket> userBaskets) {
         super(username, paymentMethod);
         this.password = password;
+        this.date = date;
         this.is_login = is_login;
         this.isNotRemoved = isNotRemoved;
         this.administrators = administrators;
@@ -62,6 +67,10 @@ public class SubscribedUser extends User{
 
     public String getPassword() {
         return password;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public boolean isIs_login() {

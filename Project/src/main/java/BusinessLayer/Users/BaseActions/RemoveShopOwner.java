@@ -8,12 +8,10 @@ import BusinessLayer.Users.SubscribedUser;
 import java.util.Collection;
 
 public class RemoveShopOwner extends RemoveAdmin {
-    Shop shop;
     SubscribedUser user;
 
     public RemoveShopOwner(Shop shop, SubscribedUser user) {
         super(user,shop);
-        this.shop = shop;
         this.user = user;
     }
 

@@ -165,6 +165,22 @@ public class UserController {
         return true;
     }
 
+    public boolean subscribersContainsKey(String key) {
+        if (subscribers.containsKey(key))
+            return true;
+        else {
+            SubscribedUser user = mapperController.getSubscribedUserMapper().findById(key);
+            if (user != null) {
+                users.put(key, user);
+                subscribers.put(key, user);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
     public synchronized boolean registerToSystem(String userName, String password, Date date) {
         if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
@@ -176,7 +192,6 @@ public class UserController {
         }
         return false;
     }
-
     public SubscribedUser login(String userName, String password, User currUser) {
         if (subscribersContainsKey(userName) && (currUser == null || currUser instanceof Guest)) {
             if (subscribers.get(userName).login(userName, password)) {
@@ -186,6 +201,7 @@ public class UserController {
                 return subscribers.get(userName);
             } else
                 return null;
+        }
         return null;
     }
 
@@ -197,6 +213,7 @@ public class UserController {
         }
         return null;
     } // be a guest now
+
 
     public Guest loginSystem() {
         Guest guest = new Guest("guest_" + ++guest_serial);
@@ -294,6 +311,7 @@ public class UserController {
         ShopAdministrator admin = getAdmin(username, shopID);
         if (admin != null) {
             admin.addProduct(productID, name, desc, manufacturer, price, quantity);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
             return true;
         }
         throw new NoPermissionException("you aren't an admin of that shop!");
@@ -347,38 +365,17 @@ public class UserController {
         }
     }
 
-    public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
-        if(!getSysUser(user).isLoggedIn())
+    public Map<UserState, List<SubscribedUser>> getSubscribedUserInfo(String user) {
+        if (!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
-        Map<UserState,List<SubscribedUser>> m = new ConcurrentHashMap<>();
-        this.subscribers.values().forEach((u)->{
-            var k =UserState.get(u);
-            if(!m.containsKey(k))
-                m.put(k,new LinkedList<SubscribedUser>());
-            m.get(k).add(u);});
+        Map<UserState, List<SubscribedUser>> m = new ConcurrentHashMap<>();
+        this.subscribers.values().forEach((u) -> {
+            var k = UserState.get(u);
+            if (!m.containsKey(k))
+                m.put(k, new LinkedList<SubscribedUser>());
+            m.get(k).add(u);
+        });
         return m;
-    }
-
-    public boolean subscribersContainsKey(String key) {
-        if (subscribers.containsKey(key))
-            return true;
-        else {
-            SubscribedUser user = mapperController.getSubscribedUserMapper().findById(key);
-            if (user != null) {
-                users.put(key, user);
-                subscribers.put(key, user);
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    }
-
-    public void clearForTestsOnly() {
-        users.clear();
-        subscribers.clear();
-        managers.clear();
     }
 
     public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
@@ -492,5 +489,12 @@ public class UserController {
 
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return currUser.getPurchasePolicy(shopId);
+    }
+
+
+    public void clearForTestsOnly() {
+        users.clear();
+        subscribers.clear();
+        managers.clear();
     }
 }

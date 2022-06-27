@@ -6,19 +6,18 @@ import BusinessLayer.Users.ShopManager;
 import BusinessLayer.Users.SubscribedUser;
 
 public class AssignShopManager extends BaseAction {
-    private Shop s;
     private SubscribedUser u;
 
-    public AssignShopManager(Shop s, SubscribedUser u) {
-        this.s = s;
+    public AssignShopManager(Shop shop, SubscribedUser u) {
+        super(shop);
         this.u = u;
     }
 
     public boolean act(SubscribedUser userToAssign, String appointer){
-        ShopManager m = new ShopManager(s,userToAssign,appointer);
-        if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(),m)){
-            ShopAdministrator admin = userToAssign.addAdministrator(s.getId(), m);
-            u.getAdministrator(s.getId()).addAppoint(admin);
+        ShopManager m = new ShopManager(shop,userToAssign,appointer);
+        if(userToAssign.getAdministrator(shop.getId())== null && shop.addAdministrator(userToAssign.getUserName(),m)){
+            ShopAdministrator admin = userToAssign.addAdministrator(shop.getId(), m);
+            u.getAdministrator(shop.getId()).addAppoint(admin);
             return true;
         }
         return false;

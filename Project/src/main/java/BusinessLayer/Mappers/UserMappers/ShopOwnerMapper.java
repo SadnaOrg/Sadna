@@ -13,7 +13,6 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.stream.Collectors;
 
 public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwner> {
-    private ShopOwnerDAO dao = new ShopOwnerDAO();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
     @Override

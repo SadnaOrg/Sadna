@@ -29,9 +29,10 @@ public class ShopAdministrator {
         shop = s;
         user = u;
     }
-    public ShopAdministrator(String appointer, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+    public ShopAdministrator(String appointer, SubscribedUser user, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
         super();
         this.appointer = appointer;
+        this.user = user;
         this.appoints = appoints;
     }
 
@@ -362,8 +363,6 @@ public class ShopAdministrator {
         } else throw new NoPermissionException("you don't have permission to do that!");
 
     }
-    public SubscribedUser getSubscribed(){return this.user;}
-
     public int getShopID() {
         return shop.getId();
     }

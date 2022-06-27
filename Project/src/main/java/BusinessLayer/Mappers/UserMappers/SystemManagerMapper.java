@@ -6,6 +6,9 @@ import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SystemManager;
 import ORM.DAOs.Users.SystemManagerDAO;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class SystemManagerMapper implements DBImpl<SystemManager, String>, CastEntity<ORM.Users.SystemManager, SystemManager> {
@@ -30,9 +33,11 @@ public class SystemManagerMapper implements DBImpl<SystemManager, String>, CastE
         if (entity == null)
             return null;
 
-        ORM.Users.SystemManager user = new ORM.Users.SystemManager(entity.getUserName(), entity.getHashedPassword(), entity.isLoggedIn(),
-                !entity.isRemoved(), paymentMethodMapper.run().toEntity(entity.getMethod()),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin)).toList());
+        String pattern = "yyyy-MM-dd";
+        DateFormat format = new SimpleDateFormat(pattern);
+        ORM.Users.SystemManager user = new ORM.Users.SystemManager(entity.getUserName(), entity.getHashedPassword(),
+                format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(),
+                paymentMethodMapper.run().toEntity(entity.getMethod()));
 
         if (user.getPaymentMethod() != null)
             user.getPaymentMethod().setUser(user);
@@ -44,7 +49,7 @@ public class SystemManagerMapper implements DBImpl<SystemManager, String>, CastE
         if (entity == null)
             return null;
         return new SystemManager(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(),
-                entity.getAdministrators().stream().map(admin -> shopAdministratorMapper.run().fromEntity(admin)).toList(), entity.isIs_login());
+                new ArrayList<>(), entity.isIs_login(), entity.getDate());
     }
 
     @Override

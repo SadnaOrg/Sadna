@@ -1,34 +1,28 @@
 package BusinessLayer.Mappers.ShopMappers;
 
+import BusinessLayer.Mappers.CastEntity;
+import BusinessLayer.Mappers.ShopMappers.ProductMapper;
 import BusinessLayer.Products.Product;
 
-public class ProductMapper {//implements MapperInterface<ORM.Shops.Product, Product, Integer> {
-    //private ProductRepositoryImpl productRepositoryImpl = new ProductRepositoryImpl();
-//
-    //@Override
-    //public void save(Product entity) {
-    //    productRepositoryImpl.save(toEntity(entity));
-    //}
-//
-    //@Override
-    //public void delete(Product entity) {
-    //    productRepositoryImpl.delete(toEntity(entity));
-    //}
-//
-    //@Override
-    //public ORM.Shops.Product toEntity(Product entity) {
-    //    return new ORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(),
-    //            entity.getManufacturer(), entity.getPrice(), entity.getQuantity());
-    //}
-//
-    //@Override
-    //public Product FromEntity(ORM.Shops.Product entity) {
-    //    return new Product(entity.getId(), entity.getName(), entity.getDescription(),
-    //            entity.getManufacturer(), entity.getPrice(), entity.getQuantity());
-    //}
-//
-    //@Override
-    //public Product findByID(Integer key) {
-    //    return FromEntity(productRepositoryImpl.findById(key));
-    //}
+public class ProductMapper implements CastEntity<ORM.Shops.Product, Product> {
+    static private class ProductMapperHolder {
+
+        static final ProductMapper mapper = new ProductMapper();
+    }
+    public static ProductMapper getInstance(){
+        return ProductMapper.ProductMapperHolder.mapper;
+    }
+
+    @Override
+    public ORM.Shops.Product toEntity(Product entity) {
+        return new ORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(), entity.getManufacturer(), entity.getCategory(),
+                entity.getPrice(), entity.getQuantity());
+    }
+
+    @Override
+    public Product fromEntity(ORM.Shops.Product entity) {
+        return new Product(entity.getId(), entity.getName(), entity.getDescription(), entity.getManufacturer(), entity.getCategory(),
+                entity.getPrice(), entity.getQuantity());
+    }
+
 }

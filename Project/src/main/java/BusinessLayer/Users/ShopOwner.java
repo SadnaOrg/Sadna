@@ -1,6 +1,7 @@
 package BusinessLayer.Users;
 
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.BaseActions.BaseAction;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Users.BaseActions.CloseShop;
 
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ShopOwner extends ShopAdministrator{
     private boolean founder;
-    public ShopOwner(Shop s, SubscribedUser u, String appointer ,boolean founder) {
+    public ShopOwner(Shop s, SubscribedUser u, String appointer, boolean founder) {
         super(s, u, appointer);
         this.founder = founder;
         for (BaseActionType b:BaseActionType.values()) {
@@ -23,7 +24,7 @@ public class ShopOwner extends ShopAdministrator{
     }
 
     public ShopOwner(String appointer, SubscribedUser user, boolean founder, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
-        super(appointer, appoints);
+        super(appointer, user, appoints);
         this.founder = founder;
         for (BaseActionType b:BaseActionType.values()) {
             if((b == BaseActionType.CLOSE_SHOP || b == BaseActionType.REOPEN_SHOP) && founder)
@@ -58,5 +59,11 @@ public class ShopOwner extends ShopAdministrator{
         else
             type = AdministratorInfo.ShopAdministratorType.OWNER;
             return new AdministratorInfo(getUser().getUserName(),type,getActionsTypes(),shop.getId(),getAppointer());
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+        for (BaseAction action : action.values())
+            action.setShop(shop);
     }
 }

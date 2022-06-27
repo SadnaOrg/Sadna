@@ -11,11 +11,10 @@ import javax.naming.NoPermissionException;
 import java.util.stream.Collectors;
 
 public class ReOpenShop extends BaseAction{
-    private Shop shop;
     private SubscribedUser founder;
 
     public ReOpenShop(Shop shop, SubscribedUser founder){
-        this.shop = shop;
+        super(shop);
         this.founder = founder;
     }
 

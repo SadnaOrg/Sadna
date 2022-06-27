@@ -7,11 +7,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 public class Product {
-    public Product(int id, String name, String description, String manufacturer, double price, int quantity) {
+    public Product(int id, String name, String description, String manufacturer, String category, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
+        this.category = category;
         this.price = price;
         this.quantity = quantity;
     }
@@ -21,6 +22,7 @@ public class Product {
     private String name;
     private String description;
     private String manufacturer;
+    private String category;
     private double price;
     private int quantity;
 
@@ -54,6 +56,10 @@ public class Product {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public double getPrice() {

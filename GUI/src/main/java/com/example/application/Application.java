@@ -40,8 +40,8 @@ public class Application extends SpringBootServletInitializer implements AppShel
                 var g = Grammer.parse(Files.readString(Path.of(args[0])));
                 args = new String[0];
                 var u = Grammer.runLines(g);
-                if (u == null)
-                    return;
+                //if (u == null)
+                //    return;
             } catch (IOException e) {
                 Log.getInstance().error("Error in configure file :\n \t\t"+e.getMessage());
                 e.printStackTrace();

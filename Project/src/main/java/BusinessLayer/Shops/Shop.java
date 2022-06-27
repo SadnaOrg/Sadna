@@ -3,10 +3,9 @@ package BusinessLayer.Shops;
 
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.ShopAdministrator;
-import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
+import BusinessLayer.Users.*;
+import BusinessLayer.Shops.Polices.Purchase.*;
+import BusinessLayer.Shops.Polices.Discount.*;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,6 +32,24 @@ public class Shop {
         this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
+    }
+
+    public Shop(int id, String name, String description, State state, ShopOwner founder,
+                ConcurrentHashMap<Integer, Product> products, ConcurrentHashMap<String, Basket> usersBaskets,
+                ConcurrentHashMap<String, PurchaseHistory> purchaseHistory,
+                ConcurrentHashMap<String, ShopAdministrator> shopAdministrators, DiscountPlusPolicy discounts,
+                PurchaseAndPolicy purchasePolicy) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.state = state;
+        this.founder = founder;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+        this.discounts = discounts;
+        this.purchasePolicy = purchasePolicy;
     }
 
     public synchronized boolean close() {

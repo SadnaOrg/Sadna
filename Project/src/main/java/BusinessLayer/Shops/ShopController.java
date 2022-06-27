@@ -55,6 +55,12 @@ public class ShopController {
 
     public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username) {
         ConcurrentHashMap<Integer, ShopInfo> res = new ConcurrentHashMap<>();
+        Collection<Shop> ormShops = MapperController.getInstance().getShopMapper().findByFounder(username);
+        for (Shop shop : ormShops)
+            if (!shops.containsKey(shop.getId())) {
+                shops.put(shop.getId(), shop);
+                UserController.getInstance().getSubUser(username).addAdministrator(shop.getId(), shop.getFounder());
+            }
         for (Shop s : shops.values().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
             res.put(s.getId(), new ShopInfo(s));
         }
@@ -75,11 +81,6 @@ public class ShopController {
 
     private ShopController() {
         this.shops = new ConcurrentHashMap<>();
-    }
-
-    private Map<Integer, Shop> loadFromDB(String username) {
-        return mapperController.getShopMapper().findByFounder(username).stream()
-                .collect(Collectors.toMap(Shop::getId, Function.identity()));
     }
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {

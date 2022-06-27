@@ -11,8 +11,12 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -26,9 +30,13 @@ public class SubscribedUser extends User {
     private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
     private String hashedPassword;
 
-    public SubscribedUser(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login) {
+    public SubscribedUser(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login, String date) {
         super(username);
         this.isNotRemoved = new AtomicBoolean(isNotRemoved);
+        try {
+            this.birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        }
+        catch (Exception e) { System.out.println(e.getMessage()); }
         this.hashedPassword = hashedPassword;
         this.shopAdministrator = new ConcurrentHashMap<>();
         for (ShopAdministrator sa : shopAdministrator) {
@@ -169,10 +177,6 @@ public class SubscribedUser extends User {
     }
 
     public boolean isRemoved(){return !isNotRemoved.get();}
-
-
-// Java program to calculate SHA hash value
-   private static class GFG2 {
 
     public synchronized int createProductByQuantityDiscount(int productId, int productQuantity, double discount,int connectId, int shopId) throws NoPermissionException {
         validatePermission(shopId);
@@ -316,6 +320,9 @@ public class SubscribedUser extends User {
     public Date getBirthDate() {
         return birthDate;
     }
+
+// Java program to calculate SHA hash value
+   private static class GFG2 {
 
     private static byte[] getSHA(String input)
         {

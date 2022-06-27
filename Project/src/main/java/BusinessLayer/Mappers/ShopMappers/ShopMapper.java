@@ -5,6 +5,9 @@ import BusinessLayer.Mappers.Func;
 import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
+import BusinessLayer.Products.Product;
+import BusinessLayer.Shops.Polices.Discount.DiscountPlusPolicy;
+import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.ShopOwner;
 import ORM.DAOs.DBImpl;
@@ -13,10 +16,13 @@ import ORM.Users.ShopAdministrator;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {
 
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
+    private Func<ProductMapper> productMapper = () -> ProductMapper.getInstance();
     private Func<ShopOwnerMapper> shopOwnerMapper = () -> ShopOwnerMapper.getInstance();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
@@ -37,8 +43,9 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     public ORM.Shops.Shop toEntity(Shop entity) {
         ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getId(), entity.getName(), entity.getDescription(),
                 subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
-                ORM.Shops.Shop.State.values()[entity.getState().ordinal()], new ArrayList<>(), new ConcurrentHashMap<>(),
-                new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
+                ORM.Shops.Shop.State.values()[entity.getState().ordinal()],
+                entity.getProducts().values().stream().map(product -> productMapper.run().toEntity(product)).toList(),
+                new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
 
         for (String admin : entity.getShopAdministratorsMap().keySet()) {
             if (admin != shop.getFounder().getUser().getUsername()) {
@@ -61,9 +68,17 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     @Override
     public Shop fromEntity(ORM.Shops.Shop entity) {
         ShopOwner founder = shopOwnerMapper.run().fromEntity(entity.getFounder());
+        founder.setUser(subscribedUserMapper.run().fromEntity(entity.getFounder().getUser()));
         Shop shop = new Shop(entity.getId(), entity.getName(), entity.getDescription(),
                 Shop.State.values()[entity.getState().ordinal()], founder,
-                null, null, null, null);
+                (ConcurrentHashMap<Integer, Product>) entity.getProducts().stream().map(product -> productMapper.run().fromEntity(product))
+                        .collect(Collectors.toConcurrentMap(Product::getID, Function.identity())),
+                new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>(),
+                new DiscountPlusPolicy(), new PurchaseAndPolicy());
+        founder.setShop(shop);
+        shop.getShopAdministratorsMap().put(founder.getUserName(), founder);
+        founder.getSubscribed().addAdministrator(shop.getId(), founder);
+
         founder.getAppoints().stream().peek(admin -> admin.setShop(shop));
         return shop;
     }
