@@ -12,10 +12,11 @@ public class ProductInfoDAO implements DBImpl<ProductInfo, ProductInfo.ProductIn
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(ProductInfo entity) {
+    public int save(ProductInfo entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

@@ -15,13 +15,14 @@ public class SystemManagerDAO implements DBImpl<SystemManager, String> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(SystemManager entity) {
+    public int save(SystemManager entity) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(entity);
             entityManager.getTransaction().commit();
         }
         catch (Exception ignored) {}
+        return 0;
     }
 
     @Override

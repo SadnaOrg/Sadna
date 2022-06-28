@@ -12,10 +12,11 @@ public class BasketDAO implements DBImpl<Basket, Basket.BasketPKID> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(Basket entity) {
+    public int save(Basket entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

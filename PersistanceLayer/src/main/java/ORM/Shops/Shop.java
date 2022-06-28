@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Shop {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String name;

@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 
 public class Shop {
 
-    private final int id;
+    private int id;
+
     private String name;
     private String description;
     private State state = State.OPEN;
@@ -24,7 +25,6 @@ public class Shop {
     private ConcurrentHashMap<String, ShopAdministrator> shopAdministrators = new ConcurrentHashMap<>();
     private DiscountPlusPolicy discounts = new DiscountPlusPolicy();
     private PurchaseAndPolicy purchasePolicy = new PurchaseAndPolicy();
-
     public Shop(int id, String name, String description, SubscribedUser founder) {
         this.id = id;
         this.name = name;
@@ -32,6 +32,13 @@ public class Shop {
         this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
+    }
+
+    public Shop(String name, String description, SubscribedUser founder) {
+        this.name = name;
+        this.description = description;
+        this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
+        shopAdministrators.put(founder.getName(),this.founder);
     }
 
     public Shop(int id, String name, String description, State state, ShopOwner founder,
@@ -50,6 +57,7 @@ public class Shop {
         this.shopAdministrators = shopAdministrators;
         this.discounts = discounts;
         this.purchasePolicy = purchasePolicy;
+        founder.getSubscribed().addAdministrator(id, this.founder);
     }
 
     public synchronized boolean close() {
@@ -80,11 +88,12 @@ public class Shop {
         usersBaskets.remove(userName);
     }
 
+
+
     public enum State {
         OPEN,
-        CLOSED
+        CLOSED;
     }
-
     public boolean setCategory(int productId, String category)
     {
         if (state == State.OPEN) {
@@ -202,6 +211,7 @@ public class Shop {
     }
 
     //we can assume that this function is only called when all good;
+
     public double checkIfcanBuy(String user) {
         double totalPrice = 0;
         if (state == State.OPEN) {
@@ -232,7 +242,6 @@ public class Shop {
         }
         return totalPrice;
     }
-
 
     public int getId() {
         return id;
@@ -289,10 +298,10 @@ public class Shop {
     {
         return this.purchasePolicy.isValid(user,usersBaskets.get(user.getName()));
     }
+
     public double calculateDiscount(String user){
         return this.discounts.calculateDiscount(usersBaskets.get(user));
     }
-
     public int addDiscount(int addToConnectId, DiscountRules discountRules) {
         int id = -1;
         if (state == State.OPEN) {
@@ -395,7 +404,7 @@ public class Shop {
     public String getDescription() {
         return description;
     }
-    
+
     public ShopOwner getFounder() { return founder; }
 
     public State getState() {
@@ -415,10 +424,14 @@ public class Shop {
         return purchaseHistory;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void addPurchaseHistory(String username, PurchaseHistory ph){
         purchaseHistory.put(username, ph);
     }
-  
+
     public Collection<ShopAdministrator> getShopAdministrators() {
         return shopAdministrators.values();
     }

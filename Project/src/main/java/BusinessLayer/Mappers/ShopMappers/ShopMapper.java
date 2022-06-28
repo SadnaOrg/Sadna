@@ -84,8 +84,8 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     }
 
     @Override
-    public void save(Shop entity) {
-        dao.save(toEntity(entity));
+    public int save(Shop entity) {
+        return dao.save(toEntity(entity));
     }
 
     @Override

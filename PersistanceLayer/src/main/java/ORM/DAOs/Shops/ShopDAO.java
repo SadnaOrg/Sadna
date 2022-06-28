@@ -13,10 +13,11 @@ public class ShopDAO implements DBImpl<Shop, Integer> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(Shop entity) {
+    public int save(Shop entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return entity.getId();
     }
 
     @Override

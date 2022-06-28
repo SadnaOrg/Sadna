@@ -198,10 +198,10 @@ public class ShopController {
 //        List<String> names = shops.values().stream().map(Shop::getName).toList();
 //        if(names.contains(name))
 //            throw new IllegalStateException("there is a shop with that name!!!");
-        int shopID = shops.size();
-        Shop shop = new Shop(shopID, name, description, su);
+        Shop shop = new Shop(name, description, su);
+        int shopID = mapperController.getShopMapper().getInstance().save(shop);
+        shop.setId(shopID);
         shops.put(shopID, shop);
-        mapperController.getShopMapper().getInstance().save(shop);
         return shops.get(shopID);
     }
 

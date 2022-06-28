@@ -78,8 +78,8 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     }
 
     @Override
-    public void save(SubscribedUser entity) {
-        dao.save(toEntity(entity));
+    public int save(SubscribedUser entity) {
+        return dao.save(toEntity(entity));
     }
 
     @Override

@@ -13,10 +13,11 @@ public class SubscribedUserDAO implements DBImpl<SubscribedUser, String> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(SubscribedUser entity) {
+    public int save(SubscribedUser entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override
