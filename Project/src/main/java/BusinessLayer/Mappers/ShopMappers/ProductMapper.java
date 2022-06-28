@@ -15,8 +15,8 @@ public class ProductMapper implements CastEntity<ORM.Shops.Product, Product> {
 
     @Override
     public ORM.Shops.Product toEntity(Product entity) {
-        return new ORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(), entity.getManufacturer(), entity.getCategory(),
-                entity.getPrice(), entity.getQuantity());
+        return new ORM.Shops.Product(entity.getID(), entity.getName(), entity.getDescription(), entity.getManufacturer(), entity.getPrice(),
+                entity.getQuantity(), entity.getCategory());
     }
 
     @Override

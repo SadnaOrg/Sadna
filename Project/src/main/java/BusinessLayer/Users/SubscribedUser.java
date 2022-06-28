@@ -11,6 +11,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
@@ -34,6 +35,21 @@ public class SubscribedUser extends User {
 
     public SubscribedUser(String username, boolean notRemoved, String password, ArrayList<Object> objects, boolean is_login) {
         super(username);
+    }
+
+    public SubscribedUser(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login, String date) {
+        super(username);
+        this.isNotRemoved = new AtomicBoolean(isNotRemoved);
+        try {
+            this.birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        }
+        catch (Exception e) { System.out.println(e.getMessage()); }
+        this.hashedPassword = hashedPassword;
+        this.shopAdministrator = new ConcurrentHashMap<>();
+        for (ShopAdministrator sa : shopAdministrator) {
+            this.shopAdministrator.put(sa.getShopID(), sa);
+        }
+        this.is_login = is_login;
     }
 
     public boolean login(String userName,String password) {

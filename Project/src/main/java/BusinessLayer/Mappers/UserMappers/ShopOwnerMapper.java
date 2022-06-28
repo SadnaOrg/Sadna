@@ -3,13 +3,9 @@ package BusinessLayer.Mappers.UserMappers;
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
 import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
-import ORM.DAOs.Users.ShopOwnerDAO;
 import ORM.Users.ShopAdministrator;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.stream.Collectors;
 
 public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwner> {
@@ -30,8 +26,8 @@ public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwne
 
     @Override
     public ShopOwner fromEntity(ORM.Users.ShopOwner entity) {
-        return new ShopOwner(entity.getUser().getUsername(), subscribedUserMapper.run().fromEntity(entity.getUser()),
-                entity.isFounder(), new ConcurrentLinkedDeque<>());
+        return new ShopOwner(null, null, entity.getAppointer().getUser().getUsername(), entity.isFounder()
+                ,null,null);
     }
 
     static private class ShopOwnerMapperHolder {

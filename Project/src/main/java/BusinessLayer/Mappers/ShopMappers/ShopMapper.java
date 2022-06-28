@@ -7,7 +7,6 @@ import BusinessLayer.Mappers.UserMappers.BasketMapper;
 import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
-import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 import ORM.DAOs.DBImpl;
@@ -19,7 +18,7 @@ import ORM.Users.ShopAdministrator;
 import ORM.Users.ShopOwner;
 import ORM.Users.SubscribedUser;
 
-import java.util.*;
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {

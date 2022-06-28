@@ -19,6 +19,10 @@ public class SystemManager extends SubscribedUser {
         super(username,password,date);
     }
 
+    public SystemManager(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login, String date) {
+        super(username, isNotRemoved, hashedPassword, shopAdministrator, is_login, date);
+    }
+
     public Collection<PurchaseHistory> getShopsAndUsersInfo()
     {
         return PurchaseHistoryController.getInstance().getPurchaseInfo();
