@@ -66,5 +66,10 @@ public class PurchaseHistory {
     public static class PurchaseHistoryPKID implements Serializable {
         private Shop shop;
         private SubscribedUser user;
+
+        public PurchaseHistoryPKID(Shop shop, SubscribedUser user) {
+            this.shop = shop;
+            this.user = user;
+        }
     }
 }

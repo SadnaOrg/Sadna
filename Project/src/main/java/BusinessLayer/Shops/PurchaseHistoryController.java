@@ -1,6 +1,9 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.MapperController;
+import BusinessLayer.Mappers.ShopMappers.PurchaseHistoryMapper;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -73,6 +76,7 @@ public class PurchaseHistoryController {
         if(getPurchaseInfo(shop.getId(), user).size() == 0) {
             purchaseHistory = new PurchaseHistory(shop, user);
             DataOnPurchases.add(purchaseHistory);
+            MapperController.getInstance().getPurchaseHistoryMapper().save(purchaseHistory);
         }
         else{
             purchaseHistory = DataOnPurchases.stream().toList().get(0);

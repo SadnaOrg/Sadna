@@ -49,18 +49,18 @@ public class PurchaseMapper  implements CastEntity <ORM.Shops.Purchase, Purchase
                 format.format(entity.getDateOfPurchase()));
         purchase.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
         purchase.setShop(shopMapper.run().findORMById(entity.getShopid()));
+        purchase.getProductInfos().stream().peek(productInfo -> productInfo.setPurchase(purchase));
         return purchase;
     }
 
     @Override
     public Purchase fromEntity(ORM.Shops.Purchase entity) {
         try {
-            Purchase purchase = new Purchase(entity.getTransactionid(),
+            return new Purchase(entity.getTransactionid(),
                     entity.getProductInfos().stream().map(productInfo -> productInfoMapper.run().fromEntity(productInfo)).collect(Collectors.toList()),
                     new SimpleDateFormat("yyyy-MM-dd").parse(entity.getDateOfPurchase()),
                     entity.getShop().getId(),
                     entity.getUser().getUsername());
-            return purchase;
         }
         catch (ParseException ignored)
         {

@@ -48,4 +48,12 @@ public class ProductInfo {
     public double getPrice() {
         return price;
     }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
 }
