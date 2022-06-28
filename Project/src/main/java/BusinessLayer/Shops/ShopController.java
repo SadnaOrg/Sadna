@@ -5,10 +5,7 @@ import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
-import BusinessLayer.Users.Basket;
-import BusinessLayer.Users.SubscribedUser;
-import BusinessLayer.Users.User;
-import BusinessLayer.Users.UserController;
+import BusinessLayer.Users.*;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -132,6 +129,11 @@ public class ShopController {
         return 0;
     }
 
+    public boolean removeBid(int shopId)
+    {
+        return null != shops.get(shopId).getUsersBids().remove(shopId);
+    }
+
 
     public boolean addToPurchaseHistory(String user, ConcurrentHashMap<Integer, Boolean> paymentSituation) {
         for (int shopid:paymentSituation.keySet())
@@ -166,10 +168,40 @@ public class ShopController {
         return false;
     }
 
+    public boolean checkIfUserHasBid(int shopid, String user) {
+        if(shops.containsKey(shopid))
+            return shops.get(shopid).checkIfUserHasBid(user);
+        return false;
+    }
+
     public boolean AddBasket(int shopid, String user, Basket basket) {
         return shops.get(shopid).addBasket(user,basket);
     }
 
+
+    public boolean addBidOffer(int shopid,int productId, String user, BidOffer bidOffer) {
+        return shops.get(shopid).addBidOffer(user,productId,bidOffer);
+    }
+//
+//    public boolean reOfferBid(int shopid,String user,int productId, double newPrice)
+//    {
+//        return shops.get(shopid).reOfferBid(user,productId,newPrice);
+//
+//    }
+//
+//    public boolean declineBidOffer(int shopid,String user,int productId)    {
+//        if(shops.get(shopid).declineBidOffer(user,productId))
+//        {
+//            UserController.getInstance().getUser(user).getShoppingBids().remove(shopid);
+//        }
+//
+//    }
+//
+//    public boolean approveBidOffer(int shopid,String user,String adminName,int productId)
+//    {
+//        return shops.get(shopid).approveBidOffer(user,adminName,productId);
+//
+//    }
     public Map<Integer, Shop> getShops() {
         return shops;
     }

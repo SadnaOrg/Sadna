@@ -1,13 +1,8 @@
 package com.example.application.views.main;
 
-import BusinessLayer.Products.ProductFilters;
-import BusinessLayer.Shops.ShopFilters;
-import ServiceLayer.Objects.Notification;
 import ServiceLayer.Objects.Product;
 import ServiceLayer.Objects.Shop;
 import ServiceLayer.Result;
-import ServiceLayer.SystemServiceImp;
-import ServiceLayer.interfaces.ShopService;
 import ServiceLayer.interfaces.UserService;
 import com.example.application.Header.Header;
 import com.vaadin.flow.component.button.Button;
@@ -16,25 +11,21 @@ import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.H5;
-import com.vaadin.flow.component.html.Pre;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.IntegerField;
+import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-import static com.example.application.Header.SessionData.Load;
 import static com.example.application.Utility.*;
+import static com.example.application.views.main.Discount.DiscountContentCreator.getNumberField;
 
 @Route("Products")
 public class ProductView extends Header {
@@ -113,6 +104,19 @@ public class ProductView extends Header {
         productGrid.setItems(products);
     }
 
+    private IntegerField createIntegerField(String label) {
+        IntegerField basketField = new IntegerField(label);
+        basketField.setWidthFull();
+        basketField.setClearButtonVisible(true);
+        basketField.setMin(0);
+        basketField.setValue(1);
+        basketField.setHasControls(true);
+        return basketField;
+    }
+    private NumberField createNumberField(String label, int maxValue) {
+        return getNumberField(label, maxValue);
+    }
+
     private void addProductDetails(Product p) {
         Dialog dialog = new Dialog();
         VerticalLayout productInfo = new VerticalLayout();
@@ -123,13 +127,33 @@ public class ProductView extends Header {
         HorizontalLayout row3 = new HorizontalLayout();
         row3.add("Quantity: " + p.quantity());
         HorizontalLayout row4 = new HorizontalLayout();
+        HorizontalLayout row5 = new HorizontalLayout();
         row4.setJustifyContentMode(JustifyContentMode.CENTER);
         row4.setAlignItems(Alignment.BASELINE);
         addToCartButton = new Button("Add To Cart", e -> addToCart(p, amount.getValue()));
+        var addBidButton = new Button("Add Bid", e -> {
+            var diag = new Dialog();
+            var integerField = createNumberField("enter total bid price",-1);
+            var add = new Button("add bid",(event)->{
+                if(integerField.getValue()!=null&&amount.getValue()!=null)
+                {
+                     var res = service.saveProductsAsBid(p.shopId(),p.productID(), amount.getValue(),integerField.getValue());
+                     if(res.isOk()) {
+                         notifySuccess("add bid to basket, wait to approve");
+                        diag.close();
+                     }else
+                         notifyError(res.getMsg());
+                }else
+                    notifyError("please enter total bid price");
+            });
+            diag.add(integerField,add);
+            diag.open();
+        });
+
         addToCartButton.setWidthFull();
         setAmountField(p);
         row4.add(amount, addToCartButton);
-        productInfo.add(row1, row2, row3, row4);
+        productInfo.add(row1, row2, row3, row4,addBidButton);
         dialog.add(productInfo);
         dialog.setOpened(true);
     }

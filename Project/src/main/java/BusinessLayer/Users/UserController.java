@@ -3,6 +3,7 @@ package BusinessLayer.Users;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
@@ -17,7 +18,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserController {
-
 
 
     static private class UserControllerHolder {
@@ -52,6 +52,10 @@ public class UserController {
         return null;
     }
 
+    public ConcurrentHashMap<Shop, Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return currUser.getBidsToApprove();
+    }
+
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         if(subscribers.containsKey(requesting)){
             SubscribedUser u = subscribers.get(requesting);
@@ -76,6 +80,37 @@ public class UserController {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean saveProductsAsBid(User u, int shopId, int productId, int quantity, double price) {
+        if (price != -1) {
+            if (u.saveProductsAsBid(shopId, productId, quantity, price/quantity)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean moveBidToBasket(User u,int productId, int shopId)
+    {
+        if(u != null){
+            BidOffer bidOffer = u.getBidOffer(shopId);
+            double price = bidOffer.getPriceById(productId);
+            int quantity = bidOffer.getQuantityById(productId);
+            if (price != -1) {
+                if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
+                    if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
+                        ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
+                    }
+                    if(u.removeProductFromBid(shopId,productId))
+                    {
+                        ShopController.getInstance().removeBid(shopId);
+                    }
+                    return true;
+                }
             }
         }
         return false;
@@ -114,14 +149,16 @@ public class UserController {
         return ShopController.getInstance().reciveInformation();
     }
 
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser currUser) {
+       return currUser.getHeskemeyMinui();
+    }
 
     public User getUser(String user) {
         return users.get(user);
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User u) {
-        User user = users.get(u.getName());
-        return user.showCart();
+        return u.showCart();
     }
 
 
@@ -192,6 +229,7 @@ public class UserController {
         }
         return false;
     }
+
     public SubscribedUser login(String userName, String password, User currUser) {
         if (subscribersContainsKey(userName) && (currUser == null || currUser instanceof Guest)) {
             if (subscribers.get(userName).login(userName, password)) {
@@ -214,7 +252,6 @@ public class UserController {
         return null;
     } // be a guest now
 
-
     public Guest loginSystem() {
         Guest guest = new Guest("guest_" + ++guest_serial);
         users.put(guest.getName(), guest);
@@ -233,7 +270,23 @@ public class UserController {
         return user.assignShopOwner(shop, getSubUser(userNameToAssign));
     }
 
-    public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
+    public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {
+        return user.addAdministratorToHeskemMinui(shop, userNameToAssign);
+    }
+
+    public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        boolean check = user.approveHeskemMinui(shop,adminToAssign);
+        if(check)
+        {
+            return assignShopOwner(user, shop, adminToAssign);
+        }
+        return false;
+    }
+
+    public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        return user.declineHeskemMinui(shop,adminToAssign);
+    }
+        public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
         return user.changeManagerPermission(shop, getSubUser(userNameToAssign), convertToAction(types));
     }
 
@@ -378,6 +431,12 @@ public class UserController {
         return m;
     }
 
+    public void clearForTestsOnly() {
+        users.clear();
+        subscribers.clear();
+        managers.clear();
+    }
+
     public boolean setCategory(SubscribedUser user,int productId, String category, int shopId) throws NoPermissionException {
         return user.setCategory(productId,category,shopId);
     }
@@ -491,10 +550,28 @@ public class UserController {
         return currUser.getPurchasePolicy(shopId);
     }
 
-
-    public void clearForTestsOnly() {
-        users.clear();
-        subscribers.clear();
-        managers.clear();
+    public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        return currUser.reOfferBid(user, productId, newPrice, shopId);
     }
+
+    public boolean declineBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        if(currUser.declineBidOffer(user, productId, shopId))
+        {
+            UserController.getInstance().getUser(user).getShoppingBids().remove(shopId);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        var bid = currUser.approveBidOffer(user, productId, shopId);
+        if(bid!= null)
+        {
+            moveBidToBasket(bid.getUser(),productId,shopId);
+            return true;
+        }
+        return false;
+    }
+
+
 }

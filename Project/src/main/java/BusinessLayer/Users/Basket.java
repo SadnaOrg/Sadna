@@ -6,7 +6,7 @@ public class Basket {
     private int shopid;
     //the key is the product id in the specific store
     //the value will be the quantity of the product
-    private ConcurrentHashMap<Integer , Integer> products = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<Integer , Integer> products;
     private ConcurrentHashMap<Integer, Double> prices;
     private ConcurrentHashMap<Integer, String> categories;
 
@@ -33,7 +33,7 @@ public class Basket {
         }
     }
 
-    public boolean saveProducts(int productid, int quantity,double price,String category) {
+    public boolean saveProducts(int productid, int quantity,double price, String category) {
        if(!products.containsKey(productid))
         {
             products.put(productid,quantity);

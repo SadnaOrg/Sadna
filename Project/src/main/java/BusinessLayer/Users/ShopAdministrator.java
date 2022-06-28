@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.stream.Collectors;
 
 public class ShopAdministrator {
     protected Map<BaseActionType, BaseAction> action = new ConcurrentHashMap<>();
@@ -55,7 +56,22 @@ public class ShopAdministrator {
         else throw new NoPermissionException("you don't have permission to do that!");
     }
 
-    public boolean ChangeManagerPermission(SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
+
+    public boolean addAdministratorToHeskemMinui(String userNameToAssign) throws NoPermissionException {
+        if (action.containsKey(BaseActionType.ASSIGN_SHOP_OWNER))
+            return ((AssignShopOwner) action.get(BaseActionType.ASSIGN_SHOP_OWNER)).addAdministratorToHeskemMinui(userNameToAssign,user.getUserName());
+        else throw new NoPermissionException("you don't have permission to do that!");
+    }
+
+    public boolean approveHeskemMinui(String adminToAssign) {
+        return shop.approveHeskemMinui(adminToAssign,user.getUserName());
+    }
+
+    public boolean declineHeskemMinui(String adminToAssign) {
+        return shop.declineHeskemMinui(adminToAssign);
+    }
+
+        public boolean ChangeManagerPermission(SubscribedUser toAssign, Collection<BaseActionType> types) throws NoPermissionException {
         if (action.containsKey(BaseActionType.CHANGE_MANAGER_PERMISSION))
             return ((ChangeManagerPermission) action.get(BaseActionType.CHANGE_MANAGER_PERMISSION)).act(toAssign, types);
         else throw new NoPermissionException("you don't have permission to do that!");
@@ -362,6 +378,25 @@ public class ShopAdministrator {
             return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).getPurchasePolicy();
         } else throw new NoPermissionException("you don't have permission to do that!");
 
+    }
+
+    public boolean reOfferBid(String user,int productId, double newPrice) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).reOfferBid(user, productId, newPrice);
+        } else throw new NoPermissionException("you don't have permission to do that!");    }
+
+    public boolean declineBidOffer(String user,int productId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).declineBidOffer(user, productId);
+        } else throw new NoPermissionException("you don't have permission to do that!");    }
+
+    public BidOffer approveBidOffer(String user, String adminName, int productId) throws NoPermissionException {
+        if (this.action.containsKey(BaseActionType.SET_PURCHASE_POLICY)) {
+            return ((SetPurchasePolicy) action.get(BaseActionType.SET_PURCHASE_POLICY)).approveBidOffer(user, adminName, productId);
+        } else throw new NoPermissionException("you don't have permission to do that!");    }
+
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser user) {
+        return  shop.getHeskemMinuis().stream().filter(heskem->heskem.getApprovals().containsKey(user.getUserName())).collect(Collectors.toList());
     }
     public int getShopID() {
         return shop.getId();

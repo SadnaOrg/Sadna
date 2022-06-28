@@ -29,6 +29,8 @@ public interface UserService {
 
     Result saveProducts(int shopid, int productid, int quantity);
 
+    Result saveProductsAsBid(int shopId, int productId, int quantity, double price);
+
     Response<Cart> showCart();
 
     Result removeProduct(int shopId, int productId);
