@@ -24,6 +24,6 @@ public class AssignShopOwner extends BaseAction {
     }
 
     public boolean addAdministratorToHeskemMinui(String userNameToAssign, String appointer) {
-        return s.addAdministratorToHeskemMinui(userNameToAssign,appointer);
+        return shop.addAdministratorToHeskemMinui(userNameToAssign,appointer);
     }
 }

@@ -4,30 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="products are now persisted">
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="implemented all discounts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/generated/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/generated/theme-mytodo.generated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/flow-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/flow-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/frontend/versions.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/frontend/versions.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/application-theme-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/application-theme-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-copy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-generator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-handle.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/application-theme-plugin/theme-handle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/build-status-plugin/build-status-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/build-status-plugin/build-status-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/build-status-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/build-status-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/theme-live-reload-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-live-reload-plugin/theme-live-reload-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-loader/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-loader/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/plugins/theme-loader/theme-loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/plugins/theme-loader/theme-loader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sw.ts" beforeDir="false" afterPath="$PROJECT_DIR$/target/sw.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/AssignShopOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/BaseActions/AssignShopOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,18 +59,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "last_opened_file_path": "C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project/out/artifacts/Market_jar/Project.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yuval/Desktop/Sadna_Project/Sadna_Project/Sadna/Project/out/artifacts/Market_jar/Project.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
   </component>
@@ -444,7 +425,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>146</line>
+          <line>170</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -484,23 +465,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Shops/ShopController.class</url>
-          <line>132</line>
+          <line>181</line>
           <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Users/UserController.class</url>
-          <line>446</line>
-          <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Users/ShopAdministrator.class</url>
           <line>87</line>
           <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Shops/ShopController.class</url>
-          <line>239</line>
-          <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java</url>
@@ -509,7 +480,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/ShopMappers/ShopMapper.class</url>
-          <line>50</line>
+          <line>106</line>
           <option name="timeStamp" value="162" />
         </line-breakpoint>
       </breakpoints>

@@ -181,21 +181,17 @@ public class SubscribedUser extends User {
         shopAdministrator.remove(id);
     }
 
-    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
-        validatePermission(shopID);
-        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
-        return admin.removeShopOwner(toRemove);
-    }
-
-    public void removeMyRole(int id) {
-        shopAdministrator.remove(id);
-    }
-
     public synchronized boolean removeFromSystem(){
         if(isNotRemoved.get()){
             return isNotRemoved.compareAndSet(shopAdministrator.isEmpty(),false);
         }
         else throw new IllegalArgumentException("user all ready removed");
+    }
+
+    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
+        validatePermission(shopID);
+        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
+        return admin.removeShopOwner(toRemove);
     }
 
     public boolean isRemoved(){return !isNotRemoved.get();}
