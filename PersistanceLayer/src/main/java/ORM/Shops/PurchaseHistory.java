@@ -55,6 +55,7 @@ public class PurchaseHistory {
         this.user = user;
     }
 
+
     public Collection<Purchase> getPast_purchases() {
         return past_purchases;
     }

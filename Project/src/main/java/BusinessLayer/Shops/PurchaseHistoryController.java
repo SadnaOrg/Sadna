@@ -35,7 +35,7 @@ public class PurchaseHistoryController {
     }
     public Collection<PurchaseHistory> getPurchaseInfo(String user)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -48,7 +48,7 @@ public class PurchaseHistoryController {
 
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -60,14 +60,14 @@ public class PurchaseHistoryController {
     }
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid, String user)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        PurchaseHistory purchaseHistory= MapperController.getInstance().getPurchaseHistoryMapper().findByIds(shopid,user);
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
-        for(PurchaseHistory purchaseHistory:allinfo)
-        {
+//        for(PurchaseHistory purchaseHistory:allinfo)
+//        {
             if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
             }
-        }
+//        }
         return relevantinfo;
     }
 

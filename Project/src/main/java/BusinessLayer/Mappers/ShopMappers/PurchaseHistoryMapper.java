@@ -11,6 +11,7 @@ import ORM.DAOs.Shops.PurchaseHistoryDAO;
 import ORM.DAOs.Shops.ShopDAO;
 
 import java.util.Collection;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops.PurchaseHistory.PurchaseHistoryPKID>, CastEntity<ORM.Shops.PurchaseHistory, PurchaseHistory> {
@@ -71,6 +72,30 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
     @Override
     public PurchaseHistory findById(ORM.Shops.PurchaseHistory.PurchaseHistoryPKID integer) {
         return fromEntity(dao.findById(integer));
+    }
+
+    public PurchaseHistory findByIds(int shopId, String user) {
+        return fromEntity(dao.findById(new ORM.Shops.PurchaseHistory.PurchaseHistoryPKID(shopMapper.run().findORMById(shopId),subscribedUserMapper.run().findORMById(user))));
+    }
+
+    public ConcurrentHashMap<Integer,PurchaseHistory> findByUserName(String userName) {
+        ConcurrentHashMap<Integer,PurchaseHistory> purchaseHistoryConcurrentHashMap = new ConcurrentHashMap<>();
+        Collection<ORM.Shops.PurchaseHistory> ormPurchseHistories= dao.findAll().stream().filter(purchaseHistory1 -> purchaseHistory1.getUser().getUsername().equals(userName)).toList();
+        for (ORM.Shops.PurchaseHistory ormHistory: ormPurchseHistories)
+        {
+            purchaseHistoryConcurrentHashMap.put(ormHistory.getShop().getId(),fromEntity(ormHistory));
+        }
+        return purchaseHistoryConcurrentHashMap;
+    }
+
+    public ConcurrentHashMap<String,PurchaseHistory> findByShopId(int shopId) {
+        ConcurrentHashMap<String,PurchaseHistory> purchaseHistoryConcurrentHashMap = new ConcurrentHashMap<>();
+        Collection<ORM.Shops.PurchaseHistory> ormPurchseHistories= dao.findAll().stream().filter(purchaseHistory1 -> purchaseHistory1.getShop().getId() == shopId).toList();
+        for (ORM.Shops.PurchaseHistory ormHistory: ormPurchseHistories)
+        {
+            purchaseHistoryConcurrentHashMap.put(ormHistory.getUser().getUsername(),fromEntity(ormHistory));
+        }
+        return purchaseHistoryConcurrentHashMap;
     }
 
     @Override
