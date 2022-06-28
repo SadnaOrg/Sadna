@@ -1,18 +1,80 @@
-Jun 28, 2022 8:34:54 PM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 28, 2022 8:35:08 PM ServiceLayer.Log error
+יוני 28, 2022 8:51:44 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 28, 2022 8:35:08 PM ServiceLayer.Log error
+יוני 28, 2022 8:51:44 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 28, 2022 8:35:09 PM ServiceLayer.Log error
+יוני 28, 2022 8:51:57 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 28, 2022 8:35:09 PM ServiceLayer.Log error
+יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log error
+SEVERE: switch to system manager maor: log in to the system first as a subscribed user
+יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 28, 2022 8:35:09 PM ServiceLayer.Log error
+יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 28, 2022 8:35:10 PM ServiceLayer.Log error
+יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 28, 2022 8:35:12 PM ServiceLayer.Log error
+יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log error
 SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 28, 2022 8:35:12 PM ServiceLayer.Log error
+יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
+יוני 28, 2022 8:55:36 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "ORM.Shops.PurchaseHistory.getShop()" because "entity" is null
+יוני 28, 2022 8:55:47 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "ORM.Shops.PurchaseHistory.getShop()" because "entity" is null
+יוני 28, 2022 8:55:58 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "ORM.Shops.PurchaseHistory.getShop()" because "entity" is null
+יוני 28, 2022 8:56:42 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "ORM.Shops.PurchaseHistory.getShop()" because "entity" is null
+יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 28, 2022 8:57:04 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the shop
+יוני 28, 2022 8:57:11 אחה״צ ServiceLayer.Log error
+SEVERE: javax.persistence.RollbackException: Error while committing the transaction
+יוני 28, 2022 8:57:16 אחה״צ ServiceLayer.Log error
+SEVERE: javax.persistence.RollbackException: Error while committing the transaction
+יוני 28, 2022 8:57:31 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 28, 2022 8:57:32 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 28, 2022 8:57:32 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log error
+SEVERE: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not extract ResultSet
+יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log error
+SEVERE: switch to system manager maor: log in to the system first as a subscribed user
+יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 28, 2022 8:58:02 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:58:46 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:11 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:14 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:18 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:23 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:25 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.User.showCart()" because "user" is null
+יוני 28, 2022 8:59:28 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 28, 2022 8:59:28 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 28, 2022 8:59:28 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 28, 2022 8:59:28 אחה״צ ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: Transaction already active

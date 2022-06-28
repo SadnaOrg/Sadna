@@ -56,8 +56,8 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
                 entity.getPast_purchases().stream().map(purchase -> purchaseMapper.run().fromEntity(purchase)).collect(Collectors.toList()));
     }
     @Override
-    public void save(PurchaseHistory purchaseHistory) {
-        dao.save(toEntity(purchaseHistory));
+    public int save(PurchaseHistory purchaseHistory) {
+        return dao.save(toEntity(purchaseHistory));
     }
 
     @Override
