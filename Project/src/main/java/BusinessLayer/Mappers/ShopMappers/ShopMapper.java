@@ -19,6 +19,7 @@ import ORM.Users.ShopOwner;
 import ORM.Users.SubscribedUser;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.Shop, Shop> {
@@ -51,7 +52,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         DiscountPlusPolicy DiscountPlusPolicy = (DiscountPlusPolicy) entity.getDiscounts().toEntity(converter, shop);
         PurchaseAndPolicy policy = (PurchaseAndPolicy) entity.getPurchasePolicy().toEntity(converter,shop);
         for (String admin : entity.getShopAdministratorsMap().keySet()) { // add admins
-            if (admin != shop.getFounder().getUser().getUsername()) {
+            if (!Objects.equals(admin, shop.getFounder().getUser().getUsername())) {
                 ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
                 ormAdmin.setUser(subscribedUserMapper.run().findORMById(admin));
                 ormAdmin.setShop(shop);
