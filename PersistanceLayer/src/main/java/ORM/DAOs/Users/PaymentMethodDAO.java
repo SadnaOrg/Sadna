@@ -13,10 +13,11 @@ public class PaymentMethodDAO implements DBImpl<PaymentMethod, Integer> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(PaymentMethod entity) {
+    public int save(PaymentMethod entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

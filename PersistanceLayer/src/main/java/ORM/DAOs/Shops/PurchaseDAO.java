@@ -13,10 +13,11 @@ public class PurchaseDAO implements DBImpl<Purchase, Integer> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(Purchase entity) {
+    public int save(Purchase entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

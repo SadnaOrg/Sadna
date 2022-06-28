@@ -12,10 +12,11 @@ public class PurchaseHistoryDAO implements DBImpl<PurchaseHistory, PurchaseHisto
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(PurchaseHistory entity) {
+    public int save(PurchaseHistory entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

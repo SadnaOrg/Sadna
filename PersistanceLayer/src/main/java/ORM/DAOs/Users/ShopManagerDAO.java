@@ -12,10 +12,11 @@ public class ShopManagerDAO implements DBImpl<ShopManager, Integer> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
-    public void save(ShopManager entity) {
+    public int save(ShopManager entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+        return 0;
     }
 
     @Override

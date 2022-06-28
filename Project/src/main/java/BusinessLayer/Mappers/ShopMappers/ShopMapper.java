@@ -41,7 +41,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
-        ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getId(), entity.getName(), entity.getDescription(),
+        ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getName(), entity.getDescription(),
                 subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
                 ORM.Shops.Shop.State.values()[entity.getState().ordinal()],
                 entity.getProducts().values().stream().map(product -> productMapper.run().toEntity(product)).toList(),
@@ -84,8 +84,8 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     }
 
     @Override
-    public void save(Shop entity) {
-        dao.save(toEntity(entity));
+    public int save(Shop entity) {
+        return dao.save(toEntity(entity));
     }
 
     @Override

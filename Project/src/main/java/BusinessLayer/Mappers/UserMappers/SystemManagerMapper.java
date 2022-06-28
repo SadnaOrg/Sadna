@@ -53,8 +53,8 @@ public class SystemManagerMapper implements DBImpl<SystemManager, String>, CastE
     }
 
     @Override
-    public void save(SystemManager entity) {
-        dao.save(toEntity(entity));
+    public int save(SystemManager entity) {
+        return dao.save(toEntity(entity));
     }
 
     @Override
