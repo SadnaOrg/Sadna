@@ -21,22 +21,23 @@ public class ShopAdministrator {
     protected Map<BaseActionType, BaseAction> action = new ConcurrentHashMap<>();
     protected Shop shop;
     protected SubscribedUser user;
-    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
-    private String appointer;
 
+    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
+
+    private String appointer;
     public ShopAdministrator(Shop s, SubscribedUser u, String appointer) {
         super();
         this.appointer = appointer;
         shop = s;
         user = u;
     }
+
     public ShopAdministrator(String appointer, SubscribedUser user, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
         super();
         this.appointer = appointer;
         this.user = user;
         this.appoints = appoints;
     }
-
     /**
      * asingn a new shop manager to the shop, only if the user has been nor manager or Owner of this shop
      *
@@ -189,6 +190,10 @@ public class ShopAdministrator {
 
     public String getAppointer() {
         return this.appointer;
+    }
+
+    public void setAppoints(ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+        this.appoints = appoints;
     }
 
     public AdministratorInfo getMyInfo() {

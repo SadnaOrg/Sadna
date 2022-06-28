@@ -78,7 +78,6 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         founder.setShop(shop);
         shop.getShopAdministratorsMap().put(founder.getUserName(), founder);
         founder.getSubscribed().addAdministrator(shop.getId(), founder);
-
         founder.getAppoints().stream().peek(admin -> admin.setShop(shop));
         return shop;
     }
