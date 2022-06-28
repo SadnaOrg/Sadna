@@ -285,12 +285,16 @@ public class DiscountContentCreator {
     }
 
     private NumberField createNumberField(String label, int maxValue) {
+        return getNumberField(label, maxValue);
+    }
+
+    public static NumberField getNumberField(String label, int maxValue) {
         NumberField amount = new NumberField(label);
         amount.setAutofocus(true);
         amount.setWidthFull();
         amount.setClearButtonVisible(true);
         amount.setMin(0);
-        if(maxValue != -1)
+        if(maxValue > 0)
             amount.setMax(maxValue);
         return amount;
     }

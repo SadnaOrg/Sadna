@@ -246,9 +246,21 @@ public class SubscribedUserView extends GuestActionView {
         addTabWithClickEvent("Manage Actions", this::createActionView);
         addTabWithClickEvent("Add Discount", this::createDiscountPolicyView);
         addTabWithClickEvent("Add Purchase Policy", this::createPurchasePolicyView);
+        addTabWithClickEvent("approve bids", this::createApproveBidsView);
+        addTabWithClickEvent("approve assign owners", this::createApproveAssignView);
         tabs.addThemeVariants(TabsVariant.LUMO_MINIMAL);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
+    }
+
+    private void createApproveAssignView(DomEvent domEvent) {
+        var approveView = new ApproveAssignmentsView(service,currUser);
+        setContent(approveView);
+    }
+
+    private void createApproveBidsView(DomEvent domEvent) {
+        var approveBidsView = new ApproveBidsView(service,currUser);
+        setContent(approveBidsView);
     }
 
     private void createPurchasePolicyView(DomEvent domEvent) {

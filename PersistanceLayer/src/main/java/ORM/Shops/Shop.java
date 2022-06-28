@@ -55,6 +55,12 @@ public class Shop {
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
 
+    //@OneToMany(cascade = CascadeType.ALL)
+    //@JoinTable(name = "ApprovalAgreements",
+    //        joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")})
+    //@MapKeyJoinColumn(name = "username")
+    //private Map<SubscribedUser, HeskemMinui> heskemMinuis;
+
     public Shop(String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
                 Map<SubscribedUser, ShopAdministrator> shopAdministrators) {
