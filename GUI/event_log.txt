@@ -1,318 +1,60 @@
-יוני 28, 2022 8:51:57 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:54 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 28, 2022 8:51:57 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:54 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 28, 2022 8:51:57 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:54 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:51:57 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:54 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log event
-INFO: login - user maor Successes
-יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log event
-INFO: login Successes
-יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:01 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:02 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:52:02 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:52:02 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:02 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:13 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:15 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:15 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:15 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:17 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:55 לפנה״צ ServiceLayer.Log event
 INFO: logout from system Successes
-יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log event
-INFO: logout  Successes
-יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:20 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log event
-INFO: login - user a Successes
-יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log event
-INFO: login Successes
-יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:23 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:24 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:52:24 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:52:24 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:52:24 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:52:30 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:35 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:52:35 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:52:35 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:52:35 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:52:36 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:57 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:52:58 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:52:58 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:53:02 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:02 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:53:02 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:53:05 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:53:05 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:13 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:53:13 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:53:27 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:53:27 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:27 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:29 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:53:31 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:31 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:33 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:33 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:37 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:37 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:46 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:46 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:48 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:48 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:53:50 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:53:50 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:54:58 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:54:58 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:54:58 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:55:06 אחה״צ ServiceLayer.Log event
-INFO: product save Successes
-יוני 28, 2022 8:55:08 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:55:15 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:55:16 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:55:16 אחה״צ ServiceLayer.Log event
-INFO: here is the basket value Successes
-יוני 28, 2022 8:55:16 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:55:23 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:55:24 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:55:24 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:55:24 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:55:25 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:56:03 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:56:03 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:56:03 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:56:06 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:56:06 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:56:06 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:56:07 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:56:09 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:56:09 אחה״צ ServiceLayer.Log event
-INFO: here is the basket value Successes
-יוני 28, 2022 8:56:09 אחה״צ ServiceLayer.Log event
-INFO: here is the cart value Successes
-יוני 28, 2022 8:56:12 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:56:12 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:56:12 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:56:15 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:56:16 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:56:19 אחה״צ ServiceLayer.Log event
-INFO: a get history info Successes
-יוני 28, 2022 8:56:20 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:56:21 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:56:22 אחה״צ ServiceLayer.Log event
-INFO: cart showed Successes
-יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log event
-INFO: logout from system Successes
-יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log event
-INFO: logout  Successes
-יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:56:45 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log event
-INFO: login - user a Successes
-יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log event
-INFO: login Successes
-יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:56:50 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:56:51 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:56:51 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 28, 2022 8:56:51 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:56:51 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:56:54 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:56:54 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:57:18 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:57:18 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:57:19 אחה״צ ServiceLayer.Log event
-INFO: permission check Successes
-יוני 28, 2022 8:57:19 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:57:28 אחה״צ ServiceLayer.Log event
-INFO: remove product from shop Successes
-יוני 28, 2022 8:57:28 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:56 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:56 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:56 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:57:53 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:56 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
-INFO: login - user maor Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:59 לפנה״צ ServiceLayer.Log event
+INFO: login - user a Successes
+יוני 29, 2022 1:52:59 לפנה״צ ServiceLayer.Log event
 INFO: login Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:59 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:59 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:52:59 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:02 לפנה״צ ServiceLayer.Log event
 INFO: search shops succeeded Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:02 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:02 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:57:58 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:02 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:58:02 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:09 לפנה״צ ServiceLayer.Log event
 INFO: search products succeeded Successes
-יוני 28, 2022 8:58:44 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:58:44 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:09 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:58:44 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:09 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:58:47 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:11 לפנה״צ ServiceLayer.Log event
+INFO: search shops succeeded Successes
+יוני 29, 2022 1:53:12 לפנה״צ ServiceLayer.Log event
 INFO: search products succeeded Successes
-יוני 28, 2022 8:58:47 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:12 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 28, 2022 8:58:47 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:12 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 28, 2022 8:58:49 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:03 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:03 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:59:03 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:59:09 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 1:53:17 לפנה״צ ServiceLayer.Log event
 INFO: product save Successes
-יוני 28, 2022 8:59:13 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:18 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:18 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:59:18 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:59:19 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:59:20 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:59:21 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:59:21 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:21 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:59:21 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:59:22 אחה״צ ServiceLayer.Log event
-INFO: search shops succeeded Successes
-יוני 28, 2022 8:59:22 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 28, 2022 8:59:22 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 28, 2022 8:59:22 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 28, 2022 8:59:24 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
+יוני 29, 2022 1:53:18 לפנה״צ ServiceLayer.Log event
+INFO: cart showed Successes
+יוני 29, 2022 1:53:18 לפנה״צ ServiceLayer.Log event
+INFO: here is the basket value Successes
+יוני 29, 2022 1:53:18 לפנה״צ ServiceLayer.Log event
+INFO: here is the cart value Successes
+יוני 29, 2022 1:53:19 לפנה״צ ServiceLayer.Log event
+INFO: cart showed Successes

@@ -36,6 +36,8 @@ public class PurchaseHistoryController {
     public Collection<PurchaseHistory> getPurchaseInfo(String user)
     {
         Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        if(allinfo==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -49,6 +51,8 @@ public class PurchaseHistoryController {
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid)
     {
         Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        if(allinfo==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -61,6 +65,8 @@ public class PurchaseHistoryController {
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid, String user)
     {
         PurchaseHistory purchaseHistory= MapperController.getInstance().getPurchaseHistoryMapper().findByIds(shopid,user);
+        if(purchaseHistory==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
 //        for(PurchaseHistory purchaseHistory:allinfo)
 //        {
@@ -73,13 +79,15 @@ public class PurchaseHistoryController {
 
     public PurchaseHistory createPurchaseHistory(Shop shop, String user){
         PurchaseHistory purchaseHistory;
-        if(getPurchaseInfo(shop.getId(), user).size() == 0) {
+        Collection<PurchaseHistory> purchaseHistoryDb =getPurchaseInfo(shop.getId(), user);
+        if(purchaseHistoryDb == null||purchaseHistoryDb.size() == 0) {
             purchaseHistory = new PurchaseHistory(shop, user);
             DataOnPurchases.add(purchaseHistory);
             MapperController.getInstance().getPurchaseHistoryMapper().save(purchaseHistory);
         }
         else{
-            purchaseHistory = DataOnPurchases.stream().toList().get(0);
+            purchaseHistory= purchaseHistoryDb.stream().toList().get(0);
+            this.DataOnPurchases.add(purchaseHistory);
         }
         return purchaseHistory;
     }

@@ -72,5 +72,8 @@ public class PurchaseHistory {
             this.shop = shop;
             this.user = user;
         }
+
+        public PurchaseHistoryPKID() {
+        }
     }
 }

@@ -50,6 +50,8 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
 
     @Override
     public PurchaseHistory fromEntity(ORM.Shops.PurchaseHistory entity) {
+        if(entity==null)
+            return null;
         return new PurchaseHistory(
                 shopMapper.run().fromEntity(entity.getShop()),
                 entity.getUser().getUsername(),
