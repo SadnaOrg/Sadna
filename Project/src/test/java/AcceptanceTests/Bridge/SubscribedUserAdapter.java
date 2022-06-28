@@ -17,7 +17,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 public class SubscribedUserAdapter extends UserAdapter implements SubscribedUserBridge{
-    private Map<String, SystemManagerService> managers;
+    protected Map<String, SystemManagerService> managers;
     public SubscribedUserAdapter(HashMap<String,UserService> guests, HashMap<String,SubscribedUserService> subscribed,HashMap<String,List<Notification>> notifications){
         super(guests, subscribed,notifications);
         managers = new HashMap<>();
