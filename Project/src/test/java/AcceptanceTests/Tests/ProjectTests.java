@@ -78,8 +78,14 @@ public abstract class ProjectTests {
             MegaSportProducts = setUpMegaSportProducts(proxy);
 
             proxy.appointManager(castroShop.ID, castroFounder.name, MegaSportFounder.name);
+            proxy.approveHeskemMinui(castroFounder.name,castroShop.ID,MegaSportFounder.name);
+
             proxy.appointOwner(castroShop.ID, castroFounder.name, ACEFounder.name);
+            proxy.approveHeskemMinui(MegaSportFounder.name,castroShop.ID,ACEFounder.name);
+            proxy.approveHeskemMinui(castroFounder.name,castroShop.ID,ACEFounder.name);
+
             proxy.appointOwner(aceShop.ID, ACEFounder.name, MegaSportFounder.name);
+            proxy.approveHeskemMinui(ACEFounder.name, aceShop.ID, MegaSportFounder.name);
 
             shops[castro_ID] = shopSearch(shops[castro_ID].ID);
             shops[MegaSport_ID] = shopSearch(shops[MegaSport_ID].ID);

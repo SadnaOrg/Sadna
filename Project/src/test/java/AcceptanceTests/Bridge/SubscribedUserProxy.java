@@ -198,4 +198,14 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     public boolean setCategory(String username, int productId, String category, int shopID) {
         return subscribedUserAdapter.setCategory(username,productId,category,shopID);
     }
+
+    @Override
+    public boolean approveHeskemMinui(String username, int shop, String adminToAssign) {
+        return subscribedUserAdapter.approveHeskemMinui(username,shop,adminToAssign);
+    }
+
+    @Override
+    public boolean declineHeskemMinui(String username, int shop, String adminToAssign) {
+        return subscribedUserAdapter.declineHeskemMinui(username,shop,adminToAssign);
+    }
 }

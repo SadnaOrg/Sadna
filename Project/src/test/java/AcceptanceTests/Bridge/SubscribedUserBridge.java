@@ -2,6 +2,7 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import ServiceLayer.Objects.HeskemMinui;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
@@ -86,4 +87,10 @@ public interface SubscribedUserBridge extends UserBridge {
     boolean removePredicate(String username,int predicateID, int shopId);
 
     boolean setCategory(String username,int productId, String category, int shopID);
+
+    boolean approveHeskemMinui(String username,int shop, String adminToAssign);
+
+    boolean declineHeskemMinui(String username,int shop, String adminToAssign);
+
+    // Response<Collection<HeskemMinui>> getHeskemeyMinui();
 }

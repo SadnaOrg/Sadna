@@ -138,6 +138,7 @@ public class SubscribedUserTests extends UserTests {
         }
         if(removeU1OwnerCastro){
             subscribedUserBridge.removeAdmin(shops[castro_ID].ID, castroFounder.name, u1.name);
+            subscribedUserBridge.declineHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
             removeU1OwnerCastro = false;
         }
         if(removeU1ManagerCastro){
@@ -594,6 +595,13 @@ public class SubscribedUserTests extends UserTests {
         boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.name,u1.name);
         assertTrue(result);
 
+        boolean approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
+        assertTrue(approved);
+
         Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
         assertNotNull(roles);
         Appointment appointment = roles.getOrDefault(u1.name,null);
@@ -609,6 +617,18 @@ public class SubscribedUserTests extends UserTests {
 
         boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,u1.name,u2.name);
         assertTrue(result);
+
+        boolean approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(castroFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(u1.name, shops[castro_ID].ID, u2.name);
+        assertTrue(approved);
 
         Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(u2.name,shops[castro_ID].ID);
         assertNotNull(roles);

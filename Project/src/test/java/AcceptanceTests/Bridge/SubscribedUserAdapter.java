@@ -456,4 +456,24 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         }
         return false;
     }
+
+    @Override
+    public boolean approveHeskemMinui(String username,int shop, String adminToAssign) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Result approved = service.approveHeskemMinui(shop, adminToAssign);
+            return approved.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean declineHeskemMinui(String username,int shop, String adminToAssign) {
+        if(subscribedUsers.containsKey(username)){
+            SubscribedUserService service = subscribedUsers.get(username);
+            Result approved = service.declineHeskemMinui(shop, adminToAssign);
+            return approved.isOk();
+        }
+        return false;
+    }
 }
