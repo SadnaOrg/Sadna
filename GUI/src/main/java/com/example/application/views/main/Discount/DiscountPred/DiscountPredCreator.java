@@ -17,6 +17,7 @@ import java.util.function.Predicate;
 
 import static com.example.application.Utility.notifyError;
 import static com.example.application.Utility.notifySuccess;
+import static com.example.application.views.main.Discount.DiscountContentCreator.getNumberField;
 
 public class DiscountPredCreator {
     private SubscribedUserService service;
@@ -91,14 +92,7 @@ public class DiscountPredCreator {
     }
 
     private NumberField createNumberField(String label, int maxValue) {
-        NumberField amount = new NumberField(label);
-        amount.setAutofocus(true);
-        amount.setWidthFull();
-        amount.setClearButtonVisible(true);
-        amount.setMin(0);
-        if(maxValue != -1)
-            amount.setMax(maxValue);
-        return amount;
+        return getNumberField(label, maxValue);
     }
 
     private IntegerField createIntegerField(String label) {
