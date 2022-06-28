@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Shop {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -55,10 +55,9 @@ public class Shop {
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
 
-    public Shop(int id, String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
+    public Shop(String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
                 Map<SubscribedUser, ShopAdministrator> shopAdministrators) {
-        this.id = id;
         this.name = name;
         this.description = description;
         this.founder = new ShopOwner(new ArrayList<>(), founder, this, isFounder);
@@ -69,8 +68,7 @@ public class Shop {
         this.shopAdministrators = shopAdministrators;
     }
 
-    public Shop(int id, String name, String description) {
-        this.id = id;
+    public Shop(String name, String description) {
         this.name = name;
         this.description = description;
         this.state = State.OPEN;

@@ -1,28 +1,38 @@
-Jun 28, 2022 3:03:51 PM ServiceLayer.Log event
+Jun 28, 2022 8:34:54 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 28, 2022 3:04:08 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:09 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 28, 2022 3:04:08 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:09 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 28, 2022 3:04:08 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:09 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 28, 2022 3:04:08 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:09 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:09 PM ServiceLayer.Log event
+INFO: logout from system Successes
+Jun 28, 2022 8:35:10 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 28, 2022 8:35:10 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 28, 2022 8:35:10 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 28, 2022 8:35:10 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 28, 2022 8:35:12 PM ServiceLayer.Log event
 INFO: login - user a Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:12 PM ServiceLayer.Log event
 INFO: login Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:12 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:12 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:12 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:13 PM ServiceLayer.Log event
 INFO: search shops succeeded Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:13 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:13 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 28, 2022 3:04:11 PM ServiceLayer.Log event
+Jun 28, 2022 8:35:13 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
