@@ -23,4 +23,8 @@ public class AssignShopOwner extends BaseAction {
         }
         return false;
     }
+
+    public boolean addAdministratorToHeskemMinui(String userNameToAssign, String appointer) {
+        return s.addAdministratorToHeskemMinui(userNameToAssign,appointer);
+    }
 }
