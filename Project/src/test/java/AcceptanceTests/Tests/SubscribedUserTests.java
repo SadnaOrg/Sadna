@@ -23,6 +23,7 @@ public class SubscribedUserTests extends UserTests {
     private boolean deleteCastro222 = false;
     private boolean removeU1OwnerCastro = false;
     private boolean removeU1ManagerCastro = false;
+    private boolean removeU1OwnerAgreementCastro = false;
     private int removeU3ManagerCastro = -1;
     private int policyID = -1;
     private boolean removeCastro = false;
@@ -163,6 +164,10 @@ public class SubscribedUserTests extends UserTests {
         if(removeCastro){
             subscribedUserBridge.removeDiscount(castroFounder.name, policyID,shops[castro_ID].ID);
             removeCastro = false;
+        }
+        if(removeU1OwnerAgreementCastro){
+            subscribedUserBridge.declineHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
+            removeU1OwnerCastro = false;
         }
 
         subscribedUserBridge.getNotifications(u1.name);
@@ -1817,6 +1822,23 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(3,appointments.size());
         assertTrue(appointments.keySet().containsAll(admins));
         removeU1ManagerCastro = false;
+    }
+
+    @Test
+    public void testAppointOwnerFailureNoAgreement(){
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.name,u1.name);
+        assertTrue(result);
+
+        boolean approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+
+        Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertNotNull(roles);
+        Appointment appointment = roles.getOrDefault(u1.name,null);
+        assertNull(appointment);
+        removeU1OwnerAgreementCastro = true;
     }
 
     public User enter() {

@@ -6,6 +6,7 @@ import ServiceLayer.Objects.HeskemMinui;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.time.LocalTime;
 import java.util.Collection;
@@ -92,5 +93,5 @@ public interface SubscribedUserBridge extends UserBridge {
 
     boolean declineHeskemMinui(String username,int shop, String adminToAssign);
 
-    // Response<Collection<HeskemMinui>> getHeskemeyMinui();
+    SystemManagerService manageSystemAsSystemManager(String username);
 }

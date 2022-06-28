@@ -3,6 +3,7 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.PurchaseHistoryInfo;
 import AcceptanceTests.DataObjects.SubscribedUserInfo;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.util.List;
 

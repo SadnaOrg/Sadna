@@ -3,6 +3,7 @@ package AcceptanceTests.Bridge;
 import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -207,5 +208,10 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public boolean declineHeskemMinui(String username, int shop, String adminToAssign) {
         return subscribedUserAdapter.declineHeskemMinui(username,shop,adminToAssign);
+    }
+
+    @Override
+    public SystemManagerService manageSystemAsSystemManager(String username) {
+        return null;
     }
 }
