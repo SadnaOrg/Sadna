@@ -25,11 +25,15 @@ public class PurchaseHistoryController {
     }
 
     public Collection<PurchaseHistory> getDataOnPurchases() {
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        this.DataOnPurchases.addAll(allinfo);
         return DataOnPurchases;
     }
 
     public Collection<PurchaseHistory> getPurchaseInfo()
     {
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        this.DataOnPurchases.addAll(allinfo);
         return DataOnPurchases;
 
     }
@@ -43,6 +47,7 @@ public class PurchaseHistoryController {
         {
             if(purchaseHistory.getUser().equals(user)) {
                 relevantinfo.add(purchaseHistory);
+                this.DataOnPurchases.add(purchaseHistory);
             }
         }
         return relevantinfo;
@@ -58,6 +63,7 @@ public class PurchaseHistoryController {
         {
             if(purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
+                this.DataOnPurchases.add(purchaseHistory);
             }
         }
         return relevantinfo;
@@ -72,6 +78,7 @@ public class PurchaseHistoryController {
 //        {
             if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
+                this.DataOnPurchases.add(purchaseHistory);
             }
 //        }
         return relevantinfo;
