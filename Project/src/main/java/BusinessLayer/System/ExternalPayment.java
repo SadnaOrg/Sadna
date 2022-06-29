@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 public class ExternalPayment implements Payment{
 
     private final String url = "https://cs-bgu-wsep.herokuapp.com/";
-    private final int minTransactionID = 10000;
+    private final int minTransactionID = 0;
     private final int maxTransactionID = 100000;
 
     public boolean available() {
@@ -92,6 +92,8 @@ public class ExternalPayment implements Payment{
 
     @Override
     public boolean pay(double totalPrice, PaymentMethod method, String ID, String cardHolder) {
+        if(!(method.isValidPaymentMethod(method.getExpiryMonth(),method.getExpiryYear())&& method.isValidCVV()))
+            throw new IllegalArgumentException("invalid cvv or expired date ");
         return pay(new PaymentInfo(method,ID,cardHolder))>0;
     }
 

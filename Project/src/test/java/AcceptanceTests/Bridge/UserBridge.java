@@ -1,6 +1,7 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
+import ServiceLayer.Result;
 
 import java.util.List;
 import java.util.function.Function;
@@ -40,5 +41,7 @@ public interface UserBridge {
     List<AcceptanceTests.DataObjects.Notification> getDelayNotification(String username);
 
     List<Notification> getNotifications(String username);
+
+    boolean saveProductsAsBid(String username,int shopId, int productId, int quantity, double price);
 
 }

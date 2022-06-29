@@ -272,6 +272,8 @@ public class UserAdapter implements UserBridge{
     public List<AcceptanceTests.DataObjects.Notification> getNotifications(String username) {
         UserService service = getService(username);
         if(service!=null){
+           // userNotifications.put(username,new LinkedList<>());
+            service.registerToNotifier(not-> userNotifications.get(username).add(new AcceptanceTests.DataObjects.Notification(not.Content())));
             Result response = service.getDelayNotification();
             if(response.isOk()){
                 List<AcceptanceTests.DataObjects.Notification> notifications = userNotifications.getOrDefault(username,null);
@@ -280,6 +282,16 @@ public class UserAdapter implements UserBridge{
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean saveProductsAsBid(String username,int shopId, int productId, int quantity, double price) {
+        UserService service = getService(username);
+        if(service != null){
+            Result saved = service.saveProductsAsBid(shopId,productId,quantity,price);
+            return saved.isOk();
+        }
+        return false;
     }
 
     public HashMap<String, UserService> getGuests() {
