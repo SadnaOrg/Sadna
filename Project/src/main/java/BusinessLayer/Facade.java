@@ -411,7 +411,9 @@ public class Facade{
     public Collection<Statistic> getStatistic(LocalDate from,LocalDate to){
         LinkedList<Statistic> l = new LinkedList<>();
         while (from.compareTo(to)<=0){
-            l.add(NotifyStatistic.getStatistic(from));
+            var s = NotifyStatistic.getStatistic(from);
+            if(s != null)
+            l.add(s);
             from = from.plusDays(1);
         }
         return  l;
