@@ -31,19 +31,25 @@ public class Statistic{
 
 
     public void start(long tickValueInMin){
-       tick =tick;
-       makeTick();
+       tick =tickValueInMin;
+       if(lastTick == null) {
+           lastTick = LocalTime.now();
+           registeredUser.tick(0);
+           loginUser.tick(0);
+           purchase.tick(0);
+       }
+       else makeTick();
 
     }
 
     private void makeTick() {
 
-        if (LocalTime.now().isAfter(lastTick.plusMinutes(tick))) {
+        if (lastTick!=null &&LocalTime.now().isAfter(lastTick.plusMinutes(tick))) {
             synchronized (this) {
-                if (LocalTime.now().isAfter(lastTick.plusMinutes(tick))) {
+                if (lastTick!=null && LocalTime.now().isAfter(lastTick.plusMinutes(tick))) {
                     lastTick = LocalTime.now();
                     registeredUser.tick(0);
-                    loginUser.tick();
+                    loginUser.tick(0);
                     purchase.tick(0);
                 }
             }
@@ -52,17 +58,24 @@ public class Statistic{
 
     public void register(){
         registeredUser.Add(i-> i+1);
+        makeTick();
     }
 
     public void login(){
         loginUser.Add(i->i+1);
+        makeTick();
+
     }
     public void logout(){
         loginUser.Add(i->i-1);
+        makeTick();
+
     }
 
     public void purchase(){
         purchase.Add(i->i+1);
+        makeTick();
+
     }
 
     public LocalDate getDay() {
@@ -79,5 +92,13 @@ public class Statistic{
 
     public StatisticMap<Integer> getPurchase() {
         return purchase;
+    }
+
+    public long getTick() {
+        return tick;
+    }
+
+    public LocalTime getLastTick() {
+        return lastTick;
     }
 }
