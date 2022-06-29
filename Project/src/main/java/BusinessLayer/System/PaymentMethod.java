@@ -13,10 +13,20 @@ public class PaymentMethod {
         this.CVV = CVV;
         this.expiryMonth = expiryMonth;
         this.expiryYear = expiryYear;
+        if(!isValidPaymentMethod(expiryMonth,expiryYear))
+            throw new IllegalArgumentException("un valid expierd date");
+        if(!isValidCreditCardNumber())
+            throw new IllegalArgumentException("un valid card number");
+
+        if(!isValidCVV())
+            throw new IllegalArgumentException("un valid cvv");
     }
 
     public PaymentMethod(String creditCardNumber, int cvv, int expiryMonth, int expiryYear) {
         this(creditCardNumber,new AtomicInteger(cvv),new AtomicInteger(expiryMonth),new AtomicInteger(expiryYear));
+
+
+
     }
 
     public AtomicInteger getCVV() {
@@ -41,11 +51,11 @@ public class PaymentMethod {
         return getCreditCardNumber().chars().allMatch( Character::isDigit );
     }
 
-    private boolean isValidCVV(){
+    public boolean isValidCVV(){
         return (getCVV().get() >= 0 && getCVV().get() <= 999);
     }
 
-    private boolean isValidExpiryDate(AtomicInteger month, AtomicInteger year){
+    public boolean isValidExpiryDate(AtomicInteger month, AtomicInteger year){
         if(getExpiryMonth().get() > 12 || getExpiryMonth().get() < 1)
             return false;
         return getExpiryYear().get() >= year.get() && (getExpiryYear().get() != year.get() || getExpiryMonth().get() >= month.get());

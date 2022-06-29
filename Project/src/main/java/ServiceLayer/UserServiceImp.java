@@ -28,8 +28,8 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear) {
-        return ifUserNotNullRes(()-> facade.purchaseCartFromShop(currUser,new PaymentMethod(creditCardNumber,CVV,expiryMonth,expiryYear)),"purchased cart");
+    public Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear,String ID,String cardHolder) {
+        return ifUserNotNullRes(()-> facade.purchaseCartFromShop(currUser,new PaymentMethod(creditCardNumber,CVV,expiryMonth,expiryYear),ID,cardHolder),"purchased cart");
     }
 
     @Override

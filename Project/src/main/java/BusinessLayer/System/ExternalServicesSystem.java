@@ -18,16 +18,14 @@ public class ExternalServicesSystem {
         supply = new ArrayList<>();
     }
 
-    public boolean pay(double totalPrice, PaymentMethod method)
+    public boolean pay(double totalPrice, PaymentMethod method,String ID,String cardHolder)
     {
         boolean flag = false;
         for(Payment p:payment.stream().toList())
         {
-            flag=p.pay(totalPrice, method);
+            flag=p.pay(totalPrice, method,ID,cardHolder);
             if (flag)
-            {
                 return true;
-            }
         }
         return flag;
     }

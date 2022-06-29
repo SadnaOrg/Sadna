@@ -43,6 +43,8 @@ public class System {
         shops = new ConcurrentHashMap<>();
         purchaseHistoryServices= PurchaseHistoryController.getInstance();
         UserController.getInstance().createSystemManager("Admin","ILoveIttaiNeria",new Date(2001, Calendar.DECEMBER,1));
+        this.externSystem.addPayment(new ExternalPayment());
+        this.externSystem.addSupply(new ExternalSupply());
         //setUp();
     }
 
@@ -70,6 +72,7 @@ public class System {
             sc.addShop(s1);
             sc.addToPurchaseHistory(buyer.getUserName(), createPayments());
             phc.createPurchaseHistory(s1, buyer.getUserName());
+
         }
         flag = true;
     }
@@ -80,13 +83,13 @@ public class System {
         return payments;
     }
 
-    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method,String ID,String cardHolder)
     {
         ConcurrentHashMap<Integer,Boolean> paymentSituation= new ConcurrentHashMap<>();
         for(int shopId: totalPrices.keySet())
         {
             if(totalPrices.get(shopId)>0 && method != null) {
-                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method));
+                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method,ID,cardHolder));
             }
             else
             {

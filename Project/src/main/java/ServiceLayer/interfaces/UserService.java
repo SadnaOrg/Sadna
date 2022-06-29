@@ -21,9 +21,9 @@ public interface UserService {
 
     Response<ShopsInfo> receiveInformation();
 
-    Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear);
+     Response<Double> purchaseCartFromShop(String creditCardNumber, int CVV, int expiryMonth, int expiryYear,String ID,String cardHolder);
 
-    Response<Double> getCartPrice();
+     Response<Double> getCartPrice();
 
     Response<Double> getBasketPrice(int shopid);
 
@@ -44,4 +44,5 @@ public interface UserService {
     Result registerToNotifier(Function<ServiceLayer.Objects.Notification, Boolean> con);
 
     Result getDelayNotification();
+
 }
