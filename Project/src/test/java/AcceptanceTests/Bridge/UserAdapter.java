@@ -216,7 +216,7 @@ public class UserAdapter implements UserBridge{
         UserService service = getService(username);
         if(service == null)
             return 0;
-        Response<Double> purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
+        Response<Double> purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear,"","");
         if(purchased.isOk())
             return purchased.getElement();
         return 0;

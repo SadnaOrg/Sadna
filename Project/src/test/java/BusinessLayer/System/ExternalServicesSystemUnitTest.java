@@ -40,19 +40,19 @@ public class ExternalServicesSystemUnitTest {
     @Test
     public void testCheckPaymentSuccess() {
         setUpPay();
-        Assert.assertTrue(system.pay(100, method));
+        Assert.assertTrue(system.pay(100, method,"",""));
     }
 
     @Test
     public void testPayFailAmountZero() {
         setUpPay();
-        Assert.assertFalse(system.pay(0, method));
+        Assert.assertFalse(system.pay(0, method,"",""));
     }
 
     @Test
     public void testPayFailAmountNegative() {
         setUpPay();
-        Assert.assertFalse(system.pay(-100, method));
+        Assert.assertFalse(system.pay(-100, method,"",""));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class ExternalServicesSystemUnitTest {
     public void setUpPay(){
         system.addPayment(failedPayment);
         system.addPayment(payment);
-        when(payment.pay(Mockito.doubleThat((arg) -> arg > 0), any(PaymentMethod.class))).thenReturn(true);
+        when(payment.pay(Mockito.doubleThat((arg) -> arg > 0), any(PaymentMethod.class),any(String.class),any(String.class))).thenReturn(true);
     }
 
     public Collection<ProductInfo> setUpSupply(Collection<ProductInfo> products){

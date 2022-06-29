@@ -80,13 +80,13 @@ public class System {
         return payments;
     }
 
-    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method)
+    public ConcurrentHashMap<Integer,Boolean> pay(ConcurrentHashMap<Integer,Double> totalPrices, PaymentMethod method,String ID,String cardHolder)
     {
         ConcurrentHashMap<Integer,Boolean> paymentSituation= new ConcurrentHashMap<>();
         for(int shopId: totalPrices.keySet())
         {
             if(totalPrices.get(shopId)>0 && method != null) {
-                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method));
+                paymentSituation.put(shopId, getExternSystem().pay(totalPrices.get(shopId), method,ID,cardHolder));
             }
             else
             {

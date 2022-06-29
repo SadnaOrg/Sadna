@@ -5,7 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ExternalPayment {
+public class ExternalPayment implements Payment{
 
     private final String url = "https://cs-bgu-wsep.herokuapp.com/";
     private final int minTransactionID = 10000;
@@ -86,5 +86,10 @@ public class ExternalPayment {
 
     private boolean isLegalID(int transactionID){
         return transactionID >= minTransactionID & transactionID <= maxTransactionID;
+    }
+
+    @Override
+    public boolean pay(double totalPrice, PaymentMethod method,String ID,String cardHolder) {
+        return pay(new PaymentInfo(method,ID,cardHolder))>0;
     }
 }
