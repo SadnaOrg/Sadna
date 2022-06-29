@@ -14,9 +14,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static com.example.application.Utility.notifyError;
 
@@ -94,8 +98,9 @@ public class statisticForm  extends Header {
         registerSeries.setName("number of registration to system");
         DataSeries purchaseSeries = new DataSeries();
         purchaseSeries.setName("number of purchase");
-        for(var stat : stats) {
-            for (var data : stat.numberOfLogin().entrySet()) {
+        Function<Map<LocalTime,Integer>,Collection<Map.Entry<LocalTime,Integer>>> f = e->e.entrySet().stream().sorted((e1, e2)->e1.getKey().compareTo(e2.getKey())).collect(Collectors.toList());
+        for(var stat : stats.stream().sorted((e1,e2)->e1.day().compareTo(e2.day())).collect(Collectors.toList())) {
+            for (var data : f.apply(stat.numberOfLogin())) {
                 DataSeriesItem item = new DataSeriesItem();
                 item.setX(LocalDateTime.of(stat.day(), data.getKey()).toInstant(ZoneOffset.UTC));
                 item.setY(data.getValue());
@@ -103,14 +108,14 @@ public class statisticForm  extends Header {
             }
 
 
-            for (var data : stat.register().entrySet()) {
+            for (var data :f.apply(stat.register())) {
                 DataSeriesItem item = new DataSeriesItem();
                 item.setX(LocalDateTime.of(stat.day(), data.getKey()).toInstant(ZoneOffset.UTC));
                 item.setY(data.getValue());
                 registerSeries.add(item);
             }
 
-            for (var data : stat.numberOfPurchase().entrySet()) {
+            for (var data : f.apply(stat.numberOfPurchase())) {
                 DataSeriesItem item = new DataSeriesItem();
                 item.setX(LocalDateTime.of(stat.day(), data.getKey()).toInstant(ZoneOffset.UTC));
                 item.setY(data.getValue());
