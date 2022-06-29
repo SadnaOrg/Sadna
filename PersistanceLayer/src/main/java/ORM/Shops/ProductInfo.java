@@ -32,9 +32,11 @@ public class ProductInfo {
 
     }
 
-    public class ProductInfoPKID implements Serializable {
+    public static class ProductInfoPKID implements Serializable {
         private int productID;
         private Purchase purchase;
+
+
 
         public ProductInfoPKID() {
         }

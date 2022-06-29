@@ -144,14 +144,16 @@ public class ShopController {
                 for (PurchaseHistory purchaseHistory:PurchaseHistoryController.getInstance().getDataOnPurchases())
                 {
                     if(purchaseHistory.getShop().getId()==shopid && purchaseHistory.getUser().equals(user)) {
-                        purchaseHistory.makePurchase();
+                        //TODO:need to change back
+                        purchaseHistory.makePurchase(shops.get(shopid));
                         flagexist= true;
                     }
                 }
                 if(!flagexist)
                 {
                     PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.get(shopid), user);
-                    purchaseHistory.makePurchase();
+                    //TODO:need to change back
+                    purchaseHistory.makePurchase(shops.get(shopid));
                     shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
                 shops.get(shopid).purchaseBasket(user);

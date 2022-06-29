@@ -5,6 +5,9 @@ import BusinessLayer.Mappers.Func;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Products.ProductInfo;
 import BusinessLayer.Shops.Purchase;
+import ORM.DAOs.DBImpl;
+import ORM.DAOs.Shops.PurchaseDAO;
+import ORM.DAOs.Shops.PurchaseHistoryDAO;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -13,7 +16,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class PurchaseMapper  implements CastEntity <ORM.Shops.Purchase, Purchase>{
+public class PurchaseMapper  implements  CastEntity <ORM.Shops.Purchase, Purchase>{
+
+    private final PurchaseDAO dao = new PurchaseDAO();
 
 
     private Func<ProductInfoMapper> productInfoMapper = () -> ProductInfoMapper.getInstance();
@@ -21,6 +26,8 @@ public class PurchaseMapper  implements CastEntity <ORM.Shops.Purchase, Purchase
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
 
     private Func<ShopMapper> shopMapper = () -> ShopMapper.getInstance();
+
+
 
 
     static private class PurchaseMapperHolder {
@@ -37,19 +44,29 @@ public class PurchaseMapper  implements CastEntity <ORM.Shops.Purchase, Purchase
 
     @Override
     public ORM.Shops.Purchase toEntity(Purchase entity) {
-        Collection<ProductInfo> infos= new ArrayList<>();
-        for (int pid: entity.getInfoProducts().keySet())
-        {
-            infos.add(new ProductInfo(pid,entity.getInfoProducts().get(pid),entity.getProductPrices().get(pid)));
+        ORM.Shops.Purchase purchase = dao.findById(entity.getTransectionid());
+        if(purchase== null) {
+            Collection<ProductInfo> infos = new ArrayList<>();
+            for (int pid : entity.getInfoProducts().keySet()) {
+                infos.add(new ProductInfo(pid, entity.getInfoProducts().get(pid), entity.getProductPrices().get(pid)));
+            }
+            String pattern = "yyyy-MM-dd";
+            DateFormat format = new SimpleDateFormat(pattern);
+
+            purchase = new ORM.Shops.Purchase(entity.getTransectionid(),
+                    infos.stream().map(productInfo -> productInfoMapper.run().toEntity(productInfo)).collect(Collectors.toList()),
+                    format.format(entity.getDateOfPurchase()));
+            purchase.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
+            purchase.setShop(shopMapper.run().findORMById(entity.getShopid()));
+            ORM.Shops.Purchase finalPurchase = purchase;
+            purchase.setProductInfos(purchase.getProductInfos().stream().peek(productInfo -> productInfo.setPurchase(finalPurchase)).collect(Collectors.toList()));
         }
-        String pattern = "yyyy-MM-dd";
-        DateFormat format = new SimpleDateFormat(pattern);
-        ORM.Shops.Purchase purchase = new ORM.Shops.Purchase(entity.getTransectionid(),
-                infos.stream().map(productInfo -> productInfoMapper.run().toEntity(productInfo)).collect(Collectors.toList()),
-                format.format(entity.getDateOfPurchase()));
-        purchase.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
-        purchase.setShop(shopMapper.run().findORMById(entity.getShopid()));
-        purchase.getProductInfos().stream().peek(productInfo -> productInfo.setPurchase(purchase));
+        else
+        {
+            String pattern = "yyyy-MM-dd";
+            DateFormat format = new SimpleDateFormat(pattern);
+            purchase.setDateOfPurchase(format.format(entity.getDateOfPurchase()));
+        }
         return purchase;
     }
 
@@ -68,4 +85,6 @@ public class PurchaseMapper  implements CastEntity <ORM.Shops.Purchase, Purchase
         }
         return null;
     }
+
+
 }

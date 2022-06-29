@@ -4,11 +4,8 @@ import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Shops.PurchaseHistory;
-import BusinessLayer.Shops.Shop;
-import BusinessLayer.Users.Basket;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.PurchaseHistoryDAO;
-import ORM.DAOs.Shops.ShopDAO;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,10 +37,18 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
     }
     @Override
     public ORM.Shops.PurchaseHistory toEntity(PurchaseHistory entity) {
-        ORM.Shops.PurchaseHistory purchaseHistory = new ORM.Shops.PurchaseHistory(entity.getPast_purchases().stream()
-                .map(purchase -> purchaseMapper.run().toEntity(purchase)).collect(Collectors.toList()));
-        purchaseHistory.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
-        purchaseHistory.setShop(shopMapper.run().findORMById(entity.getShop().getId()));
+        ORM.Shops.PurchaseHistory purchaseHistory =findORMByIds(entity.getShop().getId(),entity.getUser());
+        if(findByIds(entity.getShop().getId(),entity.getUser())==null) {
+            purchaseHistory = new ORM.Shops.PurchaseHistory(entity.getPast_purchases().stream()
+                    .map(purchase -> purchaseMapper.run().toEntity(purchase)).collect(Collectors.toList()));
+            purchaseHistory.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
+            purchaseHistory.setShop(shopMapper.run().findORMById(entity.getShop().getId()));
+        }
+        else
+        {
+            purchaseHistory.getPast_purchases().clear();
+            purchaseHistory.getPast_purchases().addAll(entity.getPast_purchases().stream().map(purchase -> purchaseMapper.run().toEntity(purchase)).toList());
+        }
 
         return purchaseHistory;
     }
@@ -78,6 +83,10 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
 
     public PurchaseHistory findByIds(int shopId, String user) {
         return fromEntity(dao.findById(new ORM.Shops.PurchaseHistory.PurchaseHistoryPKID(shopMapper.run().findORMById(shopId),subscribedUserMapper.run().findORMById(user))));
+    }
+
+    public ORM.Shops.PurchaseHistory findORMByIds(int shopId, String user) {
+        return dao.findById(new ORM.Shops.PurchaseHistory.PurchaseHistoryPKID(shopMapper.run().findORMById(shopId),subscribedUserMapper.run().findORMById(user)));
     }
 
     public ConcurrentHashMap<Integer,PurchaseHistory> findByUserName(String userName) {

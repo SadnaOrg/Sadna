@@ -40,6 +40,19 @@ public class PurchaseHistory {
         MapperController.getInstance().getPurchaseHistoryMapper().update(this);
     }
 
+    public void
+    makePurchase(Shop shop)
+    {
+        Purchase purchase = new Purchase(shop.getId(), user, past_purchases.size()+1,shop.getUsersBaskets().get(user));
+        var notifier =System.getInstance().getNotifier();
+        var admins = shop.getShopAdministrators().stream().map(sa->sa.getUserName()).collect(Collectors.toList());
+        for (var p :shop.getUsersBaskets().get(user).getProducts().entrySet()) {
+            notifier.addNotification(new ConcreteNotification(admins,user+" has buy from your shop \""+shop.getName()+"\" "+p.getValue()+" for product #"+p.getKey()+" "+shop.getProducts().get(p.getKey()).getName()));
+        }
+        past_purchases.add(purchase);
+        MapperController.getInstance().getPurchaseHistoryMapper().update(this);
+    }
+
     public Shop getShop() {
         return shop;
     }
