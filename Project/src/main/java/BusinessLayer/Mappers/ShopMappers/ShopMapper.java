@@ -65,14 +65,6 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
             }
         }
         else {
-            //Map<SubscribedUser, Basket> usersBaskets = new ConcurrentHashMap<>();
-            //entity.getUsersBaskets().keySet().stream()
-            //        .peek(user -> usersBaskets.put(subscribedUserMapper.run().findORMById(user),
-            //                basketMapper.run().toEntity(entity.getUsersBaskets().get(user))));
-            //Map<SubscribedUser, PurchaseHistory> purchaseHistories = new ConcurrentHashMap<>();
-            //entity.getPurchaseHistoryMap().keySet().stream()
-            //        .peek(user -> purchaseHistories.put(subscribedUserMapper.run().findORMById(user),
-            //                purchaseHistoryMapper.run().toEntity(entity.getPurchaseHistoryMap().get(user))));
             ormShop.setName(entity.getName());
             ormShop.setDescription(entity.getDescription());
             //for (String user : entity.getShopAdministratorsMap().keySet()) {
@@ -85,6 +77,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
             ormShop.getProducts().addAll(entity.getProducts().values().stream().map(
                     product -> productMapper.run().toEntity(product)
             ).toList());
+            ormShop.getUsersBaskets().clear();
+            for (String user : entity.getUsersBaskets().keySet())
+                ormShop.getUsersBaskets().put(subscribedUserMapper.run().findORMById(user),
+                        basketMapper.run().toEntity(user, entity.getUsersBaskets().get(user)));
             //ormShop.setPurchaseHistory(purchaseHistories);
             ormShop.setState(ORM.Shops.Shop.State.values()[entity.getState().ordinal()]);
             ormShop.getFounder().getAppoints().clear();

@@ -45,8 +45,10 @@ public class ShopController {
                 throw new IllegalStateException("no such shop!");
 
             Basket b = s.getUsersBaskets().get(username);
-            if(b.getProducts().size() == 0)
+            if(b.getProducts().size() == 0) {
                 s.removeBasket(username);
+                mapperController.getShopMapper().update(shops.get(shopID));
+            }
         }
     }
 
@@ -177,7 +179,10 @@ public class ShopController {
     }
 
     public boolean AddBasket(int shopid, String user, Basket basket) {
-        return shops.get(shopid).addBasket(user,basket);
+        boolean res = shops.get(shopid).addBasket(user,basket);
+        if (res)
+            mapperController.getShopMapper().update(shops.get(shopid));
+        return res;
     }
 
 

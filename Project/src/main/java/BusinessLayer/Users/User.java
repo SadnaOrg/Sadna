@@ -10,11 +10,11 @@ public abstract class User{
 
     //the key is the shopid
     //the value is the basket of the specific shop
+
     private ConcurrentHashMap<Integer, Basket> shoppingCart;
     private ConcurrentHashMap<Integer, BidOffer> shoppingBids;
     protected String name;
     protected PaymentMethod method;
-
     public User(String name) {
         this.name= name;
         method = null;
@@ -23,6 +23,7 @@ public abstract class User{
     }
 
     //assume that the productid is in the relevant shop handle in facade
+
     public boolean saveProducts(int shopid, int productid, int quantity,double price,String category) {
         if(quantity<=0)
             throw new IllegalArgumentException("quantity must be positive amount");
@@ -35,8 +36,8 @@ public abstract class User{
         //the product is already exist in the basket
         return b.saveProducts(productid, quantity,price,category);
     }
-
     //assume that the productid is in the relevant shop handle in facade
+
     public boolean saveProductsAsBid(int shopid, int productid, int quantity,double price) {
         if(quantity<=0)
             throw new IllegalArgumentException("quantity must be positive amount");
@@ -49,7 +50,6 @@ public abstract class User{
         BidOffer b = shoppingBids.get(shopid);
         return b.AddToBid(productid, quantity,price);
     }
-
 
     public ConcurrentHashMap<Integer,Integer> getProducts(int shopid){
         if(shoppingCart.containsKey(shopid))
@@ -109,6 +109,10 @@ public abstract class User{
 
     public ConcurrentHashMap<Integer, Basket> getShoppingCart() {
         return shoppingCart;
+    }
+
+    public void setShoppingCart(ConcurrentHashMap<Integer, Basket> shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
     public ConcurrentHashMap<Integer, ShopInfo> receiveInformation()
     {

@@ -32,23 +32,45 @@ public class Basket {
     @Column(name = "QUANTITY")
     private Map<Integer,Integer> products;
 
+    @ElementCollection
+    @CollectionTable(
+            name = "PricesInBaskets",
+            joinColumns = {
+                    @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "username", referencedColumnName = "username")
+            }
+    )
+    @MapKeyColumn(name = "PRODUCT_ID")
+    @Column(name = "PRICE")
+    private Map<Integer,Double> prices;
+
+    @ElementCollection
+    @CollectionTable(
+            name = "CategoriesInBaskets",
+            joinColumns = {
+                    @JoinColumn(name = "shopID", referencedColumnName = "shopID"),
+                    @JoinColumn(name = "username", referencedColumnName = "username")
+            }
+    )
+    @MapKeyColumn(name = "PRODUCT_ID")
+    @Column(name = "CATEGORY")
+    private Map<Integer,String> categories;
+
     public Basket() {
     }
 
-    public Basket(Shop shop, SubscribedUser user, Map<Integer, Integer> products) {
+    public Basket(Shop shop, SubscribedUser user, Map<Integer, Integer> products, Map<Integer, Double> prices, Map<Integer, String> categories) {
         this.shop = shop;
         this.user = user;
         this.products = products;
+        this.prices = prices;
+        this.categories = categories;
     }
 
     public Basket(Shop shop, SubscribedUser user){
         this.shop = shop;
         this.user = user;
         this.products = new HashMap<>();
-    }
-
-    public void setProducts(Map<Integer, Integer> products) {
-        this.products = products;
     }
 
     public Shop getShop() {
@@ -61,6 +83,26 @@ public class Basket {
 
     public Map<Integer,Integer> getProducts() {
         return products;
+    }
+
+    public void setProducts(Map<Integer, Integer> products) {
+        this.products = products;
+    }
+
+    public Map<Integer, Double> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Map<Integer, Double> prices) {
+        this.prices = prices;
+    }
+
+    public Map<Integer, String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Map<Integer, String> categories) {
+        this.categories = categories;
     }
 
     public static class BasketPKID implements Serializable {

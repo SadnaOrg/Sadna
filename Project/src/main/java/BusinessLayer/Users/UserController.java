@@ -76,6 +76,8 @@ public class UserController {
         double price = ShopController.getInstance().getProductPrice(shopId, productId);
         if (price != -1) {
             if (u.saveProducts(shopId, productId, quantity, price,ShopController.getInstance().getShops().get(shopId).getProducts().get(productId).getCategory())) {
+                if (u instanceof SubscribedUser)
+                    mapperController.getSubscribedUserMapper().update((SubscribedUser) u);
                 if (!ShopController.getInstance().checkIfUserHasBasket(shopId, u.getName())) {
                     ShopController.getInstance().AddBasket(shopId, u.getName(), u.getBasket(shopId));
                 }
