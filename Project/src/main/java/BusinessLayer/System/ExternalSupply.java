@@ -1,14 +1,18 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Products.ProductInfo;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ExternalSupply {
+import static BusinessLayer.System.ExternalPayment.getSupplyInfo;
+
+public class ExternalSupply implements Supply{
 
     private final String url = "https://cs-bgu-wsep.herokuapp.com/";
-    private final int minTransactionID = 10000;
+    private final int minTransactionID = 0;
     private final int maxTransactionID = 100000;
 
     public boolean available() {
@@ -46,7 +50,7 @@ public class ExternalSupply {
             throw new RuntimeException("failed to receive a response from the supply system");
         }
 
-        int transaction = Integer.parseInt(response.body());
+        int transaction = response.statusCode();
         if(isLegalID(transaction))
             return transaction;
         else if(transaction == -1)
@@ -83,5 +87,10 @@ public class ExternalSupply {
 
     private boolean isLegalID(int transactionID){
         return transactionID >= minTransactionID & transactionID <= maxTransactionID;
+    }
+
+    @Override
+    public boolean checkSupply(ProductInfo pack) {
+        return supply(getSupplyInfo(pack))>=0;
     }
 }

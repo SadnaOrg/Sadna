@@ -5,6 +5,8 @@ public class PaymentMethod {
     private int cvv;
     private int month;
     private int year;
+    String cardHolder;
+    String ID;
 
     public String getCreditCardNumber() {
         return creditCardNumber;
@@ -40,5 +42,25 @@ public class PaymentMethod {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+
+    public void setCardHolder(String cardHolder) {
+        this.cardHolder = cardHolder;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getCardHolder() {
+        return cardHolder;
+    }
+
+    public String getID() {
+        return ID;
     }
 }
