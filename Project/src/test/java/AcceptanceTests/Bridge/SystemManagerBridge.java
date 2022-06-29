@@ -7,7 +7,7 @@ import ServiceLayer.interfaces.SystemManagerService;
 
 import java.util.List;
 
-public interface SystemManagerBridge {
+public interface SystemManagerBridge extends SubscribedUserBridge{
     PurchaseHistoryInfo getShopsAndUsersInfo(String username, int shop, String userName);
 
     PurchaseHistoryInfo getShopsAndUsersInfo(String username,String u);

@@ -93,5 +93,5 @@ public interface SubscribedUserBridge extends UserBridge {
 
     boolean declineHeskemMinui(String username,int shop, String adminToAssign);
 
-    SystemManagerService manageSystemAsSystemManager(String username);
+    SystemManager manageSystemAsSystemManager(String username);
 }

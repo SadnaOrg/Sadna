@@ -481,14 +481,14 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
     }
 
     @Override
-    public SystemManagerService manageSystemAsSystemManager(String username) {
+    public SystemManager manageSystemAsSystemManager(String username) {
         SubscribedUserService service = getMyService(username);
         if(service != null){
             Response<SystemManagerService> managerService = service.manageSystemAsSystemManager();
             if(managerService.isOk()) {
                 subscribedUsers.remove(username);
                 managers.put(username,managerService.getElement());
-                return managerService.getElement();
+                return new SystemManager(managerService.getElement().getSubscribedUserInfo().getElement());
             }
             return null;
         }
@@ -501,5 +501,13 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         if(subscribedUsers.containsKey(username))
             return subscribedUsers.get(username);
         return null;
+    }
+
+    public HashMap<String, UserService> getGuests() {
+        return users;
+    }
+
+    public HashMap<String, SubscribedUserService> getSubscribed() {
+        return subscribedUsers;
     }
 }

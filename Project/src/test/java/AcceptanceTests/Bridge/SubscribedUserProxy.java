@@ -10,11 +10,17 @@ import java.util.List;
 import java.util.Map;
 
 public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge{
-    SubscribedUserAdapter subscribedUserAdapter;
+    SubscribedUserBridge subscribedUserAdapter;
     public SubscribedUserProxy(UserProxy proxy){
         super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed(),proxy.getNotifications()));
         subscribedUserAdapter = (SubscribedUserAdapter) super.adapter;
     }
+
+    public SubscribedUserProxy(SystemManagerBridge adapter){
+        super(adapter);
+        subscribedUserAdapter = adapter;
+    }
+
     @Override
     public Guest logout(String userName) {
         return subscribedUserAdapter.logout(userName);
@@ -211,7 +217,7 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     }
 
     @Override
-    public SystemManagerService manageSystemAsSystemManager(String username) {
-        return null;
+    public SystemManager manageSystemAsSystemManager(String username) {
+        return subscribedUserAdapter.manageSystemAsSystemManager(username);
     }
 }

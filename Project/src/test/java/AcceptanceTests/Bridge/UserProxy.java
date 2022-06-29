@@ -18,10 +18,6 @@ public class UserProxy implements UserBridge{
         this.adapter = subscribedUserBridge;
     }
 
-    public UserProxy(SubscribedUserAdapter subscribedUserAdapter, HashMap<String, List<Notification>> notifications) {
-        adapter = subscribedUserAdapter;
-    }
-
     @Override
     public Guest visit() {
         return adapter.visit();

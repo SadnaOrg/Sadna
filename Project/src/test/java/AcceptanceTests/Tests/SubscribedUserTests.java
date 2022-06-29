@@ -16,7 +16,7 @@ import static AcceptanceTests.DataObjects.SubscribedUser.Permission.REMOVE_SHOP_
 import static org.junit.Assert.*;
 
 public class SubscribedUserTests extends UserTests {
-    private static SubscribedUserBridge subscribedUserBridge = null;
+    protected static SubscribedUserBridge subscribedUserBridge = null;
 
     private static Shop supersal;
     private boolean closeSupersal = false;

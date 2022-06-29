@@ -1,6 +1,8 @@
 package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.PurchaseHistoryInfo;
+import AcceptanceTests.DataObjects.RegistrationInfo;
+import AcceptanceTests.DataObjects.SubscribedUser;
 import AcceptanceTests.DataObjects.SubscribedUserInfo;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
@@ -13,7 +15,7 @@ import java.util.List;
 
 public class SystemManagerAdapter extends SubscribedUserAdapter implements SystemManagerBridge{
     public SystemManagerAdapter(HashMap<String, UserService> guests, HashMap<String, SubscribedUserService> subscribed) {
-        super(guests, subscribed,null);
+        super(guests, subscribed,new HashMap<>());
     }
 
     @Override
@@ -38,6 +40,15 @@ public class SystemManagerAdapter extends SubscribedUserAdapter implements Syste
             return null;
         }
         return null;
+    }
+    @Override
+    public AcceptanceTests.DataObjects.SubscribedUser login(String guestName, RegistrationInfo info) {
+        SubscribedUser res = super.login(guestName,info);
+        if(res == null)
+            return null;
+        SubscribedUserService service = super.getMyService(res.name);
+        this.subscribedUsers.put(guestName, service);
+        return res;
     }
 
     @Override
@@ -85,4 +96,5 @@ public class SystemManagerAdapter extends SubscribedUserAdapter implements Syste
         }
         return null;
     }
+
 }
