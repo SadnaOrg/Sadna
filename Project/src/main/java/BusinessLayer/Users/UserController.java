@@ -4,6 +4,8 @@ import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Mappers.MapperController;
+import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.ShopController;
@@ -18,8 +20,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserController {
 
 
-
-
     static private class UserControllerHolder {
         static final UserController uc = new UserController();
     }
@@ -28,6 +28,7 @@ public class UserController {
     private final Map<String, SubscribedUser> subscribers;
     private final Map<String, SystemManager> managers;
     private int guest_serial = -1;
+    private MapperController mapperController = MapperController.getInstance();
 
     public static UserController getInstance() {
         return UserControllerHolder.uc;
@@ -50,9 +51,11 @@ public class UserController {
         }
         return null;
     }
+
     public ConcurrentHashMap<Shop, Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
         return currUser.getBidsToApprove();
     }
+
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         if(subscribers.containsKey(requesting)){
             SubscribedUser u = subscribers.get(requesting);
@@ -195,22 +198,40 @@ public class UserController {
         users.put(systemManager.getName(), systemManager);
         subscribers.put(systemManager.getName(), systemManager);
         managers.put(systemManager.getName(), systemManager);
+        mapperController.getSystemManagerMapper().save(systemManager);
         return true;
     }
 
+    public boolean subscribersContainsKey(String key) {
+        if (subscribers.containsKey(key))
+            return true;
+        else {
+            SubscribedUser user = mapperController.getSubscribedUserMapper().findById(key);
+            if (user != null) {
+                users.put(key, user);
+                subscribers.put(key, user);
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
     public synchronized boolean registerToSystem(String userName, String password, Date date) {
-        if (!subscribers.containsKey(userName)) {
+        if (!subscribersContainsKey(userName)) {
             //todo : change the shoping catr
             SubscribedUser newUser = new SubscribedUser(userName, password,date);
             users.put(userName, newUser);
             subscribers.put(userName, newUser);
+            mapperController.getSubscribedUserMapper().save(newUser);
             return true;
         }
         return false;
     }
 
     public SubscribedUser login(String userName, String password, User currUser) {
-        if (subscribers.containsKey(userName) && (currUser == null || currUser instanceof Guest))
+        if (subscribersContainsKey(userName) && (currUser == null || currUser instanceof Guest)) {
             if (subscribers.get(userName).login(userName, password)) {
                 if (currUser != null) {
                     users.remove(currUser.getUserName());
@@ -218,12 +239,14 @@ public class UserController {
                 return subscribers.get(userName);
             } else
                 return null;
+        }
         return null;
     }
 
     public Guest logout(String username) {
         if (subscribers.containsKey(username)) {
             subscribers.get(username).logout();
+            mapperController.getSubscribedUserMapper().update(subscribers.get(username));
             return loginSystem();
         }
         return null;
@@ -341,6 +364,7 @@ public class UserController {
         ShopAdministrator admin = getAdmin(username, shopID);
         if (admin != null) {
             admin.addProduct(productID, name, desc, manufacturer, price, quantity);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
             return true;
         }
         throw new NoPermissionException("you aren't an admin of that shop!");
@@ -394,15 +418,16 @@ public class UserController {
         }
     }
 
-    public Map<UserState,List<SubscribedUser>> getSubscribedUserInfo(String user){
-        if(!getSysUser(user).isLoggedIn())
+    public Map<UserState, List<SubscribedUser>> getSubscribedUserInfo(String user) {
+        if (!getSysUser(user).isLoggedIn())
             throw new IllegalStateException("Mast be logged in for getting userInfo");
-        Map<UserState,List<SubscribedUser>> m = new ConcurrentHashMap<>();
-        this.subscribers.values().forEach((u)->{
-            var k =UserState.get(u);
-            if(!m.containsKey(k))
-                m.put(k,new LinkedList<SubscribedUser>());
-            m.get(k).add(u);});
+        Map<UserState, List<SubscribedUser>> m = new ConcurrentHashMap<>();
+        this.subscribers.values().forEach((u) -> {
+            var k = UserState.get(u);
+            if (!m.containsKey(k))
+                m.put(k, new LinkedList<SubscribedUser>());
+            m.get(k).add(u);
+        });
         return m;
     }
 

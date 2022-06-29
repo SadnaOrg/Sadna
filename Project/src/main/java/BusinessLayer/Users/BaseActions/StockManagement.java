@@ -5,10 +5,9 @@ import BusinessLayer.Shops.Shop;
 
 public class StockManagement extends BaseAction {
 
-    private Shop shop;
 
     public StockManagement(Shop shop) {
-        this.shop= shop;
+        super(shop);
     }
 
     public Product addProduct(int productid, String name, String desc, String manufacturer, double price, int quantity)

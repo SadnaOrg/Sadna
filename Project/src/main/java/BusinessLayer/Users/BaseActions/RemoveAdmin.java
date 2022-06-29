@@ -12,11 +12,10 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class RemoveAdmin extends BaseAction{
     private SubscribedUser u;
-    private Shop shop;
 
     public RemoveAdmin(SubscribedUser u, Shop shop){
+        super(shop);
         this.u= u;
-        this.shop = shop;
     }
 
     public boolean act(SubscribedUser toRemove){

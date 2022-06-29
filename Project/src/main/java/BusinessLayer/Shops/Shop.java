@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
@@ -8,6 +9,8 @@ import BusinessLayer.Shops.Polices.Purchase.LogicPurchasePolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
 import BusinessLayer.Users.*;
+import BusinessLayer.Shops.Polices.Purchase.*;
+import BusinessLayer.Shops.Polices.Discount.*;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import java.util.Collection;
@@ -18,7 +21,7 @@ import java.util.stream.Collectors;
 
 public class Shop {
 
-    private final int id;
+    private int id;
     private String name;
     private String description;
     private State state = State.OPEN;
@@ -39,6 +42,32 @@ public class Shop {
         this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
         shopAdministrators.put(founder.getName(),this.founder);
         founder.addAdministrator(id, this.founder);
+    }
+
+    public Shop(String name, String description, SubscribedUser founder) {
+        this.name = name;
+        this.description = description;
+        this.founder = new ShopOwner(this, founder,founder.getUserName(), true);
+        shopAdministrators.put(founder.getName(),this.founder);
+    }
+
+    public Shop(int id, String name, String description, State state, ShopOwner founder,
+                ConcurrentHashMap<Integer, Product> products, ConcurrentHashMap<String, Basket> usersBaskets,
+                ConcurrentHashMap<String, PurchaseHistory> purchaseHistory,
+                ConcurrentHashMap<String, ShopAdministrator> shopAdministrators, DiscountPlusPolicy discounts,
+                PurchaseAndPolicy purchasePolicy) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.state = state;
+        this.founder = founder;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+        this.discounts = discounts;
+        this.purchasePolicy = purchasePolicy;
+        founder.getSubscribed().addAdministrator(id, this.founder);
     }
 
     public synchronized boolean close() {
@@ -80,7 +109,7 @@ public class Shop {
 
     public enum State {
         OPEN,
-        CLOSED
+        CLOSED;
     }
 
     public boolean setCategory(int productId, String category)
@@ -394,10 +423,12 @@ public class Shop {
         else
             throw new IllegalStateException("The shop is closed");
     }
+
     public boolean approvePurchase(User user)
     {
         return this.purchasePolicy.isValid(user,usersBaskets.get(user.getName()));
     }
+
     public double calculateDiscount(String user){
         return this.discounts.calculateDiscount(usersBaskets.get(user));
     }
@@ -504,8 +535,12 @@ public class Shop {
     public String getDescription() {
         return description;
     }
-    
+
     public ShopOwner getFounder() { return founder; }
+
+    public State getState() {
+        return state;
+    }
 
     public ShopAdministrator getShopAdministrator(String userName) {
         return shopAdministrators.getOrDefault(userName,null);
@@ -513,18 +548,32 @@ public class Shop {
 
 
     public Collection<PurchaseHistory> getPurchaseHistory() {
+        //added here
+        this.purchaseHistory = MapperController.getInstance().getPurchaseHistoryMapper().findByShopId(this.getId());
         return purchaseHistory.values();
+    }
+
+    public ConcurrentHashMap<String, PurchaseHistory> getPurchaseHistoryMap() {
+        return purchaseHistory;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void addPurchaseHistory(String username, PurchaseHistory ph){
         purchaseHistory.put(username, ph);
     }
-  
+
     public Collection<ShopAdministrator> getShopAdministrators() {
         return shopAdministrators.values();
     }
     public List<String> getShopAdministratorsNames() {
         return shopAdministrators.keySet().stream().toList();
+    }
+
+    public ConcurrentHashMap<String, ShopAdministrator> getShopAdministratorsMap() {
+        return shopAdministrators;
     }
 
     public boolean isOpen(){

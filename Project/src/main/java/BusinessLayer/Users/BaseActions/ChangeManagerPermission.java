@@ -11,20 +11,19 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class ChangeManagerPermission extends BaseAction {
-    private Shop s;
     private SubscribedUser u;
 
-    public ChangeManagerPermission(Shop s, SubscribedUser u) {
-        this.s = s;
+    public ChangeManagerPermission(Shop shop, SubscribedUser u) {
+        super(shop);
         this.u = u;
     }
 
     public synchronized boolean act(SubscribedUser userToAssign, Collection<BaseActionType> types) throws NoPermissionException {
-        ShopAdministrator admin = userToAssign.getAdministrator(s.getId());
+        ShopAdministrator admin = userToAssign.getAdministrator(shop.getId());
         //if (!(admin instanceof ShopManager)){
             //throw new IllegalStateException("can only change permissions of a manager");
         //}
-        ShopAdministrator owner= u.getAdministrator(s.getId());
+        ShopAdministrator owner= u.getAdministrator(shop.getId());
         if (!(owner instanceof ShopOwner))
             throw new IllegalStateException("only owners can change managers permissions!");
 

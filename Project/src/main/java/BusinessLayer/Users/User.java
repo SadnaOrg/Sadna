@@ -18,7 +18,7 @@ public abstract class User{
     public User(String name) {
         this.name= name;
         method = null;
-        shoppingCart= new ConcurrentHashMap<>();
+        shoppingCart = new ConcurrentHashMap<>();
         shoppingBids = new ConcurrentHashMap<>();
     }
 
@@ -153,6 +153,4 @@ public abstract class User{
             shoppingCart.remove(id);
         }
     }
-
-
 }

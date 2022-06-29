@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
@@ -8,6 +9,7 @@ import BusinessLayer.Users.*;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class ShopController {
@@ -50,6 +52,12 @@ public class ShopController {
 
     public ConcurrentHashMap<Integer, ShopInfo> searchShops(ShopFilters shopPred, String username) {
         ConcurrentHashMap<Integer, ShopInfo> res = new ConcurrentHashMap<>();
+        Collection<Shop> ormShops = MapperController.getInstance().getShopMapper().findByFounder(username);
+        for (Shop shop : ormShops)
+            if (!shops.containsKey(shop.getId())) {
+                shops.put(shop.getId(), shop);
+                UserController.getInstance().getSubUser(username).addAdministrator(shop.getId(), shop.getFounder());
+            }
         for (Shop s : shops.values().stream().filter(s -> shopPred.test(s) && s.getShopAdministrators().stream().filter(a -> Objects.equals(a.getUserName(), username)).toList().size() > 0).collect(Collectors.toSet())) {
             res.put(s.getId(), new ShopInfo(s));
         }
@@ -66,6 +74,7 @@ public class ShopController {
 
 
     private final Map<Integer, Shop> shops;
+    private MapperController mapperController = MapperController.getInstance();
 
     private ShopController() {
         this.shops = new ConcurrentHashMap<>();
@@ -135,14 +144,16 @@ public class ShopController {
                 for (PurchaseHistory purchaseHistory:PurchaseHistoryController.getInstance().getDataOnPurchases())
                 {
                     if(purchaseHistory.getShop().getId()==shopid && purchaseHistory.getUser().equals(user)) {
-                        purchaseHistory.makePurchase();
+                        //TODO:need to change back
+                        purchaseHistory.makePurchase(shops.get(shopid));
                         flagexist= true;
                     }
                 }
                 if(!flagexist)
                 {
                     PurchaseHistory purchaseHistory = PurchaseHistoryController.getInstance().createPurchaseHistory(shops.get(shopid), user);
-                    purchaseHistory.makePurchase();
+                    //TODO:need to change back
+                    purchaseHistory.makePurchase(shops.get(shopid));
                     shops.get(shopid).addPurchaseHistory(user, purchaseHistory);
                 }
                 shops.get(shopid).purchaseBasket(user);
@@ -221,8 +232,10 @@ public class ShopController {
 //        List<String> names = shops.values().stream().map(Shop::getName).toList();
 //        if(names.contains(name))
 //            throw new IllegalStateException("there is a shop with that name!!!");
-        int shopID = shops.size();
-        shops.put(shopID, new Shop(shopID, name, description, su));
+        Shop shop = new Shop(name, description, su);
+        int shopID = mapperController.getShopMapper().getInstance().save(shop);
+        shop.setId(shopID);
+        shops.put(shopID, shop);
         return shops.get(shopID);
     }
 

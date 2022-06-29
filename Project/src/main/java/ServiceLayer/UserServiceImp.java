@@ -1,6 +1,8 @@
 package ServiceLayer;
 
 import BusinessLayer.Facade;
+import BusinessLayer.Mappers.MapperController;
+import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Users.User;
 import BusinessLayer.System.PaymentMethod;
 import ServiceLayer.Objects.*;;
@@ -22,6 +24,7 @@ public class UserServiceImp implements UserService {
 
     public UserServiceImp(){
         currUser = null;
+        MapperController.getInstance();
     }
 
     @Override

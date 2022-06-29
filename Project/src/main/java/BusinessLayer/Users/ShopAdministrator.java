@@ -21,9 +21,10 @@ public class ShopAdministrator {
     protected Map<BaseActionType, BaseAction> action = new ConcurrentHashMap<>();
     protected Shop shop;
     protected SubscribedUser user;
-    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
-    private String appointer;
 
+    protected ConcurrentLinkedDeque<ShopAdministrator> appoints = new ConcurrentLinkedDeque<>();
+
+    private String appointer;
     public ShopAdministrator(Shop s, SubscribedUser u, String appointer) {
         super();
         this.appointer = appointer;
@@ -31,6 +32,12 @@ public class ShopAdministrator {
         user = u;
     }
 
+    public ShopAdministrator(String appointer, SubscribedUser user, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+        super();
+        this.appointer = appointer;
+        this.user = user;
+        this.appoints = appoints;
+    }
     /**
      * asingn a new shop manager to the shop, only if the user has been nor manager or Owner of this shop
      *
@@ -183,6 +190,10 @@ public class ShopAdministrator {
 
     public String getAppointer() {
         return this.appointer;
+    }
+
+    public void setAppoints(ConcurrentLinkedDeque<ShopAdministrator> appoints) {
+        this.appoints = appoints;
     }
 
     public AdministratorInfo getMyInfo() {
@@ -391,5 +402,16 @@ public class ShopAdministrator {
 
     public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser user) {
         return  shop.getHeskemMinuis().stream().filter(heskem->heskem.getApprovals().containsKey(user.getUserName())).collect(Collectors.toList());
+    }
+    public int getShopID() {
+        return shop.getId();
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
     }
 }
