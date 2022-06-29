@@ -272,6 +272,8 @@ public class UserAdapter implements UserBridge{
     public List<AcceptanceTests.DataObjects.Notification> getNotifications(String username) {
         UserService service = getService(username);
         if(service!=null){
+           // userNotifications.put(username,new LinkedList<>());
+            service.registerToNotifier(not-> userNotifications.get(username).add(new AcceptanceTests.DataObjects.Notification(not.Content())));
             Result response = service.getDelayNotification();
             if(response.isOk()){
                 List<AcceptanceTests.DataObjects.Notification> notifications = userNotifications.getOrDefault(username,null);

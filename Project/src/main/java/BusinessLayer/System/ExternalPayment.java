@@ -92,6 +92,8 @@ public class ExternalPayment implements Payment{
 
     @Override
     public boolean pay(double totalPrice, PaymentMethod method, String ID, String cardHolder) {
+        if(!(method.isValidPaymentMethod(method.getExpiryMonth(),method.getExpiryYear())&& method.isValidCVV()))
+            throw new IllegalArgumentException("invalid cvv or expired date ");
         return pay(new PaymentInfo(method,ID,cardHolder))>0;
     }
 

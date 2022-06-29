@@ -6,26 +6,28 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.junit.Assert.fail;
+
 public class PaymentMethodUnitTest {
     public AtomicInteger month = new AtomicInteger(Calendar.getInstance().get(Calendar.MONTH));
     public AtomicInteger year = new AtomicInteger(Calendar.getInstance().get(Calendar.YEAR));
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureCardInvalid(){
         PaymentMethod method = new PaymentMethod("1246", 123, 4, 2032);
-        Assert.assertFalse(method.isValidPaymentMethod(month, year));
+        fail();
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureCVVInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 5500, 4, 2032);
-        Assert.assertFalse(method.isValidPaymentMethod(month, year));
+        fail();
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureExpiryMonthInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 123, 16, 2032);
-        Assert.assertFalse(method.isValidPaymentMethod(month, year));
+        fail();
     }
 
     @Test

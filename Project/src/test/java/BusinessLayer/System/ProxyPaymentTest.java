@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.fail;
+
 public class ProxyPaymentTest {
 
     Payment p = null;
@@ -31,22 +33,22 @@ public class ProxyPaymentTest {
         Assert.assertFalse(p.pay(-1, method,"",""));
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureCardInvalid(){
         PaymentMethod method = new PaymentMethod("1246", 123, 4, 2032);
-        Assert.assertFalse(p.pay(100, method,"",""));
+        fail();
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureCVVInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", -50, 4, 2032);
-        Assert.assertFalse(p.pay(100, method,"",""));
+        fail();
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void testPayFailureExpiryMonthInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 123, 16, 1999);
-        Assert.assertFalse(p.pay(100, method,"",""));
+        fail();
     }
 
     @Test

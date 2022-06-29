@@ -123,6 +123,10 @@ public class SubscribedUserTests extends UserTests {
         ACEFounder = subscribedUserBridge.login(ace_guest.getName(),ace);
         castroFounder = subscribedUserBridge.login(castro_guest.getName(), castro);
         MegaSportFounder = subscribedUserBridge.login(megasport_guest.getName(), megaSport);
+
+        subscribedUserBridge.reOpenShop("ACEFounder",ACE_ID);
+        subscribedUserBridge.reOpenShop("castroFounder",castro_ID);
+        subscribedUserBridge.reOpenShop("MegaSportFounder",MegaSport_ID);
     }
 
     @Override
@@ -1718,6 +1722,7 @@ public class SubscribedUserTests extends UserTests {
 
     @Test
     public void testPurchaseWithXorDiscountBothConditionsHold(){
+        subscribedUserBridge.getNotifications(ACEFounder.name);
         testCreateXorDiscountSuccess();
         boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,4);
         assertTrue(added);
@@ -1776,7 +1781,7 @@ public class SubscribedUserTests extends UserTests {
 
         Guest guest = subscribedUserBridge.visit();
         u1 = subscribedUserBridge.login(guest.name,new RegistrationInfo(userNames[0], passwords[0]));
-
+        subscribedUserBridge.registerToNotifier(u1.name);
         List<Notification> notifications = subscribedUserBridge.getDelayNotification(u1.name);
         assertNotNull(notifications);
         assertEquals(1,notifications.size());
