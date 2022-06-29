@@ -1,5 +1,7 @@
 package BusinessLayer.System;
 
+import BusinessLayer.Products.ProductInfo;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -50,7 +52,7 @@ public class ExternalPayment implements Payment{
             throw new RuntimeException("failed to send a payment request to the payment system");
         }
 
-        int transaction = Integer.parseInt(response.body());
+        int transaction = response.statusCode();
         if (isLegalID(transaction)) {
             return transaction;
         } else if (transaction == -1) {
@@ -89,7 +91,11 @@ public class ExternalPayment implements Payment{
     }
 
     @Override
-    public boolean pay(double totalPrice, PaymentMethod method,String ID,String cardHolder) {
+    public boolean pay(double totalPrice, PaymentMethod method, String ID, String cardHolder) {
         return pay(new PaymentInfo(method,ID,cardHolder))>0;
+    }
+
+    public static SupplyInfo getSupplyInfo(ProductInfo pack){
+        return new SupplyInfo("super-li","beer-sheva","israel","BGU university","80000");
     }
 }

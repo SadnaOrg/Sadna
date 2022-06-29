@@ -30,10 +30,10 @@ public class SystemUnitTest {
         ConcurrentHashMap<Integer, Double> totalPrices = new ConcurrentHashMap<>();
         totalPrices.put(1, 10.0);
         totalPrices.put(2, -10.0);
-        when(system.pay(totalPrices, method,"","")).thenCallRealMethod();
+        when(system.pay(totalPrices, method,"206000556","maor biton")).thenCallRealMethod();
         when(system.getExternSystem()).thenReturn(externSystem);
         when(externSystem.pay(anyDouble(), any(PaymentMethod.class),any(String.class),any(String.class))).thenReturn(true);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(totalPrices, method,"","");
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(totalPrices, method,"206000556","maor biton");
         Assert.assertTrue(res.get(1));
         Assert.assertFalse(res.get(2));
     }
