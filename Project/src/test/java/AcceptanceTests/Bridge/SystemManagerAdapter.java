@@ -1,9 +1,6 @@
 package AcceptanceTests.Bridge;
 
-import AcceptanceTests.DataObjects.PurchaseHistoryInfo;
-import AcceptanceTests.DataObjects.RegistrationInfo;
-import AcceptanceTests.DataObjects.SubscribedUser;
-import AcceptanceTests.DataObjects.SubscribedUserInfo;
+import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Response;
 import ServiceLayer.Result;
 import ServiceLayer.interfaces.SubscribedUserService;
@@ -14,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SystemManagerAdapter extends SubscribedUserAdapter implements SystemManagerBridge{
-    public SystemManagerAdapter(HashMap<String, UserService> guests, HashMap<String, SubscribedUserService> subscribed) {
-        super(guests, subscribed,new HashMap<>());
+    public SystemManagerAdapter(HashMap<String, UserService> guests, HashMap<String, SubscribedUserService> subscribed, HashMap<String, List<Notification>> notifications) {
+        super(guests, subscribed,notifications);
     }
 
     @Override

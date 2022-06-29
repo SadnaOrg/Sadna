@@ -9,7 +9,7 @@ public class SystemManagerProxy extends SubscribedUserProxy implements SystemMan
     private final SystemManagerAdapter managerAdapter;
 
     public SystemManagerProxy(SubscribedUserProxy proxy){
-        super(new SystemManagerAdapter(proxy.getGuests(),proxy.getSubscribed()));
+        super(new SystemManagerAdapter(proxy.getGuests(),proxy.getSubscribed(), proxy.getNotifications()));
         managerAdapter = (SystemManagerAdapter) super.subscribedUserAdapter;
     }
 
