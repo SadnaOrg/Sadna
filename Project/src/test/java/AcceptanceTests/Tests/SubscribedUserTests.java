@@ -540,7 +540,6 @@ public class SubscribedUserTests extends UserTests {
         ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertEquals("new name!",p.product.name);
         testUpdateProductNameKeepSame();
-
     }
 
     @Test
