@@ -1,782 +1,2136 @@
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.HeskemMinui.approve(String)" because the return value of "java.util.concurrent.ConcurrentHashMap.get(Object)" is null
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: MegaSportFounderapprove as ACEFounder to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: switch to system manager bla bla: log in to the system first as a subscribed user
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: login : incorrect user name or password
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: user dwada doesn't exist
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: The shop is closed
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:38 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: castroFounderassign michael to shop manager  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: castroFounderassign testUser3 to shop manager  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: this user isn't an admin of that shop!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: user allready administrator fo the shop
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: product can't have a negative quantity!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: a product can't have a negative price!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: update product price : Failed to update product price
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: the price of a product has to be positive!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is not in the shop
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: register to system succeeded : error in register
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: update product name : Failed to update product name
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:18 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as buyer100 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: castroFounderapprove as buyer100 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as buyer100 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the shop
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: ACEFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: MegaSportFounderapprove as testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: product save : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: product save : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 29, 2022 10:33:39 PM ServiceLayer.Log error
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: switch to system manager bla bla: log in to the system first as a subscribed user
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: login : incorrect user name or password
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: user dwada doesn't exist
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: user is allready logged in
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is not exist in the bid
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: product can't have a negative quantity!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: cant search info in a closed shop
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: a product can't have a negative price!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: update product price : Failed to update product price
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: the price of a product has to be positive!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: update product name : Failed to update product name
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The product is already in the basket
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "java.util.function.Function.apply(Object)" because the return value of "java.util.Map.get(Object)" is null
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: product save : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: The shop is closed
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
+SEVERE: edit product quantity  : log in to system first
+Jun 29, 2022 11:32:19 PM ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first

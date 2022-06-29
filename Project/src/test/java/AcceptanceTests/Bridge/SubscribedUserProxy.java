@@ -220,4 +220,19 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     public SystemManager manageSystemAsSystemManager(String username) {
         return subscribedUserAdapter.manageSystemAsSystemManager(username);
     }
+
+    @Override
+    public boolean reOfferBid(String username,String user, int productId, double newPrice, int shopId) {
+        return subscribedUserAdapter.reOfferBid(username,user,productId,newPrice,shopId);
+    }
+
+    @Override
+    public boolean declineBidOffer(String username,String user, int productId, int shopId) {
+        return subscribedUserAdapter.declineBidOffer(username,user,productId,shopId);
+    }
+
+    @Override
+    public boolean approveBidOffer(String username,String user, int productId, int shopId) {
+        return subscribedUserAdapter.approveBidOffer(username,user,productId,shopId);
+    }
 }

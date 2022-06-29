@@ -10,7 +10,7 @@ import java.net.http.HttpResponse;
 public class ExternalPayment implements Payment{
 
     private final String url = "https://cs-bgu-wsep.herokuapp.com/";
-    private final int minTransactionID = 10000;
+    private final int minTransactionID = 0;
     private final int maxTransactionID = 100000;
 
     public boolean available() {

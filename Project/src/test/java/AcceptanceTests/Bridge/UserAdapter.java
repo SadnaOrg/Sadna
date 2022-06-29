@@ -282,6 +282,16 @@ public class UserAdapter implements UserBridge{
         return null;
     }
 
+    @Override
+    public boolean saveProductsAsBid(String username,int shopId, int productId, int quantity, double price) {
+        UserService service = getService(username);
+        if(service != null){
+            Result saved = service.saveProductsAsBid(shopId,productId,quantity,price);
+            return saved.isOk();
+        }
+        return false;
+    }
+
     public HashMap<String, UserService> getGuests() {
         return users;
     }

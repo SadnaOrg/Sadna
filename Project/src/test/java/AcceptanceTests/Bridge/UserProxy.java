@@ -98,6 +98,11 @@ public class UserProxy implements UserBridge{
         return adapter.getNotifications(username);
     }
 
+    @Override
+    public boolean saveProductsAsBid(String username,int shopId, int productId, int quantity, double price) {
+        return adapter.saveProductsAsBid(username,shopId,productId,quantity,price);
+    }
+
     protected HashMap<String, UserService> getGuests() {
         return ((UserAdapter)adapter).getGuests();
     }
