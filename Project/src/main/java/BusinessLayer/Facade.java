@@ -13,6 +13,7 @@ import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
 import BusinessLayer.System.System;
+import BusinessLayer.Users.BaseActions.BaseActionType;
 
 import javax.naming.NoPermissionException;
 import java.time.LocalDate;
@@ -57,7 +58,19 @@ public class Facade{
     }
 
     public boolean assignShopOwner(SubscribedUser currUser, int shop, String userNameToAssign) throws NoPermissionException {
-        return userController.assignShopOwner(currUser,shop,userNameToAssign);
+          return notifyUsers(userController.addAdministratorToHeskemMinui(currUser, shop, userNameToAssign),getShopAdmins(shop),"A new user wait to be approve as Shop Owner of shop number "+shop);
+    }
+
+    public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        return userController.approveHeskemMinui(user,shop,adminToAssign);
+    }
+
+    public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
+        return userController.declineHeskemMinui(user,shop,adminToAssign);
+    }
+    public Collection<HeskemMinui> getHeskemeyMinui(SubscribedUser currUser) throws NoPermissionException{
+        return userController.getHeskemeyMinui(currUser);
+
     }
 
     public boolean changeManagerPermission(SubscribedUser currUser,int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
@@ -112,7 +125,19 @@ public class Facade{
     }
 
     public boolean saveProducts(User currUser, int shopId, int productId, int quantity) {
-        return userController.saveProducts(currUser,shopId,productId,quantity);
+        return  userController.saveProducts(currUser,shopId,productId,quantity);
+    }
+
+    public boolean saveProductsAsBid(User u, int shopId, int productId, int quantity, double price) {
+        boolean check=notifyUsers(userController.saveProductsAsBid(u, shopId, productId, quantity, price),getShoppBidsAdmins(shopId),"look at the pending bid requests");
+        if (!ShopController.getInstance().checkIfUserHasBid(shopId, u.getName()) &&check) {
+            ShopController.getInstance().addBidOffer(shopId,productId, u.getName(), u.getBidOffer(shopId));
+        }
+        return true;
+    }
+
+    private Collection<String> getShoppBidsAdmins(int shopId) {
+        return shopController.getShops().get(shopId).getShopAdministrators().stream().filter(sa->sa.getActionsTypes().contains(BaseActionType.SET_PURCHASE_POLICY)).map(ShopAdministrator::getUserName).collect(Collectors.toList());
     }
 
     public ConcurrentHashMap<Integer, BasketInfo> showCart(User currUser) {
@@ -243,6 +268,10 @@ public class Facade{
 
     public Boolean removeShopOwner(int shopID, String requesting, String toRemove) throws NoPermissionException {
         return userController.removeShopOwner(shopID, requesting, toRemove);
+    }
+
+    public ConcurrentHashMap<Shop,Collection<BidOffer>> getBidsToApprove(SubscribedUser currUser) {
+        return userController.getBidsToApprove(currUser);
     }
 
     private static class FacadeHolder{
@@ -389,6 +418,17 @@ public class Facade{
     }
     public Statistic getStatistic(LocalDate day){
         return NotifyStatistic.getStatistic(day);
+
+    public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
+        return notifyUsers(userController.reOfferBid(currUser,user, productId, newPrice, shopId),getShoppBidsAdmins(shopId),"look at the pending bid requests");
+    }
+
+    public boolean declineBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        return userController.declineBidOffer(currUser,user, productId, shopId);
+    }
+
+    public boolean approveBidOffer(SubscribedUser currUser,String user,int productId, int shopId) throws NoPermissionException {
+        return notifyUsers(userController.approveBidOffer(currUser,user, productId, shopId),toCollection(user),"your bid has been accepted");
     }
 
 }

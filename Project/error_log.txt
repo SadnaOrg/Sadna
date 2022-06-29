@@ -1,2197 +1,794 @@
-<<<<<<< Updated upstream
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
+SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: testUser3assign michael to shop manager  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: castroFounderassign testUser3 to shop manager  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: castroFounderassign testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: product can't have a negative quantity!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: a product can't have a negative price!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: update product price : Failed to update product price
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: the price of a product has to be positive!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is not in the shop
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: update product name : Failed to update product name
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the shop
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:37 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product quantity : Failed to update product quantity
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product price : Failed to update product price
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: testUser3assign michael to shop manager  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: castroFounderassign testUser3 to shop manager  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product price : Failed to update product price
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: castroFounderassign testUser3 to shop owner  : log in to the system first as a subscribed user
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product price : Failed to update product price
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: product can't have a negative quantity!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: a product can't have a negative price!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product price : Failed to update product price
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product name : Failed to update product name
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product name : Failed to update product name
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: the price of a product has to be positive!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is not in the shop
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is not in the shop
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: register to system succeeded : error in register
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product name : Failed to update product name
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: do not have or can't add discount predicate to that Discount Rules
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the shop
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: The product is already in the basket
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: product save : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-Jun 13, 2022 8:50:38 AM ServiceLayer.Log error
-SEVERE: update product quantity : Failed to update product quantity
-=======
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
-SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: The shop is closed
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: testUser3assign michael to shop manager  : log in to the system first as a subscribed user
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: castroFounderassign testUser3 to shop manager  : log in to the system first as a subscribed user
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: this user isn't an admin of that shop!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: castroFounderassign testUser3 to shop owner  : log in to the system first as a subscribed user
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: product can't have a negative quantity!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: quantity in stock must be positive when adding a product!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: a product can't have a negative price!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: update product price : Failed to update product price
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:31 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: the price of a product has to be positive!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: The product is not in the shop
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: product save : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: register to system succeeded : error in register
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: update product name : Failed to update product name
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you're not the shop Administrator
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: you don't have permission to do that!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: The product is already in the shop
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: javax.naming.NoPermissionException: can't change permissions of someone you did appoint!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: product save : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: quantity must be positive amount
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalArgumentException: can't have a product with a negative quantity
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: product save : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: java.lang.IllegalStateException: can't purchase an empty cart!
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
-יוני 14, 2022 2:41:32 אחה״צ ServiceLayer.Log error
+יוני 25, 2022 4:24:28 אחה״צ ServiceLayer.Log error
 SEVERE: edit product quantity  : log in to system first
->>>>>>> Stashed changes

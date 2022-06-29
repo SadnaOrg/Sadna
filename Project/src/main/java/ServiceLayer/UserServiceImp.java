@@ -45,6 +45,11 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
+    public Result saveProductsAsBid(int shopId, int productId, int quantity, double price) {
+        return ifUserNotNull(()-> facade.saveProductsAsBid(currUser,shopId,productId,quantity,price),"product save as bid");
+    }
+
+    @Override
     public Response<Cart> showCart() {
         return ifUserNotNullRes(()->new Cart(facade.showCart(currUser), currUser.getUserName()),"cart showed");
 
