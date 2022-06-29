@@ -7,6 +7,8 @@ import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.DiscountPred;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
 import BusinessLayer.Shops.Polices.Purchase.PurchasePolicy;
+import BusinessLayer.Statistics.NotifyStatistic;
+import BusinessLayer.Statistics.Statistic;
 import BusinessLayer.Users.*;
 import BusinessLayer.Shops.*;
 import BusinessLayer.System.PaymentMethod;
@@ -15,10 +17,7 @@ import BusinessLayer.System.System;
 import javax.naming.NoPermissionException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.function.Function;
@@ -42,8 +41,10 @@ public class Facade{
 
     public Guest logout(User currUser) {
         var g= userController.logout(currUser.getUserName());
-        if(g!= null)
+        if(g!= null) {
             system.getNotifier().unregister(currUser.getUserName());
+            NotifyStatistic.logout();
+        }
         return g;
     }
 
@@ -88,15 +89,18 @@ public class Facade{
     }
 
     public boolean registerToSystem(String userName, String password, Date date) {
-        return userController.registerToSystem(userName,password,date);
+        var b =  userController.registerToSystem(userName,password,date);
+        if(b){
+            NotifyStatistic.register();
+        }
+        return b;
     }
 
     public SubscribedUser login(String username, String password,User currUser) {
-        return userController.login(username,password,currUser);
-    }
-
-    public Guest logout(String username) {
-        return userController.logout(username);
+        var b = userController.login(username,password,currUser);
+        if(b!= null)
+            NotifyStatistic.login();
+        return b;
     }
 
     public Map<Shop, Collection<Product>> searchProducts(ShopFilters shopPred, ProductFilters productPred) {
@@ -129,6 +133,8 @@ public class Facade{
         ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
         if(paymentSituation.containsValue(false))
             return 0;
+        else
+            NotifyStatistic.purchase();
         shopController.addToPurchaseHistory(currUser.getName(), paymentSituation);
         return prices.values().stream().reduce(0.0, Double::sum);
     }
@@ -371,6 +377,18 @@ public class Facade{
 
     public PurchasePolicy getPurchasePolicy(SubscribedUser currUser,int shopId) throws NoPermissionException {
         return userController.getPurchasePolicy(currUser,shopId);
+    }
+
+    public Collection<Statistic> getStatistic(LocalDate from,LocalDate to){
+        LinkedList<Statistic> l = new LinkedList<>();
+        while (from.compareTo(to)<=0){
+            l.add(NotifyStatistic.getStatistic(from));
+            from = from.plusDays(1);
+        }
+        return  l;
+    }
+    public Statistic getStatistic(LocalDate day){
+        return NotifyStatistic.getStatistic(day);
     }
 
 }
