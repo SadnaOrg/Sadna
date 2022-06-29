@@ -49,7 +49,7 @@ public class Statistic{
                 if (lastTick!=null && LocalTime.now().isAfter(lastTick.plusMinutes(tick))) {
                     lastTick = LocalTime.now();
                     registeredUser.tick(0);
-                    loginUser.tick(0);
+                    loginUser.tick();//for saving the last value the same
                     purchase.tick(0);
                 }
             }
