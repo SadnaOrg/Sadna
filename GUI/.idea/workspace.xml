@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added purchase policy page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/PurchaseHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/PurchaseHistoryController.java" afterDir="false" />
     </list>
-=======
-    <list default="true" id="33db6e90-3b92-4d16-9f03-6522cba65b30" name="Changes" comment="" />
->>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +62,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -349,15 +344,6 @@
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java</url>
-<<<<<<< HEAD
-          <line>58</line>
-=======
-          <line>67</line>
->>>>>>> main
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
           <line>98</line>
           <option name="timeStamp" value="49" />
@@ -505,6 +491,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="ServiceLayer.Response" memberName="element" />
+        <PinnedItemInfo parentTag="com.vaadin.flow.component.button.Button" memberName="element" />
         <PinnedItemInfo parentTag="ServiceLayer.SystemManagerServiceImp" memberName="SubscribedUserServiceImp.currUser" />
       </pinned-members>
     </pin-to-top-manager>
