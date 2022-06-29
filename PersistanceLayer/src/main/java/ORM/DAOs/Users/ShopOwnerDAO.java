@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.Collection;
 
-public class ShopOwnerDAO implements DBImpl<ShopOwner, Integer> {
+public class ShopOwnerDAO implements DBImpl<ShopOwner, String> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
@@ -27,14 +27,14 @@ public class ShopOwnerDAO implements DBImpl<ShopOwner, Integer> {
     }
 
     @Override
-    public void delete(Integer key) {
+    public void delete(String key) {
         entityManager.getTransaction().begin();
         entityManager.find(ShopOwner.class, key);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public ShopOwner findById(Integer key) {
+    public ShopOwner findById(String key) {
         ShopOwner shopOwner = entityManager.find(ShopOwner.class, key);
         return shopOwner;
     }

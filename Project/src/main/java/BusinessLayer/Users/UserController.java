@@ -355,6 +355,7 @@ public class UserController {
         ShopAdministrator admin = getAdmin(username, shopID);
         if (admin != null) {
             admin.removeProduct(productID);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
             return true;
         }
         throw new NoPermissionException("you aren't an admin of that shop!");

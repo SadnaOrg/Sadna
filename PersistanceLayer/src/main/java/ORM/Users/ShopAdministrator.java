@@ -113,14 +113,14 @@ public abstract class ShopAdministrator implements Serializable{
         STOCK_MANAGEMENT(1),
         SET_PURCHASE_POLICY(2),
         ASSIGN_SHOP_OWNER(4),
+        REMOVE_SHOP_OWNER(12),
         ASSIGN_SHOP_MANAGER(6),
         CHANGE_MANAGER_PERMISSION(7),
         CLOSE_SHOP(9),
         REOPEN_SHOP(10),
         ROLE_INFO(11),
         HISTORY_INFO(13),
-        REMOVE_ADMIN(5),
-        ;
+        REMOVE_ADMIN(5),;
 
         private final int code;
 

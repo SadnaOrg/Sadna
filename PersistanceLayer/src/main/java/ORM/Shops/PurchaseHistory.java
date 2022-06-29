@@ -46,5 +46,9 @@ public class PurchaseHistory {
     public static class PurchaseHistoryPKID implements Serializable {
         private Shop shop;
         private SubscribedUser user;
+
+        public PurchaseHistoryPKID() {
+
+        }
     }
 }

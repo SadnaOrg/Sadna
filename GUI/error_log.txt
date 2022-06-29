@@ -1,12 +1,20 @@
-Jun 28, 2022 10:57:23 PM ServiceLayer.Log error
+Jun 29, 2022 3:41:48 AM ServiceLayer.Log error
 SEVERE: register to system succeeded : error in register
-Jun 28, 2022 10:57:41 PM ServiceLayer.Log error
+Jun 29, 2022 3:42:01 AM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 28, 2022 10:57:41 PM ServiceLayer.Log error
+Jun 29, 2022 3:42:01 AM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 29, 2022 12:00:51 AM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 29, 2022 12:00:51 AM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 29, 2022 12:00:52 AM ServiceLayer.Log error
+Jun 29, 2022 3:42:04 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
+Jun 29, 2022 3:42:05 AM ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+Jun 29, 2022 3:42:05 AM ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+Jun 29, 2022 3:42:05 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 29, 2022 3:42:10 AM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 29, 2022 3:42:10 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 29, 2022 3:42:53 AM ServiceLayer.Log error
+SEVERE: javax.persistence.RollbackException: Error while committing the transaction

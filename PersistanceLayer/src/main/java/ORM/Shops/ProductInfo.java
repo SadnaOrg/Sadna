@@ -29,5 +29,9 @@ public class ProductInfo {
     public class ProductInfoPKID implements Serializable {
         private int productID;
         private Purchase purchase;
+
+        public ProductInfoPKID () {
+
+        }
     }
 }

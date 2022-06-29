@@ -48,7 +48,7 @@ public class ShopDAO implements DBImpl<Shop, Integer> {
         return query.getResultList();
     }
 
-    public Collection<Shop> findByFounder(String username) {
+    public Collection<Shop> findByFounder(String username) {//todo param!!!!!!
         String jpql = "SELECT c FROM Shop c WHERE c.founder.user.id = \'" + username + "\'";
         TypedQuery<Shop> query = entityManager.createQuery(jpql, Shop.class);
 

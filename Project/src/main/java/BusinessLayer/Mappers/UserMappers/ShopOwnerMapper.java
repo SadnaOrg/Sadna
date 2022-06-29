@@ -2,9 +2,11 @@ package BusinessLayer.Mappers.UserMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
+import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Users.ShopOwner;
 import BusinessLayer.Users.SubscribedUser;
+import ORM.DAOs.DBImpl;
 import ORM.DAOs.Users.ShopOwnerDAO;
 import BusinessLayer.Users.ShopAdministrator;
 
@@ -15,6 +17,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.stream.Collectors;
 
 public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwner> {
+    private ShopOwnerDAO dao = new ShopOwnerDAO();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
     @Override
@@ -25,7 +28,7 @@ public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwne
 
         List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin ->
                 admin.getUserName() == entity.getUserName() ?
-                owner : shopAdministratorMapper.run().toEntity(admin)).toList();
+                        owner : shopAdministratorMapper.run().toEntity(admin)).toList();
         owner.setAppoints(appoints);
         return owner;
     }

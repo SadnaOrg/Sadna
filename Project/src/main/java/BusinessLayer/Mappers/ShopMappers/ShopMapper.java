@@ -2,17 +2,21 @@ package BusinessLayer.Mappers.ShopMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
+import BusinessLayer.Mappers.UserMappers.BasketMapper;
 import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
 import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPlusPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
+import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.ShopOwner;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
+import ORM.Users.Basket;
 import ORM.Users.ShopAdministrator;
+import ORM.Users.SubscribedUser;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -25,6 +29,8 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     private Func<ProductMapper> productMapper = () -> ProductMapper.getInstance();
     private Func<ShopOwnerMapper> shopOwnerMapper = () -> ShopOwnerMapper.getInstance();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
+    private Func<BasketMapper> basketMapper = () -> BasketMapper.getInstance();
+    private Func<PurchaseHistoryMapper> purchaseHistoryMapper = () -> PurchaseHistoryMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
 
     static private class ShopMapperHolder {
@@ -41,18 +47,51 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
-        ORM.Shops.Shop shop = new ORM.Shops.Shop(entity.getName(), entity.getDescription(),
-                subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
-                ORM.Shops.Shop.State.values()[entity.getState().ordinal()],
-                entity.getProducts().values().stream().map(product -> productMapper.run().toEntity(product)).toList(),
-                new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
+        ORM.Shops.Shop ormShop = findORMById(entity.getId());
+        if (ormShop == null) {
+            ormShop = new ORM.Shops.Shop(entity.getName(), entity.getDescription(),
+                    subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
+                    ORM.Shops.Shop.State.values()[entity.getState().ordinal()],
+                    entity.getProducts().values().stream().map(product -> productMapper.run().toEntity(product)).toList(),
+                    new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
 
-        for (String admin : entity.getShopAdministratorsMap().keySet()) {
-            if (admin != shop.getFounder().getUser().getUsername()) {
-                ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
-                ormAdmin.setUser(subscribedUserMapper.run().findORMById(admin));
-                ormAdmin.setShop(shop);
-                shop.getShopAdministrators().put(subscribedUserMapper.run().findORMById(admin), ormAdmin);
+            for (String admin : entity.getShopAdministratorsMap().keySet()) {
+                if (admin != ormShop.getFounder().getUser().getUsername() && admin != entity.getFounder().getUserName()) {
+                    ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
+                    ormAdmin.setUser(subscribedUserMapper.run().findORMById(admin));
+                    ormAdmin.setShop(ormShop);
+                    ormShop.getShopAdministrators().put(subscribedUserMapper.run().findORMById(admin), ormAdmin);
+                }
+            }
+        }
+        else {
+            //Map<SubscribedUser, Basket> usersBaskets = new ConcurrentHashMap<>();
+            //entity.getUsersBaskets().keySet().stream()
+            //        .peek(user -> usersBaskets.put(subscribedUserMapper.run().findORMById(user),
+            //                basketMapper.run().toEntity(entity.getUsersBaskets().get(user))));
+            //Map<SubscribedUser, PurchaseHistory> purchaseHistories = new ConcurrentHashMap<>();
+            //entity.getPurchaseHistoryMap().keySet().stream()
+            //        .peek(user -> purchaseHistories.put(subscribedUserMapper.run().findORMById(user),
+            //                purchaseHistoryMapper.run().toEntity(entity.getPurchaseHistoryMap().get(user))));
+            ormShop.setName(entity.getName());
+            ormShop.setDescription(entity.getDescription());
+            //for (String user : entity.getShopAdministratorsMap().keySet()) {
+            //    SubscribedUser subscribedUser = subscribedUserMapper.run().findORMById(user);
+            //    if (!ormShop.getShopAdministrators().containsKey(subscribedUser))
+            //        ormShop.getShopAdministrators().put(subscribedUser,
+            //                shopAdministratorMapper.run().toEntity(entity.getShopAdministratorsMap().get(user)));
+            //}
+            for (Product product : entity.getProducts().values()) {
+                ORM.Shops.Product toEntity = productMapper.run().toEntity(product);
+                if (!ormShop.getProducts().contains(toEntity))
+                    ormShop.getProducts().add(toEntity);
+            }
+            //ormShop.setPurchaseHistory(purchaseHistories);
+            ormShop.setState(ORM.Shops.Shop.State.values()[entity.getState().ordinal()]);
+            for (BusinessLayer.Users.ShopAdministrator admin : entity.getFounder().getAppoints()) {
+                ShopAdministrator toEntity = shopAdministratorMapper.run().toEntity(admin);
+                if (!ormShop.getFounder().getAppoints().contains(toEntity))
+                    ormShop.getFounder().getAppoints().add(toEntity);
             }
         }
 
@@ -62,7 +101,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         //    }
         //    admin.setShop(shop);
         //};
-        return shop;
+        return ormShop;
     }
 
     @Override
@@ -100,6 +139,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     @Override
     public Shop findById(Integer key) {
         return fromEntity(dao.findById(key));
+    }
+
+    public ORM.Shops.Shop findORMById(int key) {
+        return dao.findById(key);
     }
 
     public Collection<Shop> findByFounder(String username) {

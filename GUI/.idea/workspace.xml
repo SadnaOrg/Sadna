@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="implemented all discounts">
-      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/HeskemMinui.java" afterDir="false" />
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="added HeskemMinui sketch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/ShopDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/ShopDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopOwnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopOwnerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/ProductInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/PurchaseHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/PurchaseHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/BasketMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/BasketMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656328498588</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added HeskemMinui sketch">
+      <created>1656450465451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656450465451</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +360,8 @@
     <MESSAGE value="implemented all discounts" />
     <MESSAGE value="added purchase policy page" />
     <MESSAGE value="products are now persisted" />
-    <option name="LAST_COMMIT_MESSAGE" value="products are now persisted" />
+    <MESSAGE value="added HeskemMinui sketch" />
+    <option name="LAST_COMMIT_MESSAGE" value="added HeskemMinui sketch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -483,6 +500,11 @@
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/ShopMappers/ShopMapper.class</url>
           <line>106</line>
           <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
