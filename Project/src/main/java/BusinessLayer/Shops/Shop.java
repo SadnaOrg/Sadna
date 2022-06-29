@@ -1,6 +1,7 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.MapperController;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Products.ProductFilters;
 import BusinessLayer.Shops.Polices.Discount.*;
@@ -547,6 +548,8 @@ public class Shop {
 
 
     public Collection<PurchaseHistory> getPurchaseHistory() {
+        //added here
+        this.purchaseHistory = MapperController.getInstance().getPurchaseHistoryMapper().findByShopId(this.getId());
         return purchaseHistory.values();
     }
 

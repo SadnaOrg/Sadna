@@ -1,6 +1,9 @@
 package BusinessLayer.Shops;
 
 
+import BusinessLayer.Mappers.MapperController;
+import BusinessLayer.Mappers.ShopMappers.PurchaseHistoryMapper;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -32,7 +35,9 @@ public class PurchaseHistoryController {
     }
     public Collection<PurchaseHistory> getPurchaseInfo(String user)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        if(allinfo==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -45,7 +50,9 @@ public class PurchaseHistoryController {
 
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        Collection<PurchaseHistory> allinfo= MapperController.getInstance().getPurchaseHistoryMapper().findAll();
+        if(allinfo==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
         for(PurchaseHistory purchaseHistory:allinfo)
         {
@@ -57,25 +64,30 @@ public class PurchaseHistoryController {
     }
     public Collection<PurchaseHistory> getPurchaseInfo(int shopid, String user)
     {
-        Collection<PurchaseHistory> allinfo= DataOnPurchases;
+        PurchaseHistory purchaseHistory= MapperController.getInstance().getPurchaseHistoryMapper().findByIds(shopid,user);
+        if(purchaseHistory==null)
+            return null;
         Collection<PurchaseHistory> relevantinfo= new ArrayList<>();
-        for(PurchaseHistory purchaseHistory:allinfo)
-        {
+//        for(PurchaseHistory purchaseHistory:allinfo)
+//        {
             if(purchaseHistory.getUser().equals(user) && purchaseHistory.getShop().getId()== shopid) {
                 relevantinfo.add(purchaseHistory);
             }
-        }
+//        }
         return relevantinfo;
     }
 
     public PurchaseHistory createPurchaseHistory(Shop shop, String user){
         PurchaseHistory purchaseHistory;
-        if(getPurchaseInfo(shop.getId(), user).size() == 0) {
+        Collection<PurchaseHistory> purchaseHistoryDb =getPurchaseInfo(shop.getId(), user);
+        if(purchaseHistoryDb == null||purchaseHistoryDb.size() == 0) {
             purchaseHistory = new PurchaseHistory(shop, user);
             DataOnPurchases.add(purchaseHistory);
+            MapperController.getInstance().getPurchaseHistoryMapper().save(purchaseHistory);
         }
         else{
-            purchaseHistory = DataOnPurchases.stream().toList().get(0);
+            purchaseHistory= purchaseHistoryDb.stream().toList().get(0);
+            this.DataOnPurchases.add(purchaseHistory);
         }
         return purchaseHistory;
     }

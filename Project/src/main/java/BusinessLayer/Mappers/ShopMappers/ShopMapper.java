@@ -141,7 +141,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         return fromEntity(dao.findById(key));
     }
 
-    public ORM.Shops.Shop findORMById(int key) {
+    public ORM.Shops.Shop findORMById(Integer key) {
         return dao.findById(key);
     }
 

@@ -31,9 +31,30 @@ public class PurchaseHistory {
     )
     private Collection<Purchase> past_purchases;
 
+    public PurchaseHistory(Collection<Purchase> past_purchases) {
+        this.past_purchases = past_purchases;
+    }
+
     public PurchaseHistory() {
 
     }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+
+    public SubscribedUser getUser() {
+        return user;
+    }
+
+    public void setUser(SubscribedUser user) {
+        this.user = user;
+    }
+
 
     public Collection<Purchase> getPast_purchases() {
         return past_purchases;
@@ -47,8 +68,12 @@ public class PurchaseHistory {
         private Shop shop;
         private SubscribedUser user;
 
-        public PurchaseHistoryPKID() {
+        public PurchaseHistoryPKID(Shop shop, SubscribedUser user) {
+            this.shop = shop;
+            this.user = user;
+        }
 
+        public PurchaseHistoryPKID() {
         }
     }
 }

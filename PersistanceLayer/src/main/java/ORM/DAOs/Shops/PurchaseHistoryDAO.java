@@ -39,6 +39,7 @@ public class PurchaseHistoryDAO implements DBImpl<PurchaseHistory, PurchaseHisto
         return purchaseHistory;
     }
 
+
     @Override
     public Collection<PurchaseHistory> findAll() {
         String jpql = "SELECT c FROM PurchaseHistory c";

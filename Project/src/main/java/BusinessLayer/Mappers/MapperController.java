@@ -1,8 +1,10 @@
 package BusinessLayer.Mappers;
 
+import BusinessLayer.Mappers.ShopMappers.PurchaseHistoryMapper;
 import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
 import BusinessLayer.Mappers.UserMappers.SystemManagerMapper;
+import BusinessLayer.Shops.PurchaseHistory;
 
 public class MapperController {
 
@@ -25,7 +27,13 @@ public class MapperController {
     public SystemManagerMapper getSystemManagerMapper() {
         return systemManagerMapper;
     }
+
+    public PurchaseHistoryMapper getPurchaseHistoryMapper() {
+        return purchaseHistoryMapper;
+    }
+
     private ShopMapper shopMapper = ShopMapper.getInstance();
     private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
     private SystemManagerMapper systemManagerMapper = SystemManagerMapper.getInstance();
+    private PurchaseHistoryMapper purchaseHistoryMapper = PurchaseHistoryMapper.getInstance();
 }
