@@ -19,6 +19,7 @@ public record Statistic(LocalDate day, Map<LocalTime,Integer> register, Map<Loca
     private static Map<LocalTime, Integer> convertMap(StatisticMap<Integer> s) {
         var map = new ConcurrentHashMap<LocalTime,Integer>();
          s.getMap().forEach((key, value) -> map.put(LocalTime.from(key), value));
+         map.put(LocalTime.now(),s.getLastValue());
          return map;
     }
 

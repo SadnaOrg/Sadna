@@ -31,4 +31,8 @@ public class StatisticMap<T> {
     public Map<LocalDateTime, T> getMap() {
         return map;
     }
+
+    public T getLastValue() {
+        return lastValue;
+    }
 }
