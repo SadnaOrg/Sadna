@@ -35,7 +35,7 @@ public class Shop {
     private Collection<Product> products;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "userBaskets",
+    @JoinTable(name = "shopBaskets",
             inverseJoinColumns = {
             @JoinColumn(name = "basketShopID", referencedColumnName = "shopID"),
                     @JoinColumn(name = "basketOwner", referencedColumnName = "username")
