@@ -3,17 +3,24 @@ package AcceptanceTests.Bridge;
 import AcceptanceTests.DataObjects.*;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Objects.Policies.Discount.DiscountRules;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 
 public class SubscribedUserProxy extends UserProxy implements SubscribedUserBridge{
-    SubscribedUserAdapter subscribedUserAdapter;
+    SubscribedUserBridge subscribedUserAdapter;
     public SubscribedUserProxy(UserProxy proxy){
         super(new SubscribedUserAdapter(proxy.getGuests(),proxy.getSubscribed(),proxy.getNotifications()));
         subscribedUserAdapter = (SubscribedUserAdapter) super.adapter;
     }
+
+    public SubscribedUserProxy(SystemManagerBridge adapter){
+        super(adapter);
+        subscribedUserAdapter = adapter;
+    }
+
     @Override
     public Guest logout(String userName) {
         return subscribedUserAdapter.logout(userName);
@@ -197,5 +204,35 @@ public class SubscribedUserProxy extends UserProxy implements SubscribedUserBrid
     @Override
     public boolean setCategory(String username, int productId, String category, int shopID) {
         return subscribedUserAdapter.setCategory(username,productId,category,shopID);
+    }
+
+    @Override
+    public boolean approveHeskemMinui(String username, int shop, String adminToAssign) {
+        return subscribedUserAdapter.approveHeskemMinui(username,shop,adminToAssign);
+    }
+
+    @Override
+    public boolean declineHeskemMinui(String username, int shop, String adminToAssign) {
+        return subscribedUserAdapter.declineHeskemMinui(username,shop,adminToAssign);
+    }
+
+    @Override
+    public SystemManager manageSystemAsSystemManager(String username) {
+        return subscribedUserAdapter.manageSystemAsSystemManager(username);
+    }
+
+    @Override
+    public boolean reOfferBid(String username,String user, int productId, double newPrice, int shopId) {
+        return subscribedUserAdapter.reOfferBid(username,user,productId,newPrice,shopId);
+    }
+
+    @Override
+    public boolean declineBidOffer(String username,String user, int productId, int shopId) {
+        return subscribedUserAdapter.declineBidOffer(username,user,productId,shopId);
+    }
+
+    @Override
+    public boolean approveBidOffer(String username,String user, int productId, int shopId) {
+        return subscribedUserAdapter.approveBidOffer(username,user,productId,shopId);
     }
 }

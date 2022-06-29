@@ -3,19 +3,20 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.PurchaseHistoryInfo;
 import AcceptanceTests.DataObjects.SubscribedUserInfo;
+import ServiceLayer.interfaces.SystemManagerService;
 
 import java.util.List;
 
-public interface SystemManagerBridge {
-    PurchaseHistoryInfo getShopsAndUsersInfo(int shop, String userName);
+public interface SystemManagerBridge extends SubscribedUserBridge{
+    PurchaseHistoryInfo getShopsAndUsersInfo(String username, int shop, String userName);
 
-    PurchaseHistoryInfo getShopsAndUsersInfo(String userName);
+    PurchaseHistoryInfo getShopsAndUsersInfo(String username,String u);
 
-    PurchaseHistoryInfo getShopsAndUsersInfo(int shop);
+    PurchaseHistoryInfo getShopsAndUsersInfo(String username,int shop);
 
-    PurchaseHistoryInfo getShopsAndUsersInfo();
+    PurchaseHistoryInfo getShopsAndUsersInfo(String username);
 
-    boolean removeSubscribedUserFromSystem(String userToRemove);
+    boolean removeSubscribedUserFromSystem(String username,String userToRemove);
 
-    List<SubscribedUserInfo> getAllSubscribedUserInfo();
+    List<SubscribedUserInfo> getAllSubscribedUserInfo(String username);
 }
