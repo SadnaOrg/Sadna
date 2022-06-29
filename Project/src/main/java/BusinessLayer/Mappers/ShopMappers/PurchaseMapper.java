@@ -61,12 +61,6 @@ public class PurchaseMapper  implements  CastEntity <ORM.Shops.Purchase, Purchas
             ORM.Shops.Purchase finalPurchase = purchase;
             purchase.setProductInfos(purchase.getProductInfos().stream().peek(productInfo -> productInfo.setPurchase(finalPurchase)).collect(Collectors.toList()));
         }
-        else
-        {
-            String pattern = "yyyy-MM-dd";
-            DateFormat format = new SimpleDateFormat(pattern);
-            purchase.setDateOfPurchase(format.format(entity.getDateOfPurchase()));
-        }
         return purchase;
     }
 

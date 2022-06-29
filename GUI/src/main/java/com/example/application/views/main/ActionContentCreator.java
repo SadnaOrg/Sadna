@@ -19,6 +19,9 @@ import static com.example.application.Utility.notifySuccess;
 import static com.example.application.Utility.notifyError;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
@@ -272,7 +275,7 @@ public class ActionContentCreator {
     public Component createHistoryInfo() {
         var selectShop =  createShopSelect(Shop::isOpen);
         AtomicInteger shop= new AtomicInteger();
-        var bttn = new Button("show role info");
+        var bttn = new Button("show history info");
         var layout = new VerticalLayout(selectShop,bttn);
         bttn.setEnabled(false);
 
@@ -311,7 +314,9 @@ public class ActionContentCreator {
     private Component getPurcasesSlider(List<Purchase> purchases) {
         var dialog = new Dialog();
         var g = new Grid<Purchase>();
-        g.addColumn(Purchase::dateOfPurchase).setHeader("date");
+        String pattern = "dd-MM-yyyy";
+        DateFormat format = new SimpleDateFormat(pattern);
+        g.addColumn(p->format.format(p.dateOfPurchase())).setHeader("date");
         g.addColumn(Purchase::transectionId).setHeader("transaction id");
         g.addComponentColumn(p->productPopUp(p.products()));
         return getButton(purchases,dialog,g,"Purchases History");

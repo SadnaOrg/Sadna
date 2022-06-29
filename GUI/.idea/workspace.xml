@@ -8,15 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/ProductInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/.idea/artifacts/Market_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/.idea/artifacts/Market_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseHistoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseHistoryMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/PurchaseHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/PurchaseHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,11 +340,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/ServiceLayer/SystemManagerServiceImp.java</url>
           <line>51</line>
           <option name="timeStamp" value="34" />
@@ -361,7 +351,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
-          <line>95</line>
+          <line>98</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -418,16 +408,6 @@
           <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar!/BusinessLayer/Shops/Shop.java</url>
           <line>235</line>
           <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ActionContentCreator.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/ProductView.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/Discount/DiscountContentCreator.java</url>
@@ -489,8 +469,37 @@
           <line>46</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/PurchaseHistoryForm.java</url>
+          <line>36</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SystemManagerView.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="ServiceLayer.Response" memberName="element" />
+        <PinnedItemInfo parentTag="ServiceLayer.SystemManagerServiceImp" memberName="SubscribedUserServiceImp.currUser" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/Grammer.java" line="12">
         <watch expression="jsons" language="JAVA" />

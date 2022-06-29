@@ -13,6 +13,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.TextField;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +73,10 @@ public class PurchaseHistoryForm extends Header {
         VerticalLayout layout = new VerticalLayout();
         Accordion purchases = new Accordion();
         for(Purchase p : purchase.purchases()){
-            purchases.add(p.dateOfPurchase().toString(), createProductInfoComponent(p.products()));
+            //here
+            String pattern = "dd-MM-yyyy";
+            DateFormat format = new SimpleDateFormat(pattern);
+            purchases.add(format.format(p.dateOfPurchase()), createProductInfoComponent(p.products()));
         }
         purchases.setWidthFull();
         layout.add(purchases);
@@ -80,22 +85,8 @@ public class PurchaseHistoryForm extends Header {
     }
 
     private Component createProductInfoComponent(List<ProductInfo> products) {
-        Grid<Product> productGrid = createProductGrid();
-        List<Product> productList = new ArrayList<>();
-        for(ProductInfo p : products){
-            var res = service.searchProducts(sp -> sp.shopId() == p.shopId(), pp -> pp.productID() == p.Id());
-            if(res.isOk()){
-                var shopRes = res.getElement().shops();
-                if(shopRes.size() == 1){
-                    var prodRes = shopRes.stream().toList().get(0).shopProducts();
-                    if(prodRes.size() == 1){
-                        var product = prodRes.stream().toList().get(0);
-                        productList.add(product);
-                    }
-                }
-            }
-        }
-        productGrid.setItems(productList);
+        Grid<ProductInfo> productGrid = createProductInfoGrid();
+        productGrid.setItems(products);
         productGrid.setWidthFull();
         return productGrid;
     }
@@ -107,6 +98,14 @@ public class PurchaseHistoryForm extends Header {
         grid.addColumn(Product::quantity).setHeader("Quantity");
         grid.addColumn(Product::description).setHeader("Description");
         grid.addColumn(Product::manufacturer).setHeader("Manufacturer");
+        return grid;
+    }
+    private Grid<ProductInfo> createProductInfoGrid() {
+        Grid<ProductInfo> grid = new Grid<>();
+        grid.addColumn(ProductInfo::Id).setHeader("Product id");
+        grid.addColumn(ProductInfo::shopId).setHeader("Shop");
+        grid.addColumn(ProductInfo::price).setHeader("Price");
+        grid.addColumn(ProductInfo::quantity).setHeader("Quantity");
         return grid;
     }
 
