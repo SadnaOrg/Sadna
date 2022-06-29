@@ -8,14 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopOwnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Users/ShopOwnerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market/Project.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseHistoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/PurchaseHistoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -497,6 +498,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/example/application/views/main/SubscribedUserView.java</url>
           <line>155</line>
           <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/ShopMappers/ShopMapper.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar!/BusinessLayer/Mappers/ShopMappers/ProductMapper.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="169" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

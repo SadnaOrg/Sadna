@@ -325,29 +325,46 @@ public class UserController {
 
     public boolean updateProductQuantity(String username, int shopID, int productID, int newQuantity) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if (admin != null)
-            return admin.changeProductQuantity(productID, newQuantity);
+        if (admin != null) {
+            boolean res = admin.changeProductQuantity(productID, newQuantity);
+            if (res)
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
+            return res;
+        }
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
     public boolean updateProductPrice(String username, int shopID, int productID, double newPrice) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if (admin != null)
-            return admin.changeProductPrice(productID, newPrice);
+        if (admin != null) {
+            boolean res = admin.changeProductPrice(productID, newPrice);
+            if (res)
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
+            return res;
+        }
+
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
     public boolean updateProductDescription(String username, int shopID, int productID, String Desc) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if (admin != null)
-            return admin.changeProductDesc(productID, Desc);
+        if (admin != null) {
+            boolean res = admin.changeProductDesc(productID, Desc);
+            if (res)
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
+            return res;
+        }
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 
     public boolean updateProductName(String username, int shopID, int productID, String newName) throws NoPermissionException {
         ShopAdministrator admin = getAdmin(username, shopID);
-        if (admin != null)
-            return admin.changeProductName(productID, newName);
+        if (admin != null) {
+            boolean res = admin.changeProductName(productID, newName);
+            if (res)
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
+            return res;
+        }
         throw new NoPermissionException("you aren't an admin of that shop!");
     }
 

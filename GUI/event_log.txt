@@ -1,2 +1,44 @@
-Jun 29, 2022 5:19:52 PM ServiceLayer.Log event
+Jun 29, 2022 6:07:46 PM ServiceLayer.Log event
 INFO: login to system Successes
+Jun 29, 2022 6:07:47 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 29, 2022 6:07:47 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 29, 2022 6:07:47 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 29, 2022 6:07:50 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 29, 2022 6:07:50 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 29, 2022 6:07:50 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 29, 2022 6:07:50 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 29, 2022 6:07:50 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 29, 2022 6:07:51 PM ServiceLayer.Log event
+INFO: search shops succeeded Successes
+Jun 29, 2022 6:07:51 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 29, 2022 6:07:51 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 29, 2022 6:07:51 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 29, 2022 6:07:52 PM ServiceLayer.Log event
+INFO: permission check Successes
+Jun 29, 2022 6:07:52 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 29, 2022 6:08:00 PM ServiceLayer.Log event
+INFO: update product name Successes
+Jun 29, 2022 6:08:07 PM ServiceLayer.Log event
+INFO: update product description Successes
+Jun 29, 2022 6:08:12 PM ServiceLayer.Log event
+INFO: update product quantity Successes
+Jun 29, 2022 6:08:13 PM ServiceLayer.Log event
+INFO: update product price Successes
+Jun 29, 2022 6:08:13 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 29, 2022 6:08:41 PM ServiceLayer.Log event
+INFO: remove product from shop Successes
+Jun 29, 2022 6:08:41 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
