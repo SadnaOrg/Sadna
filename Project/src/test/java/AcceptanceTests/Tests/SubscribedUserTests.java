@@ -540,7 +540,6 @@ public class SubscribedUserTests extends UserTests {
         ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertEquals("new name!",p.product.name);
         testUpdateProductNameKeepSame();
-
     }
 
     @Test
@@ -1839,6 +1838,19 @@ public class SubscribedUserTests extends UserTests {
         Appointment appointment = roles.getOrDefault(u1.name,null);
         assertNull(appointment);
         removeU1OwnerAgreementCastro = true;
+    }
+
+    @Test
+    public void testBidOnProductSuccessDeclined(){
+        boolean result = subscribedUserBridge.saveProductsAsBid(u1.name, shops[MegaSport_ID].ID,4, 10,50);
+        assertTrue(result);
+
+        result = subscribedUserBridge.declineBidOffer(MegaSportFounder.name, u1.name, 4, shops[MegaSport_ID].ID);
+        assertTrue(result);
+
+        ShoppingCart cart = subscribedUserBridge.checkCart(u1.name);
+        ShopBasket basket = cart.getShopBasket(shops[MegaSport_ID].ID);
+        assertNull(basket);
     }
 
     public User enter() {

@@ -37,6 +37,15 @@ public class PaymentForm extends FormLayout {
     Select<Integer> year = createYearSelect();
     Button payButton = new Button("Pay");
     PaymentMethod method = new PaymentMethod();
+    @NotNull
+    @Nonempty
+    @NotBlank
+    TextField ID = createNumericTextField(9, "ID", "Please enter a valid ID.");
+    @NotNull
+    @Nonempty
+    @NotBlank
+    TextField cardHolder = createNumericTextField(30, "card holder name", "Please enter a valid name.");
+
 
     Binder<PaymentMethod> binder;
 
@@ -57,10 +66,14 @@ public class PaymentForm extends FormLayout {
         binder.forField(year).withValidator(yearNum -> yearNum != null && yearNum >= Calendar.getInstance().get(Calendar.YEAR) &&
                 yearNum <= Calendar.getInstance().get(Calendar.YEAR) + 10, "Year must be in the range of next 10 years")
                 .bind(PaymentMethod::getYear, PaymentMethod::setYear);
+        binder.forField(ID).withValidator(s->s.chars().allMatch(Character::isDigit)&s.length()==9,"Please enter a valid ID with 9 digit")
+                .bind(PaymentMethod::getID, PaymentMethod::setID);
+        binder.forField(cardHolder).withValidator(s->s.chars().allMatch(c->Character.isAlphabetic(c)|Character.isSpaceChar(c)),"Please enter a valid name")
+                        .bind(PaymentMethod::getCardHolder, PaymentMethod::setCardHolder);
         payButton.addClickListener(click -> validateAndPay());
         binder.addStatusChangeListener(evt -> payButton.setEnabled(binder.isValid()));
         binder.setBean(method);
-        add(creditCardNumber, cvv, month, year, payButton);
+        add(creditCardNumber, cvv, month, year, ID, cardHolder, payButton);
 
     }
 
@@ -110,7 +123,7 @@ public class PaymentForm extends FormLayout {
     public static class PayEvent extends PaymentFormEvent{
         public PayEvent(PaymentForm source, PaymentMethod method, UserService service) {
             super(source, method, service);
-            var res = service.purchaseCartFromShop(method.getCreditCardNumber(), method.getIntCvv(), method.getMonth(), method.getYear());
+            var res = service.purchaseCartFromShop(method.getCreditCardNumber(), method.getIntCvv(), method.getMonth(), method.getYear(),method.getID(),method.getCardHolder());
             if(res.isOk()){
                 createDialog();
                 notifySuccess("Thank you for your purchase!");

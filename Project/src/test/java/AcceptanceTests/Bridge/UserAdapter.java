@@ -216,7 +216,7 @@ public class UserAdapter implements UserBridge{
         UserService service = getService(username);
         if(service == null)
             return 0;
-        Response<Double> purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear);
+        Response<Double> purchased = service.purchaseCartFromShop(creditCard,CVV,expirationMonth,expirationYear,"206000556","maor biton");
         if(purchased.isOk())
             return purchased.getElement();
         return 0;
@@ -280,6 +280,16 @@ public class UserAdapter implements UserBridge{
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean saveProductsAsBid(String username,int shopId, int productId, int quantity, double price) {
+        UserService service = getService(username);
+        if(service != null){
+            Result saved = service.saveProductsAsBid(shopId,productId,quantity,price);
+            return saved.isOk();
+        }
+        return false;
     }
 
     public HashMap<String, UserService> getGuests() {

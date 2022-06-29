@@ -495,6 +495,36 @@ public class SubscribedUserAdapter extends UserAdapter implements SubscribedUser
         return null;
     }
 
+    @Override
+    public boolean reOfferBid(String username,String user, int productId, double newPrice, int shopId) {
+        SubscribedUserService service = getMyService(username);
+        if(service != null){
+            Result reOffered = service.reOfferBid(user,productId,newPrice,shopId);
+            return reOffered.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean declineBidOffer(String username,String user, int productId, int shopId) {
+        SubscribedUserService service = getMyService(username);
+        if(service != null){
+            Result declined = service.declineBidOffer(user,productId,shopId);
+            return declined.isOk();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean approveBidOffer(String username,String user, int productId, int shopId) {
+        SubscribedUserService service = getMyService(username);
+        if(service != null){
+            Result approved = service.approveBidOffer(user,productId,shopId);
+            return approved.isOk();
+        }
+        return false;
+    }
+
     public SubscribedUserService getMyService(String username){
         if(managers.containsKey(username))
             return managers.get(username);

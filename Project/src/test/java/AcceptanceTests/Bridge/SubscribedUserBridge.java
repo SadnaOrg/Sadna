@@ -2,6 +2,7 @@ package AcceptanceTests.Bridge;
 
 import AcceptanceTests.DataObjects.*;
 import BusinessLayer.Shops.Polices.Discount.DiscountRules;
+import ServiceLayer.Objects.BidOffer;
 import ServiceLayer.Objects.HeskemMinui;
 import ServiceLayer.Objects.Policies.Discount.DiscountPred;
 import ServiceLayer.Response;
@@ -12,6 +13,7 @@ import java.time.LocalTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public interface SubscribedUserBridge extends UserBridge {
 
@@ -94,4 +96,10 @@ public interface SubscribedUserBridge extends UserBridge {
     boolean declineHeskemMinui(String username,int shop, String adminToAssign);
 
     SystemManager manageSystemAsSystemManager(String username);
+
+    boolean reOfferBid(String username,String user, int productId, double newPrice, int shopId) ;
+
+    boolean declineBidOffer(String username,String user, int productId, int shopId) ;
+
+    boolean approveBidOffer(String username,String user, int productId, int shopId) ;
 }
