@@ -161,6 +161,8 @@ public class ShopController {
                 shops.get(shopid).purchaseBasket(user);
                 shops.get(shopid).getUsersBaskets().remove(user);
                 UserController.getInstance().getShoppingCart(user).remove(shopid);
+                mapperController.getShopMapper().update(shops.get(shopid));
+                mapperController.getSubscribedUserMapper().update(mapperController.getSubscribedUserMapper().findById(user));
             }
         }
         return true;

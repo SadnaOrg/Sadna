@@ -104,12 +104,18 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         founder.setUser(subscribedUserMapper.run().fromEntity(entity.getFounder().getUser()));
         Shop shop = new Shop(entity.getId(), entity.getName(), entity.getDescription(),
                 Shop.State.values()[entity.getState().ordinal()], founder,
-                (ConcurrentHashMap<Integer, Product>) entity.getProducts().stream().map(product -> productMapper.run().fromEntity(product))
+                (ConcurrentHashMap<Integer, Product>) entity.getProducts().stream().map(product ->
+                                productMapper.run().fromEntity(product))
                         .collect(Collectors.toConcurrentMap(Product::getID, Function.identity())),
                 new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>(),
                 new DiscountPlusPolicy(), new PurchaseAndPolicy());
         founder.setShop(shop);
         shop.getShopAdministratorsMap().put(founder.getUserName(), founder);
+        shop.getUsersBaskets().clear();
+        for (SubscribedUser user : entity.getUsersBaskets().keySet()) {
+            shop.getUsersBaskets().put(user.getUsername(),
+                    basketMapper.run().fromEntity(entity.getUsersBaskets().get(user)));
+        }
         founder.getSubscribed().addAdministrator(shop.getId(), founder);
         founder.getAppoints().stream().peek(admin -> admin.setShop(shop));
         return shop;
