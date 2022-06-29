@@ -1672,50 +1672,50 @@ public class SubscribedUserTests extends UserTests {
         subscribedUserBridge.updateProductQuantity(u1.name,shops[castro_ID].ID,45,40);
     }
 
-    @Test
-    public void testScenario3(){
-        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
-        assertTrue(added);
-
-        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,1);
-        assertTrue(added);
-
-        boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
-        assertTrue(closed);
-
-        List<Notification> notifications = subscribedUserBridge.getNotifications(castroFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        notifications = subscribedUserBridge.getNotifications(ACEFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        notifications = subscribedUserBridge.getNotifications(MegaSportFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
-        assertFalse(added);
-
-        testReopenShop();
-
-        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
-        assertEquals(20,payed,0);
-
-        boolean opened = subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
-        assertTrue(opened);
-
-        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
-        assertEquals(10*30+15*50,payed,0);
-
-        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
-        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
-        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
-    }
+//    @Test
+//    public void testScenario3(){
+//        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
+//        assertTrue(added);
+//
+//        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,1);
+//        assertTrue(added);
+//
+//        boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
+//        assertTrue(closed);
+//
+//        List<Notification> notifications = subscribedUserBridge.getNotifications(castroFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        notifications = subscribedUserBridge.getNotifications(ACEFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        notifications = subscribedUserBridge.getNotifications(MegaSportFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
+//        assertFalse(added);
+//
+//        testReopenShop();
+//
+//        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+//        assertEquals(20,payed,0);
+//
+//        boolean opened = subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
+//        assertTrue(opened);
+//
+//        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+//        assertEquals(10*30+15*50,payed,0);
+//
+//        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
+//        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
+//        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
+//    }
 
     @Test
     public void testPurchaseWithXorDiscountBothConditionsHold(){
