@@ -1,11 +1,13 @@
 package ServiceLayer;
 
 import BusinessLayer.Users.SystemManager;
-import BusinessLayer.Users.UserController;
 import ServiceLayer.Objects.PurchaseHistoryInfo;
+import ServiceLayer.Objects.Statistic;
 import ServiceLayer.Objects.SubscribedUserInfo;
 import ServiceLayer.interfaces.SystemManagerService;
 
+import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,6 +52,16 @@ public class SystemManagerServiceImp extends SubscribedUserServiceImp implements
     @Override
     public Result removeSubscribedUserFromSystem(String userToRemove){
         return ifUserNotNull(()->facade.removeSubscribedUserFromSystem(currUser,userToRemove),"removed "+ userToRemove +" from system");
+    }
+
+    @Override
+    public Response<Collection<Statistic>> getStatistic(LocalDate from, LocalDate to){
+        return ifUserNotNullRes(()->facade.getStatistic(from,to).stream().map(Statistic::new).collect(Collectors.toList()),"get statistic");
+    }
+
+    @Override
+    public Response<Statistic> getStatistic(LocalDate day){
+        return ifUserNotNullRes(()->new Statistic(facade.getStatistic(day)),"get statistic");
     }
 
 
