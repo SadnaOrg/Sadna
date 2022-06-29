@@ -14,6 +14,11 @@ public class StatisticMap<T> {
         this.lastValue=lastValue;
     }
 
+    public StatisticMap(Map<LocalDateTime, T> map, T lastValue) {
+        this.map = map;
+        this.lastValue = lastValue;
+    }
+
     public synchronized void  Add(Function<T,T> fromLastValue){
         lastValue=fromLastValue.apply(lastValue);
 

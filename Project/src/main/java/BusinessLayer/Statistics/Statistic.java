@@ -1,5 +1,7 @@
 package BusinessLayer.Statistics;
 
+import BusinessLayer.Mappers.StatisticMappers.StatisticsMapper;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -21,14 +23,25 @@ public class Statistic{
         registeredUser= new StatisticMap<>(0);
         loginUser= new StatisticMap<>(0);
         purchase=new StatisticMap<>(0);
+        StatisticsMapper.getInstance().save(this);
+
     }
     public Statistic(LocalDate day,Statistic yesterday){
         registeredUser=new StatisticMap<>(yesterday.registeredUser.lastValue);
         loginUser=new StatisticMap<>(yesterday.loginUser.lastValue);
         purchase=new StatisticMap<>(yesterday.purchase.lastValue);
+        StatisticsMapper.getInstance().save(this);
+
     }
 
-
+    public Statistic(LocalDate day, StatisticMap<Integer> registeredUser, StatisticMap<Integer> loginUser, StatisticMap<Integer> purchase, LocalTime lastTick) {
+        this.day = day;
+        this.registeredUser = registeredUser;
+        this.loginUser = loginUser;
+        this.purchase = purchase;
+        this.lastTick = lastTick;
+        this.tick =5;
+    }
 
     public void start(long tickValueInMin){
        tick =tickValueInMin;
@@ -37,6 +50,7 @@ public class Statistic{
            registeredUser.tick(0);
            loginUser.tick(0);
            purchase.tick(0);
+           StatisticsMapper.getInstance().update(this);
        }
        else makeTick();
 
@@ -51,6 +65,8 @@ public class Statistic{
                     registeredUser.tick(0);
                     loginUser.tick();//for saving the last value the same
                     purchase.tick(0);
+                    StatisticsMapper.getInstance().update(this);
+
                 }
             }
         }
