@@ -135,6 +135,7 @@ public class UserController {
     public boolean removeproduct(User u, int shopId, int productId) {
         boolean removed = u.removeProduct(shopId, productId);
         if (removed) {
+            ShopController.getInstance().getShops().get(shopId).getUsersBaskets().get(u.getUserName()).removeProduct(productId);
             ShopController.getInstance().tryRemove(shopId, u.getUserName(), 0);
             if (u instanceof SubscribedUser)
                 mapperController.getSubscribedUserMapper().update((SubscribedUser) u);

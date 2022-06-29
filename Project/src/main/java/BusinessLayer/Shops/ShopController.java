@@ -47,8 +47,8 @@ public class ShopController {
             Basket b = s.getUsersBaskets().get(username);
             if(b.getProducts().size() == 0) {
                 s.removeBasket(username);
-                mapperController.getShopMapper().update(shops.get(shopID));
             }
+            mapperController.getShopMapper().update(shops.get(shopID));
         }
     }
 

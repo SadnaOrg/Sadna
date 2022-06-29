@@ -59,9 +59,12 @@ public class Basket {
 
     public boolean removeProduct(int productid) {
         if (products.containsKey(productid)) {
-            products.remove(productid);
-            prices.remove(productid);
-            categories.remove(productid);
+            try {
+                products.remove(productid);
+                prices.remove(productid);
+                categories.remove(productid);
+            }
+            catch (Exception ignored) {}
             return true;
         }
         else
