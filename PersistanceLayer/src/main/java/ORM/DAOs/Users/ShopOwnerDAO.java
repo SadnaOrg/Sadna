@@ -2,13 +2,14 @@ package ORM.DAOs.Users;
 
 import ORM.DAOs.DBImpl;
 import ORM.HibernateUtil;
+import ORM.Users.ShopAdministrator;
 import ORM.Users.ShopOwner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.Collection;
 
-public class ShopOwnerDAO implements DBImpl<ShopOwner, String> {
+public class ShopOwnerDAO implements DBImpl<ShopOwner, ShopAdministrator.ShopAdministratorPK> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
@@ -27,14 +28,14 @@ public class ShopOwnerDAO implements DBImpl<ShopOwner, String> {
     }
 
     @Override
-    public void delete(String key) {
+    public void delete(ShopAdministrator.ShopAdministratorPK key) {
         entityManager.getTransaction().begin();
         entityManager.find(ShopOwner.class, key);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public ShopOwner findById(String key) {
+    public ShopOwner findById(ShopAdministrator.ShopAdministratorPK key) {
         ShopOwner shopOwner = entityManager.find(ShopOwner.class, key);
         return shopOwner;
     }

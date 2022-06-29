@@ -81,18 +81,16 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
             //        ormShop.getShopAdministrators().put(subscribedUser,
             //                shopAdministratorMapper.run().toEntity(entity.getShopAdministratorsMap().get(user)));
             //}
-            for (Product product : entity.getProducts().values()) {
-                ORM.Shops.Product toEntity = productMapper.run().toEntity(product);
-                if (!ormShop.getProducts().contains(toEntity))
-                    ormShop.getProducts().add(toEntity);
-            }
+            ormShop.getProducts().clear();
+            ormShop.getProducts().addAll(entity.getProducts().values().stream().map(
+                    product -> productMapper.run().toEntity(product)
+            ).toList());
             //ormShop.setPurchaseHistory(purchaseHistories);
             ormShop.setState(ORM.Shops.Shop.State.values()[entity.getState().ordinal()]);
-            for (BusinessLayer.Users.ShopAdministrator admin : entity.getFounder().getAppoints()) {
-                ShopAdministrator toEntity = shopAdministratorMapper.run().toEntity(admin);
-                if (!ormShop.getFounder().getAppoints().contains(toEntity))
-                    ormShop.getFounder().getAppoints().add(toEntity);
-            }
+            ormShop.getFounder().getAppoints().clear();
+            ormShop.getFounder().getAppoints().addAll(entity.getFounder().getAppoints().stream().map(
+                    appointee -> shopAdministratorMapper.run().toEntity(appointee)
+            ).toList());
         }
 
         //for (ShopAdministrator admin : shop.getFounder().getUser().getAdministrators()){

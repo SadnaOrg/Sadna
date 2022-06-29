@@ -5,10 +5,11 @@ import BusinessLayer.Mappers.Func;
 import BusinessLayer.Mappers.ShopMappers.ShopMapper;
 import BusinessLayer.Users.BaseActions.BaseActionType;
 import BusinessLayer.Users.ShopOwner;
-import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Users.ShopOwnerDAO;
 import BusinessLayer.Users.ShopAdministrator;
+import ORM.Shops.Shop;
+import ORM.Users.SubscribedUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,17 +21,24 @@ public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwne
     private ShopOwnerDAO dao = new ShopOwnerDAO();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private Func<SubscribedUserMapper> subscribedUserMapper = () -> SubscribedUserMapper.getInstance();
+    private Func<ShopMapper> shopMapper = () -> ShopMapper.getInstance();
     @Override
     public ORM.Users.ShopOwner toEntity(ShopOwner entity) {
-        ORM.Users.ShopOwner owner = new ORM.Users.ShopOwner(
-                entity.getActionsTypes().stream().map(action -> ORM.Users.ShopAdministrator.BaseActionType.values()[action.ordinal()])
-                        .collect(Collectors.toList()), null, entity.isFounder());
+        ORM.Users.ShopOwner ormOwner = findORMById(entity.getUserName(), entity.getShopID());
+        if (ormOwner == null) {
+            ORM.Users.ShopOwner owner = new ORM.Users.ShopOwner(
+                    entity.getActionsTypes().stream().map(action -> ORM.Users.ShopAdministrator.BaseActionType.values()[action.ordinal()])
+                            .collect(Collectors.toList()), null, entity.isFounder());
 
-        List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin ->
-                admin.getUserName() == entity.getUserName() ?
-                        owner : shopAdministratorMapper.run().toEntity(admin)).toList();
-        owner.setAppoints(appoints);
-        return owner;
+            List<ORM.Users.ShopAdministrator> appoints = entity.getAppoints().stream().map(admin ->
+                    admin.getUserName() == entity.getUserName() ?
+                            owner : shopAdministratorMapper.run().toEntity(admin)).toList();
+            owner.setAppoints(appoints);
+            return owner;
+        }
+        else {
+            return ormOwner;
+        }
     }
 
     @Override
@@ -54,5 +62,10 @@ public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwne
 
     private ShopOwnerMapper() {
 
+    }
+
+    private ORM.Users.ShopOwner findORMById(String username, int shopID) {
+        return dao.findById(new ORM.Users.ShopAdministrator.ShopAdministratorPK(subscribedUserMapper.run().findORMById(username),
+                shopMapper.run().findORMById(shopID)));
     }
 }

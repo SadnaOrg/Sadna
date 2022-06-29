@@ -38,7 +38,7 @@ public class PurchaseHistoryMapper  implements DBImpl<PurchaseHistory, ORM.Shops
     @Override
     public ORM.Shops.PurchaseHistory toEntity(PurchaseHistory entity) {
         ORM.Shops.PurchaseHistory purchaseHistory =findORMByIds(entity.getShop().getId(),entity.getUser());
-        if(findByIds(entity.getShop().getId(),entity.getUser())==null) {
+        if(purchaseHistory==null) {
             purchaseHistory = new ORM.Shops.PurchaseHistory(entity.getPast_purchases().stream()
                     .map(purchase -> purchaseMapper.run().toEntity(purchase)).collect(Collectors.toList()));
             purchaseHistory.setUser(subscribedUserMapper.run().findORMById(entity.getUser()));
