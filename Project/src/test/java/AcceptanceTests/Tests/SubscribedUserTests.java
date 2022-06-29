@@ -1841,6 +1841,19 @@ public class SubscribedUserTests extends UserTests {
         removeU1OwnerAgreementCastro = true;
     }
 
+    @Test
+    public void testBidOnProductSuccessDeclined(){
+        boolean result = subscribedUserBridge.saveProductsAsBid(u1.name, shops[MegaSport_ID].ID,4, 10,50);
+        assertTrue(result);
+
+        result = subscribedUserBridge.declineBidOffer(MegaSportFounder.name, u1.name, 4, shops[MegaSport_ID].ID);
+        assertTrue(result);
+
+        ShoppingCart cart = subscribedUserBridge.checkCart(u1.name);
+        ShopBasket basket = cart.getShopBasket(shops[MegaSport_ID].ID);
+        assertNull(basket);
+    }
+
     public User enter() {
         Guest g = subscribedUserBridge.visit();
         return subscribedUserBridge.login(g.name,new RegistrationInfo( "enterUser","enterPass"));
