@@ -1,40 +1,42 @@
-יוני 29, 2022 3:17:01 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:30:56 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 29, 2022 3:17:01 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:30:56 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 29, 2022 3:17:23 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:30:58 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 29, 2022 3:17:49 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:31:06 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:31:06 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:31:07 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:31:07 אחה״צ ServiceLayer.Log error
+SEVERE: logout from system : log in to system first
+יוני 29, 2022 8:31:11 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 29, 2022 3:17:49 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:31:11 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 29, 2022 3:17:50 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:31:12 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 29, 2022 3:17:55 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:31:58 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:31:59 אחה״צ ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+יוני 29, 2022 8:31:59 אחה״צ ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+יוני 29, 2022 8:31:59 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:32:06 אחה״צ ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+יוני 29, 2022 8:51:49 אחה״צ ServiceLayer.Log error
 SEVERE: switch to system manager maor: log in to the system first as a subscribed user
-יוני 29, 2022 3:17:55 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:51:49 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 29, 2022 3:20:59 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:51:59 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-יוני 29, 2022 3:21:11 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:52:43 אחה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 29, 2022 3:21:11 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:52:43 אחה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 29, 2022 3:22:54 אחה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 29, 2022 3:22:59 אחה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 29, 2022 3:22:59 אחה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 29, 2022 3:23:00 אחה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 29, 2022 3:23:05 אחה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 29, 2022 3:36:46 אחה״צ ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-יוני 29, 2022 3:36:46 אחה״צ ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-יוני 29, 2022 3:36:46 אחה״צ ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-יוני 29, 2022 3:36:54 אחה״צ ServiceLayer.Log error
+יוני 29, 2022 8:52:43 אחה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first

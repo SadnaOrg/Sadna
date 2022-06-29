@@ -37,19 +37,19 @@ public class ExternalServicesSystemTest {
     @Test
     public void testCheckPaymentSuccess() {
         setUpPay();
-        Assert.assertTrue(system.pay(100, method));
+        Assert.assertTrue(system.pay(100, method,"",""));
     }
 
     @Test
     public void testPayFailAmountZero() {
         setUpPay();
-        Assert.assertFalse(system.pay(0, method));
+        Assert.assertFalse(system.pay(0, method,"",""));
     }
 
     @Test
     public void testPayFailAmountNegative() {
         setUpPay();
-        Assert.assertFalse(system.pay(-100, method));
+        Assert.assertFalse(system.pay(-100, method,"",""));
     }
 
     @Test
