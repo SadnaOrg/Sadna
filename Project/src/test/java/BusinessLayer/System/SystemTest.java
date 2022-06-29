@@ -111,18 +111,27 @@ public class SystemTest {
         Assert.assertTrue(res.get(1));
     }
 
+    @Test( expected = Exception.class)
+    public void testCheckSupplyFailZeroQuantity() {
+        productInfos.add(successProd);
+        productInfos.add(zeroProd);
+        PackageInfo zeroPack = new PackageInfo(new AtomicInteger(1), "home", productInfos);
+        ConcurrentHashMap<Integer, PackageInfo> packages = new ConcurrentHashMap<>();
+        packages.put(1, zeroPack);
+        ConcurrentHashMap<Integer, Boolean> res = system.checkSupply(packages);
+        fail();
+    }
 
-
-//    @Test ( expected = Exception.class)
-//    public void testCheckSupplyFailNegativeQuality() {
-//        productInfos.add(successProd);
-//        productInfos.add(negativeProd);
-//        PackageInfo zeroPack = new PackageInfo(new AtomicInteger(1), "home", productInfos);
-//        ConcurrentHashMap<Integer, PackageInfo> packages = new ConcurrentHashMap<>();
-//        packages.put(1, zeroPack);
-//        ConcurrentHashMap<Integer, Boolean> res = system.checkSupply(packages);
-//        fail();
-//     }
+    @Test ( expected = Exception.class)
+    public void testCheckSupplyFailNegativeQuality() {
+        productInfos.add(successProd);
+        productInfos.add(negativeProd);
+        PackageInfo zeroPack = new PackageInfo(new AtomicInteger(1), "home", productInfos);
+        ConcurrentHashMap<Integer, PackageInfo> packages = new ConcurrentHashMap<>();
+        packages.put(1, zeroPack);
+        ConcurrentHashMap<Integer, Boolean> res = system.checkSupply(packages);
+        fail();
+     }
 
     @Test
     public void testMultithreadedAddPayment() throws InterruptedException {

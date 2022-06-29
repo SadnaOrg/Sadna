@@ -96,6 +96,9 @@ public class ExternalPayment implements Payment{
     }
 
     public static SupplyInfo getSupplyInfo(ProductInfo pack){
+        var s = new ProxySupply();
+        if(!s.checkSupply(pack))
+            throw new IllegalArgumentException("cant suply the product");
         return new SupplyInfo("super-li","beer-sheva","israel","BGU university","80000");
     }
 }
