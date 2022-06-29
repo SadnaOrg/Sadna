@@ -416,9 +416,9 @@ public class Facade{
         }
         return  l;
     }
-    public Statistic getStatistic(LocalDate day){
+    public Statistic getStatistic(LocalDate day) {
         return NotifyStatistic.getStatistic(day);
-
+    }
     public boolean reOfferBid(SubscribedUser currUser,String user,int productId, double newPrice, int shopId) throws NoPermissionException {
         return notifyUsers(userController.reOfferBid(currUser,user, productId, newPrice, shopId),getShoppBidsAdmins(shopId),"look at the pending bid requests");
     }

@@ -51,6 +51,12 @@ public class SystemManagerView extends SubscribedUserView {
         addTabWithClickEvent("Shop Info", this::shopInfoEvent);
         addTabWithClickEvent("Manage Subscribed Users", this::subscribedUsersEvent);
         addTabWithClickEvent("View All Users Info", this::userInfoEvent);
+        addTabWithClickEvent("View statistic", this::statisticEvent);
+    }
+
+    private void statisticEvent(DomEvent domEvent) {
+        statisticForm form = new statisticForm(systemManagerService);
+        setContent(form);
     }
 
     private void userInfoEvent(DomEvent domEvent) {

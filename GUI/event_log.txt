@@ -1,220 +1,74 @@
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: register to system succeeded Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: login  Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: open shop succeeded Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: adding product to shop Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: adding product to shop Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: product save Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: maorassign Admin to shop owner  Successes
-יוני 27, 2022 3:49:49 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:14:51 לפנה״צ ServiceLayer.Log event
 INFO: logout  Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:07 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:07 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:07 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:07 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:50:06 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:50:18 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:08 לפנה״צ ServiceLayer.Log event
 INFO: logout from system Successes
-יוני 27, 2022 3:50:21 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:09 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 27, 2022 3:50:21 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:09 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:21 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:09 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:21 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:09 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:22 אחה״צ ServiceLayer.Log event
-INFO: logout from system Successes
-יוני 27, 2022 3:50:22 אחה״צ ServiceLayer.Log event
-INFO: login to system Successes
-יוני 27, 2022 3:50:22 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:50:22 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:50:22 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: login - user Admin Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: login Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: switch to system manager Admin Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
+INFO: search shops succeeded Successes
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: switch to system manager Admin Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:25 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:11 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:32 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 27, 2022 3:50:32 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:50:32 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:50:40 אחה״צ ServiceLayer.Log event
-INFO: product save Successes
-יוני 27, 2022 3:50:49 אחה״צ ServiceLayer.Log event
-INFO: product save as bid Successes
-יוני 27, 2022 3:50:53 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 27, 2022 3:50:54 אחה״צ ServiceLayer.Log event
-INFO: logout from system Successes
-יוני 27, 2022 3:50:54 אחה״צ ServiceLayer.Log event
-INFO: logout  Successes
-יוני 27, 2022 3:50:55 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:13 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 27, 2022 3:50:55 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:13 לפנה״צ ServiceLayer.Log event
+INFO: get statistic Successes
+יוני 29, 2022 9:15:13 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 27, 2022 3:50:55 אחה״צ ServiceLayer.Log event
+יוני 29, 2022 9:15:13 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: login - user maor Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: login Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:50:59 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:03 אחה״צ ServiceLayer.Log event
-INFO: search products succeeded Successes
-יוני 27, 2022 3:51:07 אחה״צ ServiceLayer.Log event
-INFO: get all assingment approval Successes
-יוני 27, 2022 3:51:08 אחה״צ ServiceLayer.Log event
-INFO: maorapprove as Admin to shop owner  Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:09 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:10 אחה״צ ServiceLayer.Log event
-INFO: get bids for user maor Successes
-יוני 27, 2022 3:51:19 אחה״צ ServiceLayer.Log event
-INFO:  suggest another offer Successes
-יוני 27, 2022 3:51:19 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:19 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:19 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:19 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:51:20 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:20 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:20 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:24 אחה״צ ServiceLayer.Log event
-INFO: get bids for user maor Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: approve the offer Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:31 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:33 אחה״צ ServiceLayer.Log event
-INFO: logout from system Successes
-יוני 27, 2022 3:51:33 אחה״צ ServiceLayer.Log event
-INFO: logout  Successes
-יוני 27, 2022 3:51:33 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:33 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:33 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: login - user Admin Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: login Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: receive information Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: switch to system manager Admin Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: user details lookup Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: register to notification service Successes
-יוני 27, 2022 3:51:37 אחה״צ ServiceLayer.Log event
-INFO: get all delay notification Successes
-יוני 27, 2022 3:51:46 אחה״צ ServiceLayer.Log event
-INFO: get bids for user Admin Successes
-יוני 27, 2022 3:51:48 אחה״צ ServiceLayer.Log event
-INFO: get all assingment approval Successes
-יוני 27, 2022 3:51:49 אחה״צ ServiceLayer.Log event
-INFO: get bids for user Admin Successes
+יוני 29, 2022 9:15:20 לפנה״צ ServiceLayer.Log event
+INFO: get statistic Successes
