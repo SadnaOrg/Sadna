@@ -14,7 +14,7 @@ public  class Grammer {
          var l = new LinkedList<ParsedLine>();
          for(var json : jsons.split("\n")) {
              json = json.trim();
-             if(json.startsWith("\\\\"))
+             if(json.startsWith("//"))
                  continue;
              System.out.println();
              var  i = json.replaceFirst(":","\n");
