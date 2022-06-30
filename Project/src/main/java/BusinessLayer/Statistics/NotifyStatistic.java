@@ -1,5 +1,7 @@
 package BusinessLayer.Statistics;
 
+import BusinessLayer.Mappers.StatisticMappers.StatisticsMapper;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Map;
@@ -16,9 +18,12 @@ public class NotifyStatistic {
 
     public NotifyStatistic() {
         this.statistic =new Statistic(LocalDate.now());
+        StatisticsMapper.getInstance().save(this.statistic);
         statisticMap=new ConcurrentHashMap<>();
         statisticMap.put(statistic.getDay(),statistic);
         statistic.start(5);
+        StatisticsMapper.getInstance().update(this.statistic);
+
     }
 
 
@@ -47,8 +52,10 @@ public class NotifyStatistic {
     private synchronized void  makeNewDay() {
         if (!LocalDate.now().equals(statistic.getDay())) {
             this.statistic = new Statistic(LocalDate.now(), statistic);
+            StatisticsMapper.getInstance().save(this.statistic);
             statisticMap.put(statistic.getDay(), statistic);
             statistic.start(5);
+            StatisticsMapper.getInstance().update(this.statistic);
         }
     }
 

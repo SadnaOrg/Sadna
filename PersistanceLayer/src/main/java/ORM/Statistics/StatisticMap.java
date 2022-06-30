@@ -1,29 +1,37 @@
 package ORM.Statistics;
+import com.sun.istack.Nullable;
+
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.io.Serializable;
 import java.util.Map;
 
 @Entity
 @Table(name = "StatisticMap")
-public class StatisticMap {
+@IdClass(StatisticMap.StatisticMapPKID.class)
+public class StatisticMap{
 
+    public StatisticMap(Statistics parent) {
+        this.statistics = parent;
+    }
 
     @ElementCollection
     @CollectionTable(name = "dayMap")
     @MapKeyColumn(name = "date")
     @Column(name = "value")
-    Map<LocalDateTime,Integer> map;
-    int lastValue;
+    Map<String,Integer> map;
     @Id
-    @OneToOne(cascade = CascadeType.ALL)
-        Statistics parent;
-    public Map<LocalDateTime, Integer> getMap() {
+    int indexOfMapper;
+    @Nullable
+    Integer lastValue;
+    @Id
+    @JoinColumn(name = "Statistics")
+    @ManyToOne(cascade = CascadeType.ALL)
+    Statistics statistics;
+    public Map<String, Integer> getMap() {
         return map;
     }
 
-    public void setMap(Map<LocalDateTime, Integer> map) {
+    public void setMap(Map<String, Integer> map) {
         this.map = map;
     }
 
@@ -36,16 +44,41 @@ public class StatisticMap {
     }
 
     public Statistics getParent() {
-        return parent;
+        return statistics;
     }
 
     public void setParent(Statistics parent) {
-        this.parent = parent;
+        this.statistics = parent;
     }
 
-    public StatisticMap(Map<LocalDateTime, Integer> map, int lastValue, Statistics parent) {
+    public int getIndexOfMapper() {
+        return indexOfMapper;
+    }
+
+    public void setIndexOfMapper(int indexOfMapper) {
+        this.indexOfMapper = indexOfMapper;
+    }
+
+    public StatisticMap(Map<String, Integer> map, int index, Integer lastValue, Statistics parent) {
         this.map = map;
+        this.indexOfMapper = index;
         this.lastValue = lastValue;
-        this.parent = parent;
+        this.statistics = parent;
+    }
+
+    public StatisticMap() {
+    }
+
+    public static class StatisticMapPKID implements Serializable{
+        private Statistics statistics;
+        private int indexOfMapper;
+
+        public StatisticMapPKID(Statistics statistics, int indexOfMapper) {
+            this.statistics = statistics;
+            this.indexOfMapper = indexOfMapper;
+        }
+
+        public StatisticMapPKID() {
+        }
     }
 }

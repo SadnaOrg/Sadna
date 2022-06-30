@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.Collection;
 
-public class StatisticsDAO implements DBImpl<Statistics, LocalDate> {
+public class StatisticsDAO implements DBImpl<Statistics, String> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
 
@@ -31,16 +31,15 @@ public class StatisticsDAO implements DBImpl<Statistics, LocalDate> {
     }
 
     @Override
-    public void delete(LocalDate key) {
+    public void delete(String key) {
         entityManager.getTransaction().begin();
-        entityManager.find(Shop.class, key);
+        entityManager.find(Statistics.class, key);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public Statistics findById(LocalDate key) {
-        Statistics statistics = entityManager.find(Statistics.class, key);
-        return statistics;
+    public Statistics findById(String key) {
+        return entityManager.find(Statistics.class, key);
     }
 
     @Override

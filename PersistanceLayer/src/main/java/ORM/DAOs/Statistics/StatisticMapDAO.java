@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.Collection;
 
-public class StatisticMapDAO implements DBImpl<StatisticMap, Statistics> {
+public class StatisticMapDAO implements DBImpl<StatisticMap, StatisticMap.StatisticMapPKID> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
 
@@ -30,14 +30,14 @@ public class StatisticMapDAO implements DBImpl<StatisticMap, Statistics> {
     }
 
     @Override
-    public void delete(Statistics key) {
+    public void delete(StatisticMap.StatisticMapPKID key) {
         entityManager.getTransaction().begin();
-        entityManager.find(Shop.class, key);
+        entityManager.find(StatisticMap.class, key);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public StatisticMap findById(Statistics key) {
+    public StatisticMap findById(StatisticMap.StatisticMapPKID key) {
         StatisticMap statisticMap = entityManager.find(StatisticMap.class, key);
         return statisticMap;
     }

@@ -23,14 +23,12 @@ public class Statistic{
         registeredUser= new StatisticMap<>(0);
         loginUser= new StatisticMap<>(0);
         purchase=new StatisticMap<>(0);
-        StatisticsMapper.getInstance().save(this);
 
     }
     public Statistic(LocalDate day,Statistic yesterday){
         registeredUser=new StatisticMap<>(yesterday.registeredUser.lastValue);
         loginUser=new StatisticMap<>(yesterday.loginUser.lastValue);
         purchase=new StatisticMap<>(yesterday.purchase.lastValue);
-        StatisticsMapper.getInstance().save(this);
 
     }
 
@@ -50,7 +48,6 @@ public class Statistic{
            registeredUser.tick(0);
            loginUser.tick(0);
            purchase.tick(0);
-           StatisticsMapper.getInstance().update(this);
        }
        else makeTick();
 
@@ -65,8 +62,6 @@ public class Statistic{
                     registeredUser.tick(0);
                     loginUser.tick();//for saving the last value the same
                     purchase.tick(0);
-                    StatisticsMapper.getInstance().update(this);
-
                 }
             }
         }

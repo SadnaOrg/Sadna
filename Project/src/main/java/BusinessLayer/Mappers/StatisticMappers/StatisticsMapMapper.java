@@ -13,11 +13,15 @@ import ORM.DAOs.Statistics.StatisticMapDAO;
 import ORM.DAOs.Statistics.StatisticsDAO;
 import ORM.Statistics.Statistics;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-public class StatisticsMapMapper {
+public class StatisticsMapMapper implements DBImpl<StatisticMap,ORM.Statistics.StatisticMap.StatisticMapPKID> {
     private final StatisticMapDAO dao = new StatisticMapDAO();
 
     static private class StatisticsMapMapperHolder {
@@ -34,42 +38,62 @@ public class StatisticsMapMapper {
     private Func<StatisticsMapper> statisticsMapper = StatisticsMapper::getInstance;
 
 
-    public ORM.Statistics.StatisticMap toEntity(StatisticMap entity, ORM.Statistics.Statistics statistics) {
-        ORM.Statistics.StatisticMap statisticMap = dao.findById(statistics);
+    public ORM.Statistics.StatisticMap toEntity(StatisticMap<Integer> entity, ORM.Statistics.Statistics statistics, int index) {
+        ORM.Statistics.StatisticMap statisticMap = dao.findById(new ORM.Statistics.StatisticMap.StatisticMapPKID(statistics,index));
         if(statisticMap == null)
         {
-            statisticMap = new ORM.Statistics.StatisticMap((Map<LocalDateTime, Integer>) entity.getMap(),(int)entity.getLastValue(),statistics);
+            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
+            statisticMap = new ORM.Statistics.StatisticMap(m,index,
+                    (int)entity.getLastValue(),statistics);
         }
         else
         {
+            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
+
             statisticMap.getMap().clear();
-            statisticMap.getMap().putAll(entity.getMap());
+            statisticMap.getMap().putAll(m);
             statisticMap.setLastValue((int)entity.getLastValue());
         }
         return statisticMap;
     }
 
     public StatisticMap fromEntity(ORM.Statistics.StatisticMap entity) {
-        return new StatisticMap<Integer>(entity.getMap(),entity.getLastValue());
+        Map<LocalDateTime,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap
+                (e -> LocalDateTime.parse(e.getKey()), Map.Entry::getValue, (a, b) -> b));
+        return new StatisticMap<Integer>(m, entity.getLastValue());
     }
 
-    public int save(StatisticMap statisticMap, Statistic statistic) {
-        return dao.save(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic)));
+    public int save(StatisticMap statisticMap, Statistic statistic,int index) {
+        return dao.save(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic),index));
     }
 
-    public void update(StatisticMap statisticMap, Statistic statistic) {
-        dao.update(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic)));
+    public void update(StatisticMap statisticMap, Statistic statistic,int index) {
+        dao.update(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic),index));
 
     }
 
-    public void delete(Statistic statistic) {
-        dao.delete(statisticsMapper.run().toEntity(statistic));
+
+    @Override
+    public int save(StatisticMap statisticMap) {
+        return 0;
     }
 
-    public StatisticMap findById(Statistic statistic) {
-        return fromEntity(dao.findById(statisticsMapper.run().toEntity(statistic)));
+    @Override
+    public void update(StatisticMap statisticMap) {
+
     }
 
+    @Override
+    public void delete(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
+        dao.delete(statisticMapPKID);
+    }
+
+    @Override
+    public StatisticMap findById(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
+        return fromEntity(dao.findById(statisticMapPKID));
+    }
+
+    @Override
     public Collection<StatisticMap> findAll() {
         return dao.findAll().stream().map(this::fromEntity).toList();
     }
