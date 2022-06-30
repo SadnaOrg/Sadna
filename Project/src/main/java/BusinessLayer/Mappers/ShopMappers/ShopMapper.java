@@ -2,15 +2,13 @@ package BusinessLayer.Mappers.ShopMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
-import BusinessLayer.Mappers.UserMappers.BasketMapper;
-import BusinessLayer.Mappers.UserMappers.ShopAdministratorMapper;
-import BusinessLayer.Mappers.UserMappers.ShopOwnerMapper;
-import BusinessLayer.Mappers.UserMappers.SubscribedUserMapper;
+import BusinessLayer.Mappers.UserMappers.*;
 import BusinessLayer.Products.Product;
 import BusinessLayer.Shops.Polices.Discount.DiscountPlusPolicy;
 import BusinessLayer.Shops.Polices.Purchase.PurchaseAndPolicy;
 import BusinessLayer.Shops.PurchaseHistory;
 import BusinessLayer.Shops.Shop;
+import BusinessLayer.Users.HeskemMinui;
 import BusinessLayer.Users.ShopOwner;
 import ORM.DAOs.DBImpl;
 import ORM.DAOs.Shops.ShopDAO;
@@ -31,6 +29,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
     private Func<BasketMapper> basketMapper = () -> BasketMapper.getInstance();
     private Func<PurchaseHistoryMapper> purchaseHistoryMapper = () -> PurchaseHistoryMapper.getInstance();
+    private Func<HeskemMinuiMapper> heskemMinuiMapper = () -> HeskemMinuiMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
 
     static private class ShopMapperHolder {
@@ -57,7 +56,6 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
             ormShop.setFounder(shopOwnerMapper.run().toEntity(entity.getFounder()));
             ormShop.getFounder().setShop(ormShop);
             ormShop.getFounder().setUser(subscribedUserMapper.run().toEntity(entity.getFounder().getSubscribed()));
-            ormShop.getShopAdministrators().put(ormShop.getFounder().getUser(), ormShop.getFounder());
             for (String admin : entity.getShopAdministratorsMap().keySet()) {
                 if (admin != ormShop.getFounder().getUser().getUsername() && admin != entity.getFounder().getUserName()) {
                     ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));
@@ -66,10 +64,17 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
                     ormShop.getShopAdministrators().put(subscribedUserMapper.run().findORMById(admin), ormAdmin);
                 }
             }
+            ormShop.setMinuiMap(new ConcurrentHashMap<>());
         }
         else {
             ormShop.setName(entity.getName());
             ormShop.setDescription(entity.getDescription());
+            ormShop.getShopAdministrators().put(ormShop.getFounder().getUser(), ormShop.getFounder());
+            ormShop.getMinuiMap().clear();
+            for (String heskem : entity.getHeskemMinuiMap().keySet()) {
+                ormShop.getMinuiMap().put(subscribedUserMapper.run().findORMById(heskem),
+                        heskemMinuiMapper.run().toEntity(entity.getHeskemMinuiMap().get(heskem)));
+            }
             //for (String user : entity.getShopAdministratorsMap().keySet()) {
             //    SubscribedUser subscribedUser = subscribedUserMapper.run().findORMById(user);
             //    if (!ormShop.getShopAdministrators().containsKey(subscribedUser))
@@ -118,6 +123,10 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         for (SubscribedUser user : entity.getUsersBaskets().keySet()) {
             shop.getUsersBaskets().put(user.getUsername(),
                     basketMapper.run().fromEntity(entity.getUsersBaskets().get(user)));
+        }
+        shop.getHeskemMinuiMap().clear();
+        for (SubscribedUser heskem : entity.getMinuiMap().keySet()) {
+            shop.getHeskemMinuiMap().put(heskem.getUsername(), heskemMinuiMapper.run().fromEntity(entity.getMinuiMap().get(heskem)));
         }
         founder.getSubscribed().addAdministrator(shop.getId(), founder);
         founder.getAppoints().stream().peek(admin -> admin.setShop(shop));

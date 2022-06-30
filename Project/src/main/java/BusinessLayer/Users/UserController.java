@@ -41,7 +41,7 @@ public class UserController {
     }
 
     public AdministratorInfo getMyInfo(String userName, int shopID) {
-        if(subscribers.containsKey(userName)){
+        if(subscribersContainsKey(userName)){
             SubscribedUser u = subscribers.get(userName);
             ShopAdministrator admin = u.getAdministrator(shopID);
             if(admin != null){
@@ -198,6 +198,10 @@ public class UserController {
         return subscribers.getOrDefault(userName, null);
     }
 
+    public void setSubUser(SubscribedUser user) {
+        subscribers.put(user.getUserName(), user);
+    }
+
     public SystemManager getSysUser(String userName) {
         if (!managers.containsKey(userName))
             throw new IllegalArgumentException("user " + userName + " doesn't exist or dont have system manager permission");
@@ -297,20 +301,34 @@ public class UserController {
     }
 
     public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {
-        return user.addAdministratorToHeskemMinui(shop, userNameToAssign);
+        boolean res = user.addAdministratorToHeskemMinui(shop, userNameToAssign);
+        if (res) {
+            mapperController.getSubscribedUserMapper().update(user);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shop));
+        }
+        return res;
     }
 
     public boolean approveHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
         boolean check = user.approveHeskemMinui(shop,adminToAssign);
         if(check)
         {
-            return assignShopOwner(user, shop, adminToAssign);
+            boolean res = assignShopOwner(user, shop, adminToAssign);
+            if (res) {
+                mapperController.getSubscribedUserMapper().update(user);
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shop));
+            }
         }
         return false;
     }
 
     public boolean declineHeskemMinui(SubscribedUser user,int shop,String adminToAssign) throws NoPermissionException {
-        return user.declineHeskemMinui(shop,adminToAssign);
+        boolean res = user.declineHeskemMinui(shop,adminToAssign);
+        if (res) {
+            mapperController.getSubscribedUserMapper().update(user);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shop));
+        }
+        return res;
     }
         public boolean changeManagerPermission(SubscribedUser user, int shop, String userNameToAssign, Collection<Integer> types) throws NoPermissionException {
         return user.changeManagerPermission(shop, getSubUser(userNameToAssign), convertToAction(types));
@@ -424,7 +442,7 @@ public class UserController {
     }
 
     private ShopAdministrator getAdmin(String username, int shopID) {
-        if (subscribers.containsKey(username)) {
+        if (subscribersContainsKey(username)) {
             SubscribedUser u = subscribers.get(username);
             return u.getAdministrator(shopID);
         }

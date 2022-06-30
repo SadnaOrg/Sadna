@@ -16,6 +16,7 @@ import BusinessLayer.Users.BaseActions.BaseActionType;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -390,6 +391,10 @@ public class Shop {
 
     public Collection< HeskemMinui> getHeskemMinuis() {
         return heskemMinuis.values();
+    }
+
+    public Map<String, HeskemMinui> getHeskemMinuiMap() {
+        return heskemMinuis;
     }
 
     public boolean addAdministrator(String userName, ShopAdministrator administrator) {

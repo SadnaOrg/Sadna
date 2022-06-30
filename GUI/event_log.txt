@@ -1,266 +1,116 @@
-Jun 30, 2022 7:15:52 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:06 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 30, 2022 7:15:52 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:06 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 30, 2022 7:15:52 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:06 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:15:52 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:06 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: login - user a Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: login Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:16:18 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:16:51 AM ServiceLayer.Log event
-INFO: permission check Successes
-Jun 30, 2022 7:16:55 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:16:56 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:09 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:07 PM ServiceLayer.Log event
 INFO: logout from system Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: logout  Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: register to system succeeded Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: login - user a Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: login Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:47 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:05 AM ServiceLayer.Log event
-INFO: permission check Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:57 AM ServiceLayer.Log event
-INFO: aassign maor to shop owner  Successes
-Jun 30, 2022 7:19:09 AM ServiceLayer.Log event
-INFO: get bids for user a Successes
-Jun 30, 2022 7:19:10 AM ServiceLayer.Log event
-INFO: get all assingment approval Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:16:18 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:16:51 AM ServiceLayer.Log event
-INFO: permission check Successes
-Jun 30, 2022 7:16:55 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:16:56 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:09 AM ServiceLayer.Log event
-INFO: logout from system Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: logout  Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: register to system succeeded Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: login - user a Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: login Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:47 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:05 AM ServiceLayer.Log event
-INFO: permission check Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:57 AM ServiceLayer.Log event
-INFO: aassign maor to shop owner  Successes
-Jun 30, 2022 7:19:09 AM ServiceLayer.Log event
-INFO: get bids for user a Successes
-Jun 30, 2022 7:19:10 AM ServiceLayer.Log event
-INFO: get all assingment approval Successes
-Jun 30, 2022 7:15:53 AM ServiceLayer.Log event
-INFO: logout from system Successes
-Jun 30, 2022 7:15:53 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:07 PM ServiceLayer.Log event
 INFO: login to system Successes
-Jun 30, 2022 7:15:53 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:07 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 30, 2022 7:15:53 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:07 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:15:53 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:07 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: login - user a Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: login Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:08 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:15:56 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:08 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:15:57 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:16:18 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:16:51 AM ServiceLayer.Log event
-INFO: permission check Successes
-Jun 30, 2022 7:16:55 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:16:56 AM ServiceLayer.Log event
-INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:09 AM ServiceLayer.Log event
-INFO: logout from system Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: logout  Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:14 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:19 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:17:20 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:13 PM ServiceLayer.Log event
 INFO: register to system succeeded Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:13 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:13 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:17:36 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:13 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: login - user a Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: login Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: search shops succeeded Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: user details lookup Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: register to notification service Successes
-Jun 30, 2022 7:17:44 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:15 PM ServiceLayer.Log event
 INFO: get all delay notification Successes
-Jun 30, 2022 7:17:47 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:21 PM ServiceLayer.Log event
+INFO: open shop succeeded Successes
+Jun 30, 2022 2:15:21 PM ServiceLayer.Log event
 INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:05 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:23 PM ServiceLayer.Log event
 INFO: permission check Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:18:08 AM ServiceLayer.Log event
+Jun 30, 2022 2:15:23 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 30, 2022 2:15:28 PM ServiceLayer.Log event
+INFO: search products succeeded Successes
+Jun 30, 2022 2:15:31 PM ServiceLayer.Log event
 INFO: search shops succeeded Successes
-Jun 30, 2022 7:18:57 AM ServiceLayer.Log event
-INFO: aassign maor to shop owner  Successes
-Jun 30, 2022 7:19:09 AM ServiceLayer.Log event
-INFO: get bids for user a Successes
-Jun 30, 2022 7:19:10 AM ServiceLayer.Log event
-INFO: get all assingment approval Successes
+Jun 30, 2022 2:15:31 PM ServiceLayer.Log event
+INFO: permission check Successes
+Jun 30, 2022 2:15:32 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:32 PM ServiceLayer.Log event
+INFO: search shops succeeded Successes
+Jun 30, 2022 2:15:35 PM ServiceLayer.Log event
+INFO: logout from system Successes
+Jun 30, 2022 2:15:36 PM ServiceLayer.Log event
+INFO: login to system Successes
+Jun 30, 2022 2:15:36 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:36 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 30, 2022 2:15:36 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 30, 2022 2:15:37 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 30, 2022 2:15:37 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 30, 2022 2:15:45 PM ServiceLayer.Log event
+INFO: register to system succeeded Successes
+Jun 30, 2022 2:15:45 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:45 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 30, 2022 2:15:45 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 30, 2022 2:15:48 PM ServiceLayer.Log event
+INFO: login - user a Successes
+Jun 30, 2022 2:15:48 PM ServiceLayer.Log event
+INFO: login Successes
+Jun 30, 2022 2:15:48 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:48 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 30, 2022 2:15:48 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 30, 2022 2:15:49 PM ServiceLayer.Log event
+INFO: search shops succeeded Successes
+Jun 30, 2022 2:15:49 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:49 PM ServiceLayer.Log event
+INFO: register to notification service Successes
+Jun 30, 2022 2:15:49 PM ServiceLayer.Log event
+INFO: get all delay notification Successes
+Jun 30, 2022 2:15:50 PM ServiceLayer.Log event
+INFO: search shops succeeded Successes
+Jun 30, 2022 2:15:50 PM ServiceLayer.Log event
+INFO: permission check Successes
+Jun 30, 2022 2:15:51 PM ServiceLayer.Log event
+INFO: user details lookup Successes
+Jun 30, 2022 2:15:52 PM ServiceLayer.Log event
+INFO: search shops succeeded Successes
+Jun 30, 2022 2:15:56 PM ServiceLayer.Log event
+INFO: aassign b to shop owner  Successes

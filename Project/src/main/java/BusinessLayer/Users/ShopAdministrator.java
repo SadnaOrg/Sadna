@@ -30,6 +30,7 @@ public class ShopAdministrator {
         this.appointer = appointer;
         shop = s;
         user = u;
+        u.getAdministratorsMap().put(s.getId(), this);
     }
 
     public ShopAdministrator(String appointer, SubscribedUser user, ConcurrentLinkedDeque<ShopAdministrator> appoints) {
@@ -184,7 +185,7 @@ public class ShopAdministrator {
         }
     }
 
-    public Collection<ShopAdministrator> getAppoints() {
+    public ConcurrentLinkedDeque<ShopAdministrator> getAppoints() {
         return this.appoints;
     }
 

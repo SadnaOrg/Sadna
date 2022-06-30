@@ -38,12 +38,7 @@ public class ShopManagerMapper implements CastEntity<ORM.Users.ShopManager, Shop
             ORM.Users.ShopManager manager = new ORM.Users.ShopManager(
                     entity.getActionsTypes().stream().map(action -> ORM.Users.ShopAdministrator.BaseActionType.values()[action.ordinal()])
                             .collect(Collectors.toList()), subscribedUserMapper.run().toEntity(entity.getSubscribed()),
-                    shopMapper.run().findORMById(entity.getShopID()), new ArrayList<>());
-            manager.setAppointer(entity.getAppointer());
-            List<ShopAdministrator> appoints = entity.getAppoints().stream().map(admin ->
-                    admin.getUserName() == entity.getUserName() ?
-                            manager : shopAdministratorMapper.run().toEntity(admin)).toList();
-            manager.setAppoints(appoints);
+                    shopMapper.run().findORMById(entity.getShopID()), entity.getAppointer());
             return manager;
         }
         else {

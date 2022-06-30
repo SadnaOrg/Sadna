@@ -59,12 +59,15 @@ public class BasketMapper {
 
     public Basket fromEntity(ORM.Users.Basket entity) {
         Basket basket = new Basket(entity.getShop().getId());
+        basket.getProducts().clear();
         for (int id : entity.getProducts().keySet()) {
             basket.getProducts().put(id, entity.getProducts().get(id));
         }
+        basket.getPrices().clear();
         for (int id : entity.getPrices().keySet()) {
             basket.getPrices().put(id, entity.getPrices().get(id));
         }
+        basket.getCategories().clear();
         for (int id : entity.getCategories().keySet()) {
             basket.getCategories().put(id, entity.getCategories().get(id));
         }

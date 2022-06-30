@@ -112,6 +112,11 @@ public class SubscribedUser extends User {
         return shopAdministrator.values().stream().toList();
     }
 
+    public Map<Integer, ShopAdministrator> getAdministratorsMap() {
+        return shopAdministrator;
+    }
+
+
     public synchronized boolean assignShopOwner(int shop, SubscribedUser toAssign) throws NoPermissionException {
         validatePermission(shop);
 

@@ -43,6 +43,13 @@ public abstract class ShopAdministrator implements Serializable{
         this.appoints = appoints;
     }
 
+    public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop, String appointer) {
+        this.action = action;
+        this.user = user;
+        this.shop = shop;
+        this.appointer = appointer;
+    }
+
     public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop) {
         this.action = action;
         this.user = user;
