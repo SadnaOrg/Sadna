@@ -15,22 +15,23 @@ public abstract class User {
     )
     protected PaymentMethod paymentMethod;
 
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "userBids",
-//    joinColumns = {
-//            @JoinColumn(name = "username", referencedColumnName = "username")
-//    },
-//    inverseJoinColumns = {
-//            @JoinColumn(name = "shopID", referencedColumnName = "shop_id"),
-//            @JoinColumn(name = "usernameBidder",referencedColumnName = "user_username")
-//    })
-//    @MapKey(name = "shop")
-//    protected Map<Integer, BidOffer> shoppingBids;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "userBids",
+    joinColumns = {
+            @JoinColumn(name = "username", referencedColumnName = "username")
+    },
+    inverseJoinColumns = {
+            @JoinColumn(name = "shopID", referencedColumnName = "shop_id"),
+            @JoinColumn(name = "usernameBidder",referencedColumnName = "user_username")
+    })
+    @MapKey(name = "shop")
+    protected Map<Integer, BidOffer> shoppingBids;
 
-//    public User(String username, PaymentMethod paymentMethod){
-//        this.username = username;
-//        this.paymentMethod = paymentMethod;
-//    }
+    public User(String username, PaymentMethod paymentMethod, Map<Integer, BidOffer> shoppingBids) {
+        this.username = username;
+        this.paymentMethod = paymentMethod;
+        this.shoppingBids = shoppingBids;
+    }
 
     public User(){
 

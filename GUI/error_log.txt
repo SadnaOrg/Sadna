@@ -1,6 +1,4 @@
-Jun 30, 2022 7:34:49 AM ServiceLayer.Log error
+Jun 30, 2022 8:10:43 AM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 30, 2022 7:34:49 AM ServiceLayer.Log error
+Jun 30, 2022 8:10:43 AM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 30, 2022 7:34:54 AM ServiceLayer.Log error
-SEVERE: login to system : logout from system first

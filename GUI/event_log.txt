@@ -1,8 +1,0 @@
-Jun 30, 2022 7:34:54 AM ServiceLayer.Log event
-INFO: login to system Successes
-Jun 30, 2022 7:34:54 AM ServiceLayer.Log event
-INFO: user details lookup Successes
-Jun 30, 2022 7:34:54 AM ServiceLayer.Log event
-INFO: register to notification service Successes
-Jun 30, 2022 7:34:54 AM ServiceLayer.Log event
-INFO: get all delay notification Successes
