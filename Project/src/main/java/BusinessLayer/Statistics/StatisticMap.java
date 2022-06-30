@@ -9,6 +9,7 @@ import java.util.function.Function;
 public class StatisticMap<T> {
     Map<LocalDateTime, T> map;
     T lastValue;
+
     public StatisticMap(T lastValue){
         map =new ConcurrentHashMap<>();
         this.lastValue=lastValue;

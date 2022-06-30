@@ -1,5 +1,6 @@
 package ORM.Statistics;
 
+import ORM.Shops.ProductInfo;
 import com.sun.istack.Nullable;
 
 import javax.persistence.*;
@@ -16,15 +17,12 @@ public class Statistics {
 
     @Id
     private String day;
-    @OneToMany
-    @JoinTable(name = "statsmap",
-            joinColumns = @JoinColumn(name = "day"),
-            inverseJoinColumns = {
-                    @JoinColumn(name = "indexOfMapper", referencedColumnName = "indexOfMapper"),
-                    @JoinColumn(name = "Statistics", referencedColumnName = "Statistics")
-            })
-    @MapKey(name = "indexOfMapper")
-    private Map<Integer,StatisticMap> maps;
+    @OneToMany(
+            mappedBy = "Statistics",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Collection<StatisticMap> maps;
     @Nullable
     private String lastTick;
 
@@ -36,29 +34,38 @@ public class Statistics {
     public void setDay(String day) {
         this.day = day;
     }
+//
+//    public StatisticMap getRegisteredUser() {
+//        return maps.;
+//    }
+//
+//    public void setRegisteredUser(StatisticMap registeredUser) {
+//        maps.put(0,registeredUser);
+//    }
+//
+//    public StatisticMap getLoginUser() {
+//        return maps.get(1);
+//    }
+//
+//    public void setLoginUser(StatisticMap loginUser) {
+//        maps.put(1,loginUser);
+//    }
+//
+//    public StatisticMap getPurchase() {
+//        return maps.get(2);
+//    }
+//
+//    public void setPurchase(StatisticMap purchase) {
+//        maps.put(2,purchase);
+//    }
 
-    public StatisticMap getRegisteredUser() {
-        return maps.get(0);
+
+    public void setMaps(Collection<StatisticMap> maps) {
+        this.maps = maps;
     }
 
-    public void setRegisteredUser(StatisticMap registeredUser) {
-        maps.put(0,registeredUser);
-    }
-
-    public StatisticMap getLoginUser() {
-        return maps.get(1);
-    }
-
-    public void setLoginUser(StatisticMap loginUser) {
-        maps.put(1,loginUser);
-    }
-
-    public StatisticMap getPurchase() {
-        return maps.get(2);
-    }
-
-    public void setPurchase(StatisticMap purchase) {
-        maps.put(2,purchase);
+    public Collection<StatisticMap> getMaps() {
+        return maps;
     }
 
     public String getLastTick() {
@@ -69,12 +76,22 @@ public class Statistics {
         this.lastTick = lastTick;
     }
 
-    public Statistics(String day, Map<Integer, StatisticMap> maps, String lastTick) {
+    public Statistics(String day, Collection<StatisticMap> maps, String lastTick) {
         this.day = day;
         this.maps = maps;
         this.lastTick = lastTick;
     }
 
-    public Statistics() {
-    }
+    //    public Statistics(String day, Map<Integer, StatisticMap> maps, String lastTick) {
+//        this.day = day;
+//        this.maps = maps;
+//        this.lastTick = lastTick;
+//    }
+//
+//    public Statistics() {
+//    }
+//
+//    public Map<Integer, StatisticMap> getMaps() {
+//        return maps;
+//    }
 }

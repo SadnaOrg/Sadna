@@ -1,6 +1,6 @@
-יוני 30, 2022 2:51:58 לפנה״צ ServiceLayer.Log error
+יוני 30, 2022 5:30:00 לפנה״צ ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-יוני 30, 2022 2:51:58 לפנה״צ ServiceLayer.Log error
+יוני 30, 2022 5:30:00 לפנה״צ ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-יוני 30, 2022 2:52:03 לפנה״צ ServiceLayer.Log error
+יוני 30, 2022 5:30:02 לפנה״צ ServiceLayer.Log error
 SEVERE: login to system : logout from system first

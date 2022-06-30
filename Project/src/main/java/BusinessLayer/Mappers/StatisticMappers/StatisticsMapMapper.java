@@ -21,8 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StatisticsMapMapper implements DBImpl<StatisticMap,ORM.Statistics.StatisticMap.StatisticMapPKID> {
+public class StatisticsMapMapper {
     private final StatisticMapDAO dao = new StatisticMapDAO();
+
+
 
     static private class StatisticsMapMapperHolder {
         static final StatisticsMapMapper mapper = new StatisticsMapMapper();
@@ -36,65 +38,76 @@ public class StatisticsMapMapper implements DBImpl<StatisticMap,ORM.Statistics.S
 
     }
     private Func<StatisticsMapper> statisticsMapper = StatisticsMapper::getInstance;
-
-
-    public ORM.Statistics.StatisticMap toEntity(StatisticMap<Integer> entity, ORM.Statistics.Statistics statistics, int index) {
-        ORM.Statistics.StatisticMap statisticMap = dao.findById(new ORM.Statistics.StatisticMap.StatisticMapPKID(statistics,index));
-        if(statisticMap == null)
-        {
-            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
-            statisticMap = new ORM.Statistics.StatisticMap(m,index,
-                    (int)entity.getLastValue(),statistics);
-        }
-        else
-        {
-            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
-
-            statisticMap.getMap().clear();
-            statisticMap.getMap().putAll(m);
-            statisticMap.setLastValue((int)entity.getLastValue());
-        }
-        return statisticMap;
+//    @Override
+    public ORM.Statistics.StatisticMap toEntity(StatisticMap<Integer> entity,int indexOfMapper) {
+        Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
+        return new ORM.Statistics.StatisticMap(m,indexOfMapper,entity.getLastValue());
     }
 
-    public StatisticMap fromEntity(ORM.Statistics.StatisticMap entity) {
+//    @Override
+    public StatisticMap<Integer> fromEntity(ORM.Statistics.StatisticMap entity) {
         Map<LocalDateTime,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap
                 (e -> LocalDateTime.parse(e.getKey()), Map.Entry::getValue, (a, b) -> b));
         return new StatisticMap<Integer>(m, entity.getLastValue());
     }
-
-    public int save(StatisticMap statisticMap, Statistic statistic,int index) {
-        return dao.save(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic),index));
-    }
-
-    public void update(StatisticMap statisticMap, Statistic statistic,int index) {
-        dao.update(toEntity(statisticMap,statisticsMapper.run().toEntity(statistic),index));
-
-    }
-
-
-    @Override
-    public int save(StatisticMap statisticMap) {
-        return 0;
-    }
-
-    @Override
-    public void update(StatisticMap statisticMap) {
-
-    }
-
-    @Override
-    public void delete(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
-        dao.delete(statisticMapPKID);
-    }
-
-    @Override
-    public StatisticMap findById(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
-        return fromEntity(dao.findById(statisticMapPKID));
-    }
-
-    @Override
-    public Collection<StatisticMap> findAll() {
-        return dao.findAll().stream().map(this::fromEntity).toList();
-    }
+//
+//    public ORM.Statistics.StatisticMap toEntity(StatisticMap<Integer> entity, ORM.Statistics.Statistics statistics, int index) {
+//        ORM.Statistics.StatisticMap statisticMap = dao.findById(new ORM.Statistics.StatisticMap.StatisticMapPKID(statistics,index));
+//        if(statisticMap == null)
+//        {
+//            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
+//            statisticMap = new ORM.Statistics.StatisticMap(m,index,
+//                    entity.getLastValue(),statistics);
+//        }
+//        else
+//        {
+//            Map<String,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap(e -> e.getKey().toString(), Map.Entry::getValue, (a, b) -> b));
+//
+//            statisticMap.getMap().clear();
+//            statisticMap.getMap().putAll(m);
+//            statisticMap.setLastValue(entity.getLastValue());
+//        }
+//        return statisticMap;
+//    }
+//
+//    public StatisticMap fromEntity(ORM.Statistics.StatisticMap entity) {
+//        Map<LocalDateTime,Integer> m = entity.getMap().entrySet().stream().collect(Collectors.toMap
+//                (e -> LocalDateTime.parse(e.getKey()), Map.Entry::getValue, (a, b) -> b));
+//        return new StatisticMap<Integer>(m, entity.getLastValue());
+//    }
+//
+//    public int save(StatisticMap statisticMap,ORM.Statistics.Statistics statistics,int index) {
+//        return dao.save(toEntity(statisticMap,statistics,index));
+//    }
+//
+//    public void update(StatisticMap statisticMap, ORM.Statistics.Statistics statistics,int index) {
+//        dao.update(toEntity(statisticMap,statistics,index));
+//
+//    }
+//
+//
+//    @Override
+//    public int save(StatisticMap statisticMap) {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void update(StatisticMap statisticMap) {
+//
+//    }
+//
+//    @Override
+//    public void delete(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
+//        dao.delete(statisticMapPKID);
+//    }
+//
+//    @Override
+//    public StatisticMap findById(ORM.Statistics.StatisticMap.StatisticMapPKID statisticMapPKID) {
+//        return fromEntity(dao.findById(statisticMapPKID));
+//    }
+//
+//    @Override
+//    public Collection<StatisticMap> findAll() {
+//        return dao.findAll().stream().map(this::fromEntity).toList();
+//    }
 }

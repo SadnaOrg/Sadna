@@ -66,6 +66,17 @@ public class StatisticMap{
         this.statistics = parent;
     }
 
+    public StatisticMap(Map<String, Integer> map, int indexOfMapper, Integer lastValue) {
+        this.map = map;
+        this.indexOfMapper = indexOfMapper;
+        this.lastValue = lastValue;
+    }
+
+    public StatisticMap(Map<String, Integer> map, Integer lastValue) {
+        this.map = map;
+        this.lastValue = lastValue;
+    }
+
     public StatisticMap() {
     }
 

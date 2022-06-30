@@ -1,8 +1,8 @@
-יוני 30, 2022 2:52:03 לפנה״צ ServiceLayer.Log event
+יוני 30, 2022 5:30:02 לפנה״צ ServiceLayer.Log event
 INFO: login to system Successes
-יוני 30, 2022 2:52:03 לפנה״צ ServiceLayer.Log event
+יוני 30, 2022 5:30:02 לפנה״צ ServiceLayer.Log event
 INFO: user details lookup Successes
-יוני 30, 2022 2:52:03 לפנה״צ ServiceLayer.Log event
+יוני 30, 2022 5:30:02 לפנה״צ ServiceLayer.Log event
 INFO: register to notification service Successes
-יוני 30, 2022 2:52:03 לפנה״צ ServiceLayer.Log event
+יוני 30, 2022 5:30:02 לפנה״צ ServiceLayer.Log event
 INFO: get all delay notification Successes
