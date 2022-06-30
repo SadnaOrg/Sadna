@@ -55,12 +55,34 @@ public class Shop {
     @MapKeyJoinColumn(name = "username")
     private Map<SubscribedUser, ShopAdministrator> shopAdministrators;
 
+    public Map<SubscribedUser, HeskemMinui> getMinuiMap() {
+        return minuiMap;
+    }
 
-    //@OneToMany(cascade = CascadeType.ALL)
-    //@JoinTable(name = "ApprovalAgreements",
-    //        joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")})
-    //@MapKeyJoinColumn(name = "username")
-    //private Map<SubscribedUser, HeskemMinui> heskemMinuis;
+    public void setMinuiMap(Map<SubscribedUser, HeskemMinui> minuiMap) {
+        this.minuiMap = minuiMap;
+    }
+
+    public Shop(int id, String name, String description, ShopOwner founder, State state, Collection<Product> products, Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory, Map<SubscribedUser, ShopAdministrator> shopAdministrators, Map<SubscribedUser, HeskemMinui> minuiMap) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.founder = founder;
+        this.state = state;
+        this.products = products;
+        this.usersBaskets = usersBaskets;
+        this.purchaseHistory = purchaseHistory;
+        this.shopAdministrators = shopAdministrators;
+        this.minuiMap = minuiMap;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "MinuimInShop",
+    joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(name = "HeskemShop",referencedColumnName = "shop"),
+    @JoinColumn(name = "assignee", referencedColumnName = "adminToAssign")})
+    @MapKeyJoinColumn(name = "username")
+    private Map<SubscribedUser, HeskemMinui> minuiMap;
 
     public Shop(String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
