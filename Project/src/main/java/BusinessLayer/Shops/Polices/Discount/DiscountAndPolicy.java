@@ -1,14 +1,17 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
+import ORM.Shops.Discounts.DiscountPolicy;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class DiscountAndPolicy implements LogicDiscountRules{
     private int connectId;
-     private Collection<DiscountPred> discountPreds;
-     private DiscountRules discountPolicy;
+    private Collection<DiscountPred> discountPreds;
+    private DiscountRules discountPolicy;
 
     public DiscountAndPolicy(Collection<DiscountPred> discountPreds,DiscountRules discountPolicy) {
         this.discountPreds = new ArrayList<>();
@@ -38,13 +41,13 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     public double calculateDiscount(Basket basket){
         if(!validate())
             return 0;
-         for(DiscountPred discountPred: discountPreds)
-         {
-             if(!discountPred.validateDiscount(basket))
-                 return 0;
-         }
-         return discountPolicy.calculateDiscount(basket);
-     }
+        for(DiscountPred discountPred: discountPreds)
+        {
+            if(!discountPred.validateDiscount(basket))
+                return 0;
+        }
+        return discountPolicy.calculateDiscount(basket);
+    }
 
     @Override
     public void add(DiscountPred discountPred) {
@@ -53,7 +56,7 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     @Override
     public boolean remove(int ID) {
         for (DiscountPred pred:
-             discountPreds) {
+                discountPreds) {
             if(pred.getID() == ID){
                 discountPreds.remove(pred);
                 return true;
@@ -127,4 +130,10 @@ public class DiscountAndPolicy implements LogicDiscountRules{
     public boolean validate() {
         return (discountPolicy != null);
     }
+
+    @Override
+    public DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this, shop);
+    }
+
 }

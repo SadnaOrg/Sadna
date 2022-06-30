@@ -1,5 +1,6 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
@@ -96,5 +97,10 @@ public class PurchaseOrPolicy implements LogicPurchasePolicy{
 
     public int getPolicyLogicId() {
         return policyLogicId;
+    }
+
+    @Override
+    public ORM.Shops.Purchases.PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

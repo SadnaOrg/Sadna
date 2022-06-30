@@ -4,29 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="can also buy Basket now">
-      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/DAOs/Shops/HeskemMinuiDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/HeskemMinuiMapper.java" afterDir="false" />
+    <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="commit for merge">
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/AndPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPlusPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/MaxDiscountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/OrDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateBasketQuantityPred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateBasketValueDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ValidateProductQuantityDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/XorDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/PurchaseAndPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/PurchaseGriraPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/PurchaseOrPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/PurchasePolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/ValidateCategoryPurchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/ValidateProductPurchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/ValidateTImeStampPurchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Purchases/ValidateUserPurchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/PolicyAndPurchasesConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ConvertableDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ConvertablePred.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ConvertablePurchase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/error_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Users/ShopManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/error_log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/event_log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/DiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/BasketMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/BasketMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/UserMappers/ShopOwnerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/ShopAdministrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/SubscribedUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Users/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountAndPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountAndPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountMaxPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountMaxPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountOrPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountOrPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPred.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPred.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountXorPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountXorPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/LogicDiscountRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/LogicDiscountRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/NumericDiscountRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/NumericDiscountRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductByQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductByQuantityDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductQuantityInPriceDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductQuantityInPriceDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/RelatedGroupDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/RelatedGroupDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ShopDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ShopDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketQuantityDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketValueDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketValueDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateProductQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateProductQuantityDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseGriraPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseGriraPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateCategoryPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateCategoryPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateProductPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateProductPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidatePurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidatePurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateUserPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateUserPurchase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,6 +283,7 @@
       <workItem from="1655834985861" duration="3496000" />
       <workItem from="1655670625447" duration="3753000" />
       <workItem from="1656542187095" duration="7065000" />
+      <workItem from="1656589644330" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>
@@ -333,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656536708947</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit for merge">
+      <created>1656587829262</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656587829262</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +410,8 @@
     <MESSAGE value="products now save update and delete" />
     <MESSAGE value="Basket persists beautifully" />
     <MESSAGE value="can also buy Basket now" />
-    <option name="LAST_COMMIT_MESSAGE" value="can also buy Basket now" />
+    <MESSAGE value="commit for merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit for merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

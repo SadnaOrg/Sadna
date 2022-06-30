@@ -1,5 +1,7 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
 public class ProductByQuantityDiscount implements DiscountPolicy{
@@ -27,7 +29,7 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
     public double calculateDiscount(Basket basket)
     {
         if(basket.getProducts().containsKey(productId) && basket.getProducts().get(productId)>productQuantity)
-                return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId);
+            return discount*basket.getProducts().get(productId)*basket.getPrices().get(productId);
         return 0;
     }
 
@@ -63,6 +65,11 @@ public class ProductByQuantityDiscount implements DiscountPolicy{
     }
     @Override
     public boolean removeSonPredicate(int ID) {
-      return false;
+        return false;
+    }
+
+    @Override
+    public ORM.Shops.Discounts.DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

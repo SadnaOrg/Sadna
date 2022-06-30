@@ -1,34 +1,14 @@
-Jun 30, 2022 2:15:06 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:05 PM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
-Jun 30, 2022 2:15:06 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:05 PM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
-Jun 30, 2022 2:15:06 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:06 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:07 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 30, 2022 2:15:07 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 30, 2022 2:15:07 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:17 PM ServiceLayer.Log error
+SEVERE: register to system succeeded : error in register
+Jun 30, 2022 2:58:18 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:13 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:15 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:23 PM ServiceLayer.Log error
 SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 30, 2022 2:15:15 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:28 PM ServiceLayer.Log error
-SEVERE: java.lang.UnsupportedOperationException
-Jun 30, 2022 2:15:35 PM ServiceLayer.Log error
-SEVERE: register to notification service : log in to system first
-Jun 30, 2022 2:15:35 PM ServiceLayer.Log error
-SEVERE: get all delay notification : log in to system first
-Jun 30, 2022 2:15:35 PM ServiceLayer.Log error
-SEVERE: java.lang.IllegalStateException: user is already logged out
-Jun 30, 2022 2:15:36 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:45 PM ServiceLayer.Log error
-SEVERE: login to system : logout from system first
-Jun 30, 2022 2:15:48 PM ServiceLayer.Log error
-SEVERE: switch to system manager a: log in to the system first as a subscribed user
-Jun 30, 2022 2:15:48 PM ServiceLayer.Log error
+Jun 30, 2022 2:58:23 PM ServiceLayer.Log error
 SEVERE: login to system : logout from system first

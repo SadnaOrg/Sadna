@@ -4,7 +4,7 @@ import BusinessLayer.Users.Basket;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public interface DiscountPred{
+public interface DiscountPred extends ConvertablePred{
     AtomicInteger atomicRuleID= new AtomicInteger(0);
     public boolean validateDiscount(Basket basket);
     public int getID();

@@ -1,6 +1,9 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
+import ORM.Shops.Discounts.DiscountPolicy;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -166,5 +169,10 @@ public class DiscountXorPolicy implements LogicDiscountRules{
         if(discountRules2 instanceof NumericDiscountRules ||discountRules2 instanceof LogicDiscountRules)
             temp = (discountRules2.removeSonPredicate(ID));
         return temp;
+    }
+
+    @Override
+    public DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

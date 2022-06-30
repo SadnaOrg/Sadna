@@ -1,5 +1,6 @@
 package ORM.Shops.Discounts;
 
+
 import ORM.Shops.Shop;
 
 import javax.persistence.*;
@@ -16,21 +17,20 @@ public abstract class DiscountPolicy {
     @Id
     protected int ID;
 
-    @ManyToOne
-    protected DiscountPolicy policy;
-
-    public DiscountPolicy(Shop shop, int ID, DiscountPolicy policy) {
-        this.shop = shop;
-        this.ID = ID;
-        this.policy = policy;
-    }
-
     public DiscountPolicy(Shop shop, int ID) {
         this.shop = shop;
         this.ID = ID;
     }
 
     public DiscountPolicy() {
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public static class DiscountPolicyPK implements Serializable {

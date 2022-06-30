@@ -1,9 +1,8 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
-
-import java.util.Collection;
 
 public class PurchaseGriraPolicy implements LogicPurchasePolicy{
 
@@ -61,5 +60,23 @@ public class PurchaseGriraPolicy implements LogicPurchasePolicy{
             return ((LogicPurchasePolicy) validatePurchase).removeChild(policy);
         }
         return false;
+    }
+
+
+    public int getPolicyLogicId() {
+        return policyLogicId;
+    }
+
+    public PurchasePolicy getPurchasePolicyAllow() {
+        return purchasePolicyAllow;
+    }
+
+    public PurchasePolicy getValidatePurchase() {
+        return validatePurchase;
+    }
+
+    @Override
+    public ORM.Shops.Purchases.PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this, shop);
     }
 }
