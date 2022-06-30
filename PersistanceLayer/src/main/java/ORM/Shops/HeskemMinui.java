@@ -4,6 +4,7 @@ import ORM.Users.ShopAdministrator;
 import ORM.Users.SubscribedUser;
 
 import javax.persistence.*;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
@@ -21,12 +22,12 @@ public class HeskemMinui {
     private SubscribedUser appointer;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @CollectionTable(name = "HeskemMinuiApprovals",
+    @JoinTable(name = "HeskemMinuiApprovals",
             joinColumns = {@JoinColumn(name = "Approver", referencedColumnName = "username"),
                            @JoinColumn(name = "shopID", referencedColumnName = "id")})
     @MapKeyJoinColumn(name = "username")
     @Column(name = "status")
-    private ConcurrentHashMap<ShopAdministrator,Boolean> approvals;
+    private Map<ShopAdministrator,Boolean> approvals;
 
     public HeskemMinui(Shop shop, SubscribedUser adminToAssign, SubscribedUser appointer, ConcurrentHashMap<ShopAdministrator, Boolean> approvals) {
         this.shop = shop;
@@ -62,7 +63,7 @@ public class HeskemMinui {
         this.appointer = appointer;
     }
 
-    public ConcurrentHashMap<ShopAdministrator, Boolean> getApprovals() {
+    public Map<ShopAdministrator, Boolean> getApprovals() {
         return approvals;
     }
 

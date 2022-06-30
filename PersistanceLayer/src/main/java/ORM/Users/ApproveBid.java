@@ -5,6 +5,7 @@ import ORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Entity
@@ -25,7 +26,7 @@ public class ApproveBid {
                     @JoinColumn(name = "shopID", referencedColumnName = "shop_id")})
     @MapKeyJoinColumn(name = "username")
     @Column(name = "status")
-    private ConcurrentHashMap<ShopAdministrator,Boolean> administraitorsApproval;
+    private Map<ShopAdministrator,Boolean> administraitorsApproval;
 
     public Shop getShop() {
         return shop;
@@ -59,11 +60,11 @@ public class ApproveBid {
         this.price = price;
     }
 
-    public ConcurrentHashMap<ShopAdministrator, Boolean> getAdministraitorsApproval() {
+    public Map<ShopAdministrator, Boolean> getAdministraitorsApproval() {
         return administraitorsApproval;
     }
 
-    public void setAdministraitorsApproval(ConcurrentHashMap<ShopAdministrator, Boolean> administraitorsApproval) {
+    public void setAdministraitorsApproval(Map<ShopAdministrator, Boolean> administraitorsApproval) {
         this.administraitorsApproval = administraitorsApproval;
     }
 

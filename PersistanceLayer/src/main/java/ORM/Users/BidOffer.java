@@ -4,6 +4,7 @@ import ORM.Shops.Shop;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Entity
 @Table(name = "BidOffers")
@@ -25,9 +26,9 @@ public class BidOffer {
             @JoinColumn(name = "productID", referencedColumnName = "product_id")
     })
     @MapKey(name = "shop_id")
-    private ConcurrentHashMap<Integer, ApproveBid> approvals;
+    private Map<Integer, ApproveBid> approvals;
 
-    public BidOffer(Shop shop, User user, ConcurrentHashMap<Integer, ApproveBid> approvals) {
+    public BidOffer(Shop shop, User user, Map<Integer, ApproveBid> approvals) {
         this.shop = shop;
         this.user = user;
         this.approvals = approvals;
@@ -52,11 +53,11 @@ public class BidOffer {
         this.user = user;
     }
 
-    public ConcurrentHashMap<Integer, ApproveBid> getApprovals() {
+    public Map<Integer, ApproveBid> getApprovals() {
         return approvals;
     }
 
-    public void setApprovals(ConcurrentHashMap<Integer, ApproveBid> approvals) {
+    public void setApprovals(Map<Integer, ApproveBid> approvals) {
         this.approvals = approvals;
     }
 
