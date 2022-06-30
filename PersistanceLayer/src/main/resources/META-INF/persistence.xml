@@ -16,7 +16,10 @@
             <property name="javax.persistence.jdbc.password" value="I3DKHkOWtn"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 180-building-db-shops
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
         </properties>
     </persistence-unit>

@@ -27,20 +27,20 @@ public class ProxyPaymentUnitTest {
     @Test
     public void testUnitPaySuccess() {
         when(method.isValidPaymentMethod(any(AtomicInteger.class), any(AtomicInteger.class))).thenReturn(true);
-        assertTrue(p.pay(1000, method));
-        assertTrue(p.pay(2000, method));
+        assertTrue(p.pay(1000, method,"",""));
+        assertTrue(p.pay(2000, method,"",""));
     }
 
     @Test
     public void testUnitPayFailureAmountZero(){
         when(method.isValidPaymentMethod(any(AtomicInteger.class), any(AtomicInteger.class))).thenReturn(true);
-        assertFalse(p.pay(0, method));
+        assertFalse(p.pay(0, method,"",""));
     }
 
     @Test
     public void testUnitPayFailureAmountNegative(){
         when(method.isValidPaymentMethod(any(AtomicInteger.class), any(AtomicInteger.class))).thenReturn(true);
-        assertFalse(p.pay(-100, method));
-        assertFalse(p.pay(-1, method));
+        assertFalse(p.pay(-100, method,"",""));
+        assertFalse(p.pay(-1, method,"",""));
     }
 }

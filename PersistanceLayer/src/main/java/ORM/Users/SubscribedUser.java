@@ -21,6 +21,7 @@ public class SubscribedUser extends User{
     protected boolean isNotRemoved;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     protected List<ShopAdministrator> administrators;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "userBaskets",
             joinColumns = @JoinColumn(name = "username"),
@@ -31,6 +32,7 @@ public class SubscribedUser extends User{
     )
     @MapKeyJoinColumn(name = "shop_id")
     protected Map<Shop,Basket> userBaskets;
+
     public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod) {
         super(username,paymentMethod);
         this.password = password;
@@ -40,7 +42,6 @@ public class SubscribedUser extends User{
         this.administrators = new LinkedList<>();
         this.userBaskets = new HashMap<>();
     }
-
     public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
         super(username, paymentMethod);
         this.password = password;
@@ -87,6 +88,10 @@ public class SubscribedUser extends User{
 
     public Map<Shop, Basket> getUserBaskets() {
         return userBaskets;
+    }
+
+    public void setUserBaskets(Map<Shop, Basket> userBaskets) {
+        this.userBaskets = userBaskets;
     }
 
     public void addAdministrator(ShopAdministrator administrator) {

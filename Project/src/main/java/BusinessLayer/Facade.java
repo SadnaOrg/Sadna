@@ -153,9 +153,9 @@ public class Facade{
     }
 
 // TODO: fix
-    public double purchaseCartFromShop(User currUser, PaymentMethod method) {
+    public double purchaseCartFromShop(User currUser, PaymentMethod method,String ID,String cardHolder) {
         ConcurrentHashMap<Integer, Double> prices = shopController.purchaseBasket(currUser);
-        ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> paymentSituation = system.pay(prices, method,ID,cardHolder);
         if(paymentSituation.containsValue(false))
             return 0;
         else

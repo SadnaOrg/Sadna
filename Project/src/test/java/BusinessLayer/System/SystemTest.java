@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.mock;
@@ -34,7 +35,7 @@ public class SystemTest {
     public void testPaySuccess() {
         prices.put(1, 1000.0);
         prices.put(2, 2000.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
         Assert.assertTrue(res.get(1));
         Assert.assertTrue(res.get(2));
     }
@@ -42,55 +43,55 @@ public class SystemTest {
     @Test
     public void testPayFailureAmountZero(){
         prices.put(1, 0.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
         Assert.assertFalse(res.get(1));
     }
 
     @Test
     public void testPayFailureAmountNegative(){
         prices.put(1, -100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
         Assert.assertFalse(res.get(1));
     }
 
-    @Test
+    @Test (expected = Exception.class)
     public void testPayFailureCardInvalid(){
         PaymentMethod method = new PaymentMethod("1246", 123, 4, 2032);
         prices.put(1, 100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
-        Assert.assertFalse(res.get(1));
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
+       fail();
     }
 
-    @Test
+    @Test( expected = Exception.class)
     public void testPayFailureCVVInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", -10, 4, 2032);
         prices.put(1, 100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
-        Assert.assertFalse(res.get(1));
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
+        fail();
     }
 
-    @Test
+    @Test ( expected = Exception.class)
     public void testPayFailureExpiryMonthInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 123, 16, 1999);
         prices.put(1, 100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
-        Assert.assertFalse(res.get(1));
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
+        fail();
     }
 
     @Test
     public void testPayFailureExpiryYearInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 123, 4, 1999);
         prices.put(1, 100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
-        Assert.assertFalse(res.get(1));
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
+
     }
 
     @Test
     public void testPayFailureExpiryYearValidButMonthInvalid(){
         PaymentMethod method = new PaymentMethod("4580123456789012", 123, 1, 2022);
         prices.put(1, 100.0);
-        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method);
-        Assert.assertFalse(res.get(1));
+        ConcurrentHashMap<Integer, Boolean> res = system.pay(prices, method,"206000556","maor biton");
+
     }
 
     ProductInfo successProd = new ProductInfo(new Product(1, "name", 45.0, 150));
@@ -110,7 +111,7 @@ public class SystemTest {
         Assert.assertTrue(res.get(1));
     }
 
-    @Test
+    @Test( expected = Exception.class)
     public void testCheckSupplyFailZeroQuantity() {
         productInfos.add(successProd);
         productInfos.add(zeroProd);
@@ -118,10 +119,10 @@ public class SystemTest {
         ConcurrentHashMap<Integer, PackageInfo> packages = new ConcurrentHashMap<>();
         packages.put(1, zeroPack);
         ConcurrentHashMap<Integer, Boolean> res = system.checkSupply(packages);
-        Assert.assertFalse(res.get(1));
+        fail();
     }
 
-    @Test
+    @Test ( expected = Exception.class)
     public void testCheckSupplyFailNegativeQuality() {
         productInfos.add(successProd);
         productInfos.add(negativeProd);
@@ -129,8 +130,8 @@ public class SystemTest {
         ConcurrentHashMap<Integer, PackageInfo> packages = new ConcurrentHashMap<>();
         packages.put(1, zeroPack);
         ConcurrentHashMap<Integer, Boolean> res = system.checkSupply(packages);
-        Assert.assertFalse(res.get(1));
-    }
+        fail();
+     }
 
     @Test
     public void testMultithreadedAddPayment() throws InterruptedException {
@@ -140,7 +141,7 @@ public class SystemTest {
         t2.start();
         t1.join();
         t2.join();
-        Assert.assertEquals(4, system.getPaymentSize());
+        Assert.assertEquals(5, system.getPaymentSize());
     }
 
     @Test
@@ -151,6 +152,6 @@ public class SystemTest {
         t2.start();
         t1.join();
         t2.join();
-        Assert.assertEquals(3, system.getSupplySize());
+        Assert.assertEquals(4, system.getSupplySize());
     }
 }

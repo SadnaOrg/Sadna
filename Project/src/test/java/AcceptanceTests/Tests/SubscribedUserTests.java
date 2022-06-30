@@ -16,13 +16,14 @@ import static AcceptanceTests.DataObjects.SubscribedUser.Permission.REMOVE_SHOP_
 import static org.junit.Assert.*;
 
 public class SubscribedUserTests extends UserTests {
-    private static SubscribedUserBridge subscribedUserBridge = null;
+    protected static SubscribedUserBridge subscribedUserBridge = null;
 
     private static Shop supersal;
     private boolean closeSupersal = false;
     private boolean deleteCastro222 = false;
     private boolean removeU1OwnerCastro = false;
     private boolean removeU1ManagerCastro = false;
+    private boolean removeU1OwnerAgreementCastro = false;
     private int removeU3ManagerCastro = -1;
     private int policyID = -1;
     private boolean removeCastro = false;
@@ -122,6 +123,10 @@ public class SubscribedUserTests extends UserTests {
         ACEFounder = subscribedUserBridge.login(ace_guest.getName(),ace);
         castroFounder = subscribedUserBridge.login(castro_guest.getName(), castro);
         MegaSportFounder = subscribedUserBridge.login(megasport_guest.getName(), megaSport);
+
+        subscribedUserBridge.reOpenShop("ACEFounder",ACE_ID);
+        subscribedUserBridge.reOpenShop("castroFounder",castro_ID);
+        subscribedUserBridge.reOpenShop("MegaSportFounder",MegaSport_ID);
     }
 
     @Override
@@ -138,6 +143,7 @@ public class SubscribedUserTests extends UserTests {
         }
         if(removeU1OwnerCastro){
             subscribedUserBridge.removeAdmin(shops[castro_ID].ID, castroFounder.name, u1.name);
+            subscribedUserBridge.declineHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
             removeU1OwnerCastro = false;
         }
         if(removeU1ManagerCastro){
@@ -162,6 +168,10 @@ public class SubscribedUserTests extends UserTests {
         if(removeCastro){
             subscribedUserBridge.removeDiscount(castroFounder.name, policyID,shops[castro_ID].ID);
             removeCastro = false;
+        }
+        if(removeU1OwnerAgreementCastro){
+            subscribedUserBridge.declineHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
+            removeU1OwnerCastro = false;
         }
 
         subscribedUserBridge.getNotifications(u1.name);
@@ -534,7 +544,6 @@ public class SubscribedUserTests extends UserTests {
         ProductInShop p = subscribedUserBridge.searchProductInShop(castroFounder.name, 45,shops[castro_ID].ID);
         assertEquals("new name!",p.product.name);
         testUpdateProductNameKeepSame();
-
     }
 
     @Test
@@ -594,6 +603,13 @@ public class SubscribedUserTests extends UserTests {
         boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.name,u1.name);
         assertTrue(result);
 
+        boolean approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(castroFounder.name, shops[castro_ID].ID, u1.name);
+        assertTrue(approved);
+
         Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(u1.name,shops[castro_ID].ID);
         assertNotNull(roles);
         Appointment appointment = roles.getOrDefault(u1.name,null);
@@ -609,6 +625,18 @@ public class SubscribedUserTests extends UserTests {
 
         boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,u1.name,u2.name);
         assertTrue(result);
+
+        boolean approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(castroFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u2.name);
+        assertFalse(approved);
+
+        approved = subscribedUserBridge.approveHeskemMinui(u1.name, shops[castro_ID].ID, u2.name);
+        assertTrue(approved);
 
         Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(u2.name,shops[castro_ID].ID);
         assertNotNull(roles);
@@ -1647,53 +1675,54 @@ public class SubscribedUserTests extends UserTests {
         subscribedUserBridge.updateProductQuantity(u1.name,shops[castro_ID].ID,45,40);
     }
 
-    @Test
-    public void testScenario3(){
-        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
-        assertTrue(added);
-
-        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,1);
-        assertTrue(added);
-
-        boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
-        assertTrue(closed);
-
-        List<Notification> notifications = subscribedUserBridge.getNotifications(castroFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        notifications = subscribedUserBridge.getNotifications(ACEFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        notifications = subscribedUserBridge.getNotifications(MegaSportFounder.name);
-        assertNotNull(notifications);
-        assertEquals(1,notifications.size());
-        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
-
-        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
-        assertFalse(added);
-
-        testReopenShop();
-
-        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
-        assertEquals(20,payed,0);
-
-        boolean opened = subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
-        assertTrue(opened);
-
-        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
-        assertEquals(10*30+15*50,payed,0);
-
-        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
-        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
-        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
-    }
+//    @Test
+//    public void testScenario3(){
+//        boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[castro_ID].ID,2,10);
+//        assertTrue(added);
+//
+//        added = subscribedUserBridge.addProductToCart(u1.name,shops[ACE_ID].ID,0,1);
+//        assertTrue(added);
+//
+//        boolean closed = subscribedUserBridge.closeShop(shops[castro_ID].ID, castroFounder.name);
+//        assertTrue(closed);
+//
+//        List<Notification> notifications = subscribedUserBridge.getNotifications(castroFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        notifications = subscribedUserBridge.getNotifications(ACEFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        notifications = subscribedUserBridge.getNotifications(MegaSportFounder.name);
+//        assertNotNull(notifications);
+//        assertEquals(1,notifications.size());
+//        assertEquals("castroFounder has close the shop 1",notifications.get(0).getContent());
+//
+//        added = subscribedUserBridge.addProductToCart(u1.name,shops[castro_ID].ID,45,15);
+//        assertFalse(added);
+//
+//        testReopenShop();
+//
+//        double payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+//        assertEquals(20,payed,0);
+//
+//        boolean opened = subscribedUserBridge.reOpenShop(castroFounder.name, shops[castro_ID].ID);
+//        assertTrue(opened);
+//
+//        payed = subscribedUserBridge.purchaseCart(u1.name, "4800470023456848", 674, 7, 2025);
+//        assertEquals(10*30+15*50,payed,0);
+//
+//        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,2,30);
+//        subscribedUserBridge.updateProductQuantity(castroFounder.name, shops[castro_ID].ID,45,40);
+//        subscribedUserBridge.updateProductQuantity(ACEFounder.name,shops[ACE_ID].ID,0,30);
+//    }
 
     @Test
     public void testPurchaseWithXorDiscountBothConditionsHold(){
+        subscribedUserBridge.getNotifications(ACEFounder.name);
         testCreateXorDiscountSuccess();
         boolean added = subscribedUserBridge.addProductToCart(u1.name, shops[ACE_ID].ID,0,4);
         assertTrue(added);
@@ -1752,7 +1781,7 @@ public class SubscribedUserTests extends UserTests {
 
         Guest guest = subscribedUserBridge.visit();
         u1 = subscribedUserBridge.login(guest.name,new RegistrationInfo(userNames[0], passwords[0]));
-
+        subscribedUserBridge.registerToNotifier(u1.name);
         List<Notification> notifications = subscribedUserBridge.getDelayNotification(u1.name);
         assertNotNull(notifications);
         assertEquals(1,notifications.size());
@@ -1797,6 +1826,36 @@ public class SubscribedUserTests extends UserTests {
         assertEquals(3,appointments.size());
         assertTrue(appointments.keySet().containsAll(admins));
         removeU1ManagerCastro = false;
+    }
+
+    @Test
+    public void testAppointOwnerFailureNoAgreement(){
+        boolean result = subscribedUserBridge.appointOwner(shops[castro_ID].ID,castroFounder.name,u1.name);
+        assertTrue(result);
+
+        boolean approved = subscribedUserBridge.approveHeskemMinui(ACEFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+        approved = subscribedUserBridge.approveHeskemMinui(MegaSportFounder.name, shops[castro_ID].ID, u1.name);
+        assertFalse(approved);
+
+        Map<String,Appointment> roles = subscribedUserBridge.getShopAppointments(castroFounder.name,shops[castro_ID].ID);
+        assertNotNull(roles);
+        Appointment appointment = roles.getOrDefault(u1.name,null);
+        assertNull(appointment);
+        removeU1OwnerAgreementCastro = true;
+    }
+
+    @Test
+    public void testBidOnProductSuccessDeclined(){
+        boolean result = subscribedUserBridge.saveProductsAsBid(u1.name, shops[MegaSport_ID].ID,4, 10,50);
+        assertTrue(result);
+
+        result = subscribedUserBridge.declineBidOffer(MegaSportFounder.name, u1.name, 4, shops[MegaSport_ID].ID);
+        assertTrue(result);
+
+        ShoppingCart cart = subscribedUserBridge.checkCart(u1.name);
+        ShopBasket basket = cart.getShopBasket(shops[MegaSport_ID].ID);
+        assertNull(basket);
     }
 
     public User enter() {

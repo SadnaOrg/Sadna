@@ -2,10 +2,13 @@ package BusinessLayer.Mappers.UserMappers;
 
 import BusinessLayer.Mappers.CastEntity;
 import BusinessLayer.Mappers.Func;
+import BusinessLayer.Mappers.ShopMappers.ShopMapper;
+import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.ShopAdministrator;
 import ORM.DAOs.DBImpl;
 import BusinessLayer.Users.SubscribedUser;
 import ORM.DAOs.Users.SubscribedUserDAO;
+import ORM.Shops.Shop;
 import ORM.Users.PaymentMethod;
 
 import java.text.DateFormat;
@@ -20,6 +23,8 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     private SubscribedUserDAO dao = new SubscribedUserDAO();
     private Func<PaymentMethodMapper> paymentMethodMapper = () -> PaymentMethodMapper.getInstance();
     private Func<ShopAdministratorMapper> shopAdministratorMapper = () -> ShopAdministratorMapper.getInstance();
+    private Func<ShopMapper> shopMapper = () -> ShopMapper.getInstance();
+    private Func<BasketMapper> basketMapper = () -> BasketMapper.getInstance();
     static private class SubscribedUserMapperHolder {
         static final SubscribedUserMapper mapper = new SubscribedUserMapper();
     }
@@ -36,22 +41,36 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
     public ORM.Users.SubscribedUser toEntity(SubscribedUser entity) {
         if (entity == null)
             return null;
-        String pattern = "yyyy-MM-dd";
-        DateFormat format = new SimpleDateFormat(pattern);
-        ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
-                format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(), null);
+        ORM.Users.SubscribedUser ormUser = findORMById(entity.getUserName());
+        if (ormUser == null) {
+            String pattern = "yyyy-MM-dd";
+            DateFormat format = new SimpleDateFormat(pattern);
+            ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
+                    format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(), null);
 
-        for (ShopAdministrator admin : entity.getAdministrators()) {
-            if (admin.getUserName() != entity.getUserName()) {
-                ORM.Users.ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(admin);
-                ormAdmin.setUser(findORMById(admin.getUserName()));
-                user.getAdministrators().add(ormAdmin);
+            for (ShopAdministrator admin : entity.getAdministrators()) {
+                if (admin.getUserName() != entity.getUserName()) {
+                    ORM.Users.ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(admin);
+                    ormAdmin.setUser(findORMById(admin.getUserName()));
+                    user.getAdministrators().add(ormAdmin);
+                }
             }
-        }
 
-        if (user.getPaymentMethod() != null)
-            user.getPaymentMethod().setUser(user);
-        return user;
+            if (user.getPaymentMethod() != null)
+                user.getPaymentMethod().setUser(user);
+            return user;
+        }
+        else {
+            ormUser.setPaymentMethod(paymentMethodMapper.run().toEntity(entity.getMethod()));
+            ormUser.getUserBaskets().clear();
+            Map<Shop, ORM.Users.Basket> shopBaskets = new ConcurrentHashMap<>();
+            for (int shopID : entity.getShoppingCart().keySet()) {
+                shopBaskets.put(shopMapper.run().findORMById(shopID),
+                        basketMapper.run().toEntity(entity.getUserName(), entity.getBasket(shopID)));
+            }
+            ormUser.getUserBaskets().putAll(shopBaskets);
+            return ormUser;
+        }
     }
 
     @Override
@@ -60,6 +79,11 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
             return null;
         SubscribedUser user = new SubscribedUser(entity.getUsername(), entity.isNotRemoved(), entity.getPassword(), new ArrayList<>(),
                 entity.isIs_login(), entity.getDate());
+        ConcurrentHashMap<Integer, Basket> shopBaskets = new ConcurrentHashMap<>();
+        for (Shop shop : entity.getUserBaskets().keySet()) {
+            shopBaskets.put(shop.getId(), basketMapper.run().fromEntity(entity.getUserBaskets().get(shop)));
+        }
+        user.setShoppingCart(shopBaskets);
 
         //List<ShopAdministrator> administrators;
         //Map<Integer, ShopAdministrator> shopAdministratorMap = new ConcurrentHashMap<>();

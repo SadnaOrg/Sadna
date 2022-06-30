@@ -1,14 +1,11 @@
 package ORM.Shops;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "product")
 public class Product {
-    public Product(int id, String name, String description, String manufacturer, String category, double price, int quantity) {
-        this.id = id;
+    public Product(String name, String description, String manufacturer, String category, double price, int quantity) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;
@@ -18,6 +15,7 @@ public class Product {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
