@@ -1,7 +1,9 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
+import ORM.Shops.Purchases.PurchasePolicy;
 
 public class ValidateProductPurchase implements ValidatePurchasePolicy{
 
@@ -60,5 +62,10 @@ public class ValidateProductPurchase implements ValidatePurchasePolicy{
 
     public boolean isCantbemore() {
         return cantbemore;
+    }
+
+    @Override
+    public PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

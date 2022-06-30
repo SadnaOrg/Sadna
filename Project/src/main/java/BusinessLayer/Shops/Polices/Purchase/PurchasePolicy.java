@@ -5,7 +5,7 @@ import BusinessLayer.Users.User;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public interface PurchasePolicy {
+public interface PurchasePolicy extends ConvertablePurchase{
     AtomicInteger purchaseLogicId = new AtomicInteger(0);
     public boolean isValid(User u, Basket basket);
     public LogicPurchasePolicy getLogicRule(int searchConnectId);

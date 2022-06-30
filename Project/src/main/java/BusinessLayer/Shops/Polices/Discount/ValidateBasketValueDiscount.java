@@ -1,5 +1,7 @@
 package BusinessLayer.Shops.Polices.Discount;
 
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
 public class ValidateBasketValueDiscount implements DiscountPred {
@@ -49,4 +51,8 @@ public class ValidateBasketValueDiscount implements DiscountPred {
         return cantBeMore;
     }
 
+    @Override
+    public ORM.Shops.Discounts.DiscountPred toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
+    }
 }
