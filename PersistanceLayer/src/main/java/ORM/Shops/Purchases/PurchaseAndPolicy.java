@@ -1,5 +1,7 @@
 package ORM.Shops.Purchases;
 
+import ORM.Shops.Shop;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
