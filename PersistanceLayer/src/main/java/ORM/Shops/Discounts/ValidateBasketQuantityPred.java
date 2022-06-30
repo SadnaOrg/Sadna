@@ -1,8 +1,5 @@
 package ORM.Shops.Discounts;
 
-
-import ORM.Shops.Shop;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
