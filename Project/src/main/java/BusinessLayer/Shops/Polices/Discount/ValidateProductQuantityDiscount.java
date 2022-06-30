@@ -1,7 +1,6 @@
 package BusinessLayer.Shops.Polices.Discount;
 
 import BusinessLayer.Mappers.Converter;
-import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
 
 public class ValidateProductQuantityDiscount implements  DiscountPred{
