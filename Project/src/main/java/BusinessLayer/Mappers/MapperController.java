@@ -7,9 +7,10 @@ import BusinessLayer.Mappers.UserMappers.SystemManagerMapper;
 import BusinessLayer.Shops.PurchaseHistory;
 
 public class MapperController {
+    private boolean dbflag = false;
 
     static private class MapperControllerHolder {
-        static final MapperController mapper = new MapperController();
+        static  MapperController mapper = new MapperController();
     }
 
     public static MapperController getInstance(){
@@ -36,4 +37,8 @@ public class MapperController {
     private SubscribedUserMapper subscribedUserMapper = SubscribedUserMapper.getInstance();
     private SystemManagerMapper systemManagerMapper = SystemManagerMapper.getInstance();
     private PurchaseHistoryMapper purchaseHistoryMapper = PurchaseHistoryMapper.getInstance();
+
+    public void setDbflag(boolean dbflag) {
+        this.dbflag = dbflag;
+    }
 }

@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33db6e90-3b92-4d16-9f03-6522cba65b30" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/SetDBOff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_06_2022_17_21_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_06_2022_17_21_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_06_2022_17_21__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_06_2022_17_21__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/PersistanceLayer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/out/artifacts/Market_jar/Project.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/CastEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/CastEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/MapperController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Mappers/ShopMappers/ShopMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +50,11 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/ParsedLine.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/RemoveProduct.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/com/vaadin/flow-server/23.0.7/flow-server-23.0.7.jar!/com/vaadin/flow/component/page/AppShellConfigurator.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/SetDBOff.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$USER_HOME$/.jdks/semeru-17.0.3/lib/src.zip!/java.base/com/ibm/jit/JITHelpers.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/ExampleConfigurationFile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/Application.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.6.7/spring-boot-devtools-2.6.7.jar!/org/springframework/boot/devtools/restart/RestartLauncher.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/application/Parser/SetDBOff.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.6.7/spring-boot-2.6.7.jar!/org/springframework/boot/SpringApplication.class" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -180,6 +181,8 @@
       <workItem from="1655146263323" duration="11980000" />
       <workItem from="1656328835803" duration="4457000" />
       <workItem from="1656587106321" duration="1829000" />
+      <workItem from="1656595175056" duration="307000" />
+      <workItem from="1656595504974" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="added add product">
       <created>1653502215084</created>

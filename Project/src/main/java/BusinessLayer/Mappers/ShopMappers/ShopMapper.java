@@ -31,6 +31,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     private Func<PurchaseHistoryMapper> purchaseHistoryMapper = () -> PurchaseHistoryMapper.getInstance();
     private Func<HeskemMinuiMapper> heskemMinuiMapper = () -> HeskemMinuiMapper.getInstance();
     private final ShopDAO dao = new ShopDAO();
+    private boolean dbflag=false;
 
     static private class ShopMapperHolder {
         static final ShopMapper mapper = new ShopMapper();
@@ -46,6 +47,7 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
 
     @Override
     public ORM.Shops.Shop toEntity(Shop entity) {
+
         ORM.Shops.Shop ormShop = findORMById(entity.getId());
         if (ormShop == null) {
             ormShop = new ORM.Shops.Shop(entity.getName(), entity.getDescription(),
@@ -164,5 +166,8 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
     @Override
     public Collection<Shop> findAll() {
         return dao.findAll().stream().map(this::fromEntity).toList();
+    }
+    void setdbFlag(boolean dbflag){
+        this.dbflag = dbflag;
     }
 }
