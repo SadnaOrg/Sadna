@@ -1,5 +1,7 @@
 package ORM.Shops.Discounts;
 
+import ORM.Shops.Shop;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
