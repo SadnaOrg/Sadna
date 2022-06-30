@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b1d4197-d0b9-42e1-84f7-2ba950a83226" name="Changes" comment="can also buy Basket now">
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductByQuantityDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ProductQuantityInPriceDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/RelatedGroupDiscount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersistanceLayer/src/main/java/ORM/Shops/Discounts/ShopDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountAndPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountAndPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountMaxPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountMaxPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountOrPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountOrPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPlusPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPred.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountPred.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountXorPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/DiscountXorPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductByQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductByQuantityDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductQuantityInPriceDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ProductQuantityInPriceDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/RelatedGroupDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/RelatedGroupDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ShopDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ShopDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketQuantityDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketValueDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateBasketValueDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersistanceLayer/out/artifacts/PersistanceLayer_jar/PersistanceLayer.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateProductQuantityDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Discount/ValidateProductQuantityDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseAndPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseGriraPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseGriraPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchaseOrPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/PurchasePolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateCategoryPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateCategoryPurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateProductPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateProductPurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateTImeStampPurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateUserPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/src/main/java/BusinessLayer/Shops/Polices/Purchase/ValidateUserPurchase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,8 +99,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
+        <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="JUnit.All in GUI" />
         <item itemvalue="Application.com.example.application.Application" />
         <item itemvalue="JUnit.All in GUI" />
