@@ -62,12 +62,11 @@ public class Shop {
     //@MapKeyJoinColumn(name = "username")
     //private Map<SubscribedUser, HeskemMinui> heskemMinuis;
 
-    public Shop(String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
+    public Shop(String name, String description, State state, Collection<Product> products,
                 Map<SubscribedUser, Basket> usersBaskets, Map<SubscribedUser, PurchaseHistory> purchaseHistory,
                 Map<SubscribedUser, ShopAdministrator> shopAdministrators) {
         this.name = name;
         this.description = description;
-        this.founder = new ShopOwner(new ArrayList<>(), founder, this, isFounder);
         this.state = state;
         this.products = products;
         this.usersBaskets = usersBaskets;

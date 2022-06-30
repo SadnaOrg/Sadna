@@ -5,6 +5,7 @@ import BusinessLayer.Mappers.Func;
 import BusinessLayer.Users.ShopAdministrator;
 import BusinessLayer.Users.ShopManager;
 import BusinessLayer.Users.ShopOwner;
+import ORM.Shops.Shop;
 import ORM.Users.SubscribedUser;
 import org.mockito.internal.matchers.InstanceOf;
 

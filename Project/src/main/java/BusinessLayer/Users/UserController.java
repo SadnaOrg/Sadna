@@ -59,7 +59,12 @@ public class UserController {
     public boolean removeAdmin(int shopID, String requesting, String toRemove) throws NoPermissionException {
         if(subscribers.containsKey(requesting)){
             SubscribedUser u = subscribers.get(requesting);
-            return u.removeAdmin(shopID,subscribers.get(toRemove));
+            boolean res = u.removeAdmin(shopID,subscribers.get(toRemove));
+            if (res) {
+                ShopController.getInstance().getShops().get(shopID).removeAdmin(toRemove);
+                mapperController.getSubscribedUserMapper().update(u);
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopID));
+            }
         }
         throw new IllegalArgumentException("you aren't a subscribed user!");
     }
@@ -177,7 +182,12 @@ public class UserController {
      */
     public boolean AssignShopManager(SubscribedUser currUser, String userNameToAssign, int shopId) throws NoPermissionException {
         if (subscribers.containsKey(userNameToAssign)) {
-            return currUser.assignShopManager(shopId, getSubUser(userNameToAssign));
+            boolean res = currUser.assignShopManager(shopId, getSubUser(userNameToAssign));
+            if (res) {
+                mapperController.getSubscribedUserMapper().update(currUser);
+                mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shopId));
+            }
+            return res;
         } else
             throw new IllegalArgumentException("non such user - " + userNameToAssign);
     }
@@ -269,11 +279,21 @@ public class UserController {
     } // exit everything
 
     public boolean assignShopManager(SubscribedUser user, int shop, String userNameToAssign) throws NoPermissionException {
-        return user.assignShopManager(shop, getSubUser(userNameToAssign));
+        boolean res = user.assignShopManager(shop, getSubUser(userNameToAssign));
+        if (res) {
+            mapperController.getSubscribedUserMapper().update(user);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shop));
+        }
+        return res;
     }
 
     public boolean assignShopOwner(SubscribedUser user, int shop, String userNameToAssign) throws NoPermissionException {
-        return user.assignShopOwner(shop, getSubUser(userNameToAssign));
+        boolean res = user.assignShopOwner(shop, getSubUser(userNameToAssign));
+        if (res) {
+            mapperController.getSubscribedUserMapper().update(user);
+            mapperController.getShopMapper().update(ShopController.getInstance().getShops().get(shop));
+        }
+        return res;
     }
 
     public boolean addAdministratorToHeskemMinui(SubscribedUser user,int shop, String userNameToAssign) throws NoPermissionException {

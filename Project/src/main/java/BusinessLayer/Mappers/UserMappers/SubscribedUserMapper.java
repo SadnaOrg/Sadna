@@ -46,7 +46,7 @@ public class SubscribedUserMapper implements DBImpl<SubscribedUser, String>, Cas
             String pattern = "yyyy-MM-dd";
             DateFormat format = new SimpleDateFormat(pattern);
             ORM.Users.SubscribedUser user = new ORM.Users.SubscribedUser(entity.getUserName(), entity.getHashedPassword(),
-                    format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(), null);
+                    format.format(entity.getBirthDate()), entity.isLoggedIn(), !entity.isRemoved(), paymentMethodMapper.run().toEntity(entity.getMethod()));
 
             for (ShopAdministrator admin : entity.getAdministrators()) {
                 if (admin.getUserName() != entity.getUserName()) {

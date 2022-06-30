@@ -50,11 +50,14 @@ public class ShopMapper implements DBImpl<Shop, Integer>, CastEntity<ORM.Shops.S
         ORM.Shops.Shop ormShop = findORMById(entity.getId());
         if (ormShop == null) {
             ormShop = new ORM.Shops.Shop(entity.getName(), entity.getDescription(),
-                    subscribedUserMapper.run().findORMById(entity.getFounder().getUser().getUserName()), true,
                     ORM.Shops.Shop.State.values()[entity.getState().ordinal()],
                     entity.getProducts().values().stream().map(product -> productMapper.run().toEntity(product)).toList(),
                     new ConcurrentHashMap<>(), new ConcurrentHashMap<>(), new ConcurrentHashMap<>());
 
+            ormShop.setFounder(shopOwnerMapper.run().toEntity(entity.getFounder()));
+            ormShop.getFounder().setShop(ormShop);
+            ormShop.getFounder().setUser(subscribedUserMapper.run().toEntity(entity.getFounder().getSubscribed()));
+            ormShop.getShopAdministrators().put(ormShop.getFounder().getUser(), ormShop.getFounder());
             for (String admin : entity.getShopAdministratorsMap().keySet()) {
                 if (admin != ormShop.getFounder().getUser().getUsername() && admin != entity.getFounder().getUserName()) {
                     ShopAdministrator ormAdmin = shopAdministratorMapper.run().toEntity(entity.getShopAdministrator(admin));

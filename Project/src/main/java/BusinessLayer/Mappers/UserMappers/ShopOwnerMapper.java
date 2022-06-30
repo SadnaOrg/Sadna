@@ -34,16 +34,22 @@ public class ShopOwnerMapper implements CastEntity<ORM.Users.ShopOwner, ShopOwne
                     admin.getUserName() == entity.getUserName() ?
                             owner : shopAdministratorMapper.run().toEntity(admin)).toList();
             owner.setAppoints(appoints);
+            owner.setAppointer(entity.getAppointer());
             return owner;
         }
         else {
+            ormOwner.getAction().clear();
+            ormOwner.getAction().addAll(entity.getActionsTypes().stream().map(action -> ORM.Users.ShopAdministrator.BaseActionType.values()[action.ordinal()]).toList());
+            ormOwner.getAppoints().clear();
+            ormOwner.getAppoints().addAll(entity.getAppoints().stream().map(admin -> shopAdministratorMapper.run().toEntity(admin)).toList());
+            ormOwner.setAppointer(entity.getAppointer());
             return ormOwner;
         }
     }
 
     @Override
     public ShopOwner fromEntity(ORM.Users.ShopOwner entity) {
-        ShopOwner owner = new ShopOwner(entity.getUser().getUsername(), subscribedUserMapper.run().fromEntity(entity.getUser()),
+        ShopOwner owner = new ShopOwner(entity.getAppointer(), subscribedUserMapper.run().fromEntity(entity.getUser()),
                 entity.isFounder(), new ConcurrentLinkedDeque<>());
         ConcurrentLinkedDeque<ShopAdministrator> appoints = entity.getAppoints().stream().map(admin ->
                 admin.getUser().getUsername() == entity.getUser().getUsername() ?

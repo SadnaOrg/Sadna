@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.Collection;
 
-public class PaymentMethodDAO implements DBImpl<PaymentMethod, Integer> {
+public class PaymentMethodDAO implements DBImpl<PaymentMethod, String> {
     private EntityManager entityManager = HibernateUtil.getEntityManager();
 
     @Override
@@ -28,14 +28,14 @@ public class PaymentMethodDAO implements DBImpl<PaymentMethod, Integer> {
     }
 
     @Override
-    public void delete(Integer key) {
+    public void delete(String key) {
         entityManager.getTransaction().begin();
         entityManager.find(PaymentMethod.class, key);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public PaymentMethod findById(Integer key) {
+    public PaymentMethod findById(String key) {
         PaymentMethod paymentMethod = entityManager.find(PaymentMethod.class, key);
         return paymentMethod;
     }

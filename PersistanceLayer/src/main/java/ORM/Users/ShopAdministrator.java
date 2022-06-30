@@ -34,6 +34,8 @@ public abstract class ShopAdministrator implements Serializable{
     })
     private List<ShopAdministrator> appoints;
 
+    private String appointer;
+
     public ShopAdministrator(List<BaseActionType> action, SubscribedUser user,Shop shop, List<ShopAdministrator> appoints) {
         this.action = action;
         this.user = user;
@@ -95,7 +97,15 @@ public abstract class ShopAdministrator implements Serializable{
         this.appoints = appoints;
     }
 
+    public String getAppointer() {
+        return appointer;
+    }
+
+    public void setAppointer(String appointer) {
+        this.appointer = appointer;
+    }
     public static class ShopAdministratorPK implements Serializable {
+
         private Shop shop;
         private SubscribedUser user;
 
