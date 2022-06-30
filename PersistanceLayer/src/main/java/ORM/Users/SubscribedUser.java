@@ -62,15 +62,15 @@ public class SubscribedUser extends User{
         this.userBaskets = userBaskets;
     }
 
-    public SubscribedUser(String username, PaymentMethod paymentMethod, Map<Integer, BidOffer> shoppingBids, String password, String date, boolean is_login, boolean isNotRemoved, List<ShopAdministrator> administrators, Map<Shop, Basket> userBaskets) {
-        super(username, paymentMethod, shoppingBids);
-        this.password = password;
-        this.date = date;
-        this.is_login = is_login;
-        this.isNotRemoved = isNotRemoved;
-        this.administrators = administrators;
-        this.userBaskets = userBaskets;
-    }
+//    public SubscribedUser(String username, PaymentMethod paymentMethod, String password, String date, boolean is_login, boolean isNotRemoved, List<ShopAdministrator> administrators, Map<Shop, Basket> userBaskets) {
+//        super(username, paymentMethod);
+//        this.password = password;
+//        this.date = date;
+//        this.is_login = is_login;
+//        this.isNotRemoved = isNotRemoved;
+//        this.administrators = administrators;
+//        this.userBaskets = userBaskets;
+//    }
 
     public SubscribedUser(String username, String password, String date, boolean is_login, boolean isNotRemoved, PaymentMethod paymentMethod, List<ShopAdministrator> administrators) {
         super(username, paymentMethod);

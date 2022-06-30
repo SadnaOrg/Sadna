@@ -1,14 +1,16 @@
 package ORM.Shops;
 
-import ORM.Users.ShopAdministrator;
+import ORM.Users.AppointApprovalStatus;
 import ORM.Users.SubscribedUser;
+import com.sun.istack.Nullable;
 
 import javax.persistence.*;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
 @Table(name = "HeskemMinui")
+@IdClass(HeskemMinui.HeskemMinuiPK.class)
 public class HeskemMinui {
     @Id
     @ManyToOne(cascade = CascadeType.ALL)
@@ -18,18 +20,19 @@ public class HeskemMinui {
     @ManyToOne(cascade = CascadeType.ALL)
     private SubscribedUser adminToAssign;
 
+    @Nullable
     @ManyToOne(cascade = CascadeType.ALL)
     private SubscribedUser appointer;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "HeskemMinuiApprovals",
-            joinColumns = {@JoinColumn(name = "Approver", referencedColumnName = "username"),
-                           @JoinColumn(name = "shopID", referencedColumnName = "id")})
-    @MapKeyJoinColumn(name = "username")
-    @Column(name = "status")
-    private Map<ShopAdministrator,Boolean> approvals;
+    @ElementCollection
+    @CollectionTable(name = "approvalsHeskem",
+    joinColumns = {
+            @JoinColumn(name = "shopID" , referencedColumnName = "shop_id"),
+            @JoinColumn(name = "Asignee", referencedColumnName = "adminToAssign_username")
+    })
+    private Collection<AppointApprovalStatus> approvals;
 
-    public HeskemMinui(Shop shop, SubscribedUser adminToAssign, SubscribedUser appointer, ConcurrentHashMap<ShopAdministrator, Boolean> approvals) {
+    public HeskemMinui(Shop shop, SubscribedUser adminToAssign, SubscribedUser appointer, Collection<AppointApprovalStatus> approvals) {
         this.shop = shop;
         this.adminToAssign = adminToAssign;
         this.appointer = appointer;
@@ -63,11 +66,24 @@ public class HeskemMinui {
         this.appointer = appointer;
     }
 
-    public Map<ShopAdministrator, Boolean> getApprovals() {
+    public Collection<AppointApprovalStatus> getApprovals() {
         return approvals;
     }
 
-    public void setApprovals(ConcurrentHashMap<ShopAdministrator, Boolean> approvals) {
+    public void setApprovals(Collection<AppointApprovalStatus> approvals) {
         this.approvals = approvals;
+    }
+
+    public static class HeskemMinuiPK implements Serializable{
+        private Shop shop;
+        private SubscribedUser adminToAssign;
+
+        public HeskemMinuiPK(Shop shop, SubscribedUser adminToAssign) {
+            this.shop = shop;
+            this.adminToAssign = adminToAssign;
+        }
+
+        public HeskemMinuiPK() {
+        }
     }
 }

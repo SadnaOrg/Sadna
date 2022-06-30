@@ -79,9 +79,9 @@ public class Shop {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "MinuimInShop",
     joinColumns = {@JoinColumn(name = "shopID", referencedColumnName = "id")},
-    inverseJoinColumns = {@JoinColumn(name = "HeskemShop",referencedColumnName = "shop"),
-    @JoinColumn(name = "assignee", referencedColumnName = "adminToAssign")})
-    @MapKeyJoinColumn(name = "username")
+    inverseJoinColumns = {@JoinColumn(name = "HeskemShop",referencedColumnName = "shop_id"),
+    @JoinColumn(name = "assignee", referencedColumnName = "adminToAssign_username")})
+    @MapKeyJoinColumn(name = "adminToAssign_username")
     private Map<SubscribedUser, HeskemMinui> minuiMap;
 
     public Shop(String name, String description, SubscribedUser founder, boolean isFounder, State state, Collection<Product> products,
