@@ -59,6 +59,7 @@ public abstract class ParsedLine {
             case "Assign Owner"-> AssignOwner.class;
             case "Assign Manager"-> AssignManager.class;
             case "Remove Product"-> RemoveProduct.class;
+            case "Set DB Off" -> SetDBOff.class
             default -> {throw new UnsupportedOperationException("function "+name+" douse not exist in the grammar");}
         });
      }
