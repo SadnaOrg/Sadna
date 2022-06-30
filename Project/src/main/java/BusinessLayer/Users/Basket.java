@@ -4,6 +4,14 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Basket {
 
     private int shopid;
+
+    public Basket(int shopid, ConcurrentHashMap<Integer, Integer> products, ConcurrentHashMap<Integer, Double> prices, ConcurrentHashMap<Integer, String> categories) {
+        this.shopid = shopid;
+        this.products = products;
+        this.prices = prices;
+        this.categories = categories;
+    }
+
     //the key is the product id in the specific store
     //the value will be the quantity of the product
     private ConcurrentHashMap<Integer , Integer> products;
@@ -51,9 +59,12 @@ public class Basket {
 
     public boolean removeProduct(int productid) {
         if (products.containsKey(productid)) {
-            products.remove(productid);
-            prices.remove(productid);
-            categories.remove(productid);
+            try {
+                products.remove(productid);
+                prices.remove(productid);
+                categories.remove(productid);
+            }
+            catch (Exception ignored) {}
             return true;
         }
         else

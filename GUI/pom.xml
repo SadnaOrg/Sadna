@@ -130,9 +130,8 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+            <version>2.8.9</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -151,7 +150,7 @@
 
             <!--
                 Take care of synchronizing java dependencies and imports in
-                package.json and com.example.application.Parser.main.js files.
+                package.json and main.js files.
                 It also creates webpack.config.js if not exists yet.
             -->
             <plugin>

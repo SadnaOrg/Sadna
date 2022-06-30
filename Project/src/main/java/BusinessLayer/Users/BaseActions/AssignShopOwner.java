@@ -6,25 +6,24 @@ import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.ShopAdministrator;
 
 public class AssignShopOwner extends BaseAction {
-    private Shop s;
     private SubscribedUser u;
 
-    public AssignShopOwner(Shop s, SubscribedUser u) {
-        this.s = s;
+    public AssignShopOwner(Shop shop, SubscribedUser u) {
+        super(shop);
         this.u = u;
     }
 
     public boolean act(SubscribedUser userToAssign, String appointer){
-        ShopOwner o = new ShopOwner(s, userToAssign,appointer, false);
-        if(userToAssign.getAdministrator(s.getId())== null && s.addAdministrator(userToAssign.getUserName(), o)){
-            ShopAdministrator admin = userToAssign.addAdministrator(s.getId(),o);
-            u.getAdministrator(s.getId()).addAppoint(admin);
+        ShopOwner o = new ShopOwner(shop, userToAssign,appointer, false);
+        if(userToAssign.getAdministrator(shop.getId())== null && shop.addAdministrator(userToAssign.getUserName(), o)){
+            ShopAdministrator admin = userToAssign.addAdministrator(shop.getId(),o);
+            u.getAdministrator(shop.getId()).addAppoint(admin);
             return true;
         }
         return false;
     }
 
     public boolean addAdministratorToHeskemMinui(String userNameToAssign, String appointer) {
-        return s.addAdministratorToHeskemMinui(userNameToAssign,appointer);
+        return shop.addAdministratorToHeskemMinui(userNameToAssign,appointer);
     }
 }

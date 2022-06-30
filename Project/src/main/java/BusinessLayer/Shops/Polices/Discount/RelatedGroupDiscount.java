@@ -1,10 +1,8 @@
 package BusinessLayer.Shops.Polices.Discount;
 
-import BusinessLayer.Shops.ShopController;
+import BusinessLayer.Mappers.Converter;
+import BusinessLayer.Shops.Shop;
 import BusinessLayer.Users.Basket;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class RelatedGroupDiscount implements DiscountPolicy{
     private int discountId;
@@ -78,5 +76,10 @@ public class RelatedGroupDiscount implements DiscountPolicy{
 
     public double getDiscount() {
         return discount;
+    }
+
+    @Override
+    public ORM.Shops.Discounts.DiscountPolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

@@ -12,9 +12,18 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -22,6 +31,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SubscribedUser extends User {
     private AtomicBoolean isNotRemoved =new AtomicBoolean(true);
     private String hashedPassword;
+
+    public SubscribedUser(String username, boolean isNotRemoved, String hashedPassword, List<ShopAdministrator> shopAdministrator, boolean is_login, String date) {
+        super(username);
+        this.isNotRemoved = new AtomicBoolean(isNotRemoved);
+        try {
+            this.birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        }
+        catch (Exception e) { System.out.println(e.getMessage()); }
+        this.hashedPassword = hashedPassword;
+        this.shopAdministrator = new ConcurrentHashMap<>();
+        for (ShopAdministrator sa : shopAdministrator) {
+            this.shopAdministrator.put(sa.getShopID(), sa);
+        }
+        this.is_login = is_login;
+    }
+
     private Map<Integer,ShopAdministrator> shopAdministrator;
     private Date birthDate;
     private boolean is_login = false;
@@ -30,7 +55,7 @@ public class SubscribedUser extends User {
         super(userName);
         shopAdministrator = new ConcurrentHashMap<>();
         hashedPassword = GFG2.Hash(password);
-        this.birthDate =birthDate;
+        this.birthDate = birthDate;
     }
 
     public boolean login(String userName,String password) {
@@ -51,6 +76,7 @@ public class SubscribedUser extends User {
         }
         else throw new IllegalStateException("user is already logged out");
     }
+
     @Override
     public boolean isLoggedIn() {
         return isNotRemoved.get() && is_login;
@@ -65,6 +91,10 @@ public class SubscribedUser extends User {
         return shopAdministrator.getOrDefault(shop,null);
     }
 
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
     public ShopAdministrator addAdministrator(int shop, ShopAdministrator administrator) {
         if (shopAdministrator.putIfAbsent(shop,administrator)==null)
             return administrator;
@@ -77,6 +107,15 @@ public class SubscribedUser extends User {
         return shopAdministrator.get(shop).AssignShopManager(toAssign);
 
     }
+
+    public Collection<ShopAdministrator> getAdministrators() {
+        return shopAdministrator.values().stream().toList();
+    }
+
+    public Map<Integer, ShopAdministrator> getAdministratorsMap() {
+        return shopAdministrator;
+    }
+
 
     public synchronized boolean assignShopOwner(int shop, SubscribedUser toAssign) throws NoPermissionException {
         validatePermission(shop);
@@ -143,12 +182,6 @@ public class SubscribedUser extends User {
         return admin.removeAdmin(toRemove);
     }
 
-    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
-        validatePermission(shopID);
-        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
-        return admin.removeShopOwner(toRemove);
-    }
-
     public void removeMyRole(int id) {
         shopAdministrator.remove(id);
     }
@@ -158,6 +191,12 @@ public class SubscribedUser extends User {
             return isNotRemoved.compareAndSet(shopAdministrator.isEmpty(),false);
         }
         else throw new IllegalArgumentException("user all ready removed");
+    }
+
+    public boolean removeShopOwner(int shopID, SubscribedUser toRemove) throws NoPermissionException {
+        validatePermission(shopID);
+        ShopAdministrator admin = shopAdministrator.getOrDefault(shopID,null);
+        return admin.removeShopOwner(toRemove);
     }
 
     public boolean isRemoved(){return !isNotRemoved.get();}
@@ -338,8 +377,8 @@ public class SubscribedUser extends User {
 
 
 // Java program to calculate SHA hash value
-
    private static class GFG2 {
+
         private static byte[] getSHA(String input)
         {
             try {
@@ -375,5 +414,9 @@ public class SubscribedUser extends User {
         public static String Hash(String s) {
             return toHexString(getSHA(s));
         }
+
+}
+    public void setShopAdministrator(Map<Integer, ShopAdministrator> shopAdministrator) {
+        this.shopAdministrator = shopAdministrator;
     }
 }

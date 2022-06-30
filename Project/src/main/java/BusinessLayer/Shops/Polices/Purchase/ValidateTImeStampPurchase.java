@@ -1,11 +1,12 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
+import ORM.Shops.Purchases.PurchasePolicy;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
@@ -80,5 +81,10 @@ public class ValidateTImeStampPurchase implements ValidatePurchasePolicy{
 
     public boolean isBuybefore() {
         return buybefore;
+    }
+
+    @Override
+    public PurchasePolicy toEntity(Converter c,ORM.Shops.Shop shop) {
+        return c.toEntity(this,shop);
     }
 }

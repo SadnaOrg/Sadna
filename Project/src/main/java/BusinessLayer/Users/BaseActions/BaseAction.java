@@ -1,5 +1,15 @@
 package BusinessLayer.Users.BaseActions;
 
-public abstract class BaseAction{
+import BusinessLayer.Shops.Shop;
 
+public abstract class BaseAction{
+    protected Shop shop;
+
+    public BaseAction(Shop shop) {
+        this.shop = shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
+    }
 }

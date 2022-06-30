@@ -66,7 +66,7 @@ public class GrammerTest {
 
     @Test
     public void test_parse_PurchaseCart() {
-        testGrammerParse(new PurchaseCart("1111111111111111",111 ,12,2050));
+        testGrammerParse(new PurchaseCart("1111111111111111",111 ,12,2050,"206000556","maor biton"));
     }
 
     @Test

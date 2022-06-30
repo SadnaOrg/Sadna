@@ -1,6 +1,6 @@
 package BusinessLayer.Shops.Polices.Purchase;
 
-import BusinessLayer.Shops.Polices.Discount.LogicDiscountRules;
+import BusinessLayer.Mappers.Converter;
 import BusinessLayer.Users.Basket;
 import BusinessLayer.Users.User;
 
@@ -63,7 +63,7 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
 
     public boolean remove(int purchasePolicy){
         for (PurchasePolicy p:
-             purchasePolicies) {
+                purchasePolicies) {
             if(p.getID() == purchasePolicy){
                 purchasePolicies.remove(p);
                 return true;
@@ -98,5 +98,10 @@ public class PurchaseAndPolicy implements LogicPurchasePolicy{
 
     public int getPolicyLogicId() {
         return policyLogicId;
+    }
+
+    @Override
+    public ORM.Shops.Purchases.PurchasePolicy toEntity(Converter c, ORM.Shops.Shop shop) {
+        return c.toEntity(this, shop);
     }
 }

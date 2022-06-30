@@ -9,11 +9,10 @@ import java.util.stream.Collectors;
 
 public class RolesInfo extends BaseAction {
 
-    Shop shop;
     SubscribedUser user;
 
     public RolesInfo(Shop shop, SubscribedUser user) {
-        this.shop = shop;
+        super(shop);
         this.user=user;
     }
 
