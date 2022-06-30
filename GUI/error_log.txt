@@ -4,6 +4,50 @@ Jun 30, 2022 7:15:49 AM ServiceLayer.Log error
 SEVERE: get all delay notification : log in to system first
 Jun 30, 2022 7:15:52 AM ServiceLayer.Log error
 SEVERE: login to system : logout from system first
+Jun 30, 2022 7:19:12 AM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.ShopAdministrator.addAppoint(BusinessLayer.Users.ShopAdministrator)" because the return value of "BusinessLayer.Users.SubscribedUser.getAdministrator(java.lang.Integer)" is null
+Jun 30, 2022 7:19:28 AM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: the admin is already approve
+Jun 30, 2022 7:15:53 AM ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+Jun 30, 2022 7:15:53 AM ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+Jun 30, 2022 7:15:53 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:15:56 AM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 30, 2022 7:15:56 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:09 AM ServiceLayer.Log error
+SEVERE: register to notification service : log in to system first
+Jun 30, 2022 7:17:09 AM ServiceLayer.Log error
+SEVERE: get all delay notification : log in to system first
+Jun 30, 2022 7:17:14 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:19 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:36 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:44 AM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 30, 2022 7:17:44 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:19:12 AM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.ShopAdministrator.addAppoint(BusinessLayer.Users.ShopAdministrator)" because the return value of "BusinessLayer.Users.SubscribedUser.getAdministrator(java.lang.Integer)" is null
+Jun 30, 2022 7:19:28 AM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: the admin is already approve
+Jun 30, 2022 7:17:19 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:36 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:17:44 AM ServiceLayer.Log error
+SEVERE: switch to system manager a: log in to the system first as a subscribed user
+Jun 30, 2022 7:17:44 AM ServiceLayer.Log error
+SEVERE: login to system : logout from system first
+Jun 30, 2022 7:19:12 AM ServiceLayer.Log error
+SEVERE: java.lang.NullPointerException: Cannot invoke "BusinessLayer.Users.ShopAdministrator.addAppoint(BusinessLayer.Users.ShopAdministrator)" because the return value of "BusinessLayer.Users.SubscribedUser.getAdministrator(java.lang.Integer)" is null
+Jun 30, 2022 7:19:28 AM ServiceLayer.Log error
+SEVERE: java.lang.IllegalStateException: the admin is already approve
 Jun 30, 2022 7:15:53 AM ServiceLayer.Log error
 SEVERE: register to notification service : log in to system first
 Jun 30, 2022 7:15:53 AM ServiceLayer.Log error
